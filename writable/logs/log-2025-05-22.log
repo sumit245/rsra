@@ -1,0 +1,53 @@
+ERROR - 2025-05-22 13:35:43 --> Duplicate entry '0' for key 'PRIMARY'
+CRITICAL - 2025-05-22 13:35:43 --> Duplicate entry '0' for key 'PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `rise_pur_vendor_items` (`vendor`, `group_items`, `items`, `add_from`, `datecreate`) VALUES (\'0\', \'0\', \'4\', \'1\', \'2025-05-22\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(695): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `rise_pur_vendor_items` (`vendor`, `group_items`, `items`, `add_from`, `datecreate`) VALUES (\'0\', \'0\', \'4\', \'1\', \'2025-05-22\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(609): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `rise_pur_vendor_items` (`vendor`, `group_items`, `items`, `add_from`, `datecreate`) VALUES (\'0\', \'0\', \'4\', \'1\', \'2025-05-22\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1904): CodeIgniter\Database\BaseConnection->query('INSERT INTO `rise_pur_vendor_items` (`vendor`, `group_items`, `items`, `add_from`, `datecreate`) VALUES (:vendor:, :group_items:, :items:, :add_from:, :datecreate:)', [...], false)
+ 5 FCPATH\plugins\Purchase\Models\Purchase_model.php(1489): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 FCPATH\plugins\Purchase\Controllers\Purchase.php(1596): Purchase\Models\Purchase_model->add_vendor_items([...])
+ 7 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->new_vendor_items()
+ 8 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 9 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-05-22 13:39:05 --> Undefined array key "start"
+in FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php on line 95.
+ 1 FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php(95): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "start"', 'FCPATH\\plugins\\Purchase\\Helpers\\purchase_datatables_helper.php', 95)
+ 2 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(46): data_tables_purchase([...], 'id', 'rise_items', [...], [...], 'C:\\xampp\\htdocs\\rsra', [], [...])
+ 3 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 4 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 6 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-05-22 13:40:30 --> Duplicate entry '0' for key 'PRIMARY'
+CRITICAL - 2025-05-22 13:40:30 --> Duplicate entry '0' for key 'PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `rise_pur_orders` (`number`, `pur_order_number`, `pur_order_name`, `vendor`, `pur_request`, `department`, `project`, `type`, `currency`, `order_date`, `buyer`, `delivery_date`, `sale_invoice`, `from_currency`, `currency_rate`, `shipping_fee`, `vendornote`, `terms`, `approve_status`, `to_currency`, `datecreated`, `addedfrom`, `hash`, `order_status`, `discount_total`, `subtotal`, `total`) VALUES (2, \'#-00002-May-2025-Surya Infotech\', \'#-00001-May-2025\', \'0\', \'\', \'\', \'\', \'\', \'INR\', \'2025-05-22\', \'1\', NULL, \'\', \'INR\', \'1\', \'0\', \'\', \'\', 2, \'INR\', \'2025-05-22 13:40:30\', \'1\', \'a9f0e83ca9ab4a60d877c59316c4ad75\', \'new\', \'0.00\', \'0.00\', \'0.00\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(695): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `rise_pur_orders` (`number`, `pur_order_number`, `pur_order_name`, `vendor`, `pur_request`, `department`, `project`, `type`, `currency`, `order_date`, `buyer`, `delivery_date`, `sale_invoice`, `from_currency`, `currency_rate`, `shipping_fee`, `vendornote`, `terms`, `approve_status`, `to_currency`, `datecreated`, `addedfrom`, `hash`, `order_status`, `discount_total`, `subtotal`, `total`) VALUES (2, \'#-00002-May-2025-Surya Infotech\', \'#-00001-May-2025\', \'0\', \'\', \'\', \'\', \'\', \'INR\', \'2025-05-22\', \'1\', NULL, \'\', \'INR\', \'1\', \'0\', \'\', \'\', 2, \'INR\', \'2025-05-22 13:40:30\', \'1\', \'a9f0e83ca9ab4a60d877c59316c4ad75\', \'new\', \'0.00\', \'0.00\', \'0.00\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(609): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `rise_pur_orders` (`number`, `pur_order_number`, `pur_order_name`, `vendor`, `pur_request`, `department`, `project`, `type`, `currency`, `order_date`, `buyer`, `delivery_date`, `sale_invoice`, `from_currency`, `currency_rate`, `shipping_fee`, `vendornote`, `terms`, `approve_status`, `to_currency`, `datecreated`, `addedfrom`, `hash`, `order_status`, `discount_total`, `subtotal`, `total`) VALUES (2, \'#-00002-May-2025-Surya Infotech\', \'#-00001-May-2025\', \'0\', \'\', \'\', \'\', \'\', \'INR\', \'2025-05-22\', \'1\', NULL, \'\', \'INR\', \'1\', \'0\', \'\', \'\', 2, \'INR\', \'2025-05-22 13:40:30\', \'1\', \'a9f0e83ca9ab4a60d877c59316c4ad75\', \'new\', \'0.00\', \'0.00\', \'0.00\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1904): CodeIgniter\Database\BaseConnection->query('INSERT INTO `rise_pur_orders` (`number`, `pur_order_number`, `pur_order_name`, `vendor`, `pur_request`, `department`, `project`, `type`, `currency`, `order_date`, `buyer`, `delivery_date`, `sale_invoice`, `from_currency`, `currency_rate`, `shipping_fee`, `vendornote`, `terms`, `approve_status`, `to_currency`, `datecreated`, `addedfrom`, `hash`, `order_status`, `discount_total`, `subtotal`, `total`) VALUES (:number:, :pur_order_number:, :pur_order_name:, :vendor:, :pur_request:, :department:, :project:, :type:, :currency:, :order_date:, :buyer:, :delivery_date:, :sale_invoice:, :from_currency:, :currency_rate:, :shipping_fee:, :vendornote:, :terms:, :approve_status:, :to_currency:, :datecreated:, :addedfrom:, :hash:, :order_status:, :discount_total:, :subtotal:, :total:)', [...], false)
+ 5 FCPATH\plugins\Purchase\Models\Purchase_model.php(5257): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 FCPATH\plugins\Purchase\Controllers\Purchase.php(3084): Purchase\Models\Purchase_model->add_pur_order([...])
+ 7 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->pur_order()
+ 8 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 9 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-05-22 13:40:39 --> Undefined array key 15
+in FCPATH\plugins\Purchase\Views\purchase_orders\table_pur_order.php on line 80.
+ 1 FCPATH\plugins\Purchase\Views\purchase_orders\table_pur_order.php(80): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 15', 'FCPATH\\plugins\\Purchase\\Views\\purchase_orders\\table_pur_order.php', 80)
+ 2 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\purchase_orders\\table_pur_order.php')
+ 3 FCPATH\plugins\Purchase\Controllers\Purchase.php(3068): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/purchase_orders/table_pur_order', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_pur_order()
+ 5 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 6 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-05-22 15:05:42 --> The action you requested is not allowed.
+in SYSTEMPATH\Security\Security.php on line 286.
+ 1 SYSTEMPATH\Security\Security.php(286): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+ 2 SYSTEMPATH\Filters\CSRF.php(54): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 4 SYSTEMPATH\CodeIgniter.php(440): CodeIgniter\Filters\Filters->run('messages/count_notifications', 'before')
+ 5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()

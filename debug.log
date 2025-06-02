@@ -1,0 +1,32 @@
+Array
+(
+    [0] => Array
+        (
+            [0] => 1
+            [1] => rise_items.id
+            [2] => commodity_code
+            [3] => rise_items.title
+            [4] => rise_item_categories.title AS group_name
+            [5] => unit_id
+            [6] => rate
+            [7] => purchase_price
+            [8] => t1.percentage AS taxrate_1
+            [9] => t2.percentage AS taxrate_2
+            [10] => 2
+        )
+
+    [1] => Array
+        (
+            [0] => LEFT JOIN rise_taxes t1 ON t1.id = rise_items.tax
+            [1] => LEFT JOIN rise_taxes t2 ON t2.id = rise_items.tax2
+            [2] => LEFT JOIN rise_item_categories ON rise_item_categories.id = rise_items.category_id
+        )
+
+    [2] => Array
+        (
+            [0] => AND rise_items.deleted = 0
+        )
+
+    [3] => 
+)
+
