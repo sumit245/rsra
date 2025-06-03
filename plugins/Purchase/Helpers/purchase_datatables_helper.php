@@ -91,10 +91,14 @@ if (! function_exists('data_tables_purchase')) {
     /*
 	 * Paging
 	 */
-    $sLimit = '';
-    if ((is_numeric($dataPost['start'])) && $dataPost['length'] != '-1') { //TODO: Problem
-      $sLimit = 'LIMIT ' . intval($dataPost['start']) . ', ' . intval($dataPost['length']);
-    }
+ $start  = isset($dataPost['start']) ? (int)$dataPost['start'] : 0;
+$length = isset($dataPost['length']) ? (int)$dataPost['length'] : 25; // default page length
+
+$sLimit = '';
+if (is_numeric($start) && $length != -1) {
+    $sLimit = 'LIMIT ' . intval($start) . ', ' . intval($length);
+}
+
     $_aColumns = [];
     foreach ($aColumns as $column) {
       // if found only one dot
@@ -121,15 +125,16 @@ if (! function_exists('data_tables_purchase')) {
 	 */
     $nullColumnsAsLast = [];
 
-    $sOrder = '';
-    if ($dataPost['order']) {
-      $sOrder = 'ORDER BY ';
-      foreach ($dataPost['order'] as $key => $val) {
-        $columnName = $aColumns[intval($__post['order'][$key]['column'])];
-        $dir        = strtoupper($__post['order'][$key]['dir']);
+   $sOrder = '';
+if (isset($dataPost['order']) && !empty($dataPost['order'])) {
+    $sOrder = 'ORDER BY ';
+    foreach ($dataPost['order'] as $key => $val) {
+        $columnIndex = intval($val['column']);
+        $columnName = $aColumns[$columnIndex];
+        $dir = strtoupper($val['dir']);
 
         if (strpos($columnName, ' as ') !== false) {
-          $columnName = strbefore1($columnName, ' as');
+            $columnName = strbefore1($columnName, ' as');
         }
 
         // first checking is for eq tablename.column name
@@ -211,44 +216,51 @@ if (! function_exists('data_tables_purchase')) {
       $sWhere .= ')';
     } else {
       // Check for custom filtering
-      $searchFound = 0;
-      $sWhere      = 'WHERE (';
-      for ($i = 0; $i < count($aColumns); $i++) {
-        if (($__post['columns'][$i]) && $__post['columns'][$i]['searchable'] == 'true') {
-          $search_value = $__post['columns'][$i]['search']['value'];
+     $searchFound = 0;
+$sWhere      = 'WHERE (';
 
-          $columnName = $aColumns[$i];
-          if (strpos($columnName, ' as ') !== false) {
-            $columnName = strbefore1($columnName, ' as');
-          }
-          if ($search_value != '') {
-            $sWhere .= 'convert(' . $columnName . ' USING utf8)' . " LIKE '%" . escape_str($search_value) . "%' OR ";
-            if (count($additionalSelect) > 0) {
-              foreach ($additionalSelect as $searchAdditionalField) {
-                $sWhere .= 'convert(' . $searchAdditionalField . ' USING utf8)' . " LIKE '" . escape_str($search_value) . "%' OR ";
-              }
+if (isset($dataPost['columns']) && is_array($dataPost['columns'])) {
+    for ($i = 0; $i < count($aColumns); $i++) {
+        if (isset($dataPost['columns'][$i]) && $dataPost['columns'][$i]['searchable'] === 'true') {
+            $search_value = $dataPost['columns'][$i]['search']['value'] ?? '';
+
+            $columnName = $aColumns[$i];
+            if (strpos($columnName, ' as ') !== false) {
+                $columnName = strbefore1($columnName, ' as');
             }
-            $searchFound++;
-          }
+            if ($search_value !== '') {
+                $sWhere .= "convert($columnName USING utf8) LIKE '%" . escape_str($search_value) . "%' OR ";
+                if (!empty($additionalSelect)) {
+                    foreach ($additionalSelect as $searchAdditionalField) {
+                        $sWhere .= "convert($searchAdditionalField USING utf8) LIKE '" . escape_str($search_value) . "%' OR ";
+                    }
+                }
+                $searchFound++;
+            }
         }
-      }
-      if ($searchFound > 0) {
-        $sWhere = substr_replace($sWhere, '', -3);
-        $sWhere .= ')';
-      } else {
-        $sWhere = '';
-      }
+    }
+}
+
+if ($searchFound > 0) {
+    $sWhere = substr_replace($sWhere, '', -3); // remove trailing ' OR '
+    $sWhere .= ')';
+} else {
+    $sWhere = '';
+}
     }
 
     /*
 	 * SQL queries
 	 * Get data to display
 	 */
+ if (isset($additionalSelect) && is_array($additionalSelect) && count($additionalSelect) > 0) {
+    $_additionalSelect = ',' . implode(',', $additionalSelect);
+} else {
     $_additionalSelect = '';
-    if (count($additionalSelect) > 0) {
-      $_additionalSelect = ',' . implode(',', $additionalSelect);
-    }
-    $where = implode(' ', $where);
+}
+
+    $where = is_array($where) ? implode(' ', $where) : trim((string) $where);
+
     if ($sWhere == '') {
       $where = trim($where);
       if (startsWith1($where, 'AND') || startsWith1($where, 'OR')) {
@@ -261,7 +273,15 @@ if (! function_exists('data_tables_purchase')) {
       }
     }
 
-    $join = implode(' ', $join);
+    $join = is_array($join) ? implode(' ', $join) : trim((string)$join);
+
+log_message('error', 'DEBUG: $sGroupBy = ' . print_r($sGroupBy, true));
+
+if (is_array($sGroupBy) && !empty($sGroupBy)) {
+    $sGroupBy = 'GROUP BY ' . implode(', ', $sGroupBy);
+} else {
+    $sGroupBy = ''; // avoid invalid SQL
+}
 
     $sQuery = '
 	SELECT SQL_CALC_FOUND_ROWS ' . str_replace(' , ', ' ', implode(', ', $_aColumns)) . ' ' . $_additionalSelect . "
@@ -280,6 +300,7 @@ if (! function_exists('data_tables_purchase')) {
       'limit' => $sLimit,
       'order' => $sOrder,
     ]);
+log_message('debug', 'Generated Query: ' . $sQuery);
 
     /* Data set length after filtering */
     $sQuery = '
@@ -302,7 +323,8 @@ if (! function_exists('data_tables_purchase')) {
 	 * Output
 	 */
     $output = [
-      'draw'                 => $__post['draw'] ? intval($__post['draw']) : 0,
+      'draw' => isset($__post['draw']) ? intval($__post['draw']) : 0,
+
       'iTotalRecords'        => $iTotal,
       'iTotalDisplayRecords' => $iFilteredTotal,
       'aaData'               => [],

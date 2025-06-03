@@ -1,6 +1,9 @@
 <?php
 
 use App\Controllers\Security_Controller;
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 $purchase_model = model("Purchase\Models\Purchase_model");
 $Taxes_model    = model("Models\Taxes_model");
@@ -13,15 +16,15 @@ $arr_inventory_max_id         = [];
 $prefix = get_db_prefix();
 $aColumns = [
     '1',
-    "{$prefix}items.id",
+    "{$prefix}items.id as item_id",   // ALIAS ADDED
     'commodity_code',
-    "{$prefix}items.title",
-    "{$prefix}item_categories.title AS group_name",
+    "{$prefix}items.title as item_title",   // ALIAS ADDED
+    "{$prefix}items.title as group_name",
     'unit_id',
     'rate',
     'purchase_price',
-    't1.percentage AS taxrate_1',
-    't2.percentage AS taxrate_2',
+    't1.percentage as taxrate_1',
+    't2.percentage as taxrate_2',
     '2'
 ];
 
@@ -37,15 +40,35 @@ foreach ($filters as $filter) {
     }
 }
 
+// INSERT FILTER CONDITIONS HERE
+if (!empty($dataPost['warehouse_ft'])) {
+    $warehouse_ft = $dataPost['warehouse_ft'];
+    $where[] = "AND {$prefix}items.warehouse_id = '$warehouse_ft'";
+}
+
+if (!empty($dataPost['commodity_ft'])) {
+    $commodity_ft = $dataPost['commodity_ft'];
+    $where[] = "AND {$prefix}items.commodity_code LIKE '%$commodity_ft%'";
+}
+
+if (!empty($dataPost['alert_filter']) && $dataPost['alert_filter'] === 'low_stock') {
+    $where[] = "AND {$prefix}items.stock_quantity < {$prefix}items.min_stock_level";
+}
+
+if (!empty($dataPost['item_filter'])) {
+    $item_filter = $dataPost['item_filter'];
+    $where[] = "AND {$prefix}items.title LIKE '%$item_filter%'";
+}
+//  END OF INSERT
+
+
 $join = [
     "LEFT JOIN {$prefix}taxes t1 ON t1.id = {$prefix}items.tax",
     "LEFT JOIN {$prefix}taxes t2 ON t2.id = {$prefix}items.tax2",
     "LEFT JOIN {$prefix}item_categories ON {$prefix}item_categories.id = {$prefix}items.category_id"
 ];
 
-$result = data_tables_purchase($aColumns, $sIndexColumn, $sTable, $join, $where, '', [], $dataPost); //TODO:Problem
-
-log_message('debug', $result['output'][0]);
+$result = data_tables_purchase($aColumns, $sIndexColumn, $sTable, $join, $where, '', [], $dataPost);
 
 $output  = $result['output'];
 $rResult = $result['rResult'];
@@ -84,47 +107,45 @@ foreach ($rResult as $aRow) {
         }
 
         /*get commodity file*/
-        if ($aColumns[$i] == get_db_prefix() . 'items.id') {
+       if (strpos($aColumns[$i], 'items.id') !== false) {  // CONDITION UPDATED
+    if (isset($aRow['files']) && !empty($aRow['files'])) {
+        $files = unserialize($aRow['files']);
 
-            if ($aRow['files']) {
-
-                $files = unserialize($aRow['files']);
-
-                if (count($files) > 0) {
-                    $timeline_file_path = get_setting("timeline_file_path");
-                    foreach ($files as $file_key => $file) {
-                        if ($file_key == 0) {
-                            $file_name = get_array_value($file, "file_name");
-                            $thumbnail = get_source_url_of_file($file, $timeline_file_path, "thumbnail");
-                            if (is_viewable_image_file($file_name)) {
-                                $_data = "<img class='sortable-file images_w_table' src='" . $thumbnail . "' alt='" . $file_name . "'/>";
-                            } else {
-                                $_data = get_file_icon(strtolower(pathinfo($file_name, PATHINFO_EXTENSION)));
-                            }
-                        }
+        if (count($files) > 0) {
+            $timeline_file_path = get_setting("timeline_file_path");
+            foreach ($files as $file_key => $file) {
+                if ($file_key == 0) {
+                    $file_name = get_array_value($file, "file_name");
+                    $thumbnail = get_source_url_of_file($file, $timeline_file_path, "thumbnail");
+                    if (is_viewable_image_file($file_name)) {
+                        $_data = "<img class='sortable-file images_w_table' src='" . $thumbnail . "' alt='" . $file_name . "'/>";
+                    } else {
+                        $_data = get_file_icon(strtolower(pathinfo($file_name, PATHINFO_EXTENSION)));
                     }
-                } else {
-                    $thumbnail = get_file_uri('plugins/Warehouse/Uploads/nul_image.jpg');
-                    $_data     = "<img class='sortable-file images_w_table' src='" . $thumbnail . "' alt='null_image'/>";
                 }
-            } else {
-                $_data = "<img class='sortable-file images_w_table' src='" . base_url('plugins/Purchase/Uploads/nul_image.jpg') . "' alt='null_image'/>";
             }
+        } else {
+            $thumbnail = get_file_uri('plugins/Warehouse/Uploads/nul_image.jpg');
+            $_data     = "<img class='sortable-file images_w_table' src='" . $thumbnail . "' alt='null_image'/>";
         }
+    } else {
+        $_data = "<img class='sortable-file images_w_table' src='" . base_url('plugins/Purchase/Uploads/nul_image.jpg') . "' alt='null_image'/>";
+    }
+}
 
         if ($aColumns[$i] == 'commodity_code') {
-            $code = '<a href="' . site_url('purchase/view_commodity_detail/' . $aRow['id']) . '">' . $aRow['commodity_code'] . '</a>';
+            $code = '<a href="' . site_url('purchase/view_commodity_detail/' . $aRow['item_id']) . '">' . $aRow['commodity_code'] . '</a>';   // UPDATED
 
             $_data = $code;
         } elseif ($aColumns[$i] == '1') {
-            $_data = '<div class="checkbox"><input type="checkbox" value="' . $aRow['id'] . '" class="form-check-input"><label></label></div>';
-        } elseif ($aColumns[$i] == get_db_prefix() . 'item.title') {
+            $_data = '<div class="checkbox"><input type="checkbox" value="' . $aRow['item_id'] . '" class="form-check-input"><label></label></div>';   // UPDATED
+        } elseif (strpos($aColumns[$i], 'items.title') !== false) {   // CONDITION UPDATED
 
-            if (isset($arr_inventory_min[$aRow['id']]) && $arr_inventory_min[$aRow['id']] == true) {
-                $_data = '<a href="#" class="text-danger"  onclick="show_detail_item(this);return false;" data-name="' . $aRow[get_db_prefix() . 'item.title'] . '" data-warehouse_id="' . $aRow['warehouse_id'] . '" data-commodity_id="' . $aRow['id'] . '"  >' . $aRow[get_db_prefix() . 'item.title'] . '</a>';
+            if (isset($arr_inventory_min[$aRow['item_id']]) && $arr_inventory_min[$aRow['item_id']] == true) {   // UPDATED
+                $_data = '<a href="#" class="text-danger"  onclick="show_detail_item(this);return false;" data-name="' . $aRow['item_title'] . '" data-warehouse_id="' . $aRow['warehouse_id'] . '" data-commodity_id="' . $aRow['item_id'] . '"  >' . $aRow['item_title'] . '</a>';   // UPDATED
             } else {
 
-                $_data = '<a href="#" onclick="show_detail_item(this);return false;" data-name="' . $aRow[get_db_prefix() . 'item.title'] . '"  data-commodity_id="' . $aRow['id'] . '"  >' . $aRow[get_db_prefix() . 'item.title'] . '</a>';
+                $_data = '<a href="#" onclick="show_detail_item(this);return false;" data-name="' . $aRow['item_title'] . '"  data-commodity_id="' . $aRow['item_id'] . '"  >' . $aRow['item_title'] . '</a>';   // UPDATED
             }
         } elseif ($aColumns[$i] == 'group_name') {
             $_data = $aRow['group_name'];
@@ -149,9 +170,9 @@ foreach ($rResult as $aRow) {
             $aRow['taxrate_2'] = $aRow['taxrate_2'] ?? 0;
             $_data             = '<span data-toggle="tooltip" title="' . $aRow['taxname_2'] . '" data-taxid="' . $aRow['tax_id_2'] . '">' . app_format_number($aRow['taxrate_2']) . '%' . '</span>';
         } else if ($aColumns[$i] == '2') {
-            $edit = '<li role="presentation">' . modal_anchor(get_uri("purchase/item_modal_form"), "<i data-feather='edit' class='icon-16'></i> " . app_lang('edit'), ["title" => app_lang('edit_item'), "data-post-id" => $aRow['id'], "class" => "dropdown-item"]) . '</li>';
+            $edit = '<li role="presentation">' . modal_anchor(get_uri("purchase/item_modal_form"), "<i data-feather='edit' class='icon-16'></i> " . app_lang('edit'), ["title" => app_lang('edit_item'), "data-post-id" => $aRow['item_id'], "class" => "dropdown-item"]) . '</li>';   // UPDATED
 
-            $delete = '<li role="presentation">' . modal_anchor(get_uri("purchase/delete_modal_form"), "<i data-feather='x' class='icon-16'></i> " . app_lang('delete'), ["title" => app_lang('delete') . "?", "data-post-id" => $aRow['id'], "class" => "dropdown-item"]) . '</li>';
+            $delete = '<li role="presentation">' . modal_anchor(get_uri("purchase/delete_modal_form"), "<i data-feather='x' class='icon-16'></i> " . app_lang('delete'), ["title" => app_lang('delete') . "?", "data-post-id" => $aRow['item_id'], "class" => "dropdown-item"]) . '</li>';   // UPDATED
 
             $_data = '
 				<span class="dropdown inline-block">

@@ -1,0 +1,616 @@
+CRITICAL - 2025-06-02 09:34:45 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 231.
+ 1 SYSTEMPATH\CodeIgniter.php(231): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(189): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(68): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-06-02 09:45:58 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 231.
+ 1 SYSTEMPATH\CodeIgniter.php(231): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(189): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(68): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-06-02 09:45:59 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 231.
+ 1 SYSTEMPATH\CodeIgniter.php(231): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(189): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(68): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-06-02 09:46:06 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 231.
+ 1 SYSTEMPATH\CodeIgniter.php(231): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(189): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(68): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-06-02 09:46:07 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 231.
+ 1 SYSTEMPATH\CodeIgniter.php(231): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(189): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(68): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-06-02 09:46:07 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 231.
+ 1 SYSTEMPATH\CodeIgniter.php(231): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(189): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(68): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-06-02 09:46:07 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 231.
+ 1 SYSTEMPATH\CodeIgniter.php(231): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(189): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(68): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-06-02 09:46:07 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 231.
+ 1 SYSTEMPATH\CodeIgniter.php(231): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(189): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(68): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-06-02 09:46:07 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 231.
+ 1 SYSTEMPATH\CodeIgniter.php(231): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(189): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(68): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-06-02 09:51:09 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 231.
+ 1 SYSTEMPATH\CodeIgniter.php(231): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(189): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(68): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-06-02 09:51:10 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 231.
+ 1 SYSTEMPATH\CodeIgniter.php(231): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(189): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(68): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-06-02 09:51:12 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 231.
+ 1 SYSTEMPATH\CodeIgniter.php(231): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(189): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(68): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-06-02 09:51:12 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 231.
+ 1 SYSTEMPATH\CodeIgniter.php(231): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(189): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(68): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-06-02 09:51:12 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 231.
+ 1 SYSTEMPATH\CodeIgniter.php(231): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(189): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(68): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-06-02 09:51:13 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 231.
+ 1 SYSTEMPATH\CodeIgniter.php(231): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(189): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(68): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-06-02 09:51:13 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 231.
+ 1 SYSTEMPATH\CodeIgniter.php(231): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(189): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(68): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-06-02 05:02:08 --> Undefined array key "start"
+in FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php on line 95.
+ 1 FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php(95): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "start"', 'FCPATH\\plugins\\Purchase\\Helpers\\purchase_datatables_helper.php', 95)
+ 2 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(46): data_tables_purchase([...], 'id', 'rise_items', [...], [...], 'C:\\xampp\\htdocs\\rsra\\rsra', [], [...])
+ 3 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 4 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 6 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-02 05:02:48 --> Undefined array key "start"
+in FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php on line 95.
+ 1 FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php(95): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "start"', 'FCPATH\\plugins\\Purchase\\Helpers\\purchase_datatables_helper.php', 95)
+ 2 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(46): data_tables_purchase([...], 'id', 'rise_items', [...], [...], 'C:\\xampp\\htdocs\\rsra\\rsra', [], [...])
+ 3 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 4 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 6 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-02 05:33:49 --> Undefined array key "start"
+in FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php on line 95.
+ 1 FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php(95): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "start"', 'FCPATH\\plugins\\Purchase\\Helpers\\purchase_datatables_helper.php', 95)
+ 2 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(46): data_tables_purchase([...], 'id', 'rise_items', [...], [...], 'C:\\xampp\\htdocs\\rsra\\rsra', [], [...])
+ 3 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 4 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 6 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-02 05:40:19 --> Undefined array key "start"
+in FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php on line 95.
+ 1 FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php(95): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "start"', 'FCPATH\\plugins\\Purchase\\Helpers\\purchase_datatables_helper.php', 95)
+ 2 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(46): data_tables_purchase([...], 'id', 'rise_items', [...], [...], 'C:\\xampp\\htdocs\\rsra\\rsra', [], [...])
+ 3 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 4 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 6 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-02 05:45:25 --> Undefined array key "start"
+in FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php on line 95.
+ 1 FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php(95): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "start"', 'FCPATH\\plugins\\Purchase\\Helpers\\purchase_datatables_helper.php', 95)
+ 2 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(46): data_tables_purchase([...], 'id', 'rise_items', [...], [...], 'C:\\xampp\\htdocs\\rsra\\rsra', [], [...])
+ 3 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 4 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 6 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-02 05:45:29 --> Undefined array key "start"
+in FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php on line 95.
+ 1 FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php(95): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "start"', 'FCPATH\\plugins\\Purchase\\Helpers\\purchase_datatables_helper.php', 95)
+ 2 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(46): data_tables_purchase([...], 'id', 'rise_items', [...], [...], 'C:\\xampp\\htdocs\\rsra\\rsra', [], [...])
+ 3 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 4 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 6 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-02 06:15:24 --> Undefined property: Purchase\Controllers\Purchase::$load
+in FCPATH\plugins\Purchase\Controllers\Purchase.php on line 809.
+ 1 FCPATH\plugins\Purchase\Controllers\Purchase.php(809): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Purchase\\Controllers\\Purchase::$load', 'FCPATH\\plugins\\Purchase\\Controllers\\Purchase.php', 809)
+ 2 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-02 06:15:26 --> Undefined property: Purchase\Controllers\Purchase::$load
+in FCPATH\plugins\Purchase\Controllers\Purchase.php on line 809.
+ 1 FCPATH\plugins\Purchase\Controllers\Purchase.php(809): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Purchase\\Controllers\\Purchase::$load', 'FCPATH\\plugins\\Purchase\\Controllers\\Purchase.php', 809)
+ 2 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-02 06:15:28 --> Undefined property: Purchase\Controllers\Purchase::$load
+in FCPATH\plugins\Purchase\Controllers\Purchase.php on line 809.
+ 1 FCPATH\plugins\Purchase\Controllers\Purchase.php(809): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Purchase\\Controllers\\Purchase::$load', 'FCPATH\\plugins\\Purchase\\Controllers\\Purchase.php', 809)
+ 2 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-02 06:22:07 --> Undefined array key "start"
+in FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php on line 95.
+ 1 FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php(95): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "start"', 'FCPATH\\plugins\\Purchase\\Helpers\\purchase_datatables_helper.php', 95)
+ 2 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(70): data_tables_purchase([...], 'id', 'rise_items', [...], [...], 'C:\\xampp\\htdocs\\rsra\\rsra', [], [...])
+ 3 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 4 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 6 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-02 06:22:09 --> Undefined array key "start"
+in FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php on line 95.
+ 1 FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php(95): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "start"', 'FCPATH\\plugins\\Purchase\\Helpers\\purchase_datatables_helper.php', 95)
+ 2 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(70): data_tables_purchase([...], 'id', 'rise_items', [...], [...], 'C:\\xampp\\htdocs\\rsra\\rsra', [], [...])
+ 3 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 4 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 6 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-02 06:23:33 --> Undefined array key "start"
+in FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php on line 95.
+ 1 FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php(95): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "start"', 'FCPATH\\plugins\\Purchase\\Helpers\\purchase_datatables_helper.php', 95)
+ 2 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(73): data_tables_purchase([...], 'id', 'rise_items', [...], [...], 'C:\\xampp\\htdocs\\rsra\\rsra', [], [...])
+ 3 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 4 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 6 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-02 06:24:59 --> Undefined array key "start"
+in FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php on line 98.
+ 1 FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php(98): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "start"', 'FCPATH\\plugins\\Purchase\\Helpers\\purchase_datatables_helper.php', 98)
+ 2 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(73): data_tables_purchase([...], 'id', 'rise_items', [...], [...], 'C:\\xampp\\htdocs\\rsra\\rsra', [], [...])
+ 3 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 4 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 6 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-02 06:25:02 --> Undefined array key "start"
+in FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php on line 98.
+ 1 FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php(98): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "start"', 'FCPATH\\plugins\\Purchase\\Helpers\\purchase_datatables_helper.php', 98)
+ 2 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(73): data_tables_purchase([...], 'id', 'rise_items', [...], [...], 'C:\\xampp\\htdocs\\rsra\\rsra', [], [...])
+ 3 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 4 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 6 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-02 06:26:31 --> Undefined array key "start"
+in FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php on line 100.
+ 1 FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "start"', 'FCPATH\\plugins\\Purchase\\Helpers\\purchase_datatables_helper.php', 100)
+ 2 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(73): data_tables_purchase([...], 'id', 'rise_items', [...], [...], 'C:\\xampp\\htdocs\\rsra\\rsra', [], [...])
+ 3 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 4 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 6 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-02 06:28:29 --> Undefined array key "order"
+in FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php on line 129.
+ 1 FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php(129): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "order"', 'FCPATH\\plugins\\Purchase\\Helpers\\purchase_datatables_helper.php', 129)
+ 2 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(73): data_tables_purchase([...], 'id', 'rise_items', [...], [...], 'C:\\xampp\\htdocs\\rsra\\rsra', [], [...])
+ 3 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 4 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 6 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-02 06:29:53 --> Unmatched '}'
+in FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php on line 328.
+ 1 FCPATH\plugins\Purchase\Config\Events.php(10): helper([...])
+ 2 SYSTEMPATH\Events\Events.php(149): CodeIgniter\Events\Events::Purchase\Config\{closure}()
+ 3 SYSTEMPATH\CodeIgniter.php(326): CodeIgniter\Events\Events::trigger('pre_system')
+ 4 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-02 06:31:01 --> Undefined array key "columns"
+in FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php on line 222.
+ 1 FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php(222): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "columns"', 'FCPATH\\plugins\\Purchase\\Helpers\\purchase_datatables_helper.php', 222)
+ 2 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(73): data_tables_purchase([...], 'id', 'rise_items', [...], [...], 'C:\\xampp\\htdocs\\rsra\\rsra', [], [...])
+ 3 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 4 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 6 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-02 06:32:49 --> Unclosed '{' on line 83
+in FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php on line 433.
+ 1 FCPATH\plugins\Purchase\Config\Events.php(10): helper([...])
+ 2 SYSTEMPATH\Events\Events.php(149): CodeIgniter\Events\Events::Purchase\Config\{closure}()
+ 3 SYSTEMPATH\CodeIgniter.php(326): CodeIgniter\Events\Events::trigger('pre_system')
+ 4 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-02 06:33:03 --> Unclosed '{' on line 83
+in FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php on line 433.
+ 1 FCPATH\plugins\Purchase\Config\Events.php(10): helper([...])
+ 2 SYSTEMPATH\Events\Events.php(149): CodeIgniter\Events\Events::Purchase\Config\{closure}()
+ 3 SYSTEMPATH\CodeIgniter.php(326): CodeIgniter\Events\Events::trigger('pre_system')
+ 4 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-02 06:33:59 --> count(): Argument #1 ($value) must be of type Countable|array, string given
+in FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php on line 257.
+ 1 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(73): data_tables_purchase([...], 'id', 'rise_items', [...], [...], 'C:\\xampp\\htdocs\\rsra\\rsra', [], [...])
+ 2 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 3 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 5 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 6 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-02 06:35:24 --> Array to string conversion
+in FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php on line 283.
+ 1 FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php(283): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'FCPATH\\plugins\\Purchase\\Helpers\\purchase_datatables_helper.php', 283)
+ 2 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(73): data_tables_purchase([...], 'id', 'rise_items', 'LEFT JOIN rise_taxes t1 ON t1.id = rise_items.tax LEFT JOIN rise_taxes t2 ON t2.id = rise_items.tax2 LEFT JOIN rise_item_categories ON rise_item_categories.id = rise_items.category_id', 'WHERE  rise_items.deleted = 0', 'C:\\xampp\\htdocs\\rsra\\rsra', [], [...])
+ 3 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 4 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 6 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-02 10:33:12 --> The action you requested is not allowed.
+in SYSTEMPATH\Security\Security.php on line 286.
+ 1 SYSTEMPATH\Security\Security.php(286): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+ 2 SYSTEMPATH\Filters\CSRF.php(54): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 4 SYSTEMPATH\CodeIgniter.php(440): CodeIgniter\Filters\Filters->run('messages/count_notifications', 'before')
+ 5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-02 10:36:02 --> Array to string conversion
+in FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php on line 284.
+ 1 FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php(284): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'FCPATH\\plugins\\Purchase\\Helpers\\purchase_datatables_helper.php', 284)
+ 2 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(73): data_tables_purchase([...], 'id', 'rise_items', 'LEFT JOIN rise_taxes t1 ON t1.id = rise_items.tax LEFT JOIN rise_taxes t2 ON t2.id = rise_items.tax2 LEFT JOIN rise_item_categories ON rise_item_categories.id = rise_items.category_id', 'WHERE  rise_items.deleted = 0', 'C:\\xampp\\htdocs\\rsra\\rsra', [], [...])
+ 3 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 4 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 6 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-02 10:36:04 --> Array to string conversion
+in FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php on line 284.
+ 1 FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php(284): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'FCPATH\\plugins\\Purchase\\Helpers\\purchase_datatables_helper.php', 284)
+ 2 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(73): data_tables_purchase([...], 'id', 'rise_items', 'LEFT JOIN rise_taxes t1 ON t1.id = rise_items.tax LEFT JOIN rise_taxes t2 ON t2.id = rise_items.tax2 LEFT JOIN rise_item_categories ON rise_item_categories.id = rise_items.category_id', 'WHERE  rise_items.deleted = 0', 'C:\\xampp\\htdocs\\rsra\\rsra', [], [...])
+ 3 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 4 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 6 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-02 10:36:06 --> Array to string conversion
+in FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php on line 284.
+ 1 FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php(284): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'FCPATH\\plugins\\Purchase\\Helpers\\purchase_datatables_helper.php', 284)
+ 2 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(73): data_tables_purchase([...], 'id', 'rise_items', 'LEFT JOIN rise_taxes t1 ON t1.id = rise_items.tax LEFT JOIN rise_taxes t2 ON t2.id = rise_items.tax2 LEFT JOIN rise_item_categories ON rise_item_categories.id = rise_items.category_id', 'WHERE  rise_items.deleted = 0', 'C:\\xampp\\htdocs\\rsra\\rsra', [], [...])
+ 3 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 4 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 6 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-02 10:39:11 --> Array to string conversion
+in FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php on line 285.
+ 1 FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php(285): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'FCPATH\\plugins\\Purchase\\Helpers\\purchase_datatables_helper.php', 285)
+ 2 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(73): data_tables_purchase([...], 'id', 'rise_items', 'LEFT JOIN rise_taxes t1 ON t1.id = rise_items.tax LEFT JOIN rise_taxes t2 ON t2.id = rise_items.tax2 LEFT JOIN rise_item_categories ON rise_item_categories.id = rise_items.category_id', 'WHERE  rise_items.deleted = 0', 'C:\\xampp\\htdocs\\rsra\\rsra', [], [...])
+ 3 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 4 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 6 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-02 10:40:41 --> Array to string conversion
+in FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php on line 290.
+ 1 FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php(290): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'FCPATH\\plugins\\Purchase\\Helpers\\purchase_datatables_helper.php', 290)
+ 2 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(73): data_tables_purchase([...], 'id', 'rise_items', 'LEFT JOIN rise_taxes t1 ON t1.id = rise_items.tax LEFT JOIN rise_taxes t2 ON t2.id = rise_items.tax2 LEFT JOIN rise_item_categories ON rise_item_categories.id = rise_items.category_id', 'WHERE  rise_items.deleted = 0', [], [], [...])
+ 3 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 4 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 6 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-02 10:44:23 --> DEBUG: $sGroupBy = Array
+(
+)
+
+CRITICAL - 2025-06-02 10:44:23 --> Array to string conversion
+in FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php on line 286.
+ 1 FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php(286): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'FCPATH\\plugins\\Purchase\\Helpers\\purchase_datatables_helper.php', 286)
+ 2 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(73): data_tables_purchase([...], 'id', 'rise_items', 'LEFT JOIN rise_taxes t1 ON t1.id = rise_items.tax LEFT JOIN rise_taxes t2 ON t2.id = rise_items.tax2 LEFT JOIN rise_item_categories ON rise_item_categories.id = rise_items.category_id', 'WHERE  rise_items.deleted = 0', 'C:\\xampp\\htdocs\\rsra\\rsra', [], [...])
+ 3 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 4 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 6 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-02 10:45:04 --> DEBUG: $sGroupBy = Array
+(
+)
+
+ERROR - 2025-06-02 10:45:04 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 0, 25' at line 8
+CRITICAL - 2025-06-02 10:45:04 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 0, 25' at line 8
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('
+	SELECT SQL_CALC_FOUND_ROWS 1, rise_items.id, commodity_code, rise_items.title, rise_item_categories.title AS group_name, unit_id, rate, purchase_price, 2 
+	FROM rise_items
+	LEFT JOIN rise_taxes t1 ON t1.id = rise_items.tax LEFT JOIN rise_taxes t2 ON t2.id = rise_items.tax2 LEFT JOIN rise_item_categories ON rise_item_categories.id = rise_items.category_id
+	
+	WHERE  rise_items.deleted = 0
+	GROUP BY 
+	
+	LIMIT 0, 25
+	', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(695): CodeIgniter\Database\MySQLi\Connection->execute('
+	SELECT SQL_CALC_FOUND_ROWS 1, rise_items.id, commodity_code, rise_items.title, rise_item_categories.title AS group_name, unit_id, rate, purchase_price, 2 
+	FROM rise_items
+	LEFT JOIN rise_taxes t1 ON t1.id = rise_items.tax LEFT JOIN rise_taxes t2 ON t2.id = rise_items.tax2 LEFT JOIN rise_item_categories ON rise_item_categories.id = rise_items.category_id
+	
+	WHERE  rise_items.deleted = 0
+	GROUP BY 
+	
+	LIMIT 0, 25
+	')
+ 3 SYSTEMPATH\Database\BaseConnection.php(609): CodeIgniter\Database\BaseConnection->simpleQuery('
+	SELECT SQL_CALC_FOUND_ROWS 1, rise_items.id, commodity_code, rise_items.title, rise_item_categories.title AS group_name, unit_id, rate, purchase_price, 2 
+	FROM rise_items
+	LEFT JOIN rise_taxes t1 ON t1.id = rise_items.tax LEFT JOIN rise_taxes t2 ON t2.id = rise_items.tax2 LEFT JOIN rise_item_categories ON rise_item_categories.id = rise_items.category_id
+	
+	WHERE  rise_items.deleted = 0
+	GROUP BY 
+	
+	LIMIT 0, 25
+	')
+ 4 FCPATH\plugins\Purchase\Models\Purchase_model.php(7640): CodeIgniter\Database\BaseConnection->query('
+	SELECT SQL_CALC_FOUND_ROWS 1, rise_items.id, commodity_code, rise_items.title, rise_item_categories.title AS group_name, unit_id, rate, purchase_price, 2 
+	FROM rise_items
+	LEFT JOIN rise_taxes t1 ON t1.id = rise_items.tax LEFT JOIN rise_taxes t2 ON t2.id = rise_items.tax2 LEFT JOIN rise_item_categories ON rise_item_categories.id = rise_items.category_id
+	
+	WHERE  rise_items.deleted = 0
+	GROUP BY 
+	
+	LIMIT 0, 25
+	')
+ 5 FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php(294): Purchase\Models\Purchase_model->get_all_purchase_request('
+	SELECT SQL_CALC_FOUND_ROWS 1, rise_items.id, commodity_code, rise_items.title, rise_item_categories.title AS group_name, unit_id, rate, purchase_price, 2 
+	FROM rise_items
+	LEFT JOIN rise_taxes t1 ON t1.id = rise_items.tax LEFT JOIN rise_taxes t2 ON t2.id = rise_items.tax2 LEFT JOIN rise_item_categories ON rise_item_categories.id = rise_items.category_id
+	
+	WHERE  rise_items.deleted = 0
+	GROUP BY 
+	
+	LIMIT 0, 25
+	')
+ 6 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(73): data_tables_purchase([...], 'id', 'rise_items', 'LEFT JOIN rise_taxes t1 ON t1.id = rise_items.tax LEFT JOIN rise_taxes t2 ON t2.id = rise_items.tax2 LEFT JOIN rise_item_categories ON rise_item_categories.id = rise_items.category_id', 'WHERE  rise_items.deleted = 0', 'C:\\xampp\\htdocs\\rsra\\rsra', 'GROUP BY ', [...])
+ 7 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 8 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+10 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+11 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-02 10:46:37 --> DEBUG: $sGroupBy = Array
+(
+)
+
+ERROR - 2025-06-02 10:46:37 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 0, 25' at line 8
+CRITICAL - 2025-06-02 10:46:37 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 0, 25' at line 8
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('
+	SELECT SQL_CALC_FOUND_ROWS 1, rise_items.id, commodity_code, rise_items.title, rise_item_categories.title AS group_name, unit_id, rate, purchase_price, 2 
+	FROM rise_items
+	LEFT JOIN rise_taxes t1 ON t1.id = rise_items.tax LEFT JOIN rise_taxes t2 ON t2.id = rise_items.tax2 LEFT JOIN rise_item_categories ON rise_item_categories.id = rise_items.category_id
+	
+	WHERE  rise_items.deleted = 0
+	GROUP BY 
+	
+	LIMIT 0, 25
+	', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(695): CodeIgniter\Database\MySQLi\Connection->execute('
+	SELECT SQL_CALC_FOUND_ROWS 1, rise_items.id, commodity_code, rise_items.title, rise_item_categories.title AS group_name, unit_id, rate, purchase_price, 2 
+	FROM rise_items
+	LEFT JOIN rise_taxes t1 ON t1.id = rise_items.tax LEFT JOIN rise_taxes t2 ON t2.id = rise_items.tax2 LEFT JOIN rise_item_categories ON rise_item_categories.id = rise_items.category_id
+	
+	WHERE  rise_items.deleted = 0
+	GROUP BY 
+	
+	LIMIT 0, 25
+	')
+ 3 SYSTEMPATH\Database\BaseConnection.php(609): CodeIgniter\Database\BaseConnection->simpleQuery('
+	SELECT SQL_CALC_FOUND_ROWS 1, rise_items.id, commodity_code, rise_items.title, rise_item_categories.title AS group_name, unit_id, rate, purchase_price, 2 
+	FROM rise_items
+	LEFT JOIN rise_taxes t1 ON t1.id = rise_items.tax LEFT JOIN rise_taxes t2 ON t2.id = rise_items.tax2 LEFT JOIN rise_item_categories ON rise_item_categories.id = rise_items.category_id
+	
+	WHERE  rise_items.deleted = 0
+	GROUP BY 
+	
+	LIMIT 0, 25
+	')
+ 4 FCPATH\plugins\Purchase\Models\Purchase_model.php(7640): CodeIgniter\Database\BaseConnection->query('
+	SELECT SQL_CALC_FOUND_ROWS 1, rise_items.id, commodity_code, rise_items.title, rise_item_categories.title AS group_name, unit_id, rate, purchase_price, 2 
+	FROM rise_items
+	LEFT JOIN rise_taxes t1 ON t1.id = rise_items.tax LEFT JOIN rise_taxes t2 ON t2.id = rise_items.tax2 LEFT JOIN rise_item_categories ON rise_item_categories.id = rise_items.category_id
+	
+	WHERE  rise_items.deleted = 0
+	GROUP BY 
+	
+	LIMIT 0, 25
+	')
+ 5 FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php(294): Purchase\Models\Purchase_model->get_all_purchase_request('
+	SELECT SQL_CALC_FOUND_ROWS 1, rise_items.id, commodity_code, rise_items.title, rise_item_categories.title AS group_name, unit_id, rate, purchase_price, 2 
+	FROM rise_items
+	LEFT JOIN rise_taxes t1 ON t1.id = rise_items.tax LEFT JOIN rise_taxes t2 ON t2.id = rise_items.tax2 LEFT JOIN rise_item_categories ON rise_item_categories.id = rise_items.category_id
+	
+	WHERE  rise_items.deleted = 0
+	GROUP BY 
+	
+	LIMIT 0, 25
+	')
+ 6 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(73): data_tables_purchase([...], 'id', 'rise_items', 'LEFT JOIN rise_taxes t1 ON t1.id = rise_items.tax LEFT JOIN rise_taxes t2 ON t2.id = rise_items.tax2 LEFT JOIN rise_item_categories ON rise_item_categories.id = rise_items.category_id', 'WHERE  rise_items.deleted = 0', 'C:\\xampp\\htdocs\\rsra\\rsra', 'GROUP BY ', [...])
+ 7 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 8 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+10 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+11 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-02 10:53:55 --> DEBUG: $sGroupBy = Array
+(
+)
+
+CRITICAL - 2025-06-02 10:53:55 --> Undefined array key "draw"
+in FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php on line 326.
+ 1 FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php(326): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "draw"', 'FCPATH\\plugins\\Purchase\\Helpers\\purchase_datatables_helper.php', 326)
+ 2 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(73): data_tables_purchase([...], 'id', 'rise_items', 'LEFT JOIN rise_taxes t1 ON t1.id = rise_items.tax LEFT JOIN rise_taxes t2 ON t2.id = rise_items.tax2 LEFT JOIN rise_item_categories ON rise_item_categories.id = rise_items.category_id', 'WHERE  rise_items.deleted = 0', 'C:\\xampp\\htdocs\\rsra\\rsra', 'C:\\xampp\\htdocs\\rsra\\rsra', [...])
+ 3 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 4 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 6 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-02 10:55:37 --> DEBUG: $sGroupBy = Array
+(
+)
+
+CRITICAL - 2025-06-02 10:55:37 --> Undefined array key 0
+in FCPATH\plugins\Purchase\Views\items\table_commodity_list.php on line 75.
+ 1 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(75): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php', 75)
+ 2 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 3 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 5 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 6 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-02 10:57:06 --> DEBUG: $sGroupBy = Array
+(
+)
+
+CRITICAL - 2025-06-02 10:57:06 --> Undefined array key "rise_items.id"
+in FCPATH\plugins\Purchase\Views\items\table_commodity_list.php on line 108.
+ 1 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(108): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "rise_items.id"', 'FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php', 108)
+ 2 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 3 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 5 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 6 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-02 10:57:27 --> DEBUG: $sGroupBy = Array
+(
+)
+
+CRITICAL - 2025-06-02 10:57:27 --> Undefined array key "rise_items.id"
+in FCPATH\plugins\Purchase\Views\items\table_commodity_list.php on line 110.
+ 1 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(110): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "rise_items.id"', 'FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php', 110)
+ 2 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 3 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 5 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 6 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-02 11:03:22 --> DEBUG: $sGroupBy = Array
+(
+)
+
+CRITICAL - 2025-06-02 11:03:22 --> Undefined variable $aRow
+in FCPATH\plugins\Purchase\Views\items\table_commodity_list.php on line 103.
+ 1 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(103): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $aRow', 'FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php', 103)
+ 2 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 3 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 5 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 6 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-02 11:23:33 --> DEBUG: $sGroupBy = Array
+(
+)
+
+CRITICAL - 2025-06-02 11:23:33 --> Undefined array key "files"
+in FCPATH\plugins\Purchase\Views\items\table_commodity_list.php on line 112.
+ 1 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(112): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "files"', 'FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php', 112)
+ 2 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 3 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 5 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 6 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-02 11:26:15 --> DEBUG: $sGroupBy = Array
+(
+)
+
+CRITICAL - 2025-06-02 11:26:15 --> Undefined array key "rise_item_categories.title AS group_name"
+in FCPATH\plugins\Purchase\Views\items\table_commodity_list.php on line 106.
+ 1 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(106): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "rise_item_categories.title AS group_name"', 'FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php', 106)
+ 2 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 3 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 5 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 6 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-02 11:33:24 --> DEBUG: $sGroupBy = Array
+(
+)
+
+ERROR - 2025-06-02 11:33:41 --> DEBUG: $sGroupBy = Array
+(
+)
+
+ERROR - 2025-06-02 11:33:43 --> DEBUG: $sGroupBy = Array
+(
+)
+
+ERROR - 2025-06-02 11:42:47 --> DEBUG: $sGroupBy = Array
+(
+)
+
+CRITICAL - 2025-06-02 11:42:47 --> Undefined array key "rise_item_categories.title AS group_name"
+in FCPATH\plugins\Purchase\Views\items\table_commodity_list.php on line 106.
+ 1 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(106): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "rise_item_categories.title AS group_name"', 'FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php', 106)
+ 2 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 3 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 5 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 6 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-02 22:44:07 --> The action you requested is not allowed.
+in SYSTEMPATH\Security\Security.php on line 286.
+ 1 SYSTEMPATH\Security\Security.php(286): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+ 2 SYSTEMPATH\Filters\CSRF.php(54): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 4 SYSTEMPATH\CodeIgniter.php(440): CodeIgniter\Filters\Filters->run('messages/count_notifications', 'before')
+ 5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-02 23:54:08 --> DEBUG: $sGroupBy = Array
+(
+)
+
+CRITICAL - 2025-06-02 23:54:08 --> Undefined array key "rise_item_categories.title AS group_name"
+in FCPATH\plugins\Purchase\Views\items\table_commodity_list.php on line 106.
+ 1 FCPATH\plugins\Purchase\Views\items\table_commodity_list.php(106): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "rise_item_categories.title AS group_name"', 'FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php', 106)
+ 2 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\items\\table_commodity_list.php')
+ 3 FCPATH\plugins\Purchase\Controllers\Purchase.php(811): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/items/table_commodity_list', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_commodity_list()
+ 5 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 6 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()

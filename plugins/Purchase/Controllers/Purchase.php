@@ -806,10 +806,334 @@ class Purchase extends Security_Controller
    * @return [type]
    */
   public function table_commodity_list()
-  {
-    $dataPost = $this->request->getPost();
-    $this->Purchase_model->get_table_data(module_views_path('Purchase', 'items/table_commodity_list'), $dataPost);
-  }
+    {
+        // Set error reporting for debugging
+        error_reporting(E_ALL);
+        ini_set('display_errors', 1);
+        
+        try {
+            // Get DataTable parameters
+            $draw = $this->request->getPost('draw') ? intval($this->request->getPost('draw')) : 1;
+            $start = $this->request->getPost('start') ? intval($this->request->getPost('start')) : 0;
+            $length = $this->request->getPost('length') ? intval($this->request->getPost('length')) : 10;
+            $search_value = '';
+            
+            // Handle search parameter
+            $search = $this->request->getPost('search');
+            if (is_array($search) && isset($search['value'])) {
+                $search_value = $search['value'];
+            }
+            
+            // Handle ordering
+            $order_column = 2; // Default to commodity_code column
+            $order_dir = 'desc';
+            $order = $this->request->getPost('order');
+            if (is_array($order) && count($order) > 0) {
+                $order_column = intval($order[0]['column']);
+                $order_dir = $order[0]['dir'];
+            }
+
+            // Column mapping for ordering based on rise_items table structure
+            $columns = [
+                0 => 'id', // checkbox column
+                1 => 'id', // image column  
+                2 => 'commodity_code', // commodity_code
+                3 => 'commodity_name', // commodity_name
+                4 => 'category_id', // group_name -> category_id
+                5 => 'unit_type', // unit_name -> unit_type
+                6 => 'rate', // rate
+                7 => 'purchase_price', // purchase_price
+                8 => 'tax', // tax_1
+                9 => 'tax2', // tax_2
+                10 => 'id' // actions column
+            ];
+
+            // Get database connection
+            $db = db_connect();
+            
+            // Use rise_items table specifically
+            $commodity_table = 'rise_items';
+            
+            // Check if table exists
+            if (!$db->tableExists($commodity_table)) {
+                throw new \Exception('Table ' . $commodity_table . ' does not exist');
+            }
+            
+            // Build the main query with join for category
+            $builder = $db->table($commodity_table);
+            $builder->select('rise_items.*, COALESCE(rise_item_categories.title, "") as category_name');
+            $builder->join('rise_item_categories', 'rise_item_categories.id = rise_items.category_id', 'left');
+            
+            // Get total records count (before filtering)
+            $total_records = $builder->countAllResults(false);
+            
+            // Add search functionality
+            if (!empty($search_value)) {
+                $builder->groupStart();
+                $builder->like('rise_items.title', $search_value);
+                $builder->orLike('rise_items.description', $search_value);
+                $builder->orLike('rise_items.commodity_code', $search_value);
+                $builder->orLike('rise_items.commodity_name', $search_value);
+                $builder->orLike('rise_item_categories.title', $search_value);
+                $builder->groupEnd();
+            }
+            
+            // Get filtered records count
+            $filtered_records = $builder->countAllResults(false);
+            
+            // Add ordering
+            if (isset($columns[$order_column])) {
+                $order_field = $columns[$order_column];
+                if ($order_field === 'category_id') {
+                    $builder->orderBy('rise_item_categories.title', $order_dir);
+                } else {
+                    $builder->orderBy('rise_items.' . $order_field, $order_dir);
+                }
+            }
+            
+            // Add pagination
+            $builder->limit($length, $start);
+            
+            // Execute query
+            $query = $builder->get();
+            $data = $query->getResultArray();
+            
+            // Format data for DataTable
+            $formatted_data = [];
+            foreach ($data as $row) {
+                $formatted_row = [];
+                
+                // Checkbox column
+                $formatted_row[] = '<div class="checkbox"><input type="checkbox" value="' . $row['id'] . '" class="form-check-input"><label></label></div>';
+                
+                // Image column - check for image field
+                $image_path = base_url('plugins/Purchase/Uploads/nul_image.jpg'); // Default image
+                if (!empty($row['files'])) {
+                    $files = unserialize($row['files']);
+                    if (is_array($files) && !empty($files)) {
+                        $image_path = base_url('files/timeline_files/' . $files[0]['file_name']);
+                    }
+                }
+                $formatted_row[] = '<img class="sortable-file images_w_table" src="' . $image_path . '" alt="item_image" style="width: 50px; height: 50px; object-fit: cover;"/>';
+                
+                // Commodity Code
+                $code = !empty($row['commodity_code']) ? $row['commodity_code'] : $row['title'];
+                $formatted_row[] = '<a href="' . get_uri('purchase/view_commodity_detail/' . $row['id']) . '">' . $code . '</a>';
+                
+                // Commodity Name
+                $name = !empty($row['commodity_name']) ? $row['commodity_name'] : $row['title'];
+                $formatted_row[] = '<a href="#" onclick="show_detail_item(this);return false;" data-name="' . $name . '" data-commodity_id="' . $row['id'] . '">' . $name . '</a>';
+                
+                // Group/Category name
+                $formatted_row[] = $row['category_name'] ?? '';
+                
+                // Unit name/type
+                $formatted_row[] = $row['unit_type'] ?? '';
+                
+                // Rate
+                $formatted_row[] = number_format($row['rate'] ?? 0, 2);
+                
+                // Purchase price
+                $formatted_row[] = number_format($row['purchase_price'] ?? 0, 2);
+                
+                // Tax 1
+                $formatted_row[] = $row['tax'] ?? '';
+                
+                // Tax 2
+                $formatted_row[] = $row['tax2'] ?? '';
+                
+                // Actions column
+                $actions = '
+                    <span class="dropdown inline-block">
+                        <button class="btn btn-default dropdown-toggle caret mt0 mb0" type="button" data-bs-toggle="dropdown" aria-expanded="true" data-bs-display="static">
+                            <i data-feather="tool" class="icon-16"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" role="menu">
+                            <li role="presentation">
+                                <a href="#" title="Edit item" data-post-id="' . $row['id'] . '" class="dropdown-item" data-act="ajax-modal" data-title="Edit item" data-action-url="' . get_uri('purchase/item_modal_form') . '">
+                                    <i data-feather="edit" class="icon-16"></i> Edit
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#" title="Delete?" data-post-id="' . $row['id'] . '" class="dropdown-item" data-act="ajax-modal" data-title="Delete?" data-action-url="' . get_uri('purchase/delete_modal_form') . '">
+                                    <i data-feather="x" class="icon-16"></i> Delete
+                                </a>
+                            </li>
+                        </ul>
+                    </span>';
+                $formatted_row[] = $actions;
+                
+                $formatted_data[] = $formatted_row;
+            }
+            
+            // Prepare response
+            $response = [
+                'draw' => $draw,
+                'iTotalRecords' => $total_records,
+                'iTotalDisplayRecords' => $filtered_records,
+                'aaData' => $formatted_data,
+                'debug_info' => [
+                    'table_used' => $commodity_table,
+                    'total_records' => $total_records,
+                    'filtered_records' => $filtered_records
+                ]
+            ];
+            
+        } catch (\Exception $e) {
+            // Error handling
+            $response = [
+                'draw' => $draw ?? 1,
+                'iTotalRecords' => 0,
+                'iTotalDisplayRecords' => 0,
+                'aaData' => [],
+                'error' => 'Database error: ' . $e->getMessage()
+            ];
+            
+            // Log the error
+            log_message('error', 'DataTable Error: ' . $e->getMessage());
+        }
+        
+        // Set proper headers and return JSON
+        header('Content-Type: application/json');
+        echo json_encode($response);
+        exit;
+    }
+
+    /**
+     * Handle bulk actions for commodity list
+     */
+    public function bulk_action_handler()
+    {
+        $response = ['success' => false, 'message' => ''];
+        
+        try {
+            $ids = $this->request->getPost('ids');
+            $rel_type = $this->request->getPost('rel_type');
+            $mass_delete = $this->request->getPost('mass_delete');
+            $change_item_selling_price = $this->request->getPost('change_item_selling_price');
+            $change_item_purchase_price = $this->request->getPost('change_item_purchase_price');
+            $clone_items = $this->request->getPost('clone_items');
+            
+            if (empty($ids) || !is_array($ids)) {
+                $response['message'] = 'No items selected';
+                echo json_encode($response);
+                return;
+            }
+
+            // Get database connection
+            $db = db_connect();
+            $commodity_table = 'rise_items';
+
+            if ($mass_delete && $mass_delete === 'true') {
+                // Delete selected items
+                $deleted_count = 0;
+                foreach ($ids as $id) {
+                    if ($db->table($commodity_table)->where('id', $id)->delete()) {
+                        $deleted_count++;
+                    }
+                }
+                
+                if ($deleted_count > 0) {
+                    $response['success'] = true;
+                    $response['message'] = $deleted_count . ' items deleted successfully';
+                } else {
+                    $response['message'] = 'Failed to delete items';
+                }
+                
+            } elseif ($change_item_selling_price && $change_item_selling_price === 'true') {
+                // Update selling price (rate)
+                $selling_price = $this->request->getPost('selling_price');
+                
+                if (is_numeric($selling_price)) {
+                    $updated_count = 0;
+                    foreach ($ids as $id) {
+                        if ($db->table($commodity_table)->where('id', $id)->update(['rate' => $selling_price])) {
+                            $updated_count++;
+                        }
+                    }
+                    
+                    if ($updated_count > 0) {
+                        $response['success'] = true;
+                        $response['message'] = 'Selling prices updated for ' . $updated_count . ' items';
+                    } else {
+                        $response['message'] = 'Failed to update selling prices';
+                    }
+                } else {
+                    $response['message'] = 'Invalid selling price';
+                }
+                
+            } elseif ($change_item_purchase_price && $change_item_purchase_price === 'true') {
+                // Update purchase price
+                $purchase_price = $this->request->getPost('purchase_price');
+                
+                if (is_numeric($purchase_price)) {
+                    $updated_count = 0;
+                    foreach ($ids as $id) {
+                        if ($db->table($commodity_table)->where('id', $id)->update(['purchase_price' => $purchase_price])) {
+                            $updated_count++;
+                        }
+                    }
+                    
+                    if ($updated_count > 0) {
+                        $response['success'] = true;
+                        $response['message'] = 'Purchase prices updated for ' . $updated_count . ' items';
+                    } else {
+                        $response['message'] = 'Failed to update purchase prices';
+                    }
+                } else {
+                    $response['message'] = 'Invalid purchase price';
+                }
+                
+            } elseif ($clone_items && $clone_items === 'true') {
+                // Clone selected items
+                $cloned_count = 0;
+                
+                foreach ($ids as $id) {
+                    $item = $db->table($commodity_table)->where('id', $id)->get()->getRowArray();
+                    
+                    if ($item) {
+                        unset($item['id']); // Remove ID to create new record
+                        
+                        // Update names for the cloned item
+                        if (!empty($item['title'])) {
+                            $item['title'] .= ' (Copy)';
+                        }
+                        if (!empty($item['commodity_name'])) {
+                            $item['commodity_name'] .= ' (Copy)';
+                        }
+                        if (!empty($item['commodity_code'])) {
+                            $item['commodity_code'] .= '_copy';
+                        }
+                        
+                        if ($db->table($commodity_table)->insert($item)) {
+                            $cloned_count++;
+                        }
+                    }
+                }
+                
+                if ($cloned_count > 0) {
+                    $response['success'] = true;
+                    $response['message'] = $cloned_count . ' items cloned successfully';
+                } else {
+                    $response['message'] = 'Failed to clone items';
+                }
+            } else {
+                $response['message'] = 'No valid action specified';
+            }
+            
+        } catch (\Exception $e) {
+            $response['message'] = 'An error occurred: ' . $e->getMessage();
+        }
+        
+        header('Content-Type: application/json');
+        echo json_encode($response);
+        exit;
+    }
+function add_filter(&$where, $field, $value, $prefix) {
+    if (!empty($value)) {
+        $where[] = "AND {$prefix}items.{$field} LIKE '%$value%'";
+    }
+}
 
   /**
    * delete approval setting
