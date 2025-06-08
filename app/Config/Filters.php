@@ -9,9 +9,11 @@ use CodeIgniter\Filters\Honeypot;
 use CodeIgniter\Filters\InvalidChars;
 use CodeIgniter\Filters\SecureHeaders;
 
-class Filters extends BaseConfig {
+class Filters extends BaseConfig
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         //enable csrf and set csrf exclude uris
         if (config('App')->csrf_protection) {
             $this->globals['before'] = array(

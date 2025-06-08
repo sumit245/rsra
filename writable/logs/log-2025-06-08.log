@@ -1,0 +1,78 @@
+ERROR - 2025-06-08 09:44:57 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-08 09:49:41 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-08 09:49:42 --> Got row asArray
+(
+    [number] => 1
+    [total] => 5500.00
+    [total_tax] => 0.00
+    [vendor] => 1
+    [pur_request] => 13
+    [date] => 2025-06-08
+    [expirydate] => 2025-06-08
+    [status] => 2
+    [id] => 0
+    [invoiceid] => 
+    [deleted_vendor_name] => 
+    [currency] => 
+    [company] => Surya Infotech
+    [pur_rq_name] => #-00005-2025
+    [pur_rq_code] => #-00005-2025
+)
+
+ERROR - 2025-06-08 09:50:31 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-08 09:50:32 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-08
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #-00001-Jun-2025
+    [subtotal] => 5000.00
+    [total_tax] => 500.00
+    [total] => 5225.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-07
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 2
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-08 09:50:32 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-May-2025
+    [vendor] => 0
+    [order_date] => 2025-05-22
+    [type] => capex
+    [project] => 3
+    [department] => 0
+    [pur_order_name] => #-00001-May-2025
+    [subtotal] => 0.00
+    [total_tax] => 0.00
+    [total] => 0.00
+    [approve_status] => 2
+    [delivery_date] => 2025-05-24
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 1
+    [company] => 
+    [project_name] => Automatice Soap Dispensor Machine Jig
+    [department_name] => 
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-08 11:07:49 --> The action you requested is not allowed.
+in SYSTEMPATH\Security\Security.php on line 286.
+ 1 SYSTEMPATH\Security\Security.php(286): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+ 2 SYSTEMPATH\Filters\CSRF.php(54): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 4 SYSTEMPATH\CodeIgniter.php(440): CodeIgniter\Filters\Filters->run('messages/count_notifications', 'before')
+ 5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()

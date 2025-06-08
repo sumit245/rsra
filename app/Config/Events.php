@@ -32,7 +32,7 @@ Events::on('pre_system', static function () {
             ob_end_flush();
         }
 
-        ob_start(static fn ($buffer) => $buffer);
+        ob_start(static fn($buffer) => $buffer);
     }
 
     /*
@@ -57,7 +57,8 @@ Events::on('pre_system', static function () {
     load_plugin_indexes();
 });
 
-function load_plugin_indexes() {
+function load_plugin_indexes()
+{
     $plugins = file_get_contents(APPPATH . "Config/activated_plugins.json");
     $plugins = @json_decode($plugins);
 

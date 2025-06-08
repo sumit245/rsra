@@ -15,15 +15,18 @@ use CodeIgniter\Config\AutoloadConfig;
  * NOTE: If you use an identical key in $psr4 or $classmap, then
  * the values in this file will overwrite the framework's values.
  */
-class Autoload extends AutoloadConfig {
+class Autoload extends AutoloadConfig
+{
 
-    function __construct() {
+    function __construct()
+    {
         parent::__construct();
         $this->load_activated_plugins();
     }
 
     //load activated plugins to the psr4 variable
-    private function load_activated_plugins() {
+    private function load_activated_plugins()
+    {
         $plugins = file_get_contents(APPPATH . "Config/activated_plugins.json");
         $plugins = @json_decode($plugins);
         if (!($plugins && is_array($plugins) && count($plugins))) {
@@ -99,5 +102,4 @@ class Autoload extends AutoloadConfig {
      * @var array<int, string>
      */
     public $files = [];
-
 }
