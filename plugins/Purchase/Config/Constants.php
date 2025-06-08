@@ -1,0 +1,1 @@
+defined('APP_MODULES_PATH') or define('APP_MODULES_PATH', FCPATH . 'plugins/');
