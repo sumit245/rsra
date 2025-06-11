@@ -2,17 +2,16 @@
 
 if (!function_exists('app_hooks')) {
 
-    function app_hooks()
-    {
+    function app_hooks() {
         global $hooks;
         return $hooks;
     }
+
 }
 
 if (!function_exists('get_plugin_meta_data')) {
 
-    function get_plugin_meta_data($plugin_name = "")
-    {
+    function get_plugin_meta_data($plugin_name = "") {
         $plugin_info_array = array();
 
         if (!file_exists(PLUGINPATH . $plugin_name . "/index.php")) {
@@ -61,45 +60,45 @@ if (!function_exists('get_plugin_meta_data')) {
 
         return $plugin_info_array;
     }
+
 }
 
 if (!function_exists('register_installation_hook')) {
 
-    function register_installation_hook($plugin_name, $function)
-    {
+    function register_installation_hook($plugin_name, $function) {
         app_hooks()->add_action("app_hook_install_plugin_$plugin_name", $function);
     }
+
 }
 
 if (!function_exists('register_uninstallation_hook')) {
 
-    function register_uninstallation_hook($plugin_name, $function)
-    {
+    function register_uninstallation_hook($plugin_name, $function) {
         app_hooks()->add_action("app_hook_uninstall_plugin_$plugin_name", $function);
     }
+
 }
 
 if (!function_exists('register_activation_hook')) {
 
-    function register_activation_hook($plugin_name, $function)
-    {
+    function register_activation_hook($plugin_name, $function) {
 
         app_hooks()->add_action("app_hook_activate_plugin_$plugin_name", $function);
     }
+
 }
 
 if (!function_exists('register_deactivation_hook')) {
 
-    function register_deactivation_hook($plugin_name, $function)
-    {
+    function register_deactivation_hook($plugin_name, $function) {
         app_hooks()->add_action("app_hook_deactivate_plugin_$plugin_name", $function);
     }
+
 }
 
 if (!function_exists('is_unsupported_plugin')) {
 
-    function is_unsupported_plugin($plugin_name)
-    {
+    function is_unsupported_plugin($plugin_name) {
         $plugin_info = get_plugin_meta_data($plugin_name);
         $app_version = get_setting("app_version");
         $error = "";
@@ -110,13 +109,13 @@ if (!function_exists('is_unsupported_plugin')) {
 
         return $error;
     }
+
 }
 
 //save activated plugins to a config file as data
 if (!function_exists('save_plugins_config')) {
 
-    function save_plugins_config($plugins = array())
-    {
+    function save_plugins_config($plugins = array()) {
         $activated_plugins = array();
         foreach ($plugins as $plugin => $status) {
             if ($status === "activated") {
@@ -127,43 +126,37 @@ if (!function_exists('save_plugins_config')) {
         $contents = json_encode($activated_plugins);
         file_put_contents(APPPATH . "Config/activated_plugins.json", $contents);
     }
+
 }
 
 if (!function_exists('register_update_hook')) {
 
-    function register_update_hook($plugin_name, $function)
-    {
+    function register_update_hook($plugin_name, $function) {
         app_hooks()->add_action("app_hook_update_plugin_$plugin_name", $function);
     }
+
 }
 
 if (!function_exists('register_data_insert_hook')) {
 
-    function register_data_insert_hook($function)
-    {
+    function register_data_insert_hook($function) {
         app_hooks()->add_action("app_hook_data_insert", $function);
     }
+
 }
 
 if (!function_exists('register_data_update_hook')) {
 
-    function register_data_update_hook($function)
-    {
+    function register_data_update_hook($function) {
         app_hooks()->add_action("app_hook_data_update", $function);
     }
+
 }
 
 if (!function_exists('register_data_delete_hook')) {
 
-    function register_data_delete_hook($function)
-    {
+    function register_data_delete_hook($function) {
         app_hooks()->add_action("app_hook_data_delete", $function);
     }
-}
 
-if (!function_exists('admin_url')) {
-    function admin_url($uri = "")
-    {
-        return get_uri($uri); // or get_uri("admin/" . $uri); if needed
-    }
 }

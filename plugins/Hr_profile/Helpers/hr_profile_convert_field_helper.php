@@ -1,5 +1,4 @@
 <?php
-
 use App\Controllers\Security_Controller;
 
 
@@ -18,7 +17,7 @@ use App\Controllers\Security_Controller;
 if (!function_exists('render_input1')) {
 	function render_input1($name, $label = '', $value = '', $type = 'text', array $input_attrs = [], array $form_group_attr = [], $form_group_class = '', $input_class = '', $data_required = false, $data_required_msg = '', $placeholder = false)
 	{
-		if ($value == null) {
+		if($value == null){
 			$value = '';
 		}
 
@@ -28,7 +27,7 @@ if (!function_exists('render_input1')) {
 		$form_group_attr['app-field-wrapper'] = $name;
 
 		foreach ($form_group_attr as $key => $val) {
-
+		
 			if ($key == 'title') {
 				$val = _l($val);
 			}
@@ -45,30 +44,30 @@ if (!function_exists('render_input1')) {
 		}
 		$input .= '<div class="form-group' . $form_group_class . '" ' . $_form_group_attr . '>';
 		if ($label != '') {
-			if ($data_required) {
+			if($data_required){
 				$input .= '<small class="req text-danger">* </small><label for="' . $name . '" class="control-label">' . _l($label, '', false) . '</label>';
-			} else {
+			}else{
 				$input .= '<label for="' . $name . '" class="control-label">' . _l($label, '', false) . '</label>';
 			}
 		}
 
-		if ($data_required) {
+		if($data_required){
 			$arr_required = [];
 			$arr_required = [
 				"data-rule-required" => $data_required,
 				"data-msg-required" => $data_required_msg == '' ? app_lang('field_required') : app_lang($data_required_msg),
 				"required" => true,
 			];
-			$input_attrs = array_merge($input_attrs, $arr_required);
+			$input_attrs = array_merge($input_attrs, $arr_required );
 		}
 		$input .= form_input(array_merge(array(
 			"id" => $name,
 			"name" => $name,
 			"value" => $value,
-			"class" => "form-control" . $input_class,
+			"class" => "form-control".$input_class,
 			"placeholder" => $placeholder == true ? app_lang($label) : '',
 			"autocomplete" => "off",
-
+			
 		), $input_attrs), $value, '', $type);
 
 		$input .= '</div>';
@@ -80,7 +79,7 @@ if (!function_exists('render_input1')) {
 if (!function_exists('render_textarea1')) {
 	function render_textarea1($name, $label = '', $value = '', $textarea_attrs = [], $form_group_attr = [], $form_group_class = '', $textarea_class = '', $placeholder = false)
 	{
-		if ($value == null) {
+		if($value == null){
 			$value = '';
 		}
 
@@ -97,7 +96,7 @@ if (!function_exists('render_textarea1')) {
 		}
 
 		foreach ($textarea_attrs as $key => $val) {
-
+			
 			if ($key == 'title') {
 				$val = _l($val);
 			}
@@ -133,10 +132,10 @@ if (!function_exists('render_textarea1')) {
 			"id" => $name,
 			"name" => $name,
 			"value" => $value,
-			"class" => "form-control" . $textarea_class,
+			"class" => "form-control". $textarea_class,
 			"placeholder" => $placeholder == true ? app_lang($label) : '',
 			"data-rich-text-editor" => true
-		), $textarea_attrs), $value);
+		), $textarea_attrs), $value );
 
 		$textarea .= '</div>';
 
@@ -160,21 +159,21 @@ if (!function_exists('render_select1')) {
 			$select_attrs['data-width'] = '100%';
 		}
 
-		if ($data_required) {
+		if($data_required){
 			$arr_required = [];
 			$arr_required = [
 				"data-rule-required" => $data_required,
 				"data-msg-required" => $data_required_msg == '' ? app_lang('field_required') : app_lang($data_required_msg),
 				"required" => true,
 			];
-			$select_attrs = array_merge($select_attrs, $arr_required);
+			$select_attrs = array_merge($select_attrs, $arr_required );
 		}
-
+		
 		if (!isset($select_attrs['data-none-selected-text'])) {
 			$select_attrs['data-none-selected-text'] = app_lang('dropdown_non_selected_tex');
 		}
 		foreach ($select_attrs as $key => $val) {
-
+		
 			if ($key == 'title') {
 				$val = app_lang($val);
 			}
@@ -185,7 +184,7 @@ if (!function_exists('render_select1')) {
 
 		$form_group_attr['app-field-wrapper'] = $name;
 		foreach ($form_group_attr as $key => $val) {
-
+		
 			if ($key == 'title') {
 				$val = app_lang($val);
 			}
@@ -200,9 +199,9 @@ if (!function_exists('render_select1')) {
 		}
 		$select .= '<div class="select-placeholder form-group' . $form_group_class . '" ' . $_form_group_attr . '>';
 		if ($label != '') {
-			if ($data_required) {
+			if($data_required){
 				$select .= '<small class="req text-danger">* </small><label for="' . $name . '" class="control-label">' . _l($label, '', false) . '</label>';
-			} else {
+			}else{
 				$select .= '<label for="' . $name . '" class="control-label">' . app_lang($label, '', false) . '</label>';
 			}
 		}
@@ -289,7 +288,7 @@ if (!function_exists('render_color_picker1')) {
 	{
 		$_input_attrs = '';
 		foreach ($input_attrs as $key => $val) {
-
+        
 			if ($key == 'title') {
 				$val = _l($val);
 			}
@@ -313,7 +312,7 @@ if (!function_exists('render_date_input1')) {
 
 	function render_date_input1($name, $label = '', $value = '', array $input_attrs = [], array $form_group_attr = [], $form_group_class = '', $input_class = '', $data_required = false, $data_required_msg = '', $placeholder = false)
 	{
-		if ($value == null) {
+		if($value == null){
 			$value = '';
 		}
 
@@ -324,7 +323,7 @@ if (!function_exists('render_date_input1')) {
 		$form_group_attr['app-field-wrapper'] = $name;
 
 		foreach ($form_group_attr as $key => $val) {
-
+		
 			if ($key == 'title') {
 				$val = _l($val);
 			}
@@ -341,30 +340,30 @@ if (!function_exists('render_date_input1')) {
 		}
 		$input .= '<div class="form-group' . $form_group_class . '" ' . $_form_group_attr . '>';
 		if ($label != '') {
-			if ($data_required) {
+			if($data_required){
 				$input .= '<small class="req text-danger">* </small><label for="' . $name . '" class="control-label">' . _l($label, '', false) . '</label>';
-			} else {
+			}else{
 				$input .= '<label for="' . $name . '" class="control-label">' . _l($label, '', false) . '</label>';
 			}
 		}
 
-		if ($data_required) {
+		if($data_required){
 			$arr_required = [];
 			$arr_required = [
 				"data-rule-required" => $data_required,
 				"data-msg-required" => $data_required_msg == '' ? app_lang('field_required') : app_lang($data_required_msg),
 				"required" => true,
 			];
-			$input_attrs = array_merge($input_attrs, $arr_required);
+			$input_attrs = array_merge($input_attrs, $arr_required );
 		}
 		$input .= form_input(array_merge(array(
 			"id" => $name,
 			"name" => $name,
 			"value" => $value,
-			"class" => "form-control datePickerInput" . $input_class,
+			"class" => "form-control datePickerInput".$input_class,
 			"placeholder" => $placeholder == true ? app_lang($label) : '',
 			"autocomplete" => "off",
-
+			
 		), $input_attrs), $value, '', $type);
 
 		$input .= '</div>';
@@ -377,7 +376,7 @@ if (!function_exists('get_tax_by_name')) {
 	function get_tax_by_name($name)
 	{
 		$builder = db_connect('default');
-		$builder = $builder->table(get_db_prefix() . 'taxes');
+		$builder = $builder->table(get_db_prefix().'taxes');
 		$builder->where('id', $id);
 		$CI->db->where('title', $name);
 		return $builder->get()->getRow();
@@ -476,11 +475,11 @@ if (!function_exists('module_dir_path')) {
 
 if (!function_exists('endsWith')) {
 	/**
-	 * String ends with
-	 * @param  string $haystack
-	 * @param  string $needle
-	 * @return boolean
-	 */
+	* String ends with
+	* @param  string $haystack
+	* @param  string $needle
+	* @return boolean
+	*/
 	function endsWith($haystack, $needle)
 	{
 		return $needle === '' || (($temp = strlen($haystack) - strlen($needle)) >= 0 && strpos($haystack, $needle, $temp) !== false);
@@ -491,8 +490,10 @@ if (!function_exists('escape_str')) {
 
 	function escape_str($str, $like = FALSE)
 	{
-		if (is_array($str)) {
-			foreach ($str as $key => $val) {
+		if (is_array($str))
+		{
+			foreach ($str as $key => $val)
+			{
 				$str[$key] = $this->escape_str($val, $like);
 			}
 
@@ -502,10 +503,11 @@ if (!function_exists('escape_str')) {
 		$str = _escape_str($str);
 
 		// escape LIKE condition wildcards
-		if ($like === TRUE) {
+		if ($like === TRUE)
+		{
 			return str_replace(
 				array($this->_like_escape_chr, '%', '_'),
-				array($this->_like_escape_chr . $this->_like_escape_chr, $this->_like_escape_chr . '%', $this->_like_escape_chr . '_'),
+				array($this->_like_escape_chr.$this->_like_escape_chr, $this->_like_escape_chr.'%', $this->_like_escape_chr.'_'),
 				$str
 			);
 		}
@@ -516,11 +518,11 @@ if (!function_exists('escape_str')) {
 
 if (!function_exists('startsWith1')) {
 	/**
-	 * String ends with
-	 * @param  string $haystack
-	 * @param  string $needle
-	 * @return boolean
-	 */
+	* String ends with
+	* @param  string $haystack
+	* @param  string $needle
+	* @return boolean
+	*/
 	function startsWith1($haystack, $needle)
 	{
 		return $needle === '' || strrpos($haystack, $needle, -strlen($haystack)) !== false;
@@ -565,8 +567,7 @@ if (!function_exists('_escape_str')) {
  * @return [type]       
  */
 if (!function_exists('_l')) {
-	function _l($lang = "")
-	{
+	function _l($lang = "") {
 		if (!$lang) {
 			return false;
 		}
@@ -580,6 +581,7 @@ if (!function_exists('_l')) {
 
 		return $language_result;
 	}
+
 }
 
 /**
@@ -587,11 +589,11 @@ if (!function_exists('_l')) {
  * @return [type] 
  */
 if (!function_exists('db_prefix')) {
-	function db_prefix()
-	{
+	function db_prefix() {
 		$db = db_connect('default');
 		return $db->getPrefix();
 	}
+
 }
 
 if (!function_exists('is_admin')) {
@@ -599,7 +601,7 @@ if (!function_exists('is_admin')) {
 	{
 		$ci = new Security_Controller(false);
 		if ($ci->login_user->is_admin) {
-			return true;
+            return true;
 		}
 		return false;
 	}
@@ -609,7 +611,7 @@ if (!function_exists('get_staff_user_id1')) {
 	function get_staff_user_id1()
 	{
 
-		$Users_model = model("Models\Users_model");
+        $Users_model = model("Models\Users_model");
 		return $Users_model->login_user_id();
 	}
 }
@@ -675,13 +677,13 @@ if (!function_exists('get_staff_infor')) {
 	}
 }
 
-if (!function_exists('app_generate_hash')) {
+if(!function_exists('app_generate_hash')){
 	/**
 	 * Generate md5 hash
 	 * @return string
 	 */
 	function app_generate_hash()
 	{
-		return md5(rand() . microtime() . time() . uniqid());
+	    return md5(rand() . microtime() . time() . uniqid());
 	}
 }

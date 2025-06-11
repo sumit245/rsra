@@ -6,7 +6,7 @@
 
 	var lastAddedItemKey = "<?php echo html_entity_decode($key_number); ?>";
 
-	/*Validate Form*/
+	/*Validate Form*/	
 	$("#approval_setting-form").appForm({
 		ajaxSubmit: false,
 		onSuccess: function (result) {
@@ -34,7 +34,7 @@
 		$("body").append('<div class="dt-loader"></div>');
 		wh_get_item_row_template('newitems[' + item_key + ']',data.approver, data.staff, data.action, itemid).done(function(output){
 			table_row += output;
-
+			
 			$('.invoice-items-table.items').append(table_row);
 
 			wh_clear_item_preview_values('.row');
@@ -54,7 +54,7 @@
 			async: false
 		});
 
-		var d = $.post("<?php echo get_uri('purchase/get_approval_setting_row_template'); ?>", {
+		var d = $.post("<?php  echo get_uri('purchase/get_approval_setting_row_template'); ?>", {
 			name: name,
 			approver : approver,
 			staff : staff,
