@@ -1,12 +1,8 @@
 <?php
 
 /*
-Plugin Name: HR Records
 Description: The primary function of HR Records is to provide a central database containing records for all employees past and present
-Version: 1.0.0
-Requires at least: 3.0
-Author: GreenTech Solutions
- Author URI: https://codecanyon.net/user/greentech_solutions
+Author: Sumit Ranjan
 */
 
 use App\Controllers\Security_Controller;
@@ -590,6 +586,7 @@ app_hooks()->add_action('app_hook_hrrecord_init', function () {
 	$lic_hrrecord     = new HRRecordLic();
 	$hrrecord_gtssres = $lic_hrrecord->verify_license(true);
 });
+
 app_hooks()->add_action('app_hook_uninstall_plugin_Hr_profile', function () {
 	require_once __DIR__ . '/lib/gtsslib.php';
 });

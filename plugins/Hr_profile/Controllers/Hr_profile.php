@@ -25,7 +25,6 @@ class Hr_profile extends Security_Controller
 		if (!hr_has_permission('hr_profile_can_view_global_hr_dashboard')) {
 			app_redirect("forbidden");
 		}
-
 		$data['title'] = 'HR Profile';
 		return $this->template->rander('Hr_profile\Views\hr_profile_dashboard', $data);
 	}
@@ -39,7 +38,6 @@ class Hr_profile extends Security_Controller
 		if (!hr_has_permission('hr_profile_can_view_global_organizational_chart') && !hr_has_permission('hr_profile_can_view_own_organizational_chart')) {
 			app_redirect("forbidden");
 		}
-
 		$department_options = array(
 			"deleted" => 0,
 		);
@@ -210,29 +208,19 @@ class Hr_profile extends Security_Controller
 	 */
 	public function reception_staff()
 	{
-		if (!is_admin() && !hr_has_permission('hr_profile_can_view_global_onboarding') && !hr_has_permission('hr_profile_can_view_own_onboarding')) {
-			app_redirect("forbidden");
-		}
-
 		$options = array(
 			"user_type" => "staff",
 			"deleted" => 0,
 		);
 		$data['staff_members'] = $this->Users_model->get_details($options)->getResultArray();
-
-		$data['title'] = app_lang('staff_infor');
-		$data['list_staff_not_record'] = $this->hr_profile_model->get_all_staff_not_in_record();
 		$data['list_reception_staff_transfer'] = $this->hr_profile_model->get_setting_transfer_records();
-		$data['staff_dep_tree'] = json_encode($this->hr_profile_model->get_staff_tree());
-		$data['staff_members_chart'] = json_encode($this->hr_profile_model->get_data_chart());
+		// $data['staff_dep_tree'] = json_encode($this->hr_profile_model->get_staff_tree());
+		// $data['staff_members_chart'] = json_encode($this->hr_profile_model->get_data_chart());
 		$data['list_training'] = $this->hr_profile_model->get_all_jp_interview_training();
-		$data['list_reception_staff_asset'] = $this->hr_profile_model->get_setting_asset_allocation();
-		$data['list_record_meta'] = $this->hr_profile_model->get_list_record_meta();
+		$data['list_staff_not_record'] = $this->hr_profile_model->get_all_staff_not_in_record();
 		$data['group_checklist'] = $this->hr_profile_model->group_checklist();
-		$data['setting_training'] = $this->hr_profile_model->get_setting_training();
-		$data['type_of_trainings'] = $this->hr_profile_model->get_type_of_training();
-
-		$data['title'] = app_lang('hr_reception_staff');
+		$data['list_reception_staff_asset'] = $this->hr_profile_model->get_setting_asset_allocation();
+		$data['title'] = _l('hr_staff_profile');
 		return $this->template->rander('Hr_profile\Views\reception_staff/reception_staff', $data);
 	}
 

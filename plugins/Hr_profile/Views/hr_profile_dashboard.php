@@ -106,10 +106,10 @@ $staff_chart_by_job_positions = json_encode($Hr_profile_model->staff_chart_by_jo
 										<td>
 											<a href="<?php echo html_entity_decode(site_url('hr_profile/staff_profile/' . $staff['id']) . '/general'); ?>"><?php echo get_staff_image($staff['id'], false) . $staff['first_name'] . ' ' . $staff['last_name'] ?></a>
 										</td>
-										<td><?php echo html_entity_decode($staff['email']); ?></td>
-										<td><?php echo html_entity_decode($staff['phone']); ?></td>
-										<td><?php echo format_to_date($staff['dob']); ?></td>
-										<td><?php echo app_lang($staff['gender']); ?></td>
+										<td><?php echo html_entity_decode($staff['email'] ?? ' '); ?></td>
+										<td><?php echo html_entity_decode($staff['phone'] ?? ' '); ?></td>
+										<td><?php echo format_to_date($staff['dob'] ?? ' '); ?></td>
+										<td><?php echo app_lang($staff['gender'] ?? ' '); ?></td>
 										<td>
 											<?php
 											$_data = '';
