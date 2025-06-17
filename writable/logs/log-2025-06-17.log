@@ -1,0 +1,3545 @@
+ERROR - 2025-06-17 00:08:13 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-17 00:08:13 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00005-Jun-2025-VEND0034
+    [vendor] => 4
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00005-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 5
+    [expense_convert] => 0
+    [id] => 6
+    [company] => RSDY
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:08:13 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00006-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00006-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 6
+    [expense_convert] => 0
+    [id] => 7
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:08:13 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00002-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00002-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 2
+    [expense_convert] => 0
+    [id] => 3
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:08:13 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00003-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 4
+    [department] => 2
+    [pur_order_name] => #DHE-00003-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 3
+    [expense_convert] => 0
+    [id] => 4
+    [company] => RDYSOLUTIONS
+    [project_name] => Coffee Vending Machine
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:08:13 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00004-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00004-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 4
+    [expense_convert] => 0
+    [id] => 5
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:08:13 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-08
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #-00001-Jun-2025
+    [subtotal] => 5000.00
+    [total_tax] => 500.00
+    [total] => 5225.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-07
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 2
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:08:13 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-May-2025
+    [vendor] => 0
+    [order_date] => 2025-05-22
+    [type] => capex
+    [project] => 3
+    [department] => 0
+    [pur_order_name] => #-00001-May-2025
+    [subtotal] => 0.00
+    [total_tax] => 0.00
+    [total] => 0.00
+    [approve_status] => 2
+    [delivery_date] => 2025-05-24
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 1
+    [company] => 
+    [project_name] => Automatice Soap Dispensor Machine Jig
+    [department_name] => 
+    [currency] => INR
+)
+
+ERROR - 2025-06-17 00:08:59 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 00:09:32 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 00:09:57 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 00:10:12 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 00:11:33 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-17 00:11:33 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00005-Jun-2025-VEND0034
+    [vendor] => 4
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00005-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 5
+    [expense_convert] => 0
+    [id] => 6
+    [company] => RSDY
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:11:33 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00006-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00006-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 6
+    [expense_convert] => 0
+    [id] => 7
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:11:33 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00002-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00002-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 2
+    [expense_convert] => 0
+    [id] => 3
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:11:33 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00003-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 4
+    [department] => 2
+    [pur_order_name] => #DHE-00003-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 3
+    [expense_convert] => 0
+    [id] => 4
+    [company] => RDYSOLUTIONS
+    [project_name] => Coffee Vending Machine
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:11:33 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00004-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00004-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 4
+    [expense_convert] => 0
+    [id] => 5
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:11:33 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-08
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #-00001-Jun-2025
+    [subtotal] => 5000.00
+    [total_tax] => 500.00
+    [total] => 5225.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-07
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 2
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:11:33 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-May-2025
+    [vendor] => 0
+    [order_date] => 2025-05-22
+    [type] => capex
+    [project] => 3
+    [department] => 0
+    [pur_order_name] => #-00001-May-2025
+    [subtotal] => 0.00
+    [total_tax] => 0.00
+    [total] => 0.00
+    [approve_status] => 2
+    [delivery_date] => 2025-05-24
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 1
+    [company] => 
+    [project_name] => Automatice Soap Dispensor Machine Jig
+    [department_name] => 
+    [currency] => INR
+)
+
+ERROR - 2025-06-17 00:12:24 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-17 00:12:24 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00005-Jun-2025-VEND0034
+    [vendor] => 4
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00005-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 5
+    [expense_convert] => 0
+    [id] => 6
+    [company] => RSDY
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:12:24 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00006-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00006-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 6
+    [expense_convert] => 0
+    [id] => 7
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:12:24 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00002-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00002-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 2
+    [expense_convert] => 0
+    [id] => 3
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:12:24 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00003-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 4
+    [department] => 2
+    [pur_order_name] => #DHE-00003-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 3
+    [expense_convert] => 0
+    [id] => 4
+    [company] => RDYSOLUTIONS
+    [project_name] => Coffee Vending Machine
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:12:24 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00004-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00004-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 4
+    [expense_convert] => 0
+    [id] => 5
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:12:24 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-08
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #-00001-Jun-2025
+    [subtotal] => 5000.00
+    [total_tax] => 500.00
+    [total] => 5225.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-07
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 2
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:12:24 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-May-2025
+    [vendor] => 0
+    [order_date] => 2025-05-22
+    [type] => capex
+    [project] => 3
+    [department] => 0
+    [pur_order_name] => #-00001-May-2025
+    [subtotal] => 0.00
+    [total_tax] => 0.00
+    [total] => 0.00
+    [approve_status] => 2
+    [delivery_date] => 2025-05-24
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 1
+    [company] => 
+    [project_name] => Automatice Soap Dispensor Machine Jig
+    [department_name] => 
+    [currency] => INR
+)
+
+ERROR - 2025-06-17 00:13:35 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 00:13:37 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-17 00:13:37 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00005-Jun-2025-VEND0034
+    [vendor] => 4
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00005-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 5
+    [expense_convert] => 0
+    [id] => 6
+    [company] => RSDY
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:13:37 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00006-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00006-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 6
+    [expense_convert] => 0
+    [id] => 7
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:13:37 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00002-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00002-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 2
+    [expense_convert] => 0
+    [id] => 3
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:13:37 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00003-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 4
+    [department] => 2
+    [pur_order_name] => #DHE-00003-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 3
+    [expense_convert] => 0
+    [id] => 4
+    [company] => RDYSOLUTIONS
+    [project_name] => Coffee Vending Machine
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:13:37 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00004-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00004-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 4
+    [expense_convert] => 0
+    [id] => 5
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:13:37 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-08
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #-00001-Jun-2025
+    [subtotal] => 5000.00
+    [total_tax] => 500.00
+    [total] => 5225.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-07
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 2
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:13:37 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-May-2025
+    [vendor] => 0
+    [order_date] => 2025-05-22
+    [type] => capex
+    [project] => 3
+    [department] => 0
+    [pur_order_name] => #-00001-May-2025
+    [subtotal] => 0.00
+    [total_tax] => 0.00
+    [total] => 0.00
+    [approve_status] => 2
+    [delivery_date] => 2025-05-24
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 1
+    [company] => 
+    [project_name] => Automatice Soap Dispensor Machine Jig
+    [department_name] => 
+    [currency] => INR
+)
+
+ERROR - 2025-06-17 00:26:18 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 00:40:27 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-17 00:40:27 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00005-Jun-2025-VEND0034
+    [vendor] => 4
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00005-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 5
+    [expense_convert] => 0
+    [id] => 6
+    [company] => RSDY
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:40:27 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00006-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00006-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 6
+    [expense_convert] => 0
+    [id] => 7
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:40:27 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00002-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00002-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 2
+    [expense_convert] => 0
+    [id] => 3
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:40:27 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00003-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 4
+    [department] => 2
+    [pur_order_name] => #DHE-00003-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 3
+    [expense_convert] => 0
+    [id] => 4
+    [company] => RDYSOLUTIONS
+    [project_name] => Coffee Vending Machine
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:40:27 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00004-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00004-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 4
+    [expense_convert] => 0
+    [id] => 5
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:40:27 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-08
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #-00001-Jun-2025
+    [subtotal] => 5000.00
+    [total_tax] => 500.00
+    [total] => 5225.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-07
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 2
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:40:27 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-May-2025
+    [vendor] => 0
+    [order_date] => 2025-05-22
+    [type] => capex
+    [project] => 3
+    [department] => 0
+    [pur_order_name] => #-00001-May-2025
+    [subtotal] => 0.00
+    [total_tax] => 0.00
+    [total] => 0.00
+    [approve_status] => 2
+    [delivery_date] => 2025-05-24
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 1
+    [company] => 
+    [project_name] => Automatice Soap Dispensor Machine Jig
+    [department_name] => 
+    [currency] => INR
+)
+
+ERROR - 2025-06-17 00:44:28 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 00:44:28 --> Unknown column 'rise_Department.title' in 'field list'
+CRITICAL - 2025-06-17 00:44:28 --> Unknown column 'rise_Department.title' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('
+              SELECT SQL_CALC_FOUND_ROWS pur_order_number, vendor, order_date, type, project, department, pur_order_name, subtotal, total_tax, total, approve_status, delivery_date, delivery_status, number, expense_convert ,rise_pur_orders.id as id,company,pur_order_number,expense_convert,rise_projects.title as project_name,rise_Department.title as department_name,currency
+              FROM rise_pur_orders
+              LEFT JOIN rise_pur_vendor ON rise_pur_vendor.userid = rise_pur_orders.vendor LEFT JOIN rise_team ON rise_team.id = rise_pur_orders.department LEFT JOIN rise_projects ON rise_projects.id = rise_pur_orders.project
+              
+              
+              
+              ORDER BY order_date DESC
+              LIMIT 0, 25
+              ', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(695): CodeIgniter\Database\MySQLi\Connection->execute('
+              SELECT SQL_CALC_FOUND_ROWS pur_order_number, vendor, order_date, type, project, department, pur_order_name, subtotal, total_tax, total, approve_status, delivery_date, delivery_status, number, expense_convert ,rise_pur_orders.id as id,company,pur_order_number,expense_convert,rise_projects.title as project_name,rise_Department.title as department_name,currency
+              FROM rise_pur_orders
+              LEFT JOIN rise_pur_vendor ON rise_pur_vendor.userid = rise_pur_orders.vendor LEFT JOIN rise_team ON rise_team.id = rise_pur_orders.department LEFT JOIN rise_projects ON rise_projects.id = rise_pur_orders.project
+              
+              
+              
+              ORDER BY order_date DESC
+              LIMIT 0, 25
+              ')
+ 3 SYSTEMPATH\Database\BaseConnection.php(609): CodeIgniter\Database\BaseConnection->simpleQuery('
+              SELECT SQL_CALC_FOUND_ROWS pur_order_number, vendor, order_date, type, project, department, pur_order_name, subtotal, total_tax, total, approve_status, delivery_date, delivery_status, number, expense_convert ,rise_pur_orders.id as id,company,pur_order_number,expense_convert,rise_projects.title as project_name,rise_Department.title as department_name,currency
+              FROM rise_pur_orders
+              LEFT JOIN rise_pur_vendor ON rise_pur_vendor.userid = rise_pur_orders.vendor LEFT JOIN rise_team ON rise_team.id = rise_pur_orders.department LEFT JOIN rise_projects ON rise_projects.id = rise_pur_orders.project
+              
+              
+              
+              ORDER BY order_date DESC
+              LIMIT 0, 25
+              ')
+ 4 FCPATH\plugins\Purchase\Models\Purchase_model.php(7639): CodeIgniter\Database\BaseConnection->query('
+              SELECT SQL_CALC_FOUND_ROWS pur_order_number, vendor, order_date, type, project, department, pur_order_name, subtotal, total_tax, total, approve_status, delivery_date, delivery_status, number, expense_convert ,rise_pur_orders.id as id,company,pur_order_number,expense_convert,rise_projects.title as project_name,rise_Department.title as department_name,currency
+              FROM rise_pur_orders
+              LEFT JOIN rise_pur_vendor ON rise_pur_vendor.userid = rise_pur_orders.vendor LEFT JOIN rise_team ON rise_team.id = rise_pur_orders.department LEFT JOIN rise_projects ON rise_projects.id = rise_pur_orders.project
+              
+              
+              
+              ORDER BY order_date DESC
+              LIMIT 0, 25
+              ')
+ 5 FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php(297): Purchase\Models\Purchase_model->get_all_purchase_request('
+              SELECT SQL_CALC_FOUND_ROWS pur_order_number, vendor, order_date, type, project, department, pur_order_name, subtotal, total_tax, total, approve_status, delivery_date, delivery_status, number, expense_convert ,rise_pur_orders.id as id,company,pur_order_number,expense_convert,rise_projects.title as project_name,rise_Department.title as department_name,currency
+              FROM rise_pur_orders
+              LEFT JOIN rise_pur_vendor ON rise_pur_vendor.userid = rise_pur_orders.vendor LEFT JOIN rise_team ON rise_team.id = rise_pur_orders.department LEFT JOIN rise_projects ON rise_projects.id = rise_pur_orders.project
+              
+              
+              
+              ORDER BY order_date DESC
+              LIMIT 0, 25
+              ')
+ 6 FCPATH\plugins\Purchase\Views\purchase_orders\table_pur_order.php(69): data_tables_purchase([...], 'id', 'rise_pur_orders', 'LEFT JOIN rise_pur_vendor ON rise_pur_vendor.userid = rise_pur_orders.vendor LEFT JOIN rise_team ON rise_team.id = rise_pur_orders.department LEFT JOIN rise_projects ON rise_projects.id = rise_pur_orders.project', 'C:\\xampp\\htdocs\\rsra_new\\rsra', [...], 'C:\\xampp\\htdocs\\rsra_new\\rsra', [], [...])
+ 7 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\purchase_orders\\table_pur_order.php')
+ 8 FCPATH\plugins\Purchase\Controllers\Purchase.php(3476): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/purchase_orders/table_pur_order', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_pur_order()
+10 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+11 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-17 00:44:36 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-17 00:44:36 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00005-Jun-2025-VEND0034
+    [vendor] => 4
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00005-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 5
+    [expense_convert] => 0
+    [id] => 6
+    [company] => RSDY
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:44:36 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00006-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00006-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 6
+    [expense_convert] => 0
+    [id] => 7
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:44:36 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00002-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00002-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 2
+    [expense_convert] => 0
+    [id] => 3
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:44:36 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00003-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 4
+    [department] => 2
+    [pur_order_name] => #DHE-00003-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 3
+    [expense_convert] => 0
+    [id] => 4
+    [company] => RDYSOLUTIONS
+    [project_name] => Coffee Vending Machine
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:44:36 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00004-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00004-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 4
+    [expense_convert] => 0
+    [id] => 5
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:44:36 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-08
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #-00001-Jun-2025
+    [subtotal] => 5000.00
+    [total_tax] => 500.00
+    [total] => 5225.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-07
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 2
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:44:36 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-May-2025
+    [vendor] => 0
+    [order_date] => 2025-05-22
+    [type] => capex
+    [project] => 3
+    [department] => 0
+    [pur_order_name] => #-00001-May-2025
+    [subtotal] => 0.00
+    [total_tax] => 0.00
+    [total] => 0.00
+    [approve_status] => 2
+    [delivery_date] => 2025-05-24
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 1
+    [company] => 
+    [project_name] => Automatice Soap Dispensor Machine Jig
+    [department_name] => 
+    [currency] => INR
+)
+
+ERROR - 2025-06-17 00:45:12 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-17 00:45:12 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00005-Jun-2025-VEND0034
+    [vendor] => 4
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => Electrical
+    [pur_order_name] => #DHE-00005-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 5
+    [expense_convert] => 0
+    [id] => 6
+    [company] => RSDY
+    [project_name] => Robotic Cell
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:45:12 --> Undefined array key "department_name"
+in FCPATH\plugins\Purchase\Views\purchase_orders\table_pur_order.php on line 147.
+ 1 FCPATH\plugins\Purchase\Views\purchase_orders\table_pur_order.php(147): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "department_name"', 'FCPATH\\plugins\\Purchase\\Views\\purchase_orders\\table_pur_order.php', 147)
+ 2 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\purchase_orders\\table_pur_order.php')
+ 3 FCPATH\plugins\Purchase\Controllers\Purchase.php(3476): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/purchase_orders/table_pur_order', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_pur_order()
+ 5 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 6 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-17 00:47:50 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-17 00:47:50 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00005-Jun-2025-VEND0034
+    [vendor] => 4
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00005-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 5
+    [expense_convert] => 0
+    [id] => 6
+    [company] => RSDY
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:47:50 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00006-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00006-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 6
+    [expense_convert] => 0
+    [id] => 7
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:47:50 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00002-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00002-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 2
+    [expense_convert] => 0
+    [id] => 3
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:47:50 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00003-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 4
+    [department] => 2
+    [pur_order_name] => #DHE-00003-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 3
+    [expense_convert] => 0
+    [id] => 4
+    [company] => RDYSOLUTIONS
+    [project_name] => Coffee Vending Machine
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:47:50 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00004-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00004-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 4
+    [expense_convert] => 0
+    [id] => 5
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:47:50 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-08
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #-00001-Jun-2025
+    [subtotal] => 5000.00
+    [total_tax] => 500.00
+    [total] => 5225.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-07
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 2
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 00:47:50 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-May-2025
+    [vendor] => 0
+    [order_date] => 2025-05-22
+    [type] => capex
+    [project] => 3
+    [department] => 0
+    [pur_order_name] => #-00001-May-2025
+    [subtotal] => 0.00
+    [total_tax] => 0.00
+    [total] => 0.00
+    [approve_status] => 2
+    [delivery_date] => 2025-05-24
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 1
+    [company] => 
+    [project_name] => Automatice Soap Dispensor Machine Jig
+    [department_name] => 
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:20:15 --> Undefined constant "Department"
+in FCPATH\plugins\Purchase\Views\purchase_orders\manage.php on line 54.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('Purchase\\Views\\purchase_orders\\manage', [], true)
+ 4 APPPATH\Views\layout\index.php(48): view('Purchase\\Views\\purchase_orders\\manage')
+ 5 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\index.php')
+ 6 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 7 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('layout/index', [], true)
+ 8 APPPATH\Libraries\Template.php(38): view('layout/index', [...])
+ 9 APPPATH\Libraries\Template.php(22): App\Libraries\Template->view('layout/index', [...])
+10 FCPATH\plugins\Purchase\Controllers\Purchase.php(3431): App\Libraries\Template->rander('Purchase\\Views\\purchase_orders\\manage', [...])
+11 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->purchase_orders()
+12 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+13 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-17 01:20:22 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-17 01:20:22 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00005-Jun-2025-VEND0034
+    [vendor] => 4
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00005-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 5
+    [expense_convert] => 0
+    [id] => 6
+    [company] => RSDY
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:20:22 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00006-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00006-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 6
+    [expense_convert] => 0
+    [id] => 7
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:20:22 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00002-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00002-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 2
+    [expense_convert] => 0
+    [id] => 3
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:20:22 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00003-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 4
+    [department] => 2
+    [pur_order_name] => #DHE-00003-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 3
+    [expense_convert] => 0
+    [id] => 4
+    [company] => RDYSOLUTIONS
+    [project_name] => Coffee Vending Machine
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:20:22 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00004-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00004-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 4
+    [expense_convert] => 0
+    [id] => 5
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:20:22 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-08
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #-00001-Jun-2025
+    [subtotal] => 5000.00
+    [total_tax] => 500.00
+    [total] => 5225.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-07
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 2
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:20:22 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-May-2025
+    [vendor] => 0
+    [order_date] => 2025-05-22
+    [type] => capex
+    [project] => 3
+    [department] => 0
+    [pur_order_name] => #-00001-May-2025
+    [subtotal] => 0.00
+    [total_tax] => 0.00
+    [total] => 0.00
+    [approve_status] => 2
+    [delivery_date] => 2025-05-24
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 1
+    [company] => 
+    [project_name] => Automatice Soap Dispensor Machine Jig
+    [department_name] => 
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:20:38 --> Undefined constant "Department"
+in FCPATH\plugins\Purchase\Views\purchase_orders\manage.php on line 54.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('Purchase\\Views\\purchase_orders\\manage', [], true)
+ 4 APPPATH\Views\layout\index.php(48): view('Purchase\\Views\\purchase_orders\\manage')
+ 5 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\index.php')
+ 6 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 7 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('layout/index', [], true)
+ 8 APPPATH\Libraries\Template.php(38): view('layout/index', [...])
+ 9 APPPATH\Libraries\Template.php(22): App\Libraries\Template->view('layout/index', [...])
+10 FCPATH\plugins\Purchase\Controllers\Purchase.php(3431): App\Libraries\Template->rander('Purchase\\Views\\purchase_orders\\manage', [...])
+11 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->purchase_orders()
+12 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+13 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-17 01:20:53 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-17 01:20:53 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00005-Jun-2025-VEND0034
+    [vendor] => 4
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00005-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 5
+    [expense_convert] => 0
+    [id] => 6
+    [company] => RSDY
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:20:53 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00006-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00006-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 6
+    [expense_convert] => 0
+    [id] => 7
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:20:53 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00002-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00002-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 2
+    [expense_convert] => 0
+    [id] => 3
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:20:53 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00003-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 4
+    [department] => 2
+    [pur_order_name] => #DHE-00003-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 3
+    [expense_convert] => 0
+    [id] => 4
+    [company] => RDYSOLUTIONS
+    [project_name] => Coffee Vending Machine
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:20:53 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00004-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00004-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 4
+    [expense_convert] => 0
+    [id] => 5
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:20:53 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-08
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #-00001-Jun-2025
+    [subtotal] => 5000.00
+    [total_tax] => 500.00
+    [total] => 5225.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-07
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 2
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:20:53 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-May-2025
+    [vendor] => 0
+    [order_date] => 2025-05-22
+    [type] => capex
+    [project] => 3
+    [department] => 0
+    [pur_order_name] => #-00001-May-2025
+    [subtotal] => 0.00
+    [total_tax] => 0.00
+    [total] => 0.00
+    [approve_status] => 2
+    [delivery_date] => 2025-05-24
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 1
+    [company] => 
+    [project_name] => Automatice Soap Dispensor Machine Jig
+    [department_name] => 
+    [currency] => INR
+)
+
+ERROR - 2025-06-17 01:21:14 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-17 01:21:14 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00005-Jun-2025-VEND0034
+    [vendor] => 4
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00005-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 5
+    [expense_convert] => 0
+    [id] => 6
+    [company] => RSDY
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:21:14 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00006-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00006-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 6
+    [expense_convert] => 0
+    [id] => 7
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:21:14 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00002-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00002-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 2
+    [expense_convert] => 0
+    [id] => 3
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:21:14 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00003-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 4
+    [department] => 2
+    [pur_order_name] => #DHE-00003-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 3
+    [expense_convert] => 0
+    [id] => 4
+    [company] => RDYSOLUTIONS
+    [project_name] => Coffee Vending Machine
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:21:14 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00004-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00004-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 4
+    [expense_convert] => 0
+    [id] => 5
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:21:14 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-08
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #-00001-Jun-2025
+    [subtotal] => 5000.00
+    [total_tax] => 500.00
+    [total] => 5225.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-07
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 2
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:21:14 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-May-2025
+    [vendor] => 0
+    [order_date] => 2025-05-22
+    [type] => capex
+    [project] => 3
+    [department] => 0
+    [pur_order_name] => #-00001-May-2025
+    [subtotal] => 0.00
+    [total_tax] => 0.00
+    [total] => 0.00
+    [approve_status] => 2
+    [delivery_date] => 2025-05-24
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 1
+    [company] => 
+    [project_name] => Automatice Soap Dispensor Machine Jig
+    [department_name] => 
+    [currency] => INR
+)
+
+ERROR - 2025-06-17 01:25:36 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-17 01:25:36 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00005-Jun-2025-VEND0034
+    [vendor] => 4
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00005-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 5
+    [expense_convert] => 0
+    [id] => 6
+    [company] => RSDY
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:25:36 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00006-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00006-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 6
+    [expense_convert] => 0
+    [id] => 7
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:25:36 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00002-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00002-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 2
+    [expense_convert] => 0
+    [id] => 3
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:25:36 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00003-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 4
+    [department] => 2
+    [pur_order_name] => #DHE-00003-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 3
+    [expense_convert] => 0
+    [id] => 4
+    [company] => RDYSOLUTIONS
+    [project_name] => Coffee Vending Machine
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:25:36 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00004-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00004-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 4
+    [expense_convert] => 0
+    [id] => 5
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:25:36 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-08
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #-00001-Jun-2025
+    [subtotal] => 5000.00
+    [total_tax] => 500.00
+    [total] => 5225.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-07
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 2
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:25:36 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-May-2025
+    [vendor] => 0
+    [order_date] => 2025-05-22
+    [type] => capex
+    [project] => 3
+    [department] => 0
+    [pur_order_name] => #-00001-May-2025
+    [subtotal] => 0.00
+    [total_tax] => 0.00
+    [total] => 0.00
+    [approve_status] => 2
+    [delivery_date] => 2025-05-24
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 1
+    [company] => 
+    [project_name] => Automatice Soap Dispensor Machine Jig
+    [department_name] => 
+    [currency] => INR
+)
+
+ERROR - 2025-06-17 01:28:47 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-17 01:28:47 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00005-Jun-2025-VEND0034
+    [vendor] => 4
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00005-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 5
+    [expense_convert] => 0
+    [id] => 6
+    [company] => RSDY
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:28:47 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00006-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00006-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 6
+    [expense_convert] => 0
+    [id] => 7
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:28:47 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00002-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00002-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 2
+    [expense_convert] => 0
+    [id] => 3
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:28:47 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00003-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 4
+    [department] => 2
+    [pur_order_name] => #DHE-00003-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 3
+    [expense_convert] => 0
+    [id] => 4
+    [company] => RDYSOLUTIONS
+    [project_name] => Coffee Vending Machine
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:28:47 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00004-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00004-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 4
+    [expense_convert] => 0
+    [id] => 5
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:28:47 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-08
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #-00001-Jun-2025
+    [subtotal] => 5000.00
+    [total_tax] => 500.00
+    [total] => 5225.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-07
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 2
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:28:47 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-May-2025
+    [vendor] => 0
+    [order_date] => 2025-05-22
+    [type] => capex
+    [project] => 3
+    [department] => 0
+    [pur_order_name] => #-00001-May-2025
+    [subtotal] => 0.00
+    [total_tax] => 0.00
+    [total] => 0.00
+    [approve_status] => 2
+    [delivery_date] => 2025-05-24
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 1
+    [company] => 
+    [project_name] => Automatice Soap Dispensor Machine Jig
+    [department_name] => 
+    [currency] => INR
+)
+
+ERROR - 2025-06-17 01:29:22 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-17 01:29:22 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00005-Jun-2025-VEND0034
+    [vendor] => 4
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00005-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 5
+    [expense_convert] => 0
+    [id] => 6
+    [company] => RSDY
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:29:22 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00006-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00006-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 6
+    [expense_convert] => 0
+    [id] => 7
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:29:22 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00002-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00002-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 2
+    [expense_convert] => 0
+    [id] => 3
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:29:22 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00003-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 4
+    [department] => 2
+    [pur_order_name] => #DHE-00003-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 3
+    [expense_convert] => 0
+    [id] => 4
+    [company] => RDYSOLUTIONS
+    [project_name] => Coffee Vending Machine
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:29:22 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00004-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00004-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 4
+    [expense_convert] => 0
+    [id] => 5
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:29:22 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-08
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #-00001-Jun-2025
+    [subtotal] => 5000.00
+    [total_tax] => 500.00
+    [total] => 5225.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-07
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 2
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:29:22 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-May-2025
+    [vendor] => 0
+    [order_date] => 2025-05-22
+    [type] => capex
+    [project] => 3
+    [department] => 0
+    [pur_order_name] => #-00001-May-2025
+    [subtotal] => 0.00
+    [total_tax] => 0.00
+    [total] => 0.00
+    [approve_status] => 2
+    [delivery_date] => 2025-05-24
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 1
+    [company] => 
+    [project_name] => Automatice Soap Dispensor Machine Jig
+    [department_name] => 
+    [currency] => INR
+)
+
+ERROR - 2025-06-17 01:30:45 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-17 01:30:45 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00005-Jun-2025-VEND0034
+    [vendor] => 4
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00005-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 5
+    [expense_convert] => 0
+    [id] => 6
+    [company] => RSDY
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:30:45 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00006-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00006-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 6
+    [expense_convert] => 0
+    [id] => 7
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:30:45 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00002-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00002-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 2
+    [expense_convert] => 0
+    [id] => 3
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:30:45 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00003-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 4
+    [department] => 2
+    [pur_order_name] => #DHE-00003-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 3
+    [expense_convert] => 0
+    [id] => 4
+    [company] => RDYSOLUTIONS
+    [project_name] => Coffee Vending Machine
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:30:45 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00004-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00004-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 4
+    [expense_convert] => 0
+    [id] => 5
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:30:45 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-08
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #-00001-Jun-2025
+    [subtotal] => 5000.00
+    [total_tax] => 500.00
+    [total] => 5225.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-07
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 2
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:30:45 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-May-2025
+    [vendor] => 0
+    [order_date] => 2025-05-22
+    [type] => capex
+    [project] => 3
+    [department] => 0
+    [pur_order_name] => #-00001-May-2025
+    [subtotal] => 0.00
+    [total_tax] => 0.00
+    [total] => 0.00
+    [approve_status] => 2
+    [delivery_date] => 2025-05-24
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 1
+    [company] => 
+    [project_name] => Automatice Soap Dispensor Machine Jig
+    [department_name] => 
+    [currency] => INR
+)
+
+ERROR - 2025-06-17 01:33:19 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 01:33:20 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-17 01:33:20 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00005-Jun-2025-VEND0034
+    [vendor] => 4
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00005-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 5
+    [expense_convert] => 0
+    [id] => 6
+    [company] => RSDY
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:33:20 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00006-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00006-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 6
+    [expense_convert] => 0
+    [id] => 7
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:33:20 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00002-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00002-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 2
+    [expense_convert] => 0
+    [id] => 3
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:33:20 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00003-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 4
+    [department] => 2
+    [pur_order_name] => #DHE-00003-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 3
+    [expense_convert] => 0
+    [id] => 4
+    [company] => RDYSOLUTIONS
+    [project_name] => Coffee Vending Machine
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:33:20 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00004-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00004-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 4
+    [expense_convert] => 0
+    [id] => 5
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:33:20 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-08
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #-00001-Jun-2025
+    [subtotal] => 5000.00
+    [total_tax] => 500.00
+    [total] => 5225.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-07
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 2
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:33:20 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-May-2025
+    [vendor] => 0
+    [order_date] => 2025-05-22
+    [type] => capex
+    [project] => 3
+    [department] => 0
+    [pur_order_name] => #-00001-May-2025
+    [subtotal] => 0.00
+    [total_tax] => 0.00
+    [total] => 0.00
+    [approve_status] => 2
+    [delivery_date] => 2025-05-24
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 1
+    [company] => 
+    [project_name] => Automatice Soap Dispensor Machine Jig
+    [department_name] => 
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 01:39:18 --> The action you requested is not allowed.
+in SYSTEMPATH\Security\Security.php on line 286.
+ 1 SYSTEMPATH\Security\Security.php(286): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+ 2 SYSTEMPATH\Filters\CSRF.php(54): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 4 SYSTEMPATH\CodeIgniter.php(440): CodeIgniter\Filters\Filters->run('messages/count_notifications', 'before')
+ 5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-17 02:20:59 --> The action you requested is not allowed.
+in SYSTEMPATH\Security\Security.php on line 286.
+ 1 SYSTEMPATH\Security\Security.php(286): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+ 2 SYSTEMPATH\Filters\CSRF.php(54): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 4 SYSTEMPATH\CodeIgniter.php(440): CodeIgniter\Filters\Filters->run('purchase/table_pur_order', 'before')
+ 5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-17 02:21:12 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-17 02:21:12 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00005-Jun-2025-VEND0034
+    [vendor] => 4
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00005-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 5
+    [expense_convert] => 0
+    [id] => 6
+    [company] => RSDY
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 02:21:12 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00006-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00006-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 6
+    [expense_convert] => 0
+    [id] => 7
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 02:21:12 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00002-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00002-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 2
+    [expense_convert] => 0
+    [id] => 3
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 02:21:12 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00003-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 4
+    [department] => 2
+    [pur_order_name] => #DHE-00003-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 3
+    [expense_convert] => 0
+    [id] => 4
+    [company] => RDYSOLUTIONS
+    [project_name] => Coffee Vending Machine
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 02:21:12 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00004-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00004-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 4
+    [expense_convert] => 0
+    [id] => 5
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 02:21:12 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-08
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #-00001-Jun-2025
+    [subtotal] => 5000.00
+    [total_tax] => 500.00
+    [total] => 5225.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-07
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 2
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 02:21:12 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-May-2025
+    [vendor] => 0
+    [order_date] => 2025-05-22
+    [type] => capex
+    [project] => 3
+    [department] => 0
+    [pur_order_name] => #-00001-May-2025
+    [subtotal] => 0.00
+    [total_tax] => 0.00
+    [total] => 0.00
+    [approve_status] => 2
+    [delivery_date] => 2025-05-24
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 1
+    [company] => 
+    [project_name] => Automatice Soap Dispensor Machine Jig
+    [department_name] => 
+    [currency] => INR
+)
+
+ERROR - 2025-06-17 03:00:26 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-17 03:00:26 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00005-Jun-2025-VEND0034
+    [vendor] => 4
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00005-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 5
+    [expense_convert] => 0
+    [id] => 6
+    [company] => RSDY
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 03:00:26 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00006-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00006-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 6
+    [expense_convert] => 0
+    [id] => 7
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 03:00:26 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00002-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00002-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 2
+    [expense_convert] => 0
+    [id] => 3
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 03:00:26 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00003-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 4
+    [department] => 2
+    [pur_order_name] => #DHE-00003-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 3
+    [expense_convert] => 0
+    [id] => 4
+    [company] => RDYSOLUTIONS
+    [project_name] => Coffee Vending Machine
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 03:00:26 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00004-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00004-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 4
+    [expense_convert] => 0
+    [id] => 5
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 03:00:26 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-08
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #-00001-Jun-2025
+    [subtotal] => 5000.00
+    [total_tax] => 500.00
+    [total] => 5225.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-07
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 2
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 03:00:26 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-May-2025
+    [vendor] => 0
+    [order_date] => 2025-05-22
+    [type] => capex
+    [project] => 3
+    [department] => 0
+    [pur_order_name] => #-00001-May-2025
+    [subtotal] => 0.00
+    [total_tax] => 0.00
+    [total] => 0.00
+    [approve_status] => 2
+    [delivery_date] => 2025-05-24
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 1
+    [company] => 
+    [project_name] => Automatice Soap Dispensor Machine Jig
+    [department_name] => 
+    [currency] => INR
+)
+
+ERROR - 2025-06-17 03:08:14 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-17 03:08:14 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00005-Jun-2025-VEND0034
+    [vendor] => 4
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00005-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 5
+    [expense_convert] => 0
+    [id] => 6
+    [company] => RSDY
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 03:08:14 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00006-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00006-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 6
+    [expense_convert] => 0
+    [id] => 7
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 03:08:14 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00002-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00002-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 2
+    [expense_convert] => 0
+    [id] => 3
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 03:08:14 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00003-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 4
+    [department] => 2
+    [pur_order_name] => #DHE-00003-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 3
+    [expense_convert] => 0
+    [id] => 4
+    [company] => RDYSOLUTIONS
+    [project_name] => Coffee Vending Machine
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 03:08:14 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00004-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00004-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 4
+    [expense_convert] => 0
+    [id] => 5
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 03:08:14 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-08
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #-00001-Jun-2025
+    [subtotal] => 5000.00
+    [total_tax] => 500.00
+    [total] => 5225.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-07
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 2
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 03:08:14 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-May-2025
+    [vendor] => 0
+    [order_date] => 2025-05-22
+    [type] => capex
+    [project] => 3
+    [department] => 0
+    [pur_order_name] => #-00001-May-2025
+    [subtotal] => 0.00
+    [total_tax] => 0.00
+    [total] => 0.00
+    [approve_status] => 2
+    [delivery_date] => 2025-05-24
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 1
+    [company] => 
+    [project_name] => Automatice Soap Dispensor Machine Jig
+    [department_name] => 
+    [currency] => INR
+)
+
+ERROR - 2025-06-17 03:13:02 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-17 03:13:02 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00005-Jun-2025-VEND0034
+    [vendor] => 4
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00005-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 5
+    [expense_convert] => 0
+    [id] => 6
+    [company] => RSDY
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 03:13:02 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00006-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00006-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 6
+    [expense_convert] => 0
+    [id] => 7
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 03:13:02 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00002-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00002-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 2
+    [expense_convert] => 0
+    [id] => 3
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 03:13:02 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00003-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 4
+    [department] => 2
+    [pur_order_name] => #DHE-00003-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 3
+    [expense_convert] => 0
+    [id] => 4
+    [company] => RDYSOLUTIONS
+    [project_name] => Coffee Vending Machine
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 03:13:02 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00004-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00004-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 4
+    [expense_convert] => 0
+    [id] => 5
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 03:13:02 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-08
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #-00001-Jun-2025
+    [subtotal] => 5000.00
+    [total_tax] => 500.00
+    [total] => 5225.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-07
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 2
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 03:13:02 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-May-2025
+    [vendor] => 0
+    [order_date] => 2025-05-22
+    [type] => capex
+    [project] => 3
+    [department] => 0
+    [pur_order_name] => #-00001-May-2025
+    [subtotal] => 0.00
+    [total_tax] => 0.00
+    [total] => 0.00
+    [approve_status] => 2
+    [delivery_date] => 2025-05-24
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 1
+    [company] => 
+    [project_name] => Automatice Soap Dispensor Machine Jig
+    [department_name] => 
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 03:39:23 --> The action you requested is not allowed.
+in SYSTEMPATH\Security\Security.php on line 286.
+ 1 SYSTEMPATH\Security\Security.php(286): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+ 2 SYSTEMPATH\Filters\CSRF.php(54): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 4 SYSTEMPATH\CodeIgniter.php(440): CodeIgniter\Filters\Filters->run('messages/count_notifications', 'before')
+ 5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-17 04:14:58 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-17 04:14:59 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00005-Jun-2025-VEND0034
+    [vendor] => 4
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00005-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 5
+    [expense_convert] => 0
+    [id] => 6
+    [company] => RSDY
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 04:14:59 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00006-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-16
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00006-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-16
+    [delivery_status] => 1
+    [number] => 6
+    [expense_convert] => 0
+    [id] => 7
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 04:14:59 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00002-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00002-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 2
+    [expense_convert] => 0
+    [id] => 3
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 04:14:59 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00003-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 4
+    [department] => 2
+    [pur_order_name] => #DHE-00003-Jun-2025
+    [subtotal] => 1000.00
+    [total_tax] => 100.00
+    [total] => 1100.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 3
+    [expense_convert] => 0
+    [id] => 4
+    [company] => RDYSOLUTIONS
+    [project_name] => Coffee Vending Machine
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 04:14:59 --> Data Retrieved isArray
+(
+    [pur_order_number] => #DHE-00004-Jun-2025-VEND007
+    [vendor] => 3
+    [order_date] => 2025-06-13
+    [type] => capex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #DHE-00004-Jun-2025
+    [subtotal] => 3000.00
+    [total_tax] => 300.00
+    [total] => 3300.00
+    [approve_status] => 2
+    [delivery_date] => 
+    [delivery_status] => 0
+    [number] => 4
+    [expense_convert] => 0
+    [id] => 5
+    [company] => RDYSOLUTIONS
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 04:14:59 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-Jun-2025-VEND001
+    [vendor] => 1
+    [order_date] => 2025-06-08
+    [type] => opex
+    [project] => 5
+    [department] => 2
+    [pur_order_name] => #-00001-Jun-2025
+    [subtotal] => 5000.00
+    [total_tax] => 500.00
+    [total] => 5225.00
+    [approve_status] => 2
+    [delivery_date] => 2025-06-07
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 2
+    [company] => Surya Infotech
+    [project_name] => Robotic Cell
+    [department_name] => Electrical
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 04:14:59 --> Data Retrieved isArray
+(
+    [pur_order_number] => #-00001-May-2025
+    [vendor] => 0
+    [order_date] => 2025-05-22
+    [type] => capex
+    [project] => 3
+    [department] => 0
+    [pur_order_name] => #-00001-May-2025
+    [subtotal] => 0.00
+    [total_tax] => 0.00
+    [total] => 0.00
+    [approve_status] => 2
+    [delivery_date] => 2025-05-24
+    [delivery_status] => 0
+    [number] => 1
+    [expense_convert] => 0
+    [id] => 1
+    [company] => 
+    [project_name] => Automatice Soap Dispensor Machine Jig
+    [department_name] => 
+    [currency] => INR
+)
+
+CRITICAL - 2025-06-17 05:39:26 --> The action you requested is not allowed.
+in SYSTEMPATH\Security\Security.php on line 286.
+ 1 SYSTEMPATH\Security\Security.php(286): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+ 2 SYSTEMPATH\Filters\CSRF.php(54): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 4 SYSTEMPATH\CodeIgniter.php(440): CodeIgniter\Filters\Filters->run('messages/count_notifications', 'before')
+ 5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()

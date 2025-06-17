@@ -3,66 +3,71 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
-use stdClass;
-
 
 //extend from this model to execute basic db operations
-class Crud_model extends Model {
+class Crud_model extends Model
+{
 
     protected $table;
     protected $db;
-    protected $db_builder = null;
-    private $log_activity = false;
-    private $log_type = "";
-    private $log_for = "";
-    private $log_for_key = "";
-    private $log_for2 = "";
-    private $log_for_key2 = "";
-    protected $allowedFields = array();
+    protected $db_builder    = null;
+    private $log_activity    = false;
+    private $log_type        = "";
+    private $log_for         = "";
+    private $log_for_key     = "";
+    private $log_for2        = "";
+    private $log_for_key2    = "";
+    protected $allowedFields = [];
     private $Activity_logs_model;
 
-    function __construct($table = null, $db = null) {
+    public function __construct($table = null, $db = null)
+    {
         $this->Activity_logs_model = model("App\Models\Activity_logs_model");
-        $this->db = $db ? $db : db_connect('default');
+        $this->db                  = $db ? $db : db_connect('default');
         $this->db->query("SET sql_mode = ''");
         $this->use_table($table);
     }
 
-    protected function use_table($table) {
-        $db_prefix = $this->db->getPrefix();
-        $this->table = $db_prefix . $table;
+    protected function use_table($table)
+    {
+        $db_prefix        = $this->db->getPrefix();
+        $this->table      = $db_prefix . $table;
         $this->db_builder = $this->db->table($this->table);
     }
 
-    protected function disable_log_activity() {
+    protected function disable_log_activity()
+    {
         $this->log_activity = false;
     }
 
-    protected function init_activity_log($log_type = "", $log_type_title_key = "", $log_for = "", $log_for_key = 0, $log_for2 = "", $log_for_key2 = 0) {
+    protected function init_activity_log($log_type = "", $log_type_title_key = "", $log_for = "", $log_for_key = 0, $log_for2 = "", $log_for_key2 = 0)
+    {
         if ($log_type) {
-            $this->log_activity = true;
-            $this->log_type = $log_type;
+            $this->log_activity       = true;
+            $this->log_type           = $log_type;
             $this->log_type_title_key = $log_type_title_key;
-            $this->log_for = $log_for;
-            $this->log_for_key = $log_for_key;
-            $this->log_for2 = $log_for2;
-            $this->log_for_key2 = $log_for_key2;
+            $this->log_for            = $log_for;
+            $this->log_for_key        = $log_for_key;
+            $this->log_for2           = $log_for2;
+            $this->log_for_key2       = $log_for_key2;
         }
     }
 
-    function get_one($id = 0) {
-        return $this->get_one_where(array('id' => $id));
+    public function get_one($id = 0)
+    {
+        return $this->get_one_where(['id' => $id]);
     }
 
-    function get_one_where($where = array()) {
-        $where = $this->escape_array($where);
+    public function get_one_where($where = [])
+    {
+        $where  = $this->escape_array($where);
         $result = $this->db_builder->getWhere($where, 1);
 
         if ($result->getRow()) {
             return $result->getRow();
         } else {
             $db_fields = $this->db->getFieldNames($this->table);
-            $fields = new \stdClass();
+            $fields    = new \stdClass();
             foreach ($db_fields as $field) {
                 $fields->$field = "";
             }
@@ -71,26 +76,29 @@ class Crud_model extends Model {
         }
     }
 
-    function get_all($include_deleted = false) {
-        $where = array("deleted" => 0);
+    public function get_all($include_deleted = false)
+    {
+        $where = ["deleted" => 0];
         if ($include_deleted) {
-            $where = array();
+            $where = [];
         }
         return $this->get_all_where($where);
     }
 
-    function escape_array($values = array()) {
+    public function escape_array($values = [])
+    {
         if ($values && is_array($values)) {
             foreach ($values as $key => $value) {
-                $values[$key] = ($value && !is_array($value)) ? $this->db->escapeString($value) : $value;
+                $values[$key] = ($value && ! is_array($value)) ? $this->db->escapeString($value) : $value;
             }
         }
 
         return $values;
     }
 
-    function get_all_where($where = array(), $limit = 1000000, $offset = 0, $sort_by_field = null) {
-        $where = $this->escape_array($where);
+    public function get_all_where($where = [], $limit = 1000000, $offset = 0, $sort_by_field = null)
+    {
+        $where    = $this->escape_array($where);
         $where_in = get_array_value($where, "where_in");
         if ($where_in) {
             foreach ($where_in as $key => $value) {
@@ -106,7 +114,8 @@ class Crud_model extends Model {
         return $this->db_builder->getWhere($where, $limit, $offset);
     }
 
-    function ci_save(&$data = array(), $id = 0) {
+    public function ci_save(&$data = [], $id = 0)
+    {
         //allowed fields should be assigned
         $db_fields = $this->db->getFieldNames($this->table);
         foreach ($db_fields as $field) {
@@ -126,7 +135,7 @@ class Crud_model extends Model {
             $id = $this->db->escapeString($id);
 
             //update
-            $where = array("id" => $id);
+            $where = ["id" => $id];
 
             //to log an activity we have to know the changes. now collect the data before update anything
             if ($this->log_activity) {
@@ -142,10 +151,10 @@ class Crud_model extends Model {
                     }
 
                     //to log this activity, check the changes
-                    $fields_changed = array();
+                    $fields_changed = [];
                     foreach ($data as $field => $value) {
                         if ($data_before_update->$field != $value) {
-                            $fields_changed[$field] = array("from" => $data_before_update->$field, "to" => $value);
+                            $fields_changed[$field] = ["from" => $data_before_update->$field, "to" => $value];
                         }
                     }
                     //has changes? log the changes.
@@ -153,42 +162,42 @@ class Crud_model extends Model {
                         $log_for_id = 0;
                         if ($this->log_for_key) {
                             $log_for_key = $this->log_for_key;
-                            $log_for_id = $data_before_update->$log_for_key;
+                            $log_for_id  = $data_before_update->$log_for_key;
                         }
 
                         $log_for_id2 = 0;
                         if ($this->log_for_key2) {
                             $log_for_key2 = $this->log_for_key2;
-                            $log_for_id2 = $data_before_update->$log_for_key2;
+                            $log_for_id2  = $data_before_update->$log_for_key2;
                         }
 
                         $log_type_title_key = $this->log_type_title_key;
-                        $log_type_title = isset($data_before_update->$log_type_title_key) ? $data_before_update->$log_type_title_key : "";
+                        $log_type_title     = isset($data_before_update->$log_type_title_key) ? $data_before_update->$log_type_title_key : "";
 
-                        $log_data = array(
-                            "action" => "updated",
-                            "log_type" => $this->log_type,
+                        $log_data = [
+                            "action"         => "updated",
+                            "log_type"       => $this->log_type,
                             "log_type_title" => $log_type_title,
-                            "log_type_id" => $id,
-                            "changes" => serialize($fields_changed),
-                            "log_for" => $this->log_for,
-                            "log_for_id" => $log_for_id,
-                            "log_for2" => $this->log_for2,
-                            "log_for_id2" => $log_for_id2,
-                        );
+                            "log_type_id"    => $id,
+                            "changes"        => serialize($fields_changed),
+                            "log_for"        => $this->log_for,
+                            "log_for_id"     => $log_for_id,
+                            "log_for2"       => $this->log_for2,
+                            "log_for_id2"    => $log_for_id2,
+                        ];
                         $this->Activity_logs_model->ci_save($log_data, $activity_log_created_by_app);
-                        $activity_log_id = $this->db->insertID();
+                        $activity_log_id         = $this->db->insertID();
                         $data["activity_log_id"] = $activity_log_id;
                     }
                 }
             }
 
             try {
-                app_hooks()->do_action("app_hook_data_update", array(
-                    "id" => $id,
+                app_hooks()->do_action("app_hook_data_update", [
+                    "id"    => $id,
                     "table" => $this->table,
-                    "data" => $data
-                ));
+                    "data"  => $data,
+                ]);
             } catch (\Exception $ex) {
                 log_message('error', '[ERROR] {exception}', ['exception' => $ex]);
             }
@@ -211,27 +220,27 @@ class Crud_model extends Model {
                     }
 
                     $log_type_title = get_array_value($data, $this->log_type_title_key);
-                    $log_data = array(
-                        "action" => "created",
-                        "log_type" => $this->log_type,
+                    $log_data       = [
+                        "action"         => "created",
+                        "log_type"       => $this->log_type,
                         "log_type_title" => $log_type_title ? $log_type_title : "",
-                        "log_type_id" => $insert_id,
-                        "log_for" => $this->log_for,
-                        "log_for_id" => $log_for_id,
-                        "log_for2" => $this->log_for2,
-                        "log_for_id2" => $log_for_id2,
-                    );
+                        "log_type_id"    => $insert_id,
+                        "log_for"        => $this->log_for,
+                        "log_for_id"     => $log_for_id,
+                        "log_for2"       => $this->log_for2,
+                        "log_for_id2"    => $log_for_id2,
+                    ];
                     $this->Activity_logs_model->ci_save($log_data, $activity_log_created_by_app);
-                    $activity_log_id = $this->db->insertID();
+                    $activity_log_id         = $this->db->insertID();
                     $data["activity_log_id"] = $activity_log_id;
                 }
 
                 try {
-                    app_hooks()->do_action("app_hook_data_insert", array(
-                        "id" => $insert_id,
+                    app_hooks()->do_action("app_hook_data_insert", [
+                        "id"    => $insert_id,
                         "table" => $this->table,
-                        "data" => $data
-                    ));
+                        "data"  => $data,
+                    ]);
                 } catch (\Exception $ex) {
                     log_message('error', '[ERROR] {exception}', ['exception' => $ex]);
                 }
@@ -241,7 +250,8 @@ class Crud_model extends Model {
         }
     }
 
-    function update_where($data = array(), $where = array()) {
+    public function update_where($data = [], $where = [])
+    {
         if (count($where)) {
             if ($this->db_builder->update($data, $where)) {
                 $id = get_array_value($where, "id");
@@ -254,11 +264,12 @@ class Crud_model extends Model {
         }
     }
 
-    function delete($id = 0, $undo = false) {
+    public function delete($id = 0, $undo = false)
+    {
         validate_numeric_value($id);
-        $data = array('deleted' => 1);
+        $data = ['deleted' => 1];
         if ($undo === true) {
-            $data = array('deleted' => 0);
+            $data = ['deleted' => 0];
         }
         $this->db_builder->where("id", $id);
         $success = $this->db_builder->update($data);
@@ -266,35 +277,35 @@ class Crud_model extends Model {
             if ($this->log_activity) {
                 if ($undo) {
                     // remove previous deleted log.
-                    $this->Activity_logs_model->delete_where(array("action" => "deleted", "log_type" => $this->log_type, "log_type_id" => $id));
+                    $this->Activity_logs_model->delete_where(["action" => "deleted", "log_type" => $this->log_type, "log_type_id" => $id]);
                 } else {
                     //to log this activity check the title
                     $model_info = $this->get_one($id);
                     $log_for_id = 0;
                     if ($this->log_for_key) {
                         $log_for_key = $this->log_for_key;
-                        $log_for_id = $model_info->$log_for_key;
+                        $log_for_id  = $model_info->$log_for_key;
                     }
                     $log_type_title_key = $this->log_type_title_key;
-                    $log_type_title = $model_info->$log_type_title_key;
-                    $log_data = array(
-                        "action" => "deleted",
-                        "log_type" => $this->log_type,
+                    $log_type_title     = $model_info->$log_type_title_key;
+                    $log_data           = [
+                        "action"         => "deleted",
+                        "log_type"       => $this->log_type,
                         "log_type_title" => $log_type_title ? $log_type_title : "",
-                        "log_type_id" => $id,
-                        "log_for" => $this->log_for,
-                        "log_for_id" => $log_for_id,
-                    );
+                        "log_type_id"    => $id,
+                        "log_for"        => $this->log_for,
+                        "log_for_id"     => $log_for_id,
+                    ];
                     $this->Activity_logs_model->ci_save($log_data);
                 }
             }
         }
 
         try {
-            app_hooks()->do_action("app_hook_data_delete", array(
-                "id" => $id,
-                "table" => $this->table
-            ));
+            app_hooks()->do_action("app_hook_data_delete", [
+                "id"    => $id,
+                "table" => $this->table,
+            ]);
         } catch (\Exception $ex) {
             log_message('error', '[ERROR] {exception}', ['exception' => $ex]);
         }
@@ -302,10 +313,11 @@ class Crud_model extends Model {
         return $success;
     }
 
-    function get_dropdown_list($option_fields = array(), $key = "id", $where = array()) {
+    public function get_dropdown_list($option_fields = [], $key = "id", $where = [])
+    {
         $where["deleted"] = 0;
-        $list_data = $this->get_all_where($where, 0, 0, $option_fields[0])->getResult();
-        $result = array();
+        $list_data        = $this->get_all_where($where, 0, 0, $option_fields[0])->getResult();
+        $result           = [];
         foreach ($list_data as $data) {
             $text = "";
             foreach ($option_fields as $option) {
@@ -317,16 +329,17 @@ class Crud_model extends Model {
     }
 
     //prepare a query string to get custom fields like as a normal field
-    protected function prepare_custom_field_query_string($related_to, $custom_fields, $related_to_table, $custom_field_filter = array()) {
+    protected function prepare_custom_field_query_string($related_to, $custom_fields, $related_to_table, $custom_field_filter = [])
+    {
 
-        $join_string = "";
-        $select_string = "";
+        $join_string               = "";
+        $select_string             = "";
         $custom_field_values_table = $this->db->prefixTable('custom_field_values');
 
         if ($related_to && $custom_fields) {
             $related_to = $this->db->escapeString($related_to);
             foreach ($custom_fields as $cf) {
-                $cf_id = $cf->id;
+                $cf_id         = $cf->id;
                 $virtual_table = "cfvt_$cf_id"; //custom field values virtual table
 
                 $select_string .= " , $virtual_table.value AS cfv_$cf_id ";
@@ -335,8 +348,8 @@ class Crud_model extends Model {
         }
 
         $where_string = "";
-        if (is_null($custom_field_filter) || !$custom_field_filter) {
-            $custom_field_filter = array();
+        if (is_null($custom_field_filter) || ! $custom_field_filter) {
+            $custom_field_filter = [];
         }
         foreach ($custom_field_filter as $cf_id => $cf_filter) {
             if ($where_string) {
@@ -349,14 +362,15 @@ class Crud_model extends Model {
             $where_string = " AND $related_to_table.id IN(SELECT $custom_field_values_table.related_to_id FROM $custom_field_values_table WHERE $custom_field_values_table.related_to_type='$related_to' AND $custom_field_values_table.deleted=0 AND ($where_string))";
         }
 
-        return array("select_string" => $select_string, "join_string" => $join_string, "where_string" => $where_string);
+        return ["select_string" => $select_string, "join_string" => $join_string, "where_string" => $where_string];
     }
 
     //get query of clients data according to to currency
-    protected function _get_clients_of_currency_query($currency, $invoices_table, $clients_table) {
+    protected function _get_clients_of_currency_query($currency, $invoices_table, $clients_table)
+    {
         $default_currency = get_setting("default_currency");
-        $currency = $currency ? $currency : $default_currency;
-        $currency = $currency ? $this->db->escapeString($currency) : $currency;
+        $currency         = $currency ? $currency : $default_currency;
+        $currency         = $currency ? $this->db->escapeString($currency) : $currency;
 
         $client_where = ($currency == $default_currency) ? " AND $clients_table.currency='$default_currency' OR $clients_table.currency='' OR $clients_table.currency IS NULL" : " AND $clients_table.currency='$currency'";
 
@@ -364,7 +378,8 @@ class Crud_model extends Model {
     }
 
     //get total invoice value calculation query
-    protected function _get_invoice_value_calculation_query($invoices_table) {
+    protected function _get_invoice_value_calculation_query($invoices_table)
+    {
         $select_invoice_value = "IFNULL(items_table.invoice_value,0)";
 
         $after_tax_1 = "(IFNULL(tax_table.percentage,0)/100*$select_invoice_value)";
@@ -388,13 +403,15 @@ class Crud_model extends Model {
         return $invoice_value_calculation_query;
     }
 
-    protected function get_labels_data_query() {
+    protected function get_labels_data_query()
+    {
         $labels_table = $this->db->prefixTable("labels");
 
         return "(SELECT GROUP_CONCAT($labels_table.id, '--::--', $labels_table.title, '--::--', $labels_table.color, ':--::--:') FROM $labels_table WHERE FIND_IN_SET($labels_table.id, $this->table.labels)) AS labels_list";
     }
 
-    function delete_permanently($id = 0) {
+    public function delete_permanently($id = 0)
+    {
         if ($id) {
             validate_numeric_value($id);
             $this->db_builder->where('id', $id);
@@ -402,7 +419,8 @@ class Crud_model extends Model {
         }
     }
 
-    protected function prepare_allowed_client_groups_query($clients_table, $client_groups = "") {
+    protected function prepare_allowed_client_groups_query($clients_table, $client_groups = "")
+    {
         $where = "";
 
         if ($client_groups && count($client_groups)) {
@@ -423,7 +441,8 @@ class Crud_model extends Model {
         return $where;
     }
 
-    protected function _get_clean_value($options, $key) {
+    protected function _get_clean_value($options, $key)
+    {
 
         $value = get_array_value($options, $key);
         if ($value) {
@@ -433,9 +452,9 @@ class Crud_model extends Model {
         }
     }
 
-    protected function get_custom_field_search_query($table, $related_to_type, $search_by) {
+    protected function get_custom_field_search_query($table, $related_to_type, $search_by)
+    {
         $custom_field_values_table = $this->db->prefixTable('custom_field_values');
         return " OR $table.id IN( SELECT $custom_field_values_table.related_to_id FROM $custom_field_values_table WHERE $custom_field_values_table.deleted=0 AND $custom_field_values_table.related_to_type='$related_to_type' AND $custom_field_values_table.value LIKE '%$search_by%' ESCAPE '!' ) ";
     }
-
 }

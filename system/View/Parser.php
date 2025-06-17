@@ -285,7 +285,7 @@ class Parser extends View
         // have something to loop over.
         preg_match_all(
             '#' . $this->leftDelimiter . '\s*' . preg_quote($variable, '#') . '\s*' . $this->rightDelimiter . '(.+?)' .
-            $this->leftDelimiter . '\s*' . '/' . preg_quote($variable, '#') . '\s*' . $this->rightDelimiter . '#s',
+                $this->leftDelimiter . '\s*' . '/' . preg_quote($variable, '#') . '\s*' . $this->rightDelimiter . '#s',
             $template,
             $matches,
             PREG_SET_ORDER
@@ -300,7 +300,7 @@ class Parser extends View
         foreach ($matches as $match) {
             // Loop over each piece of $data, replacing
             // its contents so that we know what to replace in parse()
-            $str = '';  // holds the new contents for this tag pair.
+            $str = ''; // holds the new contents for this tag pair.
 
             foreach ($data as $row) {
                 // Objects that have a `toArray()` method should be

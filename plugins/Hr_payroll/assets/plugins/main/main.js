@@ -6,27 +6,27 @@ $.fn.dataTableExt.oStdClasses.sWrapper = 'dataTables_wrapper form-inline dt-boot
 
 // Predefined global variables
 var original_top_search_val,
-table_leads,
-table_activity_log,
-table_estimates,
-table_invoices,
-table_tasks,
-side_bar = $('#sidebar-menu'),
-content_wrapper = $('#wrapper'),
-setup_menu = $('#setup-menu-wrapper'),
-menu_href_selector,
-calendar_selector = $('#calendar'),
-notifications_wrapper = $('#header').find('li.notifications-wrapper'),
-doc_initial_title = document.title,
-newsfeed_posts_page = 0,
-track_load_post_likes = 0,
-track_load_comment_likes = 0,
-post_likes_total_pages = 0,
-comment_likes_total_pages = 0,
-select_picker_validated_event = false,
-postid = 0,
-lastAddedItemKey = null,
-setup_menu_item = $('#setup-menu-item');
+	table_leads,
+	table_activity_log,
+	table_estimates,
+	table_invoices,
+	table_tasks,
+	side_bar = $('#sidebar-menu'),
+	content_wrapper = $('#wrapper'),
+	setup_menu = $('#setup-menu-wrapper'),
+	menu_href_selector,
+	calendar_selector = $('#calendar'),
+	notifications_wrapper = $('#header').find('li.notifications-wrapper'),
+	doc_initial_title = document.title,
+	newsfeed_posts_page = 0,
+	track_load_post_likes = 0,
+	track_load_comment_likes = 0,
+	post_likes_total_pages = 0,
+	comment_likes_total_pages = 0,
+	select_picker_validated_event = false,
+	postid = 0,
+	lastAddedItemKey = null,
+	setup_menu_item = $('#setup-menu-item');
 
 // General function for all datatables serverside
 function initDataTable(selector, url, notsearchable, notsortable, fnserverparams, defaultorder) {
@@ -41,7 +41,7 @@ function initDataTable(selector, url, notsearchable, notsortable, fnserverparams
 	// If not order is passed order by the first column
 	if (typeof (defaultorder) == 'undefined') {
 		defaultorder = [
-		[0, 'asc']
+			[0, 'asc']
 		];
 	} else {
 		if (defaultorder.length === 1) {
@@ -149,7 +149,7 @@ function initDataTable(selector, url, notsearchable, notsortable, fnserverparams
 			t.removeClass('dt-table-loading');
 			var th_last_child = t.find('thead th:last-child');
 			var th_first_child = t.find('thead th:first-child');
-			
+
 			if (th_first_child.find('input[type="checkbox"]').length > 0) {
 				th_first_child.addClass('not-export');
 			}
@@ -225,7 +225,7 @@ function initDataTable(selector, url, notsearchable, notsortable, fnserverparams
 			}
 		});
 
-		
+
 	}
 
 	// Fix for hidden tables colspan not correct if the table is empty
@@ -236,19 +236,20 @@ function initDataTable(selector, url, notsearchable, notsortable, fnserverparams
 	table.on('preXhr.dt', function (e, settings, data) {
 		if (settings.jqXHR) settings.jqXHR.abort();
 	});
+	console.log(tableApi);
 
 	return tableApi;
 }
 
 // Check if field is empty
 function empty(data) {
-	if (typeof(data) == 'number' || typeof(data) == 'boolean') {
+	if (typeof (data) == 'number' || typeof (data) == 'boolean') {
 		return false;
 	}
-	if (typeof(data) == 'undefined' || data === null) {
+	if (typeof (data) == 'undefined' || data === null) {
 		return true;
 	}
-	if (typeof(data.length) != 'undefined') {
+	if (typeof (data.length) != 'undefined') {
 		return data.length === 0;
 	}
 	var count = 0;
@@ -264,9 +265,9 @@ function empty(data) {
 // Returns datatbles export button array based on settings
 // Admin area only
 function get_datatable_buttons(table) {
-	
+
 	var formatExport = {
-		body: function(data, row, column, node) {
+		body: function (data, row, column, node) {
 
 			// Fix for notes inline datatables
 			// Causing issues because of the hidden textarea for edit and the content is duplicating
@@ -281,7 +282,7 @@ function get_datatable_buttons(table) {
 			// Convert e.q. two months ago to actual date
 			var exportTextHasActionDate = newTmpRow.find('.text-has-action.is-date');
 
-			if(exportTextHasActionDate.length) {
+			if (exportTextHasActionDate.length) {
 				data = exportTextHasActionDate.attr('data-title');
 			}
 
@@ -306,36 +307,36 @@ function get_datatable_buttons(table) {
 	};
 	var table_buttons_options = [];
 
-	if (typeof(table_export_button_is_hidden) != 'function' || !table_export_button_is_hidden()) {
+	if (typeof (table_export_button_is_hidden) != 'function' || !table_export_button_is_hidden()) {
 		table_buttons_options.push({
 			extend: 'collection',
 			text: 'Export',
 			className: 'btn btn-default-dt-options',
 			buttons: [{
 				extend: 'excel',
-				text:AppLanugage.excel,
+				text: AppLanugage.excel,
 				footer: true,
 				exportOptions: {
 					columns: [':not(.not-export)'],
-					rows: function(index) {
+					rows: function (index) {
 						return _dt_maybe_export_only_selected_rows(index, table);
 					},
 					format: formatExport,
 				},
 			}, {
-				
+
 				extend: 'pdfHtml5',
 				text: AppLanugage.print,
 				footer: true,
 				exportOptions: {
 					columns: [':not(.not-export)'],
-					rows: function(index) {
+					rows: function (index) {
 						return _dt_maybe_export_only_selected_rows(index, table);
 					},
 					format: formatExport,
 				},
 				orientation: 'landscape',
-				customize: function(doc) {
+				customize: function (doc) {
 					// Fix for column widths
 					var table_api = $(table).DataTable();
 					var columns = table_api.columns().visible();
@@ -349,7 +350,7 @@ function get_datatable_buttons(table) {
 						}
 					}
 
-					setTimeout(function() {
+					setTimeout(function () {
 						if (total_visible_columns <= 5) {
 							var pdf_widths = [];
 							for (i = 0; i < total_visible_columns; i++) {
@@ -381,7 +382,7 @@ function get_datatable_buttons(table) {
 				footer: true,
 				exportOptions: {
 					columns: [':not(.not-export)'],
-					rows: function(index) {
+					rows: function (index) {
 						return _dt_maybe_export_only_selected_rows(index, table);
 					},
 					format: formatExport,
@@ -391,14 +392,14 @@ function get_datatable_buttons(table) {
 	}
 	var tableButtons = $("body").find('.table-btn');
 
-	$.each(tableButtons, function() {
+	$.each(tableButtons, function () {
 		var b = $(this);
 		if (b.length && b.attr('data-table')) {
 			if ($(table).is(b.attr('data-table'))) {
 				table_buttons_options.push({
 					text: b.text().trim(),
 					className: 'btn btn-default-dt-options',
-					action: function(e, dt, node, config) {
+					action: function (e, dt, node, config) {
 						b.click();
 					}
 				});
@@ -410,12 +411,12 @@ function get_datatable_buttons(table) {
 		table_buttons_options.push({
 			text: '<span data-feather="refresh-cw" class="icon-16"></span>',
 			className: 'btn btn-default-dt-options btn-dt-reload',
-			action: function(e, dt, node, config) {
+			action: function (e, dt, node, config) {
 				dt.ajax.reload();
 			}
 		});
 	}
-	
+
 
 	return table_buttons_options;
 }
@@ -453,7 +454,7 @@ function _table_jump_to_page(table, oSettings) {
 }
 
 function is_mobile() {
-	if($(window).width() < 800){
+	if ($(window).width() < 800) {
 		return true;
 	}
 	return false;
@@ -490,124 +491,124 @@ function mainWrapperHeightFix() {
 }
 
 
-	// On mass_select all select all the availble rows in the tables.
-	$("body").on('change', '#mass_select_all', function () {
-		var to, rows, checked;
-		to = $(this).data('to-table');
+// On mass_select all select all the availble rows in the tables.
+$("body").on('change', '#mass_select_all', function () {
+	var to, rows, checked;
+	to = $(this).data('to-table');
 
-		rows = $('.table-' + to).find('tbody tr');
-		checked = $(this).prop('checked');
-		$.each(rows, function () {
-			$($(this).find('td').eq(0)).find('input').prop('checked', checked);
-		});
+	rows = $('.table-' + to).find('tbody tr');
+	checked = $(this).prop('checked');
+	$.each(rows, function () {
+		$($(this).find('td').eq(0)).find('input').prop('checked', checked);
 	});
+});
 
-	function _dt_maybe_export_only_selected_rows(index, table) {
-		table = $(table);
-		index = index.toString();
-		var bulkActionsCheckbox = table.find('thead th input[type="checkbox"]').eq(0);
-		if (bulkActionsCheckbox && bulkActionsCheckbox.length > 0) {
-			var rows = table.find('tbody tr');
-			var anyChecked = false;
-			$.each(rows, function() {
-				if ($(this).find('td:first input[type="checkbox"]:checked').length) {
-					anyChecked = true;
-				}
-			});
+function _dt_maybe_export_only_selected_rows(index, table) {
+	table = $(table);
+	index = index.toString();
+	var bulkActionsCheckbox = table.find('thead th input[type="checkbox"]').eq(0);
+	if (bulkActionsCheckbox && bulkActionsCheckbox.length > 0) {
+		var rows = table.find('tbody tr');
+		var anyChecked = false;
+		$.each(rows, function () {
+			if ($(this).find('td:first input[type="checkbox"]:checked').length) {
+				anyChecked = true;
+			}
+		});
 
-			if (anyChecked) {
-				if (table.find('tbody tr:eq(' + (index) + ') td:first input[type="checkbox"]:checked').length > 0) {
-					return index;
-				} else {
-					return null;
-				}
-			} else {
+		if (anyChecked) {
+			if (table.find('tbody tr:eq(' + (index) + ') td:first input[type="checkbox"]:checked').length > 0) {
 				return index;
+			} else {
+				return null;
 			}
-		}
-		return index;
-	}
-
-	function init_ajax_search(type, selector, server_data, url) {
-		var ajaxSelector = $('body').find(selector);
-
-		if (ajaxSelector.length) {
-			var options = {
-				ajax: {
-					url: (typeof (url) == 'undefined' ? admin_url + 'misc/get_relation_data' : url),
-					data: function () {
-						var data = {};
-						data.type = type;
-						data.rel_id = '';
-						data.q = '{{{q}}}';
-						if (typeof (server_data) != 'undefined') {
-							jQuery.extend(data, server_data);
-						}
-						return data;
-					}
-				},
-				locale: {
-					emptyTitle: app.lang.search_ajax_empty,
-					statusInitialized: app.lang.search_ajax_initialized,
-					statusSearching: app.lang.search_ajax_searching,
-					statusNoResults: app.lang.not_results_found,
-					searchPlaceholder: app.lang.search_ajax_placeholder,
-					currentlySelected: app.lang.currently_selected
-				},
-				requestDelay: 500,
-				cache: false,
-				preprocessData: function (processData) {
-					var bs_data = [];
-					var len = processData.length;
-					for (var i = 0; i < len; i++) {
-						var tmp_data = {
-							'value': processData[i].id,
-							'text': processData[i].name,
-						};
-						if (processData[i].subtext) {
-							tmp_data.data = {
-								subtext: processData[i].subtext
-							};
-						}
-						bs_data.push(tmp_data);
-					}
-					return bs_data;
-				},
-				preserveSelectedPosition: 'after',
-				preserveSelected: true
-			};
-			if (ajaxSelector.data('empty-title')) {
-				options.locale.emptyTitle = ajaxSelector.data('empty-title');
-			}
-			ajaxSelector.select2({data: options});
+		} else {
+			return index;
 		}
 	}
+	return index;
+}
 
-	// Generate hidden input field
-	function hidden_input(name, val) {
-		return '<input type="hidden" name="' + name + '" value="' + val + '">';
-	}
+function init_ajax_search(type, selector, server_data, url) {
+	var ajaxSelector = $('body').find(selector);
 
-	// General helper function for $.get ajax requests
-	function requestGet(uri, params) {
-		params = typeof (params) == 'undefined' ? {} : params;
+	if (ajaxSelector.length) {
 		var options = {
-			type: 'GET',
-			url: uri
+			ajax: {
+				url: (typeof (url) == 'undefined' ? admin_url + 'misc/get_relation_data' : url),
+				data: function () {
+					var data = {};
+					data.type = type;
+					data.rel_id = '';
+					data.q = '{{{q}}}';
+					if (typeof (server_data) != 'undefined') {
+						jQuery.extend(data, server_data);
+					}
+					return data;
+				}
+			},
+			locale: {
+				emptyTitle: app.lang.search_ajax_empty,
+				statusInitialized: app.lang.search_ajax_initialized,
+				statusSearching: app.lang.search_ajax_searching,
+				statusNoResults: app.lang.not_results_found,
+				searchPlaceholder: app.lang.search_ajax_placeholder,
+				currentlySelected: app.lang.currently_selected
+			},
+			requestDelay: 500,
+			cache: false,
+			preprocessData: function (processData) {
+				var bs_data = [];
+				var len = processData.length;
+				for (var i = 0; i < len; i++) {
+					var tmp_data = {
+						'value': processData[i].id,
+						'text': processData[i].name,
+					};
+					if (processData[i].subtext) {
+						tmp_data.data = {
+							subtext: processData[i].subtext
+						};
+					}
+					bs_data.push(tmp_data);
+				}
+				return bs_data;
+			},
+			preserveSelectedPosition: 'after',
+			preserveSelected: true
 		};
-		return $.ajax($.extend({}, options, params));
+		if (ajaxSelector.data('empty-title')) {
+			options.locale.emptyTitle = ajaxSelector.data('empty-title');
+		}
+		ajaxSelector.select2({ data: options });
 	}
+}
 
-	// General helper function for $.get ajax requests with dataType JSON
-	function requestGetJSON(uri, params) {
-		params = typeof (params) == 'undefined' ? {} : params;
-		params.dataType = 'json';
-		return requestGet(uri, params);
-	}
+// Generate hidden input field
+function hidden_input(name, val) {
+	return '<input type="hidden" name="' + name + '" value="' + val + '">';
+}
 
-	// Function to slug string
-	function slugify(string) {
-		return string
+// General helper function for $.get ajax requests
+function requestGet(uri, params) {
+	params = typeof (params) == 'undefined' ? {} : params;
+	var options = {
+		type: 'GET',
+		url: uri
+	};
+	return $.ajax($.extend({}, options, params));
+}
+
+// General helper function for $.get ajax requests with dataType JSON
+function requestGetJSON(uri, params) {
+	params = typeof (params) == 'undefined' ? {} : params;
+	params.dataType = 'json';
+	return requestGet(uri, params);
+}
+
+// Function to slug string
+function slugify(string) {
+	return string
 		.toString()
 		.trim()
 		.toLowerCase()
@@ -616,164 +617,164 @@ function mainWrapperHeightFix() {
 		.replace(/\-\-+/g, "-")
 		.replace(/^-+/, "")
 		.replace(/-+$/, "");
+}
+
+// Check if field is empty
+function empty(data) {
+	if (typeof (data) == 'number' || typeof (data) == 'boolean') {
+		return false;
+	}
+	if (typeof (data) == 'undefined' || data === null) {
+		return true;
+	}
+	if (typeof (data.length) != 'undefined') {
+		return data.length === 0;
+	}
+	var count = 0;
+	for (var i in data) {
+		if (data.hasOwnProperty(i)) {
+			count++;
+		}
+	}
+	return count === 0;
+}
+
+function delivery_status_mark_as(status, task_id, type) {
+
+	url = 'delivery_status_mark_as/' + status + '/' + task_id + '/' + type;
+	var taskModalVisible = $('#task-modal').is(':visible');
+	url += '?single_task=' + taskModalVisible;
+	$("body").append('<div class="dt-loader"></div>');
+
+	requestGetJSON(url).done(function (response) {
+		$("body").find('.dt-loader').remove();
+		if (response.success === true || response.success == 'true') {
+
+			var av_tasks_tables = ['.table-table_manage_delivery', '.table-table_manage_packing_list'];
+			$.each(av_tasks_tables, function (i, selector) {
+				if ($.fn.DataTable.isDataTable(selector)) {
+					$(selector).DataTable().ajax.reload(null, false);
+				}
+			});
+			appAlert.success(response.message);
+		}
+	});
+}
+
+
+function formatNumber(n) {
+	'use strict';
+
+	return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+}
+
+function formatCurrency(input, blur) {
+	"use strict";
+
+	var input_val = input.val();
+	if (input_val === "") { return; }
+	var original_len = input_val.length;
+	var caret_pos = input.prop("selectionStart");
+	if (input_val.indexOf(".") >= 0) {
+		var decimal_pos = input_val.indexOf(".");
+		var left_side = input_val.substring(0, decimal_pos);
+		var right_side = input_val.substring(decimal_pos);
+		left_side = formatNumber(left_side);
+		right_side = formatNumber(right_side);
+		right_side = right_side.substring(0, 2);
+		input_val = left_side + "." + right_side;
+	} else {
+
+		input_val = formatNumber(input_val);
+		input_val = input_val;
+	}
+	input.val(input_val);
+	var updated_len = input_val.length;
+	caret_pos = updated_len - original_len + caret_pos;
+	input[0].setSelectionRange(caret_pos, caret_pos);
+}
+/*Init tinymce editors*/
+init_editor();
+
+
+/*Function to init the tinymce editor*/
+function init_editor(selector, settings) {
+
+	selector = typeof (selector) == 'undefined' ? '.tinymce' : selector;
+	var _editor_selector_check = $(selector);
+
+	if (_editor_selector_check.length === 0) {
+		return;
 	}
 
-	// Check if field is empty
-	function empty(data) {
-		if (typeof(data) == 'number' || typeof(data) == 'boolean') {
-			return false;
+	$.each(_editor_selector_check, function () {
+		if ($(this).hasClass('tinymce-manual')) {
+			$(this).removeClass('tinymce');
 		}
-		if (typeof(data) == 'undefined' || data === null) {
-			return true;
-		}
-		if (typeof(data.length) != 'undefined') {
-			return data.length === 0;
-		}
-		var count = 0;
-		for (var i in data) {
-			if (data.hasOwnProperty(i)) {
-				count++;
+	});
+
+	/*    Original settings*/
+	var _settings = {
+		branding: false,
+		selector: selector,
+		browser_spellcheck: true,
+		height: 400,
+		theme: 'modern',
+		skin: 'perfex',
+		// language: app.tinymce_lang,
+		relative_urls: false,
+		inline_styles: true,
+		verify_html: false,
+		cleanup: false,
+		autoresize_bottom_margin: 25,
+		valid_elements: '+*[*]',
+		valid_children: "+body[style], +style[type]",
+		apply_source_formatting: false,
+		remove_script_host: false,
+		removed_menuitems: 'newdocument restoredraft',
+		forced_root_block: false,
+		autosave_restore_when_empty: false,
+		fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
+		setup: function (ed) {
+			// Default fontsize is 12
+			ed.on('init', function () {
+				this.getDoc().body.style.fontSize = '12pt';
+			});
+		},
+		table_default_styles: {
+			// Default all tables width 100%
+			width: '100%',
+		},
+		plugins: [
+			'advlist autoresize autosave lists link image print hr codesample',
+			'visualblocks code fullscreen',
+			'media save table contextmenu',
+			'paste textcolor colorpicker'
+		],
+		toolbar1: 'fontselect fontsizeselect | forecolor backcolor | bold italic | alignleft aligncenter alignright alignjustify | image link | bullist numlist | restoredraft',
+		// file_browser_callback: elFinderBrowser,
+		contextmenu: "link image inserttable | cell row column deletetable | paste",
+	};
+
+	// Add the rtl to the settings if is true
+	var isRTL = true;
+	isRTL == 'true' ? _settings.directionality = 'rtl' : '';
+	isRTL == 'true' ? _settings.plugins[0] += ' directionality' : '';
+
+	// Possible settings passed to be overwrited or added
+	if (typeof (settings) != 'undefined') {
+		for (var key in settings) {
+			if (key != 'append_plugins') {
+				_settings[key] = settings[key];
+			} else {
+				_settings['plugins'].push(settings[key]);
 			}
 		}
-		return count === 0;
 	}
 
-	function delivery_status_mark_as(status, task_id, type) {
+	// Init the editor
+	var editor = tinymce.init(_settings);
+	$(document).trigger('app.editor.initialized');
 
-		url = 'delivery_status_mark_as/' + status + '/' + task_id + '/' + type;
-		var taskModalVisible = $('#task-modal').is(':visible');
-		url += '?single_task=' + taskModalVisible;
-		$("body").append('<div class="dt-loader"></div>');
-
-		requestGetJSON(url).done(function (response) {
-			$("body").find('.dt-loader').remove();
-			if (response.success === true || response.success == 'true') {
-
-				var av_tasks_tables = ['.table-table_manage_delivery', '.table-table_manage_packing_list'];
-				$.each(av_tasks_tables, function (i, selector) {
-					if ($.fn.DataTable.isDataTable(selector)) {
-						$(selector).DataTable().ajax.reload(null, false);
-					}
-				});
-				appAlert.success(response.message);
-			}
-		});
-	}
-
-
-	function formatNumber(n) {
-		'use strict';
-
-		return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-	}
-
-	function formatCurrency(input, blur) {
-		"use strict";
-
-		var input_val = input.val();
-		if (input_val === "") { return; }
-		var original_len = input_val.length; 
-		var caret_pos = input.prop("selectionStart");
-		if (input_val.indexOf(".") >= 0) {
-			var decimal_pos = input_val.indexOf(".");
-			var left_side = input_val.substring(0, decimal_pos);
-			var right_side = input_val.substring(decimal_pos);
-			left_side = formatNumber(left_side);
-			right_side = formatNumber(right_side);
-			right_side = right_side.substring(0, 2);
-			input_val = left_side + "." + right_side;
-		} else {
-
-			input_val = formatNumber(input_val);
-			input_val = input_val;
-		}
-		input.val(input_val);
-		var updated_len = input_val.length;
-		caret_pos = updated_len - original_len + caret_pos;
-		input[0].setSelectionRange(caret_pos, caret_pos);
-	}
-	/*Init tinymce editors*/
-	init_editor();
-
-
-	/*Function to init the tinymce editor*/
-	function init_editor(selector, settings) {
-
-		selector = typeof (selector) == 'undefined' ? '.tinymce' : selector;
-		var _editor_selector_check = $(selector);
-
-		if (_editor_selector_check.length === 0) {
-			return;
-		}
-
-		$.each(_editor_selector_check, function () {
-			if ($(this).hasClass('tinymce-manual')) {
-				$(this).removeClass('tinymce');
-			}
-		});
-
-		/*    Original settings*/
-		var _settings = {
-			branding: false,
-			selector: selector,
-			browser_spellcheck: true,
-			height: 400,
-			theme: 'modern',
-			skin: 'perfex',
-    	// language: app.tinymce_lang,
-    	relative_urls: false,
-    	inline_styles: true,
-    	verify_html: false,
-    	cleanup: false,
-    	autoresize_bottom_margin: 25,
-    	valid_elements: '+*[*]',
-    	valid_children: "+body[style], +style[type]",
-    	apply_source_formatting: false,
-    	remove_script_host: false,
-    	removed_menuitems: 'newdocument restoredraft',
-    	forced_root_block: false,
-    	autosave_restore_when_empty: false,
-    	fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
-    	setup: function (ed) {
-            // Default fontsize is 12
-            ed.on('init', function () {
-            	this.getDoc().body.style.fontSize = '12pt';
-            });
-        },
-        table_default_styles: {
-            // Default all tables width 100%
-            width: '100%',
-        },
-        plugins: [
-        'advlist autoresize autosave lists link image print hr codesample',
-        'visualblocks code fullscreen',
-        'media save table contextmenu',
-        'paste textcolor colorpicker'
-        ],
-        toolbar1: 'fontselect fontsizeselect | forecolor backcolor | bold italic | alignleft aligncenter alignright alignjustify | image link | bullist numlist | restoredraft',
-        // file_browser_callback: elFinderBrowser,
-        contextmenu: "link image inserttable | cell row column deletetable | paste",
-    };
-
-    // Add the rtl to the settings if is true
-    var isRTL = true;
-    isRTL == 'true' ? _settings.directionality = 'rtl' : '';
-    isRTL == 'true' ? _settings.plugins[0] += ' directionality' : '';
-
-    // Possible settings passed to be overwrited or added
-    if (typeof (settings) != 'undefined') {
-    	for (var key in settings) {
-    		if (key != 'append_plugins') {
-    			_settings[key] = settings[key];
-    		} else {
-    			_settings['plugins'].push(settings[key]);
-    		}
-    	}
-    }
-
-    // Init the editor
-    var editor = tinymce.init(_settings);
-    $(document).trigger('app.editor.initialized');
-
-    return editor;
+	return editor;
 }

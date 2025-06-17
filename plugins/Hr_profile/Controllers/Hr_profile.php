@@ -6,24 +6,25 @@ use App\Controllers\Security_Controller;
 use App\Models\Crud_model;
 use App\Libraries\Pdf;
 
-class Hr_profile extends Security_Controller {
+class Hr_profile extends Security_Controller
+{
 
 	protected $hr_profile_model;
-	function __construct() {
+	function __construct()
+	{
 
 		parent::__construct();
 		$this->hr_profile_model = new \Hr_profile\Models\Hr_profile_model();
 		app_hooks()->do_action('app_hook_hrrecord_init');
-
 	}
 
 
 	/* List all announcements */
-	public function dashboard() {
+	public function dashboard()
+	{
 		if (!hr_has_permission('hr_profile_can_view_global_hr_dashboard')) {
 			app_redirect("forbidden");
 		}
-
 		$data['title'] = 'HR Profile';
 		return $this->template->rander('Hr_profile\Views\hr_profile_dashboard', $data);
 	}
@@ -32,11 +33,11 @@ class Hr_profile extends Security_Controller {
 	 * Organizational chart
 	 * @return view
 	 */
-	public function organizational_chart() {
+	public function organizational_chart()
+	{
 		if (!hr_has_permission('hr_profile_can_view_global_organizational_chart') && !hr_has_permission('hr_profile_can_view_own_organizational_chart')) {
 			app_redirect("forbidden");
 		}
-
 		$department_options = array(
 			"deleted" => 0,
 		);
@@ -67,7 +68,8 @@ class Hr_profile extends Security_Controller {
 	 * email exist as staff
 	 * @return integer
 	 */
-	private function email_exist_as_staff() {
+	private function email_exist_as_staff()
+	{
 		return total_rows(db_prefix() . 'departments', 'email IN (SELECT email FROM ' . db_prefix() . 'staff)') > 0;
 	}
 
@@ -75,7 +77,8 @@ class Hr_profile extends Security_Controller {
 	 * get data department
 	 * @return json
 	 */
-	public function get_data_department() {
+	public function get_data_department()
+	{
 		$dataPost = $this->request->getPost();
 		$this->hr_profile_model->get_table_data(module_views_path('Hr_profile', 'organizational/include/department_table'), $dataPost);
 	}
@@ -84,7 +87,8 @@ class Hr_profile extends Security_Controller {
 	 * Delete department from database
 	 * @param  integer $id
 	 */
-	public function delete() {
+	public function delete()
+	{
 		$id = $this->request->getPost('id');
 		if (!$id) {
 			app_redirect(('hr_profile/organizational_chart'));
@@ -102,7 +106,8 @@ class Hr_profile extends Security_Controller {
 	}
 
 	/* Edit or add new department */
-	public function department($id = '') {
+	public function department($id = '')
+	{
 		if ($this->request->getPost()) {
 			$message = '';
 			$data = $this->request->getPost();
@@ -113,7 +118,6 @@ class Hr_profile extends Security_Controller {
 					$this->session->setFlashdata("success_message", app_lang("added_successfully"));
 				}
 				app_redirect("hr_profile/organizational_chart");
-
 			} else {
 
 				$id = $data['id'];
@@ -131,7 +135,8 @@ class Hr_profile extends Security_Controller {
 	 * email exists
 	 * @return [type]
 	 */
-	public function email_exists() {
+	public function email_exists()
+	{
 		// First we need to check if the email is the same
 		$departmentid = $this->request->getPost('departmentid');
 		if ($departmentid) {
@@ -156,7 +161,8 @@ class Hr_profile extends Security_Controller {
 	 * test imap connection
 	 * @return [type]
 	 */
-	public function test_imap_connection() {
+	public function test_imap_connection()
+	{
 		app_check_imap_open_function();
 
 		$email = $this->request->getPost('email');
@@ -200,34 +206,26 @@ class Hr_profile extends Security_Controller {
 	 * reception_staff
 	 * @return view
 	 */
-	public function reception_staff() {
-		if (!is_admin() && !hr_has_permission('hr_profile_can_view_global_onboarding') && !hr_has_permission('hr_profile_can_view_own_onboarding')) {
-			app_redirect("forbidden");
-		}
-
+	public function reception_staff()
+	{
 		$options = array(
 			"user_type" => "staff",
 			"deleted" => 0,
 		);
 		$data['staff_members'] = $this->Users_model->get_details($options)->getResultArray();
-
-		$data['title'] = app_lang('staff_infor');
-		$data['list_staff_not_record'] = $this->hr_profile_model->get_all_staff_not_in_record();
 		$data['list_reception_staff_transfer'] = $this->hr_profile_model->get_setting_transfer_records();
-		$data['staff_dep_tree'] = json_encode($this->hr_profile_model->get_staff_tree());
-		$data['staff_members_chart'] = json_encode($this->hr_profile_model->get_data_chart());
+		// $data['staff_dep_tree'] = json_encode($this->hr_profile_model->get_staff_tree());
+		// $data['staff_members_chart'] = json_encode($this->hr_profile_model->get_data_chart());
 		$data['list_training'] = $this->hr_profile_model->get_all_jp_interview_training();
-		$data['list_reception_staff_asset'] = $this->hr_profile_model->get_setting_asset_allocation();
-		$data['list_record_meta'] = $this->hr_profile_model->get_list_record_meta();
+		$data['list_staff_not_record'] = $this->hr_profile_model->get_all_staff_not_in_record();
 		$data['group_checklist'] = $this->hr_profile_model->group_checklist();
-		$data['setting_training'] = $this->hr_profile_model->get_setting_training();
-		$data['type_of_trainings'] = $this->hr_profile_model->get_type_of_training();
-
-		$data['title'] = app_lang('hr_reception_staff');
+		$data['list_reception_staff_asset'] = $this->hr_profile_model->get_setting_asset_allocation();
+		$data['title'] = _l('hr_staff_profile');
 		return $this->template->rander('Hr_profile\Views\reception_staff/reception_staff', $data);
 	}
 
-	public function add_reception_staff() {
+	public function add_reception_staff()
+	{
 		if (!is_admin() && !hr_has_permission('hr_profile_can_create_onboarding') && !hr_has_permission('hr_profile_can_create_onboarding')) {
 			app_redirect("forbidden");
 		}
@@ -257,7 +255,8 @@ class Hr_profile extends Security_Controller {
 	/**
 	 * table reception staff
 	 */
-	public function table_reception_staff() {
+	public function table_reception_staff()
+	{
 		if ($this->request->getPost()) {
 			$dataPost = $this->request->getPost();
 
@@ -269,7 +268,8 @@ class Hr_profile extends Security_Controller {
 	 * setting
 	 * @return view
 	 */
-	public function setting() {
+	public function setting()
+	{
 
 		if (!hr_has_permission('hr_profile_can_view_global_setting')) {
 			app_redirect("forbidden");
@@ -300,19 +300,14 @@ class Hr_profile extends Security_Controller {
 			$data['contract'] = $this->hr_profile_model->get_contracttype();
 		} elseif ($data['group'] == 'contract_type') {
 			$data['contract'] = $this->hr_profile_model->get_contracttype();
-
 		} elseif ($data['group'] == 'salary_type') {
 			$data['salary_form'] = $this->hr_profile_model->get_salary_form();
-
 		} elseif ($data['group'] == 'allowance_type') {
 			$data['allowance_type'] = $this->hr_profile_model->get_allowance_type();
-
 		} elseif ($data['group'] == 'procedure_retire') {
 			$data['allowance_type'] = $this->hr_profile_model->get_allowance_type();
-
 		} elseif ($data['group'] == 'type_of_training') {
 			$data['type_of_trainings'] = $this->hr_profile_model->get_type_of_training();
-
 		} elseif ($data['group'] == 'reception_staff') {
 			$data['type_of_trainings'] = $this->hr_profile_model->get_type_of_training();
 			$data['list_reception_staff_transfer'] = $this->hr_profile_model->get_setting_transfer_records();
@@ -321,7 +316,6 @@ class Hr_profile extends Security_Controller {
 
 			$data['group_checklist'] = $this->hr_profile_model->group_checklist();
 			$data['max_checklist'] = $this->hr_profile_model->count_max_checklist();
-
 		} elseif ($data['group'] == 'workplace') {
 			$data['workplace'] = $this->hr_profile_model->get_workplace();
 		} elseif ($data['group'] == 'contract_template') {
@@ -348,16 +342,18 @@ class Hr_profile extends Security_Controller {
 	 * commodity types
 	 * @return [type] 
 	 */
-	public function contract_types() {
+	public function contract_types()
+	{
 		$data['contract_types'] = $this->hr_profile_model->get_contracttype();
 		return $this->template->rander("Hr_profile\Views\includes\contract_type", $data);
 	}
-	
+
 	/**
 	 * list commodity type data
 	 * @return [type] 
 	 */
-	public function list_contract_type_data() {
+	public function list_contract_type_data()
+	{
 		$this->access_only_team_members();
 
 		$list_data = $this->hr_profile_model->get_contracttype();
@@ -374,16 +370,17 @@ class Hr_profile extends Security_Controller {
 	 * @param  [type] $data 
 	 * @return [type]       
 	 */
-	private function _make_contract_type_row($data) {
+	private function _make_contract_type_row($data)
+	{
 
 		$options = '';
-		if(is_admin() || hr_has_permission('hr_profile_can_edit_setting')){
+		if (is_admin() || hr_has_permission('hr_profile_can_edit_setting')) {
 			$options .= modal_anchor(get_uri("hr_profile/contract_type_modal_form"), "<i data-feather='edit' class='icon-16'></i>", array("class" => "edit", "title" => app_lang('hr_edit_contract_type'), "data-post-id" => $data['id_contracttype']));
 		}
-		if(is_admin() || hr_has_permission('hr_profile_can_delete_setting')){
-			$options .= js_anchor("<i data-feather='x' class='icon-16'></i>", array('title' => app_lang('delete'), "class" => "delete", "data-id" => $data['id_contracttype'], "data-action-url" => get_uri("hr_profile/delete_contract_type/".$data['id_contracttype']), "data-action" => "delete-confirmation"));
+		if (is_admin() || hr_has_permission('hr_profile_can_delete_setting')) {
+			$options .= js_anchor("<i data-feather='x' class='icon-16'></i>", array('title' => app_lang('delete'), "class" => "delete", "data-id" => $data['id_contracttype'], "data-action-url" => get_uri("hr_profile/delete_contract_type/" . $data['id_contracttype']), "data-action" => "delete-confirmation"));
 		}
-		
+
 		return array(
 			nl2br($data['name_contracttype']),
 			nl2br($data['description']),
@@ -395,7 +392,8 @@ class Hr_profile extends Security_Controller {
 	 * commodity type modal form
 	 * @return [type] 
 	 */
-	public function contract_type_modal_form() {
+	public function contract_type_modal_form()
+	{
 		$this->access_only_team_members();
 
 		$this->validate_submitted_data(array(
@@ -405,12 +403,12 @@ class Hr_profile extends Security_Controller {
 		$contract_type_data = [];
 
 		$id = $this->request->getPost('id');
-		if($id && is_numeric($id)){
+		if ($id && is_numeric($id)) {
 			$data['contract_type_data'] = $this->hr_profile_model->get_contracttype($id);
-		}else{
+		} else {
 			$id = '';
 		}
-		
+
 		$data['id'] = $id;
 
 		return $this->template->view('Hr_profile\Views\includes\modal_forms\contract_type_modal', $data);
@@ -421,7 +419,8 @@ class Hr_profile extends Security_Controller {
 	 * contract_type
 	 * @param  integer $id
 	 */
-	public function contract_type($id = '') {
+	public function contract_type($id = '')
+	{
 
 		if ($this->request->getPost()) {
 			$message = '';
@@ -449,7 +448,8 @@ class Hr_profile extends Security_Controller {
 	 * delete contract type
 	 * @param  integer $id
 	 */
-	public function delete_contract_type($id) {
+	public function delete_contract_type($id)
+	{
 		if (!$id) {
 			app_redirect('hr_profile/contract_types');
 		}
@@ -457,7 +457,6 @@ class Hr_profile extends Security_Controller {
 		$response = $this->hr_profile_model->delete_contract_type($id);
 		if (is_array($response) && isset($response['referenced'])) {
 			echo json_encode(array("success" => false, "message" => app_lang('is_referenced')));
-
 		} elseif ($response == true) {
 			echo json_encode(array("success" => true, "message" => app_lang('deleted')));
 		} else {
@@ -469,16 +468,18 @@ class Hr_profile extends Security_Controller {
 	 * salary types
 	 * @return [type] 
 	 */
-	public function allowance_types() {
+	public function allowance_types()
+	{
 		$data['allowance_types'] = $this->hr_profile_model->get_allowance_type();
 		return $this->template->rander("Hr_profile\Views\includes\allowance_type", $data);
 	}
-	
+
 	/**
 	 * list_allowance_type_data
 	 * @return [type] 
 	 */
-	public function list_allowance_type_data() {
+	public function list_allowance_type_data()
+	{
 		$this->access_only_team_members();
 
 		$list_data = $this->hr_profile_model->get_allowance_type();
@@ -495,16 +496,17 @@ class Hr_profile extends Security_Controller {
 	 * @param  [type] $data 
 	 * @return [type]       
 	 */
-	private function _make_allowance_type_row($data) {
+	private function _make_allowance_type_row($data)
+	{
 
 		$options = '';
-		if(is_admin() || hr_has_permission('hr_profile_can_edit_setting')){
+		if (is_admin() || hr_has_permission('hr_profile_can_edit_setting')) {
 			$options .= modal_anchor(get_uri("hr_profile/allowance_type_modal_form"), "<i data-feather='edit' class='icon-16'></i>", array("class" => "edit", "title" => app_lang('hr_edit_allowance_type'), "data-post-id" => $data['type_id']));
 		}
-		if(is_admin() || hr_has_permission('hr_profile_can_delete_setting')){
-			$options .= js_anchor("<i data-feather='x' class='icon-16'></i>", array('title' => app_lang('delete'), "class" => "delete", "data-id" => $data['type_id'], "data-action-url" => get_uri("hr_profile/delete_allowance_type/".$data['type_id']), "data-action" => "delete-confirmation"));
+		if (is_admin() || hr_has_permission('hr_profile_can_delete_setting')) {
+			$options .= js_anchor("<i data-feather='x' class='icon-16'></i>", array('title' => app_lang('delete'), "class" => "delete", "data-id" => $data['type_id'], "data-action-url" => get_uri("hr_profile/delete_allowance_type/" . $data['type_id']), "data-action" => "delete-confirmation"));
 		}
-		
+
 		return array(
 			nl2br($data['type_name']),
 			to_decimal_format($data['allowance_val']),
@@ -512,7 +514,8 @@ class Hr_profile extends Security_Controller {
 		);
 	}
 
-	public function allowance_type_modal_form() {
+	public function allowance_type_modal_form()
+	{
 		$this->access_only_team_members();
 
 		$this->validate_submitted_data(array(
@@ -522,9 +525,9 @@ class Hr_profile extends Security_Controller {
 		$allowance_type_data = [];
 
 		$id = $this->request->getPost('id');
-		if($id && is_numeric($id)){
+		if ($id && is_numeric($id)) {
 			$data['allowance_type_data'] = $this->hr_profile_model->get_allowance_type($id);
-		}else{
+		} else {
 			$id = '';
 		}
 
@@ -537,7 +540,8 @@ class Hr_profile extends Security_Controller {
 	 * allowancetype
 	 * @param  integer $id
 	 */
-	public function allowance_type($id = '') {
+	public function allowance_type($id = '')
+	{
 		if ($this->request->getPost()) {
 			$message = '';
 			$data = $this->request->getPost();
@@ -562,7 +566,8 @@ class Hr_profile extends Security_Controller {
 	 * delete_allowance_type
 	 * @param  integer $id
 	 */
-	public function delete_allowance_type($id) {
+	public function delete_allowance_type($id)
+	{
 		if (!$id) {
 			app_redirect('hr_profile/allowance_types');
 		}
@@ -579,7 +584,8 @@ class Hr_profile extends Security_Controller {
 	/**
 	 * insurance type
 	 */
-	public function insurance_type() {
+	public function insurance_type()
+	{
 		if ($this->request->getPost()) {
 			$data = $this->request->getPost();
 			if (!$this->request->getPost('id')) {
@@ -599,14 +605,14 @@ class Hr_profile extends Security_Controller {
 				}
 				app_redirect(('hr_profile/setting?group=insurrance'));
 			}
-
 		}
 	}
 	/**
 	 * delete insurance type
 	 * @param  integer $id
 	 */
-	public function delete_insurance_type($id) {
+	public function delete_insurance_type($id)
+	{
 		if (!$id) {
 			app_redirect(('hr_profile/setting?group=insurrance'));
 		}
@@ -623,7 +629,8 @@ class Hr_profile extends Security_Controller {
 	/**
 	 * insurance conditions setting
 	 */
-	public function insurance_conditions_setting() {
+	public function insurance_conditions_setting()
+	{
 		if ($this->request->getPost()) {
 			$data = $this->request->getPost();
 			$success = $this->hr_profile_model->update_insurance_conditions($data);
@@ -638,16 +645,18 @@ class Hr_profile extends Security_Controller {
 	 * salary types
 	 * @return [type] 
 	 */
-	public function salary_types() {
+	public function salary_types()
+	{
 		$data['salary_types'] = $this->hr_profile_model->get_salary_form();
 		return $this->template->rander("Hr_profile\Views\includes\salary_type", $data);
 	}
-	
+
 	/**
 	 * list_salary_type_data
 	 * @return [type] 
 	 */
-	public function list_salary_type_data() {
+	public function list_salary_type_data()
+	{
 		$this->access_only_team_members();
 
 		$list_data = $this->hr_profile_model->get_salary_form();
@@ -664,16 +673,17 @@ class Hr_profile extends Security_Controller {
 	 * @param  [type] $data 
 	 * @return [type]       
 	 */
-	private function _make_salary_type_row($data) {
+	private function _make_salary_type_row($data)
+	{
 
 		$options = '';
-		if(is_admin() || hr_has_permission('hr_profile_can_edit_setting')){
+		if (is_admin() || hr_has_permission('hr_profile_can_edit_setting')) {
 			$options .= modal_anchor(get_uri("hr_profile/salary_type_modal_form"), "<i data-feather='edit' class='icon-16'></i>", array("class" => "edit", "title" => app_lang('hr_edit_salary_form'), "data-post-id" => $data['form_id']));
 		}
-		if(is_admin() || hr_has_permission('hr_profile_can_delete_setting')){
-			$options .= js_anchor("<i data-feather='x' class='icon-16'></i>", array('title' => app_lang('delete'), "class" => "delete", "data-id" => $data['form_id'], "data-action-url" => get_uri("hr_profile/delete_salary_form/".$data['form_id']), "data-action" => "delete-confirmation"));
+		if (is_admin() || hr_has_permission('hr_profile_can_delete_setting')) {
+			$options .= js_anchor("<i data-feather='x' class='icon-16'></i>", array('title' => app_lang('delete'), "class" => "delete", "data-id" => $data['form_id'], "data-action-url" => get_uri("hr_profile/delete_salary_form/" . $data['form_id']), "data-action" => "delete-confirmation"));
 		}
-		
+
 		return array(
 			nl2br($data['form_name']),
 			to_decimal_format($data['salary_val']),
@@ -685,7 +695,8 @@ class Hr_profile extends Security_Controller {
 	 * commodity type modal form
 	 * @return [type] 
 	 */
-	public function salary_type_modal_form() {
+	public function salary_type_modal_form()
+	{
 		$this->access_only_team_members();
 
 		$this->validate_submitted_data(array(
@@ -695,12 +706,12 @@ class Hr_profile extends Security_Controller {
 		$salary_type_data = [];
 
 		$id = $this->request->getPost('id');
-		if($id && is_numeric($id)){
+		if ($id && is_numeric($id)) {
 			$data['salary_type_data'] = $this->hr_profile_model->get_salary_form($id);
-		}else{
+		} else {
 			$id = '';
 		}
-		
+
 		$data['id'] = $id;
 
 		return $this->template->view('Hr_profile\Views\includes\modal_forms\salary_type_modal', $data);
@@ -710,7 +721,8 @@ class Hr_profile extends Security_Controller {
 	 * salary form
 	 * @param  integer $id
 	 */
-	public function salary_form($id = '') {
+	public function salary_form($id = '')
+	{
 		if ($this->request->getPost()) {
 			$message = '';
 			$data = $this->request->getPost();
@@ -720,7 +732,7 @@ class Hr_profile extends Security_Controller {
 				if ($id) {
 					$this->session->setFlashdata("success_message", app_lang("added_successfully"));
 				}
-				
+
 				app_redirect('hr_profile/salary_types');
 			} else {
 				$success = $this->hr_profile_model->update_salary_form($data, $id);
@@ -737,7 +749,8 @@ class Hr_profile extends Security_Controller {
 	 * delete salary form
 	 * @param  integer $id
 	 */
-	public function delete_salary_form($id) {
+	public function delete_salary_form($id)
+	{
 		if (!$id) {
 			app_redirect('hr_profile/salary_types');
 		}
@@ -761,7 +774,8 @@ class Hr_profile extends Security_Controller {
 	 * workplaces
 	 * @return [type] 
 	 */
-	public function procedure_retires() {
+	public function procedure_retires()
+	{
 		$data['procedure_retires'] = $this->hr_profile_model->get_procedure_form_manage();
 		return $this->template->rander("Hr_profile\Views\includes\procedure_retire", $data);
 	}
@@ -770,7 +784,8 @@ class Hr_profile extends Security_Controller {
 	 * list procedure_retire data
 	 * @return [type] 
 	 */
-	public function list_procedure_retire_data() {
+	public function list_procedure_retire_data()
+	{
 		$this->access_only_team_members();
 
 		$list_data = $this->hr_profile_model->get_procedure_form_manage();
@@ -787,32 +802,33 @@ class Hr_profile extends Security_Controller {
 	 * @param  [type] $data 
 	 * @return [type]       
 	 */
-	private function _make_procedure_retire_row($data) {
+	private function _make_procedure_retire_row($data)
+	{
 
 		$options = '';
 
 		$options .= '<a href="' . site_url('hr_profile/procedure_procedure_retire_details/' . $data['id']) . '"><i data-feather="eye" class="icon-16"></i></a>';
 
-		if(is_admin() || hr_has_permission('hr_profile_can_edit_setting')){
+		if (is_admin() || hr_has_permission('hr_profile_can_edit_setting')) {
 			$options .= modal_anchor(get_uri("hr_profile/procedure_retire_modal_form"), "<i data-feather='edit' class='icon-16'></i>", array("class" => "edit", "title" => app_lang('hr_edit_procedure_retire'), "data-post-id" => $data['id']));
 		}
-		if(is_admin() || hr_has_permission('hr_profile_can_delete_setting')){
-			$options .= js_anchor("<i data-feather='x' class='icon-16'></i>", array('title' => app_lang('delete'), "class" => "delete", "data-id" => $data['id'], "data-action-url" => get_uri("hr_profile/delete_procedure_form_manage/".$data['id']), "data-action" => "delete-confirmation"));
+		if (is_admin() || hr_has_permission('hr_profile_can_delete_setting')) {
+			$options .= js_anchor("<i data-feather='x' class='icon-16'></i>", array('title' => app_lang('delete'), "class" => "delete", "data-id" => $data['id'], "data-action-url" => get_uri("hr_profile/delete_procedure_form_manage/" . $data['id']), "data-action" => "delete-confirmation"));
 		}
-		
+
 		$department = '';
 		$departments = explode(",", $data['department']);
 
 		foreach ($departments as $key => $value) {
 			$department_name = '';
 			$get_department_name = hr_profile_get_department_name($value);
-			if($get_department_name){
+			if ($get_department_name) {
 				$department_name = $get_department_name->title;
 			}
 
-			$department .= '<span class="badge bg-success large mt-0">' . $department_name.' </span>&nbsp';
-			if($key%3 ==0){
-				$department .='<br/>';
+			$department .= '<span class="badge bg-success large mt-0">' . $department_name . ' </span>&nbsp';
+			if ($key % 3 == 0) {
+				$department .= '<br/>';
 			}
 		}
 
@@ -828,7 +844,8 @@ class Hr_profile extends Security_Controller {
 	 * procedure_retire modal form
 	 * @return [type] 
 	 */
-	public function procedure_retire_modal_form() {
+	public function procedure_retire_modal_form()
+	{
 		$this->access_only_team_members();
 
 		$this->validate_submitted_data(array(
@@ -838,12 +855,12 @@ class Hr_profile extends Security_Controller {
 		$procedure_retire_data = [];
 
 		$id = $this->request->getPost('id');
-		if($id && is_numeric($id)){
+		if ($id && is_numeric($id)) {
 			$data['procedure_retire_data'] = $this->hr_profile_model->get_procedure_form_manage($id);
-		}else{
+		} else {
 			$id = '';
 		}
-		
+
 		$data['id'] = $id;
 
 		$department_options = array(
@@ -857,14 +874,16 @@ class Hr_profile extends Security_Controller {
 	/**
 	 * table procedure retire
 	 */
-	public function table_procedure_retire() {
+	public function table_procedure_retire()
+	{
 		$this->hr_profile_model->get_table_data(module_views_path('Hr_profile', 'procedure_retire/table_procedure_retire'));
 	}
 
 	/**
 	 * add procedure form manage
 	 */
-	public function add_procedure_form_manage($id = '') {
+	public function add_procedure_form_manage($id = '')
+	{
 		$data = $this->request->getPost();
 
 		if (!is_numeric($id)) {
@@ -872,8 +891,8 @@ class Hr_profile extends Security_Controller {
 
 			if ($response) {
 				$this->session->setFlashdata("success_message", app_lang("added_successfully"));
-				app_redirect('hr_profile/procedure_procedure_retire_details/'.$response);
-			}else{
+				app_redirect('hr_profile/procedure_procedure_retire_details/' . $response);
+			} else {
 				app_redirect('hr_profile/procedure_retires');
 			}
 		} else {
@@ -890,7 +909,8 @@ class Hr_profile extends Security_Controller {
 	 * delete procedure form manage
 	 * @param  integer $id
 	 */
-	public function delete_procedure_form_manage($id) {
+	public function delete_procedure_form_manage($id)
+	{
 		if (!hr_has_permission('hr_profile_can_delete_setting') && !is_admin()) {
 			app_redirect("forbidden");
 		}
@@ -908,7 +928,8 @@ class Hr_profile extends Security_Controller {
 	 * @param  integer $id
 	 * @return view
 	 */
-	public function procedure_procedure_retire_details($id = '') {
+	public function procedure_procedure_retire_details($id = '')
+	{
 		if (!$id) {
 			app_redirect(('hr_profile/procedure_retires'));
 		}
@@ -923,13 +944,13 @@ class Hr_profile extends Security_Controller {
 		$data['staffs'] = $this->Users_model->get_details($options)->getResultArray();
 
 		return $this->template->rander('Hr_profile\Views/procedure_retire/details', $data);
-
 	}
 
 	/**
 	 * procedure form
 	 */
-	public function procedure_form() {
+	public function procedure_form()
+	{
 		$data = $this->request->getPost();
 		$result = $this->hr_profile_model->add_procedure_retire($data);
 
@@ -944,7 +965,8 @@ class Hr_profile extends Security_Controller {
 	 * @param  integer $id
 	 * @return integer
 	 */
-	public function delete_procedure_retire() {
+	public function delete_procedure_retire()
+	{
 		$id_detail = $this->request->getPost('id');
 		$id = $this->request->getPost('id2');
 		$result = $this->hr_profile_model->delete_procedure_retire($id_detail);
@@ -955,14 +977,14 @@ class Hr_profile extends Security_Controller {
 			echo json_encode(array("warning" => false, "message" => app_lang('problem_deleting')));
 		}
 		app_redirect('hr_profile/procedure_procedure_retire_details/' . $id);
-
 	}
 
 	/**
 	 * edit procedure retire
 	 * @param  integer $id
 	 */
-	public function edit_procedure_retire($id) {
+	public function edit_procedure_retire($id)
+	{
 		$data = $this->hr_profile_model->get_edit_procedure_retire($id);
 		$id = $data->id;
 		$procedure_retire_id = $data->procedure_retire_id;
@@ -981,13 +1003,13 @@ class Hr_profile extends Security_Controller {
 			'people_handle_id' => $people_handle_id,
 			'count_option_value' => $count_option_value,
 		]);
-
 	}
 
 	/**
 	 * edit procedure form
 	 */
-	public function edit_procedure_form() {
+	public function edit_procedure_form()
+	{
 		$data = $this->request->getPost();
 		if (isset($data['id'])) {
 			$id = $data['id'];
@@ -998,14 +1020,14 @@ class Hr_profile extends Security_Controller {
 			$this->session->setFlashdata("success_message", app_lang("hr_updated_successfully"));
 		}
 		app_redirect('hr_profile/procedure_procedure_retire_details/' . $data['procedure_retire_id']);
-
 	}
 
 	/**
 	 * training
 	 * @return view
 	 */
-	public function training() {
+	public function training()
+	{
 		if (!hr_has_permission('hr_profile_can_view_global_hr_training') && !hr_has_permission('hr_profile_can_view_own_hr_training') && !is_admin()) {
 			app_redirect("forbidden");
 		}
@@ -1046,7 +1068,8 @@ class Hr_profile extends Security_Controller {
 	 * training libraries
 	 * @return [type] 
 	 */
-	public function training_libraries() {
+	public function training_libraries()
+	{
 		$data = [];
 		return $this->template->rander("Hr_profile\Views/training/training_library", $data);
 	}
@@ -1055,7 +1078,8 @@ class Hr_profile extends Security_Controller {
 	 * training_results
 	 * @return [type] 
 	 */
-	public function training_results() {
+	public function training_results()
+	{
 		$data = [];
 
 		$options = array(
@@ -1073,7 +1097,8 @@ class Hr_profile extends Security_Controller {
 	 * training programs
 	 * @return [type] 
 	 */
-	public function training_programs() {
+	public function training_programs()
+	{
 		$data = [];
 
 		$data['training_table'] = $this->hr_profile_model->get_job_position_training_process();
@@ -1097,7 +1122,8 @@ class Hr_profile extends Security_Controller {
 	 * Add new position training or update existing
 	 * @param integer id
 	 */
-	public function position_training($id = '') {
+	public function position_training($id = '')
+	{
 		if (!hr_has_permission('hr_profile_can_view_global_hr_training')) {
 			app_redirect("forbidden");
 		}
@@ -1131,7 +1157,7 @@ class Hr_profile extends Security_Controller {
 			$data['position_training'] = $position_training;
 			$title = $position_training->subject;
 		}
-		
+
 		$data['title'] = $title;
 		$data['type_of_trainings'] = $this->hr_profile_model->get_type_of_training();
 
@@ -1139,7 +1165,8 @@ class Hr_profile extends Security_Controller {
 	}
 
 	/* New survey question */
-	public function add_training_question() {
+	public function add_training_question()
+	{
 		if (!hr_has_permission('hr_profile_can_edit_hr_training') && !hr_has_permission('hr_profile_can_create_hr_training')) {
 			echo json_encode([
 				'success' => false,
@@ -1160,7 +1187,8 @@ class Hr_profile extends Security_Controller {
 	}
 
 	/* Update question */
-	public function update_training_question() {
+	public function update_training_question()
+	{
 		if (!hr_has_permission('hr_profile_can_edit_hr_training') && !hr_has_permission('hr_profile_can_create_hr_training')) {
 			echo json_encode([
 				'success' => false,
@@ -1174,7 +1202,8 @@ class Hr_profile extends Security_Controller {
 	}
 
 	/* Reorder surveys */
-	public function update_training_questions_orders() {
+	public function update_training_questions_orders()
+	{
 		if (hr_has_permission('hr_profile_can_edit_hr_training') || hr_has_permission('hr_profile_can_create_hr_training')) {
 			if ($this->request->getPost()) {
 				$this->hr_profile_model->update_survey_questions_orders($this->request->getPost());
@@ -1183,7 +1212,8 @@ class Hr_profile extends Security_Controller {
 	}
 
 	/* Remove survey question */
-	public function remove_question($questionid) {
+	public function remove_question($questionid)
+	{
 		if (!hr_has_permission('hr_profile_can_edit_hr_training') && !hr_has_permission('hr_profile_can_create_hr_training')) {
 			echo json_encode([
 				'success' => false,
@@ -1200,7 +1230,8 @@ class Hr_profile extends Security_Controller {
 	}
 
 	/* Removes survey checkbox/radio description*/
-	public function remove_box_description($questionboxdescriptionid) {
+	public function remove_box_description($questionboxdescriptionid)
+	{
 		if (!hr_has_permission('hr_profile_can_edit_hr_training') && !hr_has_permission('hr_profile_can_create_hr_training')) {
 			echo json_encode([
 				'success' => false,
@@ -1216,7 +1247,8 @@ class Hr_profile extends Security_Controller {
 	}
 
 	/* Add box description */
-	public function add_box_description($questionid, $boxid) {
+	public function add_box_description($questionid, $boxid)
+	{
 		if (!hr_has_permission('hr_profile_can_edit_hr_training') && !hr_has_permission('hr_profile_can_create_hr_training')) {
 			echo json_encode([
 				'success' => false,
@@ -1234,7 +1266,8 @@ class Hr_profile extends Security_Controller {
 	}
 
 	/* Update question */
-	public function update_training_question_answer() {
+	public function update_training_question_answer()
+	{
 		if (!hr_has_permission('hr_profile_can_edit_hr_training') && !hr_has_permission('hr_profile_can_create_hr_training')) {
 			echo json_encode([
 				'success' => false,
@@ -1252,7 +1285,8 @@ class Hr_profile extends Security_Controller {
 	 * @param  integer $id
 	 * @return json
 	 */
-	public function get_training_type_child($id) {
+	public function get_training_type_child($id)
+	{
 		$list = $this->hr_profile_model->get_child_training_type($id);
 		$html = '';
 		foreach ($list as $li) {
@@ -1266,7 +1300,8 @@ class Hr_profile extends Security_Controller {
 	/**
 	 * job position training add edit
 	 */
-	public function job_position_training_add_edit() {
+	public function job_position_training_add_edit()
+	{
 		if ($this->request->getPost()) {
 			$message = '';
 			$data = $this->request->getPost();
@@ -1295,14 +1330,13 @@ class Hr_profile extends Security_Controller {
 	 * get jobposition fill data
 	 * @return json
 	 */
-	public function get_jobposition_fill_data() {
+	public function get_jobposition_fill_data()
+	{
 		$data = $this->request->getPost();
 		if ($data['status'] == 'true') {
 			$job_position = $this->hr_profile_model->get_position_by_department($data['department_id'], true);
-
 		} else {
 			$job_position = $this->hr_profile_model->get_position_by_department(1, false);
-
 		}
 		echo json_encode([
 			'job_position' => $job_position,
@@ -1313,7 +1347,8 @@ class Hr_profile extends Security_Controller {
 	 * job position manage
 	 * @return view
 	 */
-	public function job_position_manage() {
+	public function job_position_manage()
+	{
 		if (!hr_has_permission('hr_profile_can_view_global_job_description') && !is_admin() && !hr_has_permission('hr_profile_can_view_own_job_description')) {
 			app_redirect("forbidden");
 		}
@@ -1331,7 +1366,8 @@ class Hr_profile extends Security_Controller {
 	/**
 	 * table job
 	 */
-	public function table_job() {
+	public function table_job()
+	{
 		$dataPost = $this->request->getPost();
 		$this->hr_profile_model->get_table_data(module_views_path('Hr_profile', 'table_job'), $dataPost);
 	}
@@ -1340,7 +1376,8 @@ class Hr_profile extends Security_Controller {
 	 * add job position
 	 * @param  integer $id
 	 */
-	public function job_p($id = '') {
+	public function job_p($id = '')
+	{
 
 		if ($this->request->getPost()) {
 
@@ -1354,7 +1391,6 @@ class Hr_profile extends Security_Controller {
 					$this->session->setFlashdata("success_message", app_lang("added_successfully"));
 				}
 				app_redirect(('hr_profile/job_position_manage'));
-
 			} else {
 				$id = $data['id'];
 				unset($data['id']);
@@ -1375,7 +1411,8 @@ class Hr_profile extends Security_Controller {
 	 * @param  integer $id
 	 * @return json
 	 */
-	public function get_job_p_edit($id) {
+	public function get_job_p_edit($id)
+	{
 
 		$list = $this->hr_profile_model->get_job_p($id);
 
@@ -1388,14 +1425,14 @@ class Hr_profile extends Security_Controller {
 		echo json_encode([
 			'description' => $description,
 		]);
-
 	}
 
 	/**
 	 * delete job position
 	 * @param  integer $id
 	 */
-	public function delete_job_p() {
+	public function delete_job_p()
+	{
 		$id = $this->request->getPost('id');
 		if (!$id) {
 			app_redirect(('hr_profile/job_position_manage'));
@@ -1414,7 +1451,8 @@ class Hr_profile extends Security_Controller {
 	 * import job p, Import Job
 	 * @return [type]
 	 */
-	public function import_job_p() {
+	public function import_job_p()
+	{
 		$department_options = array(
 			"deleted" => 0,
 		);
@@ -1428,12 +1466,10 @@ class Hr_profile extends Security_Controller {
 		if ($data_staff) {
 			if ($data_staff->default_language != '') {
 				$data['active_language'] = $data_staff->default_language;
-
 			} else {
 
 				$data['active_language'] = get_option('active_language');
 			}
-
 		} else {
 			$data['active_language'] = get_option('active_language');
 		}
@@ -1445,7 +1481,8 @@ class Hr_profile extends Security_Controller {
 	 * import job p excel
 	 * @return [type]
 	 */
-	public function import_job_p_excel() {
+	public function import_job_p_excel()
+	{
 		if (!is_admin() && !hr_has_permission('hr_profile_can_create_job_description')) {
 			app_redirect("forbidden");
 		}
@@ -1510,7 +1547,8 @@ class Hr_profile extends Security_Controller {
 							'font' => array(
 								'bold' => true,
 								'color' => array('rgb' => 'ff0000'),
-							));
+							)
+						);
 
 						$numRow = 2;
 						$total_rows = 0;
@@ -1555,7 +1593,6 @@ class Hr_profile extends Security_Controller {
 									}
 									$rd['job_name'] = $sheet->getCell('A' . $rowIndex)->getValue();
 									$rd['description'] = $sheet->getCell('B' . $rowIndex)->getValue();
-
 								}
 
 								if (get_staff_user_id1() != '' && $flag == 0) {
@@ -1579,17 +1616,14 @@ class Hr_profile extends Security_Controller {
 
 							$filename = 'Import_job_error_' . get_staff_user_id1() . strtotime(date('Y-m-d H:i:s')) . '.xlsx';
 							$objWriter->save(str_replace($filename, HR_PROFILE_ERROR . $filename, $filename));
-
 						}
 						$import_result = true;
 						@delete_dir($tmpDir);
-
 					}
 				} else {
 					set_alert('warning', app_lang('import_upload_failed'));
 				}
 			}
-
 		}
 		echo json_encode([
 			'message' => $message,
@@ -1600,7 +1634,6 @@ class Hr_profile extends Security_Controller {
 			'staff_id' => get_staff_user_id1(),
 			'filename' => HR_PROFILE_ERROR . $filename,
 		]);
-
 	}
 
 	/**
@@ -1608,7 +1641,8 @@ class Hr_profile extends Security_Controller {
 	 * @param  integer $id
 	 * @return view
 	 */
-	public function job_positions($id = '') {
+	public function job_positions($id = '')
+	{
 		if (!hr_has_permission('hr_profile_can_view_global_job_description') && !hr_has_permission('hr_profile_can_view_own_job_description')) {
 			app_redirect("forbidden");
 		}
@@ -1630,7 +1664,8 @@ class Hr_profile extends Security_Controller {
 	 * new job position modal form
 	 * @return [type] 
 	 */
-	public function new_job_position_modal_form() {
+	public function new_job_position_modal_form()
+	{
 		$this->access_only_team_members();
 
 		$this->validate_submitted_data(array(
@@ -1640,9 +1675,9 @@ class Hr_profile extends Security_Controller {
 		$contract_type_data = [];
 
 		$id = $this->request->getPost('id');
-		if($id && is_numeric($id)){
+		if ($id && is_numeric($id)) {
 			$data['job_position_data'] = $this->hr_profile_model->get_job_position($id);
-		}else{
+		} else {
 			$id = '';
 		}
 
@@ -1662,7 +1697,8 @@ class Hr_profile extends Security_Controller {
 	 * add or update job position
 	 * @param  integer $id
 	 */
-	public function job_position($id = '') {
+	public function job_position($id = '')
+	{
 
 		if ($this->request->getPost()) {
 			$message = '';
@@ -1675,7 +1711,6 @@ class Hr_profile extends Security_Controller {
 				}
 
 				app_redirect('hr_profile/job_positions');
-
 			} else {
 
 				$position_id = $data['position_id'];
@@ -1694,7 +1729,8 @@ class Hr_profile extends Security_Controller {
 	 * table job position
 	 * @return [type]
 	 */
-	public function table_job_position() {
+	public function table_job_position()
+	{
 		$dataPost = $this->request->getPost();
 		$this->hr_profile_model->get_table_data(module_views_path('Hr_profile', 'job_position_manage/position_manage/table_job_position'), $dataPost);
 	}
@@ -1704,7 +1740,8 @@ class Hr_profile extends Security_Controller {
 	 * @param  String $tag_id
 	 * @return json
 	 */
-	public function job_position_delete_tag_item($tag_id) {
+	public function job_position_delete_tag_item($tag_id)
+	{
 
 		$result = $this->hr_profile_model->delete_tag_item($tag_id);
 		if ($result == 'true') {
@@ -1727,7 +1764,8 @@ class Hr_profile extends Security_Controller {
 	 * @param  [type] $rel_id
 	 * @return [type]
 	 */
-	public function preview_job_position_file($id, $rel_id) {
+	public function preview_job_position_file($id, $rel_id)
+	{
 		$data['discussion_user_profile_image_url'] = staff_profile_image_url(get_staff_user_id1());
 		$data['current_user_is_admin'] = is_admin();
 		$data['file'] = $this->hr_profile_model->get_file($id, $rel_id);
@@ -1738,7 +1776,8 @@ class Hr_profile extends Security_Controller {
 		return $this->template->view('Hr_profile\Views\hr_profile/job_position_manage/position_manage/preview_position_file', $data);
 	}
 
-	public function delete_hr_profile_job_position_attachment_file($attachment_id) {
+	public function delete_hr_profile_job_position_attachment_file($attachment_id)
+	{
 		if (!hr_has_permission('hr_profile_can_delete_job_description') && !is_admin()) {
 			app_redirect("forbidden");
 		}
@@ -1754,7 +1793,8 @@ class Hr_profile extends Security_Controller {
 	 * @param  string $id
 	 * @return view
 	 */
-	public function job_position_view_edit($id = '', $parent_id = '') {
+	public function job_position_view_edit($id = '', $parent_id = '')
+	{
 
 		if (!hr_has_permission('hr_profile_can_view_global_job_description') && !hr_has_permission('hr_profile_can_view_own_job_description')) {
 			app_redirect("forbidden");
@@ -1767,7 +1807,6 @@ class Hr_profile extends Security_Controller {
 			$data['job_position_id'] = $id;
 
 			$data['job_position_attachment'] = $this->hr_profile_model->get_hr_profile_attachments_file($id, 'job_position');
-
 		}
 
 		$data['list_job_p'] = $this->hr_profile_model->get_job_p();
@@ -1786,7 +1825,6 @@ class Hr_profile extends Security_Controller {
 		$data['hr_profile_get_department_name'] = $this->Team_model->get_details($department_options)->getResultArray();
 
 		return $this->template->rander('Hr_profile\Views/job_position_manage/view_edit_jobposition', $data);
-
 	}
 
 	/**
@@ -1794,7 +1832,8 @@ class Hr_profile extends Security_Controller {
 	 * @param  [type] $id
 	 * @return [type]
 	 */
-	public function get_list_job_position_tags_file($id) {
+	public function get_list_job_position_tags_file($id)
+	{
 		$list = $this->hr_profile_model->get_list_job_position_tags_file($id);
 
 		$job_position_de = $this->hr_profile_model->get_job_position($id);
@@ -1806,12 +1845,11 @@ class Hr_profile extends Security_Controller {
 		} else {
 			$description = '';
 			$job_p = 0;
-
 		}
 
-		if((get_tags_in($id,'job_position') != null)){
-			$item_value = implode(',', get_tags_in($id,'job_position')) ;
-		}else{
+		if ((get_tags_in($id, 'job_position') != null)) {
+			$item_value = implode(',', get_tags_in($id, 'job_position'));
+		} else {
 
 			$item_value = '';
 		}
@@ -1823,7 +1861,7 @@ class Hr_profile extends Security_Controller {
 			'job_position_html' => render_tags(get_tags_in($id, 'job_position')),
 			'job_p' => $job_p,
 			'item_value' => $item_value,
-			
+
 		]);
 	}
 
@@ -1831,7 +1869,8 @@ class Hr_profile extends Security_Controller {
 	 * get position by department
 	 * @return json
 	 */
-	public function get_position_by_department() {
+	public function get_position_by_department()
+	{
 		$data = $this->request->getPost();
 		if ($data['status'] == 'true') {
 			$job_position = $this->hr_profile_model->get_position_by_department($data['department_id'], true);
@@ -1841,7 +1880,6 @@ class Hr_profile extends Security_Controller {
 		echo json_encode([
 			'job_position' => $job_position,
 		]);
-
 	}
 
 	/**
@@ -1849,7 +1887,8 @@ class Hr_profile extends Security_Controller {
 	 * @param  integer $id
 	 * @param  integer $job_p_id
 	 */
-	public function delete_job_position() {
+	public function delete_job_position()
+	{
 		$id = $this->request->getPost('id');
 		if (!$id) {
 			app_redirect(('hr_profile/job_positions'));
@@ -1870,7 +1909,8 @@ class Hr_profile extends Security_Controller {
 	 * get staff salary form
 	 * @return json
 	 */
-	public function get_staff_salary_form() {
+	public function get_staff_salary_form()
+	{
 		if ($this->input->is_ajax_request()) {
 			if ($this->request->getPost()) {
 				$id = $this->request->getPost('id');
@@ -1879,17 +1919,17 @@ class Hr_profile extends Security_Controller {
 		}
 		if ($name_object) {
 			echo json_encode([
-				'salary_val' => (String) hr_profile_reformat_currency($name_object->salary_val),
+				'salary_val' => (string) hr_profile_reformat_currency($name_object->salary_val),
 			]);
 		}
-
 	}
 
 	/**
 	 * get staff allowance type
 	 * @return json
 	 */
-	public function get_staff_allowance_type() {
+	public function get_staff_allowance_type()
+	{
 		if ($this->input->is_ajax_request()) {
 			if ($this->request->getPost()) {
 				$id = $this->request->getPost('id');
@@ -1899,7 +1939,7 @@ class Hr_profile extends Security_Controller {
 
 		if ($name_object) {
 			echo json_encode([
-				'allowance_val' => (String) hr_profile_reformat_currency($name_object->allowance_val),
+				'allowance_val' => (string) hr_profile_reformat_currency($name_object->allowance_val),
 			]);
 		}
 	}
@@ -1907,7 +1947,8 @@ class Hr_profile extends Security_Controller {
 	/**
 	 * job position salary add edit
 	 */
-	public function job_position_salary_add_edit() {
+	public function job_position_salary_add_edit()
+	{
 		if (!hr_has_permission('hr_profile_can_create_job_description')) {
 			app_redirect("forbidden");
 		}
@@ -1932,7 +1973,8 @@ class Hr_profile extends Security_Controller {
 	/**
 	 * save setting reception staff
 	 */
-	public function save_setting_reception_staff() {
+	public function save_setting_reception_staff()
+	{
 		if ($this->request->getPost()) {
 			$data = $this->request->getPost();
 			$data_asset['name'] = $data['asset_name'];
@@ -1949,7 +1991,8 @@ class Hr_profile extends Security_Controller {
 	/**
 	 * add new reception
 	 */
-	public function add_new_reception() {
+	public function add_new_reception()
+	{
 		if ($this->request->getPost()) {
 
 			$data = $this->request->getPost();
@@ -2002,7 +2045,6 @@ class Hr_profile extends Security_Controller {
 			$this->session->setFlashdata("success_message", app_lang("added_successfully"));
 			app_redirect('hr_profile/reception_staff');
 		}
-
 	}
 
 	/**
@@ -2012,7 +2054,8 @@ class Hr_profile extends Security_Controller {
 	 * @param  string $training_type
 	 * @return [type]
 	 */
-	public function send_training_staff($email, $position_id, $training_type = '', $position_training_id = '', $staffid = '') {
+	public function send_training_staff($email, $position_id, $training_type = '', $position_training_id = '', $staffid = '')
+	{
 		$mes = 'hr_please_complete_the_tests_below_to_complete_the_training_program';
 
 		if ($position_training_id != '') {
@@ -2025,25 +2068,24 @@ class Hr_profile extends Security_Controller {
 			<div></div>';
 			foreach ($data_training as $key => $value) {
 				$data['description'] .= '<div>';
-				$data['description'] .= '&#9755; <a href="' . get_uri('hr_profile/training_detail/'.$value['training_id'] . '/' . $value['hash']) . '">' . get_uri('hr_profile/training_detail/') . '' . $value['slug'] . '</a>';
+				$data['description'] .= '&#9755; <a href="' . get_uri('hr_profile/training_detail/' . $value['training_id'] . '/' . $value['hash']) . '">' . get_uri('hr_profile/training_detail/') . '' . $value['slug'] . '</a>';
 				$data['description'] .= '</div>';
 			}
 
 			$data['description'] .= '</div>';
 
-			if(is_numeric($staffid)){
+			if (is_numeric($staffid)) {
 				/*Send notify*/
 				$notify_data = ['hr_send_training_staff_id' => $staffid];
-				hr_log_notification($mes, $notify_data, get_staff_user_id1() ,$staffid);
+				hr_log_notification($mes, $notify_data, get_staff_user_id1(), $staffid);
 			}
 
-			if(strlen($email) > 0){
+			if (strlen($email) > 0) {
 				/*send mail*/
 				$subject = get_default_company_name() . ': ' . app_lang('hr_new_training_for_you');
 				$message = $data['description'];
 				send_app_mail($email, $subject, $message);
 			}
-
 		}
 	}
 
@@ -2052,7 +2094,8 @@ class Hr_profile extends Security_Controller {
 	 * @param  string $id
 	 * @return [type]
 	 */
-	public function get_percent_complete($id = '') {
+	public function get_percent_complete($id = '')
+	{
 		if ($id != '') {
 
 			$options = array(
@@ -2143,7 +2186,6 @@ class Hr_profile extends Security_Controller {
 					if ((float) $data_marks['training_program_point'] >= (float) $training_allocation_min_point) {
 						$count_effect_total += 1;
 					}
-
 				}
 			}
 
@@ -2156,7 +2198,8 @@ class Hr_profile extends Security_Controller {
 	 * @param  integer $id_staff
 	 * @return array
 	 */
-	public function get_mark_staff($id_staff, $training_process_id) {
+	public function get_mark_staff($id_staff, $training_process_id)
+	{
 		$array_training_point = [];
 		$training_program_point = 0;
 
@@ -2227,7 +2270,6 @@ class Hr_profile extends Security_Controller {
 					$total_point += $result_point->point;
 					$training_program_point += $result_point->point;
 				}
-
 			}
 
 			array_push($array_training_point, [
@@ -2250,7 +2292,8 @@ class Hr_profile extends Security_Controller {
 	 * delete reception
 	 * @param  integer $id
 	 */
-	public function delete_reception() {
+	public function delete_reception()
+	{
 		$id = $this->request->getPost('id');
 		if (!$id) {
 			app_redirect('hr_profile/reception_staff');
@@ -2271,10 +2314,11 @@ class Hr_profile extends Security_Controller {
 	 * get_reception_modal
 	 * @return [type] 
 	 */
-	public function get_reception_modal() {
+	public function get_reception_modal()
+	{
 		$this->access_only_team_members();
 		$id = $this->request->getPost('id');
-		
+
 		$options = array(
 			"user_type" => "staff",
 			"id" => $id,
@@ -2332,7 +2376,6 @@ class Hr_profile extends Security_Controller {
 							}
 
 							$data['staff_training_result'] = array_merge($training_results['staff_training_result'], $staff_training_result);
-
 						} else {
 							$data['staff_training_result'] = $staff_training_result;
 						}
@@ -2342,13 +2385,11 @@ class Hr_profile extends Security_Controller {
 						} else {
 							$data['complete'] = 1;
 						}
-
 					}
 				}
 			}
 			return $this->template->view('Hr_profile\Views/reception_staff/reception_staff_sidebar', $data);
 		}
-
 	}
 
 	/**
@@ -2356,7 +2397,8 @@ class Hr_profile extends Security_Controller {
 	 * @param  integer $id
 	 * @return json
 	 */
-	public function get_reception($id = '') {
+	public function get_reception($id = '')
+	{
 		$this->load->model('departments_model');
 		$this->load->model('staff_model');
 		$data['staff'] = $this->staff_model->get($id);
@@ -2412,7 +2454,6 @@ class Hr_profile extends Security_Controller {
 							}
 
 							$data['staff_training_result'] = array_merge($training_results['staff_training_result'], $staff_training_result);
-
 						} else {
 							$data['staff_training_result'] = $staff_training_result;
 						}
@@ -2422,7 +2463,6 @@ class Hr_profile extends Security_Controller {
 						} else {
 							$data['complete'] = 1;
 						}
-
 					}
 				}
 			}
@@ -2434,39 +2474,41 @@ class Hr_profile extends Security_Controller {
 		}
 	}
 
-/**
- * change status checklist
- * @return json
- */
-public function change_status_checklist() {
-	if ($this->request->getPost()) {
-		$data = $this->request->getPost();
-		$success = $this->hr_profile_model->update_checklist($data);
-		if ($success == true) {
-			echo json_encode([
-				'success' => true,
-			]);
+	/**
+	 * change status checklist
+	 * @return json
+	 */
+	public function change_status_checklist()
+	{
+		if ($this->request->getPost()) {
+			$data = $this->request->getPost();
+			$success = $this->hr_profile_model->update_checklist($data);
+			if ($success == true) {
+				echo json_encode([
+					'success' => true,
+				]);
+			}
 		}
 	}
-}
-/**
- * add new asset
- * @param integer $id
- */
-public function add_new_asset($id) {
-	if ($this->request->getPost()) {
-		$data = $this->request->getPost();
-		$list_tt = explode(',', $data['name']);
-		$this->hr_profile_model->add_new_asset_staff($id, $list_tt);
-		$list_asset = $this->hr_profile_model->get_allocation_asset($id);
+	/**
+	 * add new asset
+	 * @param integer $id
+	 */
+	public function add_new_asset($id)
+	{
+		if ($this->request->getPost()) {
+			$data = $this->request->getPost();
+			$list_tt = explode(',', $data['name']);
+			$this->hr_profile_model->add_new_asset_staff($id, $list_tt);
+			$list_asset = $this->hr_profile_model->get_allocation_asset($id);
 
-		$html = '';
-		foreach ($list_asset as $value) {
-			$checked = '';
-			if ($value['status_allocation'] == 1) {
-				$checked = 'checked';
-			}
-			$html .= '<div class="row item_hover">
+			$html = '';
+			foreach ($list_asset as $value) {
+				$checked = '';
+				if ($value['status_allocation'] == 1) {
+					$checked = 'checked';
+				}
+				$html .= '<div class="row item_hover">
 			<div class="col-md-7">
 			<div class="checkbox">
 			<input data-can-view="" type="checkbox" class="capability" id="' . $value['asset_name'] . '" name="asset_staff[]" data-id="' . $value['allocation_id'] . '" value="' . $value['status_allocation'] . '" ' . $checked . ' onclick="active_asset(this);">
@@ -2479,47 +2521,49 @@ public function add_new_asset($id) {
 			<a href="#" class="text-danger" onclick="delete_asset(this);"  data-id="' . $value['allocation_id'] . '" >' . app_lang('delete') . '</a>
 			</div>
 			</div>';
-		}
-		echo json_encode([
-			'data' => $html,
-			'success' => true,
-		]);
-	}
-}
-/**
- * change status allocation asset
- * @return json
- */
-public function change_status_allocation_asset() {
-	if ($this->request->getPost()) {
-		$data = $this->request->getPost();
-		$success = $this->hr_profile_model->update_asset_staff($data);
-		if ($success == true) {
+			}
 			echo json_encode([
+				'data' => $html,
 				'success' => true,
 			]);
 		}
 	}
-}
-/**
- * delete asset
- * @param  integer $id
- * @param  integer $id2
- * @return json
- */
-public function delete_asset($id, $id2) {
-	$success = $this->hr_profile_model->delete_allocation_asset($id);
-	if ($success == true) {
-
-		$list_asset = $this->hr_profile_model->get_allocation_asset($id2);
-
-		$html = '';
-		foreach ($list_asset as $value) {
-			$checked = '';
-			if ($value['status_allocation'] == 1) {
-				$checked = 'checked';
+	/**
+	 * change status allocation asset
+	 * @return json
+	 */
+	public function change_status_allocation_asset()
+	{
+		if ($this->request->getPost()) {
+			$data = $this->request->getPost();
+			$success = $this->hr_profile_model->update_asset_staff($data);
+			if ($success == true) {
+				echo json_encode([
+					'success' => true,
+				]);
 			}
-			$html .= '<div class="row item_hover">
+		}
+	}
+	/**
+	 * delete asset
+	 * @param  integer $id
+	 * @param  integer $id2
+	 * @return json
+	 */
+	public function delete_asset($id, $id2)
+	{
+		$success = $this->hr_profile_model->delete_allocation_asset($id);
+		if ($success == true) {
+
+			$list_asset = $this->hr_profile_model->get_allocation_asset($id2);
+
+			$html = '';
+			foreach ($list_asset as $value) {
+				$checked = '';
+				if ($value['status_allocation'] == 1) {
+					$checked = 'checked';
+				}
+				$html .= '<div class="row item_hover">
 			<div class="col-md-7">
 			<div class="checkbox">
 			<input data-can-view="" type="checkbox" class="capability" name="asset_staff[]" data-id="' . $value['allocation_id'] . '" value="' . $value['status_allocation'] . '" ' . $checked . ' onclick="active_asset(this);">
@@ -2532,23 +2576,24 @@ public function delete_asset($id, $id2) {
 			<a href="#" class="text-danger" onclick="delete_asset(this);"  data-id="' . $value['allocation_id'] . '" >' . app_lang('delete') . '</a>
 			</div>
 			</div>';
+			}
+			echo json_encode([
+				'data' => $html,
+				'success' => true,
+			]);
+		} else {
+			echo json_encode([
+				'success' => false,
+			]);
 		}
-		echo json_encode([
-			'data' => $html,
-			'success' => true,
-		]);
-	} else {
-		echo json_encode([
-			'success' => false,
-		]);
 	}
-}
 
 	/**
 	 * staff infor
 	 * @return view
 	 */
-	public function staff_infor() {
+	public function staff_infor()
+	{
 		if (!hr_has_permission('hr_profile_can_view_global_hr_records') && !hr_has_permission('hr_profile_can_view_own_hr_records')) {
 			app_redirect("forbidden");
 		}
@@ -2571,7 +2616,6 @@ public function delete_asset($id, $id2) {
 		if (!is_admin() && !hr_has_permission('hr_profile_can_view_global_hr_records')) {
 			//View own
 			$data['staff_members_chart'] = json_encode($this->hr_profile_model->get_data_chart_v2());
-
 		} else {
 			//admin or view global
 			$data['staff_members_chart'] = json_encode($this->hr_profile_model->get_data_chart());
@@ -2585,7 +2629,8 @@ public function delete_asset($id, $id2) {
 	/**
 	 * table
 	 */
-	public function table() {
+	public function table()
+	{
 		$dataPost = $this->request->getPost();
 		$this->hr_profile_model->get_table_data(module_views_path('Hr_profile', 'table_staff'), $dataPost);
 	}
@@ -2594,14 +2639,15 @@ public function delete_asset($id, $id2) {
 	 * importxlsx
 	 * @return view
 	 */
-	public function importxlsx() {
+	public function importxlsx()
+	{
 		if (!$this->login_user->is_admin && !hr_has_permission('hr_profile_can_create_hr_records')) {
 			app_redirect("forbidden");
 		}
 
 		$user_id = $this->login_user->id;
 		$_personal_language = get_setting('user_' . $user_id . '_personal_language');
-		if(strlen($_personal_language) == 0){
+		if (strlen($_personal_language) == 0) {
 			$_personal_language = get_setting("language");
 		}
 
@@ -2613,7 +2659,8 @@ public function delete_asset($id, $id2) {
 	 * import employees excel
 	 * @return [type]
 	 */
-	public function import_employees_excel() {
+	public function import_employees_excel()
+	{
 		if (!hr_has_permission('hr_profile_can_create_hr_records') && !hr_has_permission('hr_profile_can_edit_hr_records') && !is_admin()) {
 			app_redirect("forbidden");
 		}
@@ -2621,9 +2668,9 @@ public function delete_asset($id, $id2) {
 		$user_id = $this->login_user->id;
 
 		if (!class_exists('XLSXReader_fin')) {
-			require_once(module_dir_path(HR_PROFILE_MODULE_NAME).'/assets/plugins/XLSXReader/XLSXReader.php');
+			require_once(module_dir_path(HR_PROFILE_MODULE_NAME) . '/assets/plugins/XLSXReader/XLSXReader.php');
 		}
-		require_once(module_dir_path(HR_PROFILE_MODULE_NAME).'/assets/plugins/XLSXWriter/xlsxwriter.class.php');
+		require_once(module_dir_path(HR_PROFILE_MODULE_NAME) . '/assets/plugins/XLSXWriter/xlsxwriter.class.php');
 
 		$filename = '';
 		if ($this->request->getPost()) {
@@ -2703,8 +2750,15 @@ public function delete_asset($id, $id2) {
 
 						//otherwise blue: can be update
 
-						$writer->writeSheetHeader_v2('Sheet1', $writer_header, $col_options = ['widths' => $widths, 'fill' => '#03a9f46b', 'font-style' => 'bold', 'color' => '#0a0a0a', 'border' => 'left,right,top,bottom', 'border-color' => '#0a0a0a', 'font-size' => 13],
-							$col_style1, $style1, $col_style2, $style2);
+						$writer->writeSheetHeader_v2(
+							'Sheet1',
+							$writer_header,
+							$col_options = ['widths' => $widths, 'fill' => '#03a9f46b', 'font-style' => 'bold', 'color' => '#0a0a0a', 'border' => 'left,right,top,bottom', 'border-color' => '#0a0a0a', 'font-size' => 13],
+							$col_style1,
+							$style1,
+							$col_style2,
+							$style2
+						);
 
 						$row_style1 = array('fill' => '#F8CBAD', 'height' => 25, 'border' => 'left,right,top,bottom', 'border-color' => '#FFFFFF', 'font-size' => 12, 'font' => 'Calibri', 'color' => '#000000');
 						$row_style2 = array('fill' => '#FCE4D6', 'height' => 25, 'border' => 'left,right,top,bottom', 'border-color' => '#FFFFFF', 'font-size' => 12, 'font' => 'Calibri', 'color' => '#000000');
@@ -2901,7 +2955,6 @@ public function delete_asset($id, $id2) {
 										$flag2 = 1;
 									}
 								}
-
 							}
 
 							//check start_time
@@ -2911,7 +2964,6 @@ public function delete_asset($id, $id2) {
 
 									if (preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/", trim($value_birthday, " "))) {
 										$test = true;
-
 									} else {
 										$flag2 = 1;
 										$string_error .= app_lang('hr_hr_birthday') . ' ' . app_lang('invalid') . '; ';
@@ -2926,7 +2978,6 @@ public function delete_asset($id, $id2) {
 
 									if (preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/", trim($value_days_for_identity, " "))) {
 										$test = true;
-
 									} else {
 										$flag2 = 1;
 										$string_error .= app_lang('days_for_identity') . ' ' . app_lang('invalid') . '; ';
@@ -2943,7 +2994,6 @@ public function delete_asset($id, $id2) {
 								} else {
 									$flag_value_job_position = $job_position_data[$value_job_position]['position_id'];
 								}
-
 							}
 
 							//value_team_manage
@@ -2973,10 +3023,8 @@ public function delete_asset($id, $id2) {
 								if ($workplaces_flag == false) {
 									$string_error .= app_lang('hr_hr_workplace') . ' ' . app_lang('does_not_exist') . '; ';
 									$flag2 = 1;
-
 								} else {
 								}
-
 							}
 
 							//check role
@@ -2994,9 +3042,7 @@ public function delete_asset($id, $id2) {
 								if ($roles_flag == false) {
 									$string_error .= app_lang('staff_add_edit_role') . ' ' . app_lang('does_not_exist') . '; ';
 									$flag2 = 1;
-
 								}
-
 							}
 
 							//check department
@@ -3017,19 +3063,15 @@ public function delete_asset($id, $id2) {
 											if ($str_deparments_not_exist == $list_department['title']) {
 
 												unset($temp_str_deparments_not_exist[$key]);
-
 											}
 										}
 									}
-
 								}
 
 								if (count($temp_str_deparments_not_exist) > 0) {
 									$string_error .= app_lang('staff_add_edit_departments') . ': ' . implode(';', $temp_str_deparments_not_exist) . ' ' . app_lang('does_not_exist');
 									$flag2 = 1;
-
 								}
-
 							}
 
 							if (($flag == 1) || $flag2 == 1) {
@@ -3137,9 +3179,7 @@ public function delete_asset($id, $id2) {
 										$total_row_success++;
 									}
 								}
-
 							}
-
 						}
 
 						$total_rows = $total_rows;
@@ -3150,10 +3190,8 @@ public function delete_asset($id, $id2) {
 						if ($total_row_false != 0) {
 							$filename = 'Import_employee_error_' . $user_id . '_' . strtotime(date('Y-m-d H:i:s')) . '.xlsx';
 							$writer->writeToFile(str_replace($filename, HR_PROFILE_ERROR . $filename, $filename));
-							$filename = HR_PROFILE_ERROR.$filename;
-
+							$filename = HR_PROFILE_ERROR . $filename;
 						}
-
 					}
 				}
 			}
@@ -3178,7 +3216,8 @@ public function delete_asset($id, $id2) {
 	 * importxlsx2
 	 * @return  json
 	 */
-	public function importxlsx2() {
+	public function importxlsx2()
+	{
 		if (!is_admin() && get_option('allow_non_admin_members_to_import_leads') != '1') {
 			app_redirect("forbidden");
 		}
@@ -3280,7 +3319,8 @@ public function delete_asset($id, $id2) {
 								'bold' => true,
 								'color' => array('rgb' => 'ff0000'),
 
-							));
+							)
+						);
 						$numRow = 2;
 						$total_rows = 0;
 
@@ -3350,7 +3390,6 @@ public function delete_asset($id, $id2) {
 										$string_error .= app_lang('hr_hr_code') . app_lang('exist');
 										$flag2 = 1;
 									}
-
 								}
 								//check mail exist
 								if ($flag_mail == 1) {
@@ -3367,7 +3406,6 @@ public function delete_asset($id, $id2) {
 									if (is_string($value_cell_sex)) {
 										$string_error .= app_lang('hr_sex') . app_lang('invalid');
 										$flag2 = 1;
-
 									} elseif (in_array($value_cell_sex, $sex_array) != true) {
 										$string_error .= app_lang('hr_sex') . app_lang('does_not_exist');
 										$flag2 = 1;
@@ -3379,19 +3417,16 @@ public function delete_asset($id, $id2) {
 									if (is_string($value_cell_position)) {
 										$string_error .= app_lang('job_position') . app_lang('invalid');
 										$flag2 = 1;
-
 									} elseif (in_array($value_cell_position, $position_array) != true) {
 										$string_error .= app_lang('job_position') . app_lang('does_not_exist');
 										$flag2 = 1;
 									}
-
 								}
 								//check status is int
 								if (is_null($value_cell_status) != true) {
 									if (is_string($value_cell_status)) {
 										$string_error .= app_lang('hr_status_work') . app_lang('invalid');
 										$flag2 = 1;
-
 									} elseif (in_array($value_cell_status, $status_array) != true) {
 										$string_error .= app_lang('hr_status_work') . app_lang('does_not_exist');
 										$flag2 = 1;
@@ -3421,7 +3456,6 @@ public function delete_asset($id, $id2) {
 										$string_error .= app_lang('days_for_identity') . app_lang('invalid');
 										$flag = 1;
 									}
-
 								}
 
 								if (($flag == 1) || ($flag2 == 1)) {
@@ -3480,7 +3514,6 @@ public function delete_asset($id, $id2) {
 											$rd['status_work'] = 'Maternity leave';
 										} else {
 											$rd['status_work'] = 'Inactivity';
-
 										}
 									}
 
@@ -3578,17 +3611,14 @@ public function delete_asset($id, $id2) {
 							$objWriter = new PHPExcel_Writer_Excel2007($dataError);
 							$filename = 'file_error_hr_profile' . get_staff_user_id1() . '.xlsx';
 							$objWriter->save($filename);
-
 						}
 						$import_result = true;
 						@delete_dir($tmpDir);
-
 					}
 				} else {
 					set_alert('warning', app_lang('import_upload_failed'));
 				}
 			}
-
 		}
 		echo json_encode([
 			'message' => $message,
@@ -3598,13 +3628,13 @@ public function delete_asset($id, $id2) {
 			'site_url' => site_url(),
 			'staff_id' => get_staff_user_id1(),
 		]);
-
 	}
 
 	/**
 	 * delete staff
 	 */
-	public function delete_staff() {
+	public function delete_staff()
+	{
 		$id = $this->request->getPost('id');
 
 		$options = array(
@@ -3619,7 +3649,7 @@ public function delete_asset($id, $id2) {
 		if (hr_has_permission('hr_profile_can_delete_hr_records')) {
 			if ($id != $this->login_user->id && $this->Users_model->delete($id)) {
 				$this->session->setFlashdata("success_message", app_lang("deleted"));
-			}else{
+			} else {
 				$this->session->setFlashdata("error_message", app_lang("record_cannot_be_deleted"));
 			}
 		}
@@ -3632,7 +3662,8 @@ public function delete_asset($id, $id2) {
 	 * @param  integer $group
 	 * @return view
 	 */
-	public function member($id = '', $group = '') {
+	public function member($id = '', $group = '')
+	{
 
 		$data['staffid'] = $id;
 		$data['group'] = $group;
@@ -3699,7 +3730,6 @@ public function delete_asset($id, $id2) {
 					'touserid' => get_staff_user_id1(),
 				]);
 				$data['total_pages'] = ceil($total_notifications / $this->misc_model->get_notifications_limit());
-
 			}
 			if ($data['group'] == 'dependent_person') {
 				$data['dependent_person'] = $this->hr_profile_model->get_dependent_person_bytstaff($id);
@@ -3716,7 +3746,6 @@ public function delete_asset($id, $id2) {
 					'touserid' => get_staff_user_id1(),
 				]);
 				$data['total_pages'] = ceil($total_notifications / $this->misc_model->get_notifications_limit());
-
 			}
 
 			if ($data['group'] == 'training') {
@@ -3772,7 +3801,6 @@ public function delete_asset($id, $id2) {
 							}
 
 							$training_data['staff_training_result'] = array_merge($training_results['staff_training_result'], $staff_training_result);
-
 						} else {
 							$training_data['staff_training_result'] = $staff_training_result;
 						}
@@ -3782,7 +3810,6 @@ public function delete_asset($id, $id2) {
 						} else {
 							$training_data['complete'] = 1;
 						}
-
 					}
 				}
 
@@ -3828,7 +3855,6 @@ public function delete_asset($id, $id2) {
 						}
 
 						$training_temp['staff_training_result'] = array_merge($training_results['staff_training_result'], $staff_training_result);
-
 					} else {
 						$training_temp['staff_training_result'] = $staff_training_result;
 					}
@@ -3842,9 +3868,7 @@ public function delete_asset($id, $id2) {
 					if (count($training_temp) > 0) {
 						$data['training_data'][] = $training_temp;
 					}
-
 				}
-
 			}
 		}
 		$this->load->model('currencies_model');
@@ -3882,14 +3906,16 @@ public function delete_asset($id, $id2) {
 	/**
 	 * table education position
 	 */
-	public function table_education_position() {
+	public function table_education_position()
+	{
 		$this->hr_profile_model->get_table_data(module_views_path('Hr_profile', 'hr_record/table_education_by_position'));
 	}
 
 	/**
 	 * table education
 	 */
-	public function table_education() {
+	public function table_education()
+	{
 		$dataPost = $this->request->getPost();
 		$this->hr_profile_model->get_table_data(module_views_path('Hr_profile', 'hr_record/table_education'), $dataPost);
 	}
@@ -3898,7 +3924,8 @@ public function delete_asset($id, $id2) {
 	 * save update education
 	 * @return json
 	 */
-	public function save_update_education() {
+	public function save_update_education()
+	{
 		if ($this->request->getPost()) {
 			$data = $this->request->getPost();
 			$data['training_time_from'] = to_sql_date1($data['training_time_from']);
@@ -3942,218 +3969,224 @@ public function delete_asset($id, $id2) {
 		die;
 	}
 
-/**
- * delete education
- * @return json
- */
-public function delete_education() {
-	if ($this->request->getPost()) {
-		$data = $this->request->getPost();
-		$success = $this->hr_profile_model->delete_education($data['id']);
-		if ($success == true) {
-			$message = app_lang('hr_deleted');
-			echo json_encode([
-				'success' => true,
-				'message' => $message,
-			]);
-		} else {
-			$message = app_lang('problem_deleting');
-			echo json_encode([
-				'success' => true,
-				'message' => $message,
-			]);
-		}
-	}
-}
-/**
- * table reception
- */
-public function table_reception() {
-	if ($this->request->getPost()) {
-		$dataPost = $this->request->getPost();
-		$this->hr_profile_model->get_table_data(module_views_path('Hr_profile', 'includes/reception_table'), $dataPost);
-	}
-}
-/**
- * general bonus
- * @param  integer $id
- * @return json
- */
-public function general_bonus($id) {
-	$select = [
-		db_prefix() . 'bonus_discipline_detail.id',
-		db_prefix() . 'bonus_discipline_detail.id',
-		db_prefix() . 'bonus_discipline_detail.id',
-		db_prefix() . 'bonus_discipline_detail.id',
-		db_prefix() . 'bonus_discipline_detail.id',
-	];
-	$where = [' where staff_id = ' . $id . ' and type = 1 and status = 2'];
-	$aColumns = $select;
-	$sIndexColumn = 'id';
-	$sTable = db_prefix() . 'bonus_discipline_detail';
-	$join = [' LEFT JOIN ' . db_prefix() . 'bonus_discipline ON ' . db_prefix() . 'bonus_discipline.id = ' . db_prefix() . 'bonus_discipline_detail.id_bonus_discipline'];
-
-	$result = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, [
-		db_prefix() . 'bonus_discipline_detail.id',
-		db_prefix() . 'bonus_discipline_detail.from_time',
-		'staff_id',
-		'apply_for',
-		db_prefix() . 'bonus_discipline_detail.lever_bonus',
-		db_prefix() . 'bonus_discipline.name',
-		db_prefix() . 'bonus_discipline.type',
-		db_prefix() . 'bonus_discipline.id_criteria',
-		db_prefix() . 'bonus_discipline_detail.formality',
-		db_prefix() . 'bonus_discipline_detail.formality_value',
-		db_prefix() . 'bonus_discipline_detail.description',
-	]);
-
-	$output = $result['output'];
-	$rResult = $result['rResult'];
-	foreach ($rResult as $aRow) {
-		$row = [];
-		$row[] = $aRow['name'];
-		$criterial = '';
-		$list_criteria = json_decode($aRow['id_criteria']);
-		if ($list_criteria) {
-			foreach ($list_criteria as $key => $criteria) {
-				$criterial = '<span class="badge inline-block project-status" class="bg-white text-dark"> ' . $this->hr_profile_model->get_criteria($criteria)->kpi_name . ' </span>  ';
-			}
-		}
-
-		$row[] = $criterial;
-		$row[] = _l($aRow['from_time']);
-		$formality = '';
-		$value_formality = '';
-		if (isset($aRow['formality'])) {
-			if ($aRow['formality'] == 'bonus_money') {
-				$formality = app_lang('bonus_money');
-				$value_formality = app_format_money($aRow['formality_value'], '');
-			}
-			if ($aRow['formality'] == 'indemnify') {
-				$formality = app_lang('indemnify');
-				$t = explode(',', $aRow['formality_value']);
-				$value_formality = app_lang('amount_of_damage') . ': ' . app_format_money((int) $t[0], '') . '<br>' . app_lang('indemnify') . ': ' . app_format_money((int) $t[1], '');
-			}
-			if ($aRow['formality'] == 'commend') {
-				$formality = app_lang('commend');
-			}
-			if ($aRow['formality'] == 'remind') {
-				$formality = app_lang('remind');
-			}
-		}
-		$row[] = $formality;
-		$row[] = $value_formality;
-
-		$output['aaData'][] = $row;
-	}
-	echo json_encode($output);
-	die();
-}
-/**
- * general discipline
- * @param  integer $id
- * @return json
- */
-public function general_discipline($id) {
-	$select = [
-		db_prefix() . 'bonus_discipline_detail.id',
-		db_prefix() . 'bonus_discipline_detail.id',
-		db_prefix() . 'bonus_discipline_detail.id',
-
-		db_prefix() . 'bonus_discipline_detail.id',
-		db_prefix() . 'bonus_discipline_detail.id',
-	];
-	$where = [' where staff_id = ' . $id . ' and type = 2 and status = 2'];
-	$aColumns = $select;
-	$sIndexColumn = 'id';
-	$sTable = db_prefix() . 'bonus_discipline_detail';
-	$join = [' LEFT JOIN ' . db_prefix() . 'bonus_discipline ON ' . db_prefix() . 'bonus_discipline.id = ' . db_prefix() . 'bonus_discipline_detail.id_bonus_discipline'];
-
-	$result = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, [
-		db_prefix() . 'bonus_discipline_detail.id',
-		db_prefix() . 'bonus_discipline_detail.from_time',
-		'staff_id',
-		'apply_for',
-		db_prefix() . 'bonus_discipline_detail.lever_bonus',
-		db_prefix() . 'bonus_discipline.name',
-		db_prefix() . 'bonus_discipline.type',
-		db_prefix() . 'bonus_discipline.id_criteria',
-		db_prefix() . 'bonus_discipline_detail.formality',
-		db_prefix() . 'bonus_discipline_detail.formality_value',
-		db_prefix() . 'bonus_discipline_detail.description',
-	]);
-
-	$output = $result['output'];
-	$rResult = $result['rResult'];
-	foreach ($rResult as $aRow) {
-		$row = [];
-		$row[] = $aRow['name'];
-		$criterial = '';
-		$list_criteria = json_decode($aRow['id_criteria']);
-		if ($list_criteria) {
-			foreach ($list_criteria as $key => $criteria) {
-				$criterial = '<span class="badge inline-block project-status" class="bg-white text-dark"> ' . $this->hr_profile_model->get_criteria($criteria)->kpi_name . ' </span>  ';
-			}
-		}
-		$row[] = $criterial;
-		$row[] = _l($aRow['from_time']);
-		$formality = '';
-		$value_formality = '';
-		if (isset($aRow['formality'])) {
-			if ($aRow['formality'] == 'bonus_money') {
-				$formality = app_lang('bonus_money');
-				$value_formality = app_format_money($aRow['formality_value'], '') . 'đ';
-			}
-			if ($aRow['formality'] == 'indemnify') {
-				$formality = app_lang('indemnify');
-				$t = explode(',', $aRow['formality_value']);
-				$value_formality = app_lang('amount_of_damage') . ': ' . app_format_money((int) $t[0], '') . 'đ<br>' . app_lang('indemnify') . ': ' . app_format_money((int) $t[1], '');
-			}
-			if ($aRow['formality'] == 'commend') {
-				$formality = app_lang('commend');
-			}
-			if ($aRow['formality'] == 'remind') {
-				$formality = app_lang('remind');
-			}
-		}
-		$row[] = $formality;
-		$row[] = $value_formality;
-
-		$output['aaData'][] = $row;
-	}
-	echo json_encode($output);
-	die();
-}
-/**
- * records received
- * @return json
- */
-public function records_received() {
-	if ($this->input->is_ajax_request()) {
-		if ($this->request->getPost() != null) {
+	/**
+	 * delete education
+	 * @return json
+	 */
+	public function delete_education()
+	{
+		if ($this->request->getPost()) {
 			$data = $this->request->getPost();
-			$data1 = $data['dt_record'];
-			$this->db->set('records_received', $data1);
-			$this->db->where('staffid', $data['staffid']);
-			$this->db->update(db_prefix() . 'staff');
-			$affected_rows = $this->db->affected_rows();
-			if ($affected_rows > 0) {
-				$message = 'Add records received success';
+			$success = $this->hr_profile_model->delete_education($data['id']);
+			if ($success == true) {
+				$message = app_lang('hr_deleted');
+				echo json_encode([
+					'success' => true,
+					'message' => $message,
+				]);
 			} else {
-				$message = 'Add records received false';
+				$message = app_lang('problem_deleting');
+				echo json_encode([
+					'success' => true,
+					'message' => $message,
+				]);
 			}
-			echo json_encode([
-				'message' => $message,
-			]);
 		}
 	}
-}
+	/**
+	 * table reception
+	 */
+	public function table_reception()
+	{
+		if ($this->request->getPost()) {
+			$dataPost = $this->request->getPost();
+			$this->hr_profile_model->get_table_data(module_views_path('Hr_profile', 'includes/reception_table'), $dataPost);
+		}
+	}
+	/**
+	 * general bonus
+	 * @param  integer $id
+	 * @return json
+	 */
+	public function general_bonus($id)
+	{
+		$select = [
+			db_prefix() . 'bonus_discipline_detail.id',
+			db_prefix() . 'bonus_discipline_detail.id',
+			db_prefix() . 'bonus_discipline_detail.id',
+			db_prefix() . 'bonus_discipline_detail.id',
+			db_prefix() . 'bonus_discipline_detail.id',
+		];
+		$where = [' where staff_id = ' . $id . ' and type = 1 and status = 2'];
+		$aColumns = $select;
+		$sIndexColumn = 'id';
+		$sTable = db_prefix() . 'bonus_discipline_detail';
+		$join = [' LEFT JOIN ' . db_prefix() . 'bonus_discipline ON ' . db_prefix() . 'bonus_discipline.id = ' . db_prefix() . 'bonus_discipline_detail.id_bonus_discipline'];
+
+		$result = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, [
+			db_prefix() . 'bonus_discipline_detail.id',
+			db_prefix() . 'bonus_discipline_detail.from_time',
+			'staff_id',
+			'apply_for',
+			db_prefix() . 'bonus_discipline_detail.lever_bonus',
+			db_prefix() . 'bonus_discipline.name',
+			db_prefix() . 'bonus_discipline.type',
+			db_prefix() . 'bonus_discipline.id_criteria',
+			db_prefix() . 'bonus_discipline_detail.formality',
+			db_prefix() . 'bonus_discipline_detail.formality_value',
+			db_prefix() . 'bonus_discipline_detail.description',
+		]);
+
+		$output = $result['output'];
+		$rResult = $result['rResult'];
+		foreach ($rResult as $aRow) {
+			$row = [];
+			$row[] = $aRow['name'];
+			$criterial = '';
+			$list_criteria = json_decode($aRow['id_criteria']);
+			if ($list_criteria) {
+				foreach ($list_criteria as $key => $criteria) {
+					$criterial = '<span class="badge inline-block project-status" class="bg-white text-dark"> ' . $this->hr_profile_model->get_criteria($criteria)->kpi_name . ' </span>  ';
+				}
+			}
+
+			$row[] = $criterial;
+			$row[] = _l($aRow['from_time']);
+			$formality = '';
+			$value_formality = '';
+			if (isset($aRow['formality'])) {
+				if ($aRow['formality'] == 'bonus_money') {
+					$formality = app_lang('bonus_money');
+					$value_formality = app_format_money($aRow['formality_value'], '');
+				}
+				if ($aRow['formality'] == 'indemnify') {
+					$formality = app_lang('indemnify');
+					$t = explode(',', $aRow['formality_value']);
+					$value_formality = app_lang('amount_of_damage') . ': ' . app_format_money((int) $t[0], '') . '<br>' . app_lang('indemnify') . ': ' . app_format_money((int) $t[1], '');
+				}
+				if ($aRow['formality'] == 'commend') {
+					$formality = app_lang('commend');
+				}
+				if ($aRow['formality'] == 'remind') {
+					$formality = app_lang('remind');
+				}
+			}
+			$row[] = $formality;
+			$row[] = $value_formality;
+
+			$output['aaData'][] = $row;
+		}
+		echo json_encode($output);
+		die();
+	}
+	/**
+	 * general discipline
+	 * @param  integer $id
+	 * @return json
+	 */
+	public function general_discipline($id)
+	{
+		$select = [
+			db_prefix() . 'bonus_discipline_detail.id',
+			db_prefix() . 'bonus_discipline_detail.id',
+			db_prefix() . 'bonus_discipline_detail.id',
+
+			db_prefix() . 'bonus_discipline_detail.id',
+			db_prefix() . 'bonus_discipline_detail.id',
+		];
+		$where = [' where staff_id = ' . $id . ' and type = 2 and status = 2'];
+		$aColumns = $select;
+		$sIndexColumn = 'id';
+		$sTable = db_prefix() . 'bonus_discipline_detail';
+		$join = [' LEFT JOIN ' . db_prefix() . 'bonus_discipline ON ' . db_prefix() . 'bonus_discipline.id = ' . db_prefix() . 'bonus_discipline_detail.id_bonus_discipline'];
+
+		$result = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, [
+			db_prefix() . 'bonus_discipline_detail.id',
+			db_prefix() . 'bonus_discipline_detail.from_time',
+			'staff_id',
+			'apply_for',
+			db_prefix() . 'bonus_discipline_detail.lever_bonus',
+			db_prefix() . 'bonus_discipline.name',
+			db_prefix() . 'bonus_discipline.type',
+			db_prefix() . 'bonus_discipline.id_criteria',
+			db_prefix() . 'bonus_discipline_detail.formality',
+			db_prefix() . 'bonus_discipline_detail.formality_value',
+			db_prefix() . 'bonus_discipline_detail.description',
+		]);
+
+		$output = $result['output'];
+		$rResult = $result['rResult'];
+		foreach ($rResult as $aRow) {
+			$row = [];
+			$row[] = $aRow['name'];
+			$criterial = '';
+			$list_criteria = json_decode($aRow['id_criteria']);
+			if ($list_criteria) {
+				foreach ($list_criteria as $key => $criteria) {
+					$criterial = '<span class="badge inline-block project-status" class="bg-white text-dark"> ' . $this->hr_profile_model->get_criteria($criteria)->kpi_name . ' </span>  ';
+				}
+			}
+			$row[] = $criterial;
+			$row[] = _l($aRow['from_time']);
+			$formality = '';
+			$value_formality = '';
+			if (isset($aRow['formality'])) {
+				if ($aRow['formality'] == 'bonus_money') {
+					$formality = app_lang('bonus_money');
+					$value_formality = app_format_money($aRow['formality_value'], '') . 'đ';
+				}
+				if ($aRow['formality'] == 'indemnify') {
+					$formality = app_lang('indemnify');
+					$t = explode(',', $aRow['formality_value']);
+					$value_formality = app_lang('amount_of_damage') . ': ' . app_format_money((int) $t[0], '') . 'đ<br>' . app_lang('indemnify') . ': ' . app_format_money((int) $t[1], '');
+				}
+				if ($aRow['formality'] == 'commend') {
+					$formality = app_lang('commend');
+				}
+				if ($aRow['formality'] == 'remind') {
+					$formality = app_lang('remind');
+				}
+			}
+			$row[] = $formality;
+			$row[] = $value_formality;
+
+			$output['aaData'][] = $row;
+		}
+		echo json_encode($output);
+		die();
+	}
+	/**
+	 * records received
+	 * @return json
+	 */
+	public function records_received()
+	{
+		if ($this->input->is_ajax_request()) {
+			if ($this->request->getPost() != null) {
+				$data = $this->request->getPost();
+				$data1 = $data['dt_record'];
+				$this->db->set('records_received', $data1);
+				$this->db->where('staffid', $data['staffid']);
+				$this->db->update(db_prefix() . 'staff');
+				$affected_rows = $this->db->affected_rows();
+				if ($affected_rows > 0) {
+					$message = 'Add records received success';
+				} else {
+					$message = 'Add records received false';
+				}
+				echo json_encode([
+					'message' => $message,
+				]);
+			}
+		}
+	}
 
 	/**
 	 * upload file
 	 * @return json
 	 */
-	public function upload_file() {
+	public function upload_file()
+	{
 		$staffid = $this->request->getPost('staffid');
 		$files = handle_hr_profile_attachments_array($staffid, 'file');
 		$success = false;
@@ -4215,7 +4248,8 @@ public function records_received() {
 	 * @param  integer $id
 	 * @param  string $rel_id
 	 */
-	public function hr_profile_file($id, $rel_id) {
+	public function hr_profile_file($id, $rel_id)
+	{
 		$data['discussion_user_profile_image_url'] = staff_profile_image_url(get_staff_user_id1());
 		$data['current_user_is_admin'] = is_admin();
 		$data['file'] = $this->hr_profile_model->get_file($id, $rel_id);
@@ -4231,7 +4265,8 @@ public function records_received() {
 	 * @param  integer $attachment_id
 	 * @return json
 	 */
-	public function delete_hr_profile_staff_attachment($attachment_id) {
+	public function delete_hr_profile_staff_attachment($attachment_id)
+	{
 		$file = $this->misc_model->get_file($attachment_id);
 		if ($file->staffid == get_staff_user_id1() || is_admin() || hr_has_permission('hr_profile_can_edit_hr_records')) {
 			$result = $this->hr_profile_model->delete_hr_profile_staff_attachment($attachment_id);
@@ -4242,7 +4277,6 @@ public function records_received() {
 			} else {
 				$message = app_lang('problem_deleting');
 				$status = false;
-
 			}
 			echo json_encode([
 				'success' => $status,
@@ -4253,65 +4287,68 @@ public function records_received() {
 		}
 	}
 
-/**
- * update staff permission
- */
-public function update_staff_permission() {
-	$data = $this->request->getPost();
-	if ($data['id'] != '') {
-		if (!$data['id'] == get_staff_user_id1() && !is_admin() && !hr_profile_permissions('hr_profile', '', 'edit')) {
-			app_redirect("forbidden");
-		}
-		$response = $this->hr_profile_model->update_staff_permissions($data);
-		if ($response == true) {
-			set_alert('success', app_lang('updated_successfully', app_lang('staff_member')));
-		} else {
-			set_alert('danger', app_lang('updated_failed', app_lang('staff_member')));
-		}
-	}
-	app_redirect(('hr_profile/member/' . $data['id'] . '/permission'));
-}
-/**
- * update staff profile
- */
-public function update_staff_profile() {
-	$data = $this->request->getPost();
-	if ($data['id'] == '') {
-		unset($data['id']);
-		if (!hr_has_permission('hr_profile_can_create_hr_records') && !hr_has_permission('hr_profile_can_edit_hr_records') && !is_admin()) {
-			app_redirect("forbidden");
-		}
-		$id = $this->hr_profile_model->add_staff($data);
-		if ($id) {
-			hr_profile_handle_staff_profile_image_upload($id);
-			set_alert('success', app_lang('added_successfully', app_lang('staff_member')));
-			app_redirect(('hr_profile/member/' . $id . '/profile'));
-		}
-	} else {
-		if (!$data['id'] == get_staff_user_id1() && !is_admin() && !hr_profile_permissions('hr_profile', '', 'edit')) {
-			app_redirect("forbidden");
-		}
-		$response = $this->hr_profile_model->update_staff_profile($data);
-		if ($response == true) {
-			hr_profile_handle_staff_profile_image_upload($data['id']);
-		}
-		if (is_array($response)) {
-			if (isset($response['cant_remove_main_admin'])) {
-				set_alert('warning', app_lang('staff_cant_remove_main_admin'));
-			} elseif (isset($response['cant_remove_yourself_from_admin'])) {
-				set_alert('warning', app_lang('staff_cant_remove_yourself_from_admin'));
+	/**
+	 * update staff permission
+	 */
+	public function update_staff_permission()
+	{
+		$data = $this->request->getPost();
+		if ($data['id'] != '') {
+			if (!$data['id'] == get_staff_user_id1() && !is_admin() && !hr_profile_permissions('hr_profile', '', 'edit')) {
+				app_redirect("forbidden");
 			}
-		} elseif ($response == true) {
-			set_alert('success', app_lang('updated_successfully', app_lang('staff_member')));
+			$response = $this->hr_profile_model->update_staff_permissions($data);
+			if ($response == true) {
+				set_alert('success', app_lang('updated_successfully', app_lang('staff_member')));
+			} else {
+				set_alert('danger', app_lang('updated_failed', app_lang('staff_member')));
+			}
 		}
-		app_redirect(('hr_profile/member/' . $data['id'] . '/profile'));
+		app_redirect(('hr_profile/member/' . $data['id'] . '/permission'));
 	}
-}
+	/**
+	 * update staff profile
+	 */
+	public function update_staff_profile()
+	{
+		$data = $this->request->getPost();
+		if ($data['id'] == '') {
+			unset($data['id']);
+			if (!hr_has_permission('hr_profile_can_create_hr_records') && !hr_has_permission('hr_profile_can_edit_hr_records') && !is_admin()) {
+				app_redirect("forbidden");
+			}
+			$id = $this->hr_profile_model->add_staff($data);
+			if ($id) {
+				hr_profile_handle_staff_profile_image_upload($id);
+				set_alert('success', app_lang('added_successfully', app_lang('staff_member')));
+				app_redirect(('hr_profile/member/' . $id . '/profile'));
+			}
+		} else {
+			if (!$data['id'] == get_staff_user_id1() && !is_admin() && !hr_profile_permissions('hr_profile', '', 'edit')) {
+				app_redirect("forbidden");
+			}
+			$response = $this->hr_profile_model->update_staff_profile($data);
+			if ($response == true) {
+				hr_profile_handle_staff_profile_image_upload($data['id']);
+			}
+			if (is_array($response)) {
+				if (isset($response['cant_remove_main_admin'])) {
+					set_alert('warning', app_lang('staff_cant_remove_main_admin'));
+				} elseif (isset($response['cant_remove_yourself_from_admin'])) {
+					set_alert('warning', app_lang('staff_cant_remove_yourself_from_admin'));
+				}
+			} elseif ($response == true) {
+				set_alert('success', app_lang('updated_successfully', app_lang('staff_member')));
+			}
+			app_redirect(('hr_profile/member/' . $data['id'] . '/profile'));
+		}
+	}
 
 	/**
 	 * add update staff bonus discipline
 	 */
-	public function add_update_staff_bonus_discipline() {
+	public function add_update_staff_bonus_discipline()
+	{
 		if ($this->request->getPost()) {
 			$data = $this->request->getPost();
 			$this->hr_profile_model->update_bonus_discipline($data['id_detail'], $data);
@@ -4325,7 +4362,8 @@ public function update_staff_profile() {
 	 * @param  integer $id
 	 * @return view
 	 */
-	public function file_view_bonus_discipline($id) {
+	public function file_view_bonus_discipline($id)
+	{
 		$data['rel_id'] = $id;
 		$data['file'] = $this->hr_profile_model->get_file_info($id, 'bonus_discipline');
 		if (!$data['file']) {
@@ -4339,7 +4377,8 @@ public function update_staff_profile() {
 	 * workplaces
 	 * @return [type] 
 	 */
-	public function workplaces() {
+	public function workplaces()
+	{
 		$data['workplaces'] = $this->hr_profile_model->get_workplace();
 		return $this->template->rander("Hr_profile\Views\includes\workplace", $data);
 	}
@@ -4348,7 +4387,8 @@ public function update_staff_profile() {
 	 * list workplace data
 	 * @return [type] 
 	 */
-	public function list_workplace_data() {
+	public function list_workplace_data()
+	{
 		$this->access_only_team_members();
 
 		$list_data = $this->hr_profile_model->get_workplace();
@@ -4365,16 +4405,17 @@ public function update_staff_profile() {
 	 * @param  [type] $data 
 	 * @return [type]       
 	 */
-	private function _make_workplace_row($data) {
+	private function _make_workplace_row($data)
+	{
 
 		$options = '';
-		if(is_admin() || hr_has_permission('hr_profile_can_edit_setting')){
+		if (is_admin() || hr_has_permission('hr_profile_can_edit_setting')) {
 			$options .= modal_anchor(get_uri("hr_profile/workplace_modal_form"), "<i data-feather='edit' class='icon-16'></i>", array("class" => "edit", "title" => app_lang('hr_edit_workplace'), "data-post-id" => $data['id']));
 		}
-		if(is_admin() || hr_has_permission('hr_profile_can_delete_setting')){
-			$options .= js_anchor("<i data-feather='x' class='icon-16'></i>", array('title' => app_lang('delete'), "class" => "delete", "data-id" => $data['id'], "data-action-url" => get_uri("hr_profile/delete_workplace/".$data['id']), "data-action" => "delete-confirmation"));
+		if (is_admin() || hr_has_permission('hr_profile_can_delete_setting')) {
+			$options .= js_anchor("<i data-feather='x' class='icon-16'></i>", array('title' => app_lang('delete'), "class" => "delete", "data-id" => $data['id'], "data-action-url" => get_uri("hr_profile/delete_workplace/" . $data['id']), "data-action" => "delete-confirmation"));
 		}
-		
+
 		return array(
 			nl2br($data['name']),
 			nl2br($data['workplace_address']),
@@ -4388,7 +4429,8 @@ public function update_staff_profile() {
 	 * workplace modal form
 	 * @return [type] 
 	 */
-	public function workplace_modal_form() {
+	public function workplace_modal_form()
+	{
 		$this->access_only_team_members();
 
 		$this->validate_submitted_data(array(
@@ -4398,12 +4440,12 @@ public function update_staff_profile() {
 		$workplace_data = [];
 
 		$id = $this->request->getPost('id');
-		if($id && is_numeric($id)){
+		if ($id && is_numeric($id)) {
 			$data['workplace_data'] = $this->hr_profile_model->get_workplace($id);
-		}else{
+		} else {
 			$id = '';
 		}
-		
+
 		$data['id'] = $id;
 
 		return $this->template->view('Hr_profile\Views\includes\modal_forms\workplace_modal', $data);
@@ -4415,7 +4457,8 @@ public function update_staff_profile() {
 	 * @param  string $id
 	 * @return [type]
 	 */
-	public function workplace($id = '') {
+	public function workplace($id = '')
+	{
 
 		if ($this->request->getPost()) {
 			$message = '';
@@ -4437,7 +4480,6 @@ public function update_staff_profile() {
 				}
 				app_redirect('hr_profile/workplaces');
 			}
-
 		}
 	}
 
@@ -4446,7 +4488,8 @@ public function update_staff_profile() {
 	 * @param  [type] $id
 	 * @return [type]
 	 */
-	public function delete_workplace($id) {
+	public function delete_workplace($id)
+	{
 		if (!$id) {
 			app_redirect('hr_profile/workplaces');
 		}
@@ -4460,7 +4503,8 @@ public function update_staff_profile() {
 		}
 	}
 
-	public function hr_profile_permission_table() {
+	public function hr_profile_permission_table()
+	{
 		if ($this->input->is_ajax_request()) {
 
 			$select = [
@@ -4529,7 +4573,8 @@ public function update_staff_profile() {
 	 * permission modal
 	 * @return [type]
 	 */
-	public function permission_modal() {
+	public function permission_modal()
+	{
 		if (!$this->input->is_ajax_request()) {
 			show_404();
 		}
@@ -4566,7 +4611,8 @@ public function update_staff_profile() {
 	 * @param  string $id
 	 * @return [type]
 	 */
-	public function hr_profile_update_permissions($id = '') {
+	public function hr_profile_update_permissions($id = '')
+	{
 		if (!is_admin()) {
 			app_redirect("forbidden");
 		}
@@ -4628,7 +4674,6 @@ public function update_staff_profile() {
 			set_alert('success', app_lang('updated_successfully', app_lang('staff_member')));
 		}
 		app_redirect(('hr_profile/setting?group=hr_profile_permissions'));
-
 	}
 
 	/**
@@ -4636,7 +4681,8 @@ public function update_staff_profile() {
 	 * @param  [type] $staff_id
 	 * @return [type]
 	 */
-	public function staff_id_changed($staff_id) {
+	public function staff_id_changed($staff_id)
+	{
 		$role_id = '';
 		$status = 'false';
 		$r_permission = [];
@@ -4652,7 +4698,6 @@ public function update_staff_profile() {
 
 			$role_id = $staff->role;
 			$status = 'true';
-
 		}
 
 		if (count($r_permission) > 0) {
@@ -4670,7 +4715,8 @@ public function update_staff_profile() {
 	 * @param  [type] $id
 	 * @return [type]
 	 */
-	public function delete_hr_profile_permission($id) {
+	public function delete_hr_profile_permission($id)
+	{
 		if (!is_admin()) {
 			app_redirect("forbidden");
 		}
@@ -4685,7 +4731,6 @@ public function update_staff_profile() {
 			set_alert('warning', app_lang('problem_deleting', app_lang('department_lowercase')));
 		}
 		app_redirect(('hr_profile/setting?group=hr_profile_permissions'));
-
 	}
 
 	/**
@@ -4693,7 +4738,8 @@ public function update_staff_profile() {
 	 * @param  [type] $department
 	 * @return [type]
 	 */
-	public function zen_unit_chart($department) {
+	public function zen_unit_chart($department)
+	{
 		$this->load->model('staff_model');
 		$dpm = $this->departments_model->get($department);
 		$dpm_data = $this->hr_profile_model->get_data_dpm_chart($department);
@@ -4721,7 +4767,6 @@ public function update_staff_profile() {
 						</tr>';
 					}
 				}
-
 			}
 		}
 
@@ -4733,7 +4778,6 @@ public function update_staff_profile() {
 			'reality_now' => $reality_now,
 			'html' => $html,
 		]);
-
 	}
 
 	/**
@@ -4741,13 +4785,13 @@ public function update_staff_profile() {
 	 * @param  [type] $id
 	 * @return [type]
 	 */
-	public function get_list_job_position_training($id) {
+	public function get_list_job_position_training($id)
+	{
 		$list = $this->hr_profile_model->get_job_position_training_de($id);
 		if (isset($list)) {
 			$description = $list->description;
 		} else {
 			$description = '';
-
 		}
 		echo json_encode([
 			'description' => $description,
@@ -4760,7 +4804,8 @@ public function update_staff_profile() {
 	 * @param  [type] $training_id
 	 * @return [type]
 	 */
-	public function delete_job_position_training_process() {
+	public function delete_job_position_training_process()
+	{
 		if (!hr_has_permission('hr_profile_can_delete_job_description')) {
 			app_redirect("forbidden");
 		}
@@ -4784,7 +4829,8 @@ public function update_staff_profile() {
 	 * @param  [type] $id
 	 * @return [type]
 	 */
-	public function delete_position_training() {
+	public function delete_position_training()
+	{
 		if (!hr_has_permission('hr_profile_can_delete_job_description')) {
 			app_redirect("forbidden");
 		}
@@ -4807,7 +4853,8 @@ public function update_staff_profile() {
 	 * table contract
 	 * @return [type]
 	 */
-	public function table_contract() {
+	public function table_contract()
+	{
 		$dataPost = $this->request->getPost();
 		$this->hr_profile_model->get_table_data(module_views_path('Hr_profile', 'contracts/table_contract'), $dataPost);
 	}
@@ -4817,7 +4864,8 @@ public function update_staff_profile() {
 	 * @param  string $id
 	 * @return [type]
 	 */
-	public function contracts($id = '') {
+	public function contracts($id = '')
+	{
 
 		if (!hr_has_permission('hr_profile_can_view_global_hr_contract') && !hr_has_permission('hr_profile_can_view_own_hr_contract') && !is_admin()) {
 			app_redirect("forbidden");
@@ -4860,7 +4908,8 @@ public function update_staff_profile() {
 	 * @param  string $id
 	 * @return [type]
 	 */
-	public function contract($id = '') {
+	public function contract($id = '')
+	{
 		if (!hr_has_permission('hr_profile_can_view_global_hr_contract') && !hr_has_permission('hr_profile_can_view_own_hr_contract') && !is_admin()) {
 			app_redirect("forbidden");
 		}
@@ -4868,7 +4917,7 @@ public function update_staff_profile() {
 		if ($this->request->getPost()) {
 			$data = $this->request->getPost();
 			$id = $this->request->getPost('id');
-			if(isset($data['id'])){
+			if (isset($data['id'])) {
 				unset($data['id']);
 			}
 			$count_file = 0;
@@ -4890,13 +4939,12 @@ public function update_staff_profile() {
 					$this->session->setFlashdata("success_message", app_lang("added_successfully"));
 					app_redirect('hr_profile/contracts');
 				}
-
 			} else {
 				if (!hr_has_permission('hr_profile_can_edit_hr_contract') && !is_admin()) {
 					app_redirect("forbidden");
 				}
 
-				if(isset($data['isedit'])){
+				if (isset($data['isedit'])) {
 					unset($data['isedit']);
 				}
 				$response = $this->hr_profile_model->update_contract($data, $id);
@@ -4942,7 +4990,6 @@ public function update_staff_profile() {
 						app_redirect("forbidden");
 					}
 				}
-
 			}
 
 			$contract_detail = $this->hr_profile_model->get_contract_detail($id);
@@ -4964,7 +5011,6 @@ public function update_staff_profile() {
 					$data['title'] = $title[0]['name_contracttype'];
 				}
 			}
-
 		}
 
 		$data['positions'] = $this->hr_profile_model->get_job_position();
@@ -4999,7 +5045,8 @@ public function update_staff_profile() {
 	 * @param  [type] $id
 	 * @return [type]
 	 */
-	public function delete_contract() {
+	public function delete_contract()
+	{
 		if (!hr_has_permission('hr_profile_can_delete_hr_contract') && !is_admin()) {
 			app_redirect("forbidden");
 		}
@@ -5017,14 +5064,14 @@ public function update_staff_profile() {
 			$this->session->setFlashdata("error_message", app_lang("problem_deleting"));
 		}
 		app_redirect('hr_profile/contracts');
-
 	}
 
 	/**
 	 * contract code exists
 	 * @return [type]
 	 */
-	public function contract_code_exists() {
+	public function contract_code_exists()
+	{
 		if ($this->input->is_ajax_request()) {
 			if ($this->request->getPost()) {
 				// First we need to check if the email is the same
@@ -5055,7 +5102,8 @@ public function update_staff_profile() {
 	 * @param  [type] $id
 	 * @return [type]
 	 */
-	public function view_staff_contract($id) {
+	public function view_staff_contract($id)
+	{
 		$contract = $this->hr_profile_model->get_contract($id);
 		$contract_detail = $this->hr_profile_model->get_contract_detail($id);
 		if (!$contract) {
@@ -5073,7 +5121,6 @@ public function update_staff_profile() {
 
 				$this->hr_profile_model->update_hr_staff_contract_content($id, $contract->staff);
 			}
-
 		}
 
 		$data['contract_details'] = $contract_detail;
@@ -5109,7 +5156,8 @@ public function update_staff_profile() {
 	 * get staff role
 	 * @return [type]
 	 */
-	public function get_staff_role() {
+	public function get_staff_role()
+	{
 		$role_name = '';
 		if ($this->request->getPost()) {
 
@@ -5130,21 +5178,22 @@ public function update_staff_profile() {
 	 * @param  string $id
 	 * @return [type]
 	 */
-	public function get_contract_type($id = '') {
+	public function get_contract_type($id = '')
+	{
 		$contract_type = $this->hr_profile_model->get_contracttype($id);
 
 		echo json_encode([
 			'contract_type' => $contract_type,
 		]);
 		die;
-
 	}
 
 	/**
 	 * prefix numbers
 	 * @return [type] 
 	 */
-	public function prefix_numbers() {
+	public function prefix_numbers()
+	{
 		return $this->template->rander("Hr_profile\Views\includes\prefix_number", []);
 	}
 
@@ -5152,7 +5201,8 @@ public function update_staff_profile() {
 	 * inventory setting
 	 * @return [type]
 	 */
-	public function prefix_number() {
+	public function prefix_number()
+	{
 		$data = $this->request->getPost();
 
 		if ($data) {
@@ -5172,7 +5222,8 @@ public function update_staff_profile() {
 	 * @param  String $rel_type
 	 * @return String
 	 */
-	public function get_code($rel_type) {
+	public function get_code($rel_type)
+	{
 		//get data
 		$code = $this->hr_profile_model->create_code($rel_type);
 
@@ -5180,19 +5231,19 @@ public function update_staff_profile() {
 			'code' => $code,
 		]);
 		die;
-
 	}
 
 	/**
 	 * import job position
 	 * @return [type]
 	 */
-	public function import_job_position() {
+	public function import_job_position()
+	{
 
 		$user_id = $this->login_user->id;
 
 		$_personal_language = get_setting('user_' . $user_id . '_personal_language');
-		if(strlen($_personal_language) == 0){
+		if (strlen($_personal_language) == 0) {
 			$_personal_language = get_setting("language");
 		}
 
@@ -5208,7 +5259,8 @@ public function update_staff_profile() {
 	 * @param  string $id
 	 * @return [type]
 	 */
-	public function dependent_person($id = '') {
+	public function dependent_person($id = '')
+	{
 		if ($this->request->getPost()) {
 			$message = '';
 			$data = $this->request->getPost();
@@ -5253,7 +5305,8 @@ public function update_staff_profile() {
 	 * @param  [type] $id
 	 * @return [type]
 	 */
-	public function delete_dependent_person() {
+	public function delete_dependent_person()
+	{
 		$id = $this->request->getPost('id');
 		if (!$id) {
 			app_redirect("forbidden");
@@ -5273,7 +5326,8 @@ public function update_staff_profile() {
 	 * approval dependents
 	 * @return [type]
 	 */
-	public function dependent_persons() {
+	public function dependent_persons()
+	{
 
 		if (!is_admin() && !hr_has_permission('hr_profile_can_view_global_dependent_persons') && !hr_has_permission('hr_profile_can_view_own_dependent_persons')) {
 			app_redirect("forbidden");
@@ -5295,7 +5349,8 @@ public function update_staff_profile() {
 	 * approval status
 	 * @return [type]
 	 */
-	public function approval_status() {
+	public function approval_status()
+	{
 		if ($this->request->getPost()) {
 			$data = $this->request->getPost();
 
@@ -5320,7 +5375,8 @@ public function update_staff_profile() {
 	 * table dependent person
 	 * @return [type]
 	 */
-	public function table_dependent_person() {
+	public function table_dependent_person()
+	{
 		$dataPost = $this->request->getPost();
 		$this->hr_profile_model->get_table_data(module_views_path('Hr_profile', 'dependent_person/table_dependent_person'), $dataPost);
 	}
@@ -5329,7 +5385,8 @@ public function update_staff_profile() {
 	 * import xlsx dependent person
 	 * @return [type]
 	 */
-	public function import_xlsx_dependent_person() {
+	public function import_xlsx_dependent_person()
+	{
 		if (!is_admin() && !hr_has_permission('hr_profile_can_create_dependent_persons')) {
 			app_redirect("forbidden");
 		}
@@ -5340,12 +5397,10 @@ public function update_staff_profile() {
 		if ($data_staff) {
 			if ($data_staff->default_language != '') {
 				$data['active_language'] = $data_staff->default_language;
-
 			} else {
 
 				$data['active_language'] = get_option('active_language');
 			}
-
 		} else {
 			$data['active_language'] = get_option('active_language');
 		}
@@ -5357,7 +5412,8 @@ public function update_staff_profile() {
 	 * import file xlsx dependent person
 	 * @return [type]
 	 */
-	public function import_file_xlsx_dependent_person() {
+	public function import_file_xlsx_dependent_person()
+	{
 		if (!is_admin() && !hr_has_permission('hr_profile_can_create_dependent_persons')) {
 			app_redirect("forbidden");
 		}
@@ -5431,7 +5487,8 @@ public function update_staff_profile() {
 								'bold' => true,
 								'color' => array('rgb' => 'ff0000'),
 
-							));
+							)
+						);
 
 						//start write on line 2
 						$numRow = 2;
@@ -5480,7 +5537,6 @@ public function update_staff_profile() {
 										$string_error .= app_lang('hr_hr_code') . app_lang('does_not_exist');
 										$flag2 = 1;
 									}
-
 								}
 
 								//check bir of day dependent person input
@@ -5489,7 +5545,6 @@ public function update_staff_profile() {
 										$string_error .= app_lang('days_for_identity') . app_lang('_check_invalid');
 										$flag = 1;
 									}
-
 								}
 
 								//check start_time
@@ -5498,7 +5553,6 @@ public function update_staff_profile() {
 										$string_error .= app_lang('hr_start_month') . app_lang('_check_invalid');
 										$flag = 1;
 									}
-
 								}
 
 								//check end_time
@@ -5507,7 +5561,6 @@ public function update_staff_profile() {
 										$string_error .= app_lang('hr_end_month') . app_lang('_check_invalid');
 										$flag = 1;
 									}
-
 								}
 
 								if (($flag == 1) || ($flag2 == 1)) {
@@ -5549,9 +5602,7 @@ public function update_staff_profile() {
 
 									array_push($arr_insert, $rd);
 								}
-
 							}
-
 						}
 						$total_rows = $total_rows;
 						$total_row_success = count($arr_insert);
@@ -5563,19 +5614,16 @@ public function update_staff_profile() {
 							$objWriter = new PHPExcel_Writer_Excel2007($dataError);
 							$filename = 'Import_dependent_person_error_' . get_staff_user_id1() . '_' . strtotime(date('Y-m-d H:i:s')) . '.xlsx';
 							$objWriter->save(str_replace($filename, HR_PROFILE_ERROR . $filename, $filename));
-
 						} else {
 							$this->db->insert_batch(db_prefix() . 'hr_dependent_person', $arr_insert);
 						}
 						$import_result = true;
 						@delete_dir($tmpDir);
-
 					}
 				} else {
 					set_alert('warning', app_lang('import_upload_failed'));
 				}
 			}
-
 		}
 		echo json_encode([
 			'message' => $message,
@@ -5585,7 +5633,6 @@ public function update_staff_profile() {
 			'site_url' => site_url(),
 			'staff_id' => get_staff_user_id1(),
 		]);
-
 	}
 
 	/**
@@ -5593,7 +5640,8 @@ public function update_staff_profile() {
 	 * @param  [type] $id
 	 * @return [type]
 	 */
-	public function admin_delete_dependent_person() {
+	public function admin_delete_dependent_person()
+	{
 		$id = $this->request->getPost('id');
 		if (!$id) {
 			app_redirect(('hr_profile/member' . get_staff_user_id1()));
@@ -5613,7 +5661,8 @@ public function update_staff_profile() {
 	 * delete_error file day before
 	 * @return [type]
 	 */
-	public function delete_error_file_day_before($before_day = '', $folder_name = '') {
+	public function delete_error_file_day_before($before_day = '', $folder_name = '')
+	{
 		if ($before_day != '') {
 			$day = $before_day;
 		} else {
@@ -5656,12 +5705,13 @@ public function update_staff_profile() {
 	 * dependent person modal
 	 * @return [type]
 	 */
-	public function dependent_person_modal() {
+	public function dependent_person_modal()
+	{
 		$this->access_only_team_members();
 		$id = $this->request->getPost('id');
-		if(is_numeric($id)){
+		if (is_numeric($id)) {
 			$data['dependent_person'] = $this->hr_profile_model->get_dependent_person($id);
-		}else{
+		} else {
 			$id = '';
 		}
 
@@ -5682,7 +5732,8 @@ public function update_staff_profile() {
 	 * resignation procedures
 	 * @return [type]
 	 */
-	public function resignation_procedures() {
+	public function resignation_procedures()
+	{
 
 		if (!hr_has_permission('hr_profile_can_view_global_layoff_checklists') && !hr_has_permission('hr_profile_can_view_own_layoff_checklists') && !is_admin()) {
 			app_redirect("forbidden");
@@ -5693,11 +5744,11 @@ public function update_staff_profile() {
 		foreach ($get_list_quiting_work as $value) {
 			$arr_staff_quiting_work[] = $value['staffid'];
 		}
-		
-		if(count($arr_staff_quiting_work) > 0){
-			$data['staffs'] = $this->hr_profile_model->hr_profile_run_query('select * from '.get_db_prefix().'users where status = "active" AND user_type ="staff" AND id NOT IN ('.implode(",", $arr_staff_quiting_work).')');
-		}else{
-			$data['staffs'] = $this->hr_profile_model->hr_profile_run_query('select * from '.get_db_prefix().'users where status = "active" AND user_type ="staff"');
+
+		if (count($arr_staff_quiting_work) > 0) {
+			$data['staffs'] = $this->hr_profile_model->hr_profile_run_query('select * from ' . get_db_prefix() . 'users where status = "active" AND user_type ="staff" AND id NOT IN (' . implode(",", $arr_staff_quiting_work) . ')');
+		} else {
+			$data['staffs'] = $this->hr_profile_model->hr_profile_run_query('select * from ' . get_db_prefix() . 'users where status = "active" AND user_type ="staff"');
 		}
 
 
@@ -5710,7 +5761,8 @@ public function update_staff_profile() {
 	/**
 	 * add staff quitting work
 	 */
-	public function add_resignation_procedure() {
+	public function add_resignation_procedure()
+	{
 		if (!hr_has_permission('hr_profile_can_edit_layoff_checklists') && !hr_has_permission('hr_profile_can_create_layoff_checklists') && !is_admin()) {
 			app_redirect("forbidden");
 		}
@@ -5730,7 +5782,8 @@ public function update_staff_profile() {
 	 * @param  [type] $id
 	 * @return [type]
 	 */
-	public function delete_resignation_procedure($id) {
+	public function delete_resignation_procedure($id)
+	{
 
 		if (!hr_has_permission('hr_profile_can_edit_layoff_checklists') && !is_admin()) {
 			app_redirect("forbidden");
@@ -5748,7 +5801,8 @@ public function update_staff_profile() {
 	 * table resignation procedures
 	 * @return [type]
 	 */
-	public function table_resignation_procedures() {
+	public function table_resignation_procedures()
+	{
 		$dataPost = $this->request->getPost();
 		$this->hr_profile_model->get_table_data(module_views_path('Hr_profile', 'resignation_procedures/table_resignation_procedures'), $dataPost);
 	}
@@ -5758,7 +5812,8 @@ public function update_staff_profile() {
 	 * @param  [type] $staff_id
 	 * @return [type]
 	 */
-	public function get_staff_info_of_resignation_procedures($staff_id) {
+	public function get_staff_info_of_resignation_procedures($staff_id)
+	{
 		$staff_email = '';
 		$staff_department_name = '';
 		$staff_job_position = '';
@@ -5779,7 +5834,7 @@ public function update_staff_profile() {
 				$staff_email = $staff->email;
 				$staff_job_position = hr_profile_job_name_by_id($staff->job_position);
 				$getdepartment_name = $this->hr_profile_model->getdepartment_name($staff_id);
-				$staff_department_name = $getdepartment_name->name; 
+				$staff_department_name = $getdepartment_name->name;
 			}
 		} else {
 			$status = false;
@@ -5794,7 +5849,6 @@ public function update_staff_profile() {
 			'message' => $message,
 		]);
 		die;
-
 	}
 
 	/**
@@ -5802,7 +5856,8 @@ public function update_staff_profile() {
 	 * @param  [type] $staffid
 	 * @return [type]
 	 */
-	public function delete_procedures_for_quitting_work() {
+	public function delete_procedures_for_quitting_work()
+	{
 		if (!hr_has_permission('hr_profile_can_edit_layoff_checklists') && !is_admin()) {
 			app_redirect("forbidden");
 		}
@@ -5821,7 +5876,8 @@ public function update_staff_profile() {
 	 * set data detail staff checklist quit work
 	 * @param [type] $staffid
 	 */
-	public function set_data_detail_staff_checklist_quit_work($staffid) {
+	public function set_data_detail_staff_checklist_quit_work($staffid)
+	{
 		$results = $this->hr_profile_model->get_data_procedure_retire_of_staff($staffid);
 
 		$html = '<input type="hidden" name="staffid" value="' . $staffid . '">';
@@ -5883,7 +5939,6 @@ public function update_staff_profile() {
 			'result' => $html,
 			'staff_name' => get_staff_full_name1($staffid),
 		]);
-
 	}
 
 	/**
@@ -5891,7 +5946,8 @@ public function update_staff_profile() {
 	 * @param  [type] $staffid
 	 * @return [type]
 	 */
-	public function update_status_quit_work() {
+	public function update_status_quit_work()
+	{
 		$data = $this->request->getPost();
 		$staffid = $data['staffid'];
 		$id = $data['id'];
@@ -5907,14 +5963,14 @@ public function update_staff_profile() {
 			'status' => $result,
 			'message' => $message,
 		]);
-
 	}
 
 	/**
 	 * update status option name
 	 * @return [type]
 	 */
-	public function update_status_option_name() {
+	public function update_status_option_name()
+	{
 		$data = $this->request->getPost();
 		if ($data['finish'] == 0) {
 			foreach ($data['option_name'] as $id_option) {
@@ -5938,7 +5994,8 @@ public function update_staff_profile() {
 	 * @param  [type] $rel_id
 	 * @return [type]
 	 */
-	public function preview_q_a_file($id, $rel_id) {
+	public function preview_q_a_file($id, $rel_id)
+	{
 		$data['discussion_user_profile_image_url'] = staff_profile_image_url(get_staff_user_id1());
 		$data['current_user_is_admin'] = is_admin();
 		$data['file'] = $this->hr_profile_model->get_file($id, $rel_id);
@@ -5954,7 +6011,8 @@ public function update_staff_profile() {
 	 * @param  [type] $attachment_id
 	 * @return [type]
 	 */
-	public function delete_hr_profile_q_a_attachment_file($attachment_id) {
+	public function delete_hr_profile_q_a_attachment_file($attachment_id)
+	{
 		if (!has_permission('hr_manage_q_a', '', 'delete')) {
 			app_redirect("forbidden");
 		}
@@ -5970,7 +6028,8 @@ public function update_staff_profile() {
 	 * @param  [type] $rel_type
 	 * @return [type]
 	 */
-	public function get_salary_allowance_value($rel_type) {
+	public function get_salary_allowance_value($rel_type)
+	{
 
 		if (preg_match('/^st_/', $rel_type)) {
 			$rel_value = str_replace('st_', '', $rel_type);
@@ -5982,7 +6041,6 @@ public function update_staff_profile() {
 			} else {
 				$value = 0;
 			}
-
 		} elseif (preg_match('/^al_/', $rel_type)) {
 			$rel_value = str_replace('al_', '', $rel_type);
 			$allowance_type = $this->hr_profile_model->get_allowance_type($rel_value);
@@ -5993,9 +6051,7 @@ public function update_staff_profile() {
 			} else {
 				$value = 0;
 			}
-
 		} else {
-
 		}
 
 		$effective_date = get_my_local_time('Y-m-d');
@@ -6014,7 +6070,8 @@ public function update_staff_profile() {
 	 * @param  [type] $rel_id
 	 * @return [type]
 	 */
-	public function hrm_file_contract($id, $rel_id) {
+	public function hrm_file_contract($id, $rel_id)
+	{
 		$data['discussion_user_profile_image_url'] =  get_staff_image(get_staff_user_id1(), false);
 		$data['current_user_is_admin'] = is_admin();
 		$data['file'] = $this->hr_profile_model->get_file($id, $rel_id);
@@ -6030,7 +6087,8 @@ public function update_staff_profile() {
 	 * @param  [type] $attachment_id
 	 * @return [type]
 	 */
-	public function delete_hrm_contract_attachment_file($attachment_id) {
+	public function delete_hrm_contract_attachment_file($attachment_id)
+	{
 		if (!hr_has_permission('hr_profile_can_delete_hr_contract') && !is_admin()) {
 			app_redirect("forbidden");
 		}
@@ -6045,7 +6103,8 @@ public function update_staff_profile() {
 	 * member modal
 	 * @return [type]
 	 */
-	public function member_modal() {
+	public function member_modal()
+	{
 		if (!$this->input->is_ajax_request()) {
 			show_404();
 		}
@@ -6054,7 +6113,6 @@ public function update_staff_profile() {
 		if ($this->request->getPost('slug') === 'create') {
 
 			return $this->template->view('Hr_profile\Views\hr_record/mew_member', $data);
-
 		} else if ($this->request->getPost('slug') === 'update') {
 			$staff_id = $this->request->getPost('staff_id');
 			$role_id = $this->request->getPost('role_id');
@@ -6102,7 +6160,8 @@ public function update_staff_profile() {
 	 * new member
 	 * @return [type]
 	 */
-	public function new_member($id = '') {
+	public function new_member($id = '')
+	{
 
 		if (!hr_has_permission('hr_profile_can_create_hr_records')) {
 			app_redirect("forbidden");
@@ -6150,7 +6209,7 @@ public function update_staff_profile() {
 		$data['staff_code'] = $this->hr_profile_model->create_code('staff_code');
 		$data['id'] = $id;
 
-		if(is_numeric($id)){
+		if (is_numeric($id)) {
 			$options = array(
 				"user_type" => "staff",
 				"id" => $id,
@@ -6164,7 +6223,6 @@ public function update_staff_profile() {
 			$data['member'] = $user;
 			$data['id'] = $user->id;
 			$data['staff_departments'] = $this->hr_profile_model->get_staff_departments($user->id);
-
 		}
 
 		return $this->template->rander('Hr_profile\Views\hr_record/new_member', $data);
@@ -6174,7 +6232,8 @@ public function update_staff_profile() {
 	 * add edit member
 	 * @param string $id
 	 */
-	public function add_edit_member($id = '') {
+	public function add_edit_member($id = '')
+	{
 		if (!hr_has_permission('hr_profile_can_view_global_hr_records') && !hr_has_permission('hr_profile_can_view_own_hr_records') && get_staff_user_id1() != $id) {
 			app_redirect("forbidden");
 		}
@@ -6198,13 +6257,13 @@ public function update_staff_profile() {
 
 						$profile_image = serialize(move_temp_file("avatar.png", get_setting("profile_image_path"), "", $image_file_name));
 
-                			//delete old file
+						//delete old file
 						delete_app_files(get_setting("profile_image_path"), array(@unserialize($user_info->image)));
 
 						$image_data = array("image" => $profile_image);
 
 						$builder = db_connect('default');
-						$builder = $builder->table(get_db_prefix().'users');
+						$builder = $builder->table(get_db_prefix() . 'users');
 						$builder->where('id', $user_id);
 						$builder->update($image_data);
 					}
@@ -6214,7 +6273,6 @@ public function update_staff_profile() {
 					$this->session->setFlashdata("success_message", app_lang("added_successfully"));
 					app_redirect(('hr_profile/staff_infor'));
 				}
-
 			} else {
 				if (!hr_has_permission('hr_profile_can_edit_hr_records') && get_staff_user_id1() != $id) {
 					app_redirect("forbidden");
@@ -6231,13 +6289,13 @@ public function update_staff_profile() {
 
 						$profile_image = serialize(move_temp_file("avatar.png", get_setting("profile_image_path"), "", $image_file_name));
 
-                			//delete old file
+						//delete old file
 						delete_app_files(get_setting("profile_image_path"), array(@unserialize($user_info->image)));
 
 						$image_data = array("image" => $profile_image);
 
 						$builder = db_connect('default');
-						$builder = $builder->table(get_db_prefix().'users');
+						$builder = $builder->table(get_db_prefix() . 'users');
 						$builder->where('id', $id);
 						$builder->update($image_data);
 					}
@@ -6283,12 +6341,13 @@ public function update_staff_profile() {
 	 * @param  [type] $status
 	 * @return [type]
 	 */
-	public function change_staff_status($id, $status) {
+	public function change_staff_status($id, $status)
+	{
 		if (hr_has_permission('hr_profile_can_edit_hr_records')) {
 			if ($this->request->getGet()) {
 
 				$builder = db_connect('default');
-				$builder = $builder->table(get_db_prefix().'users');
+				$builder = $builder->table(get_db_prefix() . 'users');
 				$builder->where('id', $id);
 				$builder->update(['status' => $status]);
 				echo json_encode(false);
@@ -6300,7 +6359,8 @@ public function update_staff_profile() {
 	 * hr code exists
 	 * @return [type]
 	 */
-	public function hr_code_exists() {
+	public function hr_code_exists()
+	{
 		if ($this->input->is_ajax_request()) {
 			if ($this->request->getPost()) {
 				// First we need to check if the email is the same
@@ -6330,7 +6390,8 @@ public function update_staff_profile() {
 	 * view contract modal
 	 * @return [type]
 	 */
-	public function view_contract_modal() {
+	public function view_contract_modal()
+	{
 		if (!$this->input->is_ajax_request()) {
 			show_404();
 		}
@@ -6350,7 +6411,8 @@ public function update_staff_profile() {
 	 * reports
 	 * @return [type]
 	 */
-	public function reports() {
+	public function reports()
+	{
 		if (!hr_has_permission('hr_profile_can_view_global_report') && !is_admin()) {
 			app_redirect("forbidden");
 		}
@@ -6376,7 +6438,8 @@ public function update_staff_profile() {
 	 * report by leave statistics
 	 * @return [type]
 	 */
-	public function report_by_leave_statistics() {
+	public function report_by_leave_statistics()
+	{
 		echo json_encode($this->hr_profile_model->report_by_leave_statistics());
 	}
 
@@ -6384,7 +6447,8 @@ public function update_staff_profile() {
 	 * report by working hours
 	 * @return [type]
 	 */
-	public function report_by_working_hours() {
+	public function report_by_working_hours()
+	{
 		echo json_encode($this->hr_profile_model->report_by_working_hours());
 	}
 
@@ -6392,7 +6456,8 @@ public function update_staff_profile() {
 	 * table report the employee quitting
 	 * @return [type] 
 	 */
-	public function table_report_the_employee_quitting() {
+	public function table_report_the_employee_quitting()
+	{
 		$dataPost = $this->request->getPost();
 		$this->hr_profile_model->get_table_data(module_views_path('Hr_profile', 'reports/tables/table_employee_quitting'), $dataPost);
 	}
@@ -6401,7 +6466,8 @@ public function update_staff_profile() {
 	 * table list of employees with salary change
 	 * @return [type] 
 	 */
-	public function table_list_of_employees_with_salary_change() {
+	public function table_list_of_employees_with_salary_change()
+	{
 		$dataPost = $this->request->getPost();
 		$this->hr_profile_model->get_table_data(module_views_path('Hr_profile', 'reports/tables/table_list_of_employees_with_salary_change'), $dataPost);
 	}
@@ -6410,7 +6476,8 @@ public function update_staff_profile() {
 	 * get get base currency name
 	 * @return [type]
 	 */
-	public function get_base_currency_name() {
+	public function get_base_currency_name()
+	{
 		$currency = '';
 
 		$this->load->model('currencies_model');
@@ -6426,7 +6493,8 @@ public function update_staff_profile() {
 	 * get chart senior staff
 	 * @return [type]
 	 */
-	public function get_chart_senior_staff($sort_from, $months_report = '', $report_from = '', $report_to = '') {
+	public function get_chart_senior_staff($sort_from, $months_report = '', $report_from = '', $report_to = '')
+	{
 		if ($this->request->getGet()) {
 
 			$months_report = $months_report;
@@ -6435,7 +6503,6 @@ public function update_staff_profile() {
 				$beginMonth = date('Y-m-d', strtotime('1997-01-01'));
 				$endMonth =  date('Y-m-01', strtotime("+100 MONTH"));
 				$staff_list = $this->hr_profile_model->get_staff_by_month($beginMonth, $endMonth);
-
 			}
 			if ($months_report == 'this_month') {
 
@@ -6459,7 +6526,6 @@ public function update_staff_profile() {
 				$to_year = date('Y-m-d', strtotime(date(date('Y', strtotime('last year')) . '-12-31')));
 
 				$staff_list = $this->hr_profile_model->get_staff_by_month($from_year, $to_year);
-
 			}
 
 			if ($months_report == '3') {
@@ -6468,7 +6534,6 @@ public function update_staff_profile() {
 				$beginMonth = date('Y-m-01', strtotime("-$months_report MONTH"));
 				$endMonth = date('Y-m-t');
 				$staff_list = $this->hr_profile_model->get_staff_by_month($beginMonth, $endMonth);
-
 			}
 			if ($months_report == '6') {
 				$months_report = 6;
@@ -6488,7 +6553,6 @@ public function update_staff_profile() {
 				$from_date = to_sql_date1($report_from);
 				$to_date = to_sql_date1($report_to);
 				$staff_list = $this->hr_profile_model->get_staff_by_month($from_date, $to_date);
-
 			}
 
 			$list_count_month = array();
@@ -6573,7 +6637,8 @@ public function update_staff_profile() {
 	/**
 	 * HR is working
 	 */
-	public function HR_is_working() {
+	public function HR_is_working()
+	{
 		if ($this->request->getPost()) {
 
 			$months_report = $this->request->getPost('months_filter');
@@ -6589,7 +6654,6 @@ public function update_staff_profile() {
 			if ($months_report == '1') {
 				$from_date = date('Y-m-01', strtotime('first day of last month'));
 				$to_date = date('Y-m-t', strtotime('last day of last month'));
-
 			}
 			if ($months_report == 'this_year') {
 				$from_date = date('Y-m-d', strtotime(date('Y-01-01')));
@@ -6604,19 +6668,16 @@ public function update_staff_profile() {
 				$months_report--;
 				$from_date = date('Y-m-01', strtotime("-$months_report MONTH"));
 				$to_date = date('Y-m-t');
-
 			}
 			if ($months_report == '6') {
 				$months_report--;
 				$from_date = date('Y-m-01', strtotime("-$months_report MONTH"));
 				$to_date = date('Y-m-t');
-
 			}
 			if ($months_report == '12') {
 				$months_report--;
 				$from_date = date('Y-m-01', strtotime("-$months_report MONTH"));
 				$to_date = date('Y-m-t');
-
 			}
 			if ($months_report == 'custom') {
 				$from_date = to_sql_date1($this->request->getPost('report_from'));
@@ -6624,7 +6685,6 @@ public function update_staff_profile() {
 			}
 
 			echo json_encode($this->hr_profile_model->report_by_staffs());
-
 		}
 	}
 
@@ -6632,7 +6692,8 @@ public function update_staff_profile() {
 	 * qualification department
 	 * @return [type]
 	 */
-	public function qualification_department() {
+	public function qualification_department()
+	{
 		if ($this->request->getPost()) {
 			if ($this->request->getPost()) {
 				$months_report = $this->request->getPost('months_filter');
@@ -6648,7 +6709,6 @@ public function update_staff_profile() {
 				if ($months_report == '1') {
 					$from_date = date('Y-m-01', strtotime('first day of last month'));
 					$to_date = date('Y-m-t', strtotime('last day of last month'));
-
 				}
 				if ($months_report == 'this_year') {
 					$from_date = date('Y-m-d', strtotime(date('Y-01-01')));
@@ -6663,19 +6723,16 @@ public function update_staff_profile() {
 					$months_report--;
 					$from_date = date('Y-m-01', strtotime("-$months_report MONTH"));
 					$to_date = date('Y-m-t');
-
 				}
 				if ($months_report == '6') {
 					$months_report--;
 					$from_date = date('Y-m-01', strtotime("-$months_report MONTH"));
 					$to_date = date('Y-m-t');
-
 				}
 				if ($months_report == '12') {
 					$months_report--;
 					$from_date = date('Y-m-01', strtotime("-$months_report MONTH"));
 					$to_date = date('Y-m-t');
-
 				}
 				if ($months_report == 'custom') {
 					$from_date = to_sql_date1($this->request->getPost('report_from'));
@@ -6762,7 +6819,6 @@ public function update_staff_profile() {
 							}
 							array_push($list_result, array('stack' => _l($diploma), 'data' => $list_data_count));
 						}
-
 					}
 				}
 				if (isset($list_department)) {
@@ -6784,7 +6840,8 @@ public function update_staff_profile() {
 	 * report by staffs
 	 * @return [type]
 	 */
-	public function report_by_staffs() {
+	public function report_by_staffs()
+	{
 		echo json_encode($this->hr_profile_model->report_by_staffs());
 	}
 
@@ -6792,7 +6849,8 @@ public function update_staff_profile() {
 	 * import job position excel
 	 * @return [type]
 	 */
-	public function import_job_position_excel() {
+	public function import_job_position_excel()
+	{
 		if (!is_admin() && !hr_has_permission('hr_profile_can_create_job_description')) {
 			app_redirect("forbidden");
 		}
@@ -6800,9 +6858,9 @@ public function update_staff_profile() {
 		$user_id = $this->login_user->id;
 
 		if (!class_exists('XLSXReader_fin')) {
-			require_once(module_dir_path(HR_PROFILE_MODULE_NAME).'/assets/plugins/XLSXReader/XLSXReader.php');
+			require_once(module_dir_path(HR_PROFILE_MODULE_NAME) . '/assets/plugins/XLSXReader/XLSXReader.php');
 		}
-		require_once(module_dir_path(HR_PROFILE_MODULE_NAME).'/assets/plugins/XLSXWriter/xlsxwriter.class.php');
+		require_once(module_dir_path(HR_PROFILE_MODULE_NAME) . '/assets/plugins/XLSXWriter/xlsxwriter.class.php');
 
 		$filename = '';
 		if ($this->request->getPost()) {
@@ -6838,7 +6896,7 @@ public function update_staff_profile() {
 						$rowstyle[] = array('widths' => [10, 20, 30, 40]);
 
 						$writer = new \XLSXWriter();
-						$writer->writeSheetHeader('Sheet1', $writer_header, $col_options = ['widths' => [40, 40, 40, 50, 40, 40, 50], 'fill' => '#f44336',  'font-style'=>'bold', 'color' => '#0a0a0a', 'border'=>'left,right,top,bottom', 'border-color' => '#0a0a0a', 'font-size' => 13]);
+						$writer->writeSheetHeader('Sheet1', $writer_header, $col_options = ['widths' => [40, 40, 40, 50, 40, 40, 50], 'fill' => '#f44336',  'font-style' => 'bold', 'color' => '#0a0a0a', 'border' => 'left,right,top,bottom', 'border-color' => '#0a0a0a', 'font-size' => 13]);
 
 						//Reader file
 						$xlsx = new \XLSXReader_fin($newFilePath);
@@ -6886,7 +6944,7 @@ public function update_staff_profile() {
 								if (is_numeric($value_position_group)) {
 
 									$builder = db_connect('default');
-									$builder = $builder->table(get_db_prefix().'hr_job_p');
+									$builder = $builder->table(get_db_prefix() . 'hr_job_p');
 									$builder->where('job_id', $value_position_group);
 									$position_group_id_value = $builder->get()->getRow();
 
@@ -6897,11 +6955,10 @@ public function update_staff_profile() {
 										$string_error .= app_lang('hr_job_p_id') . app_lang('does_not_exist');
 										$flag2 = 1;
 									}
-
 								} else {
 									/*case input name*/
 									$builder = db_connect('default');
-									$builder = $builder->table(get_db_prefix().'hr_job_p');
+									$builder = $builder->table(get_db_prefix() . 'hr_job_p');
 									$builder->like(db_prefix() . 'hr_job_p.job_name', $value_position_group);
 
 									$position_group_id_value = $builder->get()->getRow();
@@ -6913,7 +6970,6 @@ public function update_staff_profile() {
 										$flag2 = 1;
 									}
 								}
-
 							}
 
 							//check department
@@ -6926,7 +6982,6 @@ public function update_staff_profile() {
 									$string_error .= $department_result['result'] . app_lang('department_name') . app_lang('does_not_exist');
 									$flag2 = 1;
 								}
-
 							}
 
 							if (($flag == 1) || $flag2 == 1) {
@@ -6958,7 +7013,6 @@ public function update_staff_profile() {
 								$rows[] = $rd;
 								$response = $this->hr_profile_model->add_job_position($rd);
 							}
-
 						}
 
 						$total_rows = $total_rows;
@@ -6967,12 +7021,10 @@ public function update_staff_profile() {
 						$message = 'Not enought rows for importing';
 
 						if ($total_row_false != 0) {
-							$filename = 'Import_job_position_error_' .$user_id . '_' . strtotime(date('Y-m-d H:i:s')) . '.xlsx';
+							$filename = 'Import_job_position_error_' . $user_id . '_' . strtotime(date('Y-m-d H:i:s')) . '.xlsx';
 							$writer->writeToFile(str_replace($filename, HR_PROFILE_ERROR . $filename, $filename));
-							$filename = HR_PROFILE_ERROR.$filename;
-
+							$filename = HR_PROFILE_ERROR . $filename;
 						}
-
 					}
 				}
 			}
@@ -6997,7 +7049,8 @@ public function update_staff_profile() {
 	 * hrm delete bulk action
 	 * @return [type]
 	 */
-	public function hrm_delete_bulk_action() {
+	public function hrm_delete_bulk_action()
+	{
 		$this->access_only_team_members();
 
 		$total_deleted = 0;
@@ -7010,50 +7063,50 @@ public function update_staff_profile() {
 			/*check permission*/
 			switch ($rel_type) {
 				case 'hrm_contract':
-				if (!hr_has_permission('hr_profile_can_delete_hr_contract') && !is_admin()) {
-					app_redirect("forbidden");
-				}
-				break;
+					if (!hr_has_permission('hr_profile_can_delete_hr_contract') && !is_admin()) {
+						app_redirect("forbidden");
+					}
+					break;
 
 				case 'hrm_staff':
-				if (!hr_has_permission('hr_profile_can_delete_hr_records') && !is_admin()) {
-					app_redirect("forbidden");
-				}
-				break;
+					if (!hr_has_permission('hr_profile_can_delete_hr_records') && !is_admin()) {
+						app_redirect("forbidden");
+					}
+					break;
 
 				case 'hrm_training_library':
-				if (!hr_has_permission('hr_profile_can_delete_hr_training') && !is_admin()) {
-					app_redirect("forbidden");
-				}
-				break;
+					if (!hr_has_permission('hr_profile_can_delete_hr_training') && !is_admin()) {
+						app_redirect("forbidden");
+					}
+					break;
 
 				case 'hrm_job_position':
-				if (!hr_has_permission('hr_profile_can_delete_job_description') && !is_admin()) {
-					app_redirect("forbidden");
-				}
-				break;
+					if (!hr_has_permission('hr_profile_can_delete_job_description') && !is_admin()) {
+						app_redirect("forbidden");
+					}
+					break;
 
 				case 'hrm_kb-articles':
-				if (!has_permission('hr_manage_q_a', '', 'delete') && !is_admin()) {
-					app_redirect("forbidden");
-				}
-				break;
+					if (!has_permission('hr_manage_q_a', '', 'delete') && !is_admin()) {
+						app_redirect("forbidden");
+					}
+					break;
 
 				case 'hrm_reception_staff':
-				if (!hr_has_permission('hr_profile_can_delete_onboarding') && !is_admin()) {
-					app_redirect("forbidden");
-				}
-				break;
+					if (!hr_has_permission('hr_profile_can_delete_onboarding') && !is_admin()) {
+						app_redirect("forbidden");
+					}
+					break;
 
 				case 'hrm_resignation_procedures':
-				if (!hr_has_permission('hr_profile_can_delete_layoff_checklists') && !is_admin()) {
-					app_redirect("forbidden");
-				}
-				break;
+					if (!hr_has_permission('hr_profile_can_delete_layoff_checklists') && !is_admin()) {
+						app_redirect("forbidden");
+					}
+					break;
 
 				default:
-				# code...
-				break;
+					# code...
+					break;
 			}
 
 			/*delete data*/
@@ -7063,125 +7116,120 @@ public function update_staff_profile() {
 
 						switch ($rel_type) {
 							case 'hrm_contract':
-							if ($this->hr_profile_model->delete_contract($id)) {
-								$total_deleted++;
-								break;
-							} else {
-								break;
-							}
+								if ($this->hr_profile_model->delete_contract($id)) {
+									$total_deleted++;
+									break;
+								} else {
+									break;
+								}
 
 							case 'hrm_staff':
-							if ($this->Users_model->delete($id)) {
-								$total_deleted++;
-								break;
-							} else {
-								break;
-							}
+								if ($this->Users_model->delete($id)) {
+									$total_deleted++;
+									break;
+								} else {
+									break;
+								}
 
 							case 'hrm_training_library':
-							if ($this->hr_profile_model->delete_position_training($id)) {
-								$total_deleted++;
-								break;
-							} else {
-								break;
-							}
+								if ($this->hr_profile_model->delete_position_training($id)) {
+									$total_deleted++;
+									break;
+								} else {
+									break;
+								}
 
-							break;
+								break;
 
 							case 'hrm_job_position':
-							if ($this->hr_profile_model->delete_job_position($id)) {
-								$total_deleted++;
-								break;
-							} else {
-								break;
-							}
+								if ($this->hr_profile_model->delete_job_position($id)) {
+									$total_deleted++;
+									break;
+								} else {
+									break;
+								}
 
-							break;
+								break;
 
 							case 'hrm_kb-articles':
-							$this->load->model('knowledge_base_q_a_model');
+								$this->load->model('knowledge_base_q_a_model');
 
-							if ($this->knowledge_base_q_a_model->delete_article($id)) {
-								$total_deleted++;
-								break;
-							} else {
-								break;
-							}
+								if ($this->knowledge_base_q_a_model->delete_article($id)) {
+									$total_deleted++;
+									break;
+								} else {
+									break;
+								}
 
-							break;
+								break;
 
 							case 'hrm_reception_staff':
 
-							$this->hr_profile_model->delete_manage_info_reception($id);
-							$this->hr_profile_model->delete_setting_training($id);
-							$this->hr_profile_model->delete_setting_asset_allocation($id);
-							$success = $this->hr_profile_model->delete_reception($id);
-							if ($success) {
-								$total_deleted++;
-							} else {
-								break;
-							}
+								$this->hr_profile_model->delete_manage_info_reception($id);
+								$this->hr_profile_model->delete_setting_training($id);
+								$this->hr_profile_model->delete_setting_asset_allocation($id);
+								$success = $this->hr_profile_model->delete_reception($id);
+								if ($success) {
+									$total_deleted++;
+								} else {
+									break;
+								}
 
-							break;
+								break;
 
 							case 'hrm_resignation_procedures':
-							$success = $this->hr_profile_model->delete_procedures_for_quitting_work($id);
-							if ($success) {
-								$total_deleted++;
-							} else {
-								break;
-							}
+								$success = $this->hr_profile_model->delete_procedures_for_quitting_work($id);
+								if ($success) {
+									$total_deleted++;
+								} else {
+									break;
+								}
 
-							break;
+								break;
 
 							default:
-							# code...
-							break;
+								# code...
+								break;
 						}
-
 					}
 				}
 
 				/*return result*/
 				switch ($rel_type) {
 					case 'hrm_contract':
-					$this->session->setFlashdata("success_message", app_lang("total_contract_deleted"). ": " .$total_deleted);
-					break;
+						$this->session->setFlashdata("success_message", app_lang("total_contract_deleted") . ": " . $total_deleted);
+						break;
 
 					case 'hrm_staff':
-					$this->session->setFlashdata("success_message", app_lang("total_staff_deleted"). ": " .$total_deleted);
-					break;
+						$this->session->setFlashdata("success_message", app_lang("total_staff_deleted") . ": " . $total_deleted);
+						break;
 
 					case 'hrm_training_library':
-					$this->session->setFlashdata("success_message", app_lang("total_training_libraries_deleted"). ": " .$total_deleted);
-					break;
+						$this->session->setFlashdata("success_message", app_lang("total_training_libraries_deleted") . ": " . $total_deleted);
+						break;
 
 					case 'hrm_job_position':
-					$this->session->setFlashdata("success_message", app_lang("total_job_position_deleted"). ": " .$total_deleted);
-					break;
+						$this->session->setFlashdata("success_message", app_lang("total_job_position_deleted") . ": " . $total_deleted);
+						break;
 
 					case 'hrm_kb-articles':
-					$this->session->setFlashdata("success_message", app_lang("total_kb_articles_deleted"). ": " .$total_deleted);
-					break;
+						$this->session->setFlashdata("success_message", app_lang("total_kb_articles_deleted") . ": " . $total_deleted);
+						break;
 
 					case 'hrm_reception_staff':
-					$this->session->setFlashdata("success_message", app_lang("total_reception_staff_deleted"). ": " .$total_deleted);
-					break;
+						$this->session->setFlashdata("success_message", app_lang("total_reception_staff_deleted") . ": " . $total_deleted);
+						break;
 
 					case 'hrm_resignation_procedures':
-					$this->session->setFlashdata("success_message", app_lang("total_layoff_checklist_deleted"). ": " .$total_deleted);
-					break;
+						$this->session->setFlashdata("success_message", app_lang("total_layoff_checklist_deleted") . ": " . $total_deleted);
+						break;
 
 					default:
-					# code...
-					break;
-
+						# code...
+						break;
 				}
-
 			}
-
 		}
-
 	}
 
 	/**
@@ -7189,7 +7237,8 @@ public function update_staff_profile() {
 	 * @return [type]
 	 * Delete data from ids array, don't use foreach
 	 */
-	public function hrm_delete_bulk_action_v2() {
+	public function hrm_delete_bulk_action_v2()
+	{
 		$this->access_only_team_members();
 
 		$total_deleted = 0;
@@ -7203,26 +7252,26 @@ public function update_staff_profile() {
 			switch ($rel_type) {
 
 				case 'hrm_training_program':
-				if (!hr_has_permission('hr_profile_can_delete_hr_training') && !is_admin()) {
-					app_redirect("forbidden");
-				}
-				break;
+					if (!hr_has_permission('hr_profile_can_delete_hr_training') && !is_admin()) {
+						app_redirect("forbidden");
+					}
+					break;
 
 				case 'hrm_job':
-				if (!hr_has_permission('hr_profile_can_delete_job_description') && !is_admin()) {
-					app_redirect("forbidden");
-				}
-				break;
+					if (!hr_has_permission('hr_profile_can_delete_job_description') && !is_admin()) {
+						app_redirect("forbidden");
+					}
+					break;
 
 				case 'hrm_dependent_person':
-				if (!hr_has_permission('hr_profile_can_delete_dependent_persons') && !is_admin()) {
-					app_redirect("forbidden");
-				}
-				break;
+					if (!hr_has_permission('hr_profile_can_delete_dependent_persons') && !is_admin()) {
+						app_redirect("forbidden");
+					}
+					break;
 
 				default:
-				# code...
-				break;
+					# code...
+					break;
 			}
 
 			/*delete data*/
@@ -7233,75 +7282,71 @@ public function update_staff_profile() {
 					switch ($rel_type) {
 
 						case 'hrm_training_program':
-						$sql_where = " training_process_id  IN ( '" . implode("', '", $ids) . "' ) ";
-						$builder = db_connect('default');
-						$builder = $builder->table(get_db_prefix().'hr_jp_interview_training');
-						$builder->where($sql_where);
-						$builder->delete();
-						$total_deleted = count($ids);
-						break;
+							$sql_where = " training_process_id  IN ( '" . implode("', '", $ids) . "' ) ";
+							$builder = db_connect('default');
+							$builder = $builder->table(get_db_prefix() . 'hr_jp_interview_training');
+							$builder->where($sql_where);
+							$builder->delete();
+							$total_deleted = count($ids);
+							break;
 
 						case 'hrm_job':
-						$sql_where = " job_id  IN ( '" . implode("', '", $ids) . "' ) ";
-						$builder = db_connect('default');
-						$builder = $builder->table(get_db_prefix().'hr_job_p');
-						$builder->where($sql_where);
-						$builder->delete();
-						$total_deleted = count($ids);
-						break;
+							$sql_where = " job_id  IN ( '" . implode("', '", $ids) . "' ) ";
+							$builder = db_connect('default');
+							$builder = $builder->table(get_db_prefix() . 'hr_job_p');
+							$builder->where($sql_where);
+							$builder->delete();
+							$total_deleted = count($ids);
+							break;
 
 						case 'hrm_dependent_person':
-						$sql_where = " id  IN ( '" . implode("', '", $ids) . "' ) ";
-						$builder = db_connect('default');
-						$builder = $builder->table(get_db_prefix().'hr_dependent_person');
-						$builder->where($sql_where);
-						$builder->delete();
-						$total_deleted = count($ids);
-						break;
+							$sql_where = " id  IN ( '" . implode("', '", $ids) . "' ) ";
+							$builder = db_connect('default');
+							$builder = $builder->table(get_db_prefix() . 'hr_dependent_person');
+							$builder->where($sql_where);
+							$builder->delete();
+							$total_deleted = count($ids);
+							break;
 
 						default:
-						# code...
-						break;
+							# code...
+							break;
 					}
-
 				}
 
 				/*return result*/
 				switch ($rel_type) {
 
 					case 'hrm_training_program':
-					$this->session->setFlashdata("success_message", app_lang("total_training_program_deleted"). ": " .$total_deleted);
-					break;
+						$this->session->setFlashdata("success_message", app_lang("total_training_program_deleted") . ": " . $total_deleted);
+						break;
 
 					case 'hrm_job':
-					$this->session->setFlashdata("success_message", app_lang("total_job_deleted"). ": " .$total_deleted);
-					break;
+						$this->session->setFlashdata("success_message", app_lang("total_job_deleted") . ": " . $total_deleted);
+						break;
 
 					case 'hrm_dependent_person':
-					$this->session->setFlashdata("success_message", app_lang("total_dependent_person_deleted"). ": " .$total_deleted);
-					break;
+						$this->session->setFlashdata("success_message", app_lang("total_dependent_person_deleted") . ": " . $total_deleted);
+						break;
 
 					default:
-					# code...
-					break;
-
+						# code...
+						break;
 				}
-
 			}
-
 		}
-
 	}
 
 	/**
 	 * import dependent person excel
 	 * @return [type]
 	 */
-	public function import_dependent_person_excel() {
+	public function import_dependent_person_excel()
+	{
 		if (!class_exists('XLSXReader_fin')) {
-			require_once(module_dir_path(HR_PROFILE_MODULE_NAME).'/assets/plugins/XLSXReader/XLSXReader.php');
+			require_once(module_dir_path(HR_PROFILE_MODULE_NAME) . '/assets/plugins/XLSXReader/XLSXReader.php');
 		}
-		require_once(module_dir_path(HR_PROFILE_MODULE_NAME).'/assets/plugins/XLSXWriter/xlsxwriter.class.php');
+		require_once(module_dir_path(HR_PROFILE_MODULE_NAME) . '/assets/plugins/XLSXWriter/xlsxwriter.class.php');
 
 		$filename = '';
 		if ($this->request->getPost()) {
@@ -7407,7 +7452,6 @@ public function update_staff_profile() {
 									$string_error .= app_lang('hr_hr_code') . app_lang('does_not_exist');
 									$flag2 = 1;
 								}
-
 							}
 
 							//check start_time
@@ -7417,7 +7461,6 @@ public function update_staff_profile() {
 
 									if (preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/", trim($value_dependent_bir, " "))) {
 										$test = true;
-
 									} else {
 										$flag2 = 1;
 										$string_error .= app_lang('hr_dependent_bir') . app_lang('invalid');
@@ -7432,7 +7475,6 @@ public function update_staff_profile() {
 
 									if (preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/", trim($value_start_month, " "))) {
 										$test = true;
-
 									} else {
 										$flag2 = 1;
 										$string_error .= app_lang('hr_start_month') . app_lang('invalid');
@@ -7446,7 +7488,6 @@ public function update_staff_profile() {
 
 									if (preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/", trim($value_end_month, " "))) {
 										$test = true;
-
 									} else {
 										$flag2 = 1;
 										$string_error .= app_lang('hr_end_month') . app_lang('invalid');
@@ -7494,9 +7535,7 @@ public function update_staff_profile() {
 
 								$rows[] = $rd;
 								array_push($arr_insert, $rd);
-
 							}
-
 						}
 
 						//insert batch
@@ -7514,7 +7553,6 @@ public function update_staff_profile() {
 							$filename = 'Import_dependent_person_error_' . get_staff_user_id1() . '_' . strtotime(date('Y-m-d H:i:s')) . '.xlsx';
 							$writer->writeToFile(str_replace($filename, HR_PROFILE_ERROR . $filename, $filename));
 						}
-
 					}
 				}
 			}
@@ -7539,7 +7577,8 @@ public function update_staff_profile() {
 	 * reset_datas
 	 * @return [type] 
 	 */
-	public function reset_datas() {
+	public function reset_datas()
+	{
 		return $this->template->rander("Hr_profile\Views\includes\\reset_data", []);
 	}
 
@@ -7547,7 +7586,8 @@ public function update_staff_profile() {
 	 * reset data
 	 * @return [type]
 	 */
-	public function reset_data() {
+	public function reset_data()
+	{
 
 		if (!is_admin()) {
 			app_redirect("forbidden");
@@ -7556,61 +7596,61 @@ public function update_staff_profile() {
 		$builder = db_connect('default');
 
 		//delete Onboarding process
-		$hr_rec_transfer_records = $builder->table(get_db_prefix().'hr_rec_transfer_records');
+		$hr_rec_transfer_records = $builder->table(get_db_prefix() . 'hr_rec_transfer_records');
 		$hr_rec_transfer_records->truncate();
 
-		$hr_group_checklist_allocation = $builder->table(get_db_prefix().'hr_group_checklist_allocation');
+		$hr_group_checklist_allocation = $builder->table(get_db_prefix() . 'hr_group_checklist_allocation');
 		$hr_group_checklist_allocation->truncate();
 
-		$hr_allocation_asset = $builder->table(get_db_prefix().'hr_allocation_asset');
+		$hr_allocation_asset = $builder->table(get_db_prefix() . 'hr_allocation_asset');
 		$hr_allocation_asset->truncate();
 
-		$hr_training_allocation = $builder->table(get_db_prefix().'hr_training_allocation');
+		$hr_training_allocation = $builder->table(get_db_prefix() . 'hr_training_allocation');
 		$hr_training_allocation->truncate();
 
 		//delete Training
-		$hr_jp_interview_training = $builder->table(get_db_prefix().'hr_jp_interview_training');
+		$hr_jp_interview_training = $builder->table(get_db_prefix() . 'hr_jp_interview_training');
 		$hr_jp_interview_training->truncate();
 
-		$hr_position_training = $builder->table(get_db_prefix().'hr_position_training');
+		$hr_position_training = $builder->table(get_db_prefix() . 'hr_position_training');
 		$hr_position_training->truncate();
 
-		$hr_position_training_question_form = $builder->table(get_db_prefix().'hr_position_training_question_form');
+		$hr_position_training_question_form = $builder->table(get_db_prefix() . 'hr_position_training_question_form');
 		$hr_position_training_question_form->truncate();
 
-		$hr_p_t_form_question_box = $builder->table(get_db_prefix().'hr_p_t_form_question_box');
+		$hr_p_t_form_question_box = $builder->table(get_db_prefix() . 'hr_p_t_form_question_box');
 		$hr_p_t_form_question_box->truncate();
 
-		$hr_p_t_form_question_box_description = $builder->table(get_db_prefix().'hr_p_t_form_question_box_description');
+		$hr_p_t_form_question_box_description = $builder->table(get_db_prefix() . 'hr_p_t_form_question_box_description');
 		$hr_p_t_form_question_box_description->truncate();
 
-		$hr_p_t_form_results = $builder->table(get_db_prefix().'hr_p_t_form_results');
+		$hr_p_t_form_results = $builder->table(get_db_prefix() . 'hr_p_t_form_results');
 		$hr_p_t_form_results->truncate();
 
-		$hr_p_t_surveyresultsets = $builder->table(get_db_prefix().'hr_p_t_surveyresultsets');
+		$hr_p_t_surveyresultsets = $builder->table(get_db_prefix() . 'hr_p_t_surveyresultsets');
 		$hr_p_t_surveyresultsets->truncate();
 
 		//delete contracs, file type "hr_contract"
-		$hr_staff_contract_detail = $builder->table(get_db_prefix().'hr_staff_contract_detail');
+		$hr_staff_contract_detail = $builder->table(get_db_prefix() . 'hr_staff_contract_detail');
 		$hr_staff_contract_detail->truncate();
 
-		$hr_staff_contract = $builder->table(get_db_prefix().'hr_staff_contract');
+		$hr_staff_contract = $builder->table(get_db_prefix() . 'hr_staff_contract');
 		$hr_staff_contract->truncate();
 
 		//delete dependent persons
-		$hr_dependent_person = $builder->table(get_db_prefix().'hr_dependent_person');
+		$hr_dependent_person = $builder->table(get_db_prefix() . 'hr_dependent_person');
 		$hr_dependent_person->truncate();
 
 		//delete Resignation procedures
-		$hr_list_staff_quitting_work = $builder->table(get_db_prefix().'hr_list_staff_quitting_work');
+		$hr_list_staff_quitting_work = $builder->table(get_db_prefix() . 'hr_list_staff_quitting_work');
 		$hr_list_staff_quitting_work->truncate();
 
-		$hr_procedure_retire_of_staff = $builder->table(get_db_prefix().'hr_procedure_retire_of_staff');
+		$hr_procedure_retire_of_staff = $builder->table(get_db_prefix() . 'hr_procedure_retire_of_staff');
 		$hr_procedure_retire_of_staff->truncate();
 
 		//delete Q&A
 
-		$hr_views_tracking = $builder->table(get_db_prefix().'hr_views_tracking');
+		$hr_views_tracking = $builder->table(get_db_prefix() . 'hr_views_tracking');
 		$hr_views_tracking->truncate();
 
 		//delete sub folder contract
@@ -7644,8 +7684,8 @@ public function update_staff_profile() {
 		}
 
 		//delete file
-		$files = $builder->table(get_db_prefix().'files');
-		
+		$files = $builder->table(get_db_prefix() . 'files');
+
 		$files->where('rel_type', 'staff_contract');
 		$files->orWhere('rel_type', 'kb_article_files');
 		$files->delete();
@@ -7658,7 +7698,8 @@ public function update_staff_profile() {
 	 * table training program
 	 * @return [type]
 	 */
-	public function table_training_program() {
+	public function table_training_program()
+	{
 		$dataPost = $this->request->getPost();
 		$this->hr_profile_model->get_table_data(module_views_path('Hr_profile', 'training/job_position_manage/training_programs_table'), $dataPost);
 	}
@@ -7667,7 +7708,8 @@ public function update_staff_profile() {
 	 * table training result
 	 * @return [type]
 	 */
-	public function table_training_result() {
+	public function table_training_result()
+	{
 		$dataPost = $this->request->getPost();
 		$this->hr_profile_model->get_table_data(module_views_path('Hr_profile', 'training/job_position_manage/training_result_table'), $dataPost);
 	}
@@ -7676,7 +7718,8 @@ public function update_staff_profile() {
 	 * training table
 	 * @return [type]
 	 */
-	public function training_libraries_table() {
+	public function training_libraries_table()
+	{
 		$dataPost = $this->request->getPost();
 		$this->hr_profile_model->get_table_data(module_views_path('Hr_profile', 'training/job_position_manage/training_table'), $dataPost);
 	}
@@ -7685,16 +7728,18 @@ public function update_staff_profile() {
 	 * type of trainings
 	 * @return [type] 
 	 */
-	public function type_of_trainings() {
+	public function type_of_trainings()
+	{
 		$data['type_of_trainings'] = $this->hr_profile_model->get_type_of_training();
 		return $this->template->rander("Hr_profile\Views\includes\\type_of_training", $data);
 	}
-	
+
 	/**
 	 * list type of training data
 	 * @return [type] 
 	 */
-	public function list_type_of_training_data() {
+	public function list_type_of_training_data()
+	{
 		$this->access_only_team_members();
 
 		$list_data = $this->hr_profile_model->get_type_of_training();
@@ -7711,16 +7756,17 @@ public function update_staff_profile() {
 	 * @param  [type] $data 
 	 * @return [type]       
 	 */
-	private function _make_type_of_training_row($data) {
+	private function _make_type_of_training_row($data)
+	{
 
 		$options = '';
-		if(is_admin() || hr_has_permission('hr_profile_can_edit_setting')){
+		if (is_admin() || hr_has_permission('hr_profile_can_edit_setting')) {
 			$options .= modal_anchor(get_uri("hr_profile/type_of_training_modal_form"), "<i data-feather='edit' class='icon-16'></i>", array("class" => "edit", "title" => app_lang('hr_edit_type_of_training'), "data-post-id" => $data['id']));
 		}
-		if(is_admin() || hr_has_permission('hr_profile_can_delete_setting')){
-			$options .= js_anchor("<i data-feather='x' class='icon-16'></i>", array('title' => app_lang('delete'), "class" => "delete", "data-id" => $data['id'], "data-action-url" => get_uri("hr_profile/delete_type_of_training/".$data['id']), "data-action" => "delete-confirmation"));
+		if (is_admin() || hr_has_permission('hr_profile_can_delete_setting')) {
+			$options .= js_anchor("<i data-feather='x' class='icon-16'></i>", array('title' => app_lang('delete'), "class" => "delete", "data-id" => $data['id'], "data-action-url" => get_uri("hr_profile/delete_type_of_training/" . $data['id']), "data-action" => "delete-confirmation"));
 		}
-		
+
 		return array(
 			nl2br($data['name']),
 			$options
@@ -7731,7 +7777,8 @@ public function update_staff_profile() {
 	 * type_of_training_modal_form 
 	 * @return [type] [
 	 */
-	public function type_of_training_modal_form() {
+	public function type_of_training_modal_form()
+	{
 		$this->access_only_team_members();
 
 		$this->validate_submitted_data(array(
@@ -7741,12 +7788,12 @@ public function update_staff_profile() {
 		$type_of_training_data = [];
 
 		$id = $this->request->getPost('id');
-		if($id && is_numeric($id)){
+		if ($id && is_numeric($id)) {
 			$data['type_of_training_data'] = $this->hr_profile_model->get_type_of_training($id);
-		}else{
+		} else {
 			$id = '';
 		}
-		
+
 		$data['id'] = $id;
 
 		return $this->template->view('Hr_profile\Views\includes\modal_forms\type_of_training_modal', $data);
@@ -7758,7 +7805,8 @@ public function update_staff_profile() {
 	 * @param  string $id
 	 * @return [type]
 	 */
-	public function type_of_training($id = '') {
+	public function type_of_training($id = '')
+	{
 		if ($this->request->getPost()) {
 			$message = '';
 			$data = $this->request->getPost();
@@ -7787,7 +7835,8 @@ public function update_staff_profile() {
 	 * @param  [type] $id
 	 * @return [type]
 	 */
-	public function delete_type_of_training($id) {
+	public function delete_type_of_training($id)
+	{
 		if (!$id) {
 			app_redirect('hr_profile/contract_types');
 		}
@@ -7810,7 +7859,8 @@ public function update_staff_profile() {
 	 * reception staffs
 	 * @return [type] 
 	 */
-	public function reception_staffs() {
+	public function reception_staffs()
+	{
 		$data['type_of_trainings'] = $this->hr_profile_model->get_type_of_training();
 		$data['list_reception_staff_transfer'] = $this->hr_profile_model->get_setting_transfer_records();
 		$data['list_reception_staff_asset'] = $this->hr_profile_model->get_setting_asset_allocation();
@@ -7826,7 +7876,8 @@ public function update_staff_profile() {
 	 * get training program by type
 	 * @return [type]
 	 */
-	public function get_training_program_by_type() {
+	public function get_training_program_by_type()
+	{
 		if ($this->request->getPost()) {
 			$data = $this->request->getPost();
 			if ($data['training_type'] == '') {
@@ -7856,7 +7907,8 @@ public function update_staff_profile() {
 	 * @param  string $id
 	 * @return [type]
 	 */
-	public function view_training_program($id = '') {
+	public function view_training_program($id = '')
+	{
 		if (!hr_has_permission('hr_profile_can_view_global_hr_training') && !hr_has_permission('hr_profile_can_view_own_hr_training')) {
 			app_redirect("forbidden");
 		}
@@ -7887,7 +7939,8 @@ public function update_staff_profile() {
 	}
 
 	/* Get role permission for specific role id */
-	public function hr_role_changed($id) {
+	public function hr_role_changed($id)
+	{
 		echo json_encode($this->roles_model->get($id)->permissions);
 	}
 
@@ -7895,15 +7948,16 @@ public function update_staff_profile() {
 	 * create staff excel file
 	 * @return [type]
 	 */
-	public function create_staff_sample_file() {
+	public function create_staff_sample_file()
+	{
 		$user_id = $this->login_user->id;
 
 		$data = $this->request->getPost();
 
 		if (!class_exists('XLSXReader_fin')) {
-			require_once(module_dir_path(HR_PROFILE_MODULE_NAME).'/assets/plugins/XLSXReader/XLSXReader.php');
+			require_once(module_dir_path(HR_PROFILE_MODULE_NAME) . '/assets/plugins/XLSXReader/XLSXReader.php');
 		}
-		require_once(module_dir_path(HR_PROFILE_MODULE_NAME).'/assets/plugins/XLSXWriter/xlsxwriter.class.php');
+		require_once(module_dir_path(HR_PROFILE_MODULE_NAME) . '/assets/plugins/XLSXWriter/xlsxwriter.class.php');
 
 		$this->delete_error_file_day_before('1', HR_PROFILE_CREATE_EMPLOYEES_SAMPLE);
 
@@ -7914,7 +7968,7 @@ public function update_staff_profile() {
 
 			//get list staff by id
 			$builder = db_connect('default');
-			$builder = $builder->table(get_db_prefix().'users');
+			$builder = $builder->table(get_db_prefix() . 'users');
 			$builder->where('id  IN (' . implode(",", $data['ids']) . ') ');
 			$staffs = $builder->get()->getResultArray();
 		}
@@ -7955,16 +8009,16 @@ public function update_staff_profile() {
 
 		$header_label = [
 			'id',
-			'hr_staff_code', 
-			'hr_firstname', 
-			'hr_lastname', 
+			'hr_staff_code',
+			'hr_firstname',
+			'hr_lastname',
 			'hr_sex',
 			'hr_hr_birthday',
-			'email', 
+			'email',
 			'phone',
 			'hr_hr_workplace',
-			'hr_status_work', 
-			'hr_hr_job_position', 
+			'hr_status_work',
+			'hr_hr_job_position',
 			'hr_team_manage',
 			'role',
 			'hr_hr_literacy',
@@ -8011,8 +8065,15 @@ public function update_staff_profile() {
 
 		//otherwise blue: can be update
 
-		$writer->writeSheetHeader_v2('Sheet1', $writer_header, $col_options = ['widths' => $widths, 'fill' => '#03a9f46b', 'font-style' => 'bold', 'color' => '#0a0a0a', 'border' => 'left,right,top,bottom', 'border-color' => '#0a0a0a', 'font-size' => 13],
-			$col_style1, $style1, $col_style2, $style2);
+		$writer->writeSheetHeader_v2(
+			'Sheet1',
+			$writer_header,
+			$col_options = ['widths' => $widths, 'fill' => '#03a9f46b', 'font-style' => 'bold', 'color' => '#0a0a0a', 'border' => 'left,right,top,bottom', 'border-color' => '#0a0a0a', 'font-size' => 13],
+			$col_style1,
+			$style1,
+			$col_style2,
+			$style2
+		);
 
 		$row_style1 = array('fill' => '#F8CBAD', 'height' => 25, 'border' => 'left,right,top,bottom', 'border-color' => '#FFFFFF', 'font-size' => 12, 'font' => 'Calibri', 'color' => '#000000');
 		$row_style2 = array('fill' => '#FCE4D6', 'height' => 25, 'border' => 'left,right,top,bottom', 'border-color' => '#FFFFFF', 'font-size' => 12, 'font' => 'Calibri', 'color' => '#000000');
@@ -8081,19 +8142,14 @@ public function update_staff_profile() {
 					$temp[] = '';
 				} elseif ($_key == 'department') {
 					$temp[] = $list_department;
-
 				} elseif ($_key == 'job_position') {
 					$temp[] = isset($job_position_data[$staff_value['job_position']]) ? $job_position_data[$staff_value['job_position']]['position_code'] : '';
-
 				} elseif ($_key == 'team_manage') {
 					$temp[] = isset($staff_data[$staff_value['team_manage']]) ? $staff_data[$staff_value['team_manage']]['staff_identifi'] : '';
-
 				} elseif ($_key == 'role_id') {
 					$temp[] = isset($role_data[$staff_value['role_id']]) ? $role_data[$staff_value['role_id']]['title'] : '';
-
 				} elseif ($_key == 'workplace') {
 					$temp[] = isset($workplace_data[$staff_value['workplace']]) ? $workplace_data[$staff_value['workplace']]['name'] : '';
-
 				} else {
 					$temp[] = isset($staff_value[$_key]) ? $staff_value[$_key] : '';
 				}
@@ -8104,7 +8160,6 @@ public function update_staff_profile() {
 			} else {
 				$writer->writeSheetRow('Sheet1', $temp, $row_style2);
 			}
-
 		}
 
 		$filename = 'employees_sample_file' . $user_id . '_' . strtotime(date('Y-m-d H:i:s')) . '.xlsx';
@@ -8116,14 +8171,14 @@ public function update_staff_profile() {
 			'staff_id' => $user_id,
 			'filename' => HR_PROFILE_CREATE_EMPLOYEES_SAMPLE . $filename,
 		]);
-
 	}
 
 	/**
 	 * view pdf
 	 * @return [type] 
 	 */
-	public function view_pdf() {
+	public function view_pdf()
+	{
 		$data = [];
 		return $this->template->view('Hr_profile\Views\hr_profile/contracts/view_contract_pdf', $data);
 	}
@@ -8132,7 +8187,8 @@ public function update_staff_profile() {
 	 * save contract data
 	 * @return [type]
 	 */
-	public function save_hr_contract_data() {
+	public function save_hr_contract_data()
+	{
 		if (!hr_has_permission('hr_profile_can_edit_hr_contract')) {
 			header('HTTP/1.0 400 Bad error');
 			echo json_encode([
@@ -8164,7 +8220,8 @@ public function update_staff_profile() {
 	 * @param  [type] $id
 	 * @return [type]
 	 */
-	public function hr_clear_signature($id) {
+	public function hr_clear_signature($id)
+	{
 		if (hr_has_permission('hr_profile_can_delete_hr_contract')) {
 			$this->hr_profile_model->contract_clear_signature($id);
 		}
@@ -8177,7 +8234,8 @@ public function update_staff_profile() {
 	 * @param  [type] $id
 	 * @return [type]
 	 */
-	public function contract_pdf($id) {
+	public function contract_pdf($id)
+	{
 		if (!hr_has_permission('hr_profile_can_view_global_hr_contract') && !hr_has_permission('hr_profile_can_view_own_hr_contract')) {
 			app_redirect("forbidden");
 		}
@@ -8194,7 +8252,7 @@ public function update_staff_profile() {
 		$pdf->AddPage();
 		$pdf->SetFontSize(9);
 
-		
+
 		$contract = $this->hr_profile_model->get_contract($id);
 		$html = $this->hr_profile_model->hr_get_staff_contract_pdf_only_for_pdf($id)->content;
 
@@ -8213,11 +8271,11 @@ public function update_staff_profile() {
 			$pdf->writeHTML($html, true, false, true, false, '');
 		}
 
-		if($send != ''){
+		if ($send != '') {
 			$type = 'send_email';
 		}
 
-		$pdf_file_name = $contract->contract_code.'.pdf';
+		$pdf_file_name = $contract->contract_code . '.pdf';
 
 		if ($type === "D") {
 			$pdf->Output($pdf_file_name, "D");
@@ -8229,9 +8287,7 @@ public function update_staff_profile() {
 			$pdf->SetTitle($pdf_file_name);
 			$pdf->Output($pdf_file_name, "I");
 			exit;
-		} 
-
-
+		}
 	}
 
 	/**
@@ -8239,7 +8295,8 @@ public function update_staff_profile() {
 	 * @param  [type] $id
 	 * @return [type]
 	 */
-	public function contract_sign($id) {
+	public function contract_sign($id)
+	{
 		$contract = $this->hr_profile_model->hr_get_staff_contract_pdf($id);
 
 		if (!$contract) {
@@ -8258,7 +8315,7 @@ public function update_staff_profile() {
 				}
 
 				$builder = db_connect('default');
-				$builder = $builder->table(get_db_prefix().'hr_staff_contract');
+				$builder = $builder->table(get_db_prefix() . 'hr_staff_contract');
 				$builder->where('id_contract', $id);
 				$builder->update(['signature' => $get_acceptance_info_array['signature'], 'signer' => get_staff_user_id1(), 'sign_day' => get_my_local_time('Y-m-d')]);
 			} else {
@@ -8268,14 +8325,12 @@ public function update_staff_profile() {
 
 				$this->db->where('id_contract', $id);
 				$this->db->update(db_prefix() . 'hr_staff_contract', ['staff_signature' => $get_acceptance_info_array['signature'], 'staff_sign_day' => get_my_local_time('Y-m-d')]);
-
 			}
 
 			// Notify contract creator that customer signed the contract
 
 			set_alert('success', app_lang('document_signed_successfully'));
 			redirect($_SERVER['HTTP_REFERER']);
-
 		}
 
 		$data['title'] = $contract->contract_code;
@@ -8289,7 +8344,8 @@ public function update_staff_profile() {
 		return $this->template->rander('Hr_profile\Views/contracts/contracthtml', $data);
 	}
 
-	public function staff_contract_sign($id) {
+	public function staff_contract_sign($id)
+	{
 		$data = $this->request->getPost();
 
 		$success = false;
@@ -8307,21 +8363,20 @@ public function update_staff_profile() {
 			hr_profile_process_digital_signature_image($signature, $path, 'signature');
 
 			$builder = db_connect('default');
-			$builder = $builder->table(get_db_prefix().'hr_staff_contract');
+			$builder = $builder->table(get_db_prefix() . 'hr_staff_contract');
 			$builder->where('id_contract', $id);
 			$affectedrows = $builder->update(['signature' => $signature, 'signer' => get_staff_user_id1(), 'sign_day' => get_my_local_time('Y-m-d')]);
-			if($affectedrows > 0){
+			if ($affectedrows > 0) {
 				$success = true;
 			}
-
-		}else{
+		} else {
 
 			hr_profile_process_digital_signature_image($signature, $path, 'staff_signature');
 			$builder = db_connect('default');
-			$builder = $builder->table(get_db_prefix().'hr_staff_contract');
+			$builder = $builder->table(get_db_prefix() . 'hr_staff_contract');
 			$builder->where('id_contract', $id);
 			$affectedrows = $builder->update(['staff_signature' => $signature, 'staff_sign_day' => get_my_local_time('Y-m-d')]);
-			if($affectedrows > 0){
+			if ($affectedrows > 0) {
 				$success = true;
 			}
 		}
@@ -8338,7 +8393,8 @@ public function update_staff_profile() {
 	 * workplaces
 	 * @return [type] 
 	 */
-	public function contract_templates() {
+	public function contract_templates()
+	{
 		$data['contract_templates'] = $this->hr_profile_model->get_contract_template();
 		return $this->template->rander("Hr_profile\Views\includes\contract_template", $data);
 	}
@@ -8347,7 +8403,8 @@ public function update_staff_profile() {
 	 * list contract_template data
 	 * @return [type] 
 	 */
-	public function list_contract_template_data() {
+	public function list_contract_template_data()
+	{
 		$this->access_only_team_members();
 
 		$list_data = $this->hr_profile_model->get_contract_template();
@@ -8364,16 +8421,16 @@ public function update_staff_profile() {
 	 * @param  [type] $data 
 	 * @return [type]       
 	 */
-	private function _make_contract_template_row($data) {
+	private function _make_contract_template_row($data)
+	{
 
 		$options = '';
-		if(is_admin() || hr_has_permission('hr_profile_can_edit_setting')){
+		if (is_admin() || hr_has_permission('hr_profile_can_edit_setting')) {
 
-			$options .= '<a href="'.get_uri('hr_profile/contract_template/'.$data['id']).'"  class="btn btn-default btn-icon"><i data-feather="edit" class="icon-16"></i></a>';
-
+			$options .= '<a href="' . get_uri('hr_profile/contract_template/' . $data['id']) . '"  class="btn btn-default btn-icon"><i data-feather="edit" class="icon-16"></i></a>';
 		}
-		if(is_admin() || hr_has_permission('hr_profile_can_delete_setting')){
-			$options .= js_anchor("<i data-feather='x' class='icon-16'></i>", array('title' => app_lang('delete'), "class" => "delete", "data-id" => $data['id'], "data-action-url" => get_uri("hr_profile/delete_contract_template_/".$data['id']), "data-action" => "delete-confirmation"));
+		if (is_admin() || hr_has_permission('hr_profile_can_delete_setting')) {
+			$options .= js_anchor("<i data-feather='x' class='icon-16'></i>", array('title' => app_lang('delete'), "class" => "delete", "data-id" => $data['id'], "data-action-url" => get_uri("hr_profile/delete_contract_template_/" . $data['id']), "data-action" => "delete-confirmation"));
 		}
 
 		$jobpositionOutput = '';
@@ -8383,26 +8440,25 @@ public function update_staff_profile() {
 		$jobpositionOutput1 = '';
 		$list_jobposition = '';
 		$exportjob_positions = '';
-		if($job_positions != null){
+		if ($job_positions != null) {
 			foreach ($job_positions as $key => $position_id) {
 				$position_name   = hr_profile_get_job_position_name($position_id);
 
-				$list_jobposition .= '<li class="text-success mbot10 mtop"><a href="#" class="dropdown-item text-align-left" >'.$position_name. '</a></li>';
-
+				$list_jobposition .= '<li class="text-success mbot10 mtop"><a href="#" class="dropdown-item text-align-left" >' . $position_name . '</a></li>';
 			}
 		}
 
-		if($job_positions != null){
-			$jobpositionOutput .= '<span class="avatar bg-danger brround avatar-none">+'. (count($job_positions) ) .'</span>';
+		if ($job_positions != null) {
+			$jobpositionOutput .= '<span class="avatar bg-danger brround avatar-none">+' . (count($job_positions)) . '</span>';
 		}
 
 		$jobpositionOutput1 = '<div class="task-info task-watched task-info-watched">
 		<h5>
 		<div class="btn-group">
 		<span class=" dropdown task-single-menu task-menu-watched">
-		<div class="avatar-list avatar-list-stacked dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="true">'.$jobpositionOutput.'</div>
+		<div class="avatar-list avatar-list-stacked dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="true">' . $jobpositionOutput . '</div>
 		<ul class="dropdown-menu" role="menu">
-		'.$list_jobposition.'
+		' . $list_jobposition . '
 		</ul>
 		</span>
 		</div>
@@ -8422,7 +8478,8 @@ public function update_staff_profile() {
 	 * @param  string $id
 	 * @return [type]
 	 */
-	public function contract_template($id = '') {
+	public function contract_template($id = '')
+	{
 
 		if ($this->request->getPost()) {
 			$message = '';
@@ -8438,7 +8495,7 @@ public function update_staff_profile() {
 
 				app_redirect('hr_profile/contract_templates');
 			} else {
-				if(isset($data['id'])){
+				if (isset($data['id'])) {
 					unset($data['id']);
 				}
 				$success = $this->hr_profile_model->update_contract_template($data, $id);
@@ -8463,16 +8520,14 @@ public function update_staff_profile() {
 			$model_info->default_message = $this->template->view('Hr_profile\Views\includes\modal_forms\sample_contract_html');
 			$model_info->content = '';
 			$model_info->delete = 0;
-
 		} else {
 			//update
 			$title = app_lang('update_contract_template');
 			$data['title'] = $title;
 			$get_contract_template = $this->hr_profile_model->get_contract_template($id);
-			$data['contract_template'] = $get_contract_template; 
+			$data['contract_template'] = $get_contract_template;
 			$model_info = $get_contract_template;
 			$model_info->default_message = $this->template->view('Hr_profile\Views\includes\modal_forms\sample_contract_html');
-
 		}
 
 		$data['job_positions'] = $this->hr_profile_model->get_job_position();
@@ -8493,7 +8548,8 @@ public function update_staff_profile() {
 	 * @param  [type] $id
 	 * @return [type]
 	 */
-	public function delete_contract_template_($id) {
+	public function delete_contract_template_($id)
+	{
 		if (!$id) {
 			app_redirect('hr_profile/contract_templates');
 		}
@@ -8511,14 +8567,15 @@ public function update_staff_profile() {
 	 * confirm delete modal form
 	 * @return [type] 
 	 */
-	public function confirm_delete_modal_form() {
+	public function confirm_delete_modal_form()
+	{
 		$this->access_only_team_members();
 
 		$this->validate_submitted_data(array(
 			"id" => "numeric"
 		));
 
-		if($this->request->getPost('id')){
+		if ($this->request->getPost('id')) {
 			$data['function'] = $this->request->getPost('function');
 			$data['id'] = $this->request->getPost('id');
 			$data['id2'] = $this->request->getPost('id2');
@@ -8526,61 +8583,63 @@ public function update_staff_profile() {
 		}
 	}
 
-	function temp_upload_file() {
+	function temp_upload_file()
+	{
 		$this->access_only_team_members();
 		upload_file_to_temp();
 	}
 
 	/* check valid file for project */
 
-	function validate_position_file() {
+	function validate_position_file()
+	{
 		return validate_post_file($this->request->getPost("file_name"));
 	}
 
-    /**
-     * staff email exists
-     * @return [type] 
-     */
-    public function staff_email_exists()
-    {
-    	if(is_numeric($this->request->getPost('id'))){
-    		/*edit*/
-    		$builder = db_connect('default');
-    		$builder = $builder->table(get_db_prefix().'users');
-    		$builder->where('id', $this->request->getPost('id'));
-    		$user = $builder->get()->getRow();
+	/**
+	 * staff email exists
+	 * @return [type] 
+	 */
+	public function staff_email_exists()
+	{
+		if (is_numeric($this->request->getPost('id'))) {
+			/*edit*/
+			$builder = db_connect('default');
+			$builder = $builder->table(get_db_prefix() . 'users');
+			$builder->where('id', $this->request->getPost('id'));
+			$user = $builder->get()->getRow();
 
-    		if($user->email == $this->request->getPost('email')){
-    			echo json_encode(array("success" => true, 'message' => app_lang('email not exist')));
-    			die;
-    		}else{
-    			$builder = db_connect('default');
-    			$builder = $builder->table(get_db_prefix().'users');
-    			$builder->where('email', $this->request->getPost('email'));
-    			$users = $builder->get()->getResultArray();
-    			if(count($users) > 0){
+			if ($user->email == $this->request->getPost('email')) {
+				echo json_encode(array("success" => true, 'message' => app_lang('email not exist')));
+				die;
+			} else {
+				$builder = db_connect('default');
+				$builder = $builder->table(get_db_prefix() . 'users');
+				$builder->where('email', $this->request->getPost('email'));
+				$users = $builder->get()->getResultArray();
+				if (count($users) > 0) {
 
-    				echo json_encode(array("success" => false, 'message' => app_lang('duplicate_email')));
-    				die;
-    			}else{
-    				echo json_encode(array("success" => true, 'message' => app_lang('email not exist')));
-    				die;
-    			}
-    		}
+					echo json_encode(array("success" => false, 'message' => app_lang('duplicate_email')));
+					die;
+				} else {
+					echo json_encode(array("success" => true, 'message' => app_lang('email not exist')));
+					die;
+				}
+			}
+		} else {
 
-    	}else{
+			if ($this->Users_model->is_email_exists($this->request->getPost('email'))) {
+				echo json_encode(array("success" => false, 'message' => app_lang('duplicate_email')));
+				die;
+			} else {
+				echo json_encode(array("success" => true, 'message' => app_lang('email not exist')));
+				die;
+			}
+		}
+	}
 
-    		if ($this->Users_model->is_email_exists($this->request->getPost('email'))) {
-    			echo json_encode(array("success" => false, 'message' => app_lang('duplicate_email')));
-    			die;
-    		}else{
-    			echo json_encode(array("success" => true, 'message' => app_lang('email not exist')));
-    			die;
-    		}
-    	}
-    }
-
-    public function hr_create_notification($data = array()) {
+	public function hr_create_notification($data = array())
+	{
 
 		ini_set('max_execution_time', 300); //300 seconds 
 		//validate notification request
@@ -8635,7 +8694,8 @@ public function update_staff_profile() {
 		$this->hr_profile_model->hr_create_notification($event, $user_id, $options, $data['to_user_id']);
 	}
 
-	public function update_staff_contract_content() {
+	public function update_staff_contract_content()
+	{
 
 		if (!hr_has_permission('hr_profile_can_edit_hr_contract') && !is_admin()) {
 			app_redirect("forbidden");
@@ -8649,14 +8709,14 @@ public function update_staff_profile() {
 		}
 
 		$builder = db_connect('default');
-		$builder = $builder->table(get_db_prefix().'hr_staff_contract');
+		$builder = $builder->table(get_db_prefix() . 'hr_staff_contract');
 		$builder->where('id_contract', $data['id']);
 		$affectedrows = $builder->update(['content' => $data['content']]);
 
 		if ($affectedrows > 0) {
 			$this->session->setFlashdata("success_message", app_lang("updated_successfully"));
 		}
-		app_redirect('hr_profile/view_staff_contract/'.$data['id']);
+		app_redirect('hr_profile/view_staff_contract/' . $data['id']);
 	}
 
 	/**
@@ -8668,7 +8728,8 @@ public function update_staff_profile() {
 	public function training_detail($id, $hash)
 	{
 		$training = $this->hr_profile_model->get_position_training($id);
-		if (!$training
+		if (
+			!$training
 			|| ($training->hash != $hash)
 			|| (!$hash || !$id)
 			|| ($training->onlyforloggedin == 1 && !is_logged_in())
@@ -8679,13 +8740,13 @@ public function update_staff_profile() {
 			$id = $this->request->getPost('id');
 			$hash = $this->request->getPost('hash');
 			$success = $this->hr_profile_model->add_training_result($id, $this->request->getPost());
-			$link_redirect = site_url('admin/hr_profile/member/'.get_staff_user_id1());
+			$link_redirect = site_url('admin/hr_profile/member/' . get_staff_user_id1());
 			if ($success) {
 				$training = $this->hr_profile_model->get_position_training($id);
 				$this->session->setFlashdata("success_message", app_lang("hr_thank_you_for_participating_in_this_training"));
 
 				if ($link_redirect !== '') {
-					app_redirect('hr_profile/training_detail/'.$id.'/'.$hash);
+					app_redirect('hr_profile/training_detail/' . $id . '/' . $hash);
 				}
 			}
 		}
@@ -8697,7 +8758,7 @@ public function update_staff_profile() {
 
 		return $this->template->rander('Hr_profile\Views/participate', $data);
 	}
-	
+
 	/**
 	 * view staff training result
 	 * @param  [type] $staff_id    
@@ -8708,14 +8769,15 @@ public function update_staff_profile() {
 	 */
 	public function view_staff_training_result($staff_id, $resultsetid, $id, $hash)
 	{
-		if (!hr_has_permission('hr_profile_can_view_global_hr_training') && !hr_has_permission('hr_profile_can_view_own_hr_training') && !is_admin() ) {
+		if (!hr_has_permission('hr_profile_can_view_global_hr_training') && !hr_has_permission('hr_profile_can_view_own_hr_training') && !is_admin()) {
 			access_denied('job_position');
 		}
 
 		$training = $this->hr_profile_model->get_position_training($id);
 		$training_result = $this->hr_profile_model->get_mark_staff_from_resultsetid($resultsetid, $id, $staff_id);
 
-		if (!$training
+		if (
+			!$training
 			|| ($training->hash != $hash)
 			|| (!$hash || !$id)
 			|| ($training->onlyforloggedin == 1 && !is_logged_in())
@@ -8729,7 +8791,6 @@ public function update_staff_profile() {
 		$data['title'] = $training->subject;
 
 		return $this->template->rander('Hr_profile\Views/participate_result', $data);
-
 	}
 
 	/**
@@ -8738,25 +8799,26 @@ public function update_staff_profile() {
 	 * @param  string  $tab 
 	 * @return [type]       
 	 */
-	function staff_profile($id = 0, $tab = "") {
+	function staff_profile($id = 0, $tab = "")
+	{
 		if ($id * 1) {
 			validate_numeric_value($id);
 
-            //if team member's list is disabled, but the user can see his/her own profile.
+			//if team member's list is disabled, but the user can see his/her own profile.
 			if (!$this->can_view_team_members_list() && $this->login_user->id != $id) {
 				app_redirect("forbidden");
 			}
 
 
 
-            //we have an id. view the team_member's profie
+			//we have an id. view the team_member's profie
 			$options = array("id" => $id, "user_type" => "staff");
 			$user_info = $this->Users_model->get_details($options)->getRow();
 			if ($user_info) {
 
 
 
-                //check which tabs are viewable for current logged in user
+				//check which tabs are viewable for current logged in user
 				$view_data['show_timeline'] = get_setting("module_timeline") ? true : false;
 
 				$can_update_team_members_info = $this->hr_can_update_team_members_info($id);
@@ -8776,15 +8838,15 @@ public function update_staff_profile() {
 				$expense_access_info = $this->get_access_info("expense");
 				$view_data["show_expense_info"] = (get_setting("module_expense") == "1" && $expense_access_info->access_type == "all") ? true : false;
 
-                //admin can access all members attendance and leave
-                //none admin users can only access to his/her own information 
+				//admin can access all members attendance and leave
+				//none admin users can only access to his/her own information 
 
 				if ($this->login_user->is_admin || $user_info->id === $this->login_user->id || get_array_value($this->login_user->permissions, "can_manage_user_role_and_permissions")) {
 					$show_attendance = true;
 					$show_leave = true;
 					$view_data['show_account_settings'] = true;
 				} else {
-                    //none admin users but who has access to this team member's attendance and leave can access this info
+					//none admin users but who has access to this team member's attendance and leave can access this info
 					$access_timecard = $this->get_access_info("attendance");
 					if ($access_timecard->access_type === "all" || in_array($user_info->id, $access_timecard->allowed_members)) {
 						$show_attendance = true;
@@ -8797,15 +8859,15 @@ public function update_staff_profile() {
 				}
 
 
-                //check module availability
+				//check module availability
 				$view_data['show_attendance'] = $show_attendance && get_setting("module_attendance") ? true : false;
 				$view_data['show_leave'] = $show_leave && get_setting("module_leave") ? true : false;
 
-                //check contact info view permissions
+				//check contact info view permissions
 				$show_cotact_info = $this->hr_can_view_team_members_contact_info();
 				$show_social_links = $this->hr_can_view_team_members_social_links();
 
-                //own info is always visible
+				//own info is always visible
 				if ($id == $this->login_user->id) {
 					$show_cotact_info = true;
 					$show_social_links = true;
@@ -8814,7 +8876,7 @@ public function update_staff_profile() {
 				$view_data['show_cotact_info'] = $show_cotact_info;
 				$view_data['show_social_links'] = $show_social_links;
 
-                //show projects tab to admin
+				//show projects tab to admin
 				$view_data['show_projects'] = false;
 				if ($this->login_user->is_admin) {
 					$view_data['show_projects'] = true;
@@ -8825,117 +8887,120 @@ public function update_staff_profile() {
 					$view_data['show_projects_count'] = true;
 				}
 
-                $view_data['tab'] = clean_data($tab); //selected tab
-                $view_data['user_info'] = $user_info;
-                $view_data['social_link'] = $this->Social_links_model->get_one($id);
+				$view_data['tab'] = clean_data($tab); //selected tab
+				$view_data['user_info'] = $user_info;
+				$view_data['social_link'] = $this->Social_links_model->get_one($id);
 
-                $hide_send_message_button = true;
-                $this->init_permission_checker("message_permission");
-                if ($this->check_access_on_messages_for_this_user() && $this->validate_sending_message($id)) {
-                	$hide_send_message_button = false;
-                }
-                $view_data['hide_send_message_button'] = $hide_send_message_button;
+				$hide_send_message_button = true;
+				$this->init_permission_checker("message_permission");
+				if ($this->check_access_on_messages_for_this_user() && $this->validate_sending_message($id)) {
+					$hide_send_message_button = false;
+				}
+				$view_data['hide_send_message_button'] = $hide_send_message_button;
 
-                /*get data for related tab*/
-                $view_data['staffid'] = $id;
+				/*get data for related tab*/
+				$view_data['staffid'] = $id;
 
-                return $this->template->rander('Hr_profile\Views\hr_record/member', $view_data);
+				return $this->template->rander('Hr_profile\Views\hr_record/member', $view_data);
+			} else {
+				show_404();
+			}
+		} else {
 
-            } else {
-            	show_404();
-            }
-        } else {
+			if (!$this->can_view_team_members_list()) {
+				app_redirect("forbidden");
+			}
 
-        	if (!$this->can_view_team_members_list()) {
-        		app_redirect("forbidden");
-        	}
+			//we don't have any specific id to view. show the list of team_member
+			$view_data['team_members'] = $this->Users_model->get_details(array("user_type" => "staff", "status" => "active"))->getResult();
+			return $this->template->rander("team_members/profile_card", $view_data);
+		}
+	}
 
-            //we don't have any specific id to view. show the list of team_member
-        	$view_data['team_members'] = $this->Users_model->get_details(array("user_type" => "staff", "status" => "active"))->getResult();
-        	return $this->template->rander("team_members/profile_card", $view_data);
-        }
-    }
+	/*clone funtion from Team member controller*/
+	private function hr_can_update_team_members_info($user_id)
+	{
+		$access_info = $this->get_access_info("team_member_update_permission");
 
-    /*clone funtion from Team member controller*/
-    private function hr_can_update_team_members_info($user_id) {
-    	$access_info = $this->get_access_info("team_member_update_permission");
+		if ($this->login_user->id === $user_id) {
+			return true; //own profile
+		} else if ($access_info->access_type == "all") {
+			return true; //has access to change all user's profile
+		} else if ($user_id && in_array($user_id, $access_info->allowed_members)) {
+			return true; //has permission to update this user's profile
+		} else {
 
-    	if ($this->login_user->id === $user_id) {
-            return true; //own profile
-        } else if ($access_info->access_type == "all") {
-            return true; //has access to change all user's profile
-        } else if ($user_id && in_array($user_id, $access_info->allowed_members)) {
-            return true; //has permission to update this user's profile
-        } else {
+			return false;
+		}
+	}
 
-        	return false;
-        }
-    }
+	/**
+	 * hr has job info manage permission
+	 * @return [type] 
+	 */
+	private function hr_has_job_info_manage_permission()
+	{
+		return get_array_value($this->login_user->permissions, "job_info_manage_permission");
+	}
 
-    /**
-     * hr has job info manage permission
-     * @return [type] 
-     */
-    private function hr_has_job_info_manage_permission() {
-    	return get_array_value($this->login_user->permissions, "job_info_manage_permission");
-    }
+	/**
+	 * hr can view team members contact info
+	 * @return [type] 
+	 */
+	private function hr_can_view_team_members_contact_info()
+	{
+		if ($this->login_user->user_type == "staff") {
+			if ($this->login_user->is_admin) {
+				return true;
+			} else if (get_array_value($this->login_user->permissions, "can_view_team_members_contact_info") == "1") {
+				return true;
+			}
+		}
+	}
 
-    /**
-     * hr can view team members contact info
-     * @return [type] 
-     */
-    private function hr_can_view_team_members_contact_info() {
-    	if ($this->login_user->user_type == "staff") {
-    		if ($this->login_user->is_admin) {
-    			return true;
-    		} else if (get_array_value($this->login_user->permissions, "can_view_team_members_contact_info") == "1") {
-    			return true;
-    		}
-    	}
-    }
+	/**
+	 * hr can view team members social links
+	 * @return [type] 
+	 */
+	private function hr_can_view_team_members_social_links()
+	{
+		if ($this->login_user->user_type == "staff") {
+			if ($this->login_user->is_admin) {
+				return true;
+			} else if (get_array_value($this->login_user->permissions, "can_view_team_members_social_links") == "1") {
+				return true;
+			}
+		}
+	}
 
-    /**
-     * hr can view team members social links
-     * @return [type] 
-     */
-    private function hr_can_view_team_members_social_links() {
-    	if ($this->login_user->user_type == "staff") {
-    		if ($this->login_user->is_admin) {
-    			return true;
-    		} else if (get_array_value($this->login_user->permissions, "can_view_team_members_social_links") == "1") {
-    			return true;
-    		}
-    	}
-    }
+	/**
+	 * staff contracts info
+	 * @param  [type] $user_id 
+	 * @return [type]          
+	 */
+	function staff_contracts_info($user_id)
+	{
+		if ($user_id) {
+			validate_numeric_value($user_id);
+			$data['staffid'] = $user_id;
 
-    /**
-     * staff contracts info
-     * @param  [type] $user_id 
-     * @return [type]          
-     */
-    function staff_contracts_info($user_id) {
-    	if ($user_id) {
-    		validate_numeric_value($user_id);
-    		$data['staffid'] = $user_id;
-
-    		return $this->template->view('Hr_profile\Views\hr_record\includes\contract', $data);
-
-    	}
-    }
+			return $this->template->view('Hr_profile\Views\hr_record\includes\contract', $data);
+		}
+	}
 
 	/**
 	 * staff dependent info
 	 * @param  [type] $user_id 
 	 * @return [type]          
 	 */
-	function staff_dependent_info($user_id) {
+	function staff_dependent_info($user_id)
+	{
 		if ($user_id) {
 			validate_numeric_value($user_id);
 			$data['dependent_person'] = $this->hr_profile_model->get_dependent_person_bytstaff($user_id);
 			$data['user_id'] = $user_id;
 
 			return $this->template->view('Hr_profile\Views\hr_record\includes\dependent_person', $data);
-
 		}
 	}
 
@@ -8944,7 +9009,8 @@ public function update_staff_profile() {
 	 * @param  [type] $user_id 
 	 * @return [type]          
 	 */
-	function staff_training_info($id) {
+	function staff_training_info($id)
+	{
 		if ($id) {
 			$data = [];
 			$data['staffid'] = $id;
@@ -9054,7 +9120,6 @@ public function update_staff_profile() {
 					}
 
 					$training_temp['staff_training_result'] = array_merge($training_results['staff_training_result'], $staff_training_result);
-
 				} else {
 					$training_temp['staff_training_result'] = $staff_training_result;
 				}
@@ -9073,5 +9138,4 @@ public function update_staff_profile() {
 			return $this->template->view('Hr_profile\Views\hr_record\includes\training', $data);
 		}
 	}
-
 }

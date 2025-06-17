@@ -5,15 +5,18 @@ namespace Config;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Session\Handlers\FileHandler;
 
-class App extends BaseConfig {
+class App extends BaseConfig
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->set_base_url();
         $this->set_supported_languages();
         $this->set_cookie_domain();
     }
 
-    private function set_base_url() {
+    private function set_base_url()
+    {
         if (!$this->baseURL) {
 
             $domain = $_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME'];
@@ -28,7 +31,8 @@ class App extends BaseConfig {
         }
     }
 
-    private function set_supported_languages() {
+    private function set_supported_languages()
+    {
         $language_dropdown = array();
         $dir = "./app/Language/";
         if (is_dir($dir)) {
@@ -45,7 +49,8 @@ class App extends BaseConfig {
         $this->supportedLocales = $language_dropdown;
     }
 
-    private function set_cookie_domain() {
+    private function set_cookie_domain()
+    {
         if (!$this->cookieDomain && $_SERVER['HTTP_HOST']) {
             $this->cookieDomain = $_SERVER['HTTP_HOST'];
         }

@@ -51,7 +51,7 @@
            _l('order_date'),
            _l('type'),
            _l('project'),
-           _l('department'),
+           _l('hrp_department'),
            _l('po_description'),
            _l('po_value'),
            _l('tax_value'),
@@ -61,6 +61,7 @@
            _l('delivery_status'),
            _l('payment_status'),
            _l('options'),
+           
            );
     
        render_datatable1($table_data,'table_pur_order'); ?>

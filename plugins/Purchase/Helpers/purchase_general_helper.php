@@ -16,14 +16,14 @@ use App\Libraries\Clean_data;
  */
 if (!function_exists('purchase_load_css')) {
 
-    function purchase_load_css(array $array) {
+    function purchase_load_css(array $array)
+    {
         $version = get_setting("app_version");
 
         foreach ($array as $uri) {
             echo "<link rel='stylesheet' type='text/css' href='" . base_url(PLUGIN_URL_PATH . "Purchase/$uri") . "?v=$version' />";
         }
     }
-
 }
 
 /**
@@ -34,20 +34,20 @@ if (!function_exists('purchase_load_css')) {
  */
 if (!function_exists('purchase_load_js')) {
 
-    function purchase_load_js(array $array) {
+    function purchase_load_js(array $array)
+    {
         $version = get_setting("app_version");
         foreach ($array as $uri) {
             echo "<script type='text/javascript'  src='" . base_url(PLUGIN_URL_PATH . "Purchase/$uri") . "?v=$version'></script>";
         }
     }
-
 }
 
 if (!function_exists('get_unit_type')) {
     function get_unit_type($id = false)
     {
         $builder = db_connect('default');
-        $builder = $builder->table(get_db_prefix().'ware_unit_type');
+        $builder = $builder->table(get_db_prefix() . 'ware_unit_type');
 
         if (is_numeric($id)) {
             $builder->where('unit_type_id', $id);
@@ -55,9 +55,8 @@ if (!function_exists('get_unit_type')) {
             return $builder->get()->getRow();
         }
         if ($id == false) {
-            return $builder->query('select * from '.get_db_prefix().'ware_unit_type')->getResultArray();
+            return $builder->query('select * from ' . get_db_prefix() . 'ware_unit_type')->getResultArray();
         }
-
     }
 }
 
@@ -69,20 +68,20 @@ if (!function_exists('get_unit_type')) {
  *
  * @return     string          The status approve.
  */
-function get_status_approve($status){
+function get_status_approve($status)
+{
     $result = '';
-    if($status == 1){
-        $result = '<span class="label label-primary"> '._l('purchase_draft').' </span>';
-    }elseif($status == 2){
-        $result = '<span class="label label-success"> '._l('purchase_approved').' </span>';
-    }elseif($status == 3){
-        $result = '<span class="label label-warning"> '._l('pur_rejected').' </span>';
-    }elseif($status == 4){
-        $result = '<span class="label label-danger"> '._l('pur_canceled').' </span>';
+    if ($status == 1) {
+        $result = '<span class="label label-primary"> ' . _l('purchase_draft') . ' </span>';
+    } elseif ($status == 2) {
+        $result = '<span class="label label-success"> ' . _l('purchase_approved') . ' </span>';
+    } elseif ($status == 3) {
+        $result = '<span class="label label-warning"> ' . _l('purchase_rejected') . ' </span>';
+    } elseif ($status == 4) {
+        $result = '<span class="label label-danger"> ' . _l('purchase_canceled') . ' </span>';
     }
 
     return $result;
-
 }
 
 /**
@@ -90,24 +89,26 @@ function get_status_approve($status){
  *
  * @param  $pur_request  The pur request
  */
-function get_po_html_by_pur_request($pur_request){
+function get_po_html_by_pur_request($pur_request)
+{
     $builder = db_connect('default');
-    $builder = $builder->table(get_db_prefix().'pur_orders');
+    $builder = $builder->table(get_db_prefix() . 'pur_orders');
 
-    $builder->where('pur_request',$pur_request);
+    $builder->where('pur_request', $pur_request);
     $list = $builder->get()->getResultArray();
     $rs = '';
     $count = 0;
-    if(count($list) > 0){
-        foreach($list as $li){
-            $rs .= '<a href="'.admin_url('purchase/purchase_order/'.$li['id']).'" ><span class="label label-tag mbot5">'.$li['pur_order_number'].'</span></a>&nbsp;';
+    if (count($list) > 0) {
+        foreach ($list as $li) {
+            $rs .= '<a href="' . admin_url('purchase/purchase_order/' . $li['id']) . '" ><span class="label label-tag mbot5">' . $li['pur_order_number'] . '</span></a>&nbsp;';
         }
     }
     return $rs;
 }
 
-if(!function_exists('get_base_currency')){
-    function get_base_currency(){
+if (!function_exists('get_base_currency')) {
+    function get_base_currency()
+    {
         return get_setting('default_currency');
     }
 }
@@ -122,29 +123,28 @@ function pur_convert_item_taxes($tax, $tax_rate, $tax_name)
     $purchase_model = model("Purchase\Models\Purchase_model");
 
     $taxes = [];
-    if($tax != null && strlen($tax) > 0){
+    if ($tax != null && strlen($tax) > 0) {
         $arr_tax_id = explode('|', $tax);
-        if($tax_name != null && strlen($tax_name) > 0){
+        if ($tax_name != null && strlen($tax_name) > 0) {
             $arr_tax_name = explode('|', $tax_name);
             $arr_tax_rate = explode('|', $tax_rate);
             foreach ($arr_tax_name as $key => $value) {
                 $taxes[]['taxname'] = $value . '|' .  $arr_tax_rate[$key];
             }
-        }elseif($tax_rate != null && strlen($tax_rate) > 0){
+        } elseif ($tax_rate != null && strlen($tax_rate) > 0) {
 
 
             $arr_tax_id = explode('|', $tax);
             $arr_tax_rate = explode('|', $tax_rate);
             foreach ($arr_tax_id as $key => $value) {
                 $_tax_name = $purchase_model->get_tax_name($value);
-                if(isset($arr_tax_rate[$key])){
+                if (isset($arr_tax_rate[$key])) {
                     $taxes[]['taxname'] = $_tax_name . '|' .  $arr_tax_rate[$key];
-                }else{
+                } else {
                     $taxes[]['taxname'] = $_tax_name . '|' .  $purchase_model->tax_rate_by_id($value);
-
                 }
             }
-        }else{
+        } else {
 
 
             $arr_tax_id = explode('|', $tax);
@@ -153,9 +153,8 @@ function pur_convert_item_taxes($tax, $tax_rate, $tax_name)
                 $_tax_name = $purchase_model->get_tax_name($value);
                 $_tax_rate = $purchase_model->tax_rate_by_id($value);
                 $taxes[]['taxname'] = $_tax_name . '|' .  $_tax_rate;
-            } 
+            }
         }
-
     }
 
     return $taxes;
@@ -170,16 +169,16 @@ function pur_get_item_variatiom($id)
 {
 
     $builder = db_connect('default');
-    $builder = $builder->table(get_db_prefix().'items');
+    $builder = $builder->table(get_db_prefix() . 'items');
     $builder->where('id', $id);
     $item_value = $builder->get()->getRow();
 
     $name = '';
-    if($item_value){
+    if ($item_value) {
         $purchase_model = model("Purchase\Models\Purchase_model");
         $new_item_value = $purchase_model->row_item_to_variation($item_value);
 
-        $name .= $item_value->commodity_code.'_'.$new_item_value->new_description;
+        $name .= $item_value->commodity_code . '_' . $new_item_value->new_description;
     }
 
     return $name;
@@ -193,13 +192,13 @@ function pur_get_item_variatiom($id)
 function pur_get_unit_name($id = false)
 {
     $builder = db_connect('default');
-    $builder = $builder->table(get_db_prefix().'ware_unit_type');
+    $builder = $builder->table(get_db_prefix() . 'ware_unit_type');
 
     if (is_numeric($id)) {
         $builder->where('unit_type_id', $id);
 
         $unit = $builder->get()->getRow();
-        if($unit){
+        if ($unit) {
             return $unit->unit_name;
         }
         return '';
@@ -209,10 +208,11 @@ function pur_get_unit_name($id = false)
 /**
  * { pur get currency rate }
  */
-function pur_get_currency_rate($currency_str){
+function pur_get_currency_rate($currency_str)
+{
     $default_currency = get_setting('default_currency');
 
-    if($currency_str == $default_currency){
+    if ($currency_str == $default_currency) {
         return 1;
     }
 
@@ -223,7 +223,7 @@ function pur_get_currency_rate($currency_str){
 
     if ($conversion_rate && is_array($conversion_rate) && count($conversion_rate)) {
         foreach ($conversion_rate as $currency => $c_rate) {
-            if($currency == $currency_str){
+            if ($currency == $currency_str) {
                 $rate = $c_rate;
             }
         }
@@ -240,14 +240,15 @@ function pur_get_currency_rate($currency_str){
  *
  * @return     string  The item identifier by description.
  */
-function get_item_id_by_des($des){
+function get_item_id_by_des($des)
+{
     $builder = db_connect('default');
-    $builder = $builder->table(get_db_prefix().'items');    
+    $builder = $builder->table(get_db_prefix() . 'items');
 
     $builder->where('title', $des);
     $item = $builder->get()->getRow();
 
-    if($item){
+    if ($item) {
         return $item->id;
     }
     return '';
@@ -264,13 +265,13 @@ function pur_format_approve_status($status, $text = false, $clean = false)
 {
 
     $status_name = '';
-    if($status == 1){
+    if ($status == 1) {
         $status_name = _l('purchase_draft');
-    }elseif($status == 2){
+    } elseif ($status == 2) {
         $status_name = _l('purchase_approved');
-    }elseif($status == 3){
+    } elseif ($status == 3) {
         $status_name = _l('pur_rejected');
-    }elseif($status == 4){
+    } elseif ($status == 4) {
         $status_name = _l('pur_canceled');
     }
 
@@ -281,26 +282,26 @@ function pur_format_approve_status($status, $text = false, $clean = false)
     $style = '';
     $class = '';
     if ($text == false) {
-        if($status == 1){
+        if ($status == 1) {
             $class = 'label label-primary';
-        }elseif($status == 2){
+        } elseif ($status == 2) {
             $class = 'label label-success';
-        }elseif($status == 3){
+        } elseif ($status == 3) {
             $class = 'label label-warning';
-        }elseif($status == 4){
+        } elseif ($status == 4) {
             $class = 'label label-danger';
         }
     } else {
-        if($status == 1){
+        if ($status == 1) {
             $class = 'label text-info';
-        }elseif($status == 2){
+        } elseif ($status == 2) {
             $class = 'label text-success';
-        }elseif($status == 3){
+        } elseif ($status == 3) {
             $class = 'label text-warning';
-        }elseif($status == 4){
+        } elseif ($status == 4) {
             $class = 'label text-danger';
         }
-    }    
+    }
 
     return '<span class="' . $class . '" >' . $status_name . '</span>';
 }
@@ -312,20 +313,20 @@ function pur_format_approve_status($status, $text = false, $clean = false)
  *
  * @return     string   The status approve string.
  */
-function get_status_approve_str($status){
+function get_status_approve_str($status)
+{
     $result = '';
-    if($status == 1){
+    if ($status == 1) {
         $result = _l('purchase_draft');
-    }elseif($status == 2){
+    } elseif ($status == 2) {
         $result = _l('purchase_approved');
-    }elseif($status == 3){
+    } elseif ($status == 3) {
         $result = _l('pur_rejected');
-    }elseif($status == 4){
+    } elseif ($status == 4) {
         $result = _l('pur_canceled');
     }
 
     return $result;
-
 }
 
 /**
@@ -335,14 +336,15 @@ function get_status_approve_str($status){
  *
  * @return     <type>  a item or list item.
  */
-function get_item_hp($id = ''){
+function get_item_hp($id = '')
+{
     $builder = db_connect('default');
-    $builder = $builder->table(get_db_prefix().'items');   
+    $builder = $builder->table(get_db_prefix() . 'items');
 
-    if($id != ''){
+    if ($id != '') {
         $builder->where('id', $id);
         return $builder->get()->getRow();
-    }elseif ($id == '') {
+    } elseif ($id == '') {
         return $builder->get()->getResultArray();
     }
 }
@@ -354,18 +356,19 @@ if (!function_exists("get_pdf_logo_url")) {
      *
      * @return       The pdf logo url.
      */
-    function get_pdf_logo_url() {
+    function get_pdf_logo_url()
+    {
         return get_file_from_setting("site_logo", true);
     }
-
 }
 
 if (!function_exists('pur_log_notification')) {
 
-    function pur_log_notification($event, $options = array(), $user_id = 0, $to_user_id = 0) {
+    function pur_log_notification($event, $options = array(), $user_id = 0, $to_user_id = 0)
+    {
         $ci = new Security_Controller(false);
 
-            //send direct notification to the url
+        //send direct notification to the url
         $data = array(
             "event" => $event
         );
@@ -373,7 +376,7 @@ if (!function_exists('pur_log_notification')) {
         if ($user_id) {
             $data["user_id"] = $user_id;
         } else if ($user_id === "0") {
-                $data["user_id"] = $user_id; //if user id is 0 (string) we'll assume that it's system bot 
+            $data["user_id"] = $user_id; //if user id is 0 (string) we'll assume that it's system bot 
         } else if (isset($ci->login_user->id)) {
             $data["user_id"] = $ci->login_user->id;
         }
@@ -408,7 +411,7 @@ function purchase_process_digital_signature_image($partBase64, $path, $image_nam
         fopen(rtrim($path, '/') . '/' . 'index.html', 'w');
     }
 
-    $filename = unique_filename($path, $image_name.'.png');
+    $filename = unique_filename($path, $image_name . '.png');
     $decoded_image = base64_decode($partBase64);
 
     $retval = false;
@@ -439,7 +442,7 @@ function handle_purchase_request_file($id)
 {
     if (isset($_FILES['file']['name']) && $_FILES['file']['name'] != '') {
 
-        $path = PURCHASE_MODULE_UPLOAD_FOLDER .'/pur_request/'. $id . '/';
+        $path = PURCHASE_MODULE_UPLOAD_FOLDER . '/pur_request/' . $id . '/';
         // Get the temp file path
         $tmpFilePath = $_FILES['file']['tmp_name'];
         // Make sure we have a filepath
@@ -449,12 +452,12 @@ function handle_purchase_request_file($id)
             $newFilePath = $path . $filename;
             // Upload the file into the company uploads dir
             if (move_uploaded_file($tmpFilePath, $newFilePath)) {
-         
+
                 $attachment   = [];
                 $attachment[] = [
                     'file_name' => $filename,
                     'filetype'  => $_FILES['file']['type'],
-                    ];
+                ];
 
                 $purchase_model = model('Purchase\Models\Purchase_model');
 
@@ -479,7 +482,7 @@ function handle_purchase_estimate_file($id)
 {
     if (isset($_FILES['file']['name']) && $_FILES['file']['name'] != '') {
 
-        $path = PURCHASE_MODULE_UPLOAD_FOLDER .'/pur_estimate/'. $id . '/';
+        $path = PURCHASE_MODULE_UPLOAD_FOLDER . '/pur_estimate/' . $id . '/';
         // Get the temp file path
         $tmpFilePath = $_FILES['file']['tmp_name'];
         // Make sure we have a filepath
@@ -494,7 +497,7 @@ function handle_purchase_estimate_file($id)
                 $attachment[] = [
                     'file_name' => $filename,
                     'filetype'  => $_FILES['file']['type'],
-                    ];
+                ];
 
                 $purchase_model = model('Purchase\Models\Purchase_model');
                 $purchase_model->add_attachment_to_database($id, 'pur_estimate', $attachment);
@@ -512,9 +515,10 @@ function handle_purchase_estimate_file($id)
  *
  * @return     <type>  ( description_of_the_return_value )
  */
-function max_number_estimates(){
+function max_number_estimates()
+{
     $builder = db_connect('default');
-    $max = $builder->query('select MAX(number) as max from '.db_prefix().'pur_estimates')->getRow();
+    $max = $builder->query('select MAX(number) as max from ' . db_prefix() . 'pur_estimates')->getRow();
     return $max->max;
 }
 
@@ -528,7 +532,7 @@ function max_number_estimates(){
 function format_pur_estimate_number($id)
 {
     $builder = db_connect('default');
-    $builder = $builder->table(db_prefix().'pur_estimates');
+    $builder = $builder->table(db_prefix() . 'pur_estimates');
     $builder->select('date,number,prefix,number_format')->where('id', $id);
     $estimate = $builder->get()->getRow();
 
@@ -568,14 +572,15 @@ function sales_number_format($number, $format, $applied_prefix, $date)
  *
  * @param      string  $category  The category
  */
-function get_vendor_category_html($category){
+function get_vendor_category_html($category)
+{
     $rs = '';
-    if($category != ''){
+    if ($category != '') {
         $cates = explode(',', $category);
-        foreach($cates as $cat){
+        foreach ($cates as $cat) {
             $cat_name = get_vendor_cate_name_by_id($cat);
-            if($cat_name != ''){
-                $rs .= '<span class="label label-tag">'.$cat_name.'</span>';
+            if ($cat_name != '') {
+                $rs .= '<span class="label label-tag">' . $cat_name . '</span>';
             }
         }
     }
@@ -589,13 +594,14 @@ function get_vendor_category_html($category){
  *
  * @return     string  The vendor cate name by identifier.
  */
-function get_vendor_cate_name_by_id($id){
+function get_vendor_cate_name_by_id($id)
+{
 
     $purchase_model = model("Purchase\Models\Purchase_model");
     $category = $purchase_model->get_vendor_category($id);
-    if($category){
+    if ($category) {
         return $category->category_name;
-    }else{
+    } else {
         return '';
     }
 }
@@ -613,9 +619,9 @@ function get_vendor_company_name($userid, $prevent_empty_company = false)
     if ($userid !== '') {
         $_userid = $userid;
     }
-    
+
     $builder = db_connect('default');
-    $builder = $builder->table(db_prefix().'pur_vendor');
+    $builder = $builder->table(db_prefix() . 'pur_vendor');
 
     $builder->where('userid', $userid);
     $client = $builder->get()->getRow();
@@ -638,7 +644,7 @@ function handle_purchase_order_file($id)
 {
     if (isset($_FILES['file']['name']) && $_FILES['file']['name'] != '') {
 
-        $path = PURCHASE_MODULE_UPLOAD_FOLDER .'/pur_order/'. $id . '/';
+        $path = PURCHASE_MODULE_UPLOAD_FOLDER . '/pur_order/' . $id . '/';
         // Get the temp file path
         $tmpFilePath = $_FILES['file']['tmp_name'];
         // Make sure we have a filepath
@@ -648,12 +654,12 @@ function handle_purchase_order_file($id)
             $newFilePath = $path . $filename;
             // Upload the file into the company uploads dir
             if (move_uploaded_file($tmpFilePath, $newFilePath)) {
-      
+
                 $attachment   = [];
                 $attachment[] = [
                     'file_name' => $filename,
                     'filetype'  => $_FILES['file']['type'],
-                    ];
+                ];
 
                 $purchase_model = model('Purchase\Models\Purchase_model');
                 $purchase_model->add_attachment_to_database($id, 'pur_order', $attachment);
@@ -673,16 +679,17 @@ function handle_purchase_order_file($id)
  *
  * @return     string  The pur order subject.
  */
-function get_pur_order_subject($pur_order){
+function get_pur_order_subject($pur_order)
+{
     $builder = db_connect('default');
-    $builder = $builder->table(db_prefix().'pur_orders');
+    $builder = $builder->table(db_prefix() . 'pur_orders');
 
-    $builder->where('id',$pur_order);
+    $builder->where('id', $pur_order);
     $po = $builder->get()->getRow();
 
-    if($po){
+    if ($po) {
         return $po->pur_order_number;
-    }else{
+    } else {
         return '';
     }
 }
@@ -694,36 +701,36 @@ function get_pur_order_subject($pur_order){
  *
  * @return     string  The payment request status by inv.
  */
-function get_payment_request_status_by_inv($id){
+function get_payment_request_status_by_inv($id)
+{
     $builder = db_connect('default');
-    $builder->where('pur_invoice',$id);
-    
-    $payments = $builder->get(db_prefix().'pur_invoice_payment')->result_array();
+    $builder->where('pur_invoice', $id);
+
+    $payments = $builder->get(db_prefix() . 'pur_invoice_payment')->result_array();
     $status = '';
     $class = '';
-    if(count($payments) > 0){
+    if (count($payments) > 0) {
         $status = 'created';
         $class = 'info';
-        $builder->where('pur_invoice',$id);
+        $builder->where('pur_invoice', $id);
         $builder->where('approval_status', 2);
-        $payments_approved = $builder->get(db_prefix().'pur_invoice_payment')->result_array();
-        if(count($payments_approved)){
+        $payments_approved = $builder->get(db_prefix() . 'pur_invoice_payment')->result_array();
+        if (count($payments_approved)) {
             $status = 'approved';
             $class = 'success';
         }
-    }else{
+    } else {
         $status = 'blank';
         $class = 'warning';
     }
 
-    if($status != ''){
-        return '<span class="label label-'.$class.' s-status invoice-status-3">'._l($status).'</span>';
-    }else{
+    if ($status != '') {
+        return '<span class="label label-' . $class . ' s-status invoice-status-3">' . _l($status) . '</span>';
+    } else {
         return '';
     }
-
 }
-if(!function_exists('get_tax_rate_item')){
+if (!function_exists('get_tax_rate_item')) {
     /**
      * Gets the tax rate item.
      *
@@ -734,10 +741,10 @@ if(!function_exists('get_tax_rate_item')){
     function get_tax_rate_item($id = false)
     {
         $builder = db_connect('default');
-        $builder = $builder->table(db_prefix().'taxes');
+        $builder = $builder->table(db_prefix() . 'taxes');
 
         if (is_numeric($id)) {
-        $builder->where('id', $id);
+            $builder->where('id', $id);
 
             return $builder->get()->getRow();
         }
@@ -752,14 +759,15 @@ if(!function_exists('get_tax_rate_item')){
  *
  * @param        $vendor_id  The vendor identifier
  */
-function get_vendor_currency($vendor_id){
+function get_vendor_currency($vendor_id)
+{
     $builder = db_connect('default');
-    $builder = $builder->table(db_prefix().'pur_vendor');
+    $builder = $builder->table(db_prefix() . 'pur_vendor');
 
     $builder->where('userid', $vendor_id);
     $vendor = $builder->get()->getRow();
 
-    if($vendor){
+    if ($vendor) {
         return $vendor->default_currency;
     }
     return '';
@@ -776,26 +784,25 @@ function purinvoice_left_to_pay($id)
 {
     $builder = db_connect('default');
     $inv_builder = $builder->table(db_prefix() . 'pur_invoices');
-    
+
     $inv_builder->select('total')
         ->where('id', $id);
-        $invoice_total = $inv_builder->get()->getRow()->total;
+    $invoice_total = $inv_builder->get()->getRow()->total;
 
 
-    $pm_builder = $builder->table(db_prefix().'pur_invoice_payment');
-    $pm_builder->where('pur_invoice',$id);
+    $pm_builder = $builder->table(db_prefix() . 'pur_invoice_payment');
+    $pm_builder->where('pur_invoice', $id);
     $pm_builder->where('approval_status', 2);
     $payments = $pm_builder->get()->getResultArray();
 
-    
-    
+
+
     $totalPayments = 0;
 
 
     foreach ($payments as $payment) {
-        
+
         $totalPayments += $payment['amount'];
-        
     }
 
     return ($invoice_total - $totalPayments);
@@ -813,7 +820,7 @@ function handle_pur_invoice_file($id)
 {
     if (isset($_FILES['file']['name']) && $_FILES['file']['name'] != '') {
 
-        $path = PURCHASE_MODULE_UPLOAD_FOLDER .'/pur_invoice/'. $id . '/';
+        $path = PURCHASE_MODULE_UPLOAD_FOLDER . '/pur_invoice/' . $id . '/';
         // Get the temp file path
         $tmpFilePath = $_FILES['file']['tmp_name'];
         // Make sure we have a filepath
@@ -823,12 +830,12 @@ function handle_pur_invoice_file($id)
             $newFilePath = $path . $filename;
             // Upload the file into the company uploads dir
             if (move_uploaded_file($tmpFilePath, $newFilePath)) {
-      
+
                 $attachment   = [];
                 $attachment[] = [
                     'file_name' => $filename,
                     'filetype'  => $_FILES['file']['type'],
-                    ];
+                ];
 
                 $purchase_model = model('Purchase\Models\Purchase_model');
                 $purchase_model->add_attachment_to_database($id, 'pur_invoice', $attachment);
@@ -848,15 +855,16 @@ function handle_pur_invoice_file($id)
  *
  * @return     string  The payment mode by identifier.
  */
-function get_payment_mode_by_id($id){
+function get_payment_mode_by_id($id)
+{
     $builder = db_connect('default');
 
-    $pm_builder = $builder->table(db_prefix().'payment_methods');
-    $pm_builder->where('id',$id);
+    $pm_builder = $builder->table(db_prefix() . 'payment_methods');
+    $pm_builder->where('id', $id);
     $mode = $pm_builder->get()->getRow();
-    if($mode){
+    if ($mode) {
         return $mode->title;
-    }else{
+    } else {
         return '';
     }
 }
@@ -868,14 +876,15 @@ function get_payment_mode_by_id($id){
  *
  * @return     string  The pur invoice number.
  */
-function get_pur_invoice_number($id){
+function get_pur_invoice_number($id)
+{
     $builder = db_connect('default');
-    $builder = $builder->table(db_prefix().'pur_invoices');
-    $builder->where('id',$id);
+    $builder = $builder->table(db_prefix() . 'pur_invoices');
+    $builder->where('id', $id);
     $inv = $builder->get()->getRow();
-    if($inv){
+    if ($inv) {
         return $inv->invoice_number;
-    }else{
+    } else {
         return '';
     }
 }
@@ -885,7 +894,8 @@ function get_pur_invoice_number($id){
  *
  * @param        $pur_order  The pur order
  */
-function purorder_inv_left_to_pay($pur_order){
+function purorder_inv_left_to_pay($pur_order)
+{
     $builder = db_connect('default');
     $purchase_model = model('Purchase\Models\Purchase_model');
 
@@ -893,13 +903,13 @@ function purorder_inv_left_to_pay($pur_order){
     $po = $purchase_model->get_pur_order($pur_order);
 
     $paid = 0;
-    foreach($list_payment as $payment){
-        if($payment['approval_status'] == 2){
+    foreach ($list_payment as $payment) {
+        if ($payment['approval_status'] == 2) {
             $paid += $payment['amount'];
         }
     }
 
-    if($po){
+    if ($po) {
         return $po->total - $paid;
     }
     return 0;
@@ -912,13 +922,14 @@ function purorder_inv_left_to_pay($pur_order){
  *
  * @return     int     The invoice currency identifier.
  */
-function get_invoice_currency_id($invoice_id){
+function get_invoice_currency_id($invoice_id)
+{
     $builder = db_connect('default');
-    $builder = $builder->table(db_prefix().'pur_invoices');
+    $builder = $builder->table(db_prefix() . 'pur_invoices');
 
     $builder->where('id', $invoice_id);
     $invoice = $builder->get()->getRow();
-    if($invoice){
+    if ($invoice) {
         return $invoice->currency;
     }
     return 0;
@@ -934,7 +945,7 @@ function get_invoice_currency_id($invoice_id){
 function is_empty_vendor_company($id)
 {
     $builder = db_connect('default');
-    $builder = $builder->table(db_prefix().'pur_vendor');
+    $builder = $builder->table(db_prefix() . 'pur_vendor');
 
     $builder->where('userid', $id);
     $row = $builder->get()->getRow();
@@ -950,26 +961,25 @@ function is_empty_vendor_company($id)
 /**
  * Gets the vendor user identifier.
  */
-function get_vendor_user_id(){
+function get_vendor_user_id()
+{
     $ci = new Security_Controller(false);
     $userid = $ci->login_user->id;
     $builder = db_connect('default');
-    $builder = $builder->table(db_prefix().'users');
+    $builder = $builder->table(db_prefix() . 'users');
 
     $builder->where('id', $userid);
     $staff = $builder->get()->getRow();
 
     return $staff->vendor_id;
-
 }
 
 if (!function_exists('has_permission')) {
     function has_permission($permission, $staffid = '', $can = '')
     {
-    // return staff_can($can, $permission, $staffid);
+        // return staff_can($can, $permission, $staffid);
         return true;
     }
-
 }
 
 /**
@@ -977,19 +987,18 @@ if (!function_exists('has_permission')) {
  * @param  integer $id
  * @return array or row
  */
- function get_unit_type_item($id = false)
+function get_unit_type_item($id = false)
 {
     $builder = db_connect('default');
     $builder = $builder->table(db_prefix() . 'ware_unit_type');
 
     if (is_numeric($id)) {
-    $builder->where('unit_type_id', $id);
+        $builder->where('unit_type_id', $id);
         return $builder->get()->getRow();
     }
     if ($id == false) {
         return $builder->get()->getResultArray();
     }
-
 }
 
 /**
@@ -999,13 +1008,16 @@ if (!function_exists('has_permission')) {
  *
  * @return     boolean
  */
-function handle_vendor_item_attachment($id) {
+function handle_vendor_item_attachment($id)
+{
 
     $path = PURCHASE_MODULE_UPLOAD_FOLDER . '/vendor_items/' . $id . '/';
     $totalUploaded = 0;
 
-    if (isset($_FILES['attachments']['name'])
-        && ($_FILES['attachments']['name'] != '' || is_array($_FILES['attachments']['name']) && count($_FILES['attachments']['name']) > 0)) {
+    if (
+        isset($_FILES['attachments']['name'])
+        && ($_FILES['attachments']['name'] != '' || is_array($_FILES['attachments']['name']) && count($_FILES['attachments']['name']) > 0)
+    ) {
         if (!is_array($_FILES['attachments']['name'])) {
             $_FILES['attachments']['name'] = [$_FILES['attachments']['name']];
             $_FILES['attachments']['type'] = [$_FILES['attachments']['type']];
@@ -1021,7 +1033,7 @@ function handle_vendor_item_attachment($id) {
             $tmpFilePath = $_FILES['attachments']['tmp_name'][$i];
             // Make sure we have a filepath
             if (!empty($tmpFilePath) && $tmpFilePath != '') {
-       
+
 
                 _maybe_create_upload_path($path);
                 $filename = unique_filename($path, $_FILES['attachments']['name'][$i]);
@@ -1047,8 +1059,8 @@ function handle_vendor_item_attachment($id) {
     return (bool) $totalUploaded;
 }
 
-if(!function_exists('_file_attachments_index_fix')){
-        /**
+if (!function_exists('_file_attachments_index_fix')) {
+    /**
      * Performs fixes when $_FILES is array and the index is messed up
      * Eq user click on + then remove the file and then added new file
      * In this case the indexes will be 0,2 - 1 is missing because it's removed but they should be 0,1
@@ -1085,7 +1097,8 @@ if(!function_exists('_file_attachments_index_fix')){
  *
  * @param        $item_id  The item identifier
  */
-function vendor_item_images($item_id){
+function vendor_item_images($item_id)
+{
     $builder = db_connect('default');
     $builder = $builder->table(db_prefix() . 'files');
 
@@ -1110,9 +1123,8 @@ function get_group_name_pur($id = false)
         return $builder->get()->getRow();
     }
     if ($id == false) {
-        return $builder->query('select * from '.db_prefix().'items_categories')->getResultArray();
+        return $builder->query('select * from ' . db_prefix() . 'items_categories')->getResultArray();
     }
-
 }
 
 /**
@@ -1131,9 +1143,8 @@ function pur_get_tax_rate($id = false)
         return $builder->get()->getRow();
     }
     if ($id == false) {
-        return $CI->db->query('select * from '.db_prefix().'taxes')->getResultArray();
+        return $CI->db->query('select * from ' . db_prefix() . 'taxes')->getResultArray();
     }
-
 }
 
 /**
@@ -1146,9 +1157,8 @@ function pur_get_commodity_name($id)
 
     if (is_numeric($id)) {
         $builder = db_connect('default');
-        $builder = $builder->table(get_db_prefix().'items');
+        $builder = $builder->table(get_db_prefix() . 'items');
         $builder->where('id', $id);
         return $builder->get()->getRow();
     }
-
 }

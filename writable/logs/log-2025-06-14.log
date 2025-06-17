@@ -1,0 +1,23 @@
+ERROR - 2025-06-14 00:28:38 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-14 00:29:02 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-14 00:33:19 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-14 00:34:03 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-14 00:34:03 --> Undefined array key "rise_pur_invoices.vendor"
+in FCPATH\plugins\Purchase\Views\invoices\table_pur_invoices.php on line 68.
+ 1 FCPATH\plugins\Purchase\Views\invoices\table_pur_invoices.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "rise_pur_invoices.vendor"', 'FCPATH\\plugins\\Purchase\\Views\\invoices\\table_pur_invoices.php', 68)
+ 2 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\invoices\\table_pur_invoices.php')
+ 3 FCPATH\plugins\Purchase\Controllers\Purchase.php(4203): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/invoices/table_pur_invoices', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_pur_invoices()
+ 5 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 6 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-14 00:34:13 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-14 00:34:13 --> Undefined array key "rise_pur_invoices.vendor"
+in FCPATH\plugins\Purchase\Views\invoices\table_pur_invoices.php on line 68.
+ 1 FCPATH\plugins\Purchase\Views\invoices\table_pur_invoices.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "rise_pur_invoices.vendor"', 'FCPATH\\plugins\\Purchase\\Views\\invoices\\table_pur_invoices.php', 68)
+ 2 FCPATH\plugins\Purchase\Models\Purchase_model.php(646): include_once('FCPATH\\plugins\\Purchase\\Views\\invoices\\table_pur_invoices.php')
+ 3 FCPATH\plugins\Purchase\Controllers\Purchase.php(4203): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/invoices/table_pur_invoices', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_pur_invoices()
+ 5 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 6 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()

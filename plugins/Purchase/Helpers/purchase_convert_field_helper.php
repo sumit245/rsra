@@ -862,7 +862,7 @@ if (! function_exists('update_setting')) {
   }
 }
 
-if (! function_exists('get_staff_full_name1')) {
+if (! function_exists('get_staff_full_name')) {
   /**
    * Gets the staff full name 1.
    *
@@ -870,7 +870,7 @@ if (! function_exists('get_staff_full_name1')) {
    *
    * @return     bool    The staff full name 1.
    */
-  function get_staff_full_name1($userid = '')
+  function get_staff_full_name($userid = '')
   {
     $Users_model = model("Models\Users_model");
 

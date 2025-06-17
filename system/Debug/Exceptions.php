@@ -105,7 +105,7 @@ class Exceptions
             log_message('critical', "{message}\nin {exFile} on line {exLine}.\n{trace}", [
                 'message' => $exception->getMessage(),
                 'exFile'  => clean_path($exception->getFile()), // {file} refers to THIS file
-                'exLine'  => $exception->getLine(), // {line} refers to THIS line
+                'exLine'  => $exception->getLine(),             // {line} refers to THIS line
                 'trace'   => self::renderBacktrace($exception->getTrace()),
             ]);
         }
@@ -207,7 +207,7 @@ class Exceptions
         $path    = $this->viewPath;
         $altPath = rtrim((new Paths())->viewDirectory, '\\/ ') . DIRECTORY_SEPARATOR . 'errors' . DIRECTORY_SEPARATOR;
 
-        $path    .= (is_cli() ? 'cli' : 'html') . DIRECTORY_SEPARATOR;
+        $path .= (is_cli() ? 'cli' : 'html') . DIRECTORY_SEPARATOR;
         $altPath .= (is_cli() ? 'cli' : 'html') . DIRECTORY_SEPARATOR;
 
         // Determine the views
@@ -231,7 +231,7 @@ class Exceptions
             ob_end_clean();
         }
 
-        echo(function () use ($exception, $statusCode, $viewFile): string {
+        echo (function () use ($exception, $statusCode, $viewFile): string {
             $vars = $this->collectVars($exception, $statusCode);
             extract($vars, EXTR_SKIP);
 

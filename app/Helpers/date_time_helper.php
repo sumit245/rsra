@@ -7,12 +7,12 @@
  */
 if (!function_exists('get_timezone_offset')) {
 
-    function get_timezone_offset($date = "now") {
+    function get_timezone_offset($date = "now")
+    {
         $timeZone = new DateTimeZone(get_setting("timezone"));
         $dateTime = new DateTime($date, $timeZone);
         return $timeZone->getOffset($dateTime);
     }
-
 }
 
 /**
@@ -24,7 +24,8 @@ if (!function_exists('get_timezone_offset')) {
  */
 if (!function_exists('convert_date_local_to_utc')) {
 
-    function convert_date_local_to_utc($date = "", $format = "Y-m-d H:i:s") {
+    function convert_date_local_to_utc($date = "", $format = "Y-m-d H:i:s")
+    {
         if (!$date) {
             return false;
         }
@@ -34,7 +35,6 @@ if (!function_exists('convert_date_local_to_utc')) {
         //add time offset
         return date($format, strtotime($date ? $date : "") + $time_offset);
     }
-
 }
 
 /**
@@ -45,12 +45,12 @@ if (!function_exists('convert_date_local_to_utc')) {
  */
 if (!function_exists('get_current_utc_time')) {
 
-    function get_current_utc_time($format = "Y-m-d H:i:s") {
+    function get_current_utc_time($format = "Y-m-d H:i:s")
+    {
         $d = DateTime::createFromFormat("Y-m-d H:i:s", date("Y-m-d H:i:s"));
         $d->setTimeZone(new DateTimeZone("UTC"));
         return $d->format($format);
     }
-
 }
 
 /**
@@ -62,12 +62,12 @@ if (!function_exists('get_current_utc_time')) {
  */
 if (!function_exists('convert_date_utc_to_local')) {
 
-    function convert_date_utc_to_local($date_time, $format = "Y-m-d H:i:s") {
+    function convert_date_utc_to_local($date_time, $format = "Y-m-d H:i:s")
+    {
         $date = new DateTime($date_time . ' +00:00');
         $date->setTimezone(new DateTimeZone(get_setting('timezone')));
         return $date->format($format);
     }
-
 }
 
 /**
@@ -78,10 +78,10 @@ if (!function_exists('convert_date_utc_to_local')) {
  */
 if (!function_exists('get_my_local_time')) {
 
-    function get_my_local_time($format = "Y-m-d H:i:s") {
+    function get_my_local_time($format = "Y-m-d H:i:s")
+    {
         return date($format, strtotime(get_current_utc_time()) + get_timezone_offset());
     }
-
 }
 
 /**
@@ -93,7 +93,8 @@ if (!function_exists('get_my_local_time')) {
  */
 if (!function_exists('convert_time_to_24hours_format')) {
 
-    function convert_time_to_24hours_format($time = "00:00 AM") {
+    function convert_time_to_24hours_format($time = "00:00 AM")
+    {
         if (!$time)
             $time = "00:00 AM";
 
@@ -119,7 +120,6 @@ if (!function_exists('convert_time_to_24hours_format')) {
 
         return $hour . ":" . $minute . ":" . $secound;
     }
-
 }
 
 /**
@@ -131,7 +131,8 @@ if (!function_exists('convert_time_to_24hours_format')) {
  */
 if (!function_exists('convert_time_to_12hours_format')) {
 
-    function convert_time_to_12hours_format($time = "") {
+    function convert_time_to_12hours_format($time = "")
+    {
         if ($time) {
             $am = " AM";
             $pm = " PM";
@@ -166,7 +167,6 @@ if (!function_exists('convert_time_to_12hours_format')) {
             return $time;
         }
     }
-
 }
 
 /**
@@ -177,11 +177,11 @@ if (!function_exists('convert_time_to_12hours_format')) {
  */
 if (!function_exists('convert_time_string_to_decimal')) {
 
-    function convert_time_string_to_decimal($time = "00:00:00") {
+    function convert_time_string_to_decimal($time = "00:00:00")
+    {
         $hms = explode(":", $time);
         return $hms[0] + (get_array_value($hms, "1") / 60) + (get_array_value($hms, "2") / 3600);
     }
-
 }
 
 /**
@@ -192,7 +192,8 @@ if (!function_exists('convert_time_string_to_decimal')) {
  */
 if (!function_exists('convert_seconds_to_time_format')) {
 
-    function convert_seconds_to_time_format($seconds = 0) {
+    function convert_seconds_to_time_format($seconds = 0)
+    {
         $is_negative = false;
         if ($seconds < 0) {
             $seconds = $seconds * -1;
@@ -213,7 +214,6 @@ if (!function_exists('convert_seconds_to_time_format')) {
         }
         return $string;
     }
-
 }
 
 /**
@@ -224,11 +224,11 @@ if (!function_exists('convert_seconds_to_time_format')) {
  */
 if (!function_exists('convert_time_string_to_second')) {
 
-    function convert_time_string_to_second($time = "00:00:00") {
+    function convert_time_string_to_second($time = "00:00:00")
+    {
         $hms = explode(":", $time);
         return $hms[0] * 3600 + ($hms[1] * 60) + ($hms[2]);
     }
-
 }
 
 
@@ -242,7 +242,8 @@ if (!function_exists('convert_time_string_to_second')) {
  */
 if (!function_exists('format_to_relative_time')) {
 
-    function format_to_relative_time($date_time, $convert_to_local = true, $is_short_date = false) {
+    function format_to_relative_time($date_time, $convert_to_local = true, $is_short_date = false)
+    {
         if ($convert_to_local) {
             $date_time = convert_date_utc_to_local($date_time);
         }
@@ -273,7 +274,6 @@ if (!function_exists('format_to_relative_time')) {
             }
         }
     }
-
 }
 
 /**
@@ -286,7 +286,8 @@ if (!function_exists('format_to_relative_time')) {
  */
 if (!function_exists('format_to_date')) {
 
-    function format_to_date($date_time, $convert_to_local = true) {
+    function format_to_date($date_time, $convert_to_local = true)
+    {
 
         if (!$date_time) {
             return "";
@@ -305,7 +306,6 @@ if (!function_exists('format_to_date')) {
         $target_date = new DateTime($date_time);
         return $target_date->format(get_setting('date_format'));
     }
-
 }
 
 /**
@@ -317,7 +317,8 @@ if (!function_exists('format_to_date')) {
  */
 if (!function_exists('format_to_time')) {
 
-    function format_to_time($date_time, $convert_to_local = true) {
+    function format_to_time($date_time, $convert_to_local = true)
+    {
         if (!$date_time) {
             return "";
         } else {
@@ -340,7 +341,6 @@ if (!function_exists('format_to_time')) {
             return convert_time_to_12hours_format($target_date->format("H:i:s"));
         }
     }
-
 }
 
 /**
@@ -352,7 +352,8 @@ if (!function_exists('format_to_time')) {
  */
 if (!function_exists('format_to_datetime')) {
 
-    function format_to_datetime($date_time, $convert_to_local = true) {
+    function format_to_datetime($date_time, $convert_to_local = true)
+    {
         if ($convert_to_local) {
             $date_time = convert_date_utc_to_local($date_time);
         }
@@ -365,7 +366,6 @@ if (!function_exists('format_to_datetime')) {
             return $date . " " . convert_time_to_12hours_format($target_date->format("H:i:s"));
         }
     }
-
 }
 
 
@@ -377,10 +377,10 @@ if (!function_exists('format_to_datetime')) {
  */
 if (!function_exists('get_today_date')) {
 
-    function get_today_date() {
+    function get_today_date()
+    {
         return date("Y-m-d", strtotime(get_my_local_time()));
     }
-
 }
 
 
@@ -391,11 +391,11 @@ if (!function_exists('get_today_date')) {
  */
 if (!function_exists('get_tomorrow_date')) {
 
-    function get_tomorrow_date() {
+    function get_tomorrow_date()
+    {
         $today = get_today_date();
         return date('Y-m-d', strtotime($today . ' + 1 days'));
     }
-
 }
 
 /**
@@ -408,10 +408,10 @@ if (!function_exists('get_tomorrow_date')) {
  */
 if (!function_exists('add_period_to_date')) {
 
-    function add_period_to_date($date, $no_of = 0, $period_type = "days", $format = "Y-m-d") {
+    function add_period_to_date($date, $no_of = 0, $period_type = "days", $format = "Y-m-d")
+    {
         return date($format, strtotime("+$no_of $period_type", strtotime($date ? $date : "")));
     }
-
 }
 
 /**
@@ -424,10 +424,10 @@ if (!function_exists('add_period_to_date')) {
  */
 if (!function_exists('subtract_period_from_date')) {
 
-    function subtract_period_from_date($date, $no_of = 0, $period_type = "days", $format = "Y-m-d") {
+    function subtract_period_from_date($date, $no_of = 0, $period_type = "days", $format = "Y-m-d")
+    {
         return date($format, strtotime("-$no_of $period_type", strtotime($date ? $date : "")));
     }
-
 }
 
 
@@ -440,14 +440,14 @@ if (!function_exists('subtract_period_from_date')) {
  */
 if (!function_exists('get_date_difference_in_days')) {
 
-    function get_date_difference_in_days($start_date, $end_date) {
+    function get_date_difference_in_days($start_date, $end_date)
+    {
 
         $start = new DateTime($start_date);
         $end = new DateTime($end_date);
 
         return $end->diff($start)->format("%a");
     }
-
 }
 
 
@@ -460,7 +460,8 @@ if (!function_exists('get_date_difference_in_days')) {
  */
 if (!function_exists('is_online_user')) {
 
-    function is_online_user($last_online = "") {
+    function is_online_user($last_online = "")
+    {
 
         if (!$last_online) {
             //if we don't get any last online status that means the user is offline
@@ -479,7 +480,6 @@ if (!function_exists('is_online_user')) {
             }
         }
     }
-
 }
 
 
@@ -493,7 +493,8 @@ if (!function_exists('is_online_user')) {
  */
 if (!function_exists('is_date_exists')) {
 
-    function is_date_exists($date = "") {
+    function is_date_exists($date = "")
+    {
 
         if (!$date || $date == "NULL" || is_null($date) || $date == "0000-00-00") {
             return false;
@@ -501,13 +502,13 @@ if (!function_exists('is_date_exists')) {
             return true;
         }
     }
-
 }
 
 //convert to hours from humanize data
 if (!function_exists('convert_humanize_data_to_hours')) {
 
-    function convert_humanize_data_to_hours($hours = "") {
+    function convert_humanize_data_to_hours($hours = "")
+    {
         require_once(APPPATH . "ThirdParty/php-duration-master/init.php");
 
         $duration = \Init_duration::init($hours);
@@ -516,13 +517,13 @@ if (!function_exists('convert_humanize_data_to_hours')) {
 
         return round($hours, 2);
     }
-
 }
 
 //convert humanize data to hours
 if (!function_exists('convert_hours_to_humanize_data')) {
 
-    function convert_hours_to_humanize_data($hours = "") {
+    function convert_hours_to_humanize_data($hours = "")
+    {
         require_once(APPPATH . "ThirdParty/php-duration-master/init.php");
 
         $duration = \Init_duration::init($hours . "h");
@@ -531,13 +532,13 @@ if (!function_exists('convert_hours_to_humanize_data')) {
         $duration = \Init_duration::init($minutes * 60);
         return $duration->humanize();
     }
-
 }
 
 //prepare last recently date time
 if (!function_exists('prepare_last_recently_date_time')) {
 
-    function prepare_last_recently_date_time($login_user_id = 0) {
+    function prepare_last_recently_date_time($login_user_id = 0)
+    {
         $now = get_current_utc_time();
         $recently_meaning = get_setting("user_" . $login_user_id . "_recently_meaning");
         $recently_meaning = $recently_meaning ? $recently_meaning : "1_days";
@@ -548,6 +549,39 @@ if (!function_exists('prepare_last_recently_date_time')) {
 
         return subtract_period_from_date($now, $no_of, $period_type, "Y-m-d H:i:s");
     }
-
 }
 
+if (!function_exists('to_sql_date')) {
+    /**
+     * Convert date from d/m/Y or m/d/Y or any user format to Y-m-d for SQL
+     *
+     * @param string $date Date in user-readable format
+     * @return string|null Date in Y-m-d or null if invalid
+     */
+    function to_sql_date($date)
+    {
+        // If it's already in SQL format, return as is
+        if (preg_match('/^\d{4}-\d{2}-\d{2}$/', $date)) {
+            return $date;
+        }
+
+        // Try to detect the common formats
+        $formats = ['d/m/Y', 'm/d/Y', 'd-m-Y', 'm-d-Y', 'Y/m/d', 'Y-m-d'];
+
+        foreach ($formats as $format) {
+            $dt = DateTime::createFromFormat($format, $date);
+            if ($dt && $dt->format($format) === $date) {
+                return $dt->format('Y-m-d');
+            }
+        }
+
+        // Fallback using strtotime if formats don't match
+        $timestamp = strtotime($date);
+        if ($timestamp !== false) {
+            return date('Y-m-d', $timestamp);
+        }
+
+        // If all fails
+        return null;
+    }
+}
