@@ -1,1 +1,8 @@
-CRITICAL - 2025-06-18 03:17:10 --> Hitting the api
+ERROR - 2025-06-18 05:15:20 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-18 05:15:27 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-18 05:15:58 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-18 05:17:12 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-18 05:17:30 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-18 05:18:15 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-18 05:18:18 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-18 05:18:19 --> DEBUG: $sGroupBy = 

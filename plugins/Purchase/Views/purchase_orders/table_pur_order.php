@@ -4,12 +4,13 @@ $aColumns = [
    'pur_order_number',
    'vendor',
    'order_date',
-   'type',
    'project',
    'department',
-   'pur_order_name',
-   'subtotal',
-   'total_tax',
+   // TODO: Below comments are for changed columns
+   // 'type',  
+   // 'pur_order_name',
+   // 'subtotal',
+   // 'total_tax',
    'total',
    'approve_status',
    'delivery_date',
@@ -27,7 +28,6 @@ if (isset($dataPost['vendor_profile_id']) || isset($project)) {
       'order_date',
       'number',
       'approve_status',
-
    ];
 }
 
@@ -73,15 +73,11 @@ $rResult = $result['rResult'];
 
 foreach ($rResult as $aRow) {
    $row = [];
-   log_message('critical', 'Data Retrieved is' . print_r($aRow, true));
+
    for ($i = 0; $i < count($aColumns); $i++) {
-      // if (strpos($aColumns[$i], 'as') !== false && ! isset($aRow[$aColumns[$i]])) {
-      //    $_data = $aRow[strafter($aColumns[$i], 'as ')];
-      // } else {
-      //    $_data = $aRow[$aColumns[$i]];
-      // }
       $_data = $aRow[$aColumns[$i]];
       $base_currency = get_base_currency();
+
       if ($aRow['currency'] != '') {
          $base_currency = $aRow['currency'];
       }
@@ -89,11 +85,8 @@ foreach ($rResult as $aRow) {
       if ($aColumns[$i] == 'total') {
          $_data = to_currency($aRow['total'], $base_currency);
       } elseif ($aColumns[$i] == 'pur_order_number') {
-
          $numberOutput = '';
-
          $numberOutput = '<a href="' . get_uri('purchase/view_pur_order/' . $aRow['id']) . '"  >' . $aRow['pur_order_number'] . '</a>';
-
          $_data = $numberOutput;
       } elseif ($aColumns[$i] == 'vendor') {
          $_data = '<a href="' . get_uri('purchase/vendor/' . $aRow['vendor']) . '" >' . $aRow['company'] . '</a>';
@@ -104,7 +97,6 @@ foreach ($rResult as $aRow) {
       } elseif ($aColumns[$i] == 'total_tax') {
          $_data = to_currency($aRow['total_tax'], $base_currency);
       } elseif ($aColumns[$i] == 'expense_convert') {
-
          if ($dataPost['user_type'] == 'staff') {
             $edit = '';
             if ($aRow['approve_status'] != 2) {
@@ -114,7 +106,7 @@ foreach ($rResult as $aRow) {
             $delete = '<li role="presentation">' . modal_anchor(get_uri("purchase/delete_pur_order_modal"), "<i data-feather='x' class='icon-16'></i> " . app_lang('delete'), ["title" => app_lang('delete') . "?", "data-post-id" => $aRow['id'], "class" => "dropdown-item"]) . '</li>';
 
             if ($aRow['expense_convert'] == 0) {
-               $convert = '<li role="presentation">' . modal_anchor(get_uri("purchase/convert_expense_modal_form/" . $aRow['id']), "<i data-feather='repeat' class='icon-16'></i> " . app_lang('convert'), ["class" => "dropdown-item", "title" => app_lang('convert_expense')]) . '</li>';
+               $convert = '<li role="presentation">' . modal_anchor(get_uri("purchase/convert_expense_modal_form/" . $aRow['id']), "<i data-feather='repeat' class='icon-16'></i> " . app_lang('convert_expense'), ["class" => "dropdown-item", "title" => app_lang('convert_expense')]) . '</li>';
             } else {
                $convert = modal_anchor(get_uri("expenses/expense_details"), "<i data-feather='eye' class='icon-16'></i> " . app_lang('view_expense'), ["title" => app_lang("expense_details"), "data-post-id" => $aRow['expense_convert'], 'class' => 'dropdown-item']);
             }
@@ -147,93 +139,96 @@ foreach ($rResult as $aRow) {
          $_data = $aRow['department_name'];
       } elseif ($aColumns[$i] == 'delivery_status') {
          $delivery_status = '';
-
+         $delivery_status_text = '';
          if ($aRow['delivery_status'] == 0) {
-            $delivery_status = '<span class="inline-block label label-danger" id="status_span_' . $aRow['id'] . '" task-status-table="undelivered">' . _l('undelivered');
+            $delivery_status = '<span class="inline-block label dropdown label-danger" id="status_span_' . $aRow['id'] . '" task-status-table="undelivered">';
+            $delivery_status_text = _l('undelivered');
          } else if ($aRow['delivery_status'] == 1) {
-            $delivery_status = '<span class="inline-block label label-success" id="status_span_' . $aRow['id'] . '" task-status-table="completely_delivered">' . _l('completely_delivered');
+            $delivery_status = '<span class="inline-block label dropdown label-success" id="status_span_' . $aRow['id'] . '" task-status-table="completely_delivered">';
+            $delivery_status_text = _l('completely_delivered');
          } else if ($aRow['delivery_status'] == 2) {
-            $delivery_status = '<span class="inline-block label label-info" id="status_span_' . $aRow['id'] . '" task-status-table="pending_delivered">' . _l('pending_delivered');
+            $delivery_status = '<span class="inline-block label dropdown label-info" id="status_span_' . $aRow['id'] . '" task-status-table="pending_delivered">';
+            $delivery_status_text = _l('pending_delivered');
          } else if ($aRow['delivery_status'] == 3) {
-            $delivery_status = '<span class="inline-block label label-warning" id="status_span_' . $aRow['id'] . '" task-status-table="partially_delivered">' . _l('partially_delivered');
+            $delivery_status = '<span class="inline-block label dropdown label-warning" id="status_span_' . $aRow['id'] . '" task-status-table="partially_delivered">';
+            $delivery_status_text = _l('partially_delivered');
          }
 
          if (has_permission('purchase_orders', '', 'edit') || is_admin()) {
-            $delivery_status .= '<div class="dropdown inline-block mleft5 table-export-exclude">';
-            $delivery_status .= '<a href="#" class="dropdown-toggle text-dark" id="tablePurOderStatus-' . $aRow['id'] . '" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
-            $delivery_status .= '<span data-toggle="tooltip" title="' . _l('ticket_single_change_status') . '"><i class="fa fa-caret-down" aria-hidden="true"></i></span>';
-            $delivery_status .= '</a>';
+            $delivery_status .= '<a href="#" class="dropdown-toggle caret mt0 mb0 text-decoration-none" type="button" data-bs-toggle="dropdown"
+            aria-expanded="true" data-bs-display="static" id="tablePurOderStatus-' . $aRow['id'] . '">';
+            $delivery_status .= $delivery_status_text . '</a>';
 
-            $delivery_status .= '<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="tablePurOderStatus-' . $aRow['id'] . '">';
+
+            $delivery_status .= '<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="tablePurOderStatus-' . $aRow['id'] . '">';
 
             if ($aRow['delivery_status'] == 0) {
-               $delivery_status .= '<li>
-                              <a href="#" onclick="change_delivery_status( 1 ,' . $aRow['id'] . '); return false;">
+               $delivery_status .= '<li role="presentation">
+                              <a class="dropdown-item" href="#" onclick="change_delivery_status( 1 ,' . $aRow['id'] . '); return false;">
                                  ' . _l('completely_delivered') . '
                               </a>
                            </li>';
-               $delivery_status .= '<li>
-                              <a href="#" onclick="change_delivery_status( 2 ,' . $aRow['id'] . '); return false;">
+               $delivery_status .= '<li role="presentation">
+                              <a class="dropdown-item" href="#" onclick="change_delivery_status( 2 ,' . $aRow['id'] . '); return false;">
                                  ' . _l('pending_delivered') . '
                               </a>
                            </li>';
-               $delivery_status .= '<li>
-                              <a href="#" onclick="change_delivery_status( 3 ,' . $aRow['id'] . '); return false;">
+               $delivery_status .= '<li role="presentation">
+                              <a class="dropdown-item" href="#" onclick="change_delivery_status( 3 ,' . $aRow['id'] . '); return false;">
                                  ' . _l('partially_delivered') . '
                               </a>
                            </li>';
             } else if ($aRow['delivery_status'] == 1) {
-               $delivery_status .= '<li>
-                              <a href="#" onclick="change_delivery_status( 0 ,' . $aRow['id'] . '); return false;">
+               $delivery_status .= '<li role="presentation">
+                              <a class="dropdown-item" href="#" onclick="change_delivery_status( 0 ,' . $aRow['id'] . '); return false;">
                                  ' . _l('undelivered') . '
                               </a>
                            </li>';
-               $delivery_status .= '<li>
-                              <a href="#" onclick="change_delivery_status( 2 ,' . $aRow['id'] . '); return false;">
+               $delivery_status .= '<li role="presentation">
+                              <a class="dropdown-item" href="#" onclick="change_delivery_status( 2 ,' . $aRow['id'] . '); return false;">
                                  ' . _l('pending_delivered') . '
                               </a>
                            </li>';
-               $delivery_status .= '<li>
-                              <a href="#" onclick="change_delivery_status( 3 ,' . $aRow['id'] . '); return false;">
+               $delivery_status .= '<li role="presentation">
+                              <a class="dropdown-item" href="#" onclick="change_delivery_status( 3 ,' . $aRow['id'] . '); return false;">
                                  ' . _l('partially_delivered') . '
                               </a>
                            </li>';
             } else if ($aRow['delivery_status'] == 2) {
-               $delivery_status .= '<li>
-                              <a href="#" onclick="change_delivery_status( 0 ,' . $aRow['id'] . '); return false;">
+               $delivery_status .= '<li role="presentation">
+                              <a class="dropdown-item" href="#" onclick="change_delivery_status( 0 ,' . $aRow['id'] . '); return false;">
                                  ' . _l('undelivered') . '
                               </a>
                            </li>';
-               $delivery_status .= '<li>
-                              <a href="#" onclick="change_delivery_status( 1 ,' . $aRow['id'] . '); return false;">
+               $delivery_status .= '<li role="presentation">
+                              <a class="dropdown-item" href="#" onclick="change_delivery_status( 1 ,' . $aRow['id'] . '); return false;">
                                  ' . _l('completely_delivered') . '
                               </a>
                            </li>';
-               $delivery_status .= '<li>
-                              <a href="#" onclick="change_delivery_status( 3 ,' . $aRow['id'] . '); return false;">
+               $delivery_status .= '<li role="presentation">
+                              <a class="dropdown-item" href="#" onclick="change_delivery_status( 3 ,' . $aRow['id'] . '); return false;">
                                  ' . _l('partially_delivered') . '
                               </a>
                            </li>';
             } else if ($aRow['delivery_status'] == 3) {
-               $delivery_status .= '<li>
-                              <a href="#" onclick="change_delivery_status( 0 ,' . $aRow['id'] . '); return false;">
+               $delivery_status .= '<li role="presentation">
+                              <a class="dropdown-item" href="#" onclick="change_delivery_status( 0 ,' . $aRow['id'] . '); return false;">
                                  ' . _l('undelivered') . '
                               </a>
                            </li>';
-               $delivery_status .= '<li>
-                              <a href="#" onclick="change_delivery_status( 1 ,' . $aRow['id'] . '); return false;">
+               $delivery_status .= '<li role="presentation">
+                              <a class="dropdown-item" href="#" onclick="change_delivery_status( 1 ,' . $aRow['id'] . '); return false;">
                                  ' . _l('completely_delivered') . '
                               </a>
                            </li>';
-               $delivery_status .= '<li>
-                              <a href="#" onclick="change_delivery_status( 2 ,' . $aRow['id'] . '); return false;">
+               $delivery_status .= '<li role="presentation">
+                              <a class="dropdown-item" href="#" onclick="change_delivery_status( 2 ,' . $aRow['id'] . '); return false;">
                                  ' . _l('pending_delivered') . '
                               </a>
                            </li>';
             }
 
             $delivery_status .= '</ul>';
-            $delivery_status .= '</div>';
          }
          $delivery_status .= '</span>';
          $_data = $delivery_status;
@@ -241,25 +236,13 @@ foreach ($rResult as $aRow) {
          $_data = _d($aRow['delivery_date']);
       } else if ($aColumns[$i] == 'number') {
          $paid = $aRow['total'] - purorder_inv_left_to_pay($aRow['id']);
-
          $percent = 0;
-
          if ($aRow['total'] > 0) {
-
             $percent = ($paid / $aRow['total']) * 100;
          }
-
          $_data = '<div class="progress">
-
-                          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
-
-                          aria-valuemin="0" aria-valuemax="100" style="width:' . round($percent) . '%">
-
-                           ' . round($percent) . ' %
-
-                          </div>
-
-                        </div>';
+                          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:' . round($percent) . '%">' . round($percent) .
+            ' %</div></div>';
       }
 
       $row[] = $_data;
