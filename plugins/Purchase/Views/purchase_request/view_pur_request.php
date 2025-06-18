@@ -43,7 +43,6 @@
       </li>
     </ul>
 
-
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane ptop10 <?php if ($tab == 'information') {
                                                     echo 'active';
@@ -58,10 +57,7 @@
                   <?php if ($user_type == 'staff' && $pur_request->status == 2) {
                     echo modal_anchor(get_uri("purchase/send_pr_modal_form/" . $pur_request->id), "<i data-feather='mail' class='icon-16'></i> ", array("title" => app_lang('email_pr_to_vendor'), "data-post-id" => $pur_request->id, "class" => "btn btn-default btn-with-tooltip pull-right"));
                   } ?>
-
                 </div>
-
-
               </div>
             </div>
             <div class=" col-md-12">
@@ -97,8 +93,6 @@
                 <tr>
                   <td class="bold"><?php echo _l('pdf'); ?></td>
                   <td>
-
-
                     <span class="dropdown inline-block">
                       <button class="btn btn-default dropdown-toggle caret mt0 mb0" type="button" data-bs-toggle="dropdown" aria-expanded="true" data-bs-display="static">
                         <i data-feather="file-text" class="icon-16"></i>
@@ -109,7 +103,6 @@
                         <li role="presentation"><a href="<?php echo admin_url('purchase/pur_request_pdf/' . $pur_request->id); ?>" class="dropdown-item"><?php echo _l('download'); ?></a></li>
                       </ul>
                     </span>
-
                   </td>
                 </tr>
               <?php } ?>
@@ -118,7 +111,6 @@
                 <td class="bold"><?php echo _l('rq_description'); ?></td>
                 <td><?php echo html_entity_decode($pur_request->rq_description); ?></td>
               </tr>
-
             </tbody>
           </table>
         </div>
@@ -134,7 +126,6 @@
                   <th width="25%" align="left"><?php echo _l('debit_note_table_item_heading'); ?></th>
                   <th width="10%" align="right" class="text-right qty"><?php echo _l('purchase_quantity'); ?></th>
                   <th width="10%" align="right" class="text-right"><?php echo _l('unit_price'); ?></th>
-
                   <th width="10%" align="right" class="text-right"><?php echo _l('subtotal_before_tax'); ?></th>
                   <th width="15%" align="right" class="text-right"><?php echo _l('debit_note_table_tax_heading'); ?></th>
                   <th width="10%" align="right" class="text-right"><?php echo _l('tax_value'); ?></th>
@@ -152,7 +143,6 @@
                     $_total += $es['total'];
                 ?>
                     <tr nobr="true" class="sortable">
-
                       <td class="description" align="left;"><span><strong><?php
                                                                           $item = get_item_hp($es['item_code']);
                                                                           if (isset($item) && isset($item->commodity_code) && isset($item->title)) {
@@ -188,19 +178,16 @@
                                         }
                                         ?></td>
                       <td align="right"><?php echo to_currency($es['tax_value'], $base_currency); ?></td>
-
                       <td class="amount" align="right"><?php echo to_currency($es['total'], $base_currency); ?></td>
                     </tr>
                 <?php
-
                   }
                 } ?>
               </tbody>
             </table>
           </div>
-
-
         </div>
+
         <div class="row ml15 mr15">
           <div class="col-md-6"></div>
           <div class="col-md-6 col-md-offset-6">
@@ -210,7 +197,6 @@
                   <td class="td_style"><span class="bold"><?php echo _l('subtotal'); ?></span>
                   </td>
                   <td width="65%" id="total_td">
-
                     <?php echo to_currency($_subtotal, $base_currency); ?>
                   </td>
                 </tr>
@@ -237,10 +223,55 @@
                 </tr>
               </tbody>
             </table>
-
           </div>
         </div>
         <?php echo form_hidden('request_detail'); ?>
+
+        <div class="row ml15 mr15 mt25">
+          <div class="col-md-12">
+            <div class="row">
+              <p class="bold p_style">Comments</p>
+              <hr class="hr_style" />
+              <div id="comments-list">
+                <?php 
+                if (isset($pur_request_comments) && !empty($pur_request_comments)) {
+                  foreach ($pur_request_comments as $comment) { ?>
+                    <div class="comment mb15">
+                      <div class="comment-header">
+                        <strong><?php echo html_entity_decode($comment['user_name']); ?></strong> - 
+                        <span class="text-muted"><?php echo format_to_date($comment['created_at']); ?></span>
+                      </div>
+                      <div class="comment-body">
+                        <?php echo nl2br(html_entity_decode($comment['comment'])); ?>
+                      </div>
+                    </div>
+                  <?php }
+                } else { ?>
+                  <div class="no-comments text-muted">
+                    <em>No comments yet.</em>
+                  </div>
+                <?php } ?>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row ml15 mr15 mt25">
+          <div class="col-md-12">
+            <div class="row">
+              <p class="bold p_style">Add Comment</p>
+              <hr class="hr_style" />
+              <div class="col-md-12">
+                <div class="form-group">
+                  <textarea id="comment_content" class="form-control" rows="3" placeholder="Type your comment here"></textarea>
+                </div>
+                <button type="button" id="add-comment-btn" onclick="addComment();" class="btn btn-info">
+                  Add comment
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <?php if ($user_type == 'staff') { ?>
           <div class="row ml15 mr15">
@@ -248,8 +279,6 @@
               <p class=" p_style"><?php echo _l('pur_approval_infor'); ?></p>
               <hr class="hr_style" />
               <div class="project-overview-right">
-
-
                 <div class="row">
                   <div class="col-md-12 project-overview-expenses-finance">
                     <div class="row">
@@ -285,7 +314,6 @@
                               <br><br>
                               <p class="bold text-center text-success"><?php echo _l('signed') . ' ' . format_to_date($value['date']); ?></p>
                             <?php } ?>
-
                           </div>
                         <?php } else { ?>
                           <div class="col-md-3 apr_div">
@@ -324,8 +352,6 @@
                     </div>
                   </div>
                 </div>
-
-
               </div>
             <?php } ?>
             <div class="pull-right mb15">
@@ -352,14 +378,12 @@
                           <?php echo render_textarea1('reason', 'reason'); ?>
                         </div>
                         <div class="modal-footer">
-
                           <a href="#" class="btn btn-success pull-left display-block  mr-4 button-margin-r-b" data-loading-text="<?php echo app_lang('wait_text'); ?>" onclick="approve_request(<?php echo html_entity_decode($pur_request->id); ?>); return false;"><span data-feather="upload" class="icon-16"></span>
                             <?php echo app_lang('approve'); ?>
                           </a>
 
                           <a href="#" data-loading-text="<?php echo app_lang('wait_text'); ?>" onclick="deny_request(<?php echo html_entity_decode($pur_request->id); ?>); return false;" class="btn btn-warning text-white"><span data-feather="x" class="icon-16"></span><?php echo app_lang('deny'); ?>
                           </a>
-
                         </div>
                       </div>
                     </div>
@@ -376,7 +400,6 @@
               }
               ?>
             </div>
-
           </div>
         <?php } ?>
       </div>
@@ -385,7 +408,6 @@
                                               echo 'active';
                                             } ?>" id="attachment">
         <?php echo form_open_multipart(admin_url('purchase/purchase_request_attachment/' . $pur_request->id), array('id' => 'partograph-attachments-upload')); ?>
-
 
         <div class="row ml15 mr15 mt10">
           <?php echo render_input1('file', 'file', '', 'file', ['required' => true]); ?>
@@ -399,8 +421,6 @@
 
         <div class="col-md-12 " id="purrequest_pv_file">
           <?php
-
-
           $file_html = '';
           if (count($pur_request_attachments) > 0) {
             $file_html .= '<hr />';
@@ -411,8 +431,6 @@
               }
               $file_html .= '<div class="mb15 ml15 mr15 row" data-attachment-id="' . $f['id'] . '">
                                       <div class="col-md-8 d-flex">
-                                       
-         
                                            ' . modal_anchor(get_uri("purchase/file_purrequest/" . $f['id'] . "/" . $f['rel_id']), "<i data-feather='eye' class='icon-16'></i>", array("class" => "btn btn-success text-white mr5", "title" => $f['file_name'], "data-post-id" => $f['id'])) . '
 
                                             <div class="d-block">
@@ -421,7 +439,6 @@
                                              <br />
                                             <small class="text-muted">' . $f['filetype'] . '</small>
                                             </div>
-                                           
                                       </div>
                                       <div class="col-md-4 text-right">';
               if ($f['staffid'] == get_staff_user_id1() || is_admin()) {
@@ -437,40 +454,69 @@
 
         <div id="purrequest_file_data"></div>
       </div>
-
     </div>
-
-
-
   </div>
 </div>
 
-
-<div class="modal fade" id="add_action" tabindex="-1" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <div class="modal-body">
-        <p class="bold" id="signatureLabel"><?php echo _l('signature'); ?></p>
-        <div class="signature-pad--body border">
-          <canvas id="signature" height="130" width="550"></canvas>
-        </div>
-        <input type="text" class="ip_style d-none" tabindex="-1" name="signature" id="signatureInput">
-        <div class="dispay-block">
-          <button type="button" class="btn btn-default btn-xs clear" tabindex="-1" onclick="signature_clear();"><?php echo _l('clear'); ?></button>
-
-        </div>
-
-      </div>
-      <div class="modal-footer">
-
-        <button onclick="sign_request(<?php echo html_entity_decode($pur_request->id); ?>);" data-loading-text="<?php echo _l('wait_text'); ?>" autocomplete="off" class="btn btn-success"><?php echo _l('e_signature_sign'); ?></button>
-      </div>
-
-
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-
-<?php require FCPATH . PLUGIN_URL_PATH . "Purchase/assets/js/purchase_request/view_pur_request_js.php";  ?>
+<script>
+function addComment() {
+    var comment = $('#comment_content').val().trim();
+    
+    if (comment === '') {
+        alert('Please enter a comment');
+        return;
+    }
+    
+    var button = $('#add-comment-btn');
+    var originalText = button.text();
+    button.text('Adding...').prop('disabled', true);
+    
+    $.ajax({
+        url: '<?php echo admin_url('purchase/add_comment'); ?>',
+        type: 'POST',
+        data: {
+            comment: comment,
+            pur_request_id: <?php echo $pur_request->id; ?>
+        },
+        dataType: 'json',
+        success: function(response) {
+            if (response.success) {
+                $('#comment_content').val('');
+                
+                var currentDate = new Date();
+                var formattedDate = currentDate.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                
+                var commentHtml = '<div class="comment mb15">' +
+                    '<div class="comment-header">' +
+                    '<strong>' + response.comment.user_name + '</strong> - ' +
+                    '<span class="text-muted">' + formattedDate + '</span>' +
+                    '</div>' +
+                    '<div class="comment-body">' +
+                    response.comment.comment.replace(/\n/g, '<br>') +
+                    '</div>' +
+                    '</div>';
+                
+                $('.no-comments').remove();
+                
+                $('#comments-list').prepend(commentHtml);
+                
+            } else {
+                alert('Error: ' + response.message);
+            }
+        },
+        error: function(xhr, status, error) {
+            console.log('AJAX Error:', xhr.responseText);
+            alert('An error occurred while adding the comment');
+        },
+        complete: function() {
+            button.text(originalText).prop('disabled', false);
+        }
+    });
+}
+</script>

@@ -1,0 +1,8 @@
+rsrobotics_credentials.txt
+app/Config/Database.php
+app/Controllers/App_Controller.php
+app/Models/Crud_model.php
+plugins/Hr_payroll/lib/gtsslib.php
+plugins/Hr_profile/lib/gtsslib.php
+plugins/Purchase/lib/gtsslib.php
+writable

@@ -1,202 +1,39 @@
-ERROR - 2025-06-18 02:34:29 --> DEBUG: $sGroupBy = 
-ERROR - 2025-06-18 02:34:39 --> DEBUG: $sGroupBy = 
-ERROR - 2025-06-18 02:58:06 --> DEBUG: $sGroupBy = 
-ERROR - 2025-06-18 02:58:07 --> Got row asArray
-(
-    [number] => 1
-    [total] => 5500.00
-    [total_tax] => 0.00
-    [vendor] => 1
-    [pur_request] => 13
-    [date] => 2025-06-08
-    [expirydate] => 2025-06-08
-    [status] => 2
-    [id] => 0
-    [invoiceid] => 
-    [deleted_vendor_name] => 
-    [currency] => 
-    [company] => Surya Infotech
-    [pur_rq_name] => #-00005-2025
-    [pur_rq_code] => #-00005-2025
-)
-
-ERROR - 2025-06-18 02:58:34 --> DEBUG: $sGroupBy = 
-ERROR - 2025-06-18 02:58:34 --> Got row asArray
-(
-    [number] => 1
-    [total] => 5500.00
-    [total_tax] => 0.00
-    [vendor] => 1
-    [pur_request] => 13
-    [date] => 2025-06-08
-    [expirydate] => 2025-06-08
-    [status] => 2
-    [id] => 0
-    [invoiceid] => 
-    [deleted_vendor_name] => 
-    [currency] => 
-    [company] => Surya Infotech
-    [pur_rq_name] => #-00005-2025
-    [pur_rq_code] => #-00005-2025
-)
-
-ERROR - 2025-06-18 02:58:46 --> Unknown column 'long_description' in 'field list'
-CRITICAL - 2025-06-18 02:58:46 --> Unknown column 'long_description' in 'field list'
-in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
- 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT item_code, prq.unit_id as unit_id, unit_price, quantity, into_money, long_description as description, prq.tax as tax, tax_name, tax_rate, item_text, tax_value, total as total_money, total as total FROM rise_pur_request_detail prq LEFT JOIN rise_items it ON prq.item_code = it.id WHERE prq.pur_request = 13', 0)
- 2 SYSTEMPATH\Database\BaseConnection.php(695): CodeIgniter\Database\MySQLi\Connection->execute('SELECT item_code, prq.unit_id as unit_id, unit_price, quantity, into_money, long_description as description, prq.tax as tax, tax_name, tax_rate, item_text, tax_value, total as total_money, total as total FROM rise_pur_request_detail prq LEFT JOIN rise_items it ON prq.item_code = it.id WHERE prq.pur_request = 13')
- 3 SYSTEMPATH\Database\BaseConnection.php(609): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT item_code, prq.unit_id as unit_id, unit_price, quantity, into_money, long_description as description, prq.tax as tax, tax_name, tax_rate, item_text, tax_value, total as total_money, total as total FROM rise_pur_request_detail prq LEFT JOIN rise_items it ON prq.item_code = it.id WHERE prq.pur_request = 13')
- 4 FCPATH\plugins\Purchase\Models\Purchase_model.php(4829): CodeIgniter\Database\BaseConnection->query('SELECT item_code, prq.unit_id as unit_id, unit_price, quantity, into_money, long_description as description, prq.tax as tax, tax_name, tax_rate, item_text, tax_value, total as total_money, total as total FROM rise_pur_request_detail prq LEFT JOIN rise_items it ON prq.item_code = it.id WHERE prq.pur_request = 13')
- 5 FCPATH\plugins\Purchase\Controllers\Purchase.php(3318): Purchase\Models\Purchase_model->get_pur_request_detail_in_estimate('13')
- 6 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->coppy_pur_request('13')
- 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
- 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 9 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
-CRITICAL - 2025-06-18 02:59:02 --> Printing DataArray
-(
-    [additional_discount] => 0
-    [vendor] => 1
-    [pur_request] => 13
-    [number] => 00002
-    [buyer] => 1
-    [date] => 2025-06-18
-    [expirydate] => 2025-06-18
-    [item_select] => 
-    [from_currency] => INR
-    [currency_rate] => 1
-    [item_name] => 
-    [unit_price] => 
-    [quantity] => 
-    [unit_name] => 
-    [tax_value] => 
-    [discount] => 
-    [discount_money] => 
-    [item_code] => 
-    [unit_id] => 
-    [total] => 
-    [total_money] => 
-    [into_money] => 
-    [newitems] => Array
-        (
-            [1] => Array
-                (
-                    [order] => 1
-                    [id] => undefined
-                    [item_name] => CBLTY_Cable Tie (100MM)
-                    [unit_price] => 0.00
-                    [quantity] => 1
-                    [tax_select] => Array
-                        (
-                            [0] => Tax (10%)|10
-                        )
-
-                    [tax_value] => 0
-                    [discount] => 
-                    [discount_money] => 0
-                    [item_code] => 8
-                    [unit_id] => 3
-                    [total] => 0
-                    [total_money] => 0
-                    [into_money] => 0
-                )
-
-        )
-
-    [total_mn] => 0.00
-    [dc_total] => 0.00
-    [shipping_fee] => 0
-    [grand_total] => 0.00
-    [vendornote] => Shipping and logistics to be filled by vendor
-GST bills are mandatory
-    [terms] => Only upto 50% in advance
-)
-
-ERROR - 2025-06-18 02:59:02 --> Duplicate entry '0' for key 'PRIMARY'
-CRITICAL - 2025-06-18 02:59:02 --> Duplicate entry '0' for key 'PRIMARY'
-in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
- 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `rise_pur_estimates` (`vendor`, `pur_request`, `number`, `buyer`, `date`, `expirydate`, `from_currency`, `currency_rate`, `shipping_fee`, `vendornote`, `terms`, `status`, `to_currency`, `datecreated`, `addedfrom`, `prefix`, `number_format`, `hash`, `show_shipping_on_estimate`, `include_shipping`, `discount_total`, `subtotal`, `total`) VALUES (\'1\', \'13\', \'00002\', \'1\', \'2025-06-18\', \'2025-06-18\', \'INR\', \'1\', \'0\', \'Shipping and logistics to be filled by vendor\\r\\nGST bills are mandatory\', \'Only upto 50% in advance\', 1, \'INR\', \'2025-06-18 02:59:02\', \'1\', \'#EST\', 1, \'9f9a0d418bbe50aeb50aacfade8b8dc8\', 1, 0, \'0.00\', \'0.00\', \'0.00\')', 0)
- 2 SYSTEMPATH\Database\BaseConnection.php(695): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `rise_pur_estimates` (`vendor`, `pur_request`, `number`, `buyer`, `date`, `expirydate`, `from_currency`, `currency_rate`, `shipping_fee`, `vendornote`, `terms`, `status`, `to_currency`, `datecreated`, `addedfrom`, `prefix`, `number_format`, `hash`, `show_shipping_on_estimate`, `include_shipping`, `discount_total`, `subtotal`, `total`) VALUES (\'1\', \'13\', \'00002\', \'1\', \'2025-06-18\', \'2025-06-18\', \'INR\', \'1\', \'0\', \'Shipping and logistics to be filled by vendor\\r\\nGST bills are mandatory\', \'Only upto 50% in advance\', 1, \'INR\', \'2025-06-18 02:59:02\', \'1\', \'#EST\', 1, \'9f9a0d418bbe50aeb50aacfade8b8dc8\', 1, 0, \'0.00\', \'0.00\', \'0.00\')')
- 3 SYSTEMPATH\Database\BaseConnection.php(609): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `rise_pur_estimates` (`vendor`, `pur_request`, `number`, `buyer`, `date`, `expirydate`, `from_currency`, `currency_rate`, `shipping_fee`, `vendornote`, `terms`, `status`, `to_currency`, `datecreated`, `addedfrom`, `prefix`, `number_format`, `hash`, `show_shipping_on_estimate`, `include_shipping`, `discount_total`, `subtotal`, `total`) VALUES (\'1\', \'13\', \'00002\', \'1\', \'2025-06-18\', \'2025-06-18\', \'INR\', \'1\', \'0\', \'Shipping and logistics to be filled by vendor\\r\\nGST bills are mandatory\', \'Only upto 50% in advance\', 1, \'INR\', \'2025-06-18 02:59:02\', \'1\', \'#EST\', 1, \'9f9a0d418bbe50aeb50aacfade8b8dc8\', 1, 0, \'0.00\', \'0.00\', \'0.00\')')
- 4 SYSTEMPATH\Database\BaseBuilder.php(1904): CodeIgniter\Database\BaseConnection->query('INSERT INTO `rise_pur_estimates` (`vendor`, `pur_request`, `number`, `buyer`, `date`, `expirydate`, `from_currency`, `currency_rate`, `shipping_fee`, `vendornote`, `terms`, `status`, `to_currency`, `datecreated`, `addedfrom`, `prefix`, `number_format`, `hash`, `show_shipping_on_estimate`, `include_shipping`, `discount_total`, `subtotal`, `total`) VALUES (:vendor:, :pur_request:, :number:, :buyer:, :date:, :expirydate:, :from_currency:, :currency_rate:, :shipping_fee:, :vendornote:, :terms:, :status:, :to_currency:, :datecreated:, :addedfrom:, :prefix:, :number_format:, :hash:, :show_shipping_on_estimate:, :include_shipping:, :discount_total:, :subtotal:, :total:)', [...], false)
- 5 FCPATH\plugins\Purchase\Models\Purchase_model.php(4344): CodeIgniter\Database\BaseBuilder->insert([...])
- 6 FCPATH\plugins\Purchase\Controllers\Purchase.php(2869): Purchase\Models\Purchase_model->add_estimate([...])
- 7 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->estimate()
- 8 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
- 9 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
-10 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
-ERROR - 2025-06-18 03:03:05 --> Unknown column 'long_description' in 'field list'
-CRITICAL - 2025-06-18 03:03:05 --> Unknown column 'long_description' in 'field list'
-in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
- 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT item_code, prq.unit_id as unit_id, unit_price, quantity, into_money, long_description as description, prq.tax as tax, tax_name, tax_rate, item_text, tax_value, total as total_money, total as total FROM rise_pur_request_detail prq LEFT JOIN rise_items it ON prq.item_code = it.id WHERE prq.pur_request = 9', 0)
- 2 SYSTEMPATH\Database\BaseConnection.php(695): CodeIgniter\Database\MySQLi\Connection->execute('SELECT item_code, prq.unit_id as unit_id, unit_price, quantity, into_money, long_description as description, prq.tax as tax, tax_name, tax_rate, item_text, tax_value, total as total_money, total as total FROM rise_pur_request_detail prq LEFT JOIN rise_items it ON prq.item_code = it.id WHERE prq.pur_request = 9')
- 3 SYSTEMPATH\Database\BaseConnection.php(609): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT item_code, prq.unit_id as unit_id, unit_price, quantity, into_money, long_description as description, prq.tax as tax, tax_name, tax_rate, item_text, tax_value, total as total_money, total as total FROM rise_pur_request_detail prq LEFT JOIN rise_items it ON prq.item_code = it.id WHERE prq.pur_request = 9')
- 4 FCPATH\plugins\Purchase\Models\Purchase_model.php(4829): CodeIgniter\Database\BaseConnection->query('SELECT item_code, prq.unit_id as unit_id, unit_price, quantity, into_money, long_description as description, prq.tax as tax, tax_name, tax_rate, item_text, tax_value, total as total_money, total as total FROM rise_pur_request_detail prq LEFT JOIN rise_items it ON prq.item_code = it.id WHERE prq.pur_request = 9')
- 5 FCPATH\plugins\Purchase\Controllers\Purchase.php(3318): Purchase\Models\Purchase_model->get_pur_request_detail_in_estimate('9')
- 6 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->coppy_pur_request('9')
- 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
- 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 9 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
-CRITICAL - 2025-06-18 03:03:13 --> Printing DataArray
-(
-    [additional_discount] => 0
-    [vendor] => 1
-    [pur_request] => 9
-    [number] => 00002
-    [buyer] => 1
-    [date] => 2025-06-18
-    [expirydate] => 2025-06-18
-    [item_select] => 
-    [from_currency] => INR
-    [currency_rate] => 1
-    [item_name] => 
-    [unit_price] => 
-    [quantity] => 
-    [unit_name] => 
-    [tax_value] => 
-    [discount] => 
-    [discount_money] => 
-    [item_code] => 
-    [unit_id] => 
-    [total] => 
-    [total_money] => 
-    [into_money] => 
-    [newitems] => Array
-        (
-            [1] => Array
-                (
-                    [order] => 1
-                    [id] => undefined
-                    [item_name] => CBLTY_Cable Tie (100MM)
-                    [unit_price] => 0.00
-                    [quantity] => 1
-                    [tax_select] => Array
-                        (
-                            [0] => Tax (10%)|10
-                        )
-
-                    [tax_value] => 0
-                    [discount] => 
-                    [discount_money] => 0
-                    [item_code] => 8
-                    [unit_id] => 3
-                    [total] => 0
-                    [total_money] => 0
-                    [into_money] => 0
-                )
-
-        )
-
-    [total_mn] => 0.00
-    [dc_total] => 0.00
-    [shipping_fee] => 0
-    [grand_total] => 0.00
-    [vendornote] => Shipping and logistics to be filled by vendor
-GST bills are mandatory
-    [terms] => Only upto 50% in advance
-)
-
-ERROR - 2025-06-18 03:03:15 --> DEBUG: $sGroupBy = 
-ERROR - 2025-06-18 03:03:15 --> Got row asArray
+ERROR - 2025-06-18 05:24:11 --> Error connecting to the database: Unknown database 'db_rsra_crm'
+CRITICAL - 2025-06-18 05:24:11 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'db_rsra_crm'
+in SYSTEMPATH\Database\BaseConnection.php on line 416.
+ 1 SYSTEMPATH\Database\BaseConnection.php(586): CodeIgniter\Database\BaseConnection->initialize()
+ 2 APPPATH\Models\Crud_model.php(27): CodeIgniter\Database\BaseConnection->query('SET sql_mode = \'\'')
+ 3 APPPATH\Models\Settings_model.php(11): App\Models\Crud_model->__construct('settings')
+ 4 SYSTEMPATH\Config\Factories.php(126): App\Models\Settings_model->__construct(null)
+ 5 SYSTEMPATH\Config\Factories.php(83): CodeIgniter\Config\Factories::__callStatic('models', [...])
+ 6 SYSTEMPATH\Common.php(811): CodeIgniter\Config\Factories::models('App\\Models\\Settings_model', [...], null)
+ 7 APPPATH\Controllers\App_Controller.php(33): model('App\\Models\\Settings_model')
+ 8 APPPATH\Controllers\Security_Controller.php(17): App\Controllers\App_Controller->__construct()
+ 9 APPPATH\Controllers\Dashboard.php(11): App\Controllers\Security_Controller->__construct()
+10 SYSTEMPATH\CodeIgniter.php(858): App\Controllers\Dashboard->__construct()
+11 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->createController()
+12 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-18 05:24:12 --> Error connecting to the database: Unknown database 'db_rsra_crm'
+CRITICAL - 2025-06-18 05:24:12 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'db_rsra_crm'
+in SYSTEMPATH\Database\BaseConnection.php on line 416.
+ 1 SYSTEMPATH\Database\BaseConnection.php(586): CodeIgniter\Database\BaseConnection->initialize()
+ 2 APPPATH\Models\Crud_model.php(27): CodeIgniter\Database\BaseConnection->query('SET sql_mode = \'\'')
+ 3 APPPATH\Models\Settings_model.php(11): App\Models\Crud_model->__construct('settings')
+ 4 SYSTEMPATH\Config\Factories.php(126): App\Models\Settings_model->__construct(null)
+ 5 SYSTEMPATH\Config\Factories.php(83): CodeIgniter\Config\Factories::__callStatic('models', [...])
+ 6 SYSTEMPATH\Common.php(811): CodeIgniter\Config\Factories::models('App\\Models\\Settings_model', [...], null)
+ 7 APPPATH\Controllers\App_Controller.php(33): model('App\\Models\\Settings_model')
+ 8 APPPATH\Controllers\Security_Controller.php(17): App\Controllers\App_Controller->__construct()
+ 9 APPPATH\Controllers\Dashboard.php(11): App\Controllers\Security_Controller->__construct()
+10 SYSTEMPATH\CodeIgniter.php(858): App\Controllers\Dashboard->__construct()
+11 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->createController()
+12 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-18 05:29:02 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-18 05:29:02 --> Got row asArray
 (
     [number] => 1
     [total] => 5500.00
@@ -215,7 +52,7 @@ ERROR - 2025-06-18 03:03:15 --> Got row asArray
     [pur_rq_code] => #-00005-2025
 )
 
-ERROR - 2025-06-18 03:03:16 --> Got row asArray
+ERROR - 2025-06-18 05:29:02 --> Got row asArray
 (
     [number] => 2
     [total] => 0.00
@@ -234,30 +71,2038 @@ ERROR - 2025-06-18 03:03:16 --> Got row asArray
     [pur_rq_code] => #-00001-2025
 )
 
-CRITICAL - 2025-06-18 03:08:01 --> Hitting the api
-CRITICAL - 2025-06-18 03:08:03 --> html_entity_decode(): Passing null to parameter #1 ($string) of type string is deprecated
-in FCPATH\plugins\Purchase\Views\quotations\view_estimate.php on line 367.
- 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(8192, 'html_entity_decode(): Passing null to parameter #1 ($string) of type string is deprecated', 'FCPATH\\plugins\\Purchase\\Views\\quotations\\view_estimate.php', 367)
- 2 FCPATH\plugins\Purchase\Views\quotations\view_estimate.php(367): html_entity_decode(null)
- 3 SYSTEMPATH\View\View.php(213): include('FCPATH\\plugins\\Purchase\\Views\\quotations\\view_estimate.php')
- 4 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 5 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('Purchase\\Views\\quotations\\view_estimate', [], true)
- 6 APPPATH\Views\layout\index.php(48): view('Purchase\\Views\\quotations\\view_estimate')
- 7 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\index.php')
- 8 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 9 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('layout/index', [], true)
-10 APPPATH\Libraries\Template.php(38): view('layout/index', [...])
-11 APPPATH\Libraries\Template.php(22): App\Libraries\Template->view('layout/index', [...])
-12 FCPATH\plugins\Purchase\Controllers\Purchase.php(3189): App\Libraries\Template->rander('Purchase\\Views\\quotations\\view_estimate', [...])
-13 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->view_quotation('2')
-14 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
-15 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
-16 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
-CRITICAL - 2025-06-18 03:48:40 --> The action you requested is not allowed.
-in SYSTEMPATH\Security\Security.php on line 286.
- 1 SYSTEMPATH\Security\Security.php(286): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
- 2 SYSTEMPATH\Filters\CSRF.php(54): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
- 3 SYSTEMPATH\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
- 4 SYSTEMPATH\CodeIgniter.php(440): CodeIgniter\Filters\Filters->run('messages/count_notifications', 'before')
- 5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-18 05:29:03 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-18 05:29:03 --> Got row asArray
+(
+    [number] => 1
+    [total] => 5500.00
+    [total_tax] => 0.00
+    [vendor] => 1
+    [pur_request] => 13
+    [date] => 2025-06-08
+    [expirydate] => 2025-06-08
+    [status] => 2
+    [id] => 1
+    [invoiceid] => 
+    [deleted_vendor_name] => 
+    [currency] => 
+    [company] => Surya Infotech
+    [pur_rq_name] => #-00005-2025
+    [pur_rq_code] => #-00005-2025
+)
+
+ERROR - 2025-06-18 05:29:03 --> Got row asArray
+(
+    [number] => 2
+    [total] => 0.00
+    [total_tax] => 0.00
+    [vendor] => 1
+    [pur_request] => 9
+    [date] => 2025-06-18
+    [expirydate] => 2025-06-18
+    [status] => 1
+    [id] => 2
+    [invoiceid] => 
+    [deleted_vendor_name] => 
+    [currency] => 
+    [company] => Surya Infotech
+    [pur_rq_name] => Robotic Cell request
+    [pur_rq_code] => #-00001-2025
+)
+
+ERROR - 2025-06-18 05:29:17 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-18 05:29:17 --> Got row asArray
+(
+    [number] => 1
+    [total] => 5500.00
+    [total_tax] => 0.00
+    [vendor] => 1
+    [pur_request] => 13
+    [date] => 2025-06-08
+    [expirydate] => 2025-06-08
+    [status] => 2
+    [id] => 1
+    [invoiceid] => 
+    [deleted_vendor_name] => 
+    [currency] => 
+    [company] => Surya Infotech
+    [pur_rq_name] => #-00005-2025
+    [pur_rq_code] => #-00005-2025
+)
+
+ERROR - 2025-06-18 05:29:17 --> Got row asArray
+(
+    [number] => 2
+    [total] => 0.00
+    [total_tax] => 0.00
+    [vendor] => 1
+    [pur_request] => 9
+    [date] => 2025-06-18
+    [expirydate] => 2025-06-18
+    [status] => 1
+    [id] => 2
+    [invoiceid] => 
+    [deleted_vendor_name] => 
+    [currency] => 
+    [company] => Surya Infotech
+    [pur_rq_name] => Robotic Cell request
+    [pur_rq_code] => #-00001-2025
+)
+
+ERROR - 2025-06-18 05:30:31 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-18 05:30:31 --> Got row asArray
+(
+    [number] => 1
+    [total] => 5500.00
+    [total_tax] => 0.00
+    [vendor] => 1
+    [pur_request] => 13
+    [date] => 2025-06-08
+    [expirydate] => 2025-06-08
+    [status] => 2
+    [id] => 1
+    [invoiceid] => 
+    [deleted_vendor_name] => 
+    [currency] => 
+    [company] => Surya Infotech
+    [pur_rq_name] => #-00005-2025
+    [pur_rq_code] => #-00005-2025
+)
+
+ERROR - 2025-06-18 05:30:31 --> Got row asArray
+(
+    [number] => 2
+    [total] => 0.00
+    [total_tax] => 0.00
+    [vendor] => 1
+    [pur_request] => 9
+    [date] => 2025-06-18
+    [expirydate] => 2025-06-18
+    [status] => 1
+    [id] => 2
+    [invoiceid] => 
+    [deleted_vendor_name] => 
+    [currency] => 
+    [company] => Surya Infotech
+    [pur_rq_name] => Robotic Cell request
+    [pur_rq_code] => #-00001-2025
+)
+
+ERROR - 2025-06-18 05:30:32 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-18 05:30:32 --> Got row asArray
+(
+    [number] => 1
+    [total] => 5500.00
+    [total_tax] => 0.00
+    [vendor] => 1
+    [pur_request] => 13
+    [date] => 2025-06-08
+    [expirydate] => 2025-06-08
+    [status] => 2
+    [id] => 1
+    [invoiceid] => 
+    [deleted_vendor_name] => 
+    [currency] => 
+    [company] => Surya Infotech
+    [pur_rq_name] => #-00005-2025
+    [pur_rq_code] => #-00005-2025
+)
+
+ERROR - 2025-06-18 05:30:32 --> Got row asArray
+(
+    [number] => 2
+    [total] => 0.00
+    [total_tax] => 0.00
+    [vendor] => 1
+    [pur_request] => 9
+    [date] => 2025-06-18
+    [expirydate] => 2025-06-18
+    [status] => 1
+    [id] => 2
+    [invoiceid] => 
+    [deleted_vendor_name] => 
+    [currency] => 
+    [company] => Surya Infotech
+    [pur_rq_name] => Robotic Cell request
+    [pur_rq_code] => #-00001-2025
+)
+
+CRITICAL - 2025-06-18 05:30:44 --> Hitting the api
+CRITICAL - 2025-06-18 05:30:45 --> CodeIgniter\Database\MySQLi\Builder Object
+(
+    [resetDeleteData:protected] => 
+    [QBSelect:protected] => Array
+        (
+        )
+
+    [QBDistinct:protected] => 
+    [QBFrom:protected] => Array
+        (
+            [0] => `rise_pur_approval_details`
+        )
+
+    [QBJoin:protected] => Array
+        (
+        )
+
+    [QBWhere:protected] => Array
+        (
+        )
+
+    [QBGroupBy] => Array
+        (
+        )
+
+    [QBHaving:protected] => Array
+        (
+        )
+
+    [QBKeys:protected] => Array
+        (
+        )
+
+    [QBLimit:protected] => 
+    [QBOffset:protected] => 
+    [QBOrderBy] => Array
+        (
+        )
+
+    [QBUnion:protected] => Array
+        (
+        )
+
+    [QBNoEscape] => Array
+        (
+        )
+
+    [QBSet:protected] => Array
+        (
+        )
+
+    [QBWhereGroupStarted:protected] => 
+    [QBWhereGroupCount:protected] => 0
+    [QBIgnore:protected] => 
+    [db:protected] => CodeIgniter\Database\MySQLi\Connection Object
+        (
+            [DSN:protected] => 
+            [port:protected] => 3306
+            [hostname:protected] => localhost
+            [username:protected] => root
+            [password:protected] => 
+            [database:protected] => rsra_crm
+            [DBDriver] => MySQLi
+            [subdriver:protected] => 
+            [DBPrefix:protected] => rise_
+            [pConnect:protected] => 
+            [DBDebug:protected] => 1
+            [charset:protected] => utf8
+            [DBCollat:protected] => utf8_general_ci
+            [swapPre:protected] => 
+            [encrypt:protected] => 
+            [compress:protected] => 
+            [strictOn:protected] => 
+            [failover:protected] => Array
+                (
+                )
+
+            [lastQuery:protected] => CodeIgniter\Database\Query Object
+                (
+                    [originalQueryString:protected] => INSERT INTO `rise_pur_approval_details` (`action`, `staffid`, `date_send`, `rel_id`, `rel_type`, `sender`) VALUES (:action:, :staffid:, :date_send:, :rel_id:, :rel_type:, :sender:)
+                    [finalQueryString:protected] => INSERT INTO `rise_pur_approval_details` (`action`, `staffid`, `date_send`, `rel_id`, `rel_type`, `sender`) VALUES ('approve', '9', '2025-06-18 05:30:44', '2', 'pur_quotation', '1')
+                    [binds:protected] => Array
+                        (
+                            [action] => Array
+                                (
+                                    [0] => approve
+                                    [1] => 1
+                                )
+
+                            [staffid] => Array
+                                (
+                                    [0] => 9
+                                    [1] => 1
+                                )
+
+                            [date_send] => Array
+                                (
+                                    [0] => 2025-06-18 05:30:44
+                                    [1] => 1
+                                )
+
+                            [rel_id] => Array
+                                (
+                                    [0] => 2
+                                    [1] => 1
+                                )
+
+                            [rel_type] => Array
+                                (
+                                    [0] => pur_quotation
+                                    [1] => 1
+                                )
+
+                            [sender] => Array
+                                (
+                                    [0] => 1
+                                    [1] => 1
+                                )
+
+                        )
+
+                    [bindMarker:protected] => ?
+                    [startTime:protected] => 1750242644.602
+                    [endTime:protected] => 1750242645.0674
+                    [errorCode:protected] => 
+                    [errorString:protected] => 
+                    [db] => CodeIgniter\Database\MySQLi\Connection Object
+ *RECURSION*
+                )
+
+            [connID] => mysqli Object
+                (
+                    [affected_rows] => 1
+                    [client_info] => mysqlnd 8.1.25
+                    [client_version] => 80125
+                    [connect_errno] => 0
+                    [connect_error] => 
+                    [errno] => 0
+                    [error] => 
+                    [error_list] => Array
+                        (
+                        )
+
+                    [field_count] => 0
+                    [host_info] => localhost via TCP/IP
+                    [info] => 
+                    [insert_id] => 10
+                    [server_info] => 10.4.32-MariaDB
+                    [server_version] => 100432
+                    [sqlstate] => 00000
+                    [protocol_version] => 10
+                    [thread_id] => 1475
+                    [warning_count] => 0
+                )
+
+            [resultID] => 1
+            [protectIdentifiers] => 1
+            [reservedIdentifiers:protected] => Array
+                (
+                    [0] => *
+                )
+
+            [escapeChar] => `
+            [likeEscapeStr] =>  ESCAPE '%s' 
+            [likeEscapeChar] => !
+            [pregEscapeChar:protected] => Array
+                (
+                    [1] => `
+                    [0] => `
+                    [3] => `
+                    [2] => `
+                )
+
+            [dataCache] => Array
+                (
+                )
+
+            [connectTime:protected] => 1750242643.3012
+            [connectDuration:protected] => 0.0014281272888184
+            [pretend:protected] => 
+            [transEnabled] => 1
+            [transStrict] => 1
+            [transDepth:protected] => 0
+            [transStatus:protected] => 1
+            [transFailure:protected] => 
+            [aliasedTables:protected] => Array
+                (
+                )
+
+            [queryClass:protected] => CodeIgniter\Database\Query
+            [deleteHack] => 1
+            [mysqli] => mysqli Object
+                (
+                    [affected_rows] => 1
+                    [client_info] => mysqlnd 8.1.25
+                    [client_version] => 80125
+                    [connect_errno] => 0
+                    [connect_error] => 
+                    [errno] => 0
+                    [error] => 
+                    [error_list] => Array
+                        (
+                        )
+
+                    [field_count] => 0
+                    [host_info] => localhost via TCP/IP
+                    [info] => 
+                    [insert_id] => 10
+                    [server_info] => 10.4.32-MariaDB
+                    [server_version] => 100432
+                    [sqlstate] => 00000
+                    [protocol_version] => 10
+                    [thread_id] => 1475
+                    [warning_count] => 0
+                )
+
+            [resultMode] => 0
+        )
+
+    [tableName:protected] => rise_pur_approval_details
+    [randomKeyword:protected] => Array
+        (
+            [0] => RAND()
+            [1] => RAND(%d)
+        )
+
+    [countString:protected] => SELECT COUNT(*) AS 
+    [binds:protected] => Array
+        (
+        )
+
+    [bindsKeyCount:protected] => Array
+        (
+        )
+
+    [canLimitDeletes:protected] => 1
+    [canLimitWhereUpdates:protected] => 1
+    [supportedIgnoreStatements:protected] => Array
+        (
+            [update] => IGNORE
+            [insert] => IGNORE
+            [delete] => IGNORE
+        )
+
+    [testMode:protected] => 
+    [joinTypes:protected] => Array
+        (
+            [0] => LEFT
+            [1] => RIGHT
+            [2] => OUTER
+            [3] => INNER
+            [4] => LEFT OUTER
+            [5] => RIGHT OUTER
+        )
+
+    [isLiteralStr:protected] => Array
+        (
+        )
+
+    [pregOperators:protected] => Array
+        (
+        )
+
+    [escapeChar:protected] => `
+)
+
+CRITICAL - 2025-06-18 05:30:45 --> 1
+CRITICAL - 2025-06-18 05:30:46 --> Hitting the api
+CRITICAL - 2025-06-18 05:30:47 --> CodeIgniter\Database\MySQLi\Builder Object
+(
+    [resetDeleteData:protected] => 
+    [QBSelect:protected] => Array
+        (
+        )
+
+    [QBDistinct:protected] => 
+    [QBFrom:protected] => Array
+        (
+            [0] => `rise_pur_approval_details`
+        )
+
+    [QBJoin:protected] => Array
+        (
+        )
+
+    [QBWhere:protected] => Array
+        (
+        )
+
+    [QBGroupBy] => Array
+        (
+        )
+
+    [QBHaving:protected] => Array
+        (
+        )
+
+    [QBKeys:protected] => Array
+        (
+        )
+
+    [QBLimit:protected] => 
+    [QBOffset:protected] => 
+    [QBOrderBy] => Array
+        (
+        )
+
+    [QBUnion:protected] => Array
+        (
+        )
+
+    [QBNoEscape] => Array
+        (
+        )
+
+    [QBSet:protected] => Array
+        (
+        )
+
+    [QBWhereGroupStarted:protected] => 
+    [QBWhereGroupCount:protected] => 0
+    [QBIgnore:protected] => 
+    [db:protected] => CodeIgniter\Database\MySQLi\Connection Object
+        (
+            [DSN:protected] => 
+            [port:protected] => 3306
+            [hostname:protected] => localhost
+            [username:protected] => root
+            [password:protected] => 
+            [database:protected] => rsra_crm
+            [DBDriver] => MySQLi
+            [subdriver:protected] => 
+            [DBPrefix:protected] => rise_
+            [pConnect:protected] => 
+            [DBDebug:protected] => 1
+            [charset:protected] => utf8
+            [DBCollat:protected] => utf8_general_ci
+            [swapPre:protected] => 
+            [encrypt:protected] => 
+            [compress:protected] => 
+            [strictOn:protected] => 
+            [failover:protected] => Array
+                (
+                )
+
+            [lastQuery:protected] => CodeIgniter\Database\Query Object
+                (
+                    [originalQueryString:protected] => INSERT INTO `rise_pur_approval_details` (`action`, `staffid`, `date_send`, `rel_id`, `rel_type`, `sender`) VALUES (:action:, :staffid:, :date_send:, :rel_id:, :rel_type:, :sender:)
+                    [finalQueryString:protected] => INSERT INTO `rise_pur_approval_details` (`action`, `staffid`, `date_send`, `rel_id`, `rel_type`, `sender`) VALUES ('approve', '9', '2025-06-18 05:30:46', '2', 'pur_quotation', '1')
+                    [binds:protected] => Array
+                        (
+                            [action] => Array
+                                (
+                                    [0] => approve
+                                    [1] => 1
+                                )
+
+                            [staffid] => Array
+                                (
+                                    [0] => 9
+                                    [1] => 1
+                                )
+
+                            [date_send] => Array
+                                (
+                                    [0] => 2025-06-18 05:30:46
+                                    [1] => 1
+                                )
+
+                            [rel_id] => Array
+                                (
+                                    [0] => 2
+                                    [1] => 1
+                                )
+
+                            [rel_type] => Array
+                                (
+                                    [0] => pur_quotation
+                                    [1] => 1
+                                )
+
+                            [sender] => Array
+                                (
+                                    [0] => 1
+                                    [1] => 1
+                                )
+
+                        )
+
+                    [bindMarker:protected] => ?
+                    [startTime:protected] => 1750242647.4584
+                    [endTime:protected] => 1750242647.6786
+                    [errorCode:protected] => 
+                    [errorString:protected] => 
+                    [db] => CodeIgniter\Database\MySQLi\Connection Object
+ *RECURSION*
+                )
+
+            [connID] => mysqli Object
+                (
+                    [affected_rows] => 1
+                    [client_info] => mysqlnd 8.1.25
+                    [client_version] => 80125
+                    [connect_errno] => 0
+                    [connect_error] => 
+                    [errno] => 0
+                    [error] => 
+                    [error_list] => Array
+                        (
+                        )
+
+                    [field_count] => 0
+                    [host_info] => localhost via TCP/IP
+                    [info] => 
+                    [insert_id] => 11
+                    [server_info] => 10.4.32-MariaDB
+                    [server_version] => 100432
+                    [sqlstate] => 00000
+                    [protocol_version] => 10
+                    [thread_id] => 1476
+                    [warning_count] => 0
+                )
+
+            [resultID] => 1
+            [protectIdentifiers] => 1
+            [reservedIdentifiers:protected] => Array
+                (
+                    [0] => *
+                )
+
+            [escapeChar] => `
+            [likeEscapeStr] =>  ESCAPE '%s' 
+            [likeEscapeChar] => !
+            [pregEscapeChar:protected] => Array
+                (
+                    [1] => `
+                    [0] => `
+                    [3] => `
+                    [2] => `
+                )
+
+            [dataCache] => Array
+                (
+                )
+
+            [connectTime:protected] => 1750242646.1448
+            [connectDuration:protected] => 0.0033860206604004
+            [pretend:protected] => 
+            [transEnabled] => 1
+            [transStrict] => 1
+            [transDepth:protected] => 0
+            [transStatus:protected] => 1
+            [transFailure:protected] => 
+            [aliasedTables:protected] => Array
+                (
+                )
+
+            [queryClass:protected] => CodeIgniter\Database\Query
+            [deleteHack] => 1
+            [mysqli] => mysqli Object
+                (
+                    [affected_rows] => 1
+                    [client_info] => mysqlnd 8.1.25
+                    [client_version] => 80125
+                    [connect_errno] => 0
+                    [connect_error] => 
+                    [errno] => 0
+                    [error] => 
+                    [error_list] => Array
+                        (
+                        )
+
+                    [field_count] => 0
+                    [host_info] => localhost via TCP/IP
+                    [info] => 
+                    [insert_id] => 11
+                    [server_info] => 10.4.32-MariaDB
+                    [server_version] => 100432
+                    [sqlstate] => 00000
+                    [protocol_version] => 10
+                    [thread_id] => 1476
+                    [warning_count] => 0
+                )
+
+            [resultMode] => 0
+        )
+
+    [tableName:protected] => rise_pur_approval_details
+    [randomKeyword:protected] => Array
+        (
+            [0] => RAND()
+            [1] => RAND(%d)
+        )
+
+    [countString:protected] => SELECT COUNT(*) AS 
+    [binds:protected] => Array
+        (
+        )
+
+    [bindsKeyCount:protected] => Array
+        (
+        )
+
+    [canLimitDeletes:protected] => 1
+    [canLimitWhereUpdates:protected] => 1
+    [supportedIgnoreStatements:protected] => Array
+        (
+            [update] => IGNORE
+            [insert] => IGNORE
+            [delete] => IGNORE
+        )
+
+    [testMode:protected] => 
+    [joinTypes:protected] => Array
+        (
+            [0] => LEFT
+            [1] => RIGHT
+            [2] => OUTER
+            [3] => INNER
+            [4] => LEFT OUTER
+            [5] => RIGHT OUTER
+        )
+
+    [isLiteralStr:protected] => Array
+        (
+        )
+
+    [pregOperators:protected] => Array
+        (
+        )
+
+    [escapeChar:protected] => `
+)
+
+CRITICAL - 2025-06-18 05:30:47 --> 1
+CRITICAL - 2025-06-18 05:30:48 --> Hitting the api
+CRITICAL - 2025-06-18 05:30:49 --> CodeIgniter\Database\MySQLi\Builder Object
+(
+    [resetDeleteData:protected] => 
+    [QBSelect:protected] => Array
+        (
+        )
+
+    [QBDistinct:protected] => 
+    [QBFrom:protected] => Array
+        (
+            [0] => `rise_pur_approval_details`
+        )
+
+    [QBJoin:protected] => Array
+        (
+        )
+
+    [QBWhere:protected] => Array
+        (
+        )
+
+    [QBGroupBy] => Array
+        (
+        )
+
+    [QBHaving:protected] => Array
+        (
+        )
+
+    [QBKeys:protected] => Array
+        (
+        )
+
+    [QBLimit:protected] => 
+    [QBOffset:protected] => 
+    [QBOrderBy] => Array
+        (
+        )
+
+    [QBUnion:protected] => Array
+        (
+        )
+
+    [QBNoEscape] => Array
+        (
+        )
+
+    [QBSet:protected] => Array
+        (
+        )
+
+    [QBWhereGroupStarted:protected] => 
+    [QBWhereGroupCount:protected] => 0
+    [QBIgnore:protected] => 
+    [db:protected] => CodeIgniter\Database\MySQLi\Connection Object
+        (
+            [DSN:protected] => 
+            [port:protected] => 3306
+            [hostname:protected] => localhost
+            [username:protected] => root
+            [password:protected] => 
+            [database:protected] => rsra_crm
+            [DBDriver] => MySQLi
+            [subdriver:protected] => 
+            [DBPrefix:protected] => rise_
+            [pConnect:protected] => 
+            [DBDebug:protected] => 1
+            [charset:protected] => utf8
+            [DBCollat:protected] => utf8_general_ci
+            [swapPre:protected] => 
+            [encrypt:protected] => 
+            [compress:protected] => 
+            [strictOn:protected] => 
+            [failover:protected] => Array
+                (
+                )
+
+            [lastQuery:protected] => CodeIgniter\Database\Query Object
+                (
+                    [originalQueryString:protected] => INSERT INTO `rise_pur_approval_details` (`action`, `staffid`, `date_send`, `rel_id`, `rel_type`, `sender`) VALUES (:action:, :staffid:, :date_send:, :rel_id:, :rel_type:, :sender:)
+                    [finalQueryString:protected] => INSERT INTO `rise_pur_approval_details` (`action`, `staffid`, `date_send`, `rel_id`, `rel_type`, `sender`) VALUES ('approve', '9', '2025-06-18 05:30:48', '2', 'pur_quotation', '1')
+                    [binds:protected] => Array
+                        (
+                            [action] => Array
+                                (
+                                    [0] => approve
+                                    [1] => 1
+                                )
+
+                            [staffid] => Array
+                                (
+                                    [0] => 9
+                                    [1] => 1
+                                )
+
+                            [date_send] => Array
+                                (
+                                    [0] => 2025-06-18 05:30:48
+                                    [1] => 1
+                                )
+
+                            [rel_id] => Array
+                                (
+                                    [0] => 2
+                                    [1] => 1
+                                )
+
+                            [rel_type] => Array
+                                (
+                                    [0] => pur_quotation
+                                    [1] => 1
+                                )
+
+                            [sender] => Array
+                                (
+                                    [0] => 1
+                                    [1] => 1
+                                )
+
+                        )
+
+                    [bindMarker:protected] => ?
+                    [startTime:protected] => 1750242648.705
+                    [endTime:protected] => 1750242649.478
+                    [errorCode:protected] => 
+                    [errorString:protected] => 
+                    [db] => CodeIgniter\Database\MySQLi\Connection Object
+ *RECURSION*
+                )
+
+            [connID] => mysqli Object
+                (
+                    [affected_rows] => 1
+                    [client_info] => mysqlnd 8.1.25
+                    [client_version] => 80125
+                    [connect_errno] => 0
+                    [connect_error] => 
+                    [errno] => 0
+                    [error] => 
+                    [error_list] => Array
+                        (
+                        )
+
+                    [field_count] => 0
+                    [host_info] => localhost via TCP/IP
+                    [info] => 
+                    [insert_id] => 12
+                    [server_info] => 10.4.32-MariaDB
+                    [server_version] => 100432
+                    [sqlstate] => 00000
+                    [protocol_version] => 10
+                    [thread_id] => 1477
+                    [warning_count] => 0
+                )
+
+            [resultID] => 1
+            [protectIdentifiers] => 1
+            [reservedIdentifiers:protected] => Array
+                (
+                    [0] => *
+                )
+
+            [escapeChar] => `
+            [likeEscapeStr] =>  ESCAPE '%s' 
+            [likeEscapeChar] => !
+            [pregEscapeChar:protected] => Array
+                (
+                    [1] => `
+                    [0] => `
+                    [3] => `
+                    [2] => `
+                )
+
+            [dataCache] => Array
+                (
+                )
+
+            [connectTime:protected] => 1750242646.1795
+            [connectDuration:protected] => 0.0016500949859619
+            [pretend:protected] => 
+            [transEnabled] => 1
+            [transStrict] => 1
+            [transDepth:protected] => 0
+            [transStatus:protected] => 1
+            [transFailure:protected] => 
+            [aliasedTables:protected] => Array
+                (
+                )
+
+            [queryClass:protected] => CodeIgniter\Database\Query
+            [deleteHack] => 1
+            [mysqli] => mysqli Object
+                (
+                    [affected_rows] => 1
+                    [client_info] => mysqlnd 8.1.25
+                    [client_version] => 80125
+                    [connect_errno] => 0
+                    [connect_error] => 
+                    [errno] => 0
+                    [error] => 
+                    [error_list] => Array
+                        (
+                        )
+
+                    [field_count] => 0
+                    [host_info] => localhost via TCP/IP
+                    [info] => 
+                    [insert_id] => 12
+                    [server_info] => 10.4.32-MariaDB
+                    [server_version] => 100432
+                    [sqlstate] => 00000
+                    [protocol_version] => 10
+                    [thread_id] => 1477
+                    [warning_count] => 0
+                )
+
+            [resultMode] => 0
+        )
+
+    [tableName:protected] => rise_pur_approval_details
+    [randomKeyword:protected] => Array
+        (
+            [0] => RAND()
+            [1] => RAND(%d)
+        )
+
+    [countString:protected] => SELECT COUNT(*) AS 
+    [binds:protected] => Array
+        (
+        )
+
+    [bindsKeyCount:protected] => Array
+        (
+        )
+
+    [canLimitDeletes:protected] => 1
+    [canLimitWhereUpdates:protected] => 1
+    [supportedIgnoreStatements:protected] => Array
+        (
+            [update] => IGNORE
+            [insert] => IGNORE
+            [delete] => IGNORE
+        )
+
+    [testMode:protected] => 
+    [joinTypes:protected] => Array
+        (
+            [0] => LEFT
+            [1] => RIGHT
+            [2] => OUTER
+            [3] => INNER
+            [4] => LEFT OUTER
+            [5] => RIGHT OUTER
+        )
+
+    [isLiteralStr:protected] => Array
+        (
+        )
+
+    [pregOperators:protected] => Array
+        (
+        )
+
+    [escapeChar:protected] => `
+)
+
+CRITICAL - 2025-06-18 05:30:49 --> 1
+CRITICAL - 2025-06-18 05:30:52 --> Hitting the api
+CRITICAL - 2025-06-18 05:30:52 --> CodeIgniter\Database\MySQLi\Builder Object
+(
+    [resetDeleteData:protected] => 
+    [QBSelect:protected] => Array
+        (
+        )
+
+    [QBDistinct:protected] => 
+    [QBFrom:protected] => Array
+        (
+            [0] => `rise_pur_approval_details`
+        )
+
+    [QBJoin:protected] => Array
+        (
+        )
+
+    [QBWhere:protected] => Array
+        (
+        )
+
+    [QBGroupBy] => Array
+        (
+        )
+
+    [QBHaving:protected] => Array
+        (
+        )
+
+    [QBKeys:protected] => Array
+        (
+        )
+
+    [QBLimit:protected] => 
+    [QBOffset:protected] => 
+    [QBOrderBy] => Array
+        (
+        )
+
+    [QBUnion:protected] => Array
+        (
+        )
+
+    [QBNoEscape] => Array
+        (
+        )
+
+    [QBSet:protected] => Array
+        (
+        )
+
+    [QBWhereGroupStarted:protected] => 
+    [QBWhereGroupCount:protected] => 0
+    [QBIgnore:protected] => 
+    [db:protected] => CodeIgniter\Database\MySQLi\Connection Object
+        (
+            [DSN:protected] => 
+            [port:protected] => 3306
+            [hostname:protected] => localhost
+            [username:protected] => root
+            [password:protected] => 
+            [database:protected] => rsra_crm
+            [DBDriver] => MySQLi
+            [subdriver:protected] => 
+            [DBPrefix:protected] => rise_
+            [pConnect:protected] => 
+            [DBDebug:protected] => 1
+            [charset:protected] => utf8
+            [DBCollat:protected] => utf8_general_ci
+            [swapPre:protected] => 
+            [encrypt:protected] => 
+            [compress:protected] => 
+            [strictOn:protected] => 
+            [failover:protected] => Array
+                (
+                )
+
+            [lastQuery:protected] => CodeIgniter\Database\Query Object
+                (
+                    [originalQueryString:protected] => INSERT INTO `rise_pur_approval_details` (`action`, `staffid`, `date_send`, `rel_id`, `rel_type`, `sender`) VALUES (:action:, :staffid:, :date_send:, :rel_id:, :rel_type:, :sender:)
+                    [finalQueryString:protected] => INSERT INTO `rise_pur_approval_details` (`action`, `staffid`, `date_send`, `rel_id`, `rel_type`, `sender`) VALUES ('approve', '9', '2025-06-18 05:30:52', '2', 'pur_quotation', '1')
+                    [binds:protected] => Array
+                        (
+                            [action] => Array
+                                (
+                                    [0] => approve
+                                    [1] => 1
+                                )
+
+                            [staffid] => Array
+                                (
+                                    [0] => 9
+                                    [1] => 1
+                                )
+
+                            [date_send] => Array
+                                (
+                                    [0] => 2025-06-18 05:30:52
+                                    [1] => 1
+                                )
+
+                            [rel_id] => Array
+                                (
+                                    [0] => 2
+                                    [1] => 1
+                                )
+
+                            [rel_type] => Array
+                                (
+                                    [0] => pur_quotation
+                                    [1] => 1
+                                )
+
+                            [sender] => Array
+                                (
+                                    [0] => 1
+                                    [1] => 1
+                                )
+
+                        )
+
+                    [bindMarker:protected] => ?
+                    [startTime:protected] => 1750242652.4564
+                    [endTime:protected] => 1750242652.9841
+                    [errorCode:protected] => 
+                    [errorString:protected] => 
+                    [db] => CodeIgniter\Database\MySQLi\Connection Object
+ *RECURSION*
+                )
+
+            [connID] => mysqli Object
+                (
+                    [affected_rows] => 1
+                    [client_info] => mysqlnd 8.1.25
+                    [client_version] => 80125
+                    [connect_errno] => 0
+                    [connect_error] => 
+                    [errno] => 0
+                    [error] => 
+                    [error_list] => Array
+                        (
+                        )
+
+                    [field_count] => 0
+                    [host_info] => localhost via TCP/IP
+                    [info] => 
+                    [insert_id] => 13
+                    [server_info] => 10.4.32-MariaDB
+                    [server_version] => 100432
+                    [sqlstate] => 00000
+                    [protocol_version] => 10
+                    [thread_id] => 1480
+                    [warning_count] => 0
+                )
+
+            [resultID] => 1
+            [protectIdentifiers] => 1
+            [reservedIdentifiers:protected] => Array
+                (
+                    [0] => *
+                )
+
+            [escapeChar] => `
+            [likeEscapeStr] =>  ESCAPE '%s' 
+            [likeEscapeChar] => !
+            [pregEscapeChar:protected] => Array
+                (
+                    [1] => `
+                    [0] => `
+                    [3] => `
+                    [2] => `
+                )
+
+            [dataCache] => Array
+                (
+                )
+
+            [connectTime:protected] => 1750242651.1786
+            [connectDuration:protected] => 0.0019509792327881
+            [pretend:protected] => 
+            [transEnabled] => 1
+            [transStrict] => 1
+            [transDepth:protected] => 0
+            [transStatus:protected] => 1
+            [transFailure:protected] => 
+            [aliasedTables:protected] => Array
+                (
+                )
+
+            [queryClass:protected] => CodeIgniter\Database\Query
+            [deleteHack] => 1
+            [mysqli] => mysqli Object
+                (
+                    [affected_rows] => 1
+                    [client_info] => mysqlnd 8.1.25
+                    [client_version] => 80125
+                    [connect_errno] => 0
+                    [connect_error] => 
+                    [errno] => 0
+                    [error] => 
+                    [error_list] => Array
+                        (
+                        )
+
+                    [field_count] => 0
+                    [host_info] => localhost via TCP/IP
+                    [info] => 
+                    [insert_id] => 13
+                    [server_info] => 10.4.32-MariaDB
+                    [server_version] => 100432
+                    [sqlstate] => 00000
+                    [protocol_version] => 10
+                    [thread_id] => 1480
+                    [warning_count] => 0
+                )
+
+            [resultMode] => 0
+        )
+
+    [tableName:protected] => rise_pur_approval_details
+    [randomKeyword:protected] => Array
+        (
+            [0] => RAND()
+            [1] => RAND(%d)
+        )
+
+    [countString:protected] => SELECT COUNT(*) AS 
+    [binds:protected] => Array
+        (
+        )
+
+    [bindsKeyCount:protected] => Array
+        (
+        )
+
+    [canLimitDeletes:protected] => 1
+    [canLimitWhereUpdates:protected] => 1
+    [supportedIgnoreStatements:protected] => Array
+        (
+            [update] => IGNORE
+            [insert] => IGNORE
+            [delete] => IGNORE
+        )
+
+    [testMode:protected] => 
+    [joinTypes:protected] => Array
+        (
+            [0] => LEFT
+            [1] => RIGHT
+            [2] => OUTER
+            [3] => INNER
+            [4] => LEFT OUTER
+            [5] => RIGHT OUTER
+        )
+
+    [isLiteralStr:protected] => Array
+        (
+        )
+
+    [pregOperators:protected] => Array
+        (
+        )
+
+    [escapeChar:protected] => `
+)
+
+CRITICAL - 2025-06-18 05:30:52 --> 1
+CRITICAL - 2025-06-18 05:30:53 --> Hitting the api
+CRITICAL - 2025-06-18 05:30:53 --> CodeIgniter\Database\MySQLi\Builder Object
+(
+    [resetDeleteData:protected] => 
+    [QBSelect:protected] => Array
+        (
+        )
+
+    [QBDistinct:protected] => 
+    [QBFrom:protected] => Array
+        (
+            [0] => `rise_pur_approval_details`
+        )
+
+    [QBJoin:protected] => Array
+        (
+        )
+
+    [QBWhere:protected] => Array
+        (
+        )
+
+    [QBGroupBy] => Array
+        (
+        )
+
+    [QBHaving:protected] => Array
+        (
+        )
+
+    [QBKeys:protected] => Array
+        (
+        )
+
+    [QBLimit:protected] => 
+    [QBOffset:protected] => 
+    [QBOrderBy] => Array
+        (
+        )
+
+    [QBUnion:protected] => Array
+        (
+        )
+
+    [QBNoEscape] => Array
+        (
+        )
+
+    [QBSet:protected] => Array
+        (
+        )
+
+    [QBWhereGroupStarted:protected] => 
+    [QBWhereGroupCount:protected] => 0
+    [QBIgnore:protected] => 
+    [db:protected] => CodeIgniter\Database\MySQLi\Connection Object
+        (
+            [DSN:protected] => 
+            [port:protected] => 3306
+            [hostname:protected] => localhost
+            [username:protected] => root
+            [password:protected] => 
+            [database:protected] => rsra_crm
+            [DBDriver] => MySQLi
+            [subdriver:protected] => 
+            [DBPrefix:protected] => rise_
+            [pConnect:protected] => 
+            [DBDebug:protected] => 1
+            [charset:protected] => utf8
+            [DBCollat:protected] => utf8_general_ci
+            [swapPre:protected] => 
+            [encrypt:protected] => 
+            [compress:protected] => 
+            [strictOn:protected] => 
+            [failover:protected] => Array
+                (
+                )
+
+            [lastQuery:protected] => CodeIgniter\Database\Query Object
+                (
+                    [originalQueryString:protected] => INSERT INTO `rise_pur_approval_details` (`action`, `staffid`, `date_send`, `rel_id`, `rel_type`, `sender`) VALUES (:action:, :staffid:, :date_send:, :rel_id:, :rel_type:, :sender:)
+                    [finalQueryString:protected] => INSERT INTO `rise_pur_approval_details` (`action`, `staffid`, `date_send`, `rel_id`, `rel_type`, `sender`) VALUES ('approve', '9', '2025-06-18 05:30:53', '2', 'pur_quotation', '1')
+                    [binds:protected] => Array
+                        (
+                            [action] => Array
+                                (
+                                    [0] => approve
+                                    [1] => 1
+                                )
+
+                            [staffid] => Array
+                                (
+                                    [0] => 9
+                                    [1] => 1
+                                )
+
+                            [date_send] => Array
+                                (
+                                    [0] => 2025-06-18 05:30:53
+                                    [1] => 1
+                                )
+
+                            [rel_id] => Array
+                                (
+                                    [0] => 2
+                                    [1] => 1
+                                )
+
+                            [rel_type] => Array
+                                (
+                                    [0] => pur_quotation
+                                    [1] => 1
+                                )
+
+                            [sender] => Array
+                                (
+                                    [0] => 1
+                                    [1] => 1
+                                )
+
+                        )
+
+                    [bindMarker:protected] => ?
+                    [startTime:protected] => 1750242653.6591
+                    [endTime:protected] => 1750242653.839
+                    [errorCode:protected] => 
+                    [errorString:protected] => 
+                    [db] => CodeIgniter\Database\MySQLi\Connection Object
+ *RECURSION*
+                )
+
+            [connID] => mysqli Object
+                (
+                    [affected_rows] => 1
+                    [client_info] => mysqlnd 8.1.25
+                    [client_version] => 80125
+                    [connect_errno] => 0
+                    [connect_error] => 
+                    [errno] => 0
+                    [error] => 
+                    [error_list] => Array
+                        (
+                        )
+
+                    [field_count] => 0
+                    [host_info] => localhost via TCP/IP
+                    [info] => 
+                    [insert_id] => 14
+                    [server_info] => 10.4.32-MariaDB
+                    [server_version] => 100432
+                    [sqlstate] => 00000
+                    [protocol_version] => 10
+                    [thread_id] => 1481
+                    [warning_count] => 0
+                )
+
+            [resultID] => 1
+            [protectIdentifiers] => 1
+            [reservedIdentifiers:protected] => Array
+                (
+                    [0] => *
+                )
+
+            [escapeChar] => `
+            [likeEscapeStr] =>  ESCAPE '%s' 
+            [likeEscapeChar] => !
+            [pregEscapeChar:protected] => Array
+                (
+                    [1] => `
+                    [0] => `
+                    [3] => `
+                    [2] => `
+                )
+
+            [dataCache] => Array
+                (
+                )
+
+            [connectTime:protected] => 1750242653.3838
+            [connectDuration:protected] => 0.0022408962249756
+            [pretend:protected] => 
+            [transEnabled] => 1
+            [transStrict] => 1
+            [transDepth:protected] => 0
+            [transStatus:protected] => 1
+            [transFailure:protected] => 
+            [aliasedTables:protected] => Array
+                (
+                )
+
+            [queryClass:protected] => CodeIgniter\Database\Query
+            [deleteHack] => 1
+            [mysqli] => mysqli Object
+                (
+                    [affected_rows] => 1
+                    [client_info] => mysqlnd 8.1.25
+                    [client_version] => 80125
+                    [connect_errno] => 0
+                    [connect_error] => 
+                    [errno] => 0
+                    [error] => 
+                    [error_list] => Array
+                        (
+                        )
+
+                    [field_count] => 0
+                    [host_info] => localhost via TCP/IP
+                    [info] => 
+                    [insert_id] => 14
+                    [server_info] => 10.4.32-MariaDB
+                    [server_version] => 100432
+                    [sqlstate] => 00000
+                    [protocol_version] => 10
+                    [thread_id] => 1481
+                    [warning_count] => 0
+                )
+
+            [resultMode] => 0
+        )
+
+    [tableName:protected] => rise_pur_approval_details
+    [randomKeyword:protected] => Array
+        (
+            [0] => RAND()
+            [1] => RAND(%d)
+        )
+
+    [countString:protected] => SELECT COUNT(*) AS 
+    [binds:protected] => Array
+        (
+        )
+
+    [bindsKeyCount:protected] => Array
+        (
+        )
+
+    [canLimitDeletes:protected] => 1
+    [canLimitWhereUpdates:protected] => 1
+    [supportedIgnoreStatements:protected] => Array
+        (
+            [update] => IGNORE
+            [insert] => IGNORE
+            [delete] => IGNORE
+        )
+
+    [testMode:protected] => 
+    [joinTypes:protected] => Array
+        (
+            [0] => LEFT
+            [1] => RIGHT
+            [2] => OUTER
+            [3] => INNER
+            [4] => LEFT OUTER
+            [5] => RIGHT OUTER
+        )
+
+    [isLiteralStr:protected] => Array
+        (
+        )
+
+    [pregOperators:protected] => Array
+        (
+        )
+
+    [escapeChar:protected] => `
+)
+
+CRITICAL - 2025-06-18 05:30:53 --> 1
+CRITICAL - 2025-06-18 05:30:57 --> Hitting the api
+CRITICAL - 2025-06-18 05:30:57 --> CodeIgniter\Database\MySQLi\Builder Object
+(
+    [resetDeleteData:protected] => 
+    [QBSelect:protected] => Array
+        (
+        )
+
+    [QBDistinct:protected] => 
+    [QBFrom:protected] => Array
+        (
+            [0] => `rise_pur_approval_details`
+        )
+
+    [QBJoin:protected] => Array
+        (
+        )
+
+    [QBWhere:protected] => Array
+        (
+        )
+
+    [QBGroupBy] => Array
+        (
+        )
+
+    [QBHaving:protected] => Array
+        (
+        )
+
+    [QBKeys:protected] => Array
+        (
+        )
+
+    [QBLimit:protected] => 
+    [QBOffset:protected] => 
+    [QBOrderBy] => Array
+        (
+        )
+
+    [QBUnion:protected] => Array
+        (
+        )
+
+    [QBNoEscape] => Array
+        (
+        )
+
+    [QBSet:protected] => Array
+        (
+        )
+
+    [QBWhereGroupStarted:protected] => 
+    [QBWhereGroupCount:protected] => 0
+    [QBIgnore:protected] => 
+    [db:protected] => CodeIgniter\Database\MySQLi\Connection Object
+        (
+            [DSN:protected] => 
+            [port:protected] => 3306
+            [hostname:protected] => localhost
+            [username:protected] => root
+            [password:protected] => 
+            [database:protected] => rsra_crm
+            [DBDriver] => MySQLi
+            [subdriver:protected] => 
+            [DBPrefix:protected] => rise_
+            [pConnect:protected] => 
+            [DBDebug:protected] => 1
+            [charset:protected] => utf8
+            [DBCollat:protected] => utf8_general_ci
+            [swapPre:protected] => 
+            [encrypt:protected] => 
+            [compress:protected] => 
+            [strictOn:protected] => 
+            [failover:protected] => Array
+                (
+                )
+
+            [lastQuery:protected] => CodeIgniter\Database\Query Object
+                (
+                    [originalQueryString:protected] => INSERT INTO `rise_pur_approval_details` (`action`, `staffid`, `date_send`, `rel_id`, `rel_type`, `sender`) VALUES (:action:, :staffid:, :date_send:, :rel_id:, :rel_type:, :sender:)
+                    [finalQueryString:protected] => INSERT INTO `rise_pur_approval_details` (`action`, `staffid`, `date_send`, `rel_id`, `rel_type`, `sender`) VALUES ('approve', '9', '2025-06-18 05:30:57', '2', 'pur_quotation', '1')
+                    [binds:protected] => Array
+                        (
+                            [action] => Array
+                                (
+                                    [0] => approve
+                                    [1] => 1
+                                )
+
+                            [staffid] => Array
+                                (
+                                    [0] => 9
+                                    [1] => 1
+                                )
+
+                            [date_send] => Array
+                                (
+                                    [0] => 2025-06-18 05:30:57
+                                    [1] => 1
+                                )
+
+                            [rel_id] => Array
+                                (
+                                    [0] => 2
+                                    [1] => 1
+                                )
+
+                            [rel_type] => Array
+                                (
+                                    [0] => pur_quotation
+                                    [1] => 1
+                                )
+
+                            [sender] => Array
+                                (
+                                    [0] => 1
+                                    [1] => 1
+                                )
+
+                        )
+
+                    [bindMarker:protected] => ?
+                    [startTime:protected] => 1750242657.3445
+                    [endTime:protected] => 1750242657.8701
+                    [errorCode:protected] => 
+                    [errorString:protected] => 
+                    [db] => CodeIgniter\Database\MySQLi\Connection Object
+ *RECURSION*
+                )
+
+            [connID] => mysqli Object
+                (
+                    [affected_rows] => 1
+                    [client_info] => mysqlnd 8.1.25
+                    [client_version] => 80125
+                    [connect_errno] => 0
+                    [connect_error] => 
+                    [errno] => 0
+                    [error] => 
+                    [error_list] => Array
+                        (
+                        )
+
+                    [field_count] => 0
+                    [host_info] => localhost via TCP/IP
+                    [info] => 
+                    [insert_id] => 15
+                    [server_info] => 10.4.32-MariaDB
+                    [server_version] => 100432
+                    [sqlstate] => 00000
+                    [protocol_version] => 10
+                    [thread_id] => 1483
+                    [warning_count] => 0
+                )
+
+            [resultID] => 1
+            [protectIdentifiers] => 1
+            [reservedIdentifiers:protected] => Array
+                (
+                    [0] => *
+                )
+
+            [escapeChar] => `
+            [likeEscapeStr] =>  ESCAPE '%s' 
+            [likeEscapeChar] => !
+            [pregEscapeChar:protected] => Array
+                (
+                    [1] => `
+                    [0] => `
+                    [3] => `
+                    [2] => `
+                )
+
+            [dataCache] => Array
+                (
+                )
+
+            [connectTime:protected] => 1750242657.0507
+            [connectDuration:protected] => 0.0029289722442627
+            [pretend:protected] => 
+            [transEnabled] => 1
+            [transStrict] => 1
+            [transDepth:protected] => 0
+            [transStatus:protected] => 1
+            [transFailure:protected] => 
+            [aliasedTables:protected] => Array
+                (
+                )
+
+            [queryClass:protected] => CodeIgniter\Database\Query
+            [deleteHack] => 1
+            [mysqli] => mysqli Object
+                (
+                    [affected_rows] => 1
+                    [client_info] => mysqlnd 8.1.25
+                    [client_version] => 80125
+                    [connect_errno] => 0
+                    [connect_error] => 
+                    [errno] => 0
+                    [error] => 
+                    [error_list] => Array
+                        (
+                        )
+
+                    [field_count] => 0
+                    [host_info] => localhost via TCP/IP
+                    [info] => 
+                    [insert_id] => 15
+                    [server_info] => 10.4.32-MariaDB
+                    [server_version] => 100432
+                    [sqlstate] => 00000
+                    [protocol_version] => 10
+                    [thread_id] => 1483
+                    [warning_count] => 0
+                )
+
+            [resultMode] => 0
+        )
+
+    [tableName:protected] => rise_pur_approval_details
+    [randomKeyword:protected] => Array
+        (
+            [0] => RAND()
+            [1] => RAND(%d)
+        )
+
+    [countString:protected] => SELECT COUNT(*) AS 
+    [binds:protected] => Array
+        (
+        )
+
+    [bindsKeyCount:protected] => Array
+        (
+        )
+
+    [canLimitDeletes:protected] => 1
+    [canLimitWhereUpdates:protected] => 1
+    [supportedIgnoreStatements:protected] => Array
+        (
+            [update] => IGNORE
+            [insert] => IGNORE
+            [delete] => IGNORE
+        )
+
+    [testMode:protected] => 
+    [joinTypes:protected] => Array
+        (
+            [0] => LEFT
+            [1] => RIGHT
+            [2] => OUTER
+            [3] => INNER
+            [4] => LEFT OUTER
+            [5] => RIGHT OUTER
+        )
+
+    [isLiteralStr:protected] => Array
+        (
+        )
+
+    [pregOperators:protected] => Array
+        (
+        )
+
+    [escapeChar:protected] => `
+)
+
+CRITICAL - 2025-06-18 05:30:57 --> 1
+CRITICAL - 2025-06-18 05:30:58 --> Hitting the api
+CRITICAL - 2025-06-18 05:30:59 --> CodeIgniter\Database\MySQLi\Builder Object
+(
+    [resetDeleteData:protected] => 
+    [QBSelect:protected] => Array
+        (
+        )
+
+    [QBDistinct:protected] => 
+    [QBFrom:protected] => Array
+        (
+            [0] => `rise_pur_approval_details`
+        )
+
+    [QBJoin:protected] => Array
+        (
+        )
+
+    [QBWhere:protected] => Array
+        (
+        )
+
+    [QBGroupBy] => Array
+        (
+        )
+
+    [QBHaving:protected] => Array
+        (
+        )
+
+    [QBKeys:protected] => Array
+        (
+        )
+
+    [QBLimit:protected] => 
+    [QBOffset:protected] => 
+    [QBOrderBy] => Array
+        (
+        )
+
+    [QBUnion:protected] => Array
+        (
+        )
+
+    [QBNoEscape] => Array
+        (
+        )
+
+    [QBSet:protected] => Array
+        (
+        )
+
+    [QBWhereGroupStarted:protected] => 
+    [QBWhereGroupCount:protected] => 0
+    [QBIgnore:protected] => 
+    [db:protected] => CodeIgniter\Database\MySQLi\Connection Object
+        (
+            [DSN:protected] => 
+            [port:protected] => 3306
+            [hostname:protected] => localhost
+            [username:protected] => root
+            [password:protected] => 
+            [database:protected] => rsra_crm
+            [DBDriver] => MySQLi
+            [subdriver:protected] => 
+            [DBPrefix:protected] => rise_
+            [pConnect:protected] => 
+            [DBDebug:protected] => 1
+            [charset:protected] => utf8
+            [DBCollat:protected] => utf8_general_ci
+            [swapPre:protected] => 
+            [encrypt:protected] => 
+            [compress:protected] => 
+            [strictOn:protected] => 
+            [failover:protected] => Array
+                (
+                )
+
+            [lastQuery:protected] => CodeIgniter\Database\Query Object
+                (
+                    [originalQueryString:protected] => INSERT INTO `rise_pur_approval_details` (`action`, `staffid`, `date_send`, `rel_id`, `rel_type`, `sender`) VALUES (:action:, :staffid:, :date_send:, :rel_id:, :rel_type:, :sender:)
+                    [finalQueryString:protected] => INSERT INTO `rise_pur_approval_details` (`action`, `staffid`, `date_send`, `rel_id`, `rel_type`, `sender`) VALUES ('approve', '9', '2025-06-18 05:30:58', '2', 'pur_quotation', '1')
+                    [binds:protected] => Array
+                        (
+                            [action] => Array
+                                (
+                                    [0] => approve
+                                    [1] => 1
+                                )
+
+                            [staffid] => Array
+                                (
+                                    [0] => 9
+                                    [1] => 1
+                                )
+
+                            [date_send] => Array
+                                (
+                                    [0] => 2025-06-18 05:30:58
+                                    [1] => 1
+                                )
+
+                            [rel_id] => Array
+                                (
+                                    [0] => 2
+                                    [1] => 1
+                                )
+
+                            [rel_type] => Array
+                                (
+                                    [0] => pur_quotation
+                                    [1] => 1
+                                )
+
+                            [sender] => Array
+                                (
+                                    [0] => 1
+                                    [1] => 1
+                                )
+
+                        )
+
+                    [bindMarker:protected] => ?
+                    [startTime:protected] => 1750242659.1448
+                    [endTime:protected] => 1750242659.6591
+                    [errorCode:protected] => 
+                    [errorString:protected] => 
+                    [db] => CodeIgniter\Database\MySQLi\Connection Object
+ *RECURSION*
+                )
+
+            [connID] => mysqli Object
+                (
+                    [affected_rows] => 1
+                    [client_info] => mysqlnd 8.1.25
+                    [client_version] => 80125
+                    [connect_errno] => 0
+                    [connect_error] => 
+                    [errno] => 0
+                    [error] => 
+                    [error_list] => Array
+                        (
+                        )
+
+                    [field_count] => 0
+                    [host_info] => localhost via TCP/IP
+                    [info] => 
+                    [insert_id] => 16
+                    [server_info] => 10.4.32-MariaDB
+                    [server_version] => 100432
+                    [sqlstate] => 00000
+                    [protocol_version] => 10
+                    [thread_id] => 1484
+                    [warning_count] => 0
+                )
+
+            [resultID] => 1
+            [protectIdentifiers] => 1
+            [reservedIdentifiers:protected] => Array
+                (
+                    [0] => *
+                )
+
+            [escapeChar] => `
+            [likeEscapeStr] =>  ESCAPE '%s' 
+            [likeEscapeChar] => !
+            [pregEscapeChar:protected] => Array
+                (
+                    [1] => `
+                    [0] => `
+                    [3] => `
+                    [2] => `
+                )
+
+            [dataCache] => Array
+                (
+                )
+
+            [connectTime:protected] => 1750242658.85
+            [connectDuration:protected] => 0.0018539428710938
+            [pretend:protected] => 
+            [transEnabled] => 1
+            [transStrict] => 1
+            [transDepth:protected] => 0
+            [transStatus:protected] => 1
+            [transFailure:protected] => 
+            [aliasedTables:protected] => Array
+                (
+                )
+
+            [queryClass:protected] => CodeIgniter\Database\Query
+            [deleteHack] => 1
+            [mysqli] => mysqli Object
+                (
+                    [affected_rows] => 1
+                    [client_info] => mysqlnd 8.1.25
+                    [client_version] => 80125
+                    [connect_errno] => 0
+                    [connect_error] => 
+                    [errno] => 0
+                    [error] => 
+                    [error_list] => Array
+                        (
+                        )
+
+                    [field_count] => 0
+                    [host_info] => localhost via TCP/IP
+                    [info] => 
+                    [insert_id] => 16
+                    [server_info] => 10.4.32-MariaDB
+                    [server_version] => 100432
+                    [sqlstate] => 00000
+                    [protocol_version] => 10
+                    [thread_id] => 1484
+                    [warning_count] => 0
+                )
+
+            [resultMode] => 0
+        )
+
+    [tableName:protected] => rise_pur_approval_details
+    [randomKeyword:protected] => Array
+        (
+            [0] => RAND()
+            [1] => RAND(%d)
+        )
+
+    [countString:protected] => SELECT COUNT(*) AS 
+    [binds:protected] => Array
+        (
+        )
+
+    [bindsKeyCount:protected] => Array
+        (
+        )
+
+    [canLimitDeletes:protected] => 1
+    [canLimitWhereUpdates:protected] => 1
+    [supportedIgnoreStatements:protected] => Array
+        (
+            [update] => IGNORE
+            [insert] => IGNORE
+            [delete] => IGNORE
+        )
+
+    [testMode:protected] => 
+    [joinTypes:protected] => Array
+        (
+            [0] => LEFT
+            [1] => RIGHT
+            [2] => OUTER
+            [3] => INNER
+            [4] => LEFT OUTER
+            [5] => RIGHT OUTER
+        )
+
+    [isLiteralStr:protected] => Array
+        (
+        )
+
+    [pregOperators:protected] => Array
+        (
+        )
+
+    [escapeChar:protected] => `
+)
+
+CRITICAL - 2025-06-18 05:30:59 --> 1
+ERROR - 2025-06-18 05:31:21 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-18 05:35:06 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-18 05:35:20 --> DEBUG: $sGroupBy = 

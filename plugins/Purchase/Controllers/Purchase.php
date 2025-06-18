@@ -2476,7 +2476,7 @@ class Purchase extends Security_Controller
     $data['check_approve_status'] = $this->Purchase_model->check_approval_details($id, 'pur_request');
     $data['list_approve_status']  = $this->Purchase_model->get_list_approval_details($id, 'pur_request');
     $data['taxes']                = $this->Purchase_model->get_taxes();
-
+$data['pur_request_comments'] = $this->Purchase_model->get_comments($id);
     $data['tab'] = $this->request->getGet('tab');
     if ($data['tab'] == '') {
       $data['tab'] == 'information';
@@ -2551,6 +2551,7 @@ class Purchase extends Security_Controller
     $data    = $this->request->getPost();
     $message = 'Send request approval fail';
     $success = $this->Purchase_model->send_request_approve($data);
+     log_message("critical", $success);
     if ($success === true) {
       $message                       = 'Send request approval success';
       $data_new                      = [];
@@ -2573,11 +2574,57 @@ class Purchase extends Security_Controller
     die;
   }
 
-  /**
-   * send mail
-   * @param  integer $id
-   * @return json
-   */
+
+ /**
+ * Adds a comment to purchase request
+ *
+ * @return json
+ */
+public function add_comment()
+{
+    $this->response->setContentType('application/json');
+    
+    if ($this->request->getMethod() === 'post') {
+        $comment = $this->request->getPost('comment');
+        $pur_request_id = $this->request->getPost('pur_request_id');
+        
+        if (empty($comment) || empty($pur_request_id)) {
+            echo json_encode([
+                'success' => false, 
+                'message' => 'Comment content and purchase request ID are required'
+            ]);
+            return;
+        }
+        
+        $comment_data = [
+            'pur_request_id' => $pur_request_id,
+            'comment' => $comment,
+            'user_id' => get_staff_user_id(),
+            'user_name' => get_staff_full_name(get_staff_user_id()),
+            'created_at' => date('Y-m-d H:i:s')
+        ];
+        
+        $comment_id = $this->Purchase_model->add_comment($comment_data);
+        
+        if ($comment_id) {
+            echo json_encode([
+                'success' => true, 
+                'message' => 'Comment added successfully',
+                'comment' => $comment_data
+            ]);
+        } else {
+            echo json_encode([
+                'success' => false, 
+                'message' => 'Failed to add comment to database'
+            ]);
+        }
+    } else {
+        echo json_encode([
+            'success' => false, 
+            'message' => 'Invalid request method'
+        ]);
+    }
+}
   public function send_mail()
   {
     $data = $this->request->getGet();
