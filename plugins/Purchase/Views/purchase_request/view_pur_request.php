@@ -122,6 +122,64 @@
             </tbody>
           </table>
         </div>
+        
+        <div class="row ml15 mr15 mt25">
+          <div class="col-md-12">
+            <div class="row">
+              <p class="bold p_style">Comments</p>
+              <hr class="hr_style" />
+              <div id="comments-list">
+               
+                <div class="comment mb15">
+                  <div class="comment-header">
+                    <strong>John Smith</strong> - 
+                    <span class="text-muted"><?php echo date('M d, Y '); ?></span>
+                  </div>
+                  <div class="comment-body">
+                    Please add shipping details to this request. We need express delivery.
+                  </div>
+                </div>
+                
+                <div class="comment mb15">
+                  <div class="comment-header">
+                    <strong>Sarah Johnson</strong> - 
+                    <span class="text-muted"><?php echo date('M d, Y ', strtotime('-1 day')); ?></span>
+                  </div>
+                  <div class="comment-body">
+                    Budget approved for this request. Please proceed with vendor selection.
+                  </div>
+                </div>
+                
+                <div class="comment mb15">
+                  <div class="comment-header">
+                    <strong>Michael Chen</strong> - 
+                    <span class="text-muted"><?php echo date('M d, Y ', strtotime('-2 days')); ?></span>
+                  </div>
+                  <div class="comment-body">
+                    Can we get alternative options for item #3? The current selection is out of stock.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+       <div class="row ml15 mr15 mt25">
+          <div class="col-md-12">
+            <div class="row">
+              <p class="bold p_style">Add Comment</p>
+              <hr class="hr_style" />
+              <div class="col-md-12">
+                <div class="form-group">
+                  <textarea id="comment_content" class="form-control" rows="3" placeholder="Type your comment here"></textarea>
+                </div>
+                <button type="button" onclick="addComment();" class="btn btn-info">
+                 Add comment
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div class="row ml15 mr15">
           <p class=" p_style"><?php echo _l('pur_detail'); ?></p>
@@ -439,38 +497,3 @@
       </div>
 
     </div>
-
-
-
-  </div>
-</div>
-
-
-<div class="modal fade" id="add_action" tabindex="-1" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <div class="modal-body">
-        <p class="bold" id="signatureLabel"><?php echo _l('signature'); ?></p>
-        <div class="signature-pad--body border">
-          <canvas id="signature" height="130" width="550"></canvas>
-        </div>
-        <input type="text" class="ip_style d-none" tabindex="-1" name="signature" id="signatureInput">
-        <div class="dispay-block">
-          <button type="button" class="btn btn-default btn-xs clear" tabindex="-1" onclick="signature_clear();"><?php echo _l('clear'); ?></button>
-
-        </div>
-
-      </div>
-      <div class="modal-footer">
-
-        <button onclick="sign_request(<?php echo html_entity_decode($pur_request->id); ?>);" data-loading-text="<?php echo _l('wait_text'); ?>" autocomplete="off" class="btn btn-success"><?php echo _l('e_signature_sign'); ?></button>
-      </div>
-
-
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-
-<?php require FCPATH . PLUGIN_URL_PATH . "Purchase/assets/js/purchase_request/view_pur_request_js.php";  ?>

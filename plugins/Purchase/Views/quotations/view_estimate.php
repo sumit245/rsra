@@ -443,6 +443,6 @@
 </div><!-- /.modal -->
 
 
-<?php require FCPATH. PLUGIN_URL_PATH . "Purchase/assets/js/quotations/estimate_preview_template_js.php";  ?>
+<?php require  "plugins/Purchase/assets/js/quotations/estimate_preview_template_js.php";  ?>
 
 

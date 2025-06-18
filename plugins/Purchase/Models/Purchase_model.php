@@ -3648,6 +3648,7 @@ class Purchase_model extends Crud_model
         $builder->insert($row);
       }
     }
+    log_message("critical", "Sucess in Hitting the api");
     return true;
   }
 

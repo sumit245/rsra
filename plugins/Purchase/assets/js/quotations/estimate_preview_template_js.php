@@ -51,6 +51,8 @@ function send_request_approve(id){
     data.rel_id = <?php echo html_entity_decode($estimate->id); ?>;
     data.rel_type = 'pur_quotation';
     data.addedfrom = <?php echo html_entity_decode($estimate->addedfrom); ?>;
+    console.log(id);
+    console.table(data);
   $("body").append('<div class="dt-loader"></div>');
     $.post("<?php echo get_uri('purchase/send_request_approve'); ?>", data).done(function(response){
         response = JSON.parse(response);
@@ -180,7 +182,7 @@ function deny_request(id){
 }
 
 function change_request_approval_status(id, status, sign_code = false){
-  "use strict";
+  // "use strict";
     var data = {};
     data.rel_id = id;
     data.rel_type = 'pur_quotation';
