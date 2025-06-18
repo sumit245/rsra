@@ -590,7 +590,8 @@ th {
     border-radius: 4px;
 }
 
-.purchase_order_wrapper {
+
+.dataTables_wrapper {
     display: flex;
     flex-direction: column;
     overflow: hidden;

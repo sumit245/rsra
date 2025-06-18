@@ -37,7 +37,7 @@
         ?>
         <div class="row mx-1 ">
           <div class="col-md-3 form-group">
-            <label for="department"><?php echo _l('department'); ?></label>
+            <label for="department"><?php echo _l('hrp_department'); ?></label>
             <select name="department" id="department" class="select2 validate-hidden" onchange="department_change(this); return false;" data-live-search="true" data-width="100%" data-none-selected-text="<?php echo _l('ticket_settings_none_assigned'); ?>">
               <option value="">-</option>
               <?php foreach ($departments as $s) { ?>

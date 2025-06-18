@@ -5761,6 +5761,26 @@ class Purchase_model extends Crud_model
   }
 
   /**
+   * { change delivery status pur order }
+   *
+   * @param      <type>   $status  The status
+   * @param      <type>   $id      The identifier
+   *
+   * @return     boolean  ( description_of_the_return_value )
+   */
+  public function change_delivery_status_pur_order($status, $id)
+  {
+    $builder = $this->db->table(db_prefix() . 'pur_orders');
+    $builder->where('id', $id);
+    $aff = $builder->update(['delivery_status' => $status]);
+    if ($aff > 0) {
+      app_hooks()->apply_filters('create_goods_receipt', ['status' => $status, 'id' => $id]);
+      return true;
+    }
+    return false;
+  }
+
+  /**
    * { mark_pur_order_as }
    *
    * @param      string  $status     The status

@@ -149,10 +149,12 @@
 						</div>
 						<div class="col-md-6">
 							<?php $premium_rates = isset($premium_rates) ? $premium_rates : '' ?>
-							<label for="rate"><span class="text-danger">* </span><?php echo app_lang('rate'); ?></label>
+							<label for="rate">
+								<!-- <span class="text-danger">* </span> -->
+								<?php echo app_lang('rate'); ?></label>
 							<?php
 							$attr = array();
-							echo render_input1('rate', '', $rate, 'number', $attr, [], '', '', true); ?>
+							echo render_input1('rate', '', $rate, 'number', $attr); ?>
 						</div>
 					</div>
 

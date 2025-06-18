@@ -46,21 +46,22 @@
     <!-- if estimateid found in url -->
 
     <?php $table_data = array(
-      _l('purchase_order'),
+      _l('purchase_order_code'),
       _l('vendor'),
       _l('order_date'),
-      _l('type'),
+      // _l('type'),
       _l('project'),
-      _l('department'),
-      _l('po_description'),
-      _l('po_value'),
-      _l('tax_value'),
+      _l('hrp_department'),
+      // _l('po_description'),
+      // _l('po_value'),
+      // _l('tax_value'),
       _l('po_value_included_tax'),
       _l('approval_status'),
       _l('delivery_date'),
       _l('delivery_status'),
       _l('payment_status'),
       _l('options'),
+
     );
 
     render_datatable1($table_data, 'table_pur_order'); ?>

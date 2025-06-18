@@ -374,7 +374,7 @@
                                 <img src="<?php echo  base_url('plugins/Purchase/Uploads/approval/rejected.png'); ?>" class="img_style">
                             <?php } ?> 
                             <br><br>
-                            <p><?php echo html_entity_decode($value['note']) ?></p>  
+                            <p><?php echo html_entity_decode($value['note']??"") ?></p>  
                             <p class="bold text-center text-<?php if($value['approve'] == 2){ echo 'success'; }elseif($value['approve'] == 3){ echo 'danger'; } ?>"><?php echo format_to_date($value['date']); ?></p> 
                         </div>
                         <?php }

@@ -1,102 +1,76 @@
-ERROR - 2025-06-17 05:05:56 --> DEBUG: $sGroupBy = 
-CRITICAL - 2025-06-17 05:05:57 --> Data Retrieved isArray
-(
-    [pur_order_number] => #-00001-Jun-2025-VEND001
-    [vendor] => 1
-    [order_date] => 2025-06-08
-    [type] => opex
-    [project] => 5
-    [department] => 2
-    [pur_order_name] => #-00001-Jun-2025
-    [subtotal] => 5000.00
-    [total_tax] => 500.00
-    [total] => 5225.00
-    [approve_status] => 2
-    [delivery_date] => 2025-06-07
-    [delivery_status] => 0
-    [number] => 1
-    [expense_convert] => 0
-    [id] => 2
-    [company] => Surya Infotech
-    [project_name] => Robotic Cell
-    [department_name] => Electrical
-    [currency] => INR
-)
-
-CRITICAL - 2025-06-17 05:05:57 --> Data Retrieved isArray
-(
-    [pur_order_number] => #-00001-May-2025
-    [vendor] => 0
-    [order_date] => 2025-05-22
-    [type] => capex
-    [project] => 3
-    [department] => 0
-    [pur_order_name] => #-00001-May-2025
-    [subtotal] => 0.00
-    [total_tax] => 0.00
-    [total] => 0.00
-    [approve_status] => 2
-    [delivery_date] => 2025-05-24
-    [delivery_status] => 0
-    [number] => 1
-    [expense_convert] => 0
-    [id] => 1
-    [company] => 
-    [project_name] => Automatice Soap Dispensor Machine Jig
-    [department_name] => 
-    [currency] => INR
-)
-
-ERROR - 2025-06-17 05:05:58 --> DEBUG: $sGroupBy = 
-CRITICAL - 2025-06-17 05:05:58 --> Data Retrieved isArray
-(
-    [pur_order_number] => #-00001-Jun-2025-VEND001
-    [vendor] => 1
-    [order_date] => 2025-06-08
-    [type] => opex
-    [project] => 5
-    [department] => 2
-    [pur_order_name] => #-00001-Jun-2025
-    [subtotal] => 5000.00
-    [total_tax] => 500.00
-    [total] => 5225.00
-    [approve_status] => 2
-    [delivery_date] => 2025-06-07
-    [delivery_status] => 0
-    [number] => 1
-    [expense_convert] => 0
-    [id] => 2
-    [company] => Surya Infotech
-    [project_name] => Robotic Cell
-    [department_name] => Electrical
-    [currency] => INR
-)
-
-CRITICAL - 2025-06-17 05:05:58 --> Data Retrieved isArray
-(
-    [pur_order_number] => #-00001-May-2025
-    [vendor] => 0
-    [order_date] => 2025-05-22
-    [type] => capex
-    [project] => 3
-    [department] => 0
-    [pur_order_name] => #-00001-May-2025
-    [subtotal] => 0.00
-    [total_tax] => 0.00
-    [total] => 0.00
-    [approve_status] => 2
-    [delivery_date] => 2025-05-24
-    [delivery_status] => 0
-    [number] => 1
-    [expense_convert] => 0
-    [id] => 1
-    [company] => 
-    [project_name] => Automatice Soap Dispensor Machine Jig
-    [department_name] => 
-    [currency] => INR
-)
-
-CRITICAL - 2025-06-17 06:55:31 --> The action you requested is not allowed.
+ERROR - 2025-06-17 14:36:41 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 14:36:42 --> <span class="inline-block label dropdown label-danger" id="status_span_2" task-status-table="undelivered">Undelivered
+ERROR - 2025-06-17 14:36:42 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 14:36:42 --> <span class="inline-block label dropdown label-danger" id="status_span_2" task-status-table="undelivered">Undelivered
+ERROR - 2025-06-17 14:39:31 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 14:39:31 --> <span class="inline-block label dropdown label-danger" id="status_span_2" task-status-table="undelivered">
+ERROR - 2025-06-17 14:39:31 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 14:39:31 --> <span class="inline-block label dropdown label-danger" id="status_span_2" task-status-table="undelivered">
+ERROR - 2025-06-17 14:41:38 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 14:41:38 --> <span class="inline-block label dropdown label-danger" id="status_span_2" task-status-table="undelivered">
+ERROR - 2025-06-17 14:41:39 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 14:41:39 --> <span class="inline-block label dropdown label-danger" id="status_span_2" task-status-table="undelivered">
+ERROR - 2025-06-17 14:42:20 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 14:42:20 --> <span class="inline-block label dropdown label-danger" id="status_span_2" task-status-table="undelivered">
+ERROR - 2025-06-17 14:42:20 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 14:42:20 --> <span class="inline-block label dropdown label-danger" id="status_span_2" task-status-table="undelivered">
+ERROR - 2025-06-17 14:52:40 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 14:52:41 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 14:52:45 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 14:52:46 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 14:57:56 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 14:57:58 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 14:58:29 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:03:32 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:03:33 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:03:59 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:03:59 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:06:27 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:06:27 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:15:00 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:15:00 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:15:35 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:15:35 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:15:50 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:16:15 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:16:15 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:19:10 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:19:22 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:19:23 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:20:30 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:21:09 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:21:10 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:23:40 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:23:41 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:24:26 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:24:33 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:25:50 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:25:50 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:27:29 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:27:51 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:27:51 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:30:38 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:30:38 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:31:00 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:31:00 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:31:15 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:31:16 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:31:32 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:31:32 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:36:04 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:36:52 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:36:52 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:37:19 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-17 15:37:20 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-17 16:25:42 --> The action you requested is not allowed.
+in SYSTEMPATH\Security\Security.php on line 286.
+ 1 SYSTEMPATH\Security\Security.php(286): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+ 2 SYSTEMPATH\Filters\CSRF.php(54): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 4 SYSTEMPATH\CodeIgniter.php(440): CodeIgniter\Filters\Filters->run('messages/count_notifications', 'before')
+ 5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-17 16:25:47 --> The action you requested is not allowed.
 in SYSTEMPATH\Security\Security.php on line 286.
  1 SYSTEMPATH\Security\Security.php(286): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
  2 SYSTEMPATH\Filters\CSRF.php(54): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))

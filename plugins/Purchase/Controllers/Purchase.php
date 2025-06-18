@@ -2547,6 +2547,7 @@ class Purchase extends Security_Controller
    */
   public function send_request_approve()
   {
+    log_message("critical", "Hitting the api");
     $data    = $this->request->getPost();
     $message = 'Send request approval fail';
     $success = $this->Purchase_model->send_request_approve($data);
@@ -3753,6 +3754,32 @@ class Purchase extends Security_Controller
       $message = _l('change_status_pur_order') . ' ' . _l('fail');
       echo json_encode([
         'result' => $message,
+      ]);
+    }
+  }
+
+  /**
+   * { change Delivery status pur order }
+   *
+   * @param      <type>  $status  The status
+   * @param      <type>  $id      The identifier
+   * @return json
+   */
+  public function change_delivery_status_pur_order($status, $id)
+  {
+    $change = $this->Purchase_model->change_delivery_status_pur_order($status, $id);
+    if ($change == true) {
+
+      $message = _l('change_status_pur_order') . ' ' . _l('successfully');
+      echo json_encode([
+        'result' => $message,
+        'success' => true
+      ]);
+    } else {
+      $message = _l('change_status_pur_order') . ' ' . _l('fail');
+      echo json_encode([
+        'result' => $message,
+        'success' => false
       ]);
     }
   }
