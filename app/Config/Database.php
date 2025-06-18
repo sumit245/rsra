@@ -33,9 +33,9 @@ class Database extends Config
 	public $default = [
 		'DSN'      => '',
 		'hostname' => 'localhost',
-		'username' => 'root',
-		'password' => '',
-		'database' => 'rsra_crm',
+		'username' => 'u552479110_root',
+		'password' => ':N+d4&rj4Er+',
+		'database' => 'u552479110_rsrobotics',
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => 'rise_',
 		'pConnect' => false,

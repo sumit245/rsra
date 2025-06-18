@@ -11,6 +11,7 @@ use App\Libraries\Template;
 use App\Libraries\Google;
 use CodeIgniter\Controller;
 
+#[\AllowDynamicProperties]
 class App_Controller extends Controller
 {
 
