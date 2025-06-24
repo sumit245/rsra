@@ -177,35 +177,9 @@
 
             <div class="row py-2 mx-2">
               <div class="col-md-4">
-                <?php echo view('Purchase\Views\item_include\main_item_select'); ?>
+                <?php echo view('Purchase\Views\item_include\purchase_request_item_select'); ?>
               </div>
-
-              <?php
-              $pur_request_currency = $base_currency;
-              if (isset($pur_request) && $pur_request->currency != '') {
-                $pur_request_currency = $pur_request->currency;
-              }
-              $from_currency = (isset($pur_request) && $pur_request->from_currency != null) ? $pur_request->from_currency : $base_currency;
-              echo form_hidden('from_currency', $from_currency);
-              ?>
-
-              <div class="col-md-8 <?php if ($pur_request_currency == $base_currency) {
-                                      echo 'hide';
-                                    } ?>" id="currency_rate_div">
-                <div class="row">
-                  <div class="col-md-10 text-right">
-                    <p class="mtop10"><?php echo _l('currency_rate'); ?><span id="convert_str"><?php echo ' (' . $base_currency . ' => ' . $pur_request_currency . '): ';  ?></span></p>
-                  </div>
-                  <div class="col-md-2 pull-right">
-                    <?php $currency_rate = 1;
-                    if (isset($pur_request) && $pur_request->currency != '') {
-                      $currency_rate = $pur_request->currency_rate;
-                    }
-                    echo render_input1('currency_rate', '', $currency_rate, 'number', [], [], '', 'text-right');
-                    ?>
-                  </div>
-                </div>
-              </div>
+              <div class="col-md-8 hide"></div>
             </div>
 
             <div class="table-responsive s_table ">
@@ -214,12 +188,11 @@
                   <tr>
                     <th></th>
                     <th width="30%" align="left" class="th-item"><i class="fa fa-exclamation-circle" aria-hidden="true" data-toggle="tooltip" data-title="<?php echo _l('item_description_new_lines_notice'); ?>"></i> <?php echo _l('debit_note_table_item_heading'); ?></th>
-                    <th width="15%" align="right" class="text-right"><?php echo _l('unit_price'); ?><span class="th_currency"><?php echo '(' . $pur_request_currency . ')'; ?></span></th>
+                    <th width="15%" align="right" class="text-right"><?php echo _l('sku_code'); ?></th>
+                    <th width="10%" align="right" class="text-right"><?php echo _l('sku_name'); ?></th>
                     <th width="10%" align="right" class="qty text-right"><?php echo _l('purchase_quantity'); ?></th>
-                    <th width="10%" align="right" class="text-right"><?php echo _l('subtotal'); ?><span class="th_currency"><?php echo '(' . $pur_request_currency . ')'; ?></span></th>
-                    <th width="5%" align="right" class="text-right"><?php echo _l('debit_note_table_tax_heading'); ?></th>
-                    <th width="20%" align="right" class="text-right"><?php echo _l('tax_value'); ?><span class="th_currency"><?php echo '(' . $pur_request_currency . ')'; ?></span></th>
-                    <th width="10%" align="right" class="text-right"><?php echo _l('debit_note_total'); ?><span class="th_currency"><?php echo '(' . $pur_request_currency . ')'; ?></span></th>
+                    <th width="5%" align="right" class="text-right"><?php echo _l('unit_price'); ?></th>
+                    <th width="10%" align="right" class="text-right"><?php echo _l('debit_note_total'); ?></span></th>
                     <th align="right" class="text-right"><i data-feather='settings' class='icon-16'></i></th>
                   </tr>
                 </thead>
@@ -230,7 +203,7 @@
             </div>
 
 
-            <div class="row">
+            <!-- <div class="row">
               <div class="col-md-6 ">
               </div>
               <div class="col-md-6 ">
@@ -329,7 +302,7 @@
 
 
               </div>
-            </div>
+            </div> -->
 
             <div id="removed-items"></div>
           </div>
@@ -345,9 +318,6 @@
 
         </div>
         <div class="btn-bottom-pusher"></div>
-
-
-
       </div>
     </div>
   </div>
