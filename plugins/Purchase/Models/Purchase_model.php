@@ -1596,124 +1596,174 @@ class Purchase_model extends Crud_model
    * @param      array   $unit_data  The unit data
    * @param      string  $name       The name
    */
-  public function create_purchase_request_row_template($name = '', $item_code = '', $item_text = '', $unit_price = '', $quantity = '', $unit_name = '', $into_money = '', $item_key = '', $tax_value = '', $total = '', $tax_name = '', $tax_rate = '', $tax_id = '', $is_edit = false, $currency_rate = 1, $to_currency = '')
-  {
+  // public function create_purchase_request_row_template($name = '', $item_code = '', $item_text = '', $unit_price = '', $quantity = '', $unit_name = '', $into_money = '', $item_key = '', $tax_value = '', $total = '', $tax_name = '', $tax_rate = '', $tax_id = '', $is_edit = false, $currency_rate = 1, $to_currency = '')
+  // {
 
+  //   $row = '';
+
+  //   $name_item_code     = 'item_code';
+  //   $name_item_text     = 'item_text';
+  //   $name_unit_price    = 'unit_price';
+  //   $name_quantity      = 'quantity';
+  //   $name_unit_name     = 'unit_name';
+  //   $name_into_money    = 'into_money';
+  //   $name_tax_value     = 'tax_value';
+  //   $name_tax_id_select = 'tax_select';
+  //   $name_total         = 'total';
+
+  //   $array_rate_attr     = ['min' => '0.0', 'step' => 'any'];
+  //   $array_qty_attr      = ['min' => '0.0', 'step' => 'any'];
+  //   $array_subtotal_attr = ['readonly' => true];
+
+  //   $text_right_class = 'text-right';
+
+  //   if ($name == '') {
+  //     $tax_rate_class = ' refresh_tax1';
+  //     $row .= '<tr class="main">
+  //                 <td></td>';
+  //     $manual             = true;
+  //     $invoice_item_taxes = '';
+  //     $total              = '';
+  //     $into_money         = 0;
+  //   } else {
+  //     $tax_rate_class = ' refresh_tax2';
+  //     $manual         = false;
+  //     $row .= '<tr class="sortable item">
+  //                   <td class="dragger"><input type="hidden" class="order" name="' . $name . '[order]"><input type="hidden" class="ids" name="' . $name . '[id]" value="' . $item_key . '"></td>';
+  //     $name_item_code     = $name . '[item_code]';
+  //     $name_item_text     = $name . '[item_text]';
+  //     $name_unit_name     = $name . '[unit_name]';
+  //     $name_unit_price    = $name . '[unit_price]';
+  //     $name_quantity      = $name . '[quantity]';
+  //     $name_into_money    = $name . '[into_money]';
+  //     $name_tax_value     = $name . '[tax_value]';
+
+  //     $name_tax_id_select = $name . '[tax_select][]';
+  //     $name_total         = $name . '[total]';
+  //     $array_rate_attr = ['onblur' => 'pur_calculate_total();', 'onchange' => 'pur_calculate_total();', 'min' => '0.0', 'step' => 'any', 'data-amount' => 'invoice', 'placeholder' => _l('unit_price')];
+  //     $array_qty_attr = ['onblur' => 'pur_calculate_total();', 'onchange' => 'pur_calculate_total();', 'min' => '0.0', 'step' => 'any', 'data-quantity' => (float) $quantity];
+  //     $tax_money      = 0;
+  //     $tax_rate_value = 0;
+
+  //     if ($is_edit) {
+  //       $invoice_item_taxes = pur_convert_item_taxes($tax_id, $tax_rate, $tax_name);
+  //       $arr_tax_rate       = explode('|', $tax_rate);
+  //       foreach ($arr_tax_rate as $key => $value) {
+  //         $tax_rate_value += (float) $value;
+  //       }
+  //     } else {
+  //       $invoice_item_taxes = $tax_name;
+  //       $tax_rate_data      = $this->pur_get_tax_rate($tax_name);
+  //       $tax_rate_value     = $tax_rate_data['tax_rate'];
+  //     }
+
+  //     if ((float) $tax_rate_value != 0) {
+  //       $tax_money = (float) $unit_price * (float) $quantity * (float) $tax_rate_value / 100;
+  //       $amount = (float) $unit_price * (float) $quantity + (float) $tax_money;
+  //     } else {
+  //       $amount = (float) $unit_price * (float) $quantity;
+  //     }
+  //     $into_money = (float) $unit_price * (float) $quantity;
+  //     $total      = $amount;
+  //   }
+
+  //   $row .= '<td width="30%" class="">' . render_textarea1($name_item_text, '', $item_text, ['rows' => 2, 'placeholder' => _l('pur_item_name')]) . '</td>';
+  //   $row .= '<td width="15%" class="rate">' . render_input1($name_unit_price, '', $unit_price, 'number', $array_rate_attr, [], 'no-margin', $text_right_class);
+  //   if ($unit_price != '') {
+  //     $original_price = round(($unit_price / $currency_rate), 2);
+  //     $base_currency  = get_base_currency();
+  //     if ($to_currency != '' && $to_currency != $base_currency) {
+  //       $row .= render_input1('original_price', '', to_currency($original_price, $base_currency), 'text', ['data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => _l('original_price'), 'disabled' => true], [], 'no-margin', 'input-transparent text-right pur_input_none');
+  //     }
+  //     $row .= '<input class="hide" name="og_price" disabled="true" value="' . $original_price . '">';
+  //   }
+  //   $row .= '</td>';
+
+  //   $row .= '<td width="10%" class="quantities">' .
+  //     render_input1($name_quantity, '', $quantity, 'number', $array_qty_attr, [], 'no-margin', $text_right_class) .
+  //     render_input1($name_unit_name, '', $unit_name, 'text', ['placeholder' => _l('unit'), 'readonly' => true], [], 'no-margin', 'input-transparent text-right pur_input_none') .
+  //     '</td>';
+
+  //   $row .= '<td width="10%" class="into_money">' . render_input1($name_into_money, '', $into_money, 'number', $array_subtotal_attr, [], '', $text_right_class) . '</td>';
+  //   $row .= '<td width="5%" class="taxrate ' . $tax_rate_class . '">' . $this->get_taxes_dropdown_template($name_tax_id_select, $invoice_item_taxes, 'invoice', $item_key, true, $manual) . '</td>';
+  //   $row .= '<td width="20%" class="tax_value">' . render_input1($name_tax_value, '', $tax_value, 'number', $array_subtotal_attr, [], '', $text_right_class) . '</td>';
+  //   $row .= '<td class="hide item_code">' . render_input1($name_item_code, '', $item_code, 'text', ['placeholder' => _l('item_code')]) . '</td>';
+  //   $row .= '<td width="10%" class="_total">' . render_input1($name_total, '', $total, 'number', $array_subtotal_attr, [], '', $text_right_class) . '</td>';
+
+  //   if ($name == '') {
+  //     $row .= '<td><button type="button" onclick="pur_add_item_to_table(\'undefined\',\'undefined\'); return false;" class="btn pull-right btn-info text-white"><i data-feather="plus-circle" class="icon-16"></i></button></td>';
+  //   } else {
+  //     $row .= '<td><a href="#" class="btn btn-danger pull-right" onclick="pur_delete_item(this,' . $item_key . ',\'.invoice-item\'); return false;"><i data-feather="x" class="icon-16"></i></a></td>';
+  //   }
+  //   $row .= '</tr>';
+  //   return $row;
+  // }
+  public function create_purchase_request_row_template($name = '', $item_code = '', $item_text = '', $sku_code = '', $sku_name = '', $quantity = '', $unit_name = '', $item_key = '', $is_edit = false)
+  {
     $row = '';
 
-    $name_item_code     = 'item_code';
-    $name_item_text     = 'item_text';
-    $name_unit_name     = 'unit_name';
-    $name_unit_price    = 'unit_price';
-    $name_quantity      = 'quantity';
-    $name_into_money    = 'into_money';
-    $name_tax_value     = 'tax_value';
+    // Field names
+    $name_item_code  = 'item_code';
+    $name_item_text  = 'item_text';
+    $name_sku_code   = 'sku_code';
+    $name_sku_name   = 'sku_name';
+    $name_quantity   = 'quantity';
+    $name_unit_name  = 'unit_name';
 
-    // TODO: Unused code remove
-    // $name_tax           = 'tax';
-    // $name_unit_id       = 'unit_id';
-    // $name_tax_name      = 'tax_name';
-    // $name_tax_rate      = 'tax_rate';
-    $name_tax_id_select = 'tax_select';
-    $name_total         = 'total';
-
-    $array_rate_attr     = ['min' => '0.0', 'step' => 'any'];
-    $array_qty_attr      = ['min' => '0.0', 'step' => 'any'];
-    $array_subtotal_attr = ['readonly' => true];
-
+    $array_qty_attr = ['min' => '0.0', 'step' => 'any'];
     $text_right_class = 'text-right';
 
     if ($name == '') {
-      $tax_rate_class = ' refresh_tax1';
-      $row .= '<tr class="main">
-                  <td></td>';
-      // TODO: Unused code remove
-      // $vehicles   = [];
-      // $array_attr = ['placeholder' => _l('unit_price')];
-
-      $manual             = true;
-      $invoice_item_taxes = '';
-      $total              = '';
-      $into_money         = 0;
+      $row .= '<tr class="main"><td></td>';
     } else {
-      $tax_rate_class = ' refresh_tax2';
-      $manual         = false;
-      $row .= '<tr class="sortable item">
-                    <td class="dragger"><input type="hidden" class="order" name="' . $name . '[order]"><input type="hidden" class="ids" name="' . $name . '[id]" value="' . $item_key . '"></td>';
-      $name_item_code     = $name . '[item_code]';
-      $name_item_text     = $name . '[item_text]';
-      $name_unit_name     = $name . '[unit_name]';
-      $name_unit_price    = $name . '[unit_price]';
-      $name_quantity      = $name . '[quantity]';
-      $name_into_money    = $name . '[into_money]';
-      $name_tax_value     = $name . '[tax_value]';
-
-      // TODO: Unused code remove
-      // $name_tax           = $name . '[tax]';
-      // $name_unit_id       = $name . '[unit_id]';
-      // $name_tax_rate      = $name . '[tax_rate]';
-      // $name_tax_name      = $name . '[tax_name]';
-
-      $name_tax_id_select = $name . '[tax_select][]';
-      $name_total         = $name . '[total]';
-      $array_rate_attr = ['onblur' => 'pur_calculate_total();', 'onchange' => 'pur_calculate_total();', 'min' => '0.0', 'step' => 'any', 'data-amount' => 'invoice', 'placeholder' => _l('unit_price')];
-      $array_qty_attr = ['onblur' => 'pur_calculate_total();', 'onchange' => 'pur_calculate_total();', 'min' => '0.0', 'step' => 'any', 'data-quantity' => (float) $quantity];
-      $tax_money      = 0;
-      $tax_rate_value = 0;
-
-      if ($is_edit) {
-        $invoice_item_taxes = pur_convert_item_taxes($tax_id, $tax_rate, $tax_name);
-        $arr_tax_rate       = explode('|', $tax_rate);
-        foreach ($arr_tax_rate as $key => $value) {
-          $tax_rate_value += (float) $value;
-        }
-      } else {
-        $invoice_item_taxes = $tax_name;
-        $tax_rate_data      = $this->pur_get_tax_rate($tax_name);
-        $tax_rate_value     = $tax_rate_data['tax_rate'];
-      }
-
-      if ((float) $tax_rate_value != 0) {
-        $tax_money = (float) $unit_price * (float) $quantity * (float) $tax_rate_value / 100;
-        $amount = (float) $unit_price * (float) $quantity + (float) $tax_money;
-      } else {
-        $amount = (float) $unit_price * (float) $quantity;
-      }
-      $into_money = (float) $unit_price * (float) $quantity;
-      $total      = $amount;
+      $row .= '<tr class="sortable item"><td class="dragger"><input type="hidden" class="order" name="' . $name . '[order]"><input type="hidden" class="ids" name="' . $name . '[id]" value="' . $item_key . '"></td>';
+      $name_item_code  = $name . '[item_code]';
+      $name_item_text  = $name . '[item_text]';
+      $name_sku_code   = $name . '[sku_code]';
+      $name_sku_name   = $name . '[sku_name]';
+      $name_quantity   = $name . '[quantity]';
+      $name_unit_name  = $name . '[unit_name]';
     }
 
-    $row .= '<td width="30%" class="">' . render_textarea1($name_item_text, '', $item_text, ['rows' => 2, 'placeholder' => _l('pur_item_name')]) . '</td>';
-    $row .= '<td width="15%" class="rate">' . render_input1($name_unit_price, '', $unit_price, 'number', $array_rate_attr, [], 'no-margin', $text_right_class);
-    if ($unit_price != '') {
-      $original_price = round(($unit_price / $currency_rate), 2);
-      $base_currency  = get_base_currency();
-      if ($to_currency != '' && $to_currency != $base_currency) {
-        $row .= render_input1('original_price', '', to_currency($original_price, $base_currency), 'text', ['data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => _l('original_price'), 'disabled' => true], [], 'no-margin', 'input-transparent text-right pur_input_none');
-      }
-      $row .= '<input class="hide" name="og_price" disabled="true" value="' . $original_price . '">';
-    }
-    $row .= '</td>';
 
-    $row .= '<td width="10%" class="quantities">' .
-      render_input1($name_quantity, '', $quantity, 'number', $array_qty_attr, [], 'no-margin', $text_right_class) .
-      render_input1($name_unit_name, '', $unit_name, 'text', ['placeholder' => _l('unit'), 'readonly' => true], [], 'no-margin', 'input-transparent text-right pur_input_none') .
+    // Item Name + Code
+    $row .= '<td width="30%">' .
+      render_input1($name_item_text, '', $item_text, 'text', ['placeholder' => _l('pur_item_name')]) .
+      render_input1($name_item_code, '', $item_code, 'text', [], [], 'hide') .
       '</td>';
 
-    $row .= '<td width="10%" class="into_money">' . render_input1($name_into_money, '', $into_money, 'number', $array_subtotal_attr, [], '', $text_right_class) . '</td>';
-    $row .= '<td width="5%" class="taxrate ' . $tax_rate_class . '">' . $this->get_taxes_dropdown_template($name_tax_id_select, $invoice_item_taxes, 'invoice', $item_key, true, $manual) . '</td>';
-    $row .= '<td width="20%" class="tax_value">' . render_input1($name_tax_value, '', $tax_value, 'number', $array_subtotal_attr, [], '', $text_right_class) . '</td>';
-    $row .= '<td class="hide item_code">' . render_input1($name_item_code, '', $item_code, 'text', ['placeholder' => _l('item_code')]) . '</td>';
-    $row .= '<td width="10%" class="_total">' . render_input1($name_total, '', $total, 'number', $array_subtotal_attr, [], '', $text_right_class) . '</td>';
+    // Make (sku_code)
+    $row .= '<td width="20%">' .
+      render_input1($name_sku_code, '', $sku_code, 'text', ['placeholder' => _l('Make')]) .
+      '</td>';
 
+    // Model (sku_name)
+    $row .= '<td width="20%">' .
+      render_input1($name_sku_name, '', $sku_name, 'text', ['placeholder' => _l('Model')]) .
+      '</td>';
+
+    // Quantity
+    $row .= '<td width="15%" class="quantities">' .
+      render_input1($name_quantity, '', $quantity, 'number', $array_qty_attr, [], 'no-margin', $text_right_class) .
+      '</td>';
+
+    // Unit
+    $row .= '<td width="15%">' .
+      render_input1($name_unit_name, '', $unit_name, 'text', ['placeholder' => _l('Unit')]) .
+      '</td>';
+
+    // Add/remove button
     if ($name == '') {
       $row .= '<td><button type="button" onclick="pur_add_item_to_table(\'undefined\',\'undefined\'); return false;" class="btn pull-right btn-info text-white"><i data-feather="plus-circle" class="icon-16"></i></button></td>';
     } else {
       $row .= '<td><a href="#" class="btn btn-danger pull-right" onclick="pur_delete_item(this,' . $item_key . ',\'.invoice-item\'); return false;"><i data-feather="x" class="icon-16"></i></a></td>';
     }
+
     $row .= '</tr>';
+    log_message("critical", $row);
     return $row;
   }
+
 
   /**
    * Gets the tax name.
@@ -1986,27 +2036,63 @@ class Purchase_model extends Crud_model
    *
    * @return     <type>  The item v 2.
    */
+  // public function get_item_v2($id = '')
+  // {
+  //   $builder             = $this->db->table(get_db_prefix() . 'items');
+  //   $columns             = $this->db->getFieldNames(get_db_prefix() . 'items');
+  //   $rateCurrencyColumns = '';
+  //   foreach ($columns as $column) {
+  //     if (strpos($column, 'rate_currency_') !== false) {
+  //       $rateCurrencyColumns .= $column . ',';
+  //     }
+  //   }
+
+  //   $builder = $this->db->table(get_db_prefix() . 'items');
+  //   $builder->select(
+  //     $rateCurrencyColumns .
+  //       get_db_prefix() . 'items.id as itemid, ' .
+  //       get_db_prefix() . 'items.title, ' .
+  //       get_db_prefix() . 'items.commodity_code, ' .
+  //       get_db_prefix() . 'items.sku_code, ' .
+  //       get_db_prefix() . 'items.sku_name, ' .
+  //       get_db_prefix() . 'items.description, ' .
+  //       get_db_prefix() . 'items.unit_id, ' .
+  //       get_db_prefix() . 'ware_unit_type.unit_name'
+  //   );
+
+  //   // $builder->join('' . get_db_prefix() . 'taxes t1', 't1.id = ' . get_db_prefix() . 'items.tax', 'left');
+  //   // $builder->join('' . get_db_prefix() . 'taxes t2', 't2.id = ' . get_db_prefix() . 'items.tax2', 'left');
+  //   $builder->join(get_db_prefix() . 'item_categories', '' . get_db_prefix() . 'item_categories.id = ' . get_db_prefix() . 'items.category_id', 'left');
+  //   $builder->join(get_db_prefix() . 'ware_unit_type', '' . get_db_prefix() . 'ware_unit_type.unit_type_id = ' . get_db_prefix() . 'items.unit_id', 'left');
+  //   $builder->orderBy(get_db_prefix() . 'items.title', 'asc');
+  //   if (is_numeric($id)) {
+  //     $builder->where(get_db_prefix() . 'items.id', $id);
+  //     return $builder->get()->getRow();
+  //   }
+
+  //   return $builder->get()->getResultArray();
+  // }
   public function get_item_v2($id = '')
   {
-    $builder             = $this->db->table(get_db_prefix() . 'items');
-    $columns             = $this->db->getFieldNames(get_db_prefix() . 'items');
-    $rateCurrencyColumns = '';
-    foreach ($columns as $column) {
-      if (strpos($column, 'rate_currency_') !== false) {
-        $rateCurrencyColumns .= $column . ',';
-      }
-    }
-
     $builder = $this->db->table(get_db_prefix() . 'items');
-    $builder->select($rateCurrencyColumns . '' . get_db_prefix() . 'items.id as itemid,rate,
-            t1.percentage as taxrate,t1.id as taxid,t1.title as taxname,
-            t2.percentage as taxrate_2,t2.id as taxid_2,t2.title as taxname_2,
-            CONCAT(commodity_code,"_",' . get_db_prefix() . 'items.title) as code_description,description,category_id,' . get_db_prefix() . 'item_categories.title as group_name,unit_type as unit,' . get_db_prefix() . 'ware_unit_type.unit_name as unit_name, purchase_price, unit_id, guarantee');
-    $builder->join('' . get_db_prefix() . 'taxes t1', 't1.id = ' . get_db_prefix() . 'items.tax', 'left');
-    $builder->join('' . get_db_prefix() . 'taxes t2', 't2.id = ' . get_db_prefix() . 'items.tax2', 'left');
-    $builder->join(get_db_prefix() . 'item_categories', '' . get_db_prefix() . 'item_categories.id = ' . get_db_prefix() . 'items.category_id', 'left');
-    $builder->join(get_db_prefix() . 'ware_unit_type', '' . get_db_prefix() . 'ware_unit_type.unit_type_id = ' . get_db_prefix() . 'items.unit_id', 'left');
-    $builder->orderBy(get_db_prefix() . 'items.title', 'asc');
+
+    $builder->select(
+      get_db_prefix() . 'items.id as itemid, ' .
+        get_db_prefix() . 'items.title, ' .
+        get_db_prefix() . 'items.commodity_code, ' .
+        get_db_prefix() . 'items.sku_code, ' .
+        get_db_prefix() . 'items.sku_name, ' .
+        get_db_prefix() . 'items.description, ' .
+        get_db_prefix() . 'items.unit_id, ' .
+        get_db_prefix() . 'ware_unit_type.unit_name'
+    );
+
+    $builder->join(
+      get_db_prefix() . 'ware_unit_type',
+      get_db_prefix() . 'ware_unit_type.unit_type_id = ' . get_db_prefix() . 'items.unit_id',
+      'left'
+    );
+
     if (is_numeric($id)) {
       $builder->where(get_db_prefix() . 'items.id', $id);
       return $builder->get()->getRow();
@@ -2014,6 +2100,7 @@ class Purchase_model extends Crud_model
 
     return $builder->get()->getResultArray();
   }
+
 
   /**
    * wh get tax rate
@@ -2072,17 +2159,134 @@ class Purchase_model extends Crud_model
    *
    * @return     boolean
    */
+  // public function add_pur_request($data)
+  // {
+
+  //   $data['request_date'] = date('Y-m-d H:i:s');
+  //   $check_appr           = $this->get_approve_setting('pur_request');
+  //   $data['status']       = 1;
+  //   if ($check_appr && $check_appr != false) {
+  //     $data['status'] = 1;
+  //   } else {
+  //     $data['status'] = 2;
+  //   }
+
+  //   $detail_data = [];
+  //   if (isset($data['newitems'])) {
+  //     $detail_data = $data['newitems'];
+  //     unset($data['newitems']);
+  //   }
+
+  //   $data['to_currency'] = $data['currency'];
+
+  //   unset($data['item_text']);
+  //   unset($data['sku_code']);
+  //   unset($data['sku_name']);
+  //   unset($data['quantity']);
+  //   // unset($data['into_money']);
+  //   // unset($data['tax_select']);
+  //   unset($data['unit_price']);
+  //   unset($data['total']);
+  //   unset($data['item_select']);
+  //   unset($data['item_code']);
+  //   unset($data['unit_name']);
+  //   unset($data['request_detail']);
+
+  //   if (isset($data['send_to_vendors']) && count($data['send_to_vendors']) > 0) {
+  //     $data['send_to_vendors'] = implode(',', $data['send_to_vendors']);
+  //   }
+
+  //   if (isset($data['total_mn'])) {
+  //     $data['total'] = $data['total_mn'];
+  //     unset($data['total_mn']);
+  //   }
+
+  //   $data['total_tax'] = $data['total'] - $data['subtotal'];
+
+  //   $prefix = get_setting('pur_request_prefix');
+
+  //   $pr_builder = $this->db->table(get_db_prefix() . 'pur_request');
+
+  //   $pr_builder->where('pur_rq_code', $data['pur_rq_code']);
+  //   $check_exist_number = $pr_builder->get()->getRow();
+
+  //   while ($check_exist_number) {
+  //     $data['number']      = $data['number'] + 1;
+  //     $data['pur_rq_code'] = $prefix . '-' . str_pad($data['number'], 5, '0', STR_PAD_LEFT) . '-' . date('Y');
+  //     $pr_builder->where('pur_rq_code', $data['pur_rq_code']);
+  //     $check_exist_number = $pr_builder->get()->getRow();
+  //   }
+
+  //   $data['hash'] = app_generate_hash();
+
+  //   $pr_builder->insert($data);
+  //   $insert_id = $this->db->insertID();
+  //   if ($insert_id) {
+
+  //     // Update next purchase order number in settings
+  //     $next_number = $data['number'] + 1;
+  //     update_setting('next_purchase_request_number', $next_number);
+
+  //     if (count($detail_data) > 0) {
+  //       foreach ($detail_data as $key => $rqd) {
+  //         $dt_data                = [];
+  //         $dt_data['pur_request'] = $insert_id;
+  //         $dt_data['item_code']   = $rqd['item_code'];
+  //         $dt_data['unit_id']     = isset($rqd['unit_id']) ? $rqd['unit_id'] : null;
+  //         $dt_data['unit_price']  = $rqd['unit_price'];
+  //         $dt_data['into_money']  = $rqd['into_money'];
+  //         $dt_data['total']       = $rqd['total'];
+  //         $dt_data['tax_value']   = $rqd['tax_value'];
+  //         $dt_data['item_text']   = $rqd['item_text'];
+
+  //         $tax_money      = 0;
+  //         $tax_rate_value = 0;
+  //         $tax_rate       = null;
+  //         $tax_id         = null;
+  //         $tax_name       = null;
+
+  //         if (isset($rqd['tax_select'])) {
+  //           $tax_rate_data  = $this->pur_get_tax_rate($rqd['tax_select']);
+  //           $tax_rate_value = $tax_rate_data['tax_rate'];
+  //           $tax_rate       = $tax_rate_data['tax_rate_str'];
+  //           $tax_id         = $tax_rate_data['tax_id_str'];
+  //           $tax_name       = $tax_rate_data['tax_name_str'];
+  //         }
+
+  //         $dt_data['tax']      = $tax_id;
+  //         $dt_data['tax_rate'] = $tax_rate;
+  //         $dt_data['tax_name'] = $tax_name;
+
+  //         $dt_data['quantity'] = ($rqd['quantity'] != '' && $rqd['quantity'] != null) ? $rqd['quantity'] : 0;
+
+  //         if ($data['status'] == 2 && ($rqd['item_code'] == '' || $rqd['item_code'] == null)) {
+  //           $item_data['description']       = $rqd['item_text'];
+  //           $item_data['purchase_price']    = $rqd['unit_price'];
+  //           $item_data['unit_id']           = $rqd['unit_id'];
+  //           $item_data['rate']              = '';
+  //           $item_data['sku_code']          = '';
+  //           $item_data['commodity_barcode'] = $this->generate_commodity_barcode();
+  //           $item_data['commodity_code']    = $this->generate_commodity_barcode();
+  //           $item_id                        = $this->add_commodity_one_item($item_data);
+  //           if ($item_id) {
+  //             $dt_data['item_code'] = $item_id;
+  //           }
+  //         }
+
+  //         $pr_detail_builder = $this->db->table(get_db_prefix() . 'pur_request_detail');
+  //         $pr_detail_builder->insert($dt_data);
+  //       }
+  //     }
+
+  //     return $insert_id;
+  //   }
+  //   return false;
+  // }
   public function add_pur_request($data)
   {
-
     $data['request_date'] = date('Y-m-d H:i:s');
     $check_appr           = $this->get_approve_setting('pur_request');
-    $data['status']       = 1;
-    if ($check_appr && $check_appr != false) {
-      $data['status'] = 1;
-    } else {
-      $data['status'] = 2;
-    }
+    $data['status']       = ($check_appr && $check_appr != false) ? 1 : 2;
 
     $detail_data = [];
     if (isset($data['newitems'])) {
@@ -2092,19 +2296,11 @@ class Purchase_model extends Crud_model
 
     $data['to_currency'] = $data['currency'];
 
-    unset($data['item_text']);
-    unset($data['unit_price']);
-    unset($data['quantity']);
-    unset($data['into_money']);
-    unset($data['tax_select']);
-    unset($data['tax_value']);
-    unset($data['total']);
-    unset($data['item_select']);
-    unset($data['item_code']);
-    unset($data['unit_name']);
-    unset($data['request_detail']);
+    // Unset UI-related fields
+    unset($data['item_text'], $data['sku_code'], $data['sku_name'], $data['quantity'], $data['unit_price'], $data['total'], $data['item_select'], $data['item_code'], $data['unit_name'], $data['request_detail']);
 
-    if (isset($data['send_to_vendors']) && count($data['send_to_vendors']) > 0) {
+    // Prepare vendor list
+    if (isset($data['send_to_vendors']) && is_array($data['send_to_vendors'])) {
       $data['send_to_vendors'] = implode(',', $data['send_to_vendors']);
     }
 
@@ -2113,87 +2309,78 @@ class Purchase_model extends Crud_model
       unset($data['total_mn']);
     }
 
-    $data['total_tax'] = $data['total'] - $data['subtotal'];
+    $data['total_tax'] = (isset($data['total']) && isset($data['subtotal']))
+      ? $data['total'] - $data['subtotal']
+      : null;
 
-    $prefix = get_setting('pur_request_prefix');
 
+    // Generate unique PR code
+    $prefix     = get_setting('pur_request_prefix');
     $pr_builder = $this->db->table(get_db_prefix() . 'pur_request');
 
-    $pr_builder->where('pur_rq_code', $data['pur_rq_code']);
-    $check_exist_number = $pr_builder->get()->getRow();
-
-    while ($check_exist_number) {
-      $data['number']      = $data['number'] + 1;
-      $data['pur_rq_code'] = $prefix . '-' . str_pad($data['number'], 5, '0', STR_PAD_LEFT) . '-' . date('Y');
+    do {
       $pr_builder->where('pur_rq_code', $data['pur_rq_code']);
       $check_exist_number = $pr_builder->get()->getRow();
-    }
+
+      if ($check_exist_number) {
+        $data['number'] += 1;
+        $data['pur_rq_code'] = $prefix . '-' . str_pad($data['number'], 5, '0', STR_PAD_LEFT) . '-' . date('Y');
+      }
+    } while ($check_exist_number);
 
     $data['hash'] = app_generate_hash();
 
+    // Insert purchase request
     $pr_builder->insert($data);
     $insert_id = $this->db->insertID();
+
     if ($insert_id) {
+      update_setting('next_purchase_request_number', $data['number'] + 1);
 
-      // Update next purchase order number in settings
-      $next_number = $data['number'] + 1;
-      update_setting('next_purchase_request_number', $next_number);
+      if (!empty($detail_data)) {
+        foreach ($detail_data as $rqd) {
+          $dt_data = [
+            'pur_request' => $insert_id,
+            'item_code'   => $rqd['item_code'] ?? null,
+            'unit_id'     => $rqd['unit_id'] ?? null,
+            'unit_price'  => $rqd['unit_price'] ?? null,
+            'into_money'  => $rqd['into_money'] ?? null,
+            'total'       => $rqd['total'] ?? null,
+            'tax_value'   => $rqd['tax_value'] ?? null,
+            'tax'         => null,
+            'tax_rate'    => null,
+            'tax_name'    => null,
+            'item_text'   => $rqd['item_text'] ?? '',
+            'quantity'    => (!empty($rqd['quantity'])) ? $rqd['quantity'] : 0
+          ];
 
-      if (count($detail_data) > 0) {
-        foreach ($detail_data as $key => $rqd) {
-          $dt_data                = [];
-          $dt_data['pur_request'] = $insert_id;
-          $dt_data['item_code']   = $rqd['item_code'];
-          $dt_data['unit_id']     = isset($rqd['unit_id']) ? $rqd['unit_id'] : null;
-          $dt_data['unit_price']  = $rqd['unit_price'];
-          $dt_data['into_money']  = $rqd['into_money'];
-          $dt_data['total']       = $rqd['total'];
-          $dt_data['tax_value']   = $rqd['tax_value'];
-          $dt_data['item_text']   = $rqd['item_text'];
-
-          $tax_money      = 0;
-          $tax_rate_value = 0;
-          $tax_rate       = null;
-          $tax_id         = null;
-          $tax_name       = null;
-
-          if (isset($rqd['tax_select'])) {
-            $tax_rate_data  = $this->pur_get_tax_rate($rqd['tax_select']);
-            $tax_rate_value = $tax_rate_data['tax_rate'];
-            $tax_rate       = $tax_rate_data['tax_rate_str'];
-            $tax_id         = $tax_rate_data['tax_id_str'];
-            $tax_name       = $tax_rate_data['tax_name_str'];
-          }
-
-          $dt_data['tax']      = $tax_id;
-          $dt_data['tax_rate'] = $tax_rate;
-          $dt_data['tax_name'] = $tax_name;
-
-          $dt_data['quantity'] = ($rqd['quantity'] != '' && $rqd['quantity'] != null) ? $rqd['quantity'] : 0;
-
-          if ($data['status'] == 2 && ($rqd['item_code'] == '' || $rqd['item_code'] == null)) {
-            $item_data['description']       = $rqd['item_text'];
-            $item_data['purchase_price']    = $rqd['unit_price'];
-            $item_data['unit_id']           = $rqd['unit_id'];
-            $item_data['rate']              = '';
-            $item_data['sku_code']          = '';
-            $item_data['commodity_barcode'] = $this->generate_commodity_barcode();
-            $item_data['commodity_code']    = $this->generate_commodity_barcode();
-            $item_id                        = $this->add_commodity_one_item($item_data);
+          // Auto-add item if needed
+          if ($data['status'] == 2 && empty($rqd['item_code'])) {
+            $item_data = [
+              'description'       => $rqd['item_text'] ?? '',
+              'purchase_price'    => $rqd['unit_price'] ?? null,
+              'unit_id'           => $rqd['unit_id'] ?? null,
+              'rate'              => '',
+              'sku_code'          => '',
+              'commodity_barcode' => $this->generate_commodity_barcode(),
+              'commodity_code'    => $this->generate_commodity_barcode(),
+            ];
+            $item_id = $this->add_commodity_one_item($item_data);
             if ($item_id) {
               $dt_data['item_code'] = $item_id;
             }
           }
 
-          $pr_detail_builder = $this->db->table(get_db_prefix() . 'pur_request_detail');
-          $pr_detail_builder->insert($dt_data);
+          $this->db->table(get_db_prefix() . 'pur_request_detail')->insert($dt_data);
         }
       }
 
       return $insert_id;
     }
+
     return false;
   }
+
 
   /**
    * Gets the approve setting.
@@ -2249,7 +2436,6 @@ class Purchase_model extends Crud_model
     $tax_val_rs   = [];
     $tax_name     = [];
     $rs           = [];
-
     $base_currency        = get_base_currency();
     $base_currency_symbol = get_setting('currency_symbol');
 
@@ -2257,15 +2443,12 @@ class Purchase_model extends Crud_model
     if ($pur_request->currency != $base_currency) {
       $base_currency_symbol = $pur_request->currency;
     }
-
     $builder = $this->db->table(db_prefix() . 'pur_request_detail');
-
     $builder->where('pur_request', $id);
     $details = $builder->get()->getResultArray();
     foreach ($details as $row) {
       if ($row['tax'] != '') {
         $tax_arr = explode('|', $row['tax']);
-
         $tax_rate_arr = [];
         if ($row['tax_rate'] != '') {
           $tax_rate_arr = explode('|', $row['tax_rate']);
@@ -2289,7 +2472,7 @@ class Purchase_model extends Crud_model
       foreach ($tax_name as $key => $tn) {
         $tax_val[$key] = 0;
         foreach ($details as $row_dt) {
-          if (! (strpos($row_dt['tax'], $taxes[$key]) === false)) {
+          if (strpos((string) ($row_dt['tax'] ?? ''), $taxes[$key]) !== false) {
             $tax_val[$key] += ($row_dt['into_money'] * $t_rate[$key] / 100);
           }
         }
@@ -2364,8 +2547,12 @@ class Purchase_model extends Crud_model
       $data['total'] = $data['total_mn'];
       unset($data['total_mn']);
     }
+    // if (isset($data['total_mn'])) {
+    //   $data['total'] = $data['total_mn'];
+    //   unset($data['total_mn']);
+    // }
 
-    $data['total_tax'] = (float) $data['total'] - (float) $data['subtotal'];
+    // $data['total_tax'] = (float) $data['total'] - (float) $data['subtotal'];
 
     if (isset($data['from_items'])) {
       $data['from_items'] = 1;
@@ -3595,7 +3782,7 @@ class Purchase_model extends Crud_model
         $value->rel_id          = $data['rel_id'];
 
         $approve_value = $this->get_staff_id_by_approve_value($value, $value->approver);
-       
+
         if (is_numeric($approve_value)) {
           /*get Email by User id*/
           $options = [
@@ -3616,7 +3803,7 @@ class Purchase_model extends Crud_model
 
           return $value->approver;
         }
-        
+
         $row['approve_value'] = $approve_value;
 
         $staffid = $this->get_staff_id_by_approve_value($value, $value->approver);
@@ -3638,7 +3825,7 @@ class Purchase_model extends Crud_model
         $row['sender']    = $sender;
         $builder          = $this->db->table(get_db_prefix() . 'pur_approval_details');
         $builder->insert($row);
-        log_message("critical", print_r($builder,true));
+        log_message("critical", print_r($builder, true));
       } else if ($value->approver == 'staff') {
         $row['action']    = $value->action;
         $row['staffid']   = $value->staff;
@@ -3649,38 +3836,38 @@ class Purchase_model extends Crud_model
 
         $builder = $this->db->table(get_db_prefix() . 'pur_approval_details');
         $builder->insert($row);
-        log_message("critical", print_r($builder,true));
+        log_message("critical", print_r($builder, true));
       }
     }
-    
+
     return true;
   }
 
-/**
- * Adds a comment to purchase request
- */
-public function add_comment($data)
-{
+  /**
+   * Adds a comment to purchase request
+   */
+  public function add_comment($data)
+  {
     $builder = $this->db->table(db_prefix() . 'pur_request_comments');
     $builder->insert($data);
     $insert_id = $this->db->insertID();
-    
+
     if ($insert_id) {
-        return $insert_id;
+      return $insert_id;
     }
     return false;
-}
+  }
 
-/**
- * Gets comments for a purchase request
- */
-public function get_comments($pur_request_id)
-{
+  /**
+   * Gets comments for a purchase request
+   */
+  public function get_comments($pur_request_id)
+  {
     $builder = $this->db->table(db_prefix() . 'pur_request_comments');
     $builder->where('pur_request_id', $pur_request_id);
     $builder->orderBy('created_at', 'DESC');
     return $builder->get()->getResultArray();
-}
+  }
 
   /**
    * delete approval details
@@ -7211,9 +7398,7 @@ public function get_comments($pur_request_id)
 
   /**
    * Gets the vendor item.
-   *
    * @param        $vendorid  The vendorid
-   *
    * @return       The vendor item.
    */
   public function get_vendor_item($vendorid)
@@ -7693,5 +7878,37 @@ public function get_comments($pur_request_id)
     } else {
       return []; // Return an empty array if no results
     }
+  }
+
+  public function get_pur_request_with_items($query)
+  {
+    $result = $this->db->query($query);
+    if (!$result) {
+      return [];
+    }
+
+    $purchase_requests = $result->getResultArray();
+
+    // Get items for each purchase request
+    foreach ($purchase_requests as $key => $request) {
+      $purchase_requests[$key]['items'] = $this->get_pur_request_items($request['id']);
+    }
+
+    return $purchase_requests;
+  }
+
+  public function get_pur_request_items($pur_request_id)
+  {
+    $builder = $this->db->table(db_prefix() . 'pur_request_detail prd');
+    $builder->select('i.title, i.sku_code, i.sku_name, prd.quantity, prd.unit_price');
+    $builder->join(db_prefix() . 'items i', 'i.id = prd.item_code', 'left');
+    $builder->where('prd.pur_request', $pur_request_id);
+
+    $result = $builder->get();
+    if ($result) {
+      return $result->getResultArray();
+    }
+
+    return [];
   }
 }

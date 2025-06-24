@@ -36,7 +36,8 @@ if (! function_exists('render_datatable1')) {
     $table .= '<tr>';
     foreach ($headings as $heading) {
       if (! is_array($heading)) {
-        $table .= '<th>' . $heading . '</th>';
+        $not_export_class = (strtolower(trim($heading)) == 'options') ? ' class="not-export"' : '';
+        $table .= '<th' . $not_export_class . '>' . $heading . '</th>';
       } else {
         $th_attrs = '';
         if (isset($heading['th_attrs'])) {
@@ -108,10 +109,6 @@ if (! function_exists('data_tables_purchase')) {
           if (startsWith1($_column[0], db_prefix())) {
             array_push($_aColumns, $column);
           }
-          //   $_prefix = prefixed_purchase_table_fields_wildcard($_column[0], $_column[0], $_column[1]);
-          //   array_push($_aColumns, $_prefix);
-          //  } else {
-          //  }
         } else {
           array_push($_aColumns, $_column[0]);
         }
@@ -137,10 +134,6 @@ if (! function_exists('data_tables_purchase')) {
           $columnName = strbefore1($columnName, ' as');
         }
 
-        // first checking is for eq tablename.column name
-        // second checking there is already prefixed table name in the column name
-        // this will work on the first table sorting - checked by the draw parameters
-        // in future sorting user must sort like he want and the duedates won't be always last
         if ((in_array($sTable . '.' . $columnName, $nullColumnsAsLast)
           || in_array($columnName, $nullColumnsAsLast))) {
           $sOrder .= $columnName . ' IS NULL ' . $dir . ', ' . $columnName;
@@ -164,7 +157,6 @@ if (! function_exists('data_tables_purchase')) {
     if ((isset($__post['search'])) && $__post['search']['value'] != '') {
       $search_value = $__post['search']['value'];
       $search_value = trim($search_value);
-
       $sWhere             = 'WHERE (';
       $sMatchCustomFields = [];
       // Not working, do not use it
@@ -294,12 +286,11 @@ if (! function_exists('data_tables_purchase')) {
               $sLimit
               ";
 
-    $rResult = $Purchase_Model->get_all_purchase_request($sQuery);
-    // if (!$rResult) {
-    //   log_message('error', 'SQL execution failed or returned empty result');
-    // } else {
-    //   log_message('error', 'Raw SQL Result: ' . print_r($rResult, true));
-    // }
+    // $rResult = $Purchase_Model->get_all_purchase_request($sQuery);
+    $rResult = $Purchase_Model->get_pur_request_with_items($sQuery);
+
+
+
     $rResult = app_hooks()->apply_filters('datatables_sql_query_results', $rResult, [
       'table' => $sTable,
       'limit' => $sLimit,
@@ -308,9 +299,7 @@ if (! function_exists('data_tables_purchase')) {
     log_message('debug', 'Generated Query: ' . $sQuery);
 
     /* Data set length after filtering */
-    $sQuery = '
-	SELECT FOUND_ROWS()
-	';
+    $sQuery = 'SELECT FOUND_ROWS()';
 
     $_query         = $Purchase_Model->get_all_purchase_request($sQuery);
     $iFilteredTotal = $_query[0]['FOUND_ROWS()'];
@@ -319,8 +308,8 @@ if (! function_exists('data_tables_purchase')) {
     }
     /* Total data set length */
     $sQuery = '
-	SELECT COUNT(' . $sTable . '.' . $sIndexColumn . ")
-	FROM $sTable " . $join . ' ' . $where;
+    SELECT COUNT(' . $sTable . '.' . $sIndexColumn . ")
+    FROM $sTable " . $join . ' ' . $where;
 
     $_query = $Purchase_Model->get_all_purchase_request($sQuery);
     $iTotal = $_query[0]['COUNT(' . $sTable . '.' . $sIndexColumn . ')'];
@@ -329,16 +318,10 @@ if (! function_exists('data_tables_purchase')) {
 	 */
     $output = [
       'draw' => isset($__post['draw']) ? intval($__post['draw']) : 0,
-
       'iTotalRecords'        => $iTotal,
       'iTotalDisplayRecords' => $iFilteredTotal,
       'aaData'               => [],
     ];
-
-    // // Build aaData
-    // foreach ($rResult as $row) {
-    //   $output['aaData'][] = $row;
-    // }
 
     return [
       'rResult' => $rResult,

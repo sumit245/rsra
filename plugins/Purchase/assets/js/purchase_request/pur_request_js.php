@@ -203,44 +203,16 @@
 
   function pur_add_item_to_preview(id) {
     "use strict";
-    var currency_rate = $('input[name="currency_rate"]').val();
 
-    requestGetJSON("<?php echo get_uri('purchase/get_item_by_id/'); ?>" + id + '/' + currency_rate).done(function(response) {
+    requestGetJSON("<?= get_uri('purchase/get_item_by_id/'); ?>" + id).done(function(response) {
       pur_clear_item_preview_values();
-
-      $('.main input[name="item_code"]').val(response.itemid);
-      $('.main textarea[name="item_text"]').val(response.code_description);
-      $('.main input[name="unit_price"]').val(response.purchase_price);
-      $('.main input[name="unit_name"]').val(response.unit_name);
-      $('.main input[name="unit_id"]').val(response.unit_id);
+      console.log(response)
+      $('.main input[name="item_code"]').val(response.item_id);
+      $('.main input[name="item_text"]').val(response.item_title);
+      $('.main input[name="sku_code"]').val(response.sku_code);
+      $('.main input[name="sku_name"]').val(response.sku_name);
       $('.main input[name="quantity"]').val(1);
-
-      var taxSelectedArray = [];
-      if (response.taxname && response.taxrate) {
-        taxSelectedArray.push(response.taxname + '|' + response.taxrate);
-      }
-      if (response.taxname_2 && response.taxrate_2) {
-        taxSelectedArray.push(response.taxname_2 + '|' + response.taxrate_2);
-      }
-
-      $('.main select.taxes').val(taxSelectedArray).change();
-      $('.main input[name="unit"]').val(response.unit_name);
-
-      var $currency = $("body").find('.accounting-template select[name="currency"]');
-      var baseCurency = $currency.attr('data-base');
-      var selectedCurrency = $currency.find('option:selected').val();
-      var $rateInputPreview = $('.main input[name="rate"]');
-
-      if (baseCurency == selectedCurrency) {
-        $rateInputPreview.val(response.rate);
-      } else {
-        var itemCurrencyRate = response['rate_currency_' + selectedCurrency];
-        if (!itemCurrencyRate || parseFloat(itemCurrencyRate) === 0) {
-          $rateInputPreview.val(response.rate);
-        } else {
-          $rateInputPreview.val(itemCurrencyRate);
-        }
-      }
+      $('.main input[name="unit_name"]').val(response.unit_name);
 
       $(document).trigger({
         type: "item-added-to-preview",
@@ -251,71 +223,103 @@
   }
 
 
-  function pur_get_item_row_template(name, item_code, item_text, unit_price, quantity, unit_name, into_money, item_key, tax_value, total, taxname, currency_rate, to_currency) {
-    "use strict";
 
-    jQuery.ajaxSetup({
-      async: false
-    });
+  function pur_get_item_row_template(name, item_code, item_text, sku_code, sku_name, quantity, unit_name, item_key) {
+    "use strict";
 
     var d = $.post("<?php echo get_uri('purchase/get_purchase_request_row_template'); ?>", {
       name: name,
       item_text: item_text,
-      unit_price: unit_price,
+      item_code: item_code,
+      sku_code: sku_code,
+      sku_name: sku_name,
       quantity: quantity,
       unit_name: unit_name,
-      into_money: into_money,
-      item_key: item_key,
-      tax_value: tax_value,
-      taxname: taxname,
-      total: total,
-      item_code: item_code,
-      currency_rate: currency_rate,
-      to_currency: to_currency
-    });
-    jQuery.ajaxSetup({
-      async: true
+      item_key: item_key
     });
     return d;
   }
 
+  // TODO: We may need these for purchase order or invoice or quotation
+  // function pur_add_item_to_table(data, itemid) {
+  //   "use strict";
+
+  //   data = typeof(data) == 'undefined' || data == 'undefined' ? pur_get_item_preview_values() : data;
+
+  //   if (data.quantities == "" || data.commodity_code == "") {
+
+  //     return;
+  //   }
+  //   var currency_rate = $('input[name="currency_rate"]').val();
+  //   var to_currency = $('select[name="currency"]').val();
+  //   var table_row = '';
+  //   var item_key = lastAddedItemKey ? lastAddedItemKey += 1 : $("body").find('.invoice-items-table tbody .item').length + 1;
+  //   lastAddedItemKey = item_key;
+  //   $("body").append('<div class="dt-loader"></div>');
+  //   pur_get_item_row_template('newitems[' + item_key + ']', data.item_code, data.item_text, data.unit_price, data.quantity, data.unit_name, data.into_money, item_key, data.tax_value, data.total, data.taxname, currency_rate, to_currency).done(function(output) {
+  //     table_row += output;
+
+  //     $('.invoice-item table.invoice-items-table.items tbody').append(table_row);
+
+  //     setTimeout(function() {
+  //       pur_calculate_total();
+  //     }, 15);
+
+  //     $('.refresh_tax2 .select2').select2('destroy');
+  //     $('.refresh_tax2 .select2').select2();
+
+  //     pur_reorder_items('.invoice-item');
+  //     pur_clear_item_preview_values('.invoice-item');
+  //     $('body').find('#items-warning').remove();
+  //     $("body").find('.dt-loader').remove();
+  //     $('#item_select').val('').change();
+
+  //     return true;
+  //   });
+  //   return false;
+  // }
   function pur_add_item_to_table(data, itemid) {
     "use strict";
 
-    data = typeof(data) == 'undefined' || data == 'undefined' ? pur_get_item_preview_values() : data;
-
-    if (data.quantities == "" || data.commodity_code == "") {
-
+    data = (typeof(data) === 'undefined' || data === 'undefined') ? pur_get_item_preview_values() : data;
+    console.log(data)
+    if (!data.quantity || !data.item_code) {
       return;
     }
-    var currency_rate = $('input[name="currency_rate"]').val();
-    var to_currency = $('select[name="currency"]').val();
+
     var table_row = '';
-    var item_key = lastAddedItemKey ? lastAddedItemKey += 1 : $("body").find('.invoice-items-table tbody .item').length + 1;
+    var item_key = lastAddedItemKey ? (lastAddedItemKey += 1) : ($("body").find('.invoice-items-table tbody .item').length + 1);
     lastAddedItemKey = item_key;
+
     $("body").append('<div class="dt-loader"></div>');
-    pur_get_item_row_template('newitems[' + item_key + ']', data.item_code, data.item_text, data.unit_price, data.quantity, data.unit_name, data.into_money, item_key, data.tax_value, data.total, data.taxname, currency_rate, to_currency).done(function(output) {
+
+    pur_get_item_row_template(
+      'newitems[' + item_key + ']',
+      data.item_code,
+      data.item_text,
+      data.sku_code,
+      data.sku_name,
+      data.quantity,
+      data.unit_name,
+      item_key
+    ).done(function(output) {
       table_row += output;
 
       $('.invoice-item table.invoice-items-table.items tbody').append(table_row);
 
-      setTimeout(function() {
-        pur_calculate_total();
-      }, 15);
-
-      $('.refresh_tax2 .select2').select2('destroy');
-      $('.refresh_tax2 .select2').select2();
-
       pur_reorder_items('.invoice-item');
       pur_clear_item_preview_values('.invoice-item');
+
       $('body').find('#items-warning').remove();
       $("body").find('.dt-loader').remove();
       $('#item_select').val('').change();
 
       return true;
     });
+
     return false;
   }
+
 
   function pur_reorder_items(parent) {
     "use strict";
@@ -331,7 +335,6 @@
   function pur_clear_item_preview_values(parent) {
     "use strict";
     var taxSelectedArray = [];
-
     $('.main input').val('');
     $('.main textarea').val('');
     $('.main .select2').val(taxSelectedArray).change();
@@ -341,20 +344,16 @@
     "use strict";
 
     var response = {};
-    response.item_text = $('.invoice-item .main textarea[name="item_text"]').val();
+    response.item_text = $('.invoice-item .main input[name="item_text"]').val();
     response.item_code = $('.invoice-item .main input[name="item_code"]').val();
+    response.sku_code = $('.invoice-item .main input[name="sku_code"]').val();
+    response.sku_name = $('.invoice-item .main input[name="sku_name"]').val();
     response.quantity = $('.invoice-item .main input[name="quantity"]').val();
     response.unit_name = $('.invoice-item .main input[name="unit_name"]').val();
-    response.unit_id = $('.invoice-item .main input[name="unit_id"]').val();
-    response.unit_price = $('.invoice-item .main input[name="unit_price"]').val();
-    response.taxname = $('.main select.taxes').val();
-    response.tax_rate = $('.invoice-item .main input[name="tax_rate"]').val();
-    response.tax_value = $('.invoice-item .main input[name="tax_value"]').val();
-    response.into_money = $('.invoice-item .main input[name="into_money"]').val();
-    response.total = $('.invoice-item .main input[name="total"]').val();
 
     return response;
   }
+
 
 
   function pur_calculate_total() {

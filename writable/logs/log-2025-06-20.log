@@ -1,0 +1,32 @@
+ERROR - 2025-06-20 02:10:40 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-20 02:10:52 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-20 02:11:01 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-20 02:11:08 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-20 02:11:12 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-20 02:19:12 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-20 02:19:13 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-20 02:19:19 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-20 02:24:55 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-20 02:40:03 --> Unclosed '{' on line 276
+in FCPATH\plugins\Purchase\Views\purchase_request\view_pur_request.php on line 524.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('Purchase\\Views\\purchase_request\\view_pur_request', [], true)
+ 3 APPPATH\Views\layout\index.php(48): view('Purchase\\Views\\purchase_request\\view_pur_request')
+ 4 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\index.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('layout/index', [], true)
+ 7 APPPATH\Libraries\Template.php(38): view('layout/index', [...])
+ 8 APPPATH\Libraries\Template.php(22): App\Libraries\Template->view('layout/index', [...])
+ 9 FCPATH\plugins\Purchase\Controllers\Purchase.php(2487): App\Libraries\Template->rander('Purchase\\Views\\purchase_request\\view_pur_request', [...])
+10 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->view_pur_request('14')
+11 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+12 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-20 04:09:33 --> The action you requested is not allowed.
+in SYSTEMPATH\Security\Security.php on line 286.
+ 1 SYSTEMPATH\Security\Security.php(286): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+ 2 SYSTEMPATH\Filters\CSRF.php(54): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 4 SYSTEMPATH\CodeIgniter.php(440): CodeIgniter\Filters\Filters->run('messages/count_notifications', 'before')
+ 5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
