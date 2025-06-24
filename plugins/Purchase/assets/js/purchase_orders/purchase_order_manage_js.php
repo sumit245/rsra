@@ -135,9 +135,9 @@
             $('#status_span_' + id).addClass(response.class);
             $('#status_span_' + id).html(response.status_str + ' ' + response.html);
           }
-          alert_float('success', response.result);
+          alert('success', response.result);
         } else {
-          alert_float('warning', response.result);
+          alert('warning', response.result);
         }
       });
     }

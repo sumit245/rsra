@@ -25,7 +25,7 @@
 
 
   function change_status_pur_request(invoker, id) {
-    "use strict";
+    // "use strict";
     $.post(admin_url + 'purchase/change_status_pur_request/' + invoker.value + '/' + id).done(function(reponse) {
       reponse = JSON.parse(reponse);
       window.location.href = admin_url + 'purchase/view_pur_request/' + id;
@@ -39,9 +39,12 @@
     data.rel_id = <?php echo html_entity_decode($pur_request->id); ?>;
     data.rel_type = 'pur_request';
     data.addedfrom = <?php echo html_entity_decode($pur_request->requester); ?>;
+    console.log(id)
+    console.table(data)
     $("body").append('<div class="dt-loader"></div>');
     $.post("<?php echo get_uri('purchase/send_request_approve'); ?>", data).done(function(response) {
       response = JSON.parse(response);
+      console.log(response)
       $("body").find('.dt-loader').remove();
       if (response.success === true || response.success == 'true') {
         appAlert.success(response.message);

@@ -3595,6 +3595,7 @@ class Purchase_model extends Crud_model
         $value->rel_id          = $data['rel_id'];
 
         $approve_value = $this->get_staff_id_by_approve_value($value, $value->approver);
+       
         if (is_numeric($approve_value)) {
           /*get Email by User id*/
           $options = [
@@ -3615,6 +3616,7 @@ class Purchase_model extends Crud_model
 
           return $value->approver;
         }
+        
         $row['approve_value'] = $approve_value;
 
         $staffid = $this->get_staff_id_by_approve_value($value, $value->approver);
@@ -3636,6 +3638,7 @@ class Purchase_model extends Crud_model
         $row['sender']    = $sender;
         $builder          = $this->db->table(get_db_prefix() . 'pur_approval_details');
         $builder->insert($row);
+        log_message("critical", print_r($builder,true));
       } else if ($value->approver == 'staff') {
         $row['action']    = $value->action;
         $row['staffid']   = $value->staff;
@@ -3646,10 +3649,38 @@ class Purchase_model extends Crud_model
 
         $builder = $this->db->table(get_db_prefix() . 'pur_approval_details');
         $builder->insert($row);
+        log_message("critical", print_r($builder,true));
       }
     }
+    
     return true;
   }
+
+/**
+ * Adds a comment to purchase request
+ */
+public function add_comment($data)
+{
+    $builder = $this->db->table(db_prefix() . 'pur_request_comments');
+    $builder->insert($data);
+    $insert_id = $this->db->insertID();
+    
+    if ($insert_id) {
+        return $insert_id;
+    }
+    return false;
+}
+
+/**
+ * Gets comments for a purchase request
+ */
+public function get_comments($pur_request_id)
+{
+    $builder = $this->db->table(db_prefix() . 'pur_request_comments');
+    $builder->where('pur_request_id', $pur_request_id);
+    $builder->orderBy('created_at', 'DESC');
+    return $builder->get()->getResultArray();
+}
 
   /**
    * delete approval details
