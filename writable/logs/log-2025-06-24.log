@@ -1,0 +1,2355 @@
+ERROR - 2025-06-24 16:42:36 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-24 16:42:36 --> Array
+(
+    [rResult] => Array
+        (
+            [0] => Array
+                (
+                    [pur_rq_code] => #-00009-2025
+                    [requester] => 19
+                    [department] => 1
+                    [request_date] => 2025-06-19 04:04:14
+                    [status] => 1
+                    [id] => 9
+                    [title] => AUTOMATION
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => AA
+                                    [sku_code] => #-00014
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [pur_rq_code] => #-00008-2025
+                    [requester] => 19
+                    [department] => 1
+                    [request_date] => 2025-06-19 02:22:04
+                    [status] => 2
+                    [id] => 8
+                    [title] => AUTOMATION
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Pipe
+                                    [sku_code] => #-00015
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [pur_rq_code] => #-00007-2025
+                    [requester] => 19
+                    [department] => 0
+                    [request_date] => 2025-06-19 02:01:37
+                    [status] => 1
+                    [id] => 7
+                    [title] => 
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => FX-5U
+                                    [sku_code] => P-00013
+                                    [sku_name] => 
+                                    [quantity] => 2.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [pur_rq_code] => #-00005-2025
+                    [requester] => 19
+                    [department] => 0
+                    [request_date] => 2025-06-19 01:47:37
+                    [status] => 1
+                    [id] => 5
+                    [title] => 
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => 
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 2.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+            [4] => Array
+                (
+                    [pur_rq_code] => #-00003-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-16 05:25:04
+                    [status] => 1
+                    [id] => 3
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => 
+                                    [sku_code] => GUIDECYLINDER
+                                    [sku_name] => MGPM50-40Z-A93L
+                                    [quantity] => 1.00
+                                    [unit_price] => 13630.00
+                                )
+
+                        )
+
+                )
+
+            [5] => Array
+                (
+                    [pur_rq_code] => #-00002-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-16 04:00:57
+                    [status] => 1
+                    [id] => 2
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => ANY ITEM
+                                    [sku_code] => 1234
+                                    [sku_name] => abcd
+                                    [quantity] => 1.00
+                                    [unit_price] => 1254.00
+                                )
+
+                        )
+
+                )
+
+            [6] => Array
+                (
+                    [pur_rq_code] => #-00001-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-16 03:58:10
+                    [status] => 2
+                    [id] => 1
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => ANY ITEM
+                                    [sku_code] => 1234
+                                    [sku_name] => abcd
+                                    [quantity] => 1.00
+                                    [unit_price] => 1254.00
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [output] => Array
+        (
+            [draw] => 1
+            [iTotalRecords] => 7
+            [iTotalDisplayRecords] => 1
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+CRITICAL - 2025-06-24 16:42:36 --> Array
+(
+    [title] => AA
+    [sku_code] => #-00014
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-24 16:42:36 --> Array
+(
+    [title] => Pipe
+    [sku_code] => #-00015
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-24 16:42:36 --> Array
+(
+    [title] => FX-5U
+    [sku_code] => P-00013
+    [sku_name] => 
+    [quantity] => 2.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-24 16:42:36 --> Array
+(
+    [title] => 
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 2.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-24 16:42:36 --> Array
+(
+    [title] => 
+    [sku_code] => GUIDECYLINDER
+    [sku_name] => MGPM50-40Z-A93L
+    [quantity] => 1.00
+    [unit_price] => 13630.00
+)
+
+CRITICAL - 2025-06-24 16:42:36 --> Array
+(
+    [title] => ANY ITEM
+    [sku_code] => 1234
+    [sku_name] => abcd
+    [quantity] => 1.00
+    [unit_price] => 1254.00
+)
+
+CRITICAL - 2025-06-24 16:42:36 --> Array
+(
+    [title] => ANY ITEM
+    [sku_code] => 1234
+    [sku_name] => abcd
+    [quantity] => 1.00
+    [unit_price] => 1254.00
+)
+
+ERROR - 2025-06-24 23:24:05 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-24 23:24:05 --> Array
+(
+    [rResult] => Array
+        (
+            [0] => Array
+                (
+                    [pur_rq_code] => #-00009-2025
+                    [requester] => 19
+                    [department] => 1
+                    [request_date] => 2025-06-19 04:04:14
+                    [status] => 1
+                    [id] => 9
+                    [title] => AUTOMATION
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => AA
+                                    [sku_code] => #-00014
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [pur_rq_code] => #-00008-2025
+                    [requester] => 19
+                    [department] => 1
+                    [request_date] => 2025-06-19 02:22:04
+                    [status] => 2
+                    [id] => 8
+                    [title] => AUTOMATION
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Pipe
+                                    [sku_code] => #-00015
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [pur_rq_code] => #-00007-2025
+                    [requester] => 19
+                    [department] => 0
+                    [request_date] => 2025-06-19 02:01:37
+                    [status] => 1
+                    [id] => 7
+                    [title] => 
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => FX-5U
+                                    [sku_code] => P-00013
+                                    [sku_name] => 
+                                    [quantity] => 2.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [pur_rq_code] => #-00005-2025
+                    [requester] => 19
+                    [department] => 0
+                    [request_date] => 2025-06-19 01:47:37
+                    [status] => 1
+                    [id] => 5
+                    [title] => 
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => 
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 2.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+            [4] => Array
+                (
+                    [pur_rq_code] => #-00003-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-16 05:25:04
+                    [status] => 1
+                    [id] => 3
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => 
+                                    [sku_code] => GUIDECYLINDER
+                                    [sku_name] => MGPM50-40Z-A93L
+                                    [quantity] => 1.00
+                                    [unit_price] => 13630.00
+                                )
+
+                        )
+
+                )
+
+            [5] => Array
+                (
+                    [pur_rq_code] => #-00002-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-16 04:00:57
+                    [status] => 1
+                    [id] => 2
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => ANY ITEM
+                                    [sku_code] => 1234
+                                    [sku_name] => abcd
+                                    [quantity] => 1.00
+                                    [unit_price] => 1254.00
+                                )
+
+                        )
+
+                )
+
+            [6] => Array
+                (
+                    [pur_rq_code] => #-00001-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-16 03:58:10
+                    [status] => 2
+                    [id] => 1
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => ANY ITEM
+                                    [sku_code] => 1234
+                                    [sku_name] => abcd
+                                    [quantity] => 1.00
+                                    [unit_price] => 1254.00
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [output] => Array
+        (
+            [draw] => 1
+            [iTotalRecords] => 7
+            [iTotalDisplayRecords] => 1
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+CRITICAL - 2025-06-24 23:24:05 --> Array
+(
+    [title] => AA
+    [sku_code] => #-00014
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-24 23:24:05 --> Array
+(
+    [title] => Pipe
+    [sku_code] => #-00015
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-24 23:24:05 --> Array
+(
+    [title] => FX-5U
+    [sku_code] => P-00013
+    [sku_name] => 
+    [quantity] => 2.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-24 23:24:05 --> Array
+(
+    [title] => 
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 2.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-24 23:24:05 --> Array
+(
+    [title] => 
+    [sku_code] => GUIDECYLINDER
+    [sku_name] => MGPM50-40Z-A93L
+    [quantity] => 1.00
+    [unit_price] => 13630.00
+)
+
+CRITICAL - 2025-06-24 23:24:05 --> Array
+(
+    [title] => ANY ITEM
+    [sku_code] => 1234
+    [sku_name] => abcd
+    [quantity] => 1.00
+    [unit_price] => 1254.00
+)
+
+CRITICAL - 2025-06-24 23:24:05 --> Array
+(
+    [title] => ANY ITEM
+    [sku_code] => 1234
+    [sku_name] => abcd
+    [quantity] => 1.00
+    [unit_price] => 1254.00
+)
+
+CRITICAL - 2025-06-24 23:25:33 --> <tr class="main"><td></td><td width="30%"><div class="form-group" app-field-wrapper="item_text"><input type="text" name="item_text" value="" id="item_text" class="form-control" placeholder="Item Name" autocomplete="off"  />
+</div><div class="form-group hide" app-field-wrapper="item_code"><input type="text" name="item_code" value="" id="item_code" class="form-control" placeholder="" autocomplete="off"  />
+</div></td><td width="20%"><div class="form-group" app-field-wrapper="sku_code"><input type="text" name="sku_code" value="" id="sku_code" class="form-control" placeholder="default_lang.Make" autocomplete="off"  />
+</div></td><td width="20%"><div class="form-group" app-field-wrapper="sku_name"><input type="text" name="sku_name" value="" id="sku_name" class="form-control" placeholder="default_lang.Model" autocomplete="off"  />
+</div></td><td width="15%" class="quantities"><div class="form-group no-margin" app-field-wrapper="quantity"><input type="number" name="quantity" value="" id="quantity" class="form-control text-right" placeholder="" autocomplete="off" min="0.0" step="any"  />
+</div></td><td width="15%"><div class="form-group" app-field-wrapper="unit_name"><input type="text" name="unit_name" value="" id="unit_name" class="form-control" placeholder="default_lang.Unit" autocomplete="off"  />
+</div></td><td><button type="button" onclick="pur_add_item_to_table('undefined','undefined'); return false;" class="btn pull-right btn-info text-white"><i data-feather="plus-circle" class="icon-16"></i></button></td></tr>
+CRITICAL - 2025-06-24 23:25:39 --> <tr class="main"><td></td><td width="30%"><div class="form-group" app-field-wrapper="item_text"><input type="text" name="item_text" value="" id="item_text" class="form-control" placeholder="Item Name" autocomplete="off"  />
+</div><div class="form-group hide" app-field-wrapper="item_code"><input type="text" name="item_code" value="" id="item_code" class="form-control" placeholder="" autocomplete="off"  />
+</div></td><td width="20%"><div class="form-group" app-field-wrapper="sku_code"><input type="text" name="sku_code" value="" id="sku_code" class="form-control" placeholder="default_lang.Make" autocomplete="off"  />
+</div></td><td width="20%"><div class="form-group" app-field-wrapper="sku_name"><input type="text" name="sku_name" value="" id="sku_name" class="form-control" placeholder="default_lang.Model" autocomplete="off"  />
+</div></td><td width="15%" class="quantities"><div class="form-group no-margin" app-field-wrapper="quantity"><input type="number" name="quantity" value="" id="quantity" class="form-control text-right" placeholder="" autocomplete="off" min="0.0" step="any"  />
+</div></td><td width="15%"><div class="form-group" app-field-wrapper="unit_name"><input type="text" name="unit_name" value="" id="unit_name" class="form-control" placeholder="default_lang.Unit" autocomplete="off"  />
+</div></td><td><button type="button" onclick="pur_add_item_to_table('undefined','undefined'); return false;" class="btn pull-right btn-info text-white"><i data-feather="plus-circle" class="icon-16"></i></button></td></tr>
+CRITICAL - 2025-06-24 23:25:39 --> <tr class="sortable item"><td class="dragger"><input type="hidden" class="order" name="newitems[1][order]"><input type="hidden" class="ids" name="newitems[1][id]" value="1"></td><td width="30%"><div class="form-group" app-field-wrapper="newitems[1][item_text]"><input type="text" name="newitems[1][item_text]" value="Alminium sheet" id="newitems[1][item_text]" class="form-control" placeholder="Item Name" autocomplete="off"  />
+</div><div class="form-group hide" app-field-wrapper="newitems[1][item_code]"><input type="text" name="newitems[1][item_code]" value="1" id="newitems[1][item_code]" class="form-control" placeholder="" autocomplete="off"  />
+</div></td><td width="20%"><div class="form-group" app-field-wrapper="newitems[1][sku_code]"><input type="text" name="newitems[1][sku_code]" value="1200" id="newitems[1][sku_code]" class="form-control" placeholder="default_lang.Make" autocomplete="off"  />
+</div></td><td width="20%"><div class="form-group" app-field-wrapper="newitems[1][sku_name]"><input type="text" name="newitems[1][sku_name]" value="20" id="newitems[1][sku_name]" class="form-control" placeholder="default_lang.Model" autocomplete="off"  />
+</div></td><td width="15%" class="quantities"><div class="form-group no-margin" app-field-wrapper="newitems[1][quantity]"><input type="number" name="newitems[1][quantity]" value="80 GSM" id="newitems[1][quantity]" class="form-control text-right" placeholder="" autocomplete="off" min="0.0" step="any"  />
+</div></td><td width="15%"><div class="form-group" app-field-wrapper="newitems[1][unit_name]"><input type="text" name="newitems[1][unit_name]" value="24000" id="newitems[1][unit_name]" class="form-control" placeholder="default_lang.Unit" autocomplete="off"  />
+</div></td><td><a href="#" class="btn btn-danger pull-right" onclick="pur_delete_item(this,1,'.invoice-item'); return false;"><i data-feather="x" class="icon-16"></i></a></td></tr>
+CRITICAL - 2025-06-24 23:25:49 --> <tr class="main"><td></td><td width="30%"><div class="form-group" app-field-wrapper="item_text"><input type="text" name="item_text" value="" id="item_text" class="form-control" placeholder="Item Name" autocomplete="off"  />
+</div><div class="form-group hide" app-field-wrapper="item_code"><input type="text" name="item_code" value="" id="item_code" class="form-control" placeholder="" autocomplete="off"  />
+</div></td><td width="20%"><div class="form-group" app-field-wrapper="sku_code"><input type="text" name="sku_code" value="" id="sku_code" class="form-control" placeholder="default_lang.Make" autocomplete="off"  />
+</div></td><td width="20%"><div class="form-group" app-field-wrapper="sku_name"><input type="text" name="sku_name" value="" id="sku_name" class="form-control" placeholder="default_lang.Model" autocomplete="off"  />
+</div></td><td width="15%" class="quantities"><div class="form-group no-margin" app-field-wrapper="quantity"><input type="number" name="quantity" value="" id="quantity" class="form-control text-right" placeholder="" autocomplete="off" min="0.0" step="any"  />
+</div></td><td width="15%"><div class="form-group" app-field-wrapper="unit_name"><input type="text" name="unit_name" value="" id="unit_name" class="form-control" placeholder="default_lang.Unit" autocomplete="off"  />
+</div></td><td><button type="button" onclick="pur_add_item_to_table('undefined','undefined'); return false;" class="btn pull-right btn-info text-white"><i data-feather="plus-circle" class="icon-16"></i></button></td></tr>
+CRITICAL - 2025-06-24 23:25:58 --> Purchase Request Row Input: {"name":"newitems[1]","item_text":"FPM Bench","item_code":"6","sku_code":"","sku_name":"","quantity":"1","unit_name":"","item_key":"1"}
+CRITICAL - 2025-06-24 23:25:58 --> <tr class="sortable item"><td class="dragger"><input type="hidden" class="order" name="newitems[1][order]"><input type="hidden" class="ids" name="newitems[1][id]" value="1"></td><td width="30%"><div class="form-group" app-field-wrapper="newitems[1][item_text]"><input type="text" name="newitems[1][item_text]" value="FPM Bench" id="newitems[1][item_text]" class="form-control" placeholder="Item Name" autocomplete="off"  />
+</div><div class="form-group hide" app-field-wrapper="newitems[1][item_code]"><input type="text" name="newitems[1][item_code]" value="6" id="newitems[1][item_code]" class="form-control" placeholder="" autocomplete="off"  />
+</div></td><td width="20%"><div class="form-group" app-field-wrapper="newitems[1][sku_code]"><input type="text" name="newitems[1][sku_code]" value="" id="newitems[1][sku_code]" class="form-control" placeholder="default_lang.Make" autocomplete="off"  />
+</div></td><td width="20%"><div class="form-group" app-field-wrapper="newitems[1][sku_name]"><input type="text" name="newitems[1][sku_name]" value="" id="newitems[1][sku_name]" class="form-control" placeholder="default_lang.Model" autocomplete="off"  />
+</div></td><td width="15%" class="quantities"><div class="form-group no-margin" app-field-wrapper="newitems[1][quantity]"><input type="number" name="newitems[1][quantity]" value="1" id="newitems[1][quantity]" class="form-control text-right" placeholder="" autocomplete="off" min="0.0" step="any"  />
+</div></td><td width="15%"><div class="form-group" app-field-wrapper="newitems[1][unit_name]"><input type="text" name="newitems[1][unit_name]" value="" id="newitems[1][unit_name]" class="form-control" placeholder="default_lang.Unit" autocomplete="off"  />
+</div></td><td><a href="#" class="btn btn-danger pull-right" onclick="pur_delete_item(this,1,'.invoice-item'); return false;"><i data-feather="x" class="icon-16"></i></a></td></tr>
+CRITICAL - 2025-06-24 23:26:03 --> Purchase Request Row Input: {"name":"newitems[2]","item_text":"plastic","item_code":"3","sku_code":"","sku_name":"","quantity":"1","unit_name":"","item_key":"2"}
+CRITICAL - 2025-06-24 23:26:03 --> <tr class="sortable item"><td class="dragger"><input type="hidden" class="order" name="newitems[2][order]"><input type="hidden" class="ids" name="newitems[2][id]" value="2"></td><td width="30%"><div class="form-group" app-field-wrapper="newitems[2][item_text]"><input type="text" name="newitems[2][item_text]" value="plastic" id="newitems[2][item_text]" class="form-control" placeholder="Item Name" autocomplete="off"  />
+</div><div class="form-group hide" app-field-wrapper="newitems[2][item_code]"><input type="text" name="newitems[2][item_code]" value="3" id="newitems[2][item_code]" class="form-control" placeholder="" autocomplete="off"  />
+</div></td><td width="20%"><div class="form-group" app-field-wrapper="newitems[2][sku_code]"><input type="text" name="newitems[2][sku_code]" value="" id="newitems[2][sku_code]" class="form-control" placeholder="default_lang.Make" autocomplete="off"  />
+</div></td><td width="20%"><div class="form-group" app-field-wrapper="newitems[2][sku_name]"><input type="text" name="newitems[2][sku_name]" value="" id="newitems[2][sku_name]" class="form-control" placeholder="default_lang.Model" autocomplete="off"  />
+</div></td><td width="15%" class="quantities"><div class="form-group no-margin" app-field-wrapper="newitems[2][quantity]"><input type="number" name="newitems[2][quantity]" value="1" id="newitems[2][quantity]" class="form-control text-right" placeholder="" autocomplete="off" min="0.0" step="any"  />
+</div></td><td width="15%"><div class="form-group" app-field-wrapper="newitems[2][unit_name]"><input type="text" name="newitems[2][unit_name]" value="" id="newitems[2][unit_name]" class="form-control" placeholder="default_lang.Unit" autocomplete="off"  />
+</div></td><td><a href="#" class="btn btn-danger pull-right" onclick="pur_delete_item(this,2,'.invoice-item'); return false;"><i data-feather="x" class="icon-16"></i></a></td></tr>
+ERROR - 2025-06-24 23:26:08 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-24 23:26:08 --> Array
+(
+    [rResult] => Array
+        (
+            [0] => Array
+                (
+                    [pur_rq_code] => #-00010-2025
+                    [requester] => 1
+                    [department] => 1
+                    [request_date] => 2025-06-24 23:26:07
+                    [status] => 1
+                    [id] => 10
+                    [title] => AUTOMATION
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => FPM Bench
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => plastic
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [pur_rq_code] => #-00009-2025
+                    [requester] => 19
+                    [department] => 1
+                    [request_date] => 2025-06-19 04:04:14
+                    [status] => 1
+                    [id] => 9
+                    [title] => AUTOMATION
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => AA
+                                    [sku_code] => #-00014
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [pur_rq_code] => #-00008-2025
+                    [requester] => 19
+                    [department] => 1
+                    [request_date] => 2025-06-19 02:22:04
+                    [status] => 2
+                    [id] => 8
+                    [title] => AUTOMATION
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Pipe
+                                    [sku_code] => #-00015
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [pur_rq_code] => #-00007-2025
+                    [requester] => 19
+                    [department] => 0
+                    [request_date] => 2025-06-19 02:01:37
+                    [status] => 1
+                    [id] => 7
+                    [title] => 
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => FX-5U
+                                    [sku_code] => P-00013
+                                    [sku_name] => 
+                                    [quantity] => 2.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+            [4] => Array
+                (
+                    [pur_rq_code] => #-00005-2025
+                    [requester] => 19
+                    [department] => 0
+                    [request_date] => 2025-06-19 01:47:37
+                    [status] => 1
+                    [id] => 5
+                    [title] => 
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => 
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 2.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+            [5] => Array
+                (
+                    [pur_rq_code] => #-00003-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-16 05:25:04
+                    [status] => 1
+                    [id] => 3
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => 
+                                    [sku_code] => GUIDECYLINDER
+                                    [sku_name] => MGPM50-40Z-A93L
+                                    [quantity] => 1.00
+                                    [unit_price] => 13630.00
+                                )
+
+                        )
+
+                )
+
+            [6] => Array
+                (
+                    [pur_rq_code] => #-00002-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-16 04:00:57
+                    [status] => 1
+                    [id] => 2
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => ANY ITEM
+                                    [sku_code] => 1234
+                                    [sku_name] => abcd
+                                    [quantity] => 1.00
+                                    [unit_price] => 1254.00
+                                )
+
+                        )
+
+                )
+
+            [7] => Array
+                (
+                    [pur_rq_code] => #-00001-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-16 03:58:10
+                    [status] => 2
+                    [id] => 1
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => ANY ITEM
+                                    [sku_code] => 1234
+                                    [sku_name] => abcd
+                                    [quantity] => 1.00
+                                    [unit_price] => 1254.00
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [output] => Array
+        (
+            [draw] => 1
+            [iTotalRecords] => 8
+            [iTotalDisplayRecords] => 1
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+CRITICAL - 2025-06-24 23:26:08 --> Array
+(
+    [title] => FPM Bench
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-24 23:26:08 --> Array
+(
+    [title] => plastic
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-24 23:26:08 --> Array
+(
+    [title] => AA
+    [sku_code] => #-00014
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-24 23:26:08 --> Array
+(
+    [title] => Pipe
+    [sku_code] => #-00015
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-24 23:26:08 --> Array
+(
+    [title] => FX-5U
+    [sku_code] => P-00013
+    [sku_name] => 
+    [quantity] => 2.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-24 23:26:08 --> Array
+(
+    [title] => 
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 2.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-24 23:26:08 --> Array
+(
+    [title] => 
+    [sku_code] => GUIDECYLINDER
+    [sku_name] => MGPM50-40Z-A93L
+    [quantity] => 1.00
+    [unit_price] => 13630.00
+)
+
+CRITICAL - 2025-06-24 23:26:08 --> Array
+(
+    [title] => ANY ITEM
+    [sku_code] => 1234
+    [sku_name] => abcd
+    [quantity] => 1.00
+    [unit_price] => 1254.00
+)
+
+CRITICAL - 2025-06-24 23:26:08 --> Array
+(
+    [title] => ANY ITEM
+    [sku_code] => 1234
+    [sku_name] => abcd
+    [quantity] => 1.00
+    [unit_price] => 1254.00
+)
+
+ERROR - 2025-06-24 23:26:19 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-24 23:26:19 --> Array
+(
+    [rResult] => Array
+        (
+            [0] => Array
+                (
+                    [pur_rq_code] => #-00010-2025
+                    [requester] => 1
+                    [department] => 1
+                    [request_date] => 2025-06-24 23:26:07
+                    [status] => 1
+                    [id] => 10
+                    [title] => AUTOMATION
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => FPM Bench
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => plastic
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [pur_rq_code] => #-00009-2025
+                    [requester] => 19
+                    [department] => 1
+                    [request_date] => 2025-06-19 04:04:14
+                    [status] => 1
+                    [id] => 9
+                    [title] => AUTOMATION
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => AA
+                                    [sku_code] => #-00014
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [pur_rq_code] => #-00008-2025
+                    [requester] => 19
+                    [department] => 1
+                    [request_date] => 2025-06-19 02:22:04
+                    [status] => 2
+                    [id] => 8
+                    [title] => AUTOMATION
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Pipe
+                                    [sku_code] => #-00015
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [pur_rq_code] => #-00007-2025
+                    [requester] => 19
+                    [department] => 0
+                    [request_date] => 2025-06-19 02:01:37
+                    [status] => 1
+                    [id] => 7
+                    [title] => 
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => FX-5U
+                                    [sku_code] => P-00013
+                                    [sku_name] => 
+                                    [quantity] => 2.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+            [4] => Array
+                (
+                    [pur_rq_code] => #-00005-2025
+                    [requester] => 19
+                    [department] => 0
+                    [request_date] => 2025-06-19 01:47:37
+                    [status] => 1
+                    [id] => 5
+                    [title] => 
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => 
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 2.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+            [5] => Array
+                (
+                    [pur_rq_code] => #-00003-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-16 05:25:04
+                    [status] => 1
+                    [id] => 3
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => 
+                                    [sku_code] => GUIDECYLINDER
+                                    [sku_name] => MGPM50-40Z-A93L
+                                    [quantity] => 1.00
+                                    [unit_price] => 13630.00
+                                )
+
+                        )
+
+                )
+
+            [6] => Array
+                (
+                    [pur_rq_code] => #-00002-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-16 04:00:57
+                    [status] => 1
+                    [id] => 2
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => ANY ITEM
+                                    [sku_code] => 1234
+                                    [sku_name] => abcd
+                                    [quantity] => 1.00
+                                    [unit_price] => 1254.00
+                                )
+
+                        )
+
+                )
+
+            [7] => Array
+                (
+                    [pur_rq_code] => #-00001-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-16 03:58:10
+                    [status] => 2
+                    [id] => 1
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => ANY ITEM
+                                    [sku_code] => 1234
+                                    [sku_name] => abcd
+                                    [quantity] => 1.00
+                                    [unit_price] => 1254.00
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [output] => Array
+        (
+            [draw] => 1
+            [iTotalRecords] => 8
+            [iTotalDisplayRecords] => 1
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+CRITICAL - 2025-06-24 23:26:19 --> Array
+(
+    [title] => FPM Bench
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-24 23:26:19 --> Array
+(
+    [title] => plastic
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-24 23:26:19 --> Array
+(
+    [title] => AA
+    [sku_code] => #-00014
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-24 23:26:19 --> Array
+(
+    [title] => Pipe
+    [sku_code] => #-00015
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-24 23:26:19 --> Array
+(
+    [title] => FX-5U
+    [sku_code] => P-00013
+    [sku_name] => 
+    [quantity] => 2.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-24 23:26:19 --> Array
+(
+    [title] => 
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 2.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-24 23:26:19 --> Array
+(
+    [title] => 
+    [sku_code] => GUIDECYLINDER
+    [sku_name] => MGPM50-40Z-A93L
+    [quantity] => 1.00
+    [unit_price] => 13630.00
+)
+
+CRITICAL - 2025-06-24 23:26:19 --> Array
+(
+    [title] => ANY ITEM
+    [sku_code] => 1234
+    [sku_name] => abcd
+    [quantity] => 1.00
+    [unit_price] => 1254.00
+)
+
+CRITICAL - 2025-06-24 23:26:19 --> Array
+(
+    [title] => ANY ITEM
+    [sku_code] => 1234
+    [sku_name] => abcd
+    [quantity] => 1.00
+    [unit_price] => 1254.00
+)
+
+ERROR - 2025-06-24 23:26:31 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-24 23:26:31 --> Array
+(
+    [rResult] => Array
+        (
+            [0] => Array
+                (
+                    [pur_rq_code] => #-00010-2025
+                    [requester] => 1
+                    [department] => 1
+                    [request_date] => 2025-06-24 23:26:07
+                    [status] => 1
+                    [id] => 10
+                    [title] => AUTOMATION
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => FPM Bench
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => plastic
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [pur_rq_code] => #-00009-2025
+                    [requester] => 19
+                    [department] => 1
+                    [request_date] => 2025-06-19 04:04:14
+                    [status] => 1
+                    [id] => 9
+                    [title] => AUTOMATION
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => AA
+                                    [sku_code] => #-00014
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [pur_rq_code] => #-00008-2025
+                    [requester] => 19
+                    [department] => 1
+                    [request_date] => 2025-06-19 02:22:04
+                    [status] => 2
+                    [id] => 8
+                    [title] => AUTOMATION
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Pipe
+                                    [sku_code] => #-00015
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [output] => Array
+        (
+            [draw] => 2
+            [iTotalRecords] => 3
+            [iTotalDisplayRecords] => 1
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+CRITICAL - 2025-06-24 23:26:31 --> Array
+(
+    [title] => FPM Bench
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-24 23:26:31 --> Array
+(
+    [title] => plastic
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-24 23:26:31 --> Array
+(
+    [title] => AA
+    [sku_code] => #-00014
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-24 23:26:31 --> Array
+(
+    [title] => Pipe
+    [sku_code] => #-00015
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 0.00
+)
+
+ERROR - 2025-06-24 23:26:47 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-24 23:26:47 --> Array
+(
+    [rResult] => Array
+        (
+            [0] => Array
+                (
+                    [pur_rq_code] => #-00009-2025
+                    [requester] => 19
+                    [department] => 1
+                    [request_date] => 2025-06-19 04:04:14
+                    [status] => 1
+                    [id] => 9
+                    [title] => AUTOMATION
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => AA
+                                    [sku_code] => #-00014
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [pur_rq_code] => #-00010-2025
+                    [requester] => 1
+                    [department] => 1
+                    [request_date] => 2025-06-24 23:26:07
+                    [status] => 1
+                    [id] => 10
+                    [title] => AUTOMATION
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => FPM Bench
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => plastic
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [pur_rq_code] => #-00008-2025
+                    [requester] => 19
+                    [department] => 1
+                    [request_date] => 2025-06-19 02:22:04
+                    [status] => 2
+                    [id] => 8
+                    [title] => AUTOMATION
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Pipe
+                                    [sku_code] => #-00015
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [output] => Array
+        (
+            [draw] => 3
+            [iTotalRecords] => 3
+            [iTotalDisplayRecords] => 1
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+CRITICAL - 2025-06-24 23:26:47 --> Array
+(
+    [title] => AA
+    [sku_code] => #-00014
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-24 23:26:47 --> Array
+(
+    [title] => FPM Bench
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-24 23:26:47 --> Array
+(
+    [title] => plastic
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-24 23:26:47 --> Array
+(
+    [title] => Pipe
+    [sku_code] => #-00015
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 0.00
+)
+
+ERROR - 2025-06-24 23:26:47 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-24 23:26:47 --> Array
+(
+    [rResult] => Array
+        (
+            [0] => Array
+                (
+                    [pur_rq_code] => #-00008-2025
+                    [requester] => 19
+                    [department] => 1
+                    [request_date] => 2025-06-19 02:22:04
+                    [status] => 2
+                    [id] => 8
+                    [title] => AUTOMATION
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Pipe
+                                    [sku_code] => #-00015
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [pur_rq_code] => #-00009-2025
+                    [requester] => 19
+                    [department] => 1
+                    [request_date] => 2025-06-19 04:04:14
+                    [status] => 1
+                    [id] => 9
+                    [title] => AUTOMATION
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => AA
+                                    [sku_code] => #-00014
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [pur_rq_code] => #-00010-2025
+                    [requester] => 1
+                    [department] => 1
+                    [request_date] => 2025-06-24 23:26:07
+                    [status] => 1
+                    [id] => 10
+                    [title] => AUTOMATION
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => FPM Bench
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => plastic
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [output] => Array
+        (
+            [draw] => 4
+            [iTotalRecords] => 3
+            [iTotalDisplayRecords] => 2
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+CRITICAL - 2025-06-24 23:26:47 --> Array
+(
+    [title] => Pipe
+    [sku_code] => #-00015
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-24 23:26:47 --> Array
+(
+    [title] => AA
+    [sku_code] => #-00014
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-24 23:26:47 --> Array
+(
+    [title] => FPM Bench
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-24 23:26:47 --> Array
+(
+    [title] => plastic
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+ERROR - 2025-06-24 23:26:47 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-24 23:26:47 --> Array
+(
+    [rResult] => Array
+        (
+            [0] => Array
+                (
+                    [pur_rq_code] => #-00009-2025
+                    [requester] => 19
+                    [department] => 1
+                    [request_date] => 2025-06-19 04:04:14
+                    [status] => 1
+                    [id] => 9
+                    [title] => AUTOMATION
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => AA
+                                    [sku_code] => #-00014
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [pur_rq_code] => #-00010-2025
+                    [requester] => 1
+                    [department] => 1
+                    [request_date] => 2025-06-24 23:26:07
+                    [status] => 1
+                    [id] => 10
+                    [title] => AUTOMATION
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => FPM Bench
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => plastic
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [pur_rq_code] => #-00008-2025
+                    [requester] => 19
+                    [department] => 1
+                    [request_date] => 2025-06-19 02:22:04
+                    [status] => 2
+                    [id] => 8
+                    [title] => AUTOMATION
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Pipe
+                                    [sku_code] => #-00015
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [output] => Array
+        (
+            [draw] => 5
+            [iTotalRecords] => 3
+            [iTotalDisplayRecords] => 1
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+CRITICAL - 2025-06-24 23:26:47 --> Array
+(
+    [title] => AA
+    [sku_code] => #-00014
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-24 23:26:47 --> Array
+(
+    [title] => FPM Bench
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-24 23:26:47 --> Array
+(
+    [title] => plastic
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-24 23:26:47 --> Array
+(
+    [title] => Pipe
+    [sku_code] => #-00015
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 0.00
+)
+
+ERROR - 2025-06-24 23:26:48 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-24 23:26:48 --> Array
+(
+    [rResult] => Array
+        (
+            [0] => Array
+                (
+                    [pur_rq_code] => #-00008-2025
+                    [requester] => 19
+                    [department] => 1
+                    [request_date] => 2025-06-19 02:22:04
+                    [status] => 2
+                    [id] => 8
+                    [title] => AUTOMATION
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Pipe
+                                    [sku_code] => #-00015
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [pur_rq_code] => #-00009-2025
+                    [requester] => 19
+                    [department] => 1
+                    [request_date] => 2025-06-19 04:04:14
+                    [status] => 1
+                    [id] => 9
+                    [title] => AUTOMATION
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => AA
+                                    [sku_code] => #-00014
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [pur_rq_code] => #-00010-2025
+                    [requester] => 1
+                    [department] => 1
+                    [request_date] => 2025-06-24 23:26:07
+                    [status] => 1
+                    [id] => 10
+                    [title] => AUTOMATION
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => FPM Bench
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => plastic
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [output] => Array
+        (
+            [draw] => 6
+            [iTotalRecords] => 3
+            [iTotalDisplayRecords] => 2
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+CRITICAL - 2025-06-24 23:26:48 --> Array
+(
+    [title] => Pipe
+    [sku_code] => #-00015
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-24 23:26:48 --> Array
+(
+    [title] => AA
+    [sku_code] => #-00014
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-24 23:26:48 --> Array
+(
+    [title] => FPM Bench
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-24 23:26:48 --> Array
+(
+    [title] => plastic
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+ERROR - 2025-06-24 23:26:57 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-24 23:26:57 --> Array
+(
+    [rResult] => Array
+        (
+            [0] => Array
+                (
+                    [pur_rq_code] => #-00009-2025
+                    [requester] => 19
+                    [department] => 1
+                    [request_date] => 2025-06-19 04:04:14
+                    [status] => 1
+                    [id] => 9
+                    [title] => AUTOMATION
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => AA
+                                    [sku_code] => #-00014
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [pur_rq_code] => #-00010-2025
+                    [requester] => 1
+                    [department] => 1
+                    [request_date] => 2025-06-24 23:26:07
+                    [status] => 1
+                    [id] => 10
+                    [title] => AUTOMATION
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => FPM Bench
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => plastic
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [pur_rq_code] => #-00008-2025
+                    [requester] => 19
+                    [department] => 1
+                    [request_date] => 2025-06-19 02:22:04
+                    [status] => 2
+                    [id] => 8
+                    [title] => AUTOMATION
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Pipe
+                                    [sku_code] => #-00015
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [output] => Array
+        (
+            [draw] => 7
+            [iTotalRecords] => 3
+            [iTotalDisplayRecords] => 1
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+CRITICAL - 2025-06-24 23:26:57 --> Array
+(
+    [title] => AA
+    [sku_code] => #-00014
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-24 23:26:57 --> Array
+(
+    [title] => FPM Bench
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-24 23:26:57 --> Array
+(
+    [title] => plastic
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-24 23:26:57 --> Array
+(
+    [title] => Pipe
+    [sku_code] => #-00015
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 0.00
+)
+
+ERROR - 2025-06-24 23:29:01 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-24 23:29:01 --> Array
+(
+    [rResult] => Array
+        (
+            [0] => Array
+                (
+                    [pur_rq_code] => #-00008-2025
+                    [requester] => 19
+                    [department] => 1
+                    [request_date] => 2025-06-19 02:22:04
+                    [status] => 2
+                    [id] => 8
+                    [title] => AUTOMATION
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Pipe
+                                    [sku_code] => #-00015
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [pur_rq_code] => #-00009-2025
+                    [requester] => 19
+                    [department] => 1
+                    [request_date] => 2025-06-19 04:04:14
+                    [status] => 1
+                    [id] => 9
+                    [title] => AUTOMATION
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => AA
+                                    [sku_code] => #-00014
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [pur_rq_code] => #-00010-2025
+                    [requester] => 1
+                    [department] => 1
+                    [request_date] => 2025-06-24 23:26:07
+                    [status] => 1
+                    [id] => 10
+                    [title] => AUTOMATION
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => FPM Bench
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => plastic
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [output] => Array
+        (
+            [draw] => 8
+            [iTotalRecords] => 3
+            [iTotalDisplayRecords] => 2
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+CRITICAL - 2025-06-24 23:29:01 --> Array
+(
+    [title] => Pipe
+    [sku_code] => #-00015
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-24 23:29:01 --> Array
+(
+    [title] => AA
+    [sku_code] => #-00014
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-24 23:29:01 --> Array
+(
+    [title] => FPM Bench
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-24 23:29:01 --> Array
+(
+    [title] => plastic
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+ERROR - 2025-06-24 23:29:02 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-24 23:29:02 --> Array
+(
+    [rResult] => Array
+        (
+            [0] => Array
+                (
+                    [pur_rq_code] => #-00009-2025
+                    [requester] => 19
+                    [department] => 1
+                    [request_date] => 2025-06-19 04:04:14
+                    [status] => 1
+                    [id] => 9
+                    [title] => AUTOMATION
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => AA
+                                    [sku_code] => #-00014
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [pur_rq_code] => #-00010-2025
+                    [requester] => 1
+                    [department] => 1
+                    [request_date] => 2025-06-24 23:26:07
+                    [status] => 1
+                    [id] => 10
+                    [title] => AUTOMATION
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => FPM Bench
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => plastic
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [pur_rq_code] => #-00008-2025
+                    [requester] => 19
+                    [department] => 1
+                    [request_date] => 2025-06-19 02:22:04
+                    [status] => 2
+                    [id] => 8
+                    [title] => AUTOMATION
+                    [first_name] => Vishnu Pratap
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Pipe
+                                    [sku_code] => #-00015
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 0.00
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [output] => Array
+        (
+            [draw] => 9
+            [iTotalRecords] => 3
+            [iTotalDisplayRecords] => 1
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+CRITICAL - 2025-06-24 23:29:02 --> Array
+(
+    [title] => AA
+    [sku_code] => #-00014
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-24 23:29:02 --> Array
+(
+    [title] => FPM Bench
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-24 23:29:02 --> Array
+(
+    [title] => plastic
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-24 23:29:02 --> Array
+(
+    [title] => Pipe
+    [sku_code] => #-00015
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 0.00
+)
+
+ERROR - 2025-06-24 23:52:47 --> DEBUG: $sGroupBy = 
