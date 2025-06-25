@@ -35,15 +35,19 @@
         </div>
       <?php } ?>
     </div>
+
     <div class="row ml2 mr2">
       <?php render_datatable1([
         _l('pur_rq_code'),
-        _l('pur_rq_name'),
+        // _l('pur_rq_name'),
         _l('requester'),
-        _l('team'),
+        'Department',
         _l('pur_request_date'),
+        "Item",
+        "Make",
+        "Model",
         _l('status'),
-        _l('options'),
+        ['name' => _l('options'), 'th_attrs' => ['class' => 'not-export']]
       ], 'table_pur_request'); ?>
     </div>
   </div>

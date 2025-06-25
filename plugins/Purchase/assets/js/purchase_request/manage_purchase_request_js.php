@@ -1,12 +1,9 @@
 <script>
   (function($) {
     "use strict";
-
     var table_pur_request = $('.table-table_pur_request');
-
     setDatePicker("#from_date");
     setDatePicker("#to_date");
-
     $('.select2').select2();
 
     var Params = {
@@ -15,9 +12,9 @@
       "department": "[name='department']",
     };
 
-    console.log('Initializing table...');
+
     initDataTable('.table-table_pur_request', "<?php echo get_uri('purchase/table_pur_request') ?>", [0], [0], Params, [0, 'desc']);
-    console.log('Initialized')
+
     $.each(Params, function(i, obj) {
       $('select' + obj).on('change', function() {
         table_pur_request.DataTable().ajax.reload()
@@ -72,9 +69,7 @@
   function routing_init_editor(selector, settings) {
 
     "use strict";
-
     tinymce.remove(selector);
-
     selector = typeof(selector) == 'undefined' ? '.tinymce' : selector;
     var _editor_selector_check = $(selector);
 

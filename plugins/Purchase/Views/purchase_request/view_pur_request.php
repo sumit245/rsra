@@ -249,12 +249,12 @@
               <p class="bold p_style">Comments</p>
               <hr class="hr_style" />
               <div id="comments-list">
-                <?php 
+                <?php
                 if (isset($pur_request_comments) && !empty($pur_request_comments)) {
                   foreach ($pur_request_comments as $comment) { ?>
                     <div class="comment mb15">
                       <div class="comment-header">
-                        <strong><?php echo html_entity_decode($comment['user_name']); ?></strong> - 
+                        <strong><?php echo html_entity_decode($comment['user_name']); ?></strong> -
                         <span class="text-muted"><?php echo format_to_date($comment['created_at']); ?></span>
                       </div>
                       <div class="comment-body">
@@ -378,9 +378,11 @@
             <div class="pull-right mb15">
               <?php
               if ($check_appr && $check_appr != false) {
-                if ($pur_request->status == 1 && ($check_approve_status == false || $check_approve_status == 'reject')) { ?>
+                if ($pur_request->status == 1 && ($check_approve_status == false || $check_approve_status == 'reject')) {
+              ?>
                   <a data-toggle="tooltip" data-loading-text="<?php echo _l('wait_text'); ?>" class="btn btn-success lead-top-btn lead-view" data-placement="top" href="#" onclick="send_request_approve(<?php echo html_entity_decode($pur_request->id); ?>); return false;"><?php echo _l('send_request_approve_pur'); ?></a>
-                <?php }
+                <?php
+                }
               }
               if (isset($check_approve_status['staffid'])) {
                 ?>
@@ -523,64 +525,65 @@
 <?php require FCPATH . PLUGIN_URL_PATH . "Purchase/assets/js/purchase_request/view_pur_request_js.php";  ?>
 
 <script>
-function addComment() {
+  function addComment() {
     var comment = $('#comment_content').val().trim();
-    
+
     if (comment === '') {
-        alert('Please enter a comment');
-        return;
+      alert('Please enter a comment');
+      return;
     }
-    
+
     var button = $('#add-comment-btn');
     var originalText = button.text();
     button.text('Adding...').prop('disabled', true);
-    
+
     $.ajax({
-        url: '<?php echo admin_url('purchase/add_comment'); ?>',
-        type: 'POST',
-        data: {
-            comment: comment,
-            pur_request_id: <?php echo $pur_request->id; ?>
-        },
-        dataType: 'json',
-        success: function(response) {
-            if (response.success) {
-                $('#comment_content').val('');
-                
-                var currentDate = new Date();
-                var formattedDate = currentDate.toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'short',
-                    day: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit'
-                });
-                
-                var commentHtml = '<div class="comment mb15">' +
-                    '<div class="comment-header">' +
-                    '<strong>' + response.comment.user_name + '</strong> - ' +
-                    '<span class="text-muted">' + formattedDate + '</span>' +
-                    '</div>' +
-                    '<div class="comment-body">' +
-                    response.comment.comment.replace(/\n/g, '<br>') +
-                    '</div>' +
-                    '</div>';
-                
-                $('.no-comments').remove();
-                
-                $('#comments-list').prepend(commentHtml);
-                
-            } else {
-                alert('Error: ' + response.message);
-            }
-        },
-        error: function(xhr, status, error) {
-            console.log('AJAX Error:', xhr.responseText);
-            alert('An error occurred while adding the comment');
-        },
-        complete: function() {
-            button.text(originalText).prop('disabled', false);
+      url: '<?php echo admin_url('purchase/add_comment'); ?>',
+      type: 'POST',
+      data: {
+        comment: comment,
+        pur_request_id: <?php echo $pur_request->id; ?>
+      },
+      dataType: 'json',
+      success: function(response) {
+        if (response.success) {
+          $('#comment_content').val('');
+
+          var currentDate = new Date();
+          var formattedDate = currentDate.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+          });
+
+          var commentHtml = '<div class="comment mb15">' +
+            '<div class="comment-header">' +
+            '<strong>' + response.comment.user_name + '</strong> - ' +
+            '<span class="text-muted">' + formattedDate + '</span>' +
+            '</div>' +
+            '<div class="comment-body">' +
+            response.comment.comment.replace(/\n/g, '<br>') +
+            '</div>' +
+            '</div>';
+
+          $('.no-comments').remove();
+
+          $('#comments-list').prepend(commentHtml);
+
+        } else {
+          alert('Error: ' + response.message);
         }
+      },
+      error: function(xhr, status, error) {
+        console.log('AJAX Error:', xhr.responseText);
+        alert('An error occurred while adding the comment');
+      },
+      complete: function() {
+        button.text(originalText).prop('disabled', false);
+      }
     });
-}
+  }
 </script>
+<?php require FCPATH . PLUGIN_URL_PATH . "Purchase/assets/js/purchase_request/view_pur_request_js.php";  ?>
