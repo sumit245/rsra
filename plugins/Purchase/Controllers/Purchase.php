@@ -2478,6 +2478,40 @@ class Purchase extends Security_Controller
     ]);
   }
 
+
+
+  /**
+ * Get purchase request items for auto-population in purchase order
+ */
+public function get_pur_request_items()
+{
+    $this->response->setContentType('application/json');
+    
+    if ($this->request->getMethod() === 'post') {
+        $pur_request_id = $this->request->getPost('pur_request_id');
+        
+        // Log the received request
+        log_message('debug', 'Purchase request ID received: ' . $pur_request_id);
+        
+        if (empty($pur_request_id)) {
+            echo json_encode(['success' => false, 'message' => 'Purchase request ID is required']);
+            return;
+        }
+        
+        $items = $this->Purchase_model->get_pur_request_items_for_order($pur_request_id);
+        
+        // Log the items found
+        log_message('debug', 'Items found: ' . json_encode($items));
+        
+        if ($items) {
+            echo json_encode(['success' => true, 'items' => $items]);
+        } else {
+            echo json_encode(['success' => false, 'message' => 'No items found']);
+        }
+    } else {
+        echo json_encode(['success' => false, 'message' => 'Invalid request method']);
+    }
+}
   /**
    * { view pur request }
    *
@@ -4083,15 +4117,14 @@ class Purchase extends Security_Controller
     die;
   }
 
-  /**
-   * { coppy pur request }
-   *
-   * @param      <type>  $pur_request  The purchase request id
-   * @return json
-   */
-  public function coppy_pur_request_for_po($pur_request, $vendor = '')
-  {
-
+/**
+ * { coppy pur request }
+ *
+ * @param      <type>  $pur_request  The purchase request id
+ * @return json
+ */
+public function coppy_pur_request_for_po($pur_request, $vendor = '')
+{
     $pur_request_detail = $this->Purchase_model->get_pur_request_detail_in_po($pur_request);
     $purchase_request   = $this->Purchase_model->get_purchase_request($pur_request);
 
@@ -4108,10 +4141,10 @@ class Purchase extends Security_Controller
     $estimate_html .= $this->Purchase_model->get_estimate_html_by_pr_vendor($pur_request, $vendor);
 
     if (count($pur_request_detail) > 0) {
-      foreach ($pur_request_detail as $key => $item) {
-        $subtotal += $item['into_money'];
-        $total += $item['total'];
-      }
+        foreach ($pur_request_detail as $key => $item) {
+            $subtotal += $item['into_money'];
+            $total += $item['total'];
+        }
     }
 
     $list_item = $this->Purchase_model->create_purchase_order_row_template();
@@ -4119,41 +4152,71 @@ class Purchase extends Security_Controller
     $currency_rate = 1;
     $to_currency   = $base_currency;
     if ($purchase_request->currency != '' && $purchase_request->currency_rate != null) {
-      $currency_rate = $purchase_request->currency_rate;
-      $to_currency   = $purchase_request->currency;
+        $currency_rate = $purchase_request->currency_rate;
+        $to_currency   = $purchase_request->currency;
     }
 
     if (count($pur_request_detail) > 0) {
-      $index_quote = 0;
-      foreach ($pur_request_detail as $key => $item) {
-        $index_quote++;
-        $unit_name = pur_get_unit_name($item['unit_id']);
-        $taxname   = $item['tax_name'];
-        $item_name = $item['item_text'];
+        $index_quote = 0;
+        foreach ($pur_request_detail as $key => $item) {
+            $index_quote++;
+            
+            // Handle null values properly
+            $unit_name = pur_get_unit_name($item['unit_id'] ?? null) ?? '';
+            $taxname   = $item['tax_name'] ?? '';
+            $item_name = $item['item_text'] ?? '';
+            $tax_rate  = $item['tax_rate'] ?? null;
+            $tax_value = $item['tax_value'] ?? 0;
+            $tax       = $item['tax'] ?? '';
+            $unit_id   = $item['unit_id'] ?? null;
 
-        if (strlen($item_name) == 0) {
-          $item_name = pur_get_item_variatiom($item['item_code']);
+            if (strlen($item_name) == 0) {
+                $item_name = pur_get_item_variatiom($item['item_code']) ?? '';
+            }
+
+            $list_item .= $this->Purchase_model->create_purchase_order_row_template(
+                'newitems[' . $index_quote . ']', 
+                $item_name, 
+                '', 
+                $item['quantity'] ?? 1, 
+                $unit_name, 
+                $item['unit_price'] ?? 0, 
+                $taxname, 
+                $item['item_code'] ?? '', 
+                $unit_id, 
+                $tax_rate, 
+                $item['total'] ?? 0, 
+                '', 
+                '', 
+                $item['total'] ?? 0, 
+                $item['into_money'] ?? 0, 
+                $tax, 
+                $tax_value, 
+                $index_quote, 
+                true, 
+                $currency_rate, 
+                $to_currency
+            );
         }
-
-        $list_item .= $this->Purchase_model->create_purchase_order_row_template('newitems[' . $index_quote . ']', $item_name, '', $item['quantity'], $unit_name, $item['unit_price'], $taxname, $item['item_code'], $item['unit_id'], $item['tax_rate'], $item['total'], '', '', $item['total'], $item['into_money'], $item['tax'], $item['tax_value'], $index_quote, true, $currency_rate, $to_currency);
-      }
     }
 
     $taxes_data = $this->Purchase_model->get_html_tax_pur_request($pur_request);
     $tax_html   = $taxes_data['html'];
 
     echo json_encode([
-      'result'        => $pur_request_detail,
-      'subtotal'      => to_currency(round($subtotal, 2), ''),
-      'total'         => to_currency(round($total, 2), ''),
-      'tax_html'      => $tax_html,
-      'taxes'         => $taxes,
-      'list_item'     => $list_item,
-      'currency'      => $to_currency,
-      'currency_rate' => $currency_rate,
-      'estimate_html' => $estimate_html,
+        'success'       => true,
+        'result'        => $pur_request_detail,
+        'items'         => $pur_request_detail,
+        'subtotal'      => to_currency(round($subtotal, 2), ''),
+        'total'         => to_currency(round($total, 2), ''),
+        'tax_html'      => $tax_html,
+        'taxes'         => $taxes,
+        'list_item'     => $list_item,
+        'currency'      => $to_currency,
+        'currency_rate' => $currency_rate,
+        'estimate_html' => $estimate_html,
     ]);
-  }
+}
 
   /**
    * { coppy pur estimate }

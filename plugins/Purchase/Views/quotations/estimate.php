@@ -29,15 +29,15 @@
 				     		  
 				     		  <?php if($user_type == 'vendor'){ echo form_hidden('vendor', $vendor_id); } ?>
 				            </div>
-				            <div class="col-md-6 form-group">
-				              <label for="pur_request"><?php echo _l('pur_request'); ?></label>
-				              <select name="pur_request" id="pur_request" onchange="coppy_pur_request(); return false;" class="select2 validate-hidden"  data-live-search="true" data-width="100%" data-none-selected-text="<?php echo _l('ticket_settings_none_assigned'); ?>" >
-				                <option value="">-</option>
-				                  <?php foreach($pur_request as $s) { ?>
-				                  <option value="<?php echo html_entity_decode($s['id']); ?>" <?php if(isset($estimate) && $estimate->pur_request != '' && $estimate->pur_request->id == $s['id']){ echo 'selected'; } ?> ><?php echo html_entity_decode($s['pur_rq_code'].' - '.$s['pur_rq_name']); ?></option>
-				                    <?php } ?>
-				              </select>
-				             </div>
+				           <div class="col-md-6 form-group">
+  <label for="pur_request"><?php echo _l('pur_request'); ?></label>
+  <select name="pur_request" id="pur_request" onchange="coppy_pur_request_to_estimate(); return false;" class="select2 validate-hidden" data-live-search="true" data-width="100%" data-none-selected-text="<?php echo _l('ticket_settings_none_assigned'); ?>">
+    <option value="">-</option>
+      <?php foreach($pur_request as $s) { ?>
+      <option value="<?php echo html_entity_decode($s['id']); ?>" <?php if(isset($estimate) && $estimate->pur_request != '' && $estimate->pur_request->id == $s['id']){ echo 'selected'; } ?> ><?php echo html_entity_decode($s['pur_rq_code'].' - '.$s['pur_rq_name']); ?></option>
+        <?php } ?>
+  </select>
+ </div>
 
 				            <?php
 				               $next_estimate_number = max_number_estimates()+1;
@@ -276,5 +276,54 @@
 	</div>
 </div>
 </div>
-
+<script>
+function coppy_pur_request_to_estimate() {
+    var pur_request_id = $('#pur_request').val();
+    
+    if (pur_request_id == '') {
+        return;
+    }
+    
+    // Show loading indicator
+    $('body').append('<div class="dt-loader"></div>');
+    
+    $.ajax({
+        url: '<?php echo get_uri("purchase/get_pur_request_items"); ?>',
+        type: 'POST',
+        data: {
+            pur_request_id: pur_request_id
+        },
+        dataType: 'json',
+        success: function(response) {
+            $('.dt-loader').remove();
+            
+            if (response.success && response.items && response.items.length > 0) {
+                // Clear existing items first (except the template row)
+                $('.invoice-items-table tbody tr:not(.main)').remove();
+                
+                // Add each item to the estimate table
+                $.each(response.items, function(index, item) {
+                    // Map item_text to all possible field names the function might be looking for
+                    item.description = item.item_text;
+                    item.item_name = item.item_text;
+                    item.name = item.item_text;
+                    item.product_name = item.item_text;
+                    
+                    // Use the same function that works for purchase orders
+                    pur_add_item_to_table(item, 'undefined');
+                });
+                
+                // Recalculate totals
+                pur_calculate_total();
+            } else {
+                console.log('No items found in the selected purchase request');
+            }
+        },
+        error: function() {
+            $('.dt-loader').remove();
+            alert('Error loading purchase request items');
+        }
+    });
+}
+</script>
 <?php require('plugins/Purchase/assets/js/quotations/estimate_js.php'); ?>
