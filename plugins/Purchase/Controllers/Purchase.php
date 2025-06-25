@@ -2257,6 +2257,20 @@ class Purchase extends Security_Controller
       'description' => $item->description ?? ''
     ]);
   }
+    public function get_item_by_id1($id, $currency_rate = 1)
+  {
+
+    $item                   = $this->Purchase_model->get_item_v3($id);
+    $item->long_description = nl2br($item->description);
+
+    if ($currency_rate != 1) {
+      $item->purchase_price = round(($item->purchase_price * $currency_rate), 2);
+    }
+
+    $html = '<option value=""></option>';
+
+    echo json_encode($item);
+  }
 
   /**
    * Gets the purchase request row template.

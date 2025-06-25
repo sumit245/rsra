@@ -100,3 +100,97 @@ in SYSTEMPATH\Security\Security.php on line 286.
  5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
 ERROR - 2025-06-25 01:32:33 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-25 04:34:19 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-25 04:34:19 --> Got row asArray
+(
+    [number] => 1
+    [total] => 5500.00
+    [total_tax] => 0.00
+    [vendor] => 1
+    [pur_request] => 13
+    [date] => 2025-06-08
+    [expirydate] => 2025-06-08
+    [status] => 2
+    [id] => 1
+    [invoiceid] => 
+    [deleted_vendor_name] => 
+    [currency] => 
+    [company] => Surya Infotech
+    [pur_rq_name] => #-00005-2025
+    [pur_rq_code] => #-00005-2025
+    [items] => Array
+        (
+        )
+
+)
+
+ERROR - 2025-06-25 04:34:19 --> Got row asArray
+(
+    [number] => 2
+    [total] => 3300.00
+    [total_tax] => 300.00
+    [vendor] => 3
+    [pur_request] => 15
+    [date] => 2025-06-13
+    [expirydate] => 2025-06-13
+    [status] => 1
+    [id] => 2
+    [invoiceid] => 
+    [deleted_vendor_name] => 
+    [currency] => INR
+    [company] => RDYSOLUTIONS
+    [pur_rq_name] => #RAJ-00007-2025
+    [pur_rq_code] => #RAJ-00007-2025
+    [items] => Array
+        (
+        )
+
+)
+
+ERROR - 2025-06-25 04:34:19 --> Got row asArray
+(
+    [number] => 3
+    [total] => 5095.20
+    [total_tax] => 463.20
+    [vendor] => 3
+    [pur_request] => 15
+    [date] => 2025-06-18
+    [expirydate] => 2025-06-18
+    [status] => 1
+    [id] => 3
+    [invoiceid] => 
+    [deleted_vendor_name] => 
+    [currency] => INR
+    [company] => RDYSOLUTIONS
+    [pur_rq_name] => #RAJ-00007-2025
+    [pur_rq_code] => #RAJ-00007-2025
+    [items] => Array
+        (
+        )
+
+)
+
+ERROR - 2025-06-25 04:34:19 --> Got row asArray
+(
+    [number] => 4
+    [total] => 5095.20
+    [total_tax] => 463.20
+    [vendor] => 1
+    [pur_request] => 16
+    [date] => 2025-06-18
+    [expirydate] => 2025-06-28
+    [status] => 1
+    [id] => 4
+    [invoiceid] => 
+    [deleted_vendor_name] => 
+    [currency] => 
+    [company] => Surya Infotech
+    [pur_rq_name] => #RAJ-00008-2025
+    [pur_rq_code] => #RAJ-00008-2025
+    [items] => Array
+        (
+        )
+
+)
+
+ERROR - 2025-06-25 04:46:35 --> DEBUG: $sGroupBy = 

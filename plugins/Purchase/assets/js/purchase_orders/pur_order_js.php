@@ -460,7 +460,7 @@ function pur_add_item_to_preview(id) {
 
   var currency_rate = $('input[name="currency_rate"]').val();
 
-  requestGetJSON("<?php echo get_uri('purchase/get_item_by_id/'); ?>" + id+'/'+ currency_rate ).done(function (response) {
+  requestGetJSON("<?php echo get_uri('purchase/get_item_by_id1/'); ?>" + id+'/'+ currency_rate ).done(function (response) {
     pur_clear_item_preview_values();
 
     $('.main input[name="item_code"]').val(response.itemid);
