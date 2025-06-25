@@ -1,0 +1,51 @@
+ERROR - 2025-06-24 00:08:02 --> Error connecting to the database: No connection could be made because the target machine actively refused it
+CRITICAL - 2025-06-24 00:08:02 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 416.
+ 1 SYSTEMPATH\Database\BaseConnection.php(586): CodeIgniter\Database\BaseConnection->initialize()
+ 2 APPPATH\Models\Crud_model.php(27): CodeIgniter\Database\BaseConnection->query('SET sql_mode = \'\'')
+ 3 APPPATH\Models\Settings_model.php(11): App\Models\Crud_model->__construct('settings')
+ 4 SYSTEMPATH\Config\Factories.php(126): App\Models\Settings_model->__construct(null)
+ 5 SYSTEMPATH\Config\Factories.php(83): CodeIgniter\Config\Factories::__callStatic('models', [...])
+ 6 SYSTEMPATH\Common.php(811): CodeIgniter\Config\Factories::models('App\\Models\\Settings_model', [...], null)
+ 7 APPPATH\Controllers\App_Controller.php(35): model('App\\Models\\Settings_model')
+ 8 APPPATH\Controllers\Security_Controller.php(17): App\Controllers\App_Controller->__construct()
+ 9 APPPATH\Controllers\Dashboard.php(11): App\Controllers\Security_Controller->__construct()
+10 SYSTEMPATH\CodeIgniter.php(858): App\Controllers\Dashboard->__construct()
+11 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->createController()
+12 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-24 00:08:44 --> Error connecting to the database: No connection could be made because the target machine actively refused it
+CRITICAL - 2025-06-24 00:08:44 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 416.
+ 1 SYSTEMPATH\Database\BaseConnection.php(586): CodeIgniter\Database\BaseConnection->initialize()
+ 2 APPPATH\Models\Crud_model.php(27): CodeIgniter\Database\BaseConnection->query('SET sql_mode = \'\'')
+ 3 APPPATH\Models\Settings_model.php(11): App\Models\Crud_model->__construct('settings')
+ 4 SYSTEMPATH\Config\Factories.php(126): App\Models\Settings_model->__construct(null)
+ 5 SYSTEMPATH\Config\Factories.php(83): CodeIgniter\Config\Factories::__callStatic('models', [...])
+ 6 SYSTEMPATH\Common.php(811): CodeIgniter\Config\Factories::models('App\\Models\\Settings_model', [...], null)
+ 7 APPPATH\Controllers\App_Controller.php(35): model('App\\Models\\Settings_model')
+ 8 APPPATH\Controllers\Security_Controller.php(17): App\Controllers\App_Controller->__construct()
+ 9 APPPATH\Controllers\Dashboard.php(11): App\Controllers\Security_Controller->__construct()
+10 SYSTEMPATH\CodeIgniter.php(858): App\Controllers\Dashboard->__construct()
+11 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->createController()
+12 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-24 00:08:57 --> Error connecting to the database: No connection could be made because the target machine actively refused it
+CRITICAL - 2025-06-24 00:08:57 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 416.
+ 1 SYSTEMPATH\Database\BaseConnection.php(586): CodeIgniter\Database\BaseConnection->initialize()
+ 2 APPPATH\Models\Crud_model.php(27): CodeIgniter\Database\BaseConnection->query('SET sql_mode = \'\'')
+ 3 APPPATH\Models\Settings_model.php(11): App\Models\Crud_model->__construct('settings')
+ 4 SYSTEMPATH\Config\Factories.php(126): App\Models\Settings_model->__construct(null)
+ 5 SYSTEMPATH\Config\Factories.php(83): CodeIgniter\Config\Factories::__callStatic('models', [...])
+ 6 SYSTEMPATH\Common.php(811): CodeIgniter\Config\Factories::models('App\\Models\\Settings_model', [...], null)
+ 7 APPPATH\Controllers\App_Controller.php(35): model('App\\Models\\Settings_model')
+ 8 APPPATH\Controllers\Security_Controller.php(17): App\Controllers\App_Controller->__construct()
+ 9 APPPATH\Controllers\Dashboard.php(11): App\Controllers\Security_Controller->__construct()
+10 SYSTEMPATH\CodeIgniter.php(858): App\Controllers\Dashboard->__construct()
+11 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->createController()
+12 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
