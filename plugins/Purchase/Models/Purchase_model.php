@@ -2116,6 +2116,34 @@ public function get_pur_request_items_for_order($pur_request_id)
 
   //   return $builder->get()->getResultArray();
   // }
+  public function get_item_v3($id = '')
+  {
+    $builder             = $this->db->table(get_db_prefix() . 'items');
+    $columns             = $this->db->getFieldNames(get_db_prefix() . 'items');
+    $rateCurrencyColumns = '';
+    foreach ($columns as $column) {
+      if (strpos($column, 'rate_currency_') !== false) {
+        $rateCurrencyColumns .= $column . ',';
+      }
+    }
+
+    $builder = $this->db->table(get_db_prefix() . 'items');
+    $builder->select($rateCurrencyColumns . '' . get_db_prefix() . 'items.id as itemid,rate,
+            t1.percentage as taxrate,t1.id as taxid,t1.title as taxname,
+            t2.percentage as taxrate_2,t2.id as taxid_2,t2.title as taxname_2,
+            CONCAT(commodity_code,"_",' . get_db_prefix() . 'items.title) as code_description,description,category_id,' . get_db_prefix() . 'item_categories.title as group_name,unit_type as unit,' . get_db_prefix() . 'ware_unit_type.unit_name as unit_name, purchase_price, unit_id, guarantee');
+    $builder->join('' . get_db_prefix() . 'taxes t1', 't1.id = ' . get_db_prefix() . 'items.tax', 'left');
+    $builder->join('' . get_db_prefix() . 'taxes t2', 't2.id = ' . get_db_prefix() . 'items.tax2', 'left');
+    $builder->join(get_db_prefix() . 'item_categories', '' . get_db_prefix() . 'item_categories.id = ' . get_db_prefix() . 'items.category_id', 'left');
+    $builder->join(get_db_prefix() . 'ware_unit_type', '' . get_db_prefix() . 'ware_unit_type.unit_type_id = ' . get_db_prefix() . 'items.unit_id', 'left');
+    $builder->orderBy(get_db_prefix() . 'items.title', 'asc');
+    if (is_numeric($id)) {
+      $builder->where(get_db_prefix() . 'items.id', $id);
+      return $builder->get()->getRow();
+    }
+
+    return $builder->get()->getResultArray();
+  }
   public function get_item_v2($id = '')
   {
     $builder = $this->db->table(get_db_prefix() . 'items');

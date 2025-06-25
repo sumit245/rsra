@@ -110,6 +110,7 @@ in SYSTEMPATH\Security\Security.php on line 286.
  5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
 ERROR - 2025-06-25 01:32:33 --> DEBUG: $sGroupBy = 
+<<<<<<< HEAD
 >>>>>>> 6e963444bcd00ec5c51f0668098536e98eaae4dc
 CRITICAL - 2025-06-25 01:47:44 --> syntax error, unexpected token "<<", expecting "]"
 in APPPATH/Config/Database.php on line 36.
@@ -164,11 +165,47 @@ ERROR - 2025-06-25 01:53:39 --> Got row asArray
     [pur_request] => 1
     [date] => 2025-06-18
     [expirydate] => 2025-06-18
+=======
+ERROR - 2025-06-25 04:34:19 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-25 04:34:19 --> Got row asArray
+(
+    [number] => 1
+    [total] => 5500.00
+    [total_tax] => 0.00
+    [vendor] => 1
+    [pur_request] => 13
+    [date] => 2025-06-08
+    [expirydate] => 2025-06-08
+    [status] => 2
+    [id] => 1
+    [invoiceid] => 
+    [deleted_vendor_name] => 
+    [currency] => 
+    [company] => Surya Infotech
+    [pur_rq_name] => #-00005-2025
+    [pur_rq_code] => #-00005-2025
+    [items] => Array
+        (
+        )
+
+)
+
+ERROR - 2025-06-25 04:34:19 --> Got row asArray
+(
+    [number] => 2
+    [total] => 3300.00
+    [total_tax] => 300.00
+    [vendor] => 3
+    [pur_request] => 15
+    [date] => 2025-06-13
+    [expirydate] => 2025-06-13
+>>>>>>> 3864884062e167e3e7713f57ba3ebfd7117e67e1
     [status] => 1
     [id] => 2
     [invoiceid] => 
     [deleted_vendor_name] => 
     [currency] => INR
+<<<<<<< HEAD
     [company] => RSDY
     [pur_rq_name] => #-00001-2025
     [pur_rq_code] => #-00001-2025
@@ -183,10 +220,18 @@ ERROR - 2025-06-25 01:53:39 --> Got row asArray
                     [unit_price] => 1254.00
                 )
 
+=======
+    [company] => RDYSOLUTIONS
+    [pur_rq_name] => #RAJ-00007-2025
+    [pur_rq_code] => #RAJ-00007-2025
+    [items] => Array
+        (
+>>>>>>> 3864884062e167e3e7713f57ba3ebfd7117e67e1
         )
 
 )
 
+<<<<<<< HEAD
 ERROR - 2025-06-25 01:53:39 --> Got row asArray
 (
     [number] => 2
@@ -197,10 +242,23 @@ ERROR - 2025-06-25 01:53:39 --> Got row asArray
     [date] => 2025-06-18
     [expirydate] => 2025-06-18
     [status] => 2
+=======
+ERROR - 2025-06-25 04:34:19 --> Got row asArray
+(
+    [number] => 3
+    [total] => 5095.20
+    [total_tax] => 463.20
+    [vendor] => 3
+    [pur_request] => 15
+    [date] => 2025-06-18
+    [expirydate] => 2025-06-18
+    [status] => 1
+>>>>>>> 3864884062e167e3e7713f57ba3ebfd7117e67e1
     [id] => 3
     [invoiceid] => 
     [deleted_vendor_name] => 
     [currency] => INR
+<<<<<<< HEAD
     [company] => RSDY
     [pur_rq_name] => 
     [pur_rq_code] => 
@@ -215,10 +273,18 @@ ERROR - 2025-06-25 01:53:39 --> Got row asArray
                     [unit_price] => 13630.00
                 )
 
+=======
+    [company] => RDYSOLUTIONS
+    [pur_rq_name] => #RAJ-00007-2025
+    [pur_rq_code] => #RAJ-00007-2025
+    [items] => Array
+        (
+>>>>>>> 3864884062e167e3e7713f57ba3ebfd7117e67e1
         )
 
 )
 
+<<<<<<< HEAD
 ERROR - 2025-06-25 01:53:39 --> Got row asArray
 (
     [number] => 3
@@ -236,12 +302,32 @@ ERROR - 2025-06-25 01:53:39 --> Got row asArray
     [company] => RSDY
     [pur_rq_name] => #-00001-2025
     [pur_rq_code] => #-00001-2025
+=======
+ERROR - 2025-06-25 04:34:19 --> Got row asArray
+(
+    [number] => 4
+    [total] => 5095.20
+    [total_tax] => 463.20
+    [vendor] => 1
+    [pur_request] => 16
+    [date] => 2025-06-18
+    [expirydate] => 2025-06-28
+    [status] => 1
+    [id] => 4
+    [invoiceid] => 
+    [deleted_vendor_name] => 
+    [currency] => 
+    [company] => Surya Infotech
+    [pur_rq_name] => #RAJ-00008-2025
+    [pur_rq_code] => #RAJ-00008-2025
+>>>>>>> 3864884062e167e3e7713f57ba3ebfd7117e67e1
     [items] => Array
         (
         )
 
 )
 
+<<<<<<< HEAD
 ERROR - 2025-06-25 01:53:39 --> Got row asArray
 (
     [number] => 4
@@ -1230,3 +1316,6 @@ CRITICAL - 2025-06-25 02:02:07 --> Array
 
 ERROR - 2025-06-25 02:02:08 --> DEBUG: $sGroupBy = 
 ERROR - 2025-06-25 02:06:37 --> DEBUG: $sGroupBy = 
+=======
+ERROR - 2025-06-25 04:46:35 --> DEBUG: $sGroupBy = 
+>>>>>>> 3864884062e167e3e7713f57ba3ebfd7117e67e1
