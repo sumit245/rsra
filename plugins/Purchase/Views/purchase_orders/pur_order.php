@@ -116,8 +116,8 @@
                     <div class="row">
                       <div class="col-md-6 form-group">
                         <label for="project"> <small class="text-danger">* </small><?php echo _l('project'); ?></label>
-                                <select name="project" id="project" required class="select2 validate-hidden" data-live-search="true" data-width="100%" data-none-selected-text="<?php echo _l('ticket_settings_none_assigned'); ?>" >
-                  <option value="">-</option>
+                        <select name="project" id="project" class="select2 validate-hidden" data-live-search="true" data-width="100%" data-none-selected-text="<?php echo _l('ticket_settings_none_assigned'); ?>" required>
+                          <option value="">-</option>
                           <?php foreach ($projects as $s) { ?>
                             <option value="<?php echo html_entity_decode($s['id']); ?>" <?php if (isset($pur_order) && $s['id'] == $pur_order->project) {
                                                                                           echo 'selected';
@@ -395,6 +395,34 @@
 </div>
 
 <script>
+  $(document).ready(function() {
+    $('#pur_order-form').on('submit', function(e) {
+        var projectValue = $('#project').val();
+        
+        if (!projectValue || projectValue === '') {
+            e.preventDefault();
+            alert('Please select a project. This field is required.');
+            $('#project').focus();
+            return false;
+        }
+    });
+    
+    $('#project').on('change', function() {
+        var $this = $(this);
+        var $formGroup = $this.closest('.form-group');
+        
+        if ($this.val() === '' || $this.val() === null) {
+            $formGroup.addClass('has-error');
+            if (!$formGroup.find('.error-message').length) {
+                $formGroup.append('<span class="error-message text-danger small">Project is required</span>');
+            }
+        } else {
+            $formGroup.removeClass('has-error');
+            $formGroup.find('.error-message').remove();
+        }
+    });
+});
+
 function coppy_pur_request() {
     console.log('coppy_pur_request function called');
     
