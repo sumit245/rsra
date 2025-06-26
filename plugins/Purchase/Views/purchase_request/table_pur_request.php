@@ -260,7 +260,7 @@ foreach ($rResult as $aRow) {
                $_data = '<span class="dropdown inline-block">
                         <button class="btn btn-default dropdown-toggle caret mt0 mb0" type="button" data-bs-toggle="dropdown">
                         <i data-feather="tool" class="icon-16"></i></button>
-                        <ul class="dropdown-menu dropdown-menu-end" role="menu">' . $view . $share_request . $edit . $delete . '</ul>
+                        <ul class="dropdown-menu dropdown-menu-end" role="menu">' . $view . $share_request .  $delete . '</ul>
                         </span>';
             } elseif ($dataPost['user_type'] == 'vendor') {
                $_data = '<span class="dropdown inline-block">

@@ -851,3 +851,3155 @@ CRITICAL - 2025-06-26 00:59:37 --> Array
     [unit_price] => 4000.00
 )
 
+ERROR - 2025-06-26 01:09:17 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-26 01:10:25 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-26 01:10:36 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-26 01:10:36 --> Array
+(
+    [rResult] => Array
+        (
+            [0] => Array
+                (
+                    [pur_rq_code] => #RAJ-00008-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-16 00:26:21
+                    [status] => 2
+                    [id] => 16
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => CABLE
+                                    [sku_code] => ABCD
+                                    [sku_name] => abcd
+                                    [quantity] => 1.00
+                                    [unit_price] => 3000.00
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [pur_rq_code] => #RAJ-00007-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-13 00:59:39
+                    [status] => 2
+                    [id] => 15
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => CABLE
+                                    [sku_code] => ABCD
+                                    [sku_name] => abcd
+                                    [quantity] => 1.00
+                                    [unit_price] => 3000.00
+                                )
+
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00012-2025
+                    [requester] => 1
+                    [department] => 1
+                    [request_date] => 2025-06-25 04:03:40
+                    [status] => 1
+                    [id] => 20
+                    [title] => Design
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Male Female Connector
+                                    [sku_code] => MFCONN
+                                    [sku_name] => MFCONN
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Sanwa-Denki -9WF0424S604B
+                                    [sku_code] => 9WF0424S604B
+                                    [sku_name] => 9WF0424S604B
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00011-2025
+                    [requester] => 1
+                    [department] => 1
+                    [request_date] => 2025-06-25 00:45:56
+                    [status] => 2
+                    [id] => 19
+                    [title] => Design
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Cable Tie (100MM)
+                                    [sku_code] => CBLTY
+                                    [sku_name] => CBLTY
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [4] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00010-2025
+                    [requester] => 67
+                    [department] => 2
+                    [request_date] => 2025-06-16 04:30:02
+                    [status] => 2
+                    [id] => 18
+                    [title] => Electrical
+                    [first_name] => Vishnu
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => LASER SENSOR -ML100-55/102/115 (P&F)
+                                    [sku_code] => LSRSENSOR
+                                    [sku_name] => LSRSENSOR
+                                    [quantity] => 4.00
+                                    [unit_price] => 1.00
+                                )
+
+                        )
+
+                )
+
+            [5] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00009-2025
+                    [requester] => 8
+                    [department] => 2
+                    [request_date] => 2025-06-16 01:24:06
+                    [status] => 1
+                    [id] => 17
+                    [title] => Electrical
+                    [first_name] => Tikam
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Male Female Connector
+                                    [sku_code] => MFCONN
+                                    [sku_name] => MFCONN
+                                    [quantity] => 1.00
+                                    [unit_price] => 1000.00
+                                )
+
+                        )
+
+                )
+
+            [6] => Array
+                (
+                    [pur_rq_code] => #-00006-2025
+                    [requester] => 1
+                    [department] => 3
+                    [request_date] => 2025-06-08 13:22:33
+                    [status] => 1
+                    [id] => 14
+                    [title] => HR
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Sanwa-Denki -9WF0424S604B
+                                    [sku_code] => 9WF0424S604B
+                                    [sku_name] => 9WF0424S604B
+                                    [quantity] => 1.00
+                                    [unit_price] => 5000.00
+                                )
+
+                        )
+
+                )
+
+            [7] => Array
+                (
+                    [pur_rq_code] => #-00005-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-08 06:53:51
+                    [status] => 2
+                    [id] => 13
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Sanwa-Denki -9WF0424S604B
+                                    [sku_code] => 9WF0424S604B
+                                    [sku_name] => 9WF0424S604B
+                                    [quantity] => 1.00
+                                    [unit_price] => 5000.00
+                                )
+
+                        )
+
+                )
+
+            [8] => Array
+                (
+                    [pur_rq_code] => #-00004-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-07 15:03:34
+                    [status] => 2
+                    [id] => 12
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => 
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 1.00
+                                )
+
+                        )
+
+                )
+
+            [9] => Array
+                (
+                    [pur_rq_code] => #-00002-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-07 15:00:22
+                    [status] => 1
+                    [id] => 10
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 4000.00
+                                )
+
+                        )
+
+                )
+
+            [10] => Array
+                (
+                    [pur_rq_code] => #-00001-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-07 14:40:58
+                    [status] => 1
+                    [id] => 9
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [output] => Array
+        (
+            [draw] => 1
+            [iTotalRecords] => 11
+            [iTotalDisplayRecords] => 0
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+CRITICAL - 2025-06-26 01:10:36 --> Array
+(
+    [title] => CABLE
+    [sku_code] => ABCD
+    [sku_name] => abcd
+    [quantity] => 1.00
+    [unit_price] => 3000.00
+)
+
+CRITICAL - 2025-06-26 01:10:36 --> Array
+(
+    [title] => CABLE
+    [sku_code] => ABCD
+    [sku_name] => abcd
+    [quantity] => 1.00
+    [unit_price] => 3000.00
+)
+
+CRITICAL - 2025-06-26 01:10:36 --> Array
+(
+    [title] => Male Female Connector
+    [sku_code] => MFCONN
+    [sku_name] => MFCONN
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-26 01:10:36 --> Array
+(
+    [title] => Sanwa-Denki -9WF0424S604B
+    [sku_code] => 9WF0424S604B
+    [sku_name] => 9WF0424S604B
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-26 01:10:36 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-26 01:10:36 --> Array
+(
+    [title] => Cable Tie (100MM)
+    [sku_code] => CBLTY
+    [sku_name] => CBLTY
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-26 01:10:36 --> Array
+(
+    [title] => LASER SENSOR -ML100-55/102/115 (P&F)
+    [sku_code] => LSRSENSOR
+    [sku_name] => LSRSENSOR
+    [quantity] => 4.00
+    [unit_price] => 1.00
+)
+
+CRITICAL - 2025-06-26 01:10:36 --> Array
+(
+    [title] => Male Female Connector
+    [sku_code] => MFCONN
+    [sku_name] => MFCONN
+    [quantity] => 1.00
+    [unit_price] => 1000.00
+)
+
+CRITICAL - 2025-06-26 01:10:36 --> Array
+(
+    [title] => Sanwa-Denki -9WF0424S604B
+    [sku_code] => 9WF0424S604B
+    [sku_name] => 9WF0424S604B
+    [quantity] => 1.00
+    [unit_price] => 5000.00
+)
+
+CRITICAL - 2025-06-26 01:10:36 --> Array
+(
+    [title] => Sanwa-Denki -9WF0424S604B
+    [sku_code] => 9WF0424S604B
+    [sku_name] => 9WF0424S604B
+    [quantity] => 1.00
+    [unit_price] => 5000.00
+)
+
+CRITICAL - 2025-06-26 01:10:36 --> Array
+(
+    [title] => 
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 1.00
+)
+
+CRITICAL - 2025-06-26 01:10:36 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 4000.00
+)
+
+ERROR - 2025-06-26 01:11:08 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-26 01:11:08 --> Array
+(
+    [rResult] => Array
+        (
+            [0] => Array
+                (
+                    [pur_rq_code] => #RAJ-00008-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-16 00:26:21
+                    [status] => 2
+                    [id] => 16
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => CABLE
+                                    [sku_code] => ABCD
+                                    [sku_name] => abcd
+                                    [quantity] => 1.00
+                                    [unit_price] => 3000.00
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [pur_rq_code] => #RAJ-00007-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-13 00:59:39
+                    [status] => 2
+                    [id] => 15
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => CABLE
+                                    [sku_code] => ABCD
+                                    [sku_name] => abcd
+                                    [quantity] => 1.00
+                                    [unit_price] => 3000.00
+                                )
+
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00012-2025
+                    [requester] => 1
+                    [department] => 1
+                    [request_date] => 2025-06-25 04:03:40
+                    [status] => 1
+                    [id] => 20
+                    [title] => Design
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Male Female Connector
+                                    [sku_code] => MFCONN
+                                    [sku_name] => MFCONN
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Sanwa-Denki -9WF0424S604B
+                                    [sku_code] => 9WF0424S604B
+                                    [sku_name] => 9WF0424S604B
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00011-2025
+                    [requester] => 1
+                    [department] => 1
+                    [request_date] => 2025-06-25 00:45:56
+                    [status] => 2
+                    [id] => 19
+                    [title] => Design
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Cable Tie (100MM)
+                                    [sku_code] => CBLTY
+                                    [sku_name] => CBLTY
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [4] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00010-2025
+                    [requester] => 67
+                    [department] => 2
+                    [request_date] => 2025-06-16 04:30:02
+                    [status] => 2
+                    [id] => 18
+                    [title] => Electrical
+                    [first_name] => Vishnu
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => LASER SENSOR -ML100-55/102/115 (P&F)
+                                    [sku_code] => LSRSENSOR
+                                    [sku_name] => LSRSENSOR
+                                    [quantity] => 4.00
+                                    [unit_price] => 1.00
+                                )
+
+                        )
+
+                )
+
+            [5] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00009-2025
+                    [requester] => 8
+                    [department] => 2
+                    [request_date] => 2025-06-16 01:24:06
+                    [status] => 1
+                    [id] => 17
+                    [title] => Electrical
+                    [first_name] => Tikam
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Male Female Connector
+                                    [sku_code] => MFCONN
+                                    [sku_name] => MFCONN
+                                    [quantity] => 1.00
+                                    [unit_price] => 1000.00
+                                )
+
+                        )
+
+                )
+
+            [6] => Array
+                (
+                    [pur_rq_code] => #-00006-2025
+                    [requester] => 1
+                    [department] => 3
+                    [request_date] => 2025-06-08 13:22:33
+                    [status] => 1
+                    [id] => 14
+                    [title] => HR
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Sanwa-Denki -9WF0424S604B
+                                    [sku_code] => 9WF0424S604B
+                                    [sku_name] => 9WF0424S604B
+                                    [quantity] => 1.00
+                                    [unit_price] => 5000.00
+                                )
+
+                        )
+
+                )
+
+            [7] => Array
+                (
+                    [pur_rq_code] => #-00005-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-08 06:53:51
+                    [status] => 2
+                    [id] => 13
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Sanwa-Denki -9WF0424S604B
+                                    [sku_code] => 9WF0424S604B
+                                    [sku_name] => 9WF0424S604B
+                                    [quantity] => 1.00
+                                    [unit_price] => 5000.00
+                                )
+
+                        )
+
+                )
+
+            [8] => Array
+                (
+                    [pur_rq_code] => #-00004-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-07 15:03:34
+                    [status] => 2
+                    [id] => 12
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => 
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 1.00
+                                )
+
+                        )
+
+                )
+
+            [9] => Array
+                (
+                    [pur_rq_code] => #-00002-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-07 15:00:22
+                    [status] => 1
+                    [id] => 10
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 4000.00
+                                )
+
+                        )
+
+                )
+
+            [10] => Array
+                (
+                    [pur_rq_code] => #-00001-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-07 14:40:58
+                    [status] => 1
+                    [id] => 9
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [output] => Array
+        (
+            [draw] => 1
+            [iTotalRecords] => 11
+            [iTotalDisplayRecords] => 0
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+CRITICAL - 2025-06-26 01:11:08 --> Array
+(
+    [title] => CABLE
+    [sku_code] => ABCD
+    [sku_name] => abcd
+    [quantity] => 1.00
+    [unit_price] => 3000.00
+)
+
+CRITICAL - 2025-06-26 01:11:08 --> Array
+(
+    [title] => CABLE
+    [sku_code] => ABCD
+    [sku_name] => abcd
+    [quantity] => 1.00
+    [unit_price] => 3000.00
+)
+
+CRITICAL - 2025-06-26 01:11:08 --> Array
+(
+    [title] => Male Female Connector
+    [sku_code] => MFCONN
+    [sku_name] => MFCONN
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-26 01:11:08 --> Array
+(
+    [title] => Sanwa-Denki -9WF0424S604B
+    [sku_code] => 9WF0424S604B
+    [sku_name] => 9WF0424S604B
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-26 01:11:08 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-26 01:11:08 --> Array
+(
+    [title] => Cable Tie (100MM)
+    [sku_code] => CBLTY
+    [sku_name] => CBLTY
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-26 01:11:08 --> Array
+(
+    [title] => LASER SENSOR -ML100-55/102/115 (P&F)
+    [sku_code] => LSRSENSOR
+    [sku_name] => LSRSENSOR
+    [quantity] => 4.00
+    [unit_price] => 1.00
+)
+
+CRITICAL - 2025-06-26 01:11:08 --> Array
+(
+    [title] => Male Female Connector
+    [sku_code] => MFCONN
+    [sku_name] => MFCONN
+    [quantity] => 1.00
+    [unit_price] => 1000.00
+)
+
+CRITICAL - 2025-06-26 01:11:08 --> Array
+(
+    [title] => Sanwa-Denki -9WF0424S604B
+    [sku_code] => 9WF0424S604B
+    [sku_name] => 9WF0424S604B
+    [quantity] => 1.00
+    [unit_price] => 5000.00
+)
+
+CRITICAL - 2025-06-26 01:11:08 --> Array
+(
+    [title] => Sanwa-Denki -9WF0424S604B
+    [sku_code] => 9WF0424S604B
+    [sku_name] => 9WF0424S604B
+    [quantity] => 1.00
+    [unit_price] => 5000.00
+)
+
+CRITICAL - 2025-06-26 01:11:08 --> Array
+(
+    [title] => 
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 1.00
+)
+
+CRITICAL - 2025-06-26 01:11:08 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 4000.00
+)
+
+CRITICAL - 2025-06-26 01:12:41 --> <tr class="main"><td></td><td width="30%"><div class="form-group" app-field-wrapper="item_text"><input type="text" name="item_text" value="" id="item_text" class="form-control" placeholder="Item Name" autocomplete="off"  />
+</div><div class="form-group hide" app-field-wrapper="item_code"><input type="text" name="item_code" value="" id="item_code" class="form-control" placeholder="" autocomplete="off"  />
+</div></td><td width="20%"><div class="form-group" app-field-wrapper="sku_code"><input type="text" name="sku_code" value="" id="sku_code" class="form-control" placeholder="default_lang.Make" autocomplete="off"  />
+</div></td><td width="20%"><div class="form-group" app-field-wrapper="sku_name"><input type="text" name="sku_name" value="" id="sku_name" class="form-control" placeholder="default_lang.Model" autocomplete="off"  />
+</div></td><td width="15%" class="quantities"><div class="form-group no-margin" app-field-wrapper="quantity"><input type="number" name="quantity" value="" id="quantity" class="form-control text-right" placeholder="" autocomplete="off" min="0.0" step="any"  />
+</div></td><td width="15%"><div class="form-group" app-field-wrapper="unit_name"><input type="text" name="unit_name" value="" id="unit_name" class="form-control" placeholder="default_lang.Unit" autocomplete="off"  />
+</div></td><td><button type="button" onclick="pur_add_item_to_table('undefined','undefined'); return false;" class="btn pull-right btn-info text-white"><i data-feather="plus-circle" class="icon-16"></i></button></td></tr>
+CRITICAL - 2025-06-26 01:18:12 --> <tr class="main"><td></td><td width="30%"><div class="form-group" app-field-wrapper="item_text"><input type="text" name="item_text" value="" id="item_text" class="form-control" placeholder="Item Name" autocomplete="off"  />
+</div><div class="form-group hide" app-field-wrapper="item_code"><input type="text" name="item_code" value="" id="item_code" class="form-control" placeholder="" autocomplete="off"  />
+</div></td><td width="20%"><div class="form-group" app-field-wrapper="sku_code"><input type="text" name="sku_code" value="" id="sku_code" class="form-control" placeholder="default_lang.Make" autocomplete="off"  />
+</div></td><td width="20%"><div class="form-group" app-field-wrapper="sku_name"><input type="text" name="sku_name" value="" id="sku_name" class="form-control" placeholder="default_lang.Model" autocomplete="off"  />
+</div></td><td width="15%" class="quantities"><div class="form-group no-margin" app-field-wrapper="quantity"><input type="number" name="quantity" value="" id="quantity" class="form-control text-right" placeholder="" autocomplete="off" min="0.0" step="any"  />
+</div></td><td width="15%"><div class="form-group" app-field-wrapper="unit_name"><input type="text" name="unit_name" value="" id="unit_name" class="form-control" placeholder="default_lang.Unit" autocomplete="off"  />
+</div></td><td><button type="button" onclick="pur_add_item_to_table('undefined','undefined'); return false;" class="btn pull-right btn-info text-white"><i data-feather="plus-circle" class="icon-16"></i></button></td></tr>
+CRITICAL - 2025-06-26 01:18:55 --> <tr class="main"><td></td><td width="30%"><div class="form-group" app-field-wrapper="item_text"><input type="text" name="item_text" value="" id="item_text" class="form-control" placeholder="Item Name" autocomplete="off"  />
+</div><div class="form-group hide" app-field-wrapper="item_code"><input type="text" name="item_code" value="" id="item_code" class="form-control" placeholder="" autocomplete="off"  />
+</div></td><td width="20%"><div class="form-group" app-field-wrapper="sku_code"><input type="text" name="sku_code" value="" id="sku_code" class="form-control" placeholder="default_lang.Make" autocomplete="off"  />
+</div></td><td width="20%"><div class="form-group" app-field-wrapper="sku_name"><input type="text" name="sku_name" value="" id="sku_name" class="form-control" placeholder="default_lang.Model" autocomplete="off"  />
+</div></td><td width="15%" class="quantities"><div class="form-group no-margin" app-field-wrapper="quantity"><input type="number" name="quantity" value="" id="quantity" class="form-control text-right" placeholder="" autocomplete="off" min="0.0" step="any"  />
+</div></td><td width="15%"><div class="form-group" app-field-wrapper="unit_name"><input type="text" name="unit_name" value="" id="unit_name" class="form-control" placeholder="default_lang.Unit" autocomplete="off"  />
+</div></td><td><button type="button" onclick="pur_add_item_to_table('undefined','undefined'); return false;" class="btn pull-right btn-info text-white"><i data-feather="plus-circle" class="icon-16"></i></button></td></tr>
+CRITICAL - 2025-06-26 01:20:05 --> <tr class="main"><td></td><td width="30%"><div class="form-group" app-field-wrapper="item_text"><input type="text" name="item_text" value="" id="item_text" class="form-control" placeholder="Item Name" autocomplete="off"  />
+</div><div class="form-group hide" app-field-wrapper="item_code"><input type="text" name="item_code" value="" id="item_code" class="form-control" placeholder="" autocomplete="off"  />
+</div></td><td width="20%"><div class="form-group" app-field-wrapper="sku_code"><input type="text" name="sku_code" value="" id="sku_code" class="form-control" placeholder="default_lang.Make" autocomplete="off"  />
+</div></td><td width="20%"><div class="form-group" app-field-wrapper="sku_name"><input type="text" name="sku_name" value="" id="sku_name" class="form-control" placeholder="default_lang.Model" autocomplete="off"  />
+</div></td><td width="15%" class="quantities"><div class="form-group no-margin" app-field-wrapper="quantity"><input type="number" name="quantity" value="" id="quantity" class="form-control text-right" placeholder="" autocomplete="off" min="0.0" step="any"  />
+</div></td><td width="15%"><div class="form-group" app-field-wrapper="unit_name"><input type="text" name="unit_name" value="" id="unit_name" class="form-control" placeholder="default_lang.Unit" autocomplete="off"  />
+</div></td><td><button type="button" onclick="pur_add_item_to_table('undefined','undefined'); return false;" class="btn pull-right btn-info text-white"><i data-feather="plus-circle" class="icon-16"></i></button></td></tr>
+CRITICAL - 2025-06-26 01:20:18 --> <tr class="main"><td></td><td width="30%"><div class="form-group" app-field-wrapper="item_text"><input type="text" name="item_text" value="" id="item_text" class="form-control" placeholder="Item Name" autocomplete="off"  />
+</div><div class="form-group hide" app-field-wrapper="item_code"><input type="text" name="item_code" value="" id="item_code" class="form-control" placeholder="" autocomplete="off"  />
+</div></td><td width="20%"><div class="form-group" app-field-wrapper="sku_code"><input type="text" name="sku_code" value="" id="sku_code" class="form-control" placeholder="default_lang.Make" autocomplete="off"  />
+</div></td><td width="20%"><div class="form-group" app-field-wrapper="sku_name"><input type="text" name="sku_name" value="" id="sku_name" class="form-control" placeholder="default_lang.Model" autocomplete="off"  />
+</div></td><td width="15%" class="quantities"><div class="form-group no-margin" app-field-wrapper="quantity"><input type="number" name="quantity" value="" id="quantity" class="form-control text-right" placeholder="" autocomplete="off" min="0.0" step="any"  />
+</div></td><td width="15%"><div class="form-group" app-field-wrapper="unit_name"><input type="text" name="unit_name" value="" id="unit_name" class="form-control" placeholder="default_lang.Unit" autocomplete="off"  />
+</div></td><td><button type="button" onclick="pur_add_item_to_table('undefined','undefined'); return false;" class="btn pull-right btn-info text-white"><i data-feather="plus-circle" class="icon-16"></i></button></td></tr>
+CRITICAL - 2025-06-26 01:20:42 --> The action you requested is not allowed.
+in SYSTEMPATH\Security\Security.php on line 286.
+ 1 SYSTEMPATH\Security\Security.php(286): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+ 2 SYSTEMPATH\Filters\CSRF.php(54): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 4 SYSTEMPATH\CodeIgniter.php(440): CodeIgniter\Filters\Filters->run('messages/count_notifications', 'before')
+ 5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-26 01:20:47 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-26 01:23:06 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-26 01:23:22 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-26 01:23:22 --> Array
+(
+    [rResult] => Array
+        (
+            [0] => Array
+                (
+                    [pur_rq_code] => #RAJ-00008-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-16 00:26:21
+                    [status] => 2
+                    [id] => 16
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => CABLE
+                                    [sku_code] => ABCD
+                                    [sku_name] => abcd
+                                    [quantity] => 1.00
+                                    [unit_price] => 3000.00
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [pur_rq_code] => #RAJ-00007-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-13 00:59:39
+                    [status] => 2
+                    [id] => 15
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => CABLE
+                                    [sku_code] => ABCD
+                                    [sku_name] => abcd
+                                    [quantity] => 1.00
+                                    [unit_price] => 3000.00
+                                )
+
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00012-2025
+                    [requester] => 1
+                    [department] => 1
+                    [request_date] => 2025-06-25 04:03:40
+                    [status] => 1
+                    [id] => 20
+                    [title] => Design
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Male Female Connector
+                                    [sku_code] => MFCONN
+                                    [sku_name] => MFCONN
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Sanwa-Denki -9WF0424S604B
+                                    [sku_code] => 9WF0424S604B
+                                    [sku_name] => 9WF0424S604B
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00011-2025
+                    [requester] => 1
+                    [department] => 1
+                    [request_date] => 2025-06-25 00:45:56
+                    [status] => 2
+                    [id] => 19
+                    [title] => Design
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Cable Tie (100MM)
+                                    [sku_code] => CBLTY
+                                    [sku_name] => CBLTY
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [4] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00010-2025
+                    [requester] => 67
+                    [department] => 2
+                    [request_date] => 2025-06-16 04:30:02
+                    [status] => 2
+                    [id] => 18
+                    [title] => Electrical
+                    [first_name] => Vishnu
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => LASER SENSOR -ML100-55/102/115 (P&F)
+                                    [sku_code] => LSRSENSOR
+                                    [sku_name] => LSRSENSOR
+                                    [quantity] => 4.00
+                                    [unit_price] => 1.00
+                                )
+
+                        )
+
+                )
+
+            [5] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00009-2025
+                    [requester] => 8
+                    [department] => 2
+                    [request_date] => 2025-06-16 01:24:06
+                    [status] => 1
+                    [id] => 17
+                    [title] => Electrical
+                    [first_name] => Tikam
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Male Female Connector
+                                    [sku_code] => MFCONN
+                                    [sku_name] => MFCONN
+                                    [quantity] => 1.00
+                                    [unit_price] => 1000.00
+                                )
+
+                        )
+
+                )
+
+            [6] => Array
+                (
+                    [pur_rq_code] => #-00006-2025
+                    [requester] => 1
+                    [department] => 3
+                    [request_date] => 2025-06-08 13:22:33
+                    [status] => 1
+                    [id] => 14
+                    [title] => HR
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Sanwa-Denki -9WF0424S604B
+                                    [sku_code] => 9WF0424S604B
+                                    [sku_name] => 9WF0424S604B
+                                    [quantity] => 1.00
+                                    [unit_price] => 5000.00
+                                )
+
+                        )
+
+                )
+
+            [7] => Array
+                (
+                    [pur_rq_code] => #-00005-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-08 06:53:51
+                    [status] => 2
+                    [id] => 13
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Sanwa-Denki -9WF0424S604B
+                                    [sku_code] => 9WF0424S604B
+                                    [sku_name] => 9WF0424S604B
+                                    [quantity] => 1.00
+                                    [unit_price] => 5000.00
+                                )
+
+                        )
+
+                )
+
+            [8] => Array
+                (
+                    [pur_rq_code] => #-00004-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-07 15:03:34
+                    [status] => 2
+                    [id] => 12
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => 
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 1.00
+                                )
+
+                        )
+
+                )
+
+            [9] => Array
+                (
+                    [pur_rq_code] => #-00002-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-07 15:00:22
+                    [status] => 1
+                    [id] => 10
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 4000.00
+                                )
+
+                        )
+
+                )
+
+            [10] => Array
+                (
+                    [pur_rq_code] => #-00001-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-07 14:40:58
+                    [status] => 1
+                    [id] => 9
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [output] => Array
+        (
+            [draw] => 1
+            [iTotalRecords] => 11
+            [iTotalDisplayRecords] => 0
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+CRITICAL - 2025-06-26 01:23:22 --> Array
+(
+    [title] => CABLE
+    [sku_code] => ABCD
+    [sku_name] => abcd
+    [quantity] => 1.00
+    [unit_price] => 3000.00
+)
+
+CRITICAL - 2025-06-26 01:23:22 --> Array
+(
+    [title] => CABLE
+    [sku_code] => ABCD
+    [sku_name] => abcd
+    [quantity] => 1.00
+    [unit_price] => 3000.00
+)
+
+CRITICAL - 2025-06-26 01:23:22 --> Array
+(
+    [title] => Male Female Connector
+    [sku_code] => MFCONN
+    [sku_name] => MFCONN
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-26 01:23:22 --> Array
+(
+    [title] => Sanwa-Denki -9WF0424S604B
+    [sku_code] => 9WF0424S604B
+    [sku_name] => 9WF0424S604B
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-26 01:23:22 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-26 01:23:22 --> Array
+(
+    [title] => Cable Tie (100MM)
+    [sku_code] => CBLTY
+    [sku_name] => CBLTY
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-26 01:23:22 --> Array
+(
+    [title] => LASER SENSOR -ML100-55/102/115 (P&F)
+    [sku_code] => LSRSENSOR
+    [sku_name] => LSRSENSOR
+    [quantity] => 4.00
+    [unit_price] => 1.00
+)
+
+CRITICAL - 2025-06-26 01:23:22 --> Array
+(
+    [title] => Male Female Connector
+    [sku_code] => MFCONN
+    [sku_name] => MFCONN
+    [quantity] => 1.00
+    [unit_price] => 1000.00
+)
+
+CRITICAL - 2025-06-26 01:23:22 --> Array
+(
+    [title] => Sanwa-Denki -9WF0424S604B
+    [sku_code] => 9WF0424S604B
+    [sku_name] => 9WF0424S604B
+    [quantity] => 1.00
+    [unit_price] => 5000.00
+)
+
+CRITICAL - 2025-06-26 01:23:22 --> Array
+(
+    [title] => Sanwa-Denki -9WF0424S604B
+    [sku_code] => 9WF0424S604B
+    [sku_name] => 9WF0424S604B
+    [quantity] => 1.00
+    [unit_price] => 5000.00
+)
+
+CRITICAL - 2025-06-26 01:23:22 --> Array
+(
+    [title] => 
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 1.00
+)
+
+CRITICAL - 2025-06-26 01:23:22 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 4000.00
+)
+
+ERROR - 2025-06-26 01:23:25 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-26 01:23:38 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-26 01:23:38 --> Array
+(
+    [rResult] => Array
+        (
+            [0] => Array
+                (
+                    [pur_rq_code] => #RAJ-00008-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-16 00:26:21
+                    [status] => 2
+                    [id] => 16
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => CABLE
+                                    [sku_code] => ABCD
+                                    [sku_name] => abcd
+                                    [quantity] => 1.00
+                                    [unit_price] => 3000.00
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [pur_rq_code] => #RAJ-00007-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-13 00:59:39
+                    [status] => 2
+                    [id] => 15
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => CABLE
+                                    [sku_code] => ABCD
+                                    [sku_name] => abcd
+                                    [quantity] => 1.00
+                                    [unit_price] => 3000.00
+                                )
+
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00012-2025
+                    [requester] => 1
+                    [department] => 1
+                    [request_date] => 2025-06-25 04:03:40
+                    [status] => 1
+                    [id] => 20
+                    [title] => Design
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Male Female Connector
+                                    [sku_code] => MFCONN
+                                    [sku_name] => MFCONN
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Sanwa-Denki -9WF0424S604B
+                                    [sku_code] => 9WF0424S604B
+                                    [sku_name] => 9WF0424S604B
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00011-2025
+                    [requester] => 1
+                    [department] => 1
+                    [request_date] => 2025-06-25 00:45:56
+                    [status] => 2
+                    [id] => 19
+                    [title] => Design
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Cable Tie (100MM)
+                                    [sku_code] => CBLTY
+                                    [sku_name] => CBLTY
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [4] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00010-2025
+                    [requester] => 67
+                    [department] => 2
+                    [request_date] => 2025-06-16 04:30:02
+                    [status] => 2
+                    [id] => 18
+                    [title] => Electrical
+                    [first_name] => Vishnu
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => LASER SENSOR -ML100-55/102/115 (P&F)
+                                    [sku_code] => LSRSENSOR
+                                    [sku_name] => LSRSENSOR
+                                    [quantity] => 4.00
+                                    [unit_price] => 1.00
+                                )
+
+                        )
+
+                )
+
+            [5] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00009-2025
+                    [requester] => 8
+                    [department] => 2
+                    [request_date] => 2025-06-16 01:24:06
+                    [status] => 1
+                    [id] => 17
+                    [title] => Electrical
+                    [first_name] => Tikam
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Male Female Connector
+                                    [sku_code] => MFCONN
+                                    [sku_name] => MFCONN
+                                    [quantity] => 1.00
+                                    [unit_price] => 1000.00
+                                )
+
+                        )
+
+                )
+
+            [6] => Array
+                (
+                    [pur_rq_code] => #-00006-2025
+                    [requester] => 1
+                    [department] => 3
+                    [request_date] => 2025-06-08 13:22:33
+                    [status] => 1
+                    [id] => 14
+                    [title] => HR
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Sanwa-Denki -9WF0424S604B
+                                    [sku_code] => 9WF0424S604B
+                                    [sku_name] => 9WF0424S604B
+                                    [quantity] => 1.00
+                                    [unit_price] => 5000.00
+                                )
+
+                        )
+
+                )
+
+            [7] => Array
+                (
+                    [pur_rq_code] => #-00005-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-08 06:53:51
+                    [status] => 2
+                    [id] => 13
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Sanwa-Denki -9WF0424S604B
+                                    [sku_code] => 9WF0424S604B
+                                    [sku_name] => 9WF0424S604B
+                                    [quantity] => 1.00
+                                    [unit_price] => 5000.00
+                                )
+
+                        )
+
+                )
+
+            [8] => Array
+                (
+                    [pur_rq_code] => #-00004-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-07 15:03:34
+                    [status] => 2
+                    [id] => 12
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => 
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 1.00
+                                )
+
+                        )
+
+                )
+
+            [9] => Array
+                (
+                    [pur_rq_code] => #-00002-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-07 15:00:22
+                    [status] => 1
+                    [id] => 10
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 4000.00
+                                )
+
+                        )
+
+                )
+
+            [10] => Array
+                (
+                    [pur_rq_code] => #-00001-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-07 14:40:58
+                    [status] => 1
+                    [id] => 9
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [output] => Array
+        (
+            [draw] => 1
+            [iTotalRecords] => 11
+            [iTotalDisplayRecords] => 0
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+CRITICAL - 2025-06-26 01:23:38 --> Array
+(
+    [title] => CABLE
+    [sku_code] => ABCD
+    [sku_name] => abcd
+    [quantity] => 1.00
+    [unit_price] => 3000.00
+)
+
+CRITICAL - 2025-06-26 01:23:38 --> Array
+(
+    [title] => CABLE
+    [sku_code] => ABCD
+    [sku_name] => abcd
+    [quantity] => 1.00
+    [unit_price] => 3000.00
+)
+
+CRITICAL - 2025-06-26 01:23:38 --> Array
+(
+    [title] => Male Female Connector
+    [sku_code] => MFCONN
+    [sku_name] => MFCONN
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-26 01:23:38 --> Array
+(
+    [title] => Sanwa-Denki -9WF0424S604B
+    [sku_code] => 9WF0424S604B
+    [sku_name] => 9WF0424S604B
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-26 01:23:38 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-26 01:23:38 --> Array
+(
+    [title] => Cable Tie (100MM)
+    [sku_code] => CBLTY
+    [sku_name] => CBLTY
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-26 01:23:38 --> Array
+(
+    [title] => LASER SENSOR -ML100-55/102/115 (P&F)
+    [sku_code] => LSRSENSOR
+    [sku_name] => LSRSENSOR
+    [quantity] => 4.00
+    [unit_price] => 1.00
+)
+
+CRITICAL - 2025-06-26 01:23:38 --> Array
+(
+    [title] => Male Female Connector
+    [sku_code] => MFCONN
+    [sku_name] => MFCONN
+    [quantity] => 1.00
+    [unit_price] => 1000.00
+)
+
+CRITICAL - 2025-06-26 01:23:38 --> Array
+(
+    [title] => Sanwa-Denki -9WF0424S604B
+    [sku_code] => 9WF0424S604B
+    [sku_name] => 9WF0424S604B
+    [quantity] => 1.00
+    [unit_price] => 5000.00
+)
+
+CRITICAL - 2025-06-26 01:23:38 --> Array
+(
+    [title] => Sanwa-Denki -9WF0424S604B
+    [sku_code] => 9WF0424S604B
+    [sku_name] => 9WF0424S604B
+    [quantity] => 1.00
+    [unit_price] => 5000.00
+)
+
+CRITICAL - 2025-06-26 01:23:38 --> Array
+(
+    [title] => 
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 1.00
+)
+
+CRITICAL - 2025-06-26 01:23:38 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 4000.00
+)
+
+ERROR - 2025-06-26 01:23:43 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-26 01:23:43 --> Array
+(
+    [rResult] => Array
+        (
+            [0] => Array
+                (
+                    [pur_rq_code] => #RAJ-00008-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-16 00:26:21
+                    [status] => 2
+                    [id] => 16
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => CABLE
+                                    [sku_code] => ABCD
+                                    [sku_name] => abcd
+                                    [quantity] => 1.00
+                                    [unit_price] => 3000.00
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [pur_rq_code] => #RAJ-00007-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-13 00:59:39
+                    [status] => 2
+                    [id] => 15
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => CABLE
+                                    [sku_code] => ABCD
+                                    [sku_name] => abcd
+                                    [quantity] => 1.00
+                                    [unit_price] => 3000.00
+                                )
+
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00012-2025
+                    [requester] => 1
+                    [department] => 1
+                    [request_date] => 2025-06-25 04:03:40
+                    [status] => 1
+                    [id] => 20
+                    [title] => Design
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Male Female Connector
+                                    [sku_code] => MFCONN
+                                    [sku_name] => MFCONN
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Sanwa-Denki -9WF0424S604B
+                                    [sku_code] => 9WF0424S604B
+                                    [sku_name] => 9WF0424S604B
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00011-2025
+                    [requester] => 1
+                    [department] => 1
+                    [request_date] => 2025-06-25 00:45:56
+                    [status] => 2
+                    [id] => 19
+                    [title] => Design
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Cable Tie (100MM)
+                                    [sku_code] => CBLTY
+                                    [sku_name] => CBLTY
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [4] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00010-2025
+                    [requester] => 67
+                    [department] => 2
+                    [request_date] => 2025-06-16 04:30:02
+                    [status] => 2
+                    [id] => 18
+                    [title] => Electrical
+                    [first_name] => Vishnu
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => LASER SENSOR -ML100-55/102/115 (P&F)
+                                    [sku_code] => LSRSENSOR
+                                    [sku_name] => LSRSENSOR
+                                    [quantity] => 4.00
+                                    [unit_price] => 1.00
+                                )
+
+                        )
+
+                )
+
+            [5] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00009-2025
+                    [requester] => 8
+                    [department] => 2
+                    [request_date] => 2025-06-16 01:24:06
+                    [status] => 1
+                    [id] => 17
+                    [title] => Electrical
+                    [first_name] => Tikam
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Male Female Connector
+                                    [sku_code] => MFCONN
+                                    [sku_name] => MFCONN
+                                    [quantity] => 1.00
+                                    [unit_price] => 1000.00
+                                )
+
+                        )
+
+                )
+
+            [6] => Array
+                (
+                    [pur_rq_code] => #-00006-2025
+                    [requester] => 1
+                    [department] => 3
+                    [request_date] => 2025-06-08 13:22:33
+                    [status] => 1
+                    [id] => 14
+                    [title] => HR
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Sanwa-Denki -9WF0424S604B
+                                    [sku_code] => 9WF0424S604B
+                                    [sku_name] => 9WF0424S604B
+                                    [quantity] => 1.00
+                                    [unit_price] => 5000.00
+                                )
+
+                        )
+
+                )
+
+            [7] => Array
+                (
+                    [pur_rq_code] => #-00005-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-08 06:53:51
+                    [status] => 2
+                    [id] => 13
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Sanwa-Denki -9WF0424S604B
+                                    [sku_code] => 9WF0424S604B
+                                    [sku_name] => 9WF0424S604B
+                                    [quantity] => 1.00
+                                    [unit_price] => 5000.00
+                                )
+
+                        )
+
+                )
+
+            [8] => Array
+                (
+                    [pur_rq_code] => #-00004-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-07 15:03:34
+                    [status] => 2
+                    [id] => 12
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => 
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 1.00
+                                )
+
+                        )
+
+                )
+
+            [9] => Array
+                (
+                    [pur_rq_code] => #-00002-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-07 15:00:22
+                    [status] => 1
+                    [id] => 10
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 4000.00
+                                )
+
+                        )
+
+                )
+
+            [10] => Array
+                (
+                    [pur_rq_code] => #-00001-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-07 14:40:58
+                    [status] => 1
+                    [id] => 9
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [output] => Array
+        (
+            [draw] => 1
+            [iTotalRecords] => 11
+            [iTotalDisplayRecords] => 0
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+CRITICAL - 2025-06-26 01:23:43 --> Array
+(
+    [title] => CABLE
+    [sku_code] => ABCD
+    [sku_name] => abcd
+    [quantity] => 1.00
+    [unit_price] => 3000.00
+)
+
+CRITICAL - 2025-06-26 01:23:43 --> Array
+(
+    [title] => CABLE
+    [sku_code] => ABCD
+    [sku_name] => abcd
+    [quantity] => 1.00
+    [unit_price] => 3000.00
+)
+
+CRITICAL - 2025-06-26 01:23:43 --> Array
+(
+    [title] => Male Female Connector
+    [sku_code] => MFCONN
+    [sku_name] => MFCONN
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-26 01:23:43 --> Array
+(
+    [title] => Sanwa-Denki -9WF0424S604B
+    [sku_code] => 9WF0424S604B
+    [sku_name] => 9WF0424S604B
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-26 01:23:43 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-26 01:23:43 --> Array
+(
+    [title] => Cable Tie (100MM)
+    [sku_code] => CBLTY
+    [sku_name] => CBLTY
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-26 01:23:43 --> Array
+(
+    [title] => LASER SENSOR -ML100-55/102/115 (P&F)
+    [sku_code] => LSRSENSOR
+    [sku_name] => LSRSENSOR
+    [quantity] => 4.00
+    [unit_price] => 1.00
+)
+
+CRITICAL - 2025-06-26 01:23:43 --> Array
+(
+    [title] => Male Female Connector
+    [sku_code] => MFCONN
+    [sku_name] => MFCONN
+    [quantity] => 1.00
+    [unit_price] => 1000.00
+)
+
+CRITICAL - 2025-06-26 01:23:43 --> Array
+(
+    [title] => Sanwa-Denki -9WF0424S604B
+    [sku_code] => 9WF0424S604B
+    [sku_name] => 9WF0424S604B
+    [quantity] => 1.00
+    [unit_price] => 5000.00
+)
+
+CRITICAL - 2025-06-26 01:23:43 --> Array
+(
+    [title] => Sanwa-Denki -9WF0424S604B
+    [sku_code] => 9WF0424S604B
+    [sku_name] => 9WF0424S604B
+    [quantity] => 1.00
+    [unit_price] => 5000.00
+)
+
+CRITICAL - 2025-06-26 01:23:43 --> Array
+(
+    [title] => 
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 1.00
+)
+
+CRITICAL - 2025-06-26 01:23:43 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 4000.00
+)
+
+CRITICAL - 2025-06-26 01:23:45 --> <tr class="main"><td></td><td width="30%"><div class="form-group" app-field-wrapper="item_text"><input type="text" name="item_text" value="" id="item_text" class="form-control" placeholder="Item Name" autocomplete="off"  />
+</div><div class="form-group hide" app-field-wrapper="item_code"><input type="text" name="item_code" value="" id="item_code" class="form-control" placeholder="" autocomplete="off"  />
+</div></td><td width="20%"><div class="form-group" app-field-wrapper="sku_code"><input type="text" name="sku_code" value="" id="sku_code" class="form-control" placeholder="default_lang.Make" autocomplete="off"  />
+</div></td><td width="20%"><div class="form-group" app-field-wrapper="sku_name"><input type="text" name="sku_name" value="" id="sku_name" class="form-control" placeholder="default_lang.Model" autocomplete="off"  />
+</div></td><td width="15%" class="quantities"><div class="form-group no-margin" app-field-wrapper="quantity"><input type="number" name="quantity" value="" id="quantity" class="form-control text-right" placeholder="" autocomplete="off" min="0.0" step="any"  />
+</div></td><td width="15%"><div class="form-group" app-field-wrapper="unit_name"><input type="text" name="unit_name" value="" id="unit_name" class="form-control" placeholder="default_lang.Unit" autocomplete="off"  />
+</div></td><td><button type="button" onclick="pur_add_item_to_table('undefined','undefined'); return false;" class="btn pull-right btn-info text-white"><i data-feather="plus-circle" class="icon-16"></i></button></td></tr>
+CRITICAL - 2025-06-26 01:23:57 --> Purchase Request Row Input: {"name":"newitems[1]","item_text":"Male Female Connector","item_code":"7","sku_code":"MFCONN","sku_name":"MFCONN","quantity":"1","unit_name":"Numbers","item_key":"1"}
+CRITICAL - 2025-06-26 01:23:57 --> <tr class="sortable item"><td class="dragger"><input type="hidden" class="order" name="newitems[1][order]"><input type="hidden" class="ids" name="newitems[1][id]" value="1"></td><td width="30%"><div class="form-group" app-field-wrapper="newitems[1][item_text]"><input type="text" name="newitems[1][item_text]" value="Male Female Connector" id="newitems[1][item_text]" class="form-control" placeholder="Item Name" autocomplete="off"  />
+</div><div class="form-group hide" app-field-wrapper="newitems[1][item_code]"><input type="text" name="newitems[1][item_code]" value="7" id="newitems[1][item_code]" class="form-control" placeholder="" autocomplete="off"  />
+</div></td><td width="20%"><div class="form-group" app-field-wrapper="newitems[1][sku_code]"><input type="text" name="newitems[1][sku_code]" value="MFCONN" id="newitems[1][sku_code]" class="form-control" placeholder="default_lang.Make" autocomplete="off"  />
+</div></td><td width="20%"><div class="form-group" app-field-wrapper="newitems[1][sku_name]"><input type="text" name="newitems[1][sku_name]" value="MFCONN" id="newitems[1][sku_name]" class="form-control" placeholder="default_lang.Model" autocomplete="off"  />
+</div></td><td width="15%" class="quantities"><div class="form-group no-margin" app-field-wrapper="newitems[1][quantity]"><input type="number" name="newitems[1][quantity]" value="1" id="newitems[1][quantity]" class="form-control text-right" placeholder="" autocomplete="off" min="0.0" step="any"  />
+</div></td><td width="15%"><div class="form-group" app-field-wrapper="newitems[1][unit_name]"><input type="text" name="newitems[1][unit_name]" value="Numbers" id="newitems[1][unit_name]" class="form-control" placeholder="default_lang.Unit" autocomplete="off"  />
+</div></td><td><a href="#" class="btn btn-danger pull-right" onclick="pur_delete_item(this,1,'.invoice-item'); return false;"><i data-feather="x" class="icon-16"></i></a></td></tr>
+ERROR - 2025-06-26 01:24:11 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-26 01:24:11 --> Array
+(
+    [rResult] => Array
+        (
+            [0] => Array
+                (
+                    [pur_rq_code] => #RAJ-00008-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-16 00:26:21
+                    [status] => 2
+                    [id] => 16
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => CABLE
+                                    [sku_code] => ABCD
+                                    [sku_name] => abcd
+                                    [quantity] => 1.00
+                                    [unit_price] => 3000.00
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [pur_rq_code] => #RAJ-00007-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-13 00:59:39
+                    [status] => 2
+                    [id] => 15
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => CABLE
+                                    [sku_code] => ABCD
+                                    [sku_name] => abcd
+                                    [quantity] => 1.00
+                                    [unit_price] => 3000.00
+                                )
+
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00013-2025
+                    [requester] => 1
+                    [department] => 1
+                    [request_date] => 2025-06-26 01:24:11
+                    [status] => 1
+                    [id] => 21
+                    [title] => Design
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Male Female Connector
+                                    [sku_code] => MFCONN
+                                    [sku_name] => MFCONN
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00012-2025
+                    [requester] => 1
+                    [department] => 1
+                    [request_date] => 2025-06-25 04:03:40
+                    [status] => 1
+                    [id] => 20
+                    [title] => Design
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Male Female Connector
+                                    [sku_code] => MFCONN
+                                    [sku_name] => MFCONN
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Sanwa-Denki -9WF0424S604B
+                                    [sku_code] => 9WF0424S604B
+                                    [sku_name] => 9WF0424S604B
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [4] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00011-2025
+                    [requester] => 1
+                    [department] => 1
+                    [request_date] => 2025-06-25 00:45:56
+                    [status] => 2
+                    [id] => 19
+                    [title] => Design
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Cable Tie (100MM)
+                                    [sku_code] => CBLTY
+                                    [sku_name] => CBLTY
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [5] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00010-2025
+                    [requester] => 67
+                    [department] => 2
+                    [request_date] => 2025-06-16 04:30:02
+                    [status] => 2
+                    [id] => 18
+                    [title] => Electrical
+                    [first_name] => Vishnu
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => LASER SENSOR -ML100-55/102/115 (P&F)
+                                    [sku_code] => LSRSENSOR
+                                    [sku_name] => LSRSENSOR
+                                    [quantity] => 4.00
+                                    [unit_price] => 1.00
+                                )
+
+                        )
+
+                )
+
+            [6] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00009-2025
+                    [requester] => 8
+                    [department] => 2
+                    [request_date] => 2025-06-16 01:24:06
+                    [status] => 1
+                    [id] => 17
+                    [title] => Electrical
+                    [first_name] => Tikam
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Male Female Connector
+                                    [sku_code] => MFCONN
+                                    [sku_name] => MFCONN
+                                    [quantity] => 1.00
+                                    [unit_price] => 1000.00
+                                )
+
+                        )
+
+                )
+
+            [7] => Array
+                (
+                    [pur_rq_code] => #-00006-2025
+                    [requester] => 1
+                    [department] => 3
+                    [request_date] => 2025-06-08 13:22:33
+                    [status] => 1
+                    [id] => 14
+                    [title] => HR
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Sanwa-Denki -9WF0424S604B
+                                    [sku_code] => 9WF0424S604B
+                                    [sku_name] => 9WF0424S604B
+                                    [quantity] => 1.00
+                                    [unit_price] => 5000.00
+                                )
+
+                        )
+
+                )
+
+            [8] => Array
+                (
+                    [pur_rq_code] => #-00005-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-08 06:53:51
+                    [status] => 2
+                    [id] => 13
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Sanwa-Denki -9WF0424S604B
+                                    [sku_code] => 9WF0424S604B
+                                    [sku_name] => 9WF0424S604B
+                                    [quantity] => 1.00
+                                    [unit_price] => 5000.00
+                                )
+
+                        )
+
+                )
+
+            [9] => Array
+                (
+                    [pur_rq_code] => #-00004-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-07 15:03:34
+                    [status] => 2
+                    [id] => 12
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => 
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 1.00
+                                )
+
+                        )
+
+                )
+
+            [10] => Array
+                (
+                    [pur_rq_code] => #-00002-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-07 15:00:22
+                    [status] => 1
+                    [id] => 10
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 4000.00
+                                )
+
+                        )
+
+                )
+
+            [11] => Array
+                (
+                    [pur_rq_code] => #-00001-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-07 14:40:58
+                    [status] => 1
+                    [id] => 9
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [output] => Array
+        (
+            [draw] => 1
+            [iTotalRecords] => 12
+            [iTotalDisplayRecords] => 0
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+CRITICAL - 2025-06-26 01:24:11 --> Array
+(
+    [title] => CABLE
+    [sku_code] => ABCD
+    [sku_name] => abcd
+    [quantity] => 1.00
+    [unit_price] => 3000.00
+)
+
+CRITICAL - 2025-06-26 01:24:11 --> Array
+(
+    [title] => CABLE
+    [sku_code] => ABCD
+    [sku_name] => abcd
+    [quantity] => 1.00
+    [unit_price] => 3000.00
+)
+
+CRITICAL - 2025-06-26 01:24:11 --> Array
+(
+    [title] => Male Female Connector
+    [sku_code] => MFCONN
+    [sku_name] => MFCONN
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-26 01:24:11 --> Array
+(
+    [title] => Male Female Connector
+    [sku_code] => MFCONN
+    [sku_name] => MFCONN
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-26 01:24:11 --> Array
+(
+    [title] => Sanwa-Denki -9WF0424S604B
+    [sku_code] => 9WF0424S604B
+    [sku_name] => 9WF0424S604B
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-26 01:24:11 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-26 01:24:11 --> Array
+(
+    [title] => Cable Tie (100MM)
+    [sku_code] => CBLTY
+    [sku_name] => CBLTY
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-26 01:24:11 --> Array
+(
+    [title] => LASER SENSOR -ML100-55/102/115 (P&F)
+    [sku_code] => LSRSENSOR
+    [sku_name] => LSRSENSOR
+    [quantity] => 4.00
+    [unit_price] => 1.00
+)
+
+CRITICAL - 2025-06-26 01:24:11 --> Array
+(
+    [title] => Male Female Connector
+    [sku_code] => MFCONN
+    [sku_name] => MFCONN
+    [quantity] => 1.00
+    [unit_price] => 1000.00
+)
+
+CRITICAL - 2025-06-26 01:24:11 --> Array
+(
+    [title] => Sanwa-Denki -9WF0424S604B
+    [sku_code] => 9WF0424S604B
+    [sku_name] => 9WF0424S604B
+    [quantity] => 1.00
+    [unit_price] => 5000.00
+)
+
+CRITICAL - 2025-06-26 01:24:11 --> Array
+(
+    [title] => Sanwa-Denki -9WF0424S604B
+    [sku_code] => 9WF0424S604B
+    [sku_name] => 9WF0424S604B
+    [quantity] => 1.00
+    [unit_price] => 5000.00
+)
+
+CRITICAL - 2025-06-26 01:24:11 --> Array
+(
+    [title] => 
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 1.00
+)
+
+CRITICAL - 2025-06-26 01:24:11 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 4000.00
+)
+
+ERROR - 2025-06-26 01:24:20 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-26 01:24:32 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-26 01:25:49 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-26 01:27:08 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-26 01:27:16 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-26 01:27:23 --> Undefined array key "currency"
+in FCPATH\plugins\Purchase\Models\Purchase_model.php on line 5501.
+ 1 FCPATH\plugins\Purchase\Models\Purchase_model.php(5501): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "currency"', 'FCPATH\\plugins\\Purchase\\Models\\Purchase_model.php', 5501)
+ 2 FCPATH\plugins\Purchase\Controllers\Purchase.php(3649): Purchase\Models\Purchase_model->add_pur_order([...])
+ 3 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->pur_order()
+ 4 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-26 01:27:36 --> Undefined array key "currency"
+in FCPATH\plugins\Purchase\Models\Purchase_model.php on line 5501.
+ 1 FCPATH\plugins\Purchase\Models\Purchase_model.php(5501): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "currency"', 'FCPATH\\plugins\\Purchase\\Models\\Purchase_model.php', 5501)
+ 2 FCPATH\plugins\Purchase\Controllers\Purchase.php(3649): Purchase\Models\Purchase_model->add_pur_order([...])
+ 3 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->pur_order()
+ 4 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-26 01:27:40 --> Undefined array key "currency"
+in FCPATH\plugins\Purchase\Models\Purchase_model.php on line 5501.
+ 1 FCPATH\plugins\Purchase\Models\Purchase_model.php(5501): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "currency"', 'FCPATH\\plugins\\Purchase\\Models\\Purchase_model.php', 5501)
+ 2 FCPATH\plugins\Purchase\Controllers\Purchase.php(3649): Purchase\Models\Purchase_model->add_pur_order([...])
+ 3 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->pur_order()
+ 4 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-26 01:27:44 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-26 01:27:48 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-26 01:27:59 --> Undefined array key "currency"
+in FCPATH\plugins\Purchase\Models\Purchase_model.php on line 5501.
+ 1 FCPATH\plugins\Purchase\Models\Purchase_model.php(5501): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "currency"', 'FCPATH\\plugins\\Purchase\\Models\\Purchase_model.php', 5501)
+ 2 FCPATH\plugins\Purchase\Controllers\Purchase.php(3649): Purchase\Models\Purchase_model->add_pur_order([...])
+ 3 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->pur_order()
+ 4 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-26 01:28:15 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-26 01:28:30 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-26 01:29:02 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-26 01:29:02 --> Array
+(
+    [rResult] => Array
+        (
+            [0] => Array
+                (
+                    [pur_rq_code] => #RAJ-00008-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-16 00:26:21
+                    [status] => 2
+                    [id] => 16
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => CABLE
+                                    [sku_code] => ABCD
+                                    [sku_name] => abcd
+                                    [quantity] => 1.00
+                                    [unit_price] => 3000.00
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [pur_rq_code] => #RAJ-00007-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-13 00:59:39
+                    [status] => 2
+                    [id] => 15
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => CABLE
+                                    [sku_code] => ABCD
+                                    [sku_name] => abcd
+                                    [quantity] => 1.00
+                                    [unit_price] => 3000.00
+                                )
+
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00013-2025
+                    [requester] => 1
+                    [department] => 1
+                    [request_date] => 2025-06-26 01:24:11
+                    [status] => 1
+                    [id] => 21
+                    [title] => Design
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Male Female Connector
+                                    [sku_code] => MFCONN
+                                    [sku_name] => MFCONN
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00012-2025
+                    [requester] => 1
+                    [department] => 1
+                    [request_date] => 2025-06-25 04:03:40
+                    [status] => 1
+                    [id] => 20
+                    [title] => Design
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Male Female Connector
+                                    [sku_code] => MFCONN
+                                    [sku_name] => MFCONN
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Sanwa-Denki -9WF0424S604B
+                                    [sku_code] => 9WF0424S604B
+                                    [sku_name] => 9WF0424S604B
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [4] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00011-2025
+                    [requester] => 1
+                    [department] => 1
+                    [request_date] => 2025-06-25 00:45:56
+                    [status] => 2
+                    [id] => 19
+                    [title] => Design
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Cable Tie (100MM)
+                                    [sku_code] => CBLTY
+                                    [sku_name] => CBLTY
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [5] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00010-2025
+                    [requester] => 67
+                    [department] => 2
+                    [request_date] => 2025-06-16 04:30:02
+                    [status] => 2
+                    [id] => 18
+                    [title] => Electrical
+                    [first_name] => Vishnu
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => LASER SENSOR -ML100-55/102/115 (P&F)
+                                    [sku_code] => LSRSENSOR
+                                    [sku_name] => LSRSENSOR
+                                    [quantity] => 4.00
+                                    [unit_price] => 1.00
+                                )
+
+                        )
+
+                )
+
+            [6] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00009-2025
+                    [requester] => 8
+                    [department] => 2
+                    [request_date] => 2025-06-16 01:24:06
+                    [status] => 1
+                    [id] => 17
+                    [title] => Electrical
+                    [first_name] => Tikam
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Male Female Connector
+                                    [sku_code] => MFCONN
+                                    [sku_name] => MFCONN
+                                    [quantity] => 1.00
+                                    [unit_price] => 1000.00
+                                )
+
+                        )
+
+                )
+
+            [7] => Array
+                (
+                    [pur_rq_code] => #-00006-2025
+                    [requester] => 1
+                    [department] => 3
+                    [request_date] => 2025-06-08 13:22:33
+                    [status] => 1
+                    [id] => 14
+                    [title] => HR
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Sanwa-Denki -9WF0424S604B
+                                    [sku_code] => 9WF0424S604B
+                                    [sku_name] => 9WF0424S604B
+                                    [quantity] => 1.00
+                                    [unit_price] => 5000.00
+                                )
+
+                        )
+
+                )
+
+            [8] => Array
+                (
+                    [pur_rq_code] => #-00005-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-08 06:53:51
+                    [status] => 2
+                    [id] => 13
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Sanwa-Denki -9WF0424S604B
+                                    [sku_code] => 9WF0424S604B
+                                    [sku_name] => 9WF0424S604B
+                                    [quantity] => 1.00
+                                    [unit_price] => 5000.00
+                                )
+
+                        )
+
+                )
+
+            [9] => Array
+                (
+                    [pur_rq_code] => #-00004-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-07 15:03:34
+                    [status] => 2
+                    [id] => 12
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => 
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 1.00
+                                )
+
+                        )
+
+                )
+
+            [10] => Array
+                (
+                    [pur_rq_code] => #-00002-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-07 15:00:22
+                    [status] => 1
+                    [id] => 10
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 4000.00
+                                )
+
+                        )
+
+                )
+
+            [11] => Array
+                (
+                    [pur_rq_code] => #-00001-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-07 14:40:58
+                    [status] => 1
+                    [id] => 9
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [output] => Array
+        (
+            [draw] => 1
+            [iTotalRecords] => 12
+            [iTotalDisplayRecords] => 0
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+CRITICAL - 2025-06-26 01:29:02 --> Array
+(
+    [title] => CABLE
+    [sku_code] => ABCD
+    [sku_name] => abcd
+    [quantity] => 1.00
+    [unit_price] => 3000.00
+)
+
+CRITICAL - 2025-06-26 01:29:02 --> Array
+(
+    [title] => CABLE
+    [sku_code] => ABCD
+    [sku_name] => abcd
+    [quantity] => 1.00
+    [unit_price] => 3000.00
+)
+
+CRITICAL - 2025-06-26 01:29:02 --> Array
+(
+    [title] => Male Female Connector
+    [sku_code] => MFCONN
+    [sku_name] => MFCONN
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-26 01:29:02 --> Array
+(
+    [title] => Male Female Connector
+    [sku_code] => MFCONN
+    [sku_name] => MFCONN
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-26 01:29:02 --> Array
+(
+    [title] => Sanwa-Denki -9WF0424S604B
+    [sku_code] => 9WF0424S604B
+    [sku_name] => 9WF0424S604B
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-26 01:29:02 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-26 01:29:02 --> Array
+(
+    [title] => Cable Tie (100MM)
+    [sku_code] => CBLTY
+    [sku_name] => CBLTY
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-26 01:29:02 --> Array
+(
+    [title] => LASER SENSOR -ML100-55/102/115 (P&F)
+    [sku_code] => LSRSENSOR
+    [sku_name] => LSRSENSOR
+    [quantity] => 4.00
+    [unit_price] => 1.00
+)
+
+CRITICAL - 2025-06-26 01:29:02 --> Array
+(
+    [title] => Male Female Connector
+    [sku_code] => MFCONN
+    [sku_name] => MFCONN
+    [quantity] => 1.00
+    [unit_price] => 1000.00
+)
+
+CRITICAL - 2025-06-26 01:29:02 --> Array
+(
+    [title] => Sanwa-Denki -9WF0424S604B
+    [sku_code] => 9WF0424S604B
+    [sku_name] => 9WF0424S604B
+    [quantity] => 1.00
+    [unit_price] => 5000.00
+)
+
+CRITICAL - 2025-06-26 01:29:02 --> Array
+(
+    [title] => Sanwa-Denki -9WF0424S604B
+    [sku_code] => 9WF0424S604B
+    [sku_name] => 9WF0424S604B
+    [quantity] => 1.00
+    [unit_price] => 5000.00
+)
+
+CRITICAL - 2025-06-26 01:29:02 --> Array
+(
+    [title] => 
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 1.00
+)
+
+CRITICAL - 2025-06-26 01:29:02 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 4000.00
+)
+
+ERROR - 2025-06-26 01:29:03 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-26 01:35:07 --> Undefined array key "currency"
+in FCPATH\plugins\Purchase\Models\Purchase_model.php on line 5501.
+ 1 FCPATH\plugins\Purchase\Models\Purchase_model.php(5501): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "currency"', 'FCPATH\\plugins\\Purchase\\Models\\Purchase_model.php', 5501)
+ 2 FCPATH\plugins\Purchase\Controllers\Purchase.php(3649): Purchase\Models\Purchase_model->add_pur_order([...])
+ 3 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->pur_order()
+ 4 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-26 01:35:18 --> Undefined array key "currency"
+in FCPATH\plugins\Purchase\Models\Purchase_model.php on line 5501.
+ 1 FCPATH\plugins\Purchase\Models\Purchase_model.php(5501): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "currency"', 'FCPATH\\plugins\\Purchase\\Models\\Purchase_model.php', 5501)
+ 2 FCPATH\plugins\Purchase\Controllers\Purchase.php(3649): Purchase\Models\Purchase_model->add_pur_order([...])
+ 3 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->pur_order()
+ 4 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+ 5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()

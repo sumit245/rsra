@@ -116,7 +116,7 @@ foreach ($rResult as $aRow) {
               <button class="btn btn-default dropdown-toggle caret mt0 mb0" type="button" data-bs-toggle="dropdown" aria-expanded="true" data-bs-display="static">
               <i data-feather="tool" class="icon-16"></i>
               </button>
-              <ul class="dropdown-menu dropdown-menu-end" role="menu">' . $convert . $edit . $delete . '</ul>
+              <ul class="dropdown-menu dropdown-menu-end" role="menu">' . $convert . $delete . '</ul>
               </span>';
          } else if ($dataPost['user_type'] == 'vendor') {
             $view = '<li role="presentation"><a href="' . get_uri('purchase/view_pur_order/' . $aRow['id']) . '" class="dropdown-item"><i data-feather="eye" class="icon-16"></i>&nbsp;&nbsp;' . app_lang('view') . '</a></li>';
