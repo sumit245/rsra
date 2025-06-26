@@ -3920,27 +3920,26 @@ public function get_pur_request_items_for_order($pur_request_id)
    * Adds a comment to purchase request
    */
   public function add_comment($data)
-  {
-    $builder = $this->db->table(db_prefix() . 'pur_request_comments');
+{
+    $builder = $this->db->table(db_prefix() . 'purchase_comments');
     $builder->insert($data);
     $insert_id = $this->db->insertID();
 
     if ($insert_id) {
-      return $insert_id;
+        return $insert_id;
     }
     return false;
-  }
+}
 
-  /**
-   * Gets comments for a purchase request
-   */
-  public function get_comments($pur_request_id)
-  {
-    $builder = $this->db->table(db_prefix() . 'pur_request_comments');
-    $builder->where('pur_request_id', $pur_request_id);
+// Updated get_comments method to handle both types
+public function get_comments($related_id, $comment_type = 'pur_request')
+{
+    $builder = $this->db->table(db_prefix() . 'purchase_comments');
+    $builder->where('related_id', $related_id);
+    $builder->where('comment_type', $comment_type);
     $builder->orderBy('created_at', 'DESC');
     return $builder->get()->getResultArray();
-  }
+}
 
   /**
    * delete approval details

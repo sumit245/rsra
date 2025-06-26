@@ -1,97 +1,436 @@
-ERROR - 2025-06-25 01:20:52 --> DEBUG: $sGroupBy = 
-ERROR - 2025-06-25 01:20:52 --> Got row asArray
+CRITICAL - 2025-06-25 11:43:23 --> Too few arguments to function {closure}(), 1 passed in C:\xampp\htdocs\rsra_new\rsra\app\ThirdParty\PHP-Hooks\php-hooks.php on line 219 and exactly 2 expected
+in FCPATH\plugins\Purchase\index.php on line 83.
+ 1 APPPATH\ThirdParty\PHP-Hooks\php-hooks.php(219): {closure}([...])
+ 2 APPPATH\Controllers\Roles.php(343): Hooks->apply_filters('app_filter_role_permissions_save_data', [...])
+ 3 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Roles->save_permissions()
+ 4 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Roles))
+ 5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-25 11:44:32 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-25 11:44:32 --> Array
 (
-    [number] => 1
-    [total] => 5500.00
-    [total_tax] => 0.00
-    [vendor] => 1
-    [pur_request] => 13
-    [date] => 2025-06-08
-    [expirydate] => 2025-06-08
-    [status] => 2
-    [id] => 1
-    [invoiceid] => 
-    [deleted_vendor_name] => 
-    [currency] => 
-    [company] => Surya Infotech
-    [pur_rq_name] => #-00005-2025
-    [pur_rq_code] => #-00005-2025
-    [items] => Array
+    [rResult] => Array
         (
+            [0] => Array
+                (
+                    [pur_rq_code] => #RAJ-00008-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-16 00:26:21
+                    [status] => 2
+                    [id] => 16
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => CABLE
+                                    [sku_code] => ABCD
+                                    [sku_name] => abcd
+                                    [quantity] => 1.00
+                                    [unit_price] => 3000.00
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [pur_rq_code] => #RAJ-00007-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-13 00:59:39
+                    [status] => 2
+                    [id] => 15
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => CABLE
+                                    [sku_code] => ABCD
+                                    [sku_name] => abcd
+                                    [quantity] => 1.00
+                                    [unit_price] => 3000.00
+                                )
+
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00012-2025
+                    [requester] => 1
+                    [department] => 1
+                    [request_date] => 2025-06-25 04:03:40
+                    [status] => 1
+                    [id] => 20
+                    [title] => Design
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Male Female Connector
+                                    [sku_code] => MFCONN
+                                    [sku_name] => MFCONN
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Sanwa-Denki -9WF0424S604B
+                                    [sku_code] => 9WF0424S604B
+                                    [sku_name] => 9WF0424S604B
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00011-2025
+                    [requester] => 1
+                    [department] => 1
+                    [request_date] => 2025-06-25 00:45:56
+                    [status] => 2
+                    [id] => 19
+                    [title] => Design
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Cable Tie (100MM)
+                                    [sku_code] => CBLTY
+                                    [sku_name] => CBLTY
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [4] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00010-2025
+                    [requester] => 67
+                    [department] => 2
+                    [request_date] => 2025-06-16 04:30:02
+                    [status] => 2
+                    [id] => 18
+                    [title] => Electrical
+                    [first_name] => Vishnu
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => LASER SENSOR -ML100-55/102/115 (P&F)
+                                    [sku_code] => LSRSENSOR
+                                    [sku_name] => LSRSENSOR
+                                    [quantity] => 4.00
+                                    [unit_price] => 1.00
+                                )
+
+                        )
+
+                )
+
+            [5] => Array
+                (
+                    [pur_rq_code] => #KOMAL-00009-2025
+                    [requester] => 8
+                    [department] => 2
+                    [request_date] => 2025-06-16 01:24:06
+                    [status] => 1
+                    [id] => 17
+                    [title] => Electrical
+                    [first_name] => Tikam
+                    [last_name] => Singh
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Male Female Connector
+                                    [sku_code] => MFCONN
+                                    [sku_name] => MFCONN
+                                    [quantity] => 1.00
+                                    [unit_price] => 1000.00
+                                )
+
+                        )
+
+                )
+
+            [6] => Array
+                (
+                    [pur_rq_code] => #-00006-2025
+                    [requester] => 1
+                    [department] => 3
+                    [request_date] => 2025-06-08 13:22:33
+                    [status] => 1
+                    [id] => 14
+                    [title] => HR
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Sanwa-Denki -9WF0424S604B
+                                    [sku_code] => 9WF0424S604B
+                                    [sku_name] => 9WF0424S604B
+                                    [quantity] => 1.00
+                                    [unit_price] => 5000.00
+                                )
+
+                        )
+
+                )
+
+            [7] => Array
+                (
+                    [pur_rq_code] => #-00005-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-08 06:53:51
+                    [status] => 2
+                    [id] => 13
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Sanwa-Denki -9WF0424S604B
+                                    [sku_code] => 9WF0424S604B
+                                    [sku_name] => 9WF0424S604B
+                                    [quantity] => 1.00
+                                    [unit_price] => 5000.00
+                                )
+
+                        )
+
+                )
+
+            [8] => Array
+                (
+                    [pur_rq_code] => #-00004-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-07 15:03:34
+                    [status] => 2
+                    [id] => 12
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => 
+                                    [sku_code] => 
+                                    [sku_name] => 
+                                    [quantity] => 1.00
+                                    [unit_price] => 1.00
+                                )
+
+                        )
+
+                )
+
+            [9] => Array
+                (
+                    [pur_rq_code] => #-00002-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-07 15:00:22
+                    [status] => 1
+                    [id] => 10
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 4000.00
+                                )
+
+                        )
+
+                )
+
+            [10] => Array
+                (
+                    [pur_rq_code] => #-00001-2025
+                    [requester] => 1
+                    [department] => 0
+                    [request_date] => 2025-06-07 14:40:58
+                    [status] => 1
+                    [id] => 9
+                    [title] => 
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [output] => Array
+        (
+            [draw] => 1
+            [iTotalRecords] => 11
+            [iTotalDisplayRecords] => 0
+            [aaData] => Array
+                (
+                )
+
         )
 
 )
 
-ERROR - 2025-06-25 01:20:52 --> Got row asArray
+CRITICAL - 2025-06-25 11:44:32 --> Array
 (
-    [number] => 2
-    [total] => 3300.00
-    [total_tax] => 300.00
-    [vendor] => 3
-    [pur_request] => 15
-    [date] => 2025-06-13
-    [expirydate] => 2025-06-13
-    [status] => 1
-    [id] => 2
-    [invoiceid] => 
-    [deleted_vendor_name] => 
-    [currency] => INR
-    [company] => RDYSOLUTIONS
-    [pur_rq_name] => #RAJ-00007-2025
-    [pur_rq_code] => #RAJ-00007-2025
-    [items] => Array
-        (
-        )
-
+    [title] => CABLE
+    [sku_code] => ABCD
+    [sku_name] => abcd
+    [quantity] => 1.00
+    [unit_price] => 3000.00
 )
 
-ERROR - 2025-06-25 01:20:52 --> Got row asArray
+CRITICAL - 2025-06-25 11:44:32 --> Array
 (
-    [number] => 3
-    [total] => 5095.20
-    [total_tax] => 463.20
-    [vendor] => 3
-    [pur_request] => 15
-    [date] => 2025-06-18
-    [expirydate] => 2025-06-18
-    [status] => 1
-    [id] => 3
-    [invoiceid] => 
-    [deleted_vendor_name] => 
-    [currency] => INR
-    [company] => RDYSOLUTIONS
-    [pur_rq_name] => #RAJ-00007-2025
-    [pur_rq_code] => #RAJ-00007-2025
-    [items] => Array
-        (
-        )
-
+    [title] => CABLE
+    [sku_code] => ABCD
+    [sku_name] => abcd
+    [quantity] => 1.00
+    [unit_price] => 3000.00
 )
 
-ERROR - 2025-06-25 01:20:52 --> Got row asArray
+CRITICAL - 2025-06-25 11:44:32 --> Array
 (
-    [number] => 4
-    [total] => 5095.20
-    [total_tax] => 463.20
-    [vendor] => 1
-    [pur_request] => 16
-    [date] => 2025-06-18
-    [expirydate] => 2025-06-28
-    [status] => 1
-    [id] => 4
-    [invoiceid] => 
-    [deleted_vendor_name] => 
-    [currency] => 
-    [company] => Surya Infotech
-    [pur_rq_name] => #RAJ-00008-2025
-    [pur_rq_code] => #RAJ-00008-2025
-    [items] => Array
-        (
-        )
-
+    [title] => Male Female Connector
+    [sku_code] => MFCONN
+    [sku_name] => MFCONN
+    [quantity] => 1.00
+    [unit_price] => 
 )
 
-CRITICAL - 2025-06-25 01:23:43 --> The action you requested is not allowed.
+CRITICAL - 2025-06-25 11:44:32 --> Array
+(
+    [title] => Sanwa-Denki -9WF0424S604B
+    [sku_code] => 9WF0424S604B
+    [sku_name] => 9WF0424S604B
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 11:44:32 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 11:44:32 --> Array
+(
+    [title] => Cable Tie (100MM)
+    [sku_code] => CBLTY
+    [sku_name] => CBLTY
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 11:44:32 --> Array
+(
+    [title] => LASER SENSOR -ML100-55/102/115 (P&F)
+    [sku_code] => LSRSENSOR
+    [sku_name] => LSRSENSOR
+    [quantity] => 4.00
+    [unit_price] => 1.00
+)
+
+CRITICAL - 2025-06-25 11:44:32 --> Array
+(
+    [title] => Male Female Connector
+    [sku_code] => MFCONN
+    [sku_name] => MFCONN
+    [quantity] => 1.00
+    [unit_price] => 1000.00
+)
+
+CRITICAL - 2025-06-25 11:44:32 --> Array
+(
+    [title] => Sanwa-Denki -9WF0424S604B
+    [sku_code] => 9WF0424S604B
+    [sku_name] => 9WF0424S604B
+    [quantity] => 1.00
+    [unit_price] => 5000.00
+)
+
+CRITICAL - 2025-06-25 11:44:32 --> Array
+(
+    [title] => Sanwa-Denki -9WF0424S604B
+    [sku_code] => 9WF0424S604B
+    [sku_name] => 9WF0424S604B
+    [quantity] => 1.00
+    [unit_price] => 5000.00
+)
+
+CRITICAL - 2025-06-25 11:44:32 --> Array
+(
+    [title] => 
+    [sku_code] => 
+    [sku_name] => 
+    [quantity] => 1.00
+    [unit_price] => 1.00
+)
+
+CRITICAL - 2025-06-25 11:44:32 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 4000.00
+)
+
+ERROR - 2025-06-25 11:45:04 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-25 23:20:40 --> The action you requested is not allowed.
 in SYSTEMPATH\Security\Security.php on line 286.
  1 SYSTEMPATH\Security\Security.php(286): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
  2 SYSTEMPATH\Filters\CSRF.php(54): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
@@ -99,98 +438,11 @@ in SYSTEMPATH\Security\Security.php on line 286.
  4 SYSTEMPATH\CodeIgniter.php(440): CodeIgniter\Filters\Filters->run('messages/count_notifications', 'before')
  5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
-ERROR - 2025-06-25 01:32:33 --> DEBUG: $sGroupBy = 
-ERROR - 2025-06-25 04:34:19 --> DEBUG: $sGroupBy = 
-ERROR - 2025-06-25 04:34:19 --> Got row asArray
-(
-    [number] => 1
-    [total] => 5500.00
-    [total_tax] => 0.00
-    [vendor] => 1
-    [pur_request] => 13
-    [date] => 2025-06-08
-    [expirydate] => 2025-06-08
-    [status] => 2
-    [id] => 1
-    [invoiceid] => 
-    [deleted_vendor_name] => 
-    [currency] => 
-    [company] => Surya Infotech
-    [pur_rq_name] => #-00005-2025
-    [pur_rq_code] => #-00005-2025
-    [items] => Array
-        (
-        )
-
-)
-
-ERROR - 2025-06-25 04:34:19 --> Got row asArray
-(
-    [number] => 2
-    [total] => 3300.00
-    [total_tax] => 300.00
-    [vendor] => 3
-    [pur_request] => 15
-    [date] => 2025-06-13
-    [expirydate] => 2025-06-13
-    [status] => 1
-    [id] => 2
-    [invoiceid] => 
-    [deleted_vendor_name] => 
-    [currency] => INR
-    [company] => RDYSOLUTIONS
-    [pur_rq_name] => #RAJ-00007-2025
-    [pur_rq_code] => #RAJ-00007-2025
-    [items] => Array
-        (
-        )
-
-)
-
-ERROR - 2025-06-25 04:34:19 --> Got row asArray
-(
-    [number] => 3
-    [total] => 5095.20
-    [total_tax] => 463.20
-    [vendor] => 3
-    [pur_request] => 15
-    [date] => 2025-06-18
-    [expirydate] => 2025-06-18
-    [status] => 1
-    [id] => 3
-    [invoiceid] => 
-    [deleted_vendor_name] => 
-    [currency] => INR
-    [company] => RDYSOLUTIONS
-    [pur_rq_name] => #RAJ-00007-2025
-    [pur_rq_code] => #RAJ-00007-2025
-    [items] => Array
-        (
-        )
-
-)
-
-ERROR - 2025-06-25 04:34:19 --> Got row asArray
-(
-    [number] => 4
-    [total] => 5095.20
-    [total_tax] => 463.20
-    [vendor] => 1
-    [pur_request] => 16
-    [date] => 2025-06-18
-    [expirydate] => 2025-06-28
-    [status] => 1
-    [id] => 4
-    [invoiceid] => 
-    [deleted_vendor_name] => 
-    [currency] => 
-    [company] => Surya Infotech
-    [pur_rq_name] => #RAJ-00008-2025
-    [pur_rq_code] => #RAJ-00008-2025
-    [items] => Array
-        (
-        )
-
-)
-
-ERROR - 2025-06-25 04:46:35 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-25 23:20:40 --> The action you requested is not allowed.
+in SYSTEMPATH\Security\Security.php on line 286.
+ 1 SYSTEMPATH\Security\Security.php(286): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+ 2 SYSTEMPATH\Filters\CSRF.php(54): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 4 SYSTEMPATH\CodeIgniter.php(440): CodeIgniter\Filters\Filters->run('messages/count_notifications', 'before')
+ 5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
