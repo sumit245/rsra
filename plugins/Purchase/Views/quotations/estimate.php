@@ -29,15 +29,15 @@
 				     		  
 				     		  <?php if($user_type == 'vendor'){ echo form_hidden('vendor', $vendor_id); } ?>
 				            </div>
-				            <div class="col-md-6 form-group">
-				              <label for="pur_request"><?php echo _l('pur_request'); ?></label>
-				              <select name="pur_request" id="pur_request" onchange="coppy_pur_request(); return false;" class="select2 validate-hidden"  data-live-search="true" data-width="100%" data-none-selected-text="<?php echo _l('ticket_settings_none_assigned'); ?>" >
-				                <option value="">-</option>
-				                  <?php foreach($pur_request as $s) { ?>
-				                  <option value="<?php echo html_entity_decode($s['id']); ?>" <?php if(isset($estimate) && $estimate->pur_request != '' && $estimate->pur_request->id == $s['id']){ echo 'selected'; } ?> ><?php echo html_entity_decode($s['pur_rq_code'].' - '.$s['pur_rq_name']); ?></option>
-				                    <?php } ?>
-				              </select>
-				             </div>
+				           <div class="col-md-6 form-group">
+  <label for="pur_request"><?php echo _l('pur_request'); ?></label>
+  <select name="pur_request" id="pur_request" onchange="coppy_pur_request_to_estimate(); return false;" class="select2 validate-hidden" data-live-search="true" data-width="100%" data-none-selected-text="<?php echo _l('ticket_settings_none_assigned'); ?>">
+    <option value="">-</option>
+      <?php foreach($pur_request as $s) { ?>
+      <option value="<?php echo html_entity_decode($s['id']); ?>" <?php if(isset($estimate) && $estimate->pur_request != '' && $estimate->pur_request->id == $s['id']){ echo 'selected'; } ?> ><?php echo html_entity_decode($s['pur_rq_code'].' - '.$s['pur_rq_name']); ?></option>
+        <?php } ?>
+  </select>
+ </div>
 
 				            <?php
 				               $next_estimate_number = max_number_estimates()+1;
@@ -181,15 +181,16 @@
 				            <tr>
 				              <th></th>
 				              <th width="20%" align="left" class="th-item"><i class="fa fa-exclamation-circle" aria-hidden="true" data-toggle="tooltip" data-title="<?php echo _l('item_description_new_lines_notice'); ?>"></i> <?php echo _l('invoice_table_item_heading'); ?></th>
-				              <th width="10%" align="right" class="text-right"><?php echo _l('unit_price'); ?><span class="th_currency"><?php echo '('.$estimate_currency.')'; ?></span></th>
+				              <th width="10%" align="right" class="text-right"><?php echo _l('unit_price'); ?></span></th>
+							  <!-- TODO: add currency symbol here in all required fields    -->
 				              <th width="10%" align="right" class="text-right" class="qty"><?php echo _l('quantity'); ?></th>
-				              <th width="10%" align="right" class="text-right"><?php echo _l('subtotal_before_tax'); ?><span class="th_currency"><?php echo '('.$estimate_currency.')'; ?></span></th>
+				              <th width="10%" align="right" class="text-right"><?php echo _l('subtotal_before_tax'); ?></span></th>
 				              <th width="12%" align="right" class="text-right"><?php echo _l('invoice_table_tax_heading'); ?></th>
-				              <th width="10%" align="right" class="text-right"><?php echo _l('tax_value'); ?><span class="th_currency"><?php echo '('.$estimate_currency.')'; ?></span></th>
-				              <th width="10%" align="right" class="text-right"><?php echo _l('pur_subtotal_after_tax'); ?><span class="th_currency"><?php echo '('.$estimate_currency.')'; ?></span></th>
+				              <th width="10%" align="right" class="text-right"><?php echo _l('tax_value'); ?></span></th>
+				              <th width="10%" align="right" class="text-right"><?php echo _l('pur_subtotal_after_tax'); ?></span></th>
 				              <th width="7%" align="right" class="text-right"><?php echo _l('discount').'(%)'; ?></th>
-				              <th width="10%" align="right" class="text-right"><?php echo _l('discount(money)'); ?><span class="th_currency"><?php echo '('.$estimate_currency.')'; ?></span></th>
-				              <th width="10%" align="right" class="text-right"><?php echo _l('total'); ?><span class="th_currency"><?php echo '('.$estimate_currency.')'; ?></span></th>
+				              <th width="10%" align="right" class="text-right"><?php echo _l('discount(money)'); ?></span></th>
+				              <th width="10%" align="right" class="text-right"><?php echo _l('total'); ?></th>
 				              <th align="right"  class="text-right"><i data-feather='settings' class='icon-16'></i></th>
 				            </tr>
 				          </thead>
@@ -276,5 +277,54 @@
 	</div>
 </div>
 </div>
-
+<script>
+function coppy_pur_request_to_estimate() {
+    var pur_request_id = $('#pur_request').val();
+    
+    if (pur_request_id == '') {
+        return;
+    }
+    
+    // Show loading indicator
+    $('body').append('<div class="dt-loader"></div>');
+    
+    $.ajax({
+        url: '<?php echo get_uri("purchase/get_pur_request_items"); ?>',
+        type: 'POST',
+        data: {
+            pur_request_id: pur_request_id
+        },
+        dataType: 'json',
+        success: function(response) {
+            $('.dt-loader').remove();
+            
+            if (response.success && response.items && response.items.length > 0) {
+                // Clear existing items first (except the template row)
+                $('.invoice-items-table tbody tr:not(.main)').remove();
+                
+                // Add each item to the estimate table
+                $.each(response.items, function(index, item) {
+                    // Map item_text to all possible field names the function might be looking for
+                    item.description = item.item_text;
+                    item.item_name = item.item_text;
+                    item.name = item.item_text;
+                    item.product_name = item.item_text;
+                    
+                    // Use the same function that works for purchase orders
+                    pur_add_item_to_table(item, 'undefined');
+                });
+                
+                // Recalculate totals
+                pur_calculate_total();
+            } else {
+                console.log('No items found in the selected purchase request');
+            }
+        },
+        error: function() {
+            $('.dt-loader').remove();
+            alert('Error loading purchase request items');
+        }
+    });
+}
+</script>
 <?php require('plugins/Purchase/assets/js/quotations/estimate_js.php'); ?>
