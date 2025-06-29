@@ -35,9 +35,7 @@ if ($dataPost['user_type'] == 'vendor') {
    array_push($where, 'AND find_in_set(' . $vendor_id . ', send_to_vendors) AND ' . db_prefix() . 'pur_request.status = 2');
 }
 
-$result = data_tables_purchase($aColumns, $sIndexColumn, $sTable, $join, $where, [db_prefix() . 'pur_request.id', 'pur_rq_code', 'title', 'first_name', 'last_name'], '', [], $dataPost);
-
-log_message('error', print_r($result, true));
+$result = data_tables_purchase($aColumns, $sIndexColumn, $sTable, $join, $where, [db_prefix() . 'pur_request.id', 'pur_rq_code', 'title', 'first_name', 'last_name'], '', ['items.sku_code', 'items.sku_name', 'items.title'], $dataPost);
 
 $output  = $result['output'];
 $rResult = $result['rResult'];
@@ -172,10 +170,8 @@ $rResult = $result['rResult'];
 $finalData = [];
 foreach ($rResult as $aRow) {
    $items = $aRow['items'] ?? [['title' => '', 'commodity_code' => '', 'model_id' => '']];
-
    foreach ($items as $item) {
       $row = [];
-      log_message('critical', print_r($item, true));
       for ($i = 0; $i < count($aColumns); $i++) {
          $columnKey = explode('.', $aColumns[$i]);
          $columnKey = end($columnKey);
@@ -260,7 +256,7 @@ foreach ($rResult as $aRow) {
                $_data = '<span class="dropdown inline-block">
                         <button class="btn btn-default dropdown-toggle caret mt0 mb0" type="button" data-bs-toggle="dropdown">
                         <i data-feather="tool" class="icon-16"></i></button>
-                        <ul class="dropdown-menu dropdown-menu-end" role="menu">' . $view . $share_request . $edit . $delete . '</ul>
+                        <ul class="dropdown-menu dropdown-menu-end" role="menu">' . $view . $share_request . $delete . '</ul>
                         </span>';
             } elseif ($dataPost['user_type'] == 'vendor') {
                $_data = '<span class="dropdown inline-block">

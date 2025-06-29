@@ -1,0 +1,2281 @@
+CRITICAL - 2025-06-25 02:24:52 --> The action you requested is not allowed.
+in SYSTEMPATH\Security\Security.php on line 286.
+ 1 SYSTEMPATH\Security\Security.php(286): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+ 2 SYSTEMPATH\Filters\CSRF.php(54): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 4 SYSTEMPATH\CodeIgniter.php(440): CodeIgniter\Filters\Filters->run('messages/count_notifications', 'before')
+ 5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-25 04:08:58 --> DEBUG: $sGroupBy = 
+CRITICAL - 2025-06-25 04:26:18 --> The action you requested is not allowed.
+in SYSTEMPATH\Security\Security.php on line 286.
+ 1 SYSTEMPATH\Security\Security.php(286): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+ 2 SYSTEMPATH\Filters\CSRF.php(54): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 4 SYSTEMPATH\CodeIgniter.php(440): CodeIgniter\Filters\Filters->run('messages/count_notifications', 'before')
+ 5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-25 09:55:39 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-25 09:55:40 --> Array
+(
+    [rResult] => Array
+        (
+            [0] => Array
+                (
+                    [pur_rq_code] => #PRRSRA-00012-2025
+                    [requester] => 5
+                    [department] => 4
+                    [request_date] => 2025-06-24 16:24:30
+                    [status] => 1
+                    [id] => 20
+                    [title] => Purchase
+                    [first_name] => Rakesh
+                    [last_name] => Sharma
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Male Female Connector
+                                    [sku_code] => MFCONN
+                                    [sku_name] => MFCONN
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [2] => Array
+                                (
+                                    [title] => Cable Tie (100MM)
+                                    [sku_code] => CBLTY
+                                    [sku_name] => CBLTY
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [pur_rq_code] => #PRRSRA-00010-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-24 15:41:59
+                    [status] => 1
+                    [id] => 18
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Polycab wires 10 mm
+                                    [sku_code] => PCWR12
+                                    [sku_name] => PCWR12
+                                    [quantity] => 0.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [2] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [pur_rq_code] => #PRRSRA-00009-2025
+                    [requester] => 1
+                    [department] => 4
+                    [request_date] => 2025-06-24 15:40:40
+                    [status] => 1
+                    [id] => 17
+                    [title] => Purchase
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [2] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [pur_rq_code] => #PRRSRA-00008-2025
+                    [requester] => 1
+                    [department] => 4
+                    [request_date] => 2025-06-24 15:40:39
+                    [status] => 1
+                    [id] => 16
+                    [title] => Purchase
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [2] => Array
+                                (
+                                    [title] => Sanwa-Denki -9WF0424S604B
+                                    [sku_code] => 9WF0424S604B
+                                    [sku_name] => 9WF0424S604B
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [4] => Array
+                (
+                    [pur_rq_code] => #PRRSRA-00007-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-24 09:13:02
+                    [status] => 1
+                    [id] => 15
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Polycab wires 10 mm
+                                    [sku_code] => PCWR12
+                                    [sku_name] => PCWR12
+                                    [quantity] => 2.00
+                                    [unit_price] => 0.00
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 5000.00
+                                )
+
+                            [2] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 4000.00
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [output] => Array
+        (
+            [draw] => 1
+            [iTotalRecords] => 5
+            [iTotalDisplayRecords] => 3
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+CRITICAL - 2025-06-25 09:55:40 --> Array
+(
+    [title] => Male Female Connector
+    [sku_code] => MFCONN
+    [sku_name] => MFCONN
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:40 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:40 --> Array
+(
+    [title] => Cable Tie (100MM)
+    [sku_code] => CBLTY
+    [sku_name] => CBLTY
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:40 --> Array
+(
+    [title] => Polycab wires 10 mm
+    [sku_code] => PCWR12
+    [sku_name] => PCWR12
+    [quantity] => 0.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:40 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:40 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:40 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:40 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:40 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:40 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:40 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:40 --> Array
+(
+    [title] => Sanwa-Denki -9WF0424S604B
+    [sku_code] => 9WF0424S604B
+    [sku_name] => 9WF0424S604B
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:40 --> Array
+(
+    [title] => Polycab wires 10 mm
+    [sku_code] => PCWR12
+    [sku_name] => PCWR12
+    [quantity] => 2.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-25 09:55:40 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 5000.00
+)
+
+CRITICAL - 2025-06-25 09:55:40 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 4000.00
+)
+
+ERROR - 2025-06-25 09:55:45 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-25 09:55:45 --> Array
+(
+    [rResult] => Array
+        (
+            [0] => Array
+                (
+                    [pur_rq_code] => #PRRSRA-00012-2025
+                    [requester] => 5
+                    [department] => 4
+                    [request_date] => 2025-06-24 16:24:30
+                    [status] => 1
+                    [id] => 20
+                    [title] => Purchase
+                    [first_name] => Rakesh
+                    [last_name] => Sharma
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Male Female Connector
+                                    [sku_code] => MFCONN
+                                    [sku_name] => MFCONN
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [2] => Array
+                                (
+                                    [title] => Cable Tie (100MM)
+                                    [sku_code] => CBLTY
+                                    [sku_name] => CBLTY
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [pur_rq_code] => #PRRSRA-00010-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-24 15:41:59
+                    [status] => 1
+                    [id] => 18
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Polycab wires 10 mm
+                                    [sku_code] => PCWR12
+                                    [sku_name] => PCWR12
+                                    [quantity] => 0.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [2] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [pur_rq_code] => #PRRSRA-00009-2025
+                    [requester] => 1
+                    [department] => 4
+                    [request_date] => 2025-06-24 15:40:40
+                    [status] => 1
+                    [id] => 17
+                    [title] => Purchase
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [2] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [pur_rq_code] => #PRRSRA-00008-2025
+                    [requester] => 1
+                    [department] => 4
+                    [request_date] => 2025-06-24 15:40:39
+                    [status] => 1
+                    [id] => 16
+                    [title] => Purchase
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [2] => Array
+                                (
+                                    [title] => Sanwa-Denki -9WF0424S604B
+                                    [sku_code] => 9WF0424S604B
+                                    [sku_name] => 9WF0424S604B
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [4] => Array
+                (
+                    [pur_rq_code] => #PRRSRA-00007-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-24 09:13:02
+                    [status] => 1
+                    [id] => 15
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Polycab wires 10 mm
+                                    [sku_code] => PCWR12
+                                    [sku_name] => PCWR12
+                                    [quantity] => 2.00
+                                    [unit_price] => 0.00
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 5000.00
+                                )
+
+                            [2] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 4000.00
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [output] => Array
+        (
+            [draw] => 2
+            [iTotalRecords] => 5
+            [iTotalDisplayRecords] => 3
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+CRITICAL - 2025-06-25 09:55:45 --> Array
+(
+    [title] => Male Female Connector
+    [sku_code] => MFCONN
+    [sku_name] => MFCONN
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:45 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:45 --> Array
+(
+    [title] => Cable Tie (100MM)
+    [sku_code] => CBLTY
+    [sku_name] => CBLTY
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:45 --> Array
+(
+    [title] => Polycab wires 10 mm
+    [sku_code] => PCWR12
+    [sku_name] => PCWR12
+    [quantity] => 0.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:45 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:45 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:45 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:45 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:45 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:45 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:45 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:45 --> Array
+(
+    [title] => Sanwa-Denki -9WF0424S604B
+    [sku_code] => 9WF0424S604B
+    [sku_name] => 9WF0424S604B
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:45 --> Array
+(
+    [title] => Polycab wires 10 mm
+    [sku_code] => PCWR12
+    [sku_name] => PCWR12
+    [quantity] => 2.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-25 09:55:45 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 5000.00
+)
+
+CRITICAL - 2025-06-25 09:55:45 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 4000.00
+)
+
+ERROR - 2025-06-25 09:55:46 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-25 09:55:46 --> Array
+(
+    [rResult] => Array
+        (
+        )
+
+    [output] => Array
+        (
+            [draw] => 3
+            [iTotalRecords] => 5
+            [iTotalDisplayRecords] => 0
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+ERROR - 2025-06-25 09:55:46 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-25 09:55:46 --> Array
+(
+    [rResult] => Array
+        (
+        )
+
+    [output] => Array
+        (
+            [draw] => 4
+            [iTotalRecords] => 5
+            [iTotalDisplayRecords] => 0
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+ERROR - 2025-06-25 09:55:49 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-25 09:55:49 --> Array
+(
+    [rResult] => Array
+        (
+        )
+
+    [output] => Array
+        (
+            [draw] => 5
+            [iTotalRecords] => 5
+            [iTotalDisplayRecords] => 0
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+ERROR - 2025-06-25 09:55:50 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-25 09:55:50 --> Array
+(
+    [rResult] => Array
+        (
+        )
+
+    [output] => Array
+        (
+            [draw] => 6
+            [iTotalRecords] => 5
+            [iTotalDisplayRecords] => 0
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+ERROR - 2025-06-25 09:55:51 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-25 09:55:51 --> Array
+(
+    [rResult] => Array
+        (
+        )
+
+    [output] => Array
+        (
+            [draw] => 7
+            [iTotalRecords] => 5
+            [iTotalDisplayRecords] => 0
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+ERROR - 2025-06-25 09:55:52 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-25 09:55:52 --> Array
+(
+    [rResult] => Array
+        (
+            [0] => Array
+                (
+                    [pur_rq_code] => #PRRSRA-00012-2025
+                    [requester] => 5
+                    [department] => 4
+                    [request_date] => 2025-06-24 16:24:30
+                    [status] => 1
+                    [id] => 20
+                    [title] => Purchase
+                    [first_name] => Rakesh
+                    [last_name] => Sharma
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Male Female Connector
+                                    [sku_code] => MFCONN
+                                    [sku_name] => MFCONN
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [2] => Array
+                                (
+                                    [title] => Cable Tie (100MM)
+                                    [sku_code] => CBLTY
+                                    [sku_name] => CBLTY
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [pur_rq_code] => #PRRSRA-00010-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-24 15:41:59
+                    [status] => 1
+                    [id] => 18
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Polycab wires 10 mm
+                                    [sku_code] => PCWR12
+                                    [sku_name] => PCWR12
+                                    [quantity] => 0.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [2] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [pur_rq_code] => #PRRSRA-00009-2025
+                    [requester] => 1
+                    [department] => 4
+                    [request_date] => 2025-06-24 15:40:40
+                    [status] => 1
+                    [id] => 17
+                    [title] => Purchase
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [2] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [pur_rq_code] => #PRRSRA-00008-2025
+                    [requester] => 1
+                    [department] => 4
+                    [request_date] => 2025-06-24 15:40:39
+                    [status] => 1
+                    [id] => 16
+                    [title] => Purchase
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [2] => Array
+                                (
+                                    [title] => Sanwa-Denki -9WF0424S604B
+                                    [sku_code] => 9WF0424S604B
+                                    [sku_name] => 9WF0424S604B
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [4] => Array
+                (
+                    [pur_rq_code] => #PRRSRA-00007-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-24 09:13:02
+                    [status] => 1
+                    [id] => 15
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Polycab wires 10 mm
+                                    [sku_code] => PCWR12
+                                    [sku_name] => PCWR12
+                                    [quantity] => 2.00
+                                    [unit_price] => 0.00
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 5000.00
+                                )
+
+                            [2] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 4000.00
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [output] => Array
+        (
+            [draw] => 8
+            [iTotalRecords] => 5
+            [iTotalDisplayRecords] => 3
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+CRITICAL - 2025-06-25 09:55:52 --> Array
+(
+    [title] => Male Female Connector
+    [sku_code] => MFCONN
+    [sku_name] => MFCONN
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:52 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:52 --> Array
+(
+    [title] => Cable Tie (100MM)
+    [sku_code] => CBLTY
+    [sku_name] => CBLTY
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:52 --> Array
+(
+    [title] => Polycab wires 10 mm
+    [sku_code] => PCWR12
+    [sku_name] => PCWR12
+    [quantity] => 0.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:52 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:52 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:52 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:52 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:52 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:52 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:52 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:52 --> Array
+(
+    [title] => Sanwa-Denki -9WF0424S604B
+    [sku_code] => 9WF0424S604B
+    [sku_name] => 9WF0424S604B
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:52 --> Array
+(
+    [title] => Polycab wires 10 mm
+    [sku_code] => PCWR12
+    [sku_name] => PCWR12
+    [quantity] => 2.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-25 09:55:52 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 5000.00
+)
+
+CRITICAL - 2025-06-25 09:55:52 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 4000.00
+)
+
+ERROR - 2025-06-25 09:55:58 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-25 09:55:58 --> Array
+(
+    [rResult] => Array
+        (
+            [0] => Array
+                (
+                    [pur_rq_code] => #PRRSRA-00012-2025
+                    [requester] => 5
+                    [department] => 4
+                    [request_date] => 2025-06-24 16:24:30
+                    [status] => 1
+                    [id] => 20
+                    [title] => Purchase
+                    [first_name] => Rakesh
+                    [last_name] => Sharma
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Male Female Connector
+                                    [sku_code] => MFCONN
+                                    [sku_name] => MFCONN
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [2] => Array
+                                (
+                                    [title] => Cable Tie (100MM)
+                                    [sku_code] => CBLTY
+                                    [sku_name] => CBLTY
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [pur_rq_code] => #PRRSRA-00010-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-24 15:41:59
+                    [status] => 1
+                    [id] => 18
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Polycab wires 10 mm
+                                    [sku_code] => PCWR12
+                                    [sku_name] => PCWR12
+                                    [quantity] => 0.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [2] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [pur_rq_code] => #PRRSRA-00009-2025
+                    [requester] => 1
+                    [department] => 4
+                    [request_date] => 2025-06-24 15:40:40
+                    [status] => 1
+                    [id] => 17
+                    [title] => Purchase
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [2] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [pur_rq_code] => #PRRSRA-00008-2025
+                    [requester] => 1
+                    [department] => 4
+                    [request_date] => 2025-06-24 15:40:39
+                    [status] => 1
+                    [id] => 16
+                    [title] => Purchase
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [2] => Array
+                                (
+                                    [title] => Sanwa-Denki -9WF0424S604B
+                                    [sku_code] => 9WF0424S604B
+                                    [sku_name] => 9WF0424S604B
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [4] => Array
+                (
+                    [pur_rq_code] => #PRRSRA-00007-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-24 09:13:02
+                    [status] => 1
+                    [id] => 15
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Polycab wires 10 mm
+                                    [sku_code] => PCWR12
+                                    [sku_name] => PCWR12
+                                    [quantity] => 2.00
+                                    [unit_price] => 0.00
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 5000.00
+                                )
+
+                            [2] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 4000.00
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [output] => Array
+        (
+            [draw] => 9
+            [iTotalRecords] => 5
+            [iTotalDisplayRecords] => 3
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+CRITICAL - 2025-06-25 09:55:58 --> Array
+(
+    [title] => Male Female Connector
+    [sku_code] => MFCONN
+    [sku_name] => MFCONN
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:58 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:58 --> Array
+(
+    [title] => Cable Tie (100MM)
+    [sku_code] => CBLTY
+    [sku_name] => CBLTY
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:58 --> Array
+(
+    [title] => Polycab wires 10 mm
+    [sku_code] => PCWR12
+    [sku_name] => PCWR12
+    [quantity] => 0.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:58 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:58 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:58 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:58 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:58 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:58 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:58 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:58 --> Array
+(
+    [title] => Sanwa-Denki -9WF0424S604B
+    [sku_code] => 9WF0424S604B
+    [sku_name] => 9WF0424S604B
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:58 --> Array
+(
+    [title] => Polycab wires 10 mm
+    [sku_code] => PCWR12
+    [sku_name] => PCWR12
+    [quantity] => 2.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-25 09:55:58 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 5000.00
+)
+
+CRITICAL - 2025-06-25 09:55:58 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 4000.00
+)
+
+ERROR - 2025-06-25 09:55:59 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-25 09:55:59 --> Array
+(
+    [rResult] => Array
+        (
+            [0] => Array
+                (
+                    [pur_rq_code] => #PRRSRA-00010-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-24 15:41:59
+                    [status] => 1
+                    [id] => 18
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Polycab wires 10 mm
+                                    [sku_code] => PCWR12
+                                    [sku_name] => PCWR12
+                                    [quantity] => 0.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [2] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [pur_rq_code] => #PRRSRA-00007-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-24 09:13:02
+                    [status] => 1
+                    [id] => 15
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Polycab wires 10 mm
+                                    [sku_code] => PCWR12
+                                    [sku_name] => PCWR12
+                                    [quantity] => 2.00
+                                    [unit_price] => 0.00
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 5000.00
+                                )
+
+                            [2] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 4000.00
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [output] => Array
+        (
+            [draw] => 10
+            [iTotalRecords] => 5
+            [iTotalDisplayRecords] => 3
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+CRITICAL - 2025-06-25 09:55:59 --> Array
+(
+    [title] => Polycab wires 10 mm
+    [sku_code] => PCWR12
+    [sku_name] => PCWR12
+    [quantity] => 0.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:59 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:59 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:55:59 --> Array
+(
+    [title] => Polycab wires 10 mm
+    [sku_code] => PCWR12
+    [sku_name] => PCWR12
+    [quantity] => 2.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-25 09:55:59 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 5000.00
+)
+
+CRITICAL - 2025-06-25 09:55:59 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 4000.00
+)
+
+ERROR - 2025-06-25 09:56:01 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-25 09:56:01 --> Array
+(
+    [rResult] => Array
+        (
+            [0] => Array
+                (
+                    [pur_rq_code] => #PRRSRA-00010-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-24 15:41:59
+                    [status] => 1
+                    [id] => 18
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Polycab wires 10 mm
+                                    [sku_code] => PCWR12
+                                    [sku_name] => PCWR12
+                                    [quantity] => 0.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [2] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [pur_rq_code] => #PRRSRA-00007-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-24 09:13:02
+                    [status] => 1
+                    [id] => 15
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Polycab wires 10 mm
+                                    [sku_code] => PCWR12
+                                    [sku_name] => PCWR12
+                                    [quantity] => 2.00
+                                    [unit_price] => 0.00
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 5000.00
+                                )
+
+                            [2] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 4000.00
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [output] => Array
+        (
+            [draw] => 11
+            [iTotalRecords] => 5
+            [iTotalDisplayRecords] => 3
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+CRITICAL - 2025-06-25 09:56:01 --> Array
+(
+    [title] => Polycab wires 10 mm
+    [sku_code] => PCWR12
+    [sku_name] => PCWR12
+    [quantity] => 0.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:56:01 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:56:01 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:56:01 --> Array
+(
+    [title] => Polycab wires 10 mm
+    [sku_code] => PCWR12
+    [sku_name] => PCWR12
+    [quantity] => 2.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-25 09:56:01 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 5000.00
+)
+
+CRITICAL - 2025-06-25 09:56:01 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 4000.00
+)
+
+ERROR - 2025-06-25 09:56:01 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-25 09:56:01 --> Array
+(
+    [rResult] => Array
+        (
+            [0] => Array
+                (
+                    [pur_rq_code] => #PRRSRA-00010-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-24 15:41:59
+                    [status] => 1
+                    [id] => 18
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Polycab wires 10 mm
+                                    [sku_code] => PCWR12
+                                    [sku_name] => PCWR12
+                                    [quantity] => 0.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [2] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [pur_rq_code] => #PRRSRA-00007-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-24 09:13:02
+                    [status] => 1
+                    [id] => 15
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Polycab wires 10 mm
+                                    [sku_code] => PCWR12
+                                    [sku_name] => PCWR12
+                                    [quantity] => 2.00
+                                    [unit_price] => 0.00
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 5000.00
+                                )
+
+                            [2] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 4000.00
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [output] => Array
+        (
+            [draw] => 12
+            [iTotalRecords] => 5
+            [iTotalDisplayRecords] => 3
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+CRITICAL - 2025-06-25 09:56:01 --> Array
+(
+    [title] => Polycab wires 10 mm
+    [sku_code] => PCWR12
+    [sku_name] => PCWR12
+    [quantity] => 0.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:56:01 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:56:01 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:56:01 --> Array
+(
+    [title] => Polycab wires 10 mm
+    [sku_code] => PCWR12
+    [sku_name] => PCWR12
+    [quantity] => 2.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-25 09:56:01 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 5000.00
+)
+
+CRITICAL - 2025-06-25 09:56:01 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 4000.00
+)
+
+ERROR - 2025-06-25 09:56:02 --> DEBUG: $sGroupBy = 
+ERROR - 2025-06-25 09:56:02 --> Array
+(
+    [rResult] => Array
+        (
+            [0] => Array
+                (
+                    [pur_rq_code] => #PRRSRA-00010-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-24 15:41:59
+                    [status] => 1
+                    [id] => 18
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Polycab wires 10 mm
+                                    [sku_code] => PCWR12
+                                    [sku_name] => PCWR12
+                                    [quantity] => 0.00
+                                    [unit_price] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                            [2] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [pur_rq_code] => #PRRSRA-00007-2025
+                    [requester] => 1
+                    [department] => 2
+                    [request_date] => 2025-06-24 09:13:02
+                    [status] => 1
+                    [id] => 15
+                    [title] => Electrical
+                    [first_name] => Sumit
+                    [last_name] => Ranjan
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [title] => Polycab wires 10 mm
+                                    [sku_code] => PCWR12
+                                    [sku_name] => PCWR12
+                                    [quantity] => 2.00
+                                    [unit_price] => 0.00
+                                )
+
+                            [1] => Array
+                                (
+                                    [title] => Test Product
+                                    [sku_code] => TESTPROD
+                                    [sku_name] => TESTPROD
+                                    [quantity] => 1.00
+                                    [unit_price] => 5000.00
+                                )
+
+                            [2] => Array
+                                (
+                                    [title] => Panel Square Light
+                                    [sku_code] => PSQL
+                                    [sku_name] => PSQL
+                                    [quantity] => 1.00
+                                    [unit_price] => 4000.00
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [output] => Array
+        (
+            [draw] => 13
+            [iTotalRecords] => 5
+            [iTotalDisplayRecords] => 3
+            [aaData] => Array
+                (
+                )
+
+        )
+
+)
+
+CRITICAL - 2025-06-25 09:56:02 --> Array
+(
+    [title] => Polycab wires 10 mm
+    [sku_code] => PCWR12
+    [sku_name] => PCWR12
+    [quantity] => 0.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:56:02 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:56:02 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 
+)
+
+CRITICAL - 2025-06-25 09:56:02 --> Array
+(
+    [title] => Polycab wires 10 mm
+    [sku_code] => PCWR12
+    [sku_name] => PCWR12
+    [quantity] => 2.00
+    [unit_price] => 0.00
+)
+
+CRITICAL - 2025-06-25 09:56:02 --> Array
+(
+    [title] => Test Product
+    [sku_code] => TESTPROD
+    [sku_name] => TESTPROD
+    [quantity] => 1.00
+    [unit_price] => 5000.00
+)
+
+CRITICAL - 2025-06-25 09:56:02 --> Array
+(
+    [title] => Panel Square Light
+    [sku_code] => PSQL
+    [sku_name] => PSQL
+    [quantity] => 1.00
+    [unit_price] => 4000.00
+)
+
+CRITICAL - 2025-06-25 11:08:06 --> The action you requested is not allowed.
+in SYSTEMPATH\Security\Security.php on line 286.
+ 1 SYSTEMPATH\Security\Security.php(286): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+ 2 SYSTEMPATH\Filters\CSRF.php(54): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 4 SYSTEMPATH\CodeIgniter.php(440): CodeIgniter\Filters\Filters->run('messages/count_notifications', 'before')
+ 5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-25 11:42:23 --> Too few arguments to function {closure}(), 1 passed in C:\xampp\htdocs\rsra\app\ThirdParty\PHP-Hooks\php-hooks.php on line 219 and exactly 2 expected
+in FCPATH\plugins\Purchase\index.php on line 83.
+ 1 APPPATH\ThirdParty\PHP-Hooks\php-hooks.php(219): {closure}([...])
+ 2 APPPATH\Controllers\Roles.php(343): Hooks->apply_filters('app_filter_role_permissions_save_data', [...])
+ 3 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Roles->save_permissions()
+ 4 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Roles))
+ 5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()

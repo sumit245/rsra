@@ -7888,7 +7888,7 @@ class Purchase_model extends Crud_model
     }
 
     $purchase_requests = $result->getResultArray();
-
+    log_message('critical', print_r($purchase_requests, true));
     // Get items for each purchase request
     foreach ($purchase_requests as $key => $request) {
       $purchase_requests[$key]['items'] = $this->get_pur_request_items($request['id']);

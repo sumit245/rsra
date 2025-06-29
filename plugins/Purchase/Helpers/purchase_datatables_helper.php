@@ -147,6 +147,7 @@ if (! function_exists('data_tables_purchase')) {
       }
       $sOrder = rtrim($sOrder, ', ');
     }
+
     /*
 	 * Filtering
 	 * NOTE this does not match the built-in DataTables filtering which does it
@@ -157,9 +158,10 @@ if (! function_exists('data_tables_purchase')) {
     if ((isset($__post['search'])) && $__post['search']['value'] != '') {
       $search_value = $__post['search']['value'];
       $search_value = trim($search_value);
+      log_message('critical', $search_value);
       $sWhere             = 'WHERE (';
       $sMatchCustomFields = [];
-      // Not working, do not use it
+      //FIXME: Not working, do not use it
       $useMatchForCustomFieldsTableSearch = app_hooks()->apply_filters('use_match_for_custom_fields_table_search', 'false');
 
       for ($i = 0; $i < count($aColumns); $i++) {
@@ -267,8 +269,6 @@ if (! function_exists('data_tables_purchase')) {
 
     $join = is_array($join) ? implode(' ', $join) : trim((string)$join);
 
-    log_message('error', 'DEBUG: $sGroupBy = ' . print_r($sGroupBy, true));
-
     if (is_array($sGroupBy) && !empty($sGroupBy)) {
       $sGroupBy = 'GROUP BY ' . implode(', ', $sGroupBy);
     } else {
@@ -287,6 +287,7 @@ if (! function_exists('data_tables_purchase')) {
               ";
 
     // $rResult = $Purchase_Model->get_all_purchase_request($sQuery);
+    log_message('error', $sQuery);
     $rResult = $Purchase_Model->get_pur_request_with_items($sQuery);
 
 

@@ -2243,9 +2243,7 @@ class Purchase extends Security_Controller
   {
 
     $item                   = $this->Purchase_model->get_item_v2($id);
-
     $html = '<option value=""></option>';
-
     echo json_encode([
       'item_id' => $id,
       'item_title' => $item->title ?? '',
@@ -2257,6 +2255,25 @@ class Purchase extends Security_Controller
       'description' => $item->description ?? ''
     ]);
   }
+
+  public function get_item_by_id_1($id, $currency_rate = 1)
+  {
+
+    $item                   = $this->Purchase_model->get_item_v2($id);
+    $html = '<option value=""></option>';
+    echo json_encode([
+      'item_id' => $id,
+      'item_title' => $item->title ?? '',
+      'item_code'  => $item->commodity_code ?? '',
+      'sku_code'   => $item->sku_code ?? '',
+      'sku_name'   => $item->sku_name ?? '',
+      'unit_id'    => $item->unit_id ?? '',
+      'unit_name'  => $item->unit_name ?? '',
+      'description' => $item->description ?? ''
+    ]);
+  }
+
+
 
   /**
    * Gets the purchase request row template.
