@@ -5,7 +5,7 @@ amount ->Done
 2. Add project and edit project rights will be to admin only ->Done
 3. Other users will be able to view only which projects are added ->Done
 4. Pdf should be printed as same as the image provided
-5. Replace into money to modal and before quantity in purchase request and purchase orders
+5. Replace into money to modal and before quantity in purchase request and purchase **orders**
 6. Search functionality should be added to all fields in purchase request and purchase orders
 7. Remove edit button from everything namely purchase request, quotation and purchase
 orders

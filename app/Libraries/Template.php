@@ -5,10 +5,12 @@ namespace App\Libraries;
 use App\Libraries\Left_menu;
 use App\Controllers\Security_Controller;
 
-class Template {
+class Template
+{
 
     //render with predefined contents
-    public function rander($view, $data = array()) {
+    public function rander($view, $data = array())
+    {
         $view_data['content_view'] = $view;
         $view_data['topbar'] = "includes/topbar";
 
@@ -23,7 +25,8 @@ class Template {
     }
 
     //use this method instead of default view() to pass necessary variables
-    public function view($view, $data = array()) {
+    public function view($view, $data = array())
+    {
         $view_data = array();
 
         $users_model = model("App\Models\Users_model", false);
@@ -37,5 +40,4 @@ class Template {
 
         return view($view, $view_data);
     }
-
 }

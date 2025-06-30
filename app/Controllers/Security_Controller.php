@@ -2,7 +2,8 @@
 
 namespace App\Controllers;
 
-class Security_Controller extends App_Controller {
+class Security_Controller extends App_Controller
+{
 
     public $login_user;
     protected $access_type = "";
@@ -13,7 +14,8 @@ class Security_Controller extends App_Controller {
     protected $is_user_a_project_member = false;
     protected $is_clients_project = false; //check if loged in user's client's project
 
-    public function __construct($redirect = true) {
+    public function __construct($redirect = true)
+    {
         parent::__construct();
 
         //check user's login status, if not logged in redirect to signin page
@@ -49,7 +51,8 @@ class Security_Controller extends App_Controller {
     }
 
     //initialize the login user's permissions with readable format
-    protected function init_permission_checker($module) {
+    protected function init_permission_checker($module)
+    {
         $info = $this->get_access_info($module);
         $this->access_type = $info->access_type;
         $this->allowed_members = $info->allowed_members;
@@ -59,7 +62,8 @@ class Security_Controller extends App_Controller {
     }
 
     //prepear the login user's permissions
-    protected function get_access_info($group) {
+    protected function get_access_info($group)
+    {
         $info = new \stdClass();
         $info->access_type = "";
         $info->allowed_members = array();
@@ -103,28 +107,32 @@ class Security_Controller extends App_Controller {
     }
 
     //only allowed to access for team members 
-    protected function access_only_team_members() {
+    protected function access_only_team_members()
+    {
         if ($this->login_user->user_type !== "staff") {
             app_redirect("forbidden");
         }
     }
 
     //only allowed to access for admin users
-    protected function access_only_admin() {
+    protected function access_only_admin()
+    {
         if (!$this->login_user->is_admin) {
             app_redirect("forbidden");
         }
     }
 
     //only allowed to access for admin users or has admin privileges 
-    protected function access_only_admin_or_settings_admin() {
+    protected function access_only_admin_or_settings_admin()
+    {
         if (!($this->login_user->is_admin || get_array_value($this->login_user->permissions, "can_manage_all_kinds_of_settings"))) {
             app_redirect("forbidden");
         }
     }
 
     //access only allowed team members
-    protected function access_only_allowed_members() {
+    protected function access_only_allowed_members()
+    {
         if ($this->access_type === "all") {
             return true; //can access if user has permission
         } else if (($this->module_group === "ticket" && ($this->access_type === "specific" || $this->access_type === "assigned_only")) || ($this->module_group === "lead" && $this->access_type === "own") || ($this->module_group === "client" && ($this->access_type === "own" || $this->access_type === "read_only" || $this->access_type === "specific")) || ($this->module_group === "estimate" && $this->access_type === "own")) {
@@ -139,7 +147,8 @@ class Security_Controller extends App_Controller {
     }
 
     //access only allowed team members or client contacts 
-    protected function access_only_allowed_members_or_client_contact($client_id) {
+    protected function access_only_allowed_members_or_client_contact($client_id)
+    {
 
         if ($this->access_type === "all") {
             return true; //can access if user has permission
@@ -157,35 +166,40 @@ class Security_Controller extends App_Controller {
     }
 
     //allowed team members and clint himself can access  
-    protected function access_only_allowed_members_or_contact_personally($user_id) {
+    protected function access_only_allowed_members_or_contact_personally($user_id)
+    {
         if (!($this->access_type === "all" || $this->access_type === "own" || $this->access_type === "read_only" || $user_id === $this->login_user->id)) {
             app_redirect("forbidden");
         }
     }
 
     //access all team members and client contact
-    protected function access_only_team_members_or_client_contact($client_id) {
+    protected function access_only_team_members_or_client_contact($client_id)
+    {
         if (!($this->login_user->user_type === "staff" || $this->login_user->client_id === $client_id)) {
             app_redirect("forbidden");
         }
     }
 
     //only allowed to access for admin users
-    protected function access_only_clients() {
+    protected function access_only_clients()
+    {
         if ($this->login_user->user_type != "client") {
             app_redirect("forbidden");
         }
     }
 
     //check module is enabled or not
-    protected function check_module_availability($module_name) {
+    protected function check_module_availability($module_name)
+    {
         if (get_setting($module_name) != "1") {
             app_redirect("forbidden");
         }
     }
 
     //check who has permission to create projects
-    protected function can_create_projects() {
+    protected function can_create_projects()
+    {
         if ($this->login_user->user_type == "staff") {
             if ($this->login_user->is_admin || get_array_value($this->login_user->permissions, "can_manage_all_projects") == "1") {
                 return true;
@@ -200,7 +214,8 @@ class Security_Controller extends App_Controller {
     }
 
     //check who has permission to view team members list
-    protected function can_view_team_members_list() {
+    protected function can_view_team_members_list()
+    {
         if ($this->login_user->user_type == "staff") {
             if (get_array_value($this->login_user->permissions, "hide_team_members_list") == "1") {
                 return false;
@@ -212,14 +227,16 @@ class Security_Controller extends App_Controller {
     }
 
     //access team members and clients
-    protected function access_only_team_members_or_client() {
+    protected function access_only_team_members_or_client()
+    {
         if (!($this->login_user->user_type === "staff" || $this->login_user->user_type === "client")) {
             app_redirect("forbidden");
         }
     }
 
     //When checking project permissions, to reduce db query we'll use this init function, where team members has to be access on the project
-    protected function init_project_permission_checker($project_id = 0) {
+    protected function init_project_permission_checker($project_id = 0)
+    {
         if ($this->login_user->user_type == "client") {
             $project_info = $this->Projects_model->get_one($project_id);
             if ($project_info->client_id == $this->login_user->client_id) {
@@ -230,7 +247,8 @@ class Security_Controller extends App_Controller {
         }
     }
 
-    protected function can_create_tasks($in_project = true) {
+    protected function can_create_tasks($in_project = true)
+    {
         if ($this->login_user->user_type == "staff") {
             if ($this->can_manage_all_projects()) {
                 return true;
@@ -256,14 +274,16 @@ class Security_Controller extends App_Controller {
         }
     }
 
-    protected function can_manage_all_projects() {
+    protected function can_manage_all_projects()
+    {
         if ($this->login_user->is_admin || get_array_value($this->login_user->permissions, "can_manage_all_projects") == "1") {
             return true;
         }
     }
 
     //get currencies dropdown
-    protected function _get_currencies_dropdown() {
+    protected function _get_currencies_dropdown()
+    {
         $used_currencies = $this->Invoices_model->get_used_currencies_of_client()->getResult();
 
         if ($used_currencies) {
@@ -283,7 +303,8 @@ class Security_Controller extends App_Controller {
     }
 
     //get hidden topbar menus dropdown
-    protected function get_hidden_topbar_menus_dropdown() {
+    protected function get_hidden_topbar_menus_dropdown()
+    {
         //topbar menus dropdown
         $hidden_topbar_menus = array(
             "to_do",
@@ -319,7 +340,8 @@ class Security_Controller extends App_Controller {
     }
 
     //get existing projects dropdown for income and expenses
-    protected function _get_projects_dropdown_for_income_and_expenses($type = "all") {
+    protected function _get_projects_dropdown_for_income_and_expenses($type = "all")
+    {
         $projects = $this->Invoice_payments_model->get_used_projects($type)->getResult();
 
         if ($projects) {
@@ -335,7 +357,8 @@ class Security_Controller extends App_Controller {
         }
     }
 
-    protected function _get_groups_dropdown_select2_data($show_header = false) {
+    protected function _get_groups_dropdown_select2_data($show_header = false)
+    {
         $client_groups = $this->Client_groups_model->get_all()->getResult();
         $groups_dropdown = array();
 
@@ -349,7 +372,8 @@ class Security_Controller extends App_Controller {
         return $groups_dropdown;
     }
 
-    protected function get_clients_and_leads_dropdown($return_json = false) {
+    protected function get_clients_and_leads_dropdown($return_json = false)
+    {
         $clients_dropdown = array("" => "-");
         $clients_json_dropdown = array(array("id" => "", "text" => "-"));
         $clients = $this->Clients_model->get_all_where(array("deleted" => 0), 0, 0, "is_lead")->getResult();
@@ -365,14 +389,16 @@ class Security_Controller extends App_Controller {
     }
 
     //check if the login user has restriction to show all tasks
-    protected function show_assigned_tasks_only_user_id() {
+    protected function show_assigned_tasks_only_user_id()
+    {
         if ($this->login_user->user_type === "staff") {
             return get_array_value($this->login_user->permissions, "show_assigned_tasks_only") == "1" ? $this->login_user->id : false;
         }
     }
 
     //make calendar filter dropdown
-    protected function get_calendar_filter_dropdown($type = "default") {
+    protected function get_calendar_filter_dropdown($type = "default")
+    {
         /*
          * There should be all filters in main Events
          * On client->events tab, there will be only events and project deadlines field
@@ -410,7 +436,8 @@ class Security_Controller extends App_Controller {
         return $calendar_filter_dropdown;
     }
 
-    protected function check_access_to_store() {
+    protected function check_access_to_store()
+    {
         $this->check_module_availability("module_order");
         if ($this->login_user->user_type == "staff") {
             $this->access_only_allowed_members();
@@ -421,7 +448,8 @@ class Security_Controller extends App_Controller {
         }
     }
 
-    protected function check_access_to_this_order_item($order_item_info) {
+    protected function check_access_to_this_order_item($order_item_info)
+    {
         if ($order_item_info->id) {
             //item created
             if (!$order_item_info->order_id) {
@@ -441,7 +469,8 @@ class Security_Controller extends App_Controller {
         }
     }
 
-    protected function make_labels_dropdown($type = "", $label_ids = "", $is_filter = false, $custom_filter_title = "") {
+    protected function make_labels_dropdown($type = "", $label_ids = "", $is_filter = false, $custom_filter_title = "")
+    {
         if (!$type) {
             show_404();
         }
@@ -482,7 +511,8 @@ class Security_Controller extends App_Controller {
         return $labels_dropdown;
     }
 
-    protected function can_edit_projects($project_id = 0) {
+    protected function can_edit_projects($project_id = 0)
+    {
         if ($this->login_user->user_type == "staff") {
             if ($this->can_manage_all_projects()) {
                 return true;
@@ -510,7 +540,8 @@ class Security_Controller extends App_Controller {
         }
     }
 
-    protected function get_user_options_for_query($only_type = "") {
+    protected function get_user_options_for_query($only_type = "")
+    {
         /*
          * team members can send message to all team members/can't send to any member/can send to specific members
          * clients can only send message to team members and to own contacts (as defined on Client settings)
@@ -554,7 +585,8 @@ class Security_Controller extends App_Controller {
         return $options;
     }
 
-    protected function check_access_on_messages_for_this_user() {
+    protected function check_access_on_messages_for_this_user()
+    {
         $accessable = true;
 
         if ($this->login_user->user_type == "staff") {
@@ -573,7 +605,8 @@ class Security_Controller extends App_Controller {
         return $accessable;
     }
 
-    protected function can_view_invoices($client_id = 0) {
+    protected function can_view_invoices($client_id = 0)
+    {
         if ($this->login_user->user_type == "staff") {
             if ($this->login_user->is_admin || get_array_value($this->login_user->permissions, "invoice") === "all" || get_array_value($this->login_user->permissions, "invoice") === "read_only") {
                 return true;
@@ -585,13 +618,15 @@ class Security_Controller extends App_Controller {
         }
     }
 
-    protected function can_edit_invoices() {
+    protected function can_edit_invoices()
+    {
         if ($this->login_user->user_type == "staff" && ($this->login_user->is_admin || get_array_value($this->login_user->permissions, "invoice") === "all")) {
             return true;
         }
     }
 
-    protected function can_access_expenses() {
+    protected function can_access_expenses()
+    {
         $permissions = $this->login_user->permissions;
         if ($this->login_user->is_admin || get_array_value($permissions, "expense")) {
             return true;
@@ -600,7 +635,8 @@ class Security_Controller extends App_Controller {
         }
     }
 
-    protected function validate_sending_message($to_user_id) {
+    protected function validate_sending_message($to_user_id)
+    {
         $users = $this->Messages_model->get_users_for_messaging($this->get_user_options_for_query())->getResult();
         $users = json_decode(json_encode($users), true); //convert to array
         if (!$this->check_access_on_messages_for_this_user() || !in_array($to_user_id, array_column($users, "id"))) {
@@ -636,13 +672,15 @@ class Security_Controller extends App_Controller {
         return true;
     }
 
-    protected function show_own_clients_only_user_id() {
+    protected function show_own_clients_only_user_id()
+    {
         if ($this->login_user->user_type === "staff") {
             return get_array_value($this->login_user->permissions, "client") == "own" ? $this->login_user->id : false;
         }
     }
 
-    protected function check_profile_image_dimension($image_file_name = "") {
+    protected function check_profile_image_dimension($image_file_name = "")
+    {
         if (!$image_file_name) {
             return false;
         }
@@ -656,13 +694,15 @@ class Security_Controller extends App_Controller {
         return false;
     }
 
-    protected function show_assigned_tickets_only_user_id() {
+    protected function show_assigned_tickets_only_user_id()
+    {
         if ($this->access_type === "assigned_only") {
             return $this->login_user->id;
         }
     }
 
-    protected function get_team_members_dropdown($is_filter = false) {
+    protected function get_team_members_dropdown($is_filter = false)
+    {
         $team_members = $this->Users_model->get_all_where(array("user_type" => "staff", "deleted" => 0, "status" => "active"))->getResult();
 
         $team_members_dropdown = array();
@@ -678,7 +718,8 @@ class Security_Controller extends App_Controller {
     }
 
     //get projects dropdown
-    protected function _get_projects_dropdown() {
+    protected function _get_projects_dropdown()
+    {
         $project_options = array("status" => "open");
         if ($this->login_user->user_type == "staff") {
             if (!$this->can_manage_all_projects()) {
@@ -700,7 +741,8 @@ class Security_Controller extends App_Controller {
         return $projects_dropdown;
     }
 
-    protected function check_access_to_this_item($item_info) {
+    protected function check_access_to_this_item($item_info)
+    {
         if ($this->login_user->user_type === "client") {
             //check if the item has the availability to show on client portal
             if (!$item_info->show_in_client_portal) {
@@ -709,7 +751,8 @@ class Security_Controller extends App_Controller {
         }
     }
 
-    protected function get_conversion_rate_with_currency_symbol() {
+    protected function get_conversion_rate_with_currency_symbol()
+    {
         $symbol_array = array();
 
         $conversion_rate = get_setting("conversion_rate");
@@ -731,7 +774,8 @@ class Security_Controller extends App_Controller {
         return json_encode($symbol_array);
     }
 
-    protected function can_access_this_client($client_id = 0) {
+    protected function can_access_this_client($client_id = 0)
+    {
         $client_info = $this->Clients_model->get_one($client_id);
 
         $permissions = $this->login_user->permissions;
@@ -751,7 +795,8 @@ class Security_Controller extends App_Controller {
         }
     }
 
-    protected function can_access_this_lead($lead_id = 0) {
+    protected function can_access_this_lead($lead_id = 0)
+    {
         $lead_info = $this->Clients_model->get_one($lead_id);
 
         if ($lead_info->id && get_array_value($this->login_user->permissions, "lead") == "own" && $lead_info->owner_id !== $this->login_user->id) {
@@ -759,13 +804,15 @@ class Security_Controller extends App_Controller {
         }
     }
 
-    protected function show_own_leads_only_user_id() {
+    protected function show_own_leads_only_user_id()
+    {
         if ($this->login_user->user_type === "staff") {
             return get_array_value($this->login_user->permissions, "lead") == "own" ? $this->login_user->id : false;
         }
     }
 
-    protected function prepare_custom_field_filter_values($related_to, $is_admin = 0, $user_type = "") {
+    protected function prepare_custom_field_filter_values($related_to, $is_admin = 0, $user_type = "")
+    {
         $custom_fields_for_filter = $this->Custom_fields_model->get_available_filters($related_to, $is_admin, $user_type);
 
         $data = array();
@@ -779,7 +826,8 @@ class Security_Controller extends App_Controller {
     }
 
     //prepare the dropdown list of roles
-    protected function _get_roles_dropdown() {
+    protected function _get_roles_dropdown()
+    {
         $role_dropdown = array(
             "0" => app_lang('team_member')
         );
@@ -795,26 +843,31 @@ class Security_Controller extends App_Controller {
         return $role_dropdown;
     }
 
-    protected function is_own_id($user_id) {
+    protected function is_own_id($user_id)
+    {
         return $this->login_user->id === $user_id;
     }
 
-    protected function has_role_manage_permission() {
+    protected function has_role_manage_permission()
+    {
         return get_array_value($this->login_user->permissions, "can_manage_user_role_and_permissions");
     }
 
-    protected function is_admin_role($role) {
+    protected function is_admin_role($role)
+    {
         return $role == "admin";
     }
 
     //make it public function to access from helper functions
-    public function get_allowed_user_ids() {
+    public function get_allowed_user_ids()
+    {
         $users = $this->Messages_model->get_users_for_messaging($this->get_user_options_for_query())->getResult();
         $users = json_decode(json_encode($users), true); //convert to array
         return implode(',', array_column($users, "id"));
     }
 
-    protected function _check_valid_date($string = "") {
+    protected function _check_valid_date($string = "")
+    {
         try {
             if (strtotime($string)) {
                 //date is valid
@@ -839,14 +892,16 @@ class Security_Controller extends App_Controller {
         return date("Y-m-d", strtotime($string));
     }
 
-    protected function has_all_projects_restricted_role() {
+    protected function has_all_projects_restricted_role()
+    {
         if ($this->login_user->user_type === "staff" && !$this->login_user->is_admin && get_array_value($this->login_user->permissions, "do_not_show_projects") == "1") {
             return true;
         }
     }
 
     //get companies dropdown
-    protected function _get_companies_dropdown() {
+    protected function _get_companies_dropdown()
+    {
         $Company_model = model('App\Models\Company_model');
         $companies = $Company_model->get_details()->getResult();
 
@@ -858,7 +913,8 @@ class Security_Controller extends App_Controller {
         return $companies_dropdown;
     }
 
-    protected function can_edit_tasks() {
+    protected function can_edit_tasks()
+    {
         if ($this->login_user->user_type == "staff") {
             if ($this->can_manage_all_projects()) {
                 return true;
@@ -873,5 +929,4 @@ class Security_Controller extends App_Controller {
             }
         }
     }
-
 }

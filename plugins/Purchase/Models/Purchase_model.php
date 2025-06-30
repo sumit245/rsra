@@ -67,48 +67,48 @@ class Purchase_model extends Crud_model
   }
 
   /**
- * Get purchase request items formatted for purchase order
- */
-public function get_pur_request_items_for_order($pur_request_id)
-{
+   * Get purchase request items formatted for purchase order
+   */
+  public function get_pur_request_items_for_order($pur_request_id)
+  {
     $builder = $this->db->table(db_prefix() . 'pur_request_detail prd');
     $builder->select('prd.*, i.description as item_name, i.long_descriptions');
     $builder->join(db_prefix() . 'items i', 'i.id = prd.item_code', 'left');
     $builder->where('prd.pur_request', $pur_request_id);
     $builder->orderBy('prd.prd_id', 'ASC');
     $items = $builder->get()->getResultArray();
-    
+
     // Log the query and results
     log_message('debug', 'Query executed for pur_request_id: ' . $pur_request_id);
     log_message('debug', 'Raw items from database: ' . json_encode($items));
-    
+
     if (!empty($items)) {
-        $formatted_items = [];
-        foreach ($items as $item) {
-            $formatted_items[] = [
-                'item_code' => $item['item_code'],
-                'item_text' => $item['item_text'] ?: $item['item_name'], // Use item_name if item_text is empty
-                'item_name' => $item['item_name'] ?? '', // Add item_name field
-                'description' => $item['item_name'] ?? '', // For compatibility
-                'long_description' => $item['long_description'] ?? '',
-                'quantity' => $item['quantity'],
-                'unit_price' => $item['unit_price'],
-                'into_money' => $item['into_money'],
-                'tax' => $item['tax'] ?? '',
-                'tax_name' => $item['tax_name'] ?? '',
-                'tax_value' => $item['tax_value'] ?? 0,
-                'total' => $item['total'],
-                'unit_id' => $item['unit_id'] ?? ''
-            ];
-        }
-        
-        log_message('debug', 'Formatted items: ' . json_encode($formatted_items));
-        return $formatted_items;
+      $formatted_items = [];
+      foreach ($items as $item) {
+        $formatted_items[] = [
+          'item_code' => $item['item_code'],
+          'item_text' => $item['item_text'] ?: $item['item_name'], // Use item_name if item_text is empty
+          'item_name' => $item['item_name'] ?? '', // Add item_name field
+          'description' => $item['item_name'] ?? '', // For compatibility
+          'long_description' => $item['long_description'] ?? '',
+          'quantity' => $item['quantity'],
+          'unit_price' => $item['unit_price'],
+          'into_money' => $item['into_money'],
+          'tax' => $item['tax'] ?? '',
+          'tax_name' => $item['tax_name'] ?? '',
+          'tax_value' => $item['tax_value'] ?? 0,
+          'total' => $item['total'],
+          'unit_id' => $item['unit_id'] ?? ''
+        ];
+      }
+
+      log_message('debug', 'Formatted items: ' . json_encode($formatted_items));
+      return $formatted_items;
     }
-    
+
     log_message('debug', 'No items found for pur_request_id: ' . $pur_request_id);
     return false;
-}
+  }
 
   /**
    * Adds an unit.
@@ -2520,7 +2520,7 @@ public function get_pur_request_items_for_order($pur_request_id)
     $details = $builder->get()->getResultArray();
     foreach ($details as $row) {
       if ($row['tax'] != '') {
-      $tax_arr = explode('|', $row['tax'] ?? '');
+        $tax_arr = explode('|', $row['tax'] ?? '');
 
         $tax_rate_arr = [];
         if ($row['tax_rate'] != '') {
@@ -2893,13 +2893,10 @@ public function get_pur_request_items_for_order($pur_request_id)
    *
    * @return     string  The pur request pdf html.
    */
-  public function get_pur_request_pdf_html($pur_request_id)
+  public function get_pur_request_pdf_html($pur_order_id)
   {
-
-    $pur_request = $this->get_purchase_request($pur_request_id);
-
+    $pur_request = $this->get_purchase_request($pur_order_id);;
     $project_name = '';
-
     if ($pur_request->project > 0) {
       $projects_model = model("Models\Projects_model");
       $project        = $projects_model->get_details(['id' => $pur_request->project])->getRow();
@@ -2907,120 +2904,128 @@ public function get_pur_request_items_for_order($pur_request_id)
         $project_name = $project->title;
       }
     }
-
-    $tax_data = $this->get_html_tax_pur_request($pur_request_id);
-
+    $tax_data = $this->get_html_tax_pur_request($pur_order_id);
     if ($pur_request->currency != '') {
       $base_currency = $pur_request->currency;
     } else {
       $base_currency = get_base_currency();
     }
-
     if ($base_currency == get_setting('default_currency')) {
       $base_currency = get_setting('currency_symbol');
     }
-
-    $pur_request_detail = $this->get_pur_request_detail($pur_request_id);
-
+    $pur_request_detail = $this->get_pur_request_detail($pur_order_id);
     $company_name = '';
-
     $company_model = model("Models\Company_model");
     $company       = $company_model->get_details(['is_default' => 1])->getRow();
     if (isset($company->name)) {
       $company_name = $company->name;
     }
-
     $address = '';
     if (isset($company->address)) {
       $address = $company->address;
     }
-
+    $company_gst = $company->vat_number ?? null;
+    $company_mail = $company->email ?? "";
     $teams_model = model("Models\Team_model");
     $dpm_name    = $teams_model->get_details(['id' => $pur_request->department])->getRow()->title;
-
     $day                 = date('d', strtotime($pur_request->request_date));
     $month               = date('m', strtotime($pur_request->request_date));
     $year                = date('Y', strtotime($pur_request->request_date));
-    $list_approve_status = $this->get_list_approval_details($pur_request_id, 'pur_request');
+    $list_approve_status = $this->get_list_approval_details($pur_order_id, 'pur_request');
+    // $vendor = $this->vendors_model->get_details(['id' => 1])->getRow();
 
-    $html = '<table class="table">
-        <tbody>
-          <tr>
-            <td class="font_td_cpn width70">' . _l('purchase_company_name') . ': ' . $company_name . '</td>
-            <td rowspan="3" class="text-right width30"><img src="' . get_pdf_logo_url() . '"></td>
-          </tr>
-          <tr>
-            <td class="font_500">' . _l('address') . ': ' . $address . '</td>
-          </tr>
-          <tr>
-            <td class="font_500">' . $pur_request->pur_rq_code . '</td>
-          </tr>
-        </tbody>
-      </table>
-      <table class="table">
-        <tbody>
-          <tr>
 
-            <td class="td_ali_font"><h2 class="h2_style">' . mb_strtoupper(_l('purchase_request')) . '</h2></td>
+    $html = '
+      <div class="mx-auto bg-white border border-2 border-dark p-4">
+          <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom border-dark">
+            <img src="' . FCPATH . 'uploads/rsra_logo.png" alt="Company Logo" class="img-fluid" style="max-width: 80px;">
+            <h2 class="fw-bold mb-0 fs-4">' . mb_strtoupper(_l('purchase_request')) . '</h2>
+            <small>(Original)</small>
+          </div>
+  
+          <table class="table table-bordered table-sm mb-3">
+            <tbody>
+              <tr>
+                <td class="bg-light fw-bold" style="width: 15%;">Invoice To</td>
+                <td style="width: 35%;"><strong>' . $company_name . '</strong><br>' .
+      $address . '<br>' . 'GSTIN/UIN :' . $company_gst . '<br>
+                State Name : Haryana, Code : 06<br>
+                E-Mail :' . $company_mail .
+      '</td>
+      <td class="bg-light fw-bold" style="width: 15%;">Voucher No.</td>
+      <td style="width: 15%;">' . $pur_request->pur_rq_code . '</td>
+      <td class="bg-light fw-bold" style="width: 10%;">Dated</td>
+      <td style="width: 10%;">' . date('d-M-y', strtotime($pur_request->request_date)) .
+      '</td> 
+      </tr>
+      <tr>
+                      <td class="bg-light fw-bold">Consignee (Ship to)</td>
+                     <td style="width: 35%;">
+                          <strong>' . $company_name . '</strong><br>' .
+      $address . '<br>' .
+      'GSTIN/UIN :' . $company_gst . '<br>
+                          State Name : Haryana, Code : 06<br>
+                          E-Mail :' . $company_mail .
+      '</td>
+                      <td class="bg-light fw-bold" style="width: 15%;">Voucher No.</td>
+                      <td style="width: 15%;">' . $pur_request->pur_rq_code . '</td>
+                      <td class="bg-light fw-bold" style="width: 10%;">Dated</td>
+                      <td style="width: 10%;">' . date('d-M-y', strtotime($pur_request->request_date)) .
+      '</td>
+                      <td class="bg-light fw-bold">Mode/Terms of Payment</td>
+                      <td> 30 days</td>
+                      <td class="bg-light fw-bold">Reference No. & Date</td>
+                      <td>' . $pur_request->pur_rq_code . '</td>
+                  </tr>
+                  <tr>
+                      <td class="bg-light fw-bold">Supplier (Bill from)</td>
+                      <td>' .
+      // <strong>' . $vendor->company . '</strong><br>
+      // ' . $vendor->address . '<br>
+      // GSTIN/UIN : ' . $vendor->vat_number . '<br>
+      // State Name : ' . $vendor->state . '
+      ' </td>
+                      <td class="bg-light fw-bold">Dispatched through</td>
+                      <td> Delivery Date</td>
+                      <td class="bg-light fw-bold">Destination</td>
+                      <td> Detination </td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td></td>
+                      <td class="bg-light fw-bold">Terms of Delivery</td>
+                      <td colspan="3"> terms </td>
+                  </tr>
+              </tbody>
+          </table>
+  
+          <table class="table table-bordered table-sm">
+              <thead class="table-light">
+                  <tr>
+                      <th class="text-center" style="width: 5%;">Sl</th>
+                      <th class="text-center" style="width: 35%;">Description of Goods</th>
+                      <th class="text-center" style="width: 12%;">HSN/SAC</th>
+                      <th class="text-center" style="width: 12%;">Quantity</th>
+                      <th class="text-center" style="width: 10%;">Rate</th>
+                      <th class="text-center" style="width: 6%;">per</th>
+                      <th class="text-center" style="width: 8%;">Disc. %</th>
+                      <th class="text-center" style="width: 12%;">Amount</th>
+                  </tr>
+              </thead>
+              <tbody>';
 
-          </tr>
-          <tr>
-
-            <td class="align_cen">' . _l('days') . ' ' . $day . ' ' . _l('month') . ' ' . $month . ' ' . _l('year') . ' ' . $year . '</td>
-
-          </tr>
-
-        </tbody>
-      </table>
-      <table class="table">
-        <tbody>
-          <tr>
-            <td class="td_width_25"><h4>' . _l('requester') . ':</h4></td>
-            <td class="td_width_75">' . get_staff_full_name1($pur_request->requester) . '</td>
-          </tr>
-          <tr>
-            <td class="font_500"><h4>' . _l('department') . ':</h4></td>
-            <td>' . $dpm_name . '</td>
-          </tr>
-          <tr>
-            <td class="font_500"><h4>' . _l('type') . ':</h4></td>
-            <td>' . _l($pur_request->type) . '</td>
-          </tr>
-          <tr>
-            <td class="font_500"><h4>' . _l('project') . ':</h4></td>
-            <td>' . $project_name . '</td>
-          </tr>
-        </tbody>
-      </table>
-      <br><br>
-      ';
-
-    $html .= '<table class="table pur_request-item">
-            <thead>
-              <tr class="border_tr">
-                <th align="left" class="thead-dark">' . _l('items') . '</th>
-                <th align="right" class="thead-dark">' . _l('purchase_unit_price') . '</th>
-                <th align="right" class="thead-dark">' . _l('purchase_quantity') . '</th>
-                <th align="right" class="thead-dark">' . _l('into_money') . '</th>';
-    if (get_setting('show_purchase_tax_column')) {
-      $html .= '<th align="right" class="thead-dark">' . _l('tax_value') . '</th>';
-    }
-    $html .= '<th align="right" class="thead-dark">' . _l('total') . '</th>
-              </tr>
-            </thead>
-          <tbody>';
 
     $tmn    = 0;
     $_total = 0;
+    $total_qty = 0;
+
     foreach ($pur_request_detail as $row) {
       $items = $this->get_items_by_id($row['item_code']);
       $units = $this->get_units_by_id($row['unit_id']);
       if ($items) {
         $unit_name = isset($units->unit_name) ? $units->unit_name : '';
-
         $html .= '<tr class="border_tr">
                 <td >' . $items->commodity_code . ' - ' . $items->title . '</td>
-
                 <td align="right">' . to_currency($row['unit_price'], $base_currency) . '</td>
                 <td align="right">' . to_decimal_format($row['quantity']) . ' ' . $unit_name . '</td>
                 <td align="right">' . to_currency($row['into_money'], $base_currency) . '</td>';
@@ -3033,7 +3038,6 @@ public function get_pur_request_items_for_order($pur_request_id)
         $unit_name = isset($units->unit_name) ? $units->unit_name : '';
         $html .= '<tr class="border_tr">
                 <td >' . $row['item_text'] . '</td>
-
                 <td align="right">' . to_currency($row['unit_price'], $base_currency) . '</td>
                 <td align="right">' . $row['quantity'] . '</td>
                 <td align="right">' . to_currency($row['into_money'], $base_currency) . '</td>';
@@ -3043,67 +3047,60 @@ public function get_pur_request_items_for_order($pur_request_id)
         $html .= '<td align="right">' . to_currency($row['total'], $base_currency) . '</td>
               </tr>';
       }
-
       $tmn += $row['into_money'];
       $_total += $row['total'];
     }
-    $html .= '</tbody>
-      </table><br><br>';
 
-    $html .= '<table class="table text-right"><tbody>';
-    $html .= '<tr>
-                 <td class="width33"></td>
-                 <td>' . _l('subtotal') . '</td>
-                 <td class="subtotal">
-                    ' . to_currency($tmn, $base_currency) . '
-                 </td>
-              </tr>';
+    $html .= '
+          <tr style="height: 200px;">
+              <td colspan="8"></td>
+          </tr>
+          <tr class="table-light fw-bold">
+              <td colspan="3" class="text-end">Total</td>
+              <td class="text-center">' . $total_qty . '</td>
+              <td colspan="3"></td>
+              <td class="text-end">' . to_currency($pur_request->total, $base_currency) . '</td>
+          </tr>
+      </tbody>
+      </table>
+  
+      <div class="mb-3">
+          <div class="fw-bold">Amount Chargeable (in words)</div>
+          <div class="fw-bold">INR ' . ' Only </div>
+          <div class="text-end mt-2"><small>E. & O.E</small></div>
+      </div>
+  
+      <div class="mb-4">
+          <div class="fw-bold">Declaration</div>
+          <div class="small">
+              1. Our purchase order no & date must be included on your challan/invoice Etc.<br>
+              2. Any dispute arising out of this contract shall be within jurisdiction of the courts in Gurgaon
+          </div>
+      </div>
+  
+      <div class="row text-center mb-3">
+          <div class="col-4">
+              <div class="border-bottom border-dark mb-2" style="height: 50px;"></div>
+              <small>Prepared by</small>
+          </div>
+          <div class="col-4">
+              <div class="border-bottom border-dark mb-2" style="height: 50px;"></div>
+              <small>Verified by</small>
+          </div>
+          <div class="col-4">
+              <div class="border-bottom border-dark mb-2" style="height: 50px;"></div>
+              <small>for RS ROBOTICS AND AUTOMATION<br>Authorised Signatory</small>
+          </div>
+      </div>
+  
+      <div class="text-center border-top border-dark pt-2">
+          <small>This is a Computer Generated Document</small>
+      </div>
+      </div>';
 
-    $html .= $tax_data['pdf_html'];
-    $html .= '<tr>
-                 <td class="width33"></td>
-                 <td>' . _l('total') . '</td>
-                 <td class="subtotal">
-                    ' . to_currency($pur_request->total, $base_currency) . '
-                 </td>
-              </tr>';
-
-    $html .= ' </tbody></table>';
-
-    $html .= '<br>
-      <br>
-      <br>
-      <br>
-      <table class="table">
-        <tbody>
-          <tr>';
-    if (count($list_approve_status) > 0) {
-
-      foreach ($list_approve_status as $value) {
-        $html .= '<td class="td_appr">';
-        if ($value['action'] == 'sign') {
-          $html .= '<h3>' . mb_strtoupper(get_staff_full_name1($value['staffid'])) . '</h3>';
-          if ($value['approve'] == 2) {
-            $html .= '<img src="' . FCPATH . PLUGIN_URL_PATH . 'Purchase/Uploads/pur_request/signature/' . $pur_request->id . '/signature_' . $value['id'] . '.png" class="img_style">';
-          }
-        } else {
-          $html .= '<h3>' . mb_strtoupper(get_staff_full_name1($value['staffid'])) . '</h3>';
-          if ($value['approve'] == 2) {
-            $html .= '<img src="' . FCPATH . PLUGIN_URL_PATH . 'Purchase/Uploads/approval/approved.png" class="img_style">';
-          } elseif ($value['approve'] == 3) {
-            $html .= '<img src="' . FCPATH . PLUGIN_URL_PATH . 'Purchase/Uploads/approval/rejected.png" class="img_style">';
-          }
-        }
-        $html .= '</td>';
-      }
-    }
-    $html .= '<td class="td_ali_font"><h3>' . mb_strtoupper(_l('purchase_requestor')) . '</h3></td>
-            <td class="td_ali_font"><h3>' . mb_strtoupper(_l('purchase_treasurer')) . '</h3></td></tr>
-        </tbody>
-      </table>';
-    $html .= '<link href="' . FCPATH . PLUGIN_URL_PATH . 'Purchase/assets/css/pur_order_pdf.css' . '"  rel="stylesheet" type="text/css" />';
     return $html;
   }
+
 
   /**
    * Gets the pur request pdf html.
@@ -3920,26 +3917,26 @@ public function get_pur_request_items_for_order($pur_request_id)
    * Adds a comment to purchase request
    */
   public function add_comment($data)
-{
+  {
     $builder = $this->db->table(db_prefix() . 'purchase_comments');
     $builder->insert($data);
     $insert_id = $this->db->insertID();
 
     if ($insert_id) {
-        return $insert_id;
+      return $insert_id;
     }
     return false;
-}
+  }
 
-// Updated get_comments method to handle both types
-public function get_comments($related_id, $comment_type = 'pur_request')
-{
+  // Updated get_comments method to handle both types
+  public function get_comments($related_id, $comment_type = 'pur_request')
+  {
     $builder = $this->db->table(db_prefix() . 'purchase_comments');
     $builder->where('related_id', $related_id);
     $builder->where('comment_type', $comment_type);
     $builder->orderBy('created_at', 'DESC');
     return $builder->get()->getResultArray();
-}
+  }
 
   /**
    * delete approval details
@@ -5276,10 +5273,9 @@ public function get_comments($related_id, $comment_type = 'pur_request')
    *
    * @return     string
    */
- public function create_purchase_order_row_template($name = '', $item_name = '', $item_description = '', $quantity = '', $unit_name = '', $unit_price = '', $taxname = '', $item_code = '', $unit_id = '', $tax_rate = '', $total_money = '', $discount = '', $discount_money = '', $total = '', $into_money = '', $tax_id = '', $tax_value = '', $item_key = '', $is_edit = false, $currency_rate = 1, $to_currency = '')
-{
+  public function create_purchase_order_row_template($name = '', $item_name = '', $item_description = '', $quantity = '', $unit_name = '', $unit_price = '', $taxname = '', $item_code = '', $unit_id = '', $tax_rate = '', $total_money = '', $discount = '', $discount_money = '', $total = '', $into_money = '', $tax_id = '', $tax_value = '', $item_key = '', $is_edit = false, $currency_rate = 1, $to_currency = '')
+  {
     $row = '';
-
     $name_item_code        = 'item_code';
     $name_item_name        = 'item_name';
     $name_item_description = 'description';
@@ -5287,18 +5283,19 @@ public function get_comments($related_id, $comment_type = 'pur_request')
     $name_unit_name        = 'unit_name';
     $name_quantity         = 'quantity';
     $name_unit_price       = 'unit_price';
-    $name_tax_id_select    = 'tax_select';
-    $name_tax_id           = 'tax_id';
     $name_total            = 'total';
-    $name_tax_rate         = 'tax_rate';
-    $name_tax_name         = 'tax_name';
     $name_tax_value        = 'tax_value';
-    $array_attr            = [];
-    $array_attr_payment    = ['data-payment' => 'invoice'];
     $name_into_money       = 'into_money';
     $name_discount         = 'discount';
     $name_discount_money   = 'discount_money';
     $name_total_money      = 'total_money';
+
+    $name_tax_id_select    = 'tax_select';
+    $name_tax_id           = 'tax_id';
+    $name_tax_rate         = 'tax_rate';
+    $name_tax_name         = 'tax_name';
+    $array_attr            = [];
+    $array_attr_payment    = ['data-payment' => 'invoice'];
 
     $array_available_quantity_attr = ['min' => '0.0', 'step' => 'any', 'readonly' => true];
     $array_qty_attr                = ['min' => '0.0', 'step' => 'any'];
@@ -5333,111 +5330,116 @@ public function get_comments($related_id, $comment_type = 'pur_request')
     $to_currency = $to_currency ?? '';
 
     if ($name == '') {
-        $tax_rate_class = ' refresh_tax1';
-        $row .= '<tr class="main">
+      $tax_rate_class = ' refresh_tax1';
+      $row .= '<tr class="main">
                     <td></td>';
-        $vehicles   = [];
-        $array_attr = ['placeholder' => _l('unit_price')];
+      $vehicles   = [];
+      $array_attr = ['placeholder' => _l('unit_price')];
 
-        $manual             = true;
-        $invoice_item_taxes = '';
-        $amount             = '';
-        $sub_total          = 0;
+      $manual             = true;
+      $invoice_item_taxes = '';
+      $amount             = '';
+      $sub_total          = 0;
     } else {
-        $tax_rate_class = ' refresh_tax2';
-        $row .= '<tr class="sortable item">
+      $tax_rate_class = ' refresh_tax2';
+      $row .= '<tr class="sortable item">
                       <td class="dragger"><input type="hidden" class="order" name="' . $name . '[order]"><input type="hidden" class="ids" name="' . $name . '[id]" value="' . $item_key . '"></td>';
-        $name_item_code        = $name . '[item_code]';
-        $name_item_name        = $name . '[item_name]';
-        $name_item_description = $name . '[item_description]';
-        $name_unit_id          = $name . '[unit_id]';
-        $name_unit_name        = '[unit_name]';
-        $name_quantity         = $name . '[quantity]';
-        $name_unit_price       = $name . '[unit_price]';
-        $name_tax_id_select    = $name . '[tax_select][]';
-        $name_tax_id           = $name . '[tax_id]';
-        $name_total            = $name . '[total]';
-        $name_tax_rate         = $name . '[tax_rate]';
-        $name_tax_name         = $name . '[tax_name]';
-        $name_into_money       = $name . '[into_money]';
-        $name_discount         = $name . '[discount]';
-        $name_discount_money   = $name . '[discount_money]';
-        $name_total_money      = $name . '[total_money]';
-        $name_tax_value        = $name . '[tax_value]';
+      $name_item_code        = $name . '[item_code]';
+      $name_item_name        = $name . '[item_name]';
+      $name_item_description = $name . '[item_description]';
+      $name_unit_id          = $name . '[unit_id]';
+      $name_unit_name        = '[unit_name]';
+      $name_quantity         = $name . '[quantity]';
+      $name_unit_price       = $name . '[unit_price]';
+      $name_total            = $name . '[total]';
+      $name_tax_id_select    = $name . '[tax_select][]';
+      $name_tax_id           = $name . '[tax_id]';
+      $name_tax_rate         = $name . '[tax_rate]';
+      $name_tax_name         = $name . '[tax_name]';
+      $name_into_money       = $name . '[into_money]';
+      $name_discount         = $name . '[discount]';
+      $name_discount_money   = $name . '[discount_money]';
+      $name_total_money      = $name . '[total_money]';
+      $name_tax_value        = $name . '[tax_value]';
 
-        $array_qty_attr = ['onblur' => 'pur_calculate_total();', 'onchange' => 'pur_calculate_total();', 'min' => '0.0', 'step' => 'any', 'data-quantity' => (float) $quantity];
+      $array_qty_attr = ['onblur' => 'pur_calculate_total();', 'onchange' => 'pur_calculate_total();', 'min' => '0.0', 'step' => 'any', 'data-quantity' => (float) $quantity];
 
-        $array_rate_attr     = ['onblur' => 'pur_calculate_total();', 'onchange' => 'pur_calculate_total();', 'min' => '0.0', 'step' => 'any', 'data-amount' => 'invoice', 'placeholder' => _l('rate')];
-        $array_discount_attr = ['onblur' => 'pur_calculate_total();', 'onchange' => 'pur_calculate_total();', 'min' => '0.0', 'step' => 'any', 'data-amount' => 'invoice', 'placeholder' => _l('discount')];
+      $array_rate_attr     = ['onblur' => 'pur_calculate_total();', 'onchange' => 'pur_calculate_total();', 'min' => '0.0', 'step' => 'any', 'data-amount' => 'invoice', 'placeholder' => _l('rate')];
+      $array_discount_attr = ['onblur' => 'pur_calculate_total();', 'onchange' => 'pur_calculate_total();', 'min' => '0.0', 'step' => 'any', 'data-amount' => 'invoice', 'placeholder' => _l('discount')];
 
-        $array_discount_money_attr = ['onblur' => 'pur_calculate_total(1);', 'onchange' => 'pur_calculate_total(1);', 'min' => '0.0', 'step' => 'any', 'data-amount' => 'invoice', 'placeholder' => _l('discount')];
+      $array_discount_money_attr = ['onblur' => 'pur_calculate_total(1);', 'onchange' => 'pur_calculate_total(1);', 'min' => '0.0', 'step' => 'any', 'data-amount' => 'invoice', 'placeholder' => _l('discount')];
 
-        $manual = false;
+      $manual = false;
 
-        $tax_money      = 0;
-        $tax_rate_value = 0;
-
-        if ($is_edit) {
-            $invoice_item_taxes = pur_convert_item_taxes($tax_id, $tax_rate, $taxname);
-            // FIX: Add null checking for explode - THIS IS THE KEY FIX
-            if (!empty($tax_rate) && $tax_rate !== null) {
-                $arr_tax_rate = explode('|', $tax_rate);
-            } else {
-                $arr_tax_rate = [];
-            }
-            foreach ($arr_tax_rate as $key => $value) {
-                $tax_rate_value += (float) $value;
-            }
+      $tax_money      = 0;
+      $tax_rate_value = 0;
+      log_message('critical', $tax_rate);
+      if ($is_edit) {
+        $invoice_item_taxes = pur_convert_item_taxes($tax_id, $tax_rate, $taxname);
+        // FIX: Add null checking for explode - THIS IS THE KEY FIX
+        if (!empty($tax_rate) && $tax_rate !== null) {
+          $arr_tax_rate = explode('|', $tax_rate);
         } else {
-            $invoice_item_taxes = $taxname;
-            $tax_rate_data      = $this->pur_get_tax_rate($taxname);
-            $tax_rate_value     = $tax_rate_data['tax_rate'];
+          $arr_tax_rate = [];
         }
-
-        if ((float) $tax_rate_value != 0) {
-            $tax_money   = (float) $unit_price * (float) $quantity * (float) $tax_rate_value / 100;
-            $goods_money = (float) $unit_price * (float) $quantity + (float) $tax_money;
-            $amount      = (float) $unit_price * (float) $quantity + (float) $tax_money;
-        } else {
-            $goods_money = (float) $unit_price * (float) $quantity;
-            $amount      = (float) $unit_price * (float) $quantity;
+        foreach ($arr_tax_rate as $key => $value) {
+          $tax_rate_value += (float) $value;
         }
+      } else {
+        $invoice_item_taxes = $taxname;
+        $tax_rate_data      = $this->pur_get_tax_rate($taxname);
+        $tax_rate_value     = $tax_rate_data['tax_rate'];
+      }
 
-        $sub_total = (float) $unit_price * (float) $quantity;
-        $amount    = to_decimal_format($amount);
+      if ((float) $tax_rate_value != 0) {
+        $discounted_price = (float)$unit_price - (float)$discount_money;
+        $tax_money   = (float)$discounted_price * (float) $quantity * (float) $tax_rate / 100;
+        $goods_money = (float) $discounted_price * (float) $quantity + (float)$tax_money;
+        $amount      = (float) $discounted_price * (float) $quantity + (float) $tax_money;
+      } else {
+        $discounted_price = (float)$unit_price - (float)$discount_money;
+        $goods_money = (float) $unit_price * (float) $quantity;
+        $amount      = (float) $discounted_price * (float) $quantity;
+      }
+
+      $sub_total = (float) $unit_price * (float) $quantity;
+      $amount    = to_decimal_format($amount);
     }
 
-    $row .= '<td class="">' . render_textarea1($name_item_name, '', $item_name, ['rows' => 2, 'placeholder' => _l('pur_item_name'), 'readonly' => true]) . '</td>';
+    $row .= '<td class="">' .
+      render_textarea1($name_item_name, '', $item_name, ['rows' => 2, 'placeholder' => _l('pur_item_name'), 'readonly' => true]) .
+      render_textarea1($name_item_description, '', $item_description, ['rows' => 2, 'placeholder' => _l('item_description')]) .
+      '</td>';
 
-    $row .= '<td class="">' . render_textarea1($name_item_description, '', $item_description, ['rows' => 2, 'placeholder' => _l('item_description')]) . '</td>';
+    // $row .= '<td class="">'  . '</td>';
 
     $row .= '<td class="rate">' . render_input1($name_unit_price, '', $unit_price, 'number', $array_rate_attr, [], 'no-margin', $text_right_class);
 
     if ($unit_price != '') {
-        $original_price = round(($unit_price / $currency_rate), 2);
-        $base_currency  = get_base_currency();
-        if ($to_currency != '' && $to_currency != $base_currency) {
-            $row .= render_input1('original_price', '', to_currency($original_price, $base_currency), 'text', ['data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => _l('original_price'), 'disabled' => true], [], 'no-margin', 'input-transparent text-right pur_input_none');
-        }
+      $original_price = round(($unit_price / $currency_rate), 2);
+      $base_currency  = get_base_currency();
+      if ($to_currency != '' && $to_currency != $base_currency) {
+        $row .= render_input1('original_price', '', to_currency($original_price, $base_currency), 'text', ['data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => _l('original_price'), 'disabled' => true], [], 'no-margin', 'input-transparent text-right pur_input_none');
+      }
 
-        $row .= '<input class="hide" name="og_price" disabled="true" value="' . $original_price . '">';
+      $row .= '<input class="hide" name="og_price" disabled="true" value="' . $original_price . '">';
     }
 
     $row .= '</td>';
 
     $row .= '<td class="quantities">' .
-        render_input1($name_quantity, '', $quantity, 'number', $array_qty_attr, [], 'no-margin', $text_right_class) .
-        render_input1($name_unit_name, '', $unit_name, 'text', ['placeholder' => _l('unit'), 'readonly' => true], [], 'no-margin', 'input-transparent text-right pur_input_none') .
-        '</td>';
+      render_input1($name_quantity, '', $quantity, 'number', $array_qty_attr, [], 'no-margin', $text_right_class) .
+      render_input1($name_unit_name, '', $unit_name, 'text', ['placeholder' => _l('unit'), 'readonly' => true], [], 'no-margin', 'input-transparent text-right pur_input_none') .
+      '</td>';
 
-    $row .= '<td class="taxrate ' . $tax_rate_class . '">' . $this->get_taxes_dropdown_template($name_tax_id_select, $invoice_item_taxes, 'invoice', $item_key, true, $manual) . '</td>';
+    $row .= '<td class="rate ' . $tax_rate_class . '">' . $this->get_taxes_dropdown_template($name_tax_id_select, $invoice_item_taxes, 'invoice', $item_key, true, $manual) . '</td>';
 
     $row .= '<td class="tax_value">' . render_input1($name_tax_value, '', $tax_value, 'number', $array_subtotal_attr, [], '', $text_right_class) . '</td>';
 
     $row .= '<td class="_total" align="right">' . $total . '</td>';
 
     if ($discount_money > 0) {
-        $discount = '';
+      $discount = '';
     }
 
     $row .= '<td class="discount">' . render_input1($name_discount, '', $discount, 'number', $array_discount_attr, [], '', $text_right_class) . '</td>';
@@ -5453,14 +5455,14 @@ public function get_comments($related_id, $comment_type = 'pur_request')
     $row .= '<td class="hide _into_money">' . render_input1($name_into_money, '', $into_money, 'number', []) . '</td>';
 
     if ($name == '') {
-        $row .= '<td><button type="button" onclick="pur_add_item_to_table(\'undefined\',\'undefined\'); return false;" class="btn pull-right btn-info text-white"><i data-feather="plus-circle" class="icon-16"></i></button></td>';
+      $row .= '<td><button type="button" onclick="pur_add_item_to_table(\'undefined\',\'undefined\'); return false;" class="btn pull-right btn-info text-white"><i data-feather="plus-circle" class="icon-16"></i></button></td>';
     } else {
-        $row .= '<td><a href="#" class="btn btn-danger pull-right" onclick="pur_delete_item(this,' . $item_key . ',\'.invoice-item\'); return false;"><i data-feather="x" class="icon-16"></i></a></td>';
+      $row .= '<td><a href="#" class="btn btn-danger pull-right" onclick="pur_delete_item(this,' . $item_key . ',\'.invoice-item\'); return false;"><i data-feather="x" class="icon-16"></i></a></td>';
     }
 
     $row .= '</tr>';
     return $row;
-}
+  }
 
   /**
    * Adds a pur order.
@@ -5505,16 +5507,14 @@ public function get_comments($related_id, $comment_type = 'pur_request')
       $order_detail = $data['newitems'];
       unset($data['newitems']);
     }
-
     $prefix = get_setting('pur_order_prefix');
-
     $builder = $this->db->table('pur_orders');
-
     $builder->where('pur_order_number', $data['pur_order_number']);
     $check_exist_number = $builder->get()->getRow();
 
     while ($check_exist_number) {
       $data['number']           = $data['number'] + 1;
+
       $data['pur_order_number'] = $prefix . '-' . str_pad($data['number'], 5, '0', STR_PAD_LEFT) . '-' . date('M-Y') . '-' . get_vendor_company_name($data['vendor']);
       if (get_setting('po_only_prefix_and_number') == 1) {
         $data['pur_order_number'] = $prefix . '-' . str_pad($data['number'], 5, '0', STR_PAD_LEFT);
@@ -5531,13 +5531,9 @@ public function get_comments($related_id, $comment_type = 'pur_request')
     } else {
       $data['delivery_date'] = null;
     }
-
     $data['datecreated'] = date('Y-m-d H:i:s');
-
     $data['addedfrom'] = get_staff_user_id();
-
     $data['hash'] = app_generate_hash();
-
     $data['order_status'] = 'new';
 
     if (isset($data['clients']) && count($data['clients']) > 0) {
@@ -5576,7 +5572,30 @@ public function get_comments($related_id, $comment_type = 'pur_request')
       // Update next purchase order number in settings
       $next_number = $data['number'] + 1;
       update_setting('next_purchase_order_number', $next_number);
+      $project_id = isset($data['project']) ? $data['project'] : null;
+      log_message("critical", "Updating expenditure for project" . $project_id);
+      if ($project_id) {
+        $po_total = isset($data['total']) ? $data['total'] : 0;
 
+        // Fetch current project
+        $project = $this->db->table(db_prefix() . 'projects')->where('id', $project_id)->get()->getRow();
+
+        if ($project) {
+          $new_expenditure = $project->expense + $po_total;
+
+          // If exceeding project price, prevent further update and throw error
+          if ($new_expenditure > $project->price) {
+            // Optional: rollback PO creation if your business logic forbids exceeding expense
+            $this->db->table(db_prefix() . 'pur_orders')->where('id', $insert_id)->delete();
+            return false;
+
+            // Otherwise: update expenditure and mark visually later
+          }
+
+          // Update expenditure
+          $this->db->table(db_prefix() . 'projects')->where('id', $project_id)->update(['expense' => $new_expenditure]);
+        }
+      }
       $total              = [];
       $total['total_tax'] = 0;
 
@@ -6187,28 +6206,28 @@ public function get_comments($related_id, $comment_type = 'pur_request')
     return false;
   }
 
- public function get_pur_request_detail_in_po($pur_request)
-{
+  public function get_pur_request_detail_in_po($pur_request)
+  {
     $pur_request_lst = $this->db->query('SELECT item_code, prq.unit_id as unit_id, unit_price, quantity, into_money, it.long_descriptions as description, prq.tax as tax, tax_name, tax_rate, item_text, tax_value, total as total_money, total as total FROM ' . db_prefix() . 'pur_request_detail prq LEFT JOIN ' . db_prefix() . 'items it ON prq.item_code = it.id WHERE prq.pur_request = ' . $pur_request)->getResultArray();
 
     foreach ($pur_request_lst as $key => $detail) {
-        $pur_request_lst[$key]['into_money']  = (float) ($detail['into_money'] ?? 0);
-        $pur_request_lst[$key]['total']       = (float) ($detail['total'] ?? 0);
-        $pur_request_lst[$key]['total_money'] = (float) ($detail['total_money'] ?? 0);
-        $pur_request_lst[$key]['unit_price']  = (float) ($detail['unit_price'] ?? 0);
-        $pur_request_lst[$key]['tax_value']   = (float) ($detail['tax_value'] ?? 0);
-        $pur_request_lst[$key]['quantity']    = (float) ($detail['quantity'] ?? 1);
-        $pur_request_lst[$key]['tax_rate']    = $detail['tax_rate'] ?? null;
-        $pur_request_lst[$key]['tax_name']    = $detail['tax_name'] ?? '';
-        $pur_request_lst[$key]['tax']         = $detail['tax'] ?? '';
-        $pur_request_lst[$key]['item_text']   = $detail['item_text'] ?? '';
-        $pur_request_lst[$key]['item_code']   = $detail['item_code'] ?? '';
-        $pur_request_lst[$key]['unit_id']     = $detail['unit_id'] ?? null;
-        $pur_request_lst[$key]['description'] = $detail['description'] ?? '';
+      $pur_request_lst[$key]['into_money']  = (float) ($detail['into_money'] ?? 0);
+      $pur_request_lst[$key]['total']       = (float) ($detail['total'] ?? 0);
+      $pur_request_lst[$key]['total_money'] = (float) ($detail['total_money'] ?? 0);
+      $pur_request_lst[$key]['unit_price']  = (float) ($detail['unit_price'] ?? 0);
+      $pur_request_lst[$key]['tax_value']   = (float) ($detail['tax_value'] ?? 0);
+      $pur_request_lst[$key]['quantity']    = (float) ($detail['quantity'] ?? 1);
+      $pur_request_lst[$key]['tax_rate']    = $detail['tax_rate'] ?? null;
+      $pur_request_lst[$key]['tax_name']    = $detail['tax_name'] ?? '';
+      $pur_request_lst[$key]['tax']         = $detail['tax'] ?? '';
+      $pur_request_lst[$key]['item_text']   = $detail['item_text'] ?? '';
+      $pur_request_lst[$key]['item_code']   = $detail['item_code'] ?? '';
+      $pur_request_lst[$key]['unit_id']     = $detail['unit_id'] ?? null;
+      $pur_request_lst[$key]['description'] = $detail['description'] ?? '';
     }
 
     return $pur_request_lst;
-}
+  }
   /**
    * Gets the estimate html by pr vendor.
    *
@@ -7979,6 +7998,7 @@ public function get_comments($related_id, $comment_type = 'pur_request')
     }
   }
 
+  // Purchase request with items
   public function get_pur_request_with_items($query)
   {
     $result = $this->db->query($query);
@@ -7996,6 +8016,7 @@ public function get_comments($related_id, $comment_type = 'pur_request')
     return $purchase_requests;
   }
 
+  //Purchase request items that uses sku, title etc
   public function get_pur_request_items($pur_request_id)
   {
     $builder = $this->db->table(db_prefix() . 'pur_request_detail prd');
@@ -8009,5 +8030,13 @@ public function get_comments($related_id, $comment_type = 'pur_request')
     }
 
     return [];
+  }
+  // Get total expense   of a project
+  function get_project_po_total($project_id)
+  {
+    return $this->db->select_sum('total')
+      ->where('project_id', $project_id)
+      ->get(db_prefix() . 'purchase_orders')
+      ->row()->total ?? 0;
   }
 }
