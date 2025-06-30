@@ -332,7 +332,6 @@ app_hooks()->add_filter('app_filter_role_permissions_save_data', function ($perm
 	$hr_profile_data = [];
 
 	$hr_profile_data['hr_profile_can_view_global_hr_dashboard'] = isset($data['hr_profile_can_view_global_hr_dashboard']) ? $data['hr_profile_can_view_global_hr_dashboard'] : null;
-
 	$hr_profile_data['hr_profile_can_view_own_organizational_chart']    = isset($data['hr_profile_can_view_own_organizational_chart']) ? $data['hr_profile_can_view_own_organizational_chart'] : null;
 	$hr_profile_data['hr_profile_can_view_global_organizational_chart'] = isset($data['hr_profile_can_view_global_organizational_chart']) ? $data['hr_profile_can_view_global_organizational_chart'] : null;
 	$hr_profile_data['hr_profile_can_create_organizational_chart']      = isset($data['hr_profile_can_create_organizational_chart']) ? $data['hr_profile_can_create_organizational_chart'] : null;

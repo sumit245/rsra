@@ -188,7 +188,7 @@
                                     "name" => "team_member_update_permission",
                                     "value" => "",
                                     "class" => "team_member_update_permission toggle_specific form-check-input",
-                                        ), $team_member_update_permission, ($team_member_update_permission === "") ? true : false);
+                                ), $team_member_update_permission, ($team_member_update_permission === "") ? true : false);
                                 ?>
                                 <label for="team_member_update_permission_no"><?php echo app_lang("no"); ?></label>
                             </div>
@@ -199,7 +199,7 @@
                                     "name" => "team_member_update_permission",
                                     "value" => "all",
                                     "class" => "team_member_update_permission toggle_specific form-check-input",
-                                        ), $team_member_update_permission, ($team_member_update_permission === "all") ? true : false);
+                                ), $team_member_update_permission, ($team_member_update_permission === "all") ? true : false);
                                 ?>
                                 <label for="team_member_update_permission_all"><?php echo app_lang("yes_all_members"); ?></label>
                             </div>
@@ -210,11 +210,11 @@
                                     "name" => "team_member_update_permission",
                                     "value" => "specific",
                                     "class" => "team_member_update_permission toggle_specific form-check-input",
-                                        ), $team_member_update_permission, ($team_member_update_permission === "specific") ? true : false);
+                                ), $team_member_update_permission, ($team_member_update_permission === "specific") ? true : false);
                                 ?>
                                 <label for="team_member_update_permission_specific"><?php echo app_lang("yes_specific_members_or_teams"); ?>:</label>
                                 <div class="specific_dropdown">
-                                    <input type="text" value="<?php echo $team_member_update_permission_specific; ?>" name="team_member_update_permission_specific" id="team_member_update_permission_specific_dropdown" class="w100p validate-hidden"  data-rule-required="true" data-msg-required="<?php echo app_lang('field_required'); ?>" placeholder="<?php echo app_lang('choose_members_and_or_teams'); ?>"  />    
+                                    <input type="text" value="<?php echo $team_member_update_permission_specific; ?>" name="team_member_update_permission_specific" id="team_member_update_permission_specific_dropdown" class="w100p validate-hidden" data-rule-required="true" data-msg-required="<?php echo app_lang('field_required'); ?>" placeholder="<?php echo app_lang('choose_members_and_or_teams'); ?>" />
                                 </div>
                             </div>
                         </div>
@@ -237,7 +237,7 @@
                         ?>
                         <label for="message_permission_specific_checkbox"><?php echo app_lang("can_send_messages_to_specific_members_or_teams"); ?></label>
                         <div class="specific_dropdown">
-                            <input type="text" value="<?php echo $message_permission_specific; ?>" name="message_permission_specific" id="message_permission_specific_dropdown" class="w100p validate-hidden"  data-rule-required="true" data-msg-required="<?php echo app_lang('field_required'); ?>" placeholder="<?php echo app_lang('choose_members_and_or_teams'); ?>"  />    
+                            <input type="text" value="<?php echo $message_permission_specific; ?>" name="message_permission_specific" id="message_permission_specific_dropdown" class="w100p validate-hidden" data-rule-required="true" data-msg-required="<?php echo app_lang('field_required'); ?>" placeholder="<?php echo app_lang('choose_members_and_or_teams'); ?>" />
                         </div>
                     </div>
                 </li>
@@ -266,7 +266,7 @@
                             "name" => "leave_permission",
                             "value" => "",
                             "class" => "leave_permission toggle_specific form-check-input",
-                                ), $leave, ($leave === "") ? true : false);
+                        ), $leave, ($leave === "") ? true : false);
                         ?>
                         <label for="leave_permission_no"><?php echo app_lang("no"); ?></label>
                     </div>
@@ -277,7 +277,7 @@
                             "name" => "leave_permission",
                             "value" => "all",
                             "class" => "leave_permission toggle_specific form-check-input",
-                                ), $leave, ($leave === "all") ? true : false);
+                        ), $leave, ($leave === "all") ? true : false);
                         ?>
                         <label for="leave_permission_all"><?php echo app_lang("yes_all_members"); ?></label>
                     </div>
@@ -288,11 +288,11 @@
                             "name" => "leave_permission",
                             "value" => "specific",
                             "class" => "leave_permission toggle_specific form-check-input",
-                                ), $leave, ($leave === "specific") ? true : false);
+                        ), $leave, ($leave === "specific") ? true : false);
                         ?>
                         <label for="leave_permission_specific"><?php echo app_lang("yes_specific_members_or_teams") . " (" . app_lang("excluding_his_her_leaves") . ")"; ?>:</label>
                         <div class="specific_dropdown">
-                            <input type="text" value="<?php echo $leave_specific; ?>" name="leave_permission_specific" id="leave_specific_dropdown" class="w100p validate-hidden"  data-rule-required="true" data-msg-required="<?php echo app_lang('field_required'); ?>" placeholder="<?php echo app_lang('choose_members_and_or_teams'); ?>"  />    
+                            <input type="text" value="<?php echo $leave_specific; ?>" name="leave_permission_specific" id="leave_specific_dropdown" class="w100p validate-hidden" data-rule-required="true" data-msg-required="<?php echo app_lang('field_required'); ?>" placeholder="<?php echo app_lang('choose_members_and_or_teams'); ?>" />
                         </div>
 
                     </div>
@@ -318,7 +318,7 @@
                             "name" => "attendance_permission",
                             "value" => "",
                             "class" => "attendance_permission toggle_specific form-check-input",
-                                ), $attendance, ($attendance === "") ? true : false);
+                        ), $attendance, ($attendance === "") ? true : false);
                         ?>
                         <label for="attendance_permission_no"><?php echo app_lang("no"); ?> </label>
                     </div>
@@ -329,7 +329,7 @@
                             "name" => "attendance_permission",
                             "value" => "all",
                             "class" => "attendance_permission toggle_specific form-check-input",
-                                ), $attendance, ($attendance === "all") ? true : false);
+                        ), $attendance, ($attendance === "all") ? true : false);
                         ?>
                         <label for="attendance_permission_all"><?php echo app_lang("yes_all_members"); ?></label>
                     </div>
@@ -340,11 +340,11 @@
                             "name" => "attendance_permission",
                             "value" => "specific",
                             "class" => "attendance_permission toggle_specific form-check-input",
-                                ), $attendance, ($attendance === "specific") ? true : false);
+                        ), $attendance, ($attendance === "specific") ? true : false);
                         ?>
                         <label for="attendance_permission_specific"><?php echo app_lang("yes_specific_members_or_teams") . " (" . app_lang("excluding_his_her_time_cards") . ")"; ?>:</label>
                         <div class="specific_dropdown">
-                            <input type="text" value="<?php echo $attendance_specific; ?>" name="attendance_permission_specific" id="attendance_specific_dropdown" class="w100p validate-hidden"  data-rule-required="true" data-msg-required="<?php echo app_lang('field_required'); ?>" placeholder="<?php echo app_lang('choose_members_and_or_teams'); ?>"  />
+                            <input type="text" value="<?php echo $attendance_specific; ?>" name="attendance_permission_specific" id="attendance_specific_dropdown" class="w100p validate-hidden" data-rule-required="true" data-msg-required="<?php echo app_lang('field_required'); ?>" placeholder="<?php echo app_lang('choose_members_and_or_teams'); ?>" />
                         </div>
                     </div>
 
@@ -363,7 +363,7 @@
                             "name" => "timesheet_manage_permission",
                             "value" => "",
                             "class" => "timesheet_manage_permission toggle_specific form-check-input",
-                                ), $timesheet_manage_permission, ($timesheet_manage_permission === "") ? true : false);
+                        ), $timesheet_manage_permission, ($timesheet_manage_permission === "") ? true : false);
                         ?>
                         <label for="timesheet_manage_permission_no"><?php echo app_lang("no") . " (" . app_lang("can_add_own_timelogs_only") . ")"; ?> </label>
                     </div>
@@ -374,7 +374,7 @@
                             "name" => "timesheet_manage_permission",
                             "value" => "own",
                             "class" => "timesheet_manage_permission toggle_specific form-check-input",
-                                ), $timesheet_manage_permission, ($timesheet_manage_permission === "own") ? true : false);
+                        ), $timesheet_manage_permission, ($timesheet_manage_permission === "own") ? true : false);
                         ?>
                         <label for="timesheet_manage_permission_own"><?php echo app_lang("yes_only_own_timelogs"); ?></label>
                     </div>
@@ -385,7 +385,7 @@
                             "name" => "timesheet_manage_permission",
                             "value" => "all",
                             "class" => "timesheet_manage_permission toggle_specific form-check-input",
-                                ), $timesheet_manage_permission, ($timesheet_manage_permission === "all") ? true : false);
+                        ), $timesheet_manage_permission, ($timesheet_manage_permission === "all") ? true : false);
                         ?>
                         <label for="timesheet_manage_permission_all"><?php echo app_lang("yes_all_members"); ?></label>
                     </div>
@@ -396,7 +396,7 @@
                             "name" => "timesheet_manage_permission",
                             "value" => "own_project_members",
                             "class" => "timesheet_manage_permission toggle_specific form-check-input",
-                                ), $timesheet_manage_permission, ($timesheet_manage_permission === "own_project_members") ? true : false);
+                        ), $timesheet_manage_permission, ($timesheet_manage_permission === "own_project_members") ? true : false);
                         ?>
                         <label for="timesheet_manage_permission_own_project_members"><?php echo app_lang("yes_only_own_project_members"); ?></label>
                     </div>
@@ -407,7 +407,7 @@
                             "name" => "timesheet_manage_permission",
                             "value" => "own_project_members_excluding_own",
                             "class" => "timesheet_manage_permission toggle_specific form-check-input",
-                                ), $timesheet_manage_permission, ($timesheet_manage_permission === "own_project_members_excluding_own") ? true : false);
+                        ), $timesheet_manage_permission, ($timesheet_manage_permission === "own_project_members_excluding_own") ? true : false);
                         ?>
                         <label for="timesheet_manage_permission_own_project_members_excluding_own"><?php echo app_lang("yes_only_own_project_members") . " (" . app_lang("excluding_his_her_timelogs") . ")"; ?></label>
                     </div>
@@ -418,11 +418,11 @@
                             "name" => "timesheet_manage_permission",
                             "value" => "specific",
                             "class" => "timesheet_manage_permission toggle_specific form-check-input",
-                                ), $timesheet_manage_permission, ($timesheet_manage_permission === "specific") ? true : false);
+                        ), $timesheet_manage_permission, ($timesheet_manage_permission === "specific") ? true : false);
                         ?>
                         <label for="timesheet_manage_permission_specific"><?php echo app_lang("yes_specific_members_or_teams"); ?>:</label>
                         <div class="specific_dropdown">
-                            <input type="text" value="<?php echo $timesheet_manage_permission_specific; ?>" name="timesheet_manage_permission_specific" id="timesheet_manage_permission_specific_dropdown" class="w100p validate-hidden"  data-rule-required="true" data-msg-required="<?php echo app_lang('field_required'); ?>" placeholder="<?php echo app_lang('choose_members_and_or_teams'); ?>"  />
+                            <input type="text" value="<?php echo $timesheet_manage_permission_specific; ?>" name="timesheet_manage_permission_specific" id="timesheet_manage_permission_specific_dropdown" class="w100p validate-hidden" data-rule-required="true" data-msg-required="<?php echo app_lang('field_required'); ?>" placeholder="<?php echo app_lang('choose_members_and_or_teams'); ?>" />
                         </div>
                     </div>
                     <div class="form-group">
@@ -432,11 +432,11 @@
                             "name" => "timesheet_manage_permission",
                             "value" => "specific_excluding_own",
                             "class" => "timesheet_manage_permission toggle_specific form-check-input",
-                                ), $timesheet_manage_permission, ($timesheet_manage_permission === "specific_excluding_own") ? true : false);
+                        ), $timesheet_manage_permission, ($timesheet_manage_permission === "specific_excluding_own") ? true : false);
                         ?>
                         <label for="timesheet_manage_permission_specific_excluding_own"><?php echo app_lang("yes_specific_members_or_teams") . " (" . app_lang("excluding_his_her_timelogs") . ")"; ?>:</label>
                         <div class="specific_dropdown">
-                            <input type="text" value="<?php echo $timesheet_manage_permission_specific; ?>" name="timesheet_manage_permission_specific_excluding_own" id="timesheet_manage_permission_specific_excluding_own_dropdown" class="w100p validate-hidden"  data-rule-required="true" data-msg-required="<?php echo app_lang('field_required'); ?>" placeholder="<?php echo app_lang('choose_members_and_or_teams'); ?>"  />
+                            <input type="text" value="<?php echo $timesheet_manage_permission_specific; ?>" name="timesheet_manage_permission_specific_excluding_own" id="timesheet_manage_permission_specific_excluding_own_dropdown" class="w100p validate-hidden" data-rule-required="true" data-msg-required="<?php echo app_lang('field_required'); ?>" placeholder="<?php echo app_lang('choose_members_and_or_teams'); ?>" />
                         </div>
                     </div>
                 </li>
@@ -455,7 +455,7 @@
                             "name" => "invoice_permission",
                             "value" => "",
                             "class" => "form-check-input",
-                                ), $invoice, ($invoice === "") ? true : false);
+                        ), $invoice, ($invoice === "") ? true : false);
                         ?>
                         <label for="invoice_no"><?php echo app_lang("no"); ?> </label>
                     </div>
@@ -466,7 +466,7 @@
                             "name" => "invoice_permission",
                             "value" => "all",
                             "class" => "form-check-input",
-                                ), $invoice, ($invoice === "all") ? true : false);
+                        ), $invoice, ($invoice === "all") ? true : false);
                         ?>
                         <label for="invoice_yes"><?php echo app_lang("yes"); ?></label>
                     </div>
@@ -477,7 +477,7 @@
                             "name" => "invoice_permission",
                             "value" => "read_only",
                             "class" => "form-check-input",
-                                ), $invoice, ($invoice === "read_only") ? true : false);
+                        ), $invoice, ($invoice === "read_only") ? true : false);
                         ?>
                         <label for="invoice_read_only"><?php echo app_lang("read_only"); ?></label>
                     </div>
@@ -495,7 +495,7 @@
                             "name" => "estimate_permission",
                             "value" => "",
                             "class" => "form-check-input",
-                                ), $estimate, ($estimate === "") ? true : false);
+                        ), $estimate, ($estimate === "") ? true : false);
                         ?>
                         <label for="estimate_no"><?php echo app_lang("no"); ?> </label>
                     </div>
@@ -506,7 +506,7 @@
                             "name" => "estimate_permission",
                             "value" => "all",
                             "class" => "form-check-input",
-                                ), $estimate, ($estimate === "all") ? true : false);
+                        ), $estimate, ($estimate === "all") ? true : false);
                         ?>
                         <label for="estimate_yes"><?php echo app_lang("yes_all_estimates"); ?></label>
                     </div>
@@ -517,7 +517,7 @@
                             "name" => "estimate_permission",
                             "value" => "own",
                             "class" => "form-check-input",
-                                ), $estimate, ($estimate === "own") ? true : false);
+                        ), $estimate, ($estimate === "own") ? true : false);
                         ?>
                         <label for="estimate_yes_own"><?php echo app_lang("yes_only_own_estimates"); ?></label>
                     </div>
@@ -535,7 +535,7 @@
                             "name" => "contract_permission",
                             "value" => "",
                             "class" => "form-check-input"
-                                ), $contract, ($contract === "") ? true : false);
+                        ), $contract, ($contract === "") ? true : false);
                         ?>
                         <label for="contract_no"><?php echo app_lang("no"); ?> </label>
                     </div>
@@ -546,7 +546,7 @@
                             "name" => "contract_permission",
                             "value" => "all",
                             "class" => "form-check-input"
-                                ), $contract, ($contract === "all") ? true : false);
+                        ), $contract, ($contract === "all") ? true : false);
                         ?>
                         <label for="contract_yes"><?php echo app_lang("yes"); ?></label>
                     </div>
@@ -564,7 +564,7 @@
                             "name" => "proposal_permission",
                             "value" => "",
                             "class" => "form-check-input",
-                                ), $proposal, ($proposal === "") ? true : false);
+                        ), $proposal, ($proposal === "") ? true : false);
                         ?>
                         <label for="proposal_no"><?php echo app_lang("no"); ?> </label>
                     </div>
@@ -575,7 +575,7 @@
                             "name" => "proposal_permission",
                             "value" => "all",
                             "class" => "form-check-input",
-                                ), $proposal, ($proposal === "all") ? true : false);
+                        ), $proposal, ($proposal === "all") ? true : false);
                         ?>
                         <label for="proposal_yes"><?php echo app_lang("yes"); ?></label>
                     </div>
@@ -593,7 +593,7 @@
                             "name" => "expense_permission",
                             "value" => "",
                             "class" => "form-check-input",
-                                ), $expense, ($expense === "") ? true : false);
+                        ), $expense, ($expense === "") ? true : false);
                         ?>
                         <label for="expense_no"><?php echo app_lang("no"); ?> </label>
                     </div>
@@ -604,7 +604,7 @@
                             "name" => "expense_permission",
                             "value" => "all",
                             "class" => "form-check-input",
-                                ), $expense, ($expense === "all") ? true : false);
+                        ), $expense, ($expense === "all") ? true : false);
                         ?>
                         <label for="expense_yes"><?php echo app_lang("yes"); ?></label>
                     </div>
@@ -622,7 +622,7 @@
                             "name" => "client_permission",
                             "value" => "",
                             "class" => "client_permission toggle_specific form-check-input",
-                                ), $client, ($client === "") ? true : false);
+                        ), $client, ($client === "") ? true : false);
                         ?>
                         <label for="client_no"><?php echo app_lang("no"); ?> </label>
                     </div>
@@ -633,7 +633,7 @@
                             "name" => "client_permission",
                             "value" => "all",
                             "class" => "client_permission toggle_specific form-check-input",
-                                ), $client, ($client === "all") ? true : false);
+                        ), $client, ($client === "all") ? true : false);
                         ?>
                         <label for="client_yes"><?php echo app_lang("yes_all_clients"); ?></label>
                     </div>
@@ -644,7 +644,7 @@
                             "name" => "client_permission",
                             "value" => "own",
                             "class" => "client_permission toggle_specific form-check-input",
-                                ), $client, ($client === "own") ? true : false);
+                        ), $client, ($client === "own") ? true : false);
                         ?>
                         <label for="client_yes_own"><?php echo app_lang("yes_only_own_clients"); ?></label>
                     </div>
@@ -655,7 +655,7 @@
                             "name" => "client_permission",
                             "value" => "read_only",
                             "class" => "client_permission toggle_specific form-check-input",
-                                ), $client, ($client === "read_only") ? true : false);
+                        ), $client, ($client === "read_only") ? true : false);
                         ?>
                         <label for="client_read_only"><?php echo app_lang("read_only"); ?></label>
                     </div>
@@ -666,11 +666,11 @@
                             "name" => "client_permission",
                             "value" => "specific",
                             "class" => "client_permission toggle_specific form-check-input",
-                                ), $client, ($client === "specific") ? true : false);
+                        ), $client, ($client === "specific") ? true : false);
                         ?>
                         <label for="client_specific"><?php echo app_lang("yes_specific_client_groups"); ?>:</label>
                         <div class="specific_dropdown">
-                            <input type="text" value="<?php echo $client_specific; ?>" name="client_permission_specific" id="client_groups_specific_dropdown" class="w100p validate-hidden"  data-rule-required="true" data-msg-required="<?php echo app_lang('field_required'); ?>" placeholder="<?php echo app_lang('choose_client_groups'); ?>"  />
+                            <input type="text" value="<?php echo $client_specific; ?>" name="client_permission_specific" id="client_groups_specific_dropdown" class="w100p validate-hidden" data-rule-required="true" data-msg-required="<?php echo app_lang('field_required'); ?>" placeholder="<?php echo app_lang('choose_client_groups'); ?>" />
                         </div>
                     </div>
                 </li>
@@ -687,7 +687,7 @@
                             "name" => "lead_permission",
                             "value" => "",
                             "class" => "form-check-input",
-                                ), $lead, ($lead === "") ? true : false);
+                        ), $lead, ($lead === "") ? true : false);
                         ?>
                         <label for="lead_no"><?php echo app_lang("no"); ?> </label>
                     </div>
@@ -698,7 +698,7 @@
                             "name" => "lead_permission",
                             "value" => "all",
                             "class" => "form-check-input",
-                                ), $lead, ($lead === "all") ? true : false);
+                        ), $lead, ($lead === "all") ? true : false);
                         ?>
                         <label for="lead_yes"><?php echo app_lang("yes_all_leads"); ?></label>
                     </div>
@@ -709,14 +709,14 @@
                             "name" => "lead_permission",
                             "value" => "own",
                             "class" => "form-check-input",
-                                ), $lead, ($lead === "own") ? true : false);
+                        ), $lead, ($lead === "own") ? true : false);
                         ?>
                         <label for="lead_yes_own"><?php echo app_lang("yes_only_own_leads"); ?></label>
                     </div>
                 </li>
                 <li>
                     <span data-feather="key" class="icon-14 ml-20"></span>
-                    <h5><?php echo app_lang("can_access_tickets"); ?></h5>       
+                    <h5><?php echo app_lang("can_access_tickets"); ?></h5>
                     <div>
                         <?php
                         if (is_null($ticket)) {
@@ -727,7 +727,7 @@
                             "name" => "ticket_permission",
                             "value" => "",
                             "class" => "ticket_permission toggle_specific form-check-input",
-                                ), $ticket, ($ticket === "") ? true : false);
+                        ), $ticket, ($ticket === "") ? true : false);
                         ?>
                         <label for="ticket_permission_no"><?php echo app_lang("no"); ?> </label>
                     </div>
@@ -738,7 +738,7 @@
                             "name" => "ticket_permission",
                             "value" => "all",
                             "class" => "ticket_permission toggle_specific form-check-input",
-                                ), $ticket, ($ticket === "all") ? true : false);
+                        ), $ticket, ($ticket === "all") ? true : false);
                         ?>
                         <label for="ticket_permission_all"><?php echo app_lang("yes_all_tickets"); ?></label>
                     </div>
@@ -749,7 +749,7 @@
                             "name" => "ticket_permission",
                             "value" => "assigned_only",
                             "class" => "ticket_permission toggle_specific form-check-input",
-                                ), $ticket, ($ticket === "assigned_only") ? true : false);
+                        ), $ticket, ($ticket === "assigned_only") ? true : false);
                         ?>
                         <label for="ticket_permission_assigned_only"><?php echo app_lang("yes_assigned_tickets_only"); ?></label>
                     </div>
@@ -760,11 +760,11 @@
                             "name" => "ticket_permission",
                             "value" => "specific",
                             "class" => "ticket_permission toggle_specific form-check-input",
-                                ), $ticket, ($ticket === "specific") ? true : false);
+                        ), $ticket, ($ticket === "specific") ? true : false);
                         ?>
                         <label for="ticket_permission_specific"><?php echo app_lang("yes_specific_ticket_types"); ?>:</label>
                         <div class="specific_dropdown">
-                            <input type="text" value="<?php echo $ticket_specific; ?>" name="ticket_permission_specific" id="ticket_types_specific_dropdown" class="w100p validate-hidden"  data-rule-required="true" data-msg-required="<?php echo app_lang('field_required'); ?>" placeholder="<?php echo app_lang('choose_ticket_types'); ?>"  />
+                            <input type="text" value="<?php echo $ticket_specific; ?>" name="ticket_permission_specific" id="ticket_types_specific_dropdown" class="w100p validate-hidden" data-rule-required="true" data-msg-required="<?php echo app_lang('field_required'); ?>" placeholder="<?php echo app_lang('choose_ticket_types'); ?>" />
                         </div>
                     </div>
                 </li>
@@ -781,7 +781,7 @@
                             "name" => "announcement_permission",
                             "value" => "",
                             "class" => "form-check-input",
-                                ), $announcement, ($announcement === "") ? true : false);
+                        ), $announcement, ($announcement === "") ? true : false);
                         ?>
                         <label for="announcement_no"><?php echo app_lang("no"); ?> </label>
                     </div>
@@ -792,7 +792,7 @@
                             "name" => "announcement_permission",
                             "value" => "all",
                             "class" => "form-check-input",
-                                ), $announcement, ($announcement === "all") ? true : false);
+                        ), $announcement, ($announcement === "all") ? true : false);
                         ?>
                         <label for="announcement_yes"><?php echo app_lang("yes"); ?></label>
                     </div>
@@ -810,7 +810,7 @@
                             "name" => "order_permission",
                             "value" => "",
                             "class" => "form-check-input",
-                                ), $order, ($order === "") ? true : false);
+                        ), $order, ($order === "") ? true : false);
                         ?>
                         <label for="order_no"><?php echo app_lang("no"); ?> </label>
                     </div>
@@ -821,7 +821,7 @@
                             "name" => "order_permission",
                             "value" => "all",
                             "class" => "form-check-input",
-                                ), $order, ($order === "all") ? true : false);
+                        ), $order, ($order === "all") ? true : false);
                         ?>
                         <label for="order_yes"><?php echo app_lang("yes"); ?></label>
                     </div>
@@ -839,7 +839,7 @@
                             "name" => "help_and_knowledge_base",
                             "value" => "",
                             "class" => "form-check-input",
-                                ), $help_and_knowledge_base, ($help_and_knowledge_base === "") ? true : false);
+                        ), $help_and_knowledge_base, ($help_and_knowledge_base === "") ? true : false);
                         ?>
                         <label for="help_no"><?php echo app_lang("no"); ?> </label>
                     </div>
@@ -850,7 +850,7 @@
                             "name" => "help_and_knowledge_base",
                             "value" => "all",
                             "class" => "form-check-input",
-                                ), $help_and_knowledge_base, ($help_and_knowledge_base === "all") ? true : false);
+                        ), $help_and_knowledge_base, ($help_and_knowledge_base === "all") ? true : false);
                         ?>
                         <label for="help_yes"><?php echo app_lang("yes"); ?></label>
                     </div>
@@ -869,7 +869,7 @@
                             "name" => "job_info_manage_permission",
                             "value" => "",
                             "class" => "form-check-input",
-                                ), $job_info_manage_permission, ($job_info_manage_permission === "") ? true : false);
+                        ), $job_info_manage_permission, ($job_info_manage_permission === "") ? true : false);
                         ?>
                         <label for="job_info_manage_permission_no"><?php echo app_lang("no"); ?> </label>
                     </div>
@@ -880,7 +880,7 @@
                             "name" => "job_info_manage_permission",
                             "value" => "all",
                             "class" => "form-check-input",
-                                ), $job_info_manage_permission, ($job_info_manage_permission === "all") ? true : false);
+                        ), $job_info_manage_permission, ($job_info_manage_permission === "all") ? true : false);
                         ?>
                         <label for="job_info_manage_permission_yes"><?php echo app_lang("yes"); ?></label>
                     </div>
@@ -900,7 +900,7 @@
                         ?>
                         <label for="timeline_permission_specific_checkbox"><?php echo app_lang("can_see_timeline_posts_from_specific_members_or_teams"); ?></label>
                         <div class="specific_dropdown">
-                            <input type="text" value="<?php echo $timeline_permission_specific; ?>" name="timeline_permission_specific" id="timeline_permission_specific_dropdown" class="w100p validate-hidden"  data-rule-required="true" data-msg-required="<?php echo app_lang('field_required'); ?>" placeholder="<?php echo app_lang('choose_members_and_or_teams'); ?>"  />    
+                            <input type="text" value="<?php echo $timeline_permission_specific; ?>" name="timeline_permission_specific" id="timeline_permission_specific_dropdown" class="w100p validate-hidden" data-rule-required="true" data-msg-required="<?php echo app_lang('field_required'); ?>" placeholder="<?php echo app_lang('choose_members_and_or_teams'); ?>" />
                         </div>
                     </div>
                 </li>
@@ -918,11 +918,13 @@
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
         $("#permissions-form").appForm({
             isModal: false,
-            onSuccess: function (result) {
-                appAlert.success(result.message, {duration: 10000});
+            onSuccess: function(result) {
+                appAlert.success(result.message, {
+                    duration: 10000
+                });
             }
         });
 
@@ -931,7 +933,7 @@
             formatResult: teamAndMemberSelect2Format,
             formatSelection: teamAndMemberSelect2Format,
             data: <?php echo ($members_and_teams_dropdown); ?>
-        }).on('select2-open change', function (e) {
+        }).on('select2-open change', function(e) {
             feather.replace();
         });
 
@@ -944,7 +946,7 @@
 
         $('[data-bs-toggle="tooltip"]').tooltip();
 
-        $(".toggle_specific").click(function () {
+        $(".toggle_specific").click(function() {
             toggle_specific_dropdown();
         });
 
@@ -952,11 +954,11 @@
 
         function toggle_specific_dropdown() {
             var selectors = [".leave_permission", ".attendance_permission", ".timesheet_manage_permission", ".team_member_update_permission", ".ticket_permission", ".message_permission_specific", ".timeline_permission_specific", ".client_permission"];
-            $.each(selectors, function (index, element) {
+            $.each(selectors, function(index, element) {
                 var $element = $(element + ":checked");
-                if (((element !== ".message_permission_specific" && $element.val() === "specific") || (element === ".message_permission_specific" && $element.is(":checked") && !$("#message_permission_specific_area").hasClass("hide")))
-                        || ((element !== ".timeline_permission_specific" && $element.val() === "specific") || (element === ".timeline_permission_specific" && $element.is(":checked") && !$("#timeline_permission_specific_area").hasClass("hide")))
-                        || ($element.val() === "specific_excluding_own" && $element.is(":checked"))) {
+                if (((element !== ".message_permission_specific" && $element.val() === "specific") || (element === ".message_permission_specific" && $element.is(":checked") && !$("#message_permission_specific_area").hasClass("hide"))) ||
+                    ((element !== ".timeline_permission_specific" && $element.val() === "specific") || (element === ".timeline_permission_specific" && $element.is(":checked") && !$("#timeline_permission_specific_area").hasClass("hide"))) ||
+                    ($element.val() === "specific_excluding_own" && $element.is(":checked"))) {
 
                     $(element).closest("li").find(".specific_dropdown").hide().find("input").removeClass("validate-hidden"); //hide other active dropdown first
                     $element.closest("div").find(".specific_dropdown").show().find("input").addClass("validate-hidden");
@@ -968,7 +970,7 @@
         }
 
         //show/hide message permission checkbox
-        $("#message_permission_no").click(function () {
+        $("#message_permission_no").click(function() {
             if ($(this).is(":checked")) {
                 $("#message_permission_specific_area").addClass("hide");
             } else {
@@ -979,7 +981,7 @@
         });
 
         //show/hide role permission setting
-        $("#can_manage_all_kinds_of_settings").click(function () {
+        $("#can_manage_all_kinds_of_settings").click(function() {
             if ($(this).is(":checked")) {
                 $("#can_manage_user_role_and_permissions_container").removeClass("hide");
             } else {
@@ -987,7 +989,7 @@
             }
         });
 
-        $("#do_not_show_projects").click(function () {
+        $("#do_not_show_projects").click(function() {
             if ($(this).is(":checked")) {
                 $("#project_permission_details_area").addClass("hide");
             } else {
@@ -1003,7 +1005,7 @@
             $(manageAssignedTasksSection).addClass("hide");
         }
 
-        $(manageProjectSection).click(function () {
+        $(manageProjectSection).click(function() {
             if ($(this).is(":checked")) {
                 $(manageAssignedTasks).prop("checked", false);
                 $(manageAssignedTasksSection).addClass("hide");
@@ -1021,7 +1023,7 @@
             }
         });
 
-        $('.manage_project_section').change(function () {
+        $('.manage_project_section').change(function() {
             var checkedStatus = $('.manage_project_section:checkbox:checked').length > 0;
             if (!checkedStatus) {
                 $(manageAssignedTasksSection).removeClass("hide");
@@ -1029,7 +1031,7 @@
         }).change();
 
         //show/hide timeline permission checkbox
-        $("#timeline_permission_no").click(function () {
+        $("#timeline_permission_no").click(function() {
             if ($(this).is(":checked")) {
                 $("#timeline_permission_specific_area").addClass("hide");
             } else {

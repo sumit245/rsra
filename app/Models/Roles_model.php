@@ -2,16 +2,19 @@
 
 namespace App\Models;
 
-class Roles_model extends Crud_model {
+class Roles_model extends Crud_model
+{
 
     protected $table = null;
 
-    function __construct() {
+    function __construct()
+    {
         $this->table = 'roles';
         parent::__construct($this->table);
     }
 
-    function get_details($options = array()) {
+    function get_details($options = array())
+    {
         $roles_table = $this->db->prefixTable('roles');
 
         $where = "";
@@ -20,10 +23,7 @@ class Roles_model extends Crud_model {
             $where = " AND $roles_table.id=$id";
         }
 
-        $sql = "SELECT $roles_table.*
-        FROM $roles_table
-        WHERE $roles_table.deleted=0 $where";
+        $sql = "SELECT $roles_table.* FROM $roles_table WHERE $roles_table.deleted=0 $where";
         return $this->db->query($sql);
     }
-
 }

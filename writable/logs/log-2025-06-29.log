@@ -1,222 +1,153 @@
-ERROR - 2025-06-29 11:31:16 --> 
-              SELECT SQL_CALC_FOUND_ROWS invoice_number, rise_pur_invoices.vendor, rise_pur_invoices.pur_order, invoice_date, subtotal, tax, total, payment_request_status, payment_status, transactionid, rise_pur_invoices.id ,rise_pur_invoices.id as id,invoice_number,currency
-              FROM rise_pur_invoices
-              
-              
-              
-              
-              ORDER BY invoice_number ASC
-              LIMIT 0, 25
-              
-CRITICAL - 2025-06-29 11:31:16 --> Array
+CRITICAL - 2025-06-29 23:56:51 --> Final permissions: Array
 (
-)
-
-ERROR - 2025-06-29 11:31:22 --> 
-              SELECT SQL_CALC_FOUND_ROWS pur_order_number, vendor, order_date, project, department, total, approve_status, delivery_date, delivery_status, number, expense_convert ,rise_pur_orders.id as id,company,pur_order_number,expense_convert,rise_projects.title as project_name,rise_team.title as department_name,currency
-              FROM rise_pur_orders
-              LEFT JOIN rise_pur_vendor ON rise_pur_vendor.userid = rise_pur_orders.vendor LEFT JOIN rise_team ON rise_team.id = rise_pur_orders.department LEFT JOIN rise_projects ON rise_projects.id = rise_pur_orders.project
-              
-              
-              
-              ORDER BY order_date DESC
-              LIMIT 0, 25
-              
-CRITICAL - 2025-06-29 11:31:22 --> Array
-(
-    [0] => Array
+    [leave] => all
+    [leave_specific] => 
+    [attendance] => all
+    [attendance_specific] => 
+    [invoice] => 
+    [estimate] => 
+    [contract] => 
+    [proposal] => 
+    [expense] => 
+    [order] => 
+    [client] => 
+    [client_specific] => 
+    [lead] => 
+    [ticket] => all
+    [ticket_specific] => 
+    [announcement] => 
+    [help_and_knowledge_base] => 
+    [do_not_show_projects] => 1
+    [can_manage_all_projects] => 
+    [can_create_projects] => 
+    [can_edit_projects] => 
+    [can_edit_only_own_created_projects] => 
+    [can_delete_only_own_created_projects] => 
+    [can_delete_projects] => 
+    [can_add_remove_project_members] => 
+    [can_create_tasks] => 
+    [can_edit_tasks] => 
+    [can_delete_tasks] => 
+    [can_comment_on_tasks] => 
+    [show_assigned_tasks_only] => 
+    [can_update_only_assigned_tasks_status] => 
+    [can_create_milestones] => 
+    [can_edit_milestones] => 
+    [can_delete_milestones] => 
+    [can_delete_files] => 
+    [can_view_team_members_contact_info] => 1
+    [can_view_team_members_social_links] => 1
+    [team_member_update_permission] => all
+    [team_member_update_permission_specific] => 
+    [timesheet_manage_permission] => all
+    [timesheet_manage_permission_specific] => 
+    [disable_event_sharing] => 
+    [hide_team_members_list] => 1
+    [can_delete_leave_application] => 
+    [message_permission] => 
+    [message_permission_specific] => 
+    [job_info_manage_permission] => 
+    [can_manage_all_kinds_of_settings] => 
+    [can_manage_user_role_and_permissions] => 
+    [can_add_or_invite_new_team_members] => 1
+    [timeline_permission] => 
+    [timeline_permission_specific] => 
+    [purchase] => Array
         (
-            [pur_order_number] => WTB-00054-Jun-2025-VEND001
-            [vendor] => 1
-            [order_date] => 2025-06-25
-            [project] => 7
-            [department] => 1
-            [total] => 1379.40
-            [approve_status] => 2
-            [delivery_date] => 
-            [delivery_status] => 0
-            [number] => 54
-            [expense_convert] => 0
-            [id] => 4
-            [company] => OM TULSI ELECTRICALS
-            [project_name] => RS5201-2508
-            [department_name] => AUTOMATION
-            [currency] => INR
         )
 
-    [1] => Array
-        (
-            [pur_order_number] => WTB-00055-Jun-2025-VEND001
-            [vendor] => 1
-            [order_date] => 2025-06-25
-            [project] => 0
-            [department] => 1
-            [total] => 0.00
-            [approve_status] => 2
-            [delivery_date] => 
-            [delivery_status] => 0
-            [number] => 55
-            [expense_convert] => 0
-            [id] => 5
-            [company] => OM TULSI ELECTRICALS
-            [project_name] => 
-            [department_name] => AUTOMATION
-            [currency] => INR
-        )
-
-    [2] => Array
-        (
-            [pur_order_number] => WTB-00056-Jun-2025-VEND001
-            [vendor] => 1
-            [order_date] => 2025-06-25
-            [project] => 7
-            [department] => 1
-            [total] => 0.00
-            [approve_status] => 1
-            [delivery_date] => 
-            [delivery_status] => 0
-            [number] => 56
-            [expense_convert] => 0
-            [id] => 6
-            [company] => OM TULSI ELECTRICALS
-            [project_name] => RS5201-2508
-            [department_name] => AUTOMATION
-            [currency] => INR
-        )
-
-    [3] => Array
-        (
-            [pur_order_number] => WTB-00057-Jun-2025-VEND001
-            [vendor] => 1
-            [order_date] => 2025-06-25
-            [project] => 7
-            [department] => 1
-            [total] => 0.00
-            [approve_status] => 1
-            [delivery_date] => 
-            [delivery_status] => 0
-            [number] => 57
-            [expense_convert] => 0
-            [id] => 7
-            [company] => OM TULSI ELECTRICALS
-            [project_name] => RS5201-2508
-            [department_name] => AUTOMATION
-            [currency] => INR
-        )
-
-    [4] => Array
-        (
-            [pur_order_number] => WTB-00058-Jun-2025-VEND001
-            [vendor] => 1
-            [order_date] => 2025-06-25
-            [project] => 7
-            [department] => 1
-            [total] => 100000.00
-            [approve_status] => 2
-            [delivery_date] => 
-            [delivery_status] => 0
-            [number] => 58
-            [expense_convert] => 0
-            [id] => 8
-            [company] => OM TULSI ELECTRICALS
-            [project_name] => RS5201-2508
-            [department_name] => AUTOMATION
-            [currency] => INR
-        )
-
-    [5] => Array
-        (
-            [pur_order_number] => WTB-00059-Jun-2025-VEND001
-            [vendor] => 1
-            [order_date] => 2025-06-25
-            [project] => 7
-            [department] => 1
-            [total] => 79500.00
-            [approve_status] => 1
-            [delivery_date] => 
-            [delivery_status] => 0
-            [number] => 59
-            [expense_convert] => 0
-            [id] => 9
-            [company] => OM TULSI ELECTRICALS
-            [project_name] => RS5201-2508
-            [department_name] => AUTOMATION
-            [currency] => INR
-        )
-
-    [6] => Array
-        (
-            [pur_order_number] => WTB-00053-Jun-2025-#123
-            [vendor] => 8
-            [order_date] => 2025-06-20
-            [project] => 7
-            [department] => 0
-            [total] => 0.00
-            [approve_status] => 2
-            [delivery_date] => 
-            [delivery_status] => 0
-            [number] => 53
-            [expense_convert] => 0
-            [id] => 3
-            [company] => ABC
-            [project_name] => RS5201-2508
-            [department_name] => 
-            [currency] => INR
-        )
-
-    [7] => Array
-        (
-            [pur_order_number] => WTB-00052-Jun-2025-VEND0043
-            [vendor] => 7
-            [order_date] => 2025-06-19
-            [project] => 3
-            [department] => 1
-            [total] => 1379.40
-            [approve_status] => 2
-            [delivery_date] => 
-            [delivery_status] => 0
-            [number] => 52
-            [expense_convert] => 0
-            [id] => 2
-            [company] => RSDY
-            [project_name] => Automatice Soap Dispensor Machine Jig
-            [department_name] => AUTOMATION
-            [currency] => INR
-        )
-
-    [8] => Array
-        (
-            [pur_order_number] => WTB-00051-Jun-2025-VEND0043
-            [vendor] => 7
-            [order_date] => 2025-06-16
-            [project] => 5
-            [department] => 0
-            [total] => 1379.40
-            [approve_status] => 1
-            [delivery_date] => 2025-06-17
-            [delivery_status] => 1
-            [number] => 51
-            [expense_convert] => 0
-            [id] => 1
-            [company] => RSDY
-            [project_name] => Robotic Cell
-            [department_name] => 
-            [currency] => INR
-        )
-
-)
-
-ERROR - 2025-06-29 11:31:59 --> 
-              SELECT SQL_CALC_FOUND_ROWS invoice_number, rise_pur_invoices.vendor, rise_pur_invoices.pur_order, invoice_date, subtotal, tax, total, payment_request_status, payment_status, transactionid, rise_pur_invoices.id ,rise_pur_invoices.id as id,invoice_number,currency
-              FROM rise_pur_invoices
-              
-              
-              
-              
-              ORDER BY invoice_number ASC
-              LIMIT 0, 25
-              
-CRITICAL - 2025-06-29 11:31:59 --> Array
-(
+    [hr_profile_can_view_global_hr_dashboard] => 
+    [hr_profile_can_view_own_organizational_chart] => 
+    [hr_profile_can_view_global_organizational_chart] => 
+    [hr_profile_can_create_organizational_chart] => 
+    [hr_profile_can_edit_organizational_chart] => 
+    [hr_profile_can_delete_organizational_chart] => 
+    [hr_profile_can_view_own_onboarding] => 
+    [hr_profile_can_view_global_onboarding] => 
+    [hr_profile_can_create_onboarding] => 
+    [hr_profile_can_edit_onboarding] => 
+    [hr_profile_can_delete_onboarding] => 
+    [hr_profile_can_view_own_hr_records] => 
+    [hr_profile_can_view_global_hr_records] => 
+    [hr_profile_can_create_hr_records] => 
+    [hr_profile_can_edit_hr_records] => 
+    [hr_profile_can_delete_hr_records] => 
+    [hr_profile_can_view_own_job_description] => 
+    [hr_profile_can_view_global_job_description] => 
+    [hr_profile_can_create_job_description] => 
+    [hr_profile_can_edit_job_description] => 
+    [hr_profile_can_delete_job_description] => 
+    [hr_profile_can_view_own_hr_training] => 
+    [hr_profile_can_view_global_hr_training] => 
+    [hr_profile_can_create_hr_training] => 
+    [hr_profile_can_edit_hr_training] => 
+    [hr_profile_can_delete_hr_training] => 
+    [hr_profile_can_view_own_hr_contract] => 
+    [hr_profile_can_view_global_hr_contract] => 
+    [hr_profile_can_create_hr_contract] => 
+    [hr_profile_can_edit_hr_contract] => 
+    [hr_profile_can_delete_hr_contract] => 
+    [hr_profile_can_view_own_dependent_persons] => 
+    [hr_profile_can_view_global_dependent_persons] => 
+    [hr_profile_can_create_dependent_persons] => 
+    [hr_profile_can_edit_dependent_persons] => 
+    [hr_profile_can_delete_dependent_persons] => 
+    [hr_profile_can_view_own_layoff_checklists] => 
+    [hr_profile_can_view_global_layoff_checklists] => 
+    [hr_profile_can_create_layoff_checklists] => 
+    [hr_profile_can_edit_layoff_checklists] => 
+    [hr_profile_can_delete_layoff_checklists] => 
+    [hr_profile_can_view_global_report] => 
+    [hr_profile_can_view_global_setting] => 
+    [hr_profile_can_create_setting] => 
+    [hr_profile_can_edit_setting] => 
+    [hr_profile_can_delete_setting] => 
+    [hr_payroll_can_view_own_hrp_employee] => 
+    [hr_payroll_can_view_global_hrp_employee] => 
+    [hr_payroll_can_create_hrp_employee] => 
+    [hr_payroll_can_edit_hrp_employee] => 
+    [hr_payroll_can_delete_hrp_employee] => 
+    [hr_payroll_can_view_own_hrp_attendance] => 
+    [hr_payroll_can_view_global_hrp_attendance] => 
+    [hr_payroll_can_create_hrp_attendance] => 
+    [hr_payroll_can_edit_hrp_attendance] => 
+    [hr_payroll_can_delete_hrp_attendance] => 
+    [hr_payroll_can_view_own_hrp_commission] => 
+    [hr_payroll_can_view_global_hrp_commission] => 
+    [hr_payroll_can_create_hrp_commission] => 
+    [hr_payroll_can_edit_hrp_commission] => 
+    [hr_payroll_can_delete_hrp_commission] => 
+    [hr_payroll_can_view_own_hrp_deduction] => 
+    [hr_payroll_can_view_global_hrp_deduction] => 
+    [hr_payroll_can_create_hrp_deduction] => 
+    [hr_payroll_can_edit_hrp_deduction] => 
+    [hr_payroll_can_delete_hrp_deduction] => 
+    [hr_payroll_can_view_own_hrp_bonus_kpi] => 
+    [hr_payroll_can_view_global_hrp_bonus_kpi] => 
+    [hr_payroll_can_create_hrp_bonus_kpi] => 
+    [hr_payroll_can_edit_hrp_bonus_kpi] => 
+    [hr_payroll_can_delete_hrp_bonus_kpi] => 
+    [hr_payroll_can_view_own_hrp_insurrance] => 
+    [hr_payroll_can_view_global_hrp_insurrance] => 
+    [hr_payroll_can_create_hrp_insurrance] => 
+    [hr_payroll_can_edit_hrp_insurrance] => 
+    [hr_payroll_can_delete_hrp_insurrance] => 
+    [hr_payroll_can_view_own_hrp_payslip] => 
+    [hr_payroll_can_view_global_hrp_payslip] => 
+    [hr_payroll_can_create_hrp_payslip] => 
+    [hr_payroll_can_edit_hrp_payslip] => 
+    [hr_payroll_can_delete_hrp_payslip] => 
+    [hr_payroll_can_view_own_hrp_payslip_template] => 
+    [hr_payroll_can_view_global_hrp_payslip_template] => 
+    [hr_payroll_can_create_hrp_payslip_template] => 
+    [hr_payroll_can_edit_hrp_payslip_template] => 
+    [hr_payroll_can_delete_hrp_payslip_template] => 
+    [hr_payroll_can_view_own_hrp_income_tax] => 
+    [hr_payroll_can_view_global_hrp_income_tax] => 
+    [hr_payroll_can_view_global_hrp_report] => 
+    [hr_payroll_can_view_global_hrp_setting] => 
+    [hr_payroll_can_create_hrp_setting] => 
+    [hr_payroll_can_edit_hrp_setting] => 
+    [hr_payroll_can_delete_hrp_setting] => 
 )
 
