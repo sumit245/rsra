@@ -1,0 +1,222 @@
+ERROR - 2025-06-29 11:31:16 --> 
+              SELECT SQL_CALC_FOUND_ROWS invoice_number, rise_pur_invoices.vendor, rise_pur_invoices.pur_order, invoice_date, subtotal, tax, total, payment_request_status, payment_status, transactionid, rise_pur_invoices.id ,rise_pur_invoices.id as id,invoice_number,currency
+              FROM rise_pur_invoices
+              
+              
+              
+              
+              ORDER BY invoice_number ASC
+              LIMIT 0, 25
+              
+CRITICAL - 2025-06-29 11:31:16 --> Array
+(
+)
+
+ERROR - 2025-06-29 11:31:22 --> 
+              SELECT SQL_CALC_FOUND_ROWS pur_order_number, vendor, order_date, project, department, total, approve_status, delivery_date, delivery_status, number, expense_convert ,rise_pur_orders.id as id,company,pur_order_number,expense_convert,rise_projects.title as project_name,rise_team.title as department_name,currency
+              FROM rise_pur_orders
+              LEFT JOIN rise_pur_vendor ON rise_pur_vendor.userid = rise_pur_orders.vendor LEFT JOIN rise_team ON rise_team.id = rise_pur_orders.department LEFT JOIN rise_projects ON rise_projects.id = rise_pur_orders.project
+              
+              
+              
+              ORDER BY order_date DESC
+              LIMIT 0, 25
+              
+CRITICAL - 2025-06-29 11:31:22 --> Array
+(
+    [0] => Array
+        (
+            [pur_order_number] => WTB-00054-Jun-2025-VEND001
+            [vendor] => 1
+            [order_date] => 2025-06-25
+            [project] => 7
+            [department] => 1
+            [total] => 1379.40
+            [approve_status] => 2
+            [delivery_date] => 
+            [delivery_status] => 0
+            [number] => 54
+            [expense_convert] => 0
+            [id] => 4
+            [company] => OM TULSI ELECTRICALS
+            [project_name] => RS5201-2508
+            [department_name] => AUTOMATION
+            [currency] => INR
+        )
+
+    [1] => Array
+        (
+            [pur_order_number] => WTB-00055-Jun-2025-VEND001
+            [vendor] => 1
+            [order_date] => 2025-06-25
+            [project] => 0
+            [department] => 1
+            [total] => 0.00
+            [approve_status] => 2
+            [delivery_date] => 
+            [delivery_status] => 0
+            [number] => 55
+            [expense_convert] => 0
+            [id] => 5
+            [company] => OM TULSI ELECTRICALS
+            [project_name] => 
+            [department_name] => AUTOMATION
+            [currency] => INR
+        )
+
+    [2] => Array
+        (
+            [pur_order_number] => WTB-00056-Jun-2025-VEND001
+            [vendor] => 1
+            [order_date] => 2025-06-25
+            [project] => 7
+            [department] => 1
+            [total] => 0.00
+            [approve_status] => 1
+            [delivery_date] => 
+            [delivery_status] => 0
+            [number] => 56
+            [expense_convert] => 0
+            [id] => 6
+            [company] => OM TULSI ELECTRICALS
+            [project_name] => RS5201-2508
+            [department_name] => AUTOMATION
+            [currency] => INR
+        )
+
+    [3] => Array
+        (
+            [pur_order_number] => WTB-00057-Jun-2025-VEND001
+            [vendor] => 1
+            [order_date] => 2025-06-25
+            [project] => 7
+            [department] => 1
+            [total] => 0.00
+            [approve_status] => 1
+            [delivery_date] => 
+            [delivery_status] => 0
+            [number] => 57
+            [expense_convert] => 0
+            [id] => 7
+            [company] => OM TULSI ELECTRICALS
+            [project_name] => RS5201-2508
+            [department_name] => AUTOMATION
+            [currency] => INR
+        )
+
+    [4] => Array
+        (
+            [pur_order_number] => WTB-00058-Jun-2025-VEND001
+            [vendor] => 1
+            [order_date] => 2025-06-25
+            [project] => 7
+            [department] => 1
+            [total] => 100000.00
+            [approve_status] => 2
+            [delivery_date] => 
+            [delivery_status] => 0
+            [number] => 58
+            [expense_convert] => 0
+            [id] => 8
+            [company] => OM TULSI ELECTRICALS
+            [project_name] => RS5201-2508
+            [department_name] => AUTOMATION
+            [currency] => INR
+        )
+
+    [5] => Array
+        (
+            [pur_order_number] => WTB-00059-Jun-2025-VEND001
+            [vendor] => 1
+            [order_date] => 2025-06-25
+            [project] => 7
+            [department] => 1
+            [total] => 79500.00
+            [approve_status] => 1
+            [delivery_date] => 
+            [delivery_status] => 0
+            [number] => 59
+            [expense_convert] => 0
+            [id] => 9
+            [company] => OM TULSI ELECTRICALS
+            [project_name] => RS5201-2508
+            [department_name] => AUTOMATION
+            [currency] => INR
+        )
+
+    [6] => Array
+        (
+            [pur_order_number] => WTB-00053-Jun-2025-#123
+            [vendor] => 8
+            [order_date] => 2025-06-20
+            [project] => 7
+            [department] => 0
+            [total] => 0.00
+            [approve_status] => 2
+            [delivery_date] => 
+            [delivery_status] => 0
+            [number] => 53
+            [expense_convert] => 0
+            [id] => 3
+            [company] => ABC
+            [project_name] => RS5201-2508
+            [department_name] => 
+            [currency] => INR
+        )
+
+    [7] => Array
+        (
+            [pur_order_number] => WTB-00052-Jun-2025-VEND0043
+            [vendor] => 7
+            [order_date] => 2025-06-19
+            [project] => 3
+            [department] => 1
+            [total] => 1379.40
+            [approve_status] => 2
+            [delivery_date] => 
+            [delivery_status] => 0
+            [number] => 52
+            [expense_convert] => 0
+            [id] => 2
+            [company] => RSDY
+            [project_name] => Automatice Soap Dispensor Machine Jig
+            [department_name] => AUTOMATION
+            [currency] => INR
+        )
+
+    [8] => Array
+        (
+            [pur_order_number] => WTB-00051-Jun-2025-VEND0043
+            [vendor] => 7
+            [order_date] => 2025-06-16
+            [project] => 5
+            [department] => 0
+            [total] => 1379.40
+            [approve_status] => 1
+            [delivery_date] => 2025-06-17
+            [delivery_status] => 1
+            [number] => 51
+            [expense_convert] => 0
+            [id] => 1
+            [company] => RSDY
+            [project_name] => Robotic Cell
+            [department_name] => 
+            [currency] => INR
+        )
+
+)
+
+ERROR - 2025-06-29 11:31:59 --> 
+              SELECT SQL_CALC_FOUND_ROWS invoice_number, rise_pur_invoices.vendor, rise_pur_invoices.pur_order, invoice_date, subtotal, tax, total, payment_request_status, payment_status, transactionid, rise_pur_invoices.id ,rise_pur_invoices.id as id,invoice_number,currency
+              FROM rise_pur_invoices
+              
+              
+              
+              
+              ORDER BY invoice_number ASC
+              LIMIT 0, 25
+              
+CRITICAL - 2025-06-29 11:31:59 --> Array
+(
+)
+

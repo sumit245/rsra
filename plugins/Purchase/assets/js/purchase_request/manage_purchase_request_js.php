@@ -13,7 +13,7 @@
     };
 
 
-    initDataTable('.table-table_pur_request', "<?php echo get_uri('purchase/table_pur_request') ?>", [0], [0], Params, [0, 'desc']);
+    initDataTable('.table-table_pur_request', "<?php echo get_uri('purchase/table_pur_request') ?>", [], [0], Params, [0, 'desc']);
 
     $.each(Params, function(i, obj) {
       $('select' + obj).on('change', function() {

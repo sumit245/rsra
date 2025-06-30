@@ -103,7 +103,7 @@ foreach ($rResult as $aRow) {
         <button class="btn btn-default dropdown-toggle caret mt0 mb0" type="button" data-bs-toggle="dropdown" aria-expanded="true" data-bs-display="static">
         <i data-feather="tool" class="icon-16"></i>
         </button>
-        <ul class="dropdown-menu dropdown-menu-end" role="menu">' . $edit . $delete . '</ul>
+        <ul class="dropdown-menu dropdown-menu-end" role="menu">'  . $delete . '</ul>
         </span>';
     } else {
         $_data = '';

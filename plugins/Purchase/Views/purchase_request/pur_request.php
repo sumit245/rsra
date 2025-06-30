@@ -97,8 +97,8 @@
 
         <div class="row mx-1">
           <div class="col-md-3 form-group">
-            <label for="project"><?php echo _l('project'); ?></label>
-            <select name="project" id="project" class="select2 validate-hidden" data-live-search="true" data-width="100%" data-none-selected-text="<?php echo _l('ticket_settings_none_assigned'); ?>">
+            <label for="project"> <small class="text-danger">* </small><?php echo _l('project'); ?></label>
+            <select name="project" id="project" class="select2 validate-hidden" data-live-search="true" data-width="100%" data-none-selected-text="<?php echo _l('ticket_settings_none_assigned'); ?>" required>
               <option value="">-</option>
               <?php foreach ($projects as $s) { ?>
                 <option value="<?php echo html_entity_decode($s['id']); ?>" <?php if (isset($pur_request) && $s['id'] == $pur_request->project) {

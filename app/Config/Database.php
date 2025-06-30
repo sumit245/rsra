@@ -34,7 +34,7 @@ class Database extends Config
 		'DSN'      => '',
 		'hostname' => 'localhost',
 		'username' => 'u552479110_root',
-		'password' => ':N+d4&rj4Er+',
+		'password' => 'X@ngy0?D',
 		'database' => 'u552479110_rsrobotics',
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => 'rise_',

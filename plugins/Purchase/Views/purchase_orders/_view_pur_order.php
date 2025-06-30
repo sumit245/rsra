@@ -290,6 +290,7 @@
                             </table>
                          </div>   
                        </div>
+                       
                      <?php if($estimate->vendornote != ''){ ?>
                      <div class="col-md-12 mtop15">
                         <p class="bold text-muted"><?php echo _l('estimate_note'); ?></p>
@@ -304,6 +305,55 @@
                      </div>
                      <?php } ?>
                   </div>
+                   <div role="tabpanel" class="tab-pane <?php if (isset($_GET['tab']) && $_GET['tab'] == 'comments') {
+                                                    echo 'active';
+                                                  } ?>" id="comments">
+                <div class="row ml15 mr15 mt25">
+                  <div class="col-md-12">
+                    <div class="row">
+                      <p class="bold p_style">Comments</p>
+                      <hr class="hr_style" />
+                      <div id="comments-list">
+                        <?php
+                        if (isset($pur_order_comments) && !empty($pur_order_comments)) {
+                          foreach ($pur_order_comments as $comment) { ?>
+                            <div class="comment mb15">
+                              <div class="comment-header">
+                                <strong><?php echo html_entity_decode($comment['user_name']); ?></strong> -
+                                <span class="text-muted"><?php echo format_to_date($comment['created_at']); ?></span>
+                              </div>
+                              <div class="comment-body">
+                                <?php echo nl2br(html_entity_decode($comment['comment'])); ?>
+                              </div>
+                            </div>
+                          <?php }
+                        } else { ?>
+                          <div class="no-comments text-muted">
+                            <em>No comments yet.</em>
+                          </div>
+                        <?php } ?>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row ml15 mr15 mt25">
+                  <div class="col-md-12">
+                    <div class="row">
+                      <p class="bold p_style">Add Comment</p>
+                      <hr class="hr_style" />
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <textarea id="comment_content" class="form-control" rows="3" placeholder="Type your comment here"></textarea>
+                        </div>
+                        <button type="button" id="add-comment-btn" onclick="addPurchaseOrderComment();" class="btn btn-info">
+                          Add comment
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  
                   <?php if($user_type == 'staff'){ ?>
 
                   <?php if(count($list_approve_status) > 0 ){ ?>
@@ -514,5 +564,66 @@
       </div><!-- /.modal-content -->
    </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+<script>
+   function addPurchaseOrderComment() {
+    var comment = $('#comment_content').val().trim();
 
+    if (comment === '') {
+        alert('Please enter a comment');
+        return;
+    }
+
+    var button = $('#add-comment-btn');
+    var originalText = button.text();
+    button.text('Adding...').prop('disabled', true);
+
+    $.ajax({
+        url: '<?php echo admin_url('purchase/add_comment'); ?>',
+        type: 'POST',
+        data: {
+            comment: comment,
+            related_id: <?php echo isset($estimate) ? $estimate->id : 0; ?>,
+            comment_type: 'pur_order'
+        },
+        dataType: 'json',
+        success: function(response) {
+            if (response.success) {
+                $('#comment_content').val('');
+
+                var currentDate = new Date();
+                var formattedDate = currentDate.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+
+                var commentHtml = '<div class="comment mb15">' +
+                    '<div class="comment-header">' +
+                    '<strong>' + response.comment.user_name + '</strong> - ' +
+                    '<span class="text-muted">' + formattedDate + '</span>' +
+                    '</div>' +
+                    '<div class="comment-body">' +
+                    response.comment.comment.replace(/\n/g, '<br>') +
+                    '</div>' +
+                    '</div>';
+
+                $('.no-comments').remove();
+                $('#comments-list').prepend(commentHtml);
+
+            } else {
+                alert('Error: ' + response.message);
+            }
+        },
+        error: function(xhr, status, error) {
+            console.log('AJAX Error:', xhr.responseText);
+            alert('An error occurred while adding the comment');
+        },
+        complete: function() {
+            button.text(originalText).prop('disabled', false);
+        }
+    });
+}
+</script>
 <?php require FCPATH. PLUGIN_URL_PATH . "Purchase/assets/js/purchase_orders/pur_order_preview_js.php";  ?>

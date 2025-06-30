@@ -2243,9 +2243,7 @@ class Purchase extends Security_Controller
   {
 
     $item                   = $this->Purchase_model->get_item_v2($id);
-
     $html = '<option value=""></option>';
-
     echo json_encode([
       'item_id' => $id,
       'item_title' => $item->title ?? '',
@@ -2271,6 +2269,25 @@ class Purchase extends Security_Controller
 
     echo json_encode($item);
   }
+
+  public function get_item_by_id_1($id, $currency_rate = 1)
+  {
+
+    $item                   = $this->Purchase_model->get_item_v2($id);
+    $html = '<option value=""></option>';
+    echo json_encode([
+      'item_id' => $id,
+      'item_title' => $item->title ?? '',
+      'item_code'  => $item->commodity_code ?? '',
+      'sku_code'   => $item->sku_code ?? '',
+      'sku_name'   => $item->sku_name ?? '',
+      'unit_id'    => $item->unit_id ?? '',
+      'unit_name'  => $item->unit_name ?? '',
+      'description' => $item->description ?? ''
+    ]);
+  }
+
+
 
   /**
    * Gets the purchase request row template.
@@ -2679,50 +2696,61 @@ public function get_pur_request_items()
    * @return json
    */
   public function add_comment()
-  {
+{
     $this->response->setContentType('application/json');
 
     if ($this->request->getMethod() === 'post') {
-      $comment = $this->request->getPost('comment');
-      $pur_request_id = $this->request->getPost('pur_request_id');
+        $comment = $this->request->getPost('comment');
+        $related_id = $this->request->getPost('related_id');
+        $comment_type = $this->request->getPost('comment_type'); // 'pur_request' or 'pur_order'
 
-      if (empty($comment) || empty($pur_request_id)) {
-        echo json_encode([
-          'success' => false,
-          'message' => 'Comment content and purchase request ID are required'
-        ]);
-        return;
-      }
+        if (empty($comment) || empty($related_id) || empty($comment_type)) {
+            echo json_encode([
+                'success' => false,
+                'message' => 'Comment content, ID and type are required'
+            ]);
+            return;
+        }
 
-      $comment_data = [
-        'pur_request_id' => $pur_request_id,
-        'comment' => $comment,
-        'user_id' => get_staff_user_id(),
-        'user_name' => get_staff_full_name(get_staff_user_id()),
-        'created_at' => date('Y-m-d H:i:s')
-      ];
+        // Validate comment_type
+        if (!in_array($comment_type, ['pur_request', 'pur_order'])) {
+            echo json_encode([
+                'success' => false,
+                'message' => 'Invalid comment type'
+            ]);
+            return;
+        }
 
-      $comment_id = $this->Purchase_model->add_comment($comment_data);
+        $comment_data = [
+            'related_id' => $related_id,
+            'comment_type' => $comment_type,
+            'comment' => $comment,
+            'user_id' => get_staff_user_id(),
+            'user_name' => get_staff_full_name(get_staff_user_id()),
+            'created_at' => date('Y-m-d H:i:s')
+        ];
 
-      if ($comment_id) {
-        echo json_encode([
-          'success' => true,
-          'message' => 'Comment added successfully',
-          'comment' => $comment_data
-        ]);
-      } else {
-        echo json_encode([
-          'success' => false,
-          'message' => 'Failed to add comment to database'
-        ]);
-      }
+        $comment_id = $this->Purchase_model->add_comment($comment_data);
+
+        if ($comment_id) {
+            echo json_encode([
+                'success' => true,
+                'message' => 'Comment added successfully',
+                'comment' => $comment_data
+            ]);
+        } else {
+            echo json_encode([
+                'success' => false,
+                'message' => 'Failed to add comment to database'
+            ]);
+        }
     } else {
-      echo json_encode([
-        'success' => false,
-        'message' => 'Invalid request method'
-      ]);
+        echo json_encode([
+            'success' => false,
+            'message' => 'Invalid request method'
+        ]);
     }
-  }
+}
   public function send_mail()
   {
     $data = $this->request->getGet();
@@ -3770,63 +3798,64 @@ public function get_pur_request_items()
    *
    * @param      <type>  $id     The identifier
    */
-  public function view_pur_order($id)
-  {
-
-    if (! $id) {
-      die('No purchase order found');
+ public function view_pur_order($id)
+{
+    if (!$id) {
+        die('No purchase order found');
     }
 
     $estimate = $this->Purchase_model->get_pur_order($id);
-    if (! $estimate) {
-      show_404();
+    if (!$estimate) {
+        show_404();
     }
 
     $data['user_type'] = $this->login_user->user_type;
 
     if ($data['user_type'] == 'vendor') {
-      $vendor_id = get_vendor_user_id();
-      if ($estimate->vendor != $vendor_id) {
-        show_404();
-      }
+        $vendor_id = get_vendor_user_id();
+        if ($estimate->vendor != $vendor_id) {
+            show_404();
+        }
     }
 
     $data['pur_order_attachments'] = $this->Purchase_model->get_purchase_order_attachments($id);
-    $data['estimate_detail']       = $this->Purchase_model->get_pur_order_detail($id);
-    $data['estimate']              = $estimate;
+    $data['estimate_detail'] = $this->Purchase_model->get_pur_order_detail($id);
+    $data['estimate'] = $estimate;
 
-    $users_model     = model("App\Models\Users_model", false);
-    $team_members    = $this->Users_model->get_all_where(["deleted" => 0, "user_type" => "staff"])->getResult();
+    $users_model = model("App\Models\Users_model", false);
+    $team_members = $this->Users_model->get_all_where(["deleted" => 0, "user_type" => "staff"])->getResult();
     $data['members'] = [];
     foreach ($team_members as $team_member) {
-      $data['members'][] = ["id" => $team_member->id, "text" => $team_member->first_name . " " . $team_member->last_name];
+        $data['members'][] = ["id" => $team_member->id, "text" => $team_member->first_name . " " . $team_member->last_name];
     }
 
     $data['vendor_contacts'] = [];
 
-    $session           = \Config\Services::session();
+    $session = \Config\Services::session();
     $send_mail_approve = $session->has("send_mail_approve");
     if (($send_mail_approve) && $session->get("send_mail_approve") != '') {
-
-      $data['send_mail_approve'] = $session->get("send_mail_approve");
-      $session->remove("send_mail_approve");
+        $data['send_mail_approve'] = $session->get("send_mail_approve");
+        $session->remove("send_mail_approve");
     }
 
     $data['title'] = $estimate->pur_order_name;
 
-    $data['check_appr']           = $this->Purchase_model->get_approve_setting('pur_order');
-    $data['get_staff_sign']       = $this->Purchase_model->get_staff_sign($id, 'pur_order');
+    $data['check_appr'] = $this->Purchase_model->get_approve_setting('pur_order');
+    $data['get_staff_sign'] = $this->Purchase_model->get_staff_sign($id, 'pur_order');
     $data['check_approve_status'] = $this->Purchase_model->check_approval_details($id, 'pur_order');
-    $data['list_approve_status']  = $this->Purchase_model->get_list_approval_details($id, 'pur_order');
-    $data['tax_data']             = $this->Purchase_model->get_html_tax_pur_order($id);
+    $data['list_approve_status'] = $this->Purchase_model->get_list_approval_details($id, 'pur_order');
+    $data['tax_data'] = $this->Purchase_model->get_html_tax_pur_order($id);
+
+    // Add comments data for purchase order
+    $data['pur_order_comments'] = $this->Purchase_model->get_comments($id, 'pur_order');
 
     $data['tab'] = $this->request->getGet('tab');
     if ($data['tab'] == '') {
-      $data['tab'] = 'tab_estimate';
+        $data['tab'] = 'tab_estimate';
     }
 
     return $this->template->rander("Purchase\Views\purchase_orders\_view_pur_order", $data);
-  }
+}
 
   /**
    * Uploads a purchase order attachment.
