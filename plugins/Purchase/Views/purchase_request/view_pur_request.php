@@ -93,12 +93,10 @@
                 <td class="bold"><?php echo _l('request_date'); ?></td>
                 <td><?php echo format_to_date($pur_request->request_date); ?></td>
               </tr>
-              <?php if ($user_type == 'staff') { ?>
+              <?php if ($user_type == 'staff' && $pur_request->status == 2) { ?>
                 <tr>
                   <td class="bold"><?php echo _l('pdf'); ?></td>
                   <td>
-
-
                     <span class="dropdown inline-block">
                       <button class="btn btn-default dropdown-toggle caret mt0 mb0" type="button" data-bs-toggle="dropdown" aria-expanded="true" data-bs-display="static">
                         <i data-feather="file-text" class="icon-16"></i>
@@ -109,7 +107,6 @@
                         <li role="presentation"><a href="<?php echo admin_url('purchase/pur_request_pdf/' . $pur_request->id); ?>" class="dropdown-item"><?php echo _l('download'); ?></a></li>
                       </ul>
                     </span>
-
                   </td>
                 </tr>
               <?php } ?>
@@ -241,7 +238,7 @@
           </div>
         </div>
         <?php echo form_hidden('request_detail'); ?>
-      <?php echo form_hidden('request_detail'); ?>
+        <?php echo form_hidden('request_detail'); ?>
 
         <div class="row ml15 mr15 mt25">
           <div class="col-md-12">
