@@ -70,7 +70,7 @@ $result = data_tables_purchase($aColumns, $sIndexColumn, $sTable, $join, $where,
 
 $output  = $result['output'];
 $rResult = $result['rResult'];
-// log_message('critical', print_r($rResult, true));
+log_message('critical', print_r($rResult, true));
 
 foreach ($rResult as $aRow) {
    $row = [];

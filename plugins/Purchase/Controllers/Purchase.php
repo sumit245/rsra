@@ -2255,6 +2255,7 @@ class Purchase extends Security_Controller
       'description' => $item->description ?? ''
     ]);
   }
+
   public function get_item_by_id1($id, $currency_rate = 1)
   {
 
@@ -3662,14 +3663,15 @@ class Purchase extends Security_Controller
       $pur_order_data          = $this->request->getPost();
       $pur_order_data['terms'] = nl2br($pur_order_data['terms']);
       if ($id == '') {
-
         $id = $this->Purchase_model->add_pur_order($pur_order_data);
         if ($id) {
           $this->session->setFlashdata("success_message", app_lang("added_successfully"));
           app_redirect('purchase/purchase_orders');
+        } else {
+          $this->session->setFlashdata('error_message', 'Project budget is lower than expense');
+          app_redirect('purchase/purchase_orders');
         }
       } else {
-
         $success = $this->Purchase_model->update_pur_order($pur_order_data, $id);
         if ($success) {
           $this->session->setFlashdata("success_message", app_lang("updated_successfully"));

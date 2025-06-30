@@ -5513,11 +5513,11 @@ class Purchase_model extends Crud_model
     $prefix = get_setting('pur_order_prefix');
     $builder = $this->db->table('pur_orders');
     $builder->where('pur_order_number', $data['pur_order_number']);
-    log_message('critical', print_r($builder, true));
     $check_exist_number = $builder->get()->getRow();
 
     while ($check_exist_number) {
       $data['number']           = $data['number'] + 1;
+
       $data['pur_order_number'] = $prefix . '-' . str_pad($data['number'], 5, '0', STR_PAD_LEFT) . '-' . date('M-Y') . '-' . get_vendor_company_name($data['vendor']);
       if (get_setting('po_only_prefix_and_number') == 1) {
         $data['pur_order_number'] = $prefix . '-' . str_pad($data['number'], 5, '0', STR_PAD_LEFT);
@@ -5575,7 +5575,30 @@ class Purchase_model extends Crud_model
       // Update next purchase order number in settings
       $next_number = $data['number'] + 1;
       update_setting('next_purchase_order_number', $next_number);
+      $project_id = isset($data['project']) ? $data['project'] : null;
+      log_message("critical", "Updating expenditure for project" . $project_id);
+      if ($project_id) {
+        $po_total = isset($data['total']) ? $data['total'] : 0;
 
+        // Fetch current project
+        $project = $this->db->table(db_prefix() . 'projects')->where('id', $project_id)->get()->getRow();
+
+        if ($project) {
+          $new_expenditure = $project->expense + $po_total;
+
+          // If exceeding project price, prevent further update and throw error
+          if ($new_expenditure > $project->price) {
+            // Optional: rollback PO creation if your business logic forbids exceeding expense
+            $this->db->table(db_prefix() . 'pur_orders')->where('id', $insert_id)->delete();
+            return false;
+
+            // Otherwise: update expenditure and mark visually later
+          }
+
+          // Update expenditure
+          $this->db->table(db_prefix() . 'projects')->where('id', $project_id)->update(['expense' => $new_expenditure]);
+        }
+      }
       $total              = [];
       $total['total_tax'] = 0;
 
