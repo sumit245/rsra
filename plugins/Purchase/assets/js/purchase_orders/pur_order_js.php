@@ -154,6 +154,8 @@
     if (pur_request != '') {
       $.post("<?php echo get_uri('purchase/coppy_pur_request_for_po/'); ?>" + pur_request + '/' + vendor).done(function(response) {
         response = JSON.parse(response);
+        console.log("triggered")
+        console.log(response)
         if (response) {
           $('select[name="estimate"]').html(response.estimate_html);
           $('select[name="estimate"]').select2();
@@ -461,11 +463,12 @@
 
     requestGetJSON("<?php echo get_uri('purchase/get_item_by_id1/'); ?>" + id + '/' + currency_rate).done(function(response) {
       pur_clear_item_preview_values();
-
+      console.log(response)
       $('.main input[name="item_code"]').val(response.itemid);
       $('.main textarea[name="item_name"]').val(response.code_description);
       $('.main textarea[name="description"]').val(response.long_description);
       $('.main input[name="unit_price"]').val(response.purchase_price);
+      $('.main input[name="tax_value"]').val(response.tax_rate);
       $('.main input[name="unit_name"]').val(response.unit_name);
       $('.main input[name="unit_id"]').val(response.unit_id);
       $('.main input[name="quantity"]').val(1);
@@ -509,9 +512,9 @@
     "use strict";
 
     data = typeof(data) == 'undefined' || data == 'undefined' ? pur_get_item_preview_values() : data;
-
+    console.log("Received Data is")
+    console.log(data)
     if (data.quantity == "" || data.item_code == "") {
-
       return;
     }
     var currency_rate = $('input[name="currency_rate"]').val();

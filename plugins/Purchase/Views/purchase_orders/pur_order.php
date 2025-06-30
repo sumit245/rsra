@@ -226,6 +226,7 @@
 
             </div>
           </div>
+
           <div class="card clearfix mtop10 invoice-item">
 
             <div class="row ml15 mr15 mt10">
@@ -268,15 +269,15 @@
                     <thead>
                       <tr>
                         <th></th>
-                        <th width="12%" align="left"><i class="fa fa-exclamation-circle" aria-hidden="true" data-toggle="tooltip" data-title="<?php echo _l('item_description_new_lines_notice'); ?>"></i> <?php echo _l('invoice_table_item_heading'); ?></th>
-                        <th width="15%" align="left"><?php echo _l('item_description'); ?></th>
-                        				  <!-- TODO: add currency symbol here in all required fields    -->
+                        <th width="22%" align="left"><i class="fa fa-exclamation-circle" aria-hidden="true" data-toggle="tooltip" data-title="<?php echo _l('item_description_new_lines_notice'); ?>"></i> <?php echo _l('invoice_table_item_heading'); ?></th>
+                        <!-- <th width="15%" align="left"><?php echo _l('item_description'); ?></th> -->
+                        <!-- TODO: add currency symbol here in all required fields    -->
                         <th width="10%" align="right" class="text-right"><?php echo _l('unit_price'); ?></span></th>
                         <th width="10%" align="right" class="qty text-right"><?php echo _l('quantity'); ?></th>
-                        <th width="10%" align="right" class="text-right"><?php echo _l('invoice_table_tax_heading'); ?></th>
+                        <th width="8%" align="right" class="text-right"><?php echo _l('invoice_table_tax_heading'); ?></th>
                         <th width="10%" align="right" class="text-right"><?php echo _l('tax_value'); ?></span></th>
                         <th width="10%" align="right" class="text-right"><?php echo _l('pur_subtotal_after_tax'); ?></span></th>
-                        <th width="7%" align="right" class="text-right"><?php echo _l('discount') . '(%)'; ?></th>
+                        <th width="10%" align="right" class="text-right"><?php echo _l('discount') . '(%)'; ?></th>
                         <th width="10%" align="right" class="text-right"><?php echo _l('discount'); ?></span></th>
                         <th width="10%" align="right" class="text-right"><?php echo _l('total'); ?></span></th>
                         <th align="center"><i class="fa fa-cog"></i></th>
@@ -397,218 +398,211 @@
 <script>
   $(document).ready(function() {
     $('#pur_order-form').on('submit', function(e) {
-        var projectValue = $('#project').val();
-        
-        if (!projectValue || projectValue === '') {
-            e.preventDefault();
-            alert('Please select a project. This field is required.');
-            $('#project').focus();
-            return false;
-        }
-    });
-    
-    $('#project').on('change', function() {
-        var $this = $(this);
-        var $formGroup = $this.closest('.form-group');
-        
-        if ($this.val() === '' || $this.val() === null) {
-            $formGroup.addClass('has-error');
-            if (!$formGroup.find('.error-message').length) {
-                $formGroup.append('<span class="error-message text-danger small">Project is required</span>');
-            }
-        } else {
-            $formGroup.removeClass('has-error');
-            $formGroup.find('.error-message').remove();
-        }
-    });
-});
+      var projectValue = $('#project').val();
 
-function coppy_pur_request() {
+      if (!projectValue || projectValue === '') {
+        e.preventDefault();
+        alert('Please select a project. This field is required.');
+        $('#project').focus();
+        return false;
+      }
+    });
+
+    $('#project').on('change', function() {
+      var $this = $(this);
+      var $formGroup = $this.closest('.form-group');
+
+      if ($this.val() === '' || $this.val() === null) {
+        $formGroup.addClass('has-error');
+        if (!$formGroup.find('.error-message').length) {
+          $formGroup.append('<span class="error-message text-danger small">Project is required</span>');
+        }
+      } else {
+        $formGroup.removeClass('has-error');
+        $formGroup.find('.error-message').remove();
+      }
+    });
+  });
+
+  function coppy_pur_request() {
     console.log('coppy_pur_request function called');
-    
+
     var pur_request_id = $('#pur_request').val();
     var vendor_id = $('#vendor').val() || '1';
-    
+
     console.log('Selected pur_request_id:', pur_request_id);
     console.log('Selected vendor_id:', vendor_id);
-    
+
     if (pur_request_id === '' || pur_request_id === null) {
-        console.log('No purchase request selected, returning');
-        return;
+      console.log('No purchase request selected, returning');
+      return;
     }
-    
+
     console.log('Making AJAX request to existing endpoint');
     $('#pur_request').prop('disabled', true);
-    
-    $.ajax({
-        url: '<?php echo admin_url('purchase/coppy_pur_request_for_po/'); ?>' + pur_request_id + '/' + vendor_id,
-        type: 'POST',
-        dataType: 'json',
-        beforeSend: function() {
-            console.log('AJAX request started');
-        },
-        success: function(response) {
-            console.log('AJAX Success - Full response:', response);
-            
-            if (response.success && response.items) {
-                console.log('Items received:', response.items);
-                console.log('Number of items:', response.items.length);
-                
-                // Use the existing list_item HTML that your system generates
-                if (response.list_item) {
-                    console.log('Using existing list_item HTML');
-                    $('.invoice-items-table tbody').html(response.list_item);
-                    
-                    // Update currency display
-                    if (response.currency) {
-                        $('.th_currency').text('(' + response.currency + ')');
-                    }
-                    
-                    // Update totals
-                    if (response.subtotal) {
-                        $('.wh-subtotal').text(response.subtotal);
-                    }
-                    if (response.total) {
-                        $('.wh-total').text(response.total);
-                    }
-                    
-                    // Update tax HTML
-                    if (response.tax_html) {
-                        $('#tax_area_body').html(response.tax_html);
-                    }
-                    
-                    // Reinitialize select2 dropdowns
-                    $('.select2').select2();
-                    
-                    console.log('Items populated using existing system');
-                } else {
-                    console.log('No list_item HTML found, falling back to manual population');
-                    // Fallback to manual item addition if needed
-                    response.items.forEach(function(item, index) {
-                        console.log('Processing item ' + index + ':', item);
-                        add_item_to_purchase_order(item);
-                    });
-                }
-                
-                // Try to recalculate totals
-                if (typeof pur_calculate_total === 'function') {
-                    console.log('Calling pur_calculate_total function');
-                    pur_calculate_total();
-                } else {
-                    console.log('pur_calculate_total function not found');
-                }
-                
-                alert('Items added successfully from purchase request!');
-            } else {
-                console.log('Error in response:', response);
-                alert('Error: ' + (response.message || 'Failed to load items'));
-            }
-        },
-        error: function(xhr, status, error) {
-            console.log('AJAX Error - Status:', status);
-            console.log('AJAX Error - Error:', error);
-            console.log('AJAX Error - Response Text:', xhr.responseText);
-            console.log('AJAX Error - Status Code:', xhr.status);
-            alert('An error occurred while loading purchase request items');
-        },
-        complete: function() {
-            console.log('AJAX request completed');
-            $('#pur_request').prop('disabled', false);
-        }
-    });
-}
 
-function add_item_to_purchase_order(item) {
-    console.log('add_item_to_purchase_order called with item:', item);
-    
+    $.ajax({
+      url: '<?php echo admin_url('purchase/coppy_pur_request_for_po/'); ?>' + pur_request_id + '/' + vendor_id,
+      type: 'POST',
+      dataType: 'json',
+      beforeSend: function() {
+        console.log('AJAX request started');
+      },
+      success: function(response) {
+        console.log('AJAX Success - Full response:', response);
+
+        if (response.success && response.items) {
+          console.log('Items received:', response.items);
+          console.log('Number of items:', response.items.length);
+
+          // Use the existing list_item HTML that your system generates
+          if (response.list_item) {
+            console.log('Using existing list_item HTML');
+            $('.invoice-items-table tbody').html(response.list_item);
+
+            // Update currency display
+            if (response.currency) {
+              $('.th_currency').text('(' + response.currency + ')');
+            }
+
+            // Update totals
+            if (response.subtotal) {
+              $('.wh-subtotal').text(response.subtotal);
+            }
+            if (response.total) {
+              $('.wh-total').text(response.total);
+            }
+
+            // Update tax HTML
+            if (response.tax_html) {
+              $('#tax_area_body').html(response.tax_html);
+            }
+
+            // Reinitialize select2 dropdowns
+            $('.select2').select2();
+
+            console.log('Items populated using existing system');
+          } else {
+            console.log('No list_item HTML found, falling back to manual population');
+            // Fallback to manual item addition if needed
+            response.items.forEach(function(item, index) {
+              console.log('Processing item ' + index + ':', item);
+              add_item_to_purchase_order(item);
+            });
+          }
+
+          // Try to recalculate totals
+          if (typeof pur_calculate_total === 'function') {
+            console.log('Calling pur_calculate_total function');
+            pur_calculate_total();
+          } else {
+            console.log('pur_calculate_total function not found');
+          }
+
+          alert('Items added successfully from purchase request!');
+        } else {
+          console.log('Error in response:', response);
+          alert('Error: ' + (response.message || 'Failed to load items'));
+        }
+      },
+      error: function(xhr, status, error) {
+        console.log('AJAX Error - Status:', status);
+        console.log('AJAX Error - Error:', error);
+        console.log('AJAX Error - Response Text:', xhr.responseText);
+        console.log('AJAX Error - Status Code:', xhr.status);
+        alert('An error occurred while loading purchase request items');
+      },
+      complete: function() {
+        console.log('AJAX request completed');
+        $('#pur_request').prop('disabled', false);
+      }
+    });
+  }
+
+  function add_item_to_purchase_order(item) {
     var $table = $('.invoice-items-table tbody');
-    console.log('Table found:', $table.length > 0);
-    
     var $lastRow = $table.find('tr:last');
-    console.log('Last row found:', $lastRow.length > 0);
-    
     if ($lastRow.length === 0) {
-        console.log('No table rows found, cannot add item');
-        return;
+      return;
     }
-    
+
     var $newRow = $lastRow.clone();
     console.log('New row cloned');
-    
+
     // Get current row count for indexing
     var rowIndex = $table.find('tr').length - 1;
     console.log('Row index:', rowIndex);
-    
+
     // Clear the new row first
     $newRow.find('input, select, textarea').val('');
-    
+
     // Update all form elements in the new row
     $newRow.find('input, select, textarea').each(function() {
-        var $element = $(this);
-        var name = $element.attr('name');
-        
-        if (name) {
-            // Update name attribute with new index
-            var newName = name.replace(/\[\d*\]/, '[' + rowIndex + ']');
-            $element.attr('name', newName);
-            
-            // Set values based on item data
-            if (name.includes('item_code')) {
-                $element.val(item.item_code || '');
-                console.log('Set item_code:', item.item_code);
-            } else if (name.includes('item_text') || name.includes('description')) {
-                $element.val(item.item_text || item.description || '');
-                console.log('Set item_text/description:', item.item_text || item.description);
-            } else if (name.includes('quantity')) {
-                $element.val(item.quantity || 1);
-                console.log('Set quantity:', item.quantity);
-            } else if (name.includes('unit_price')) {
-                $element.val(item.unit_price || 0);
-                console.log('Set unit_price:', item.unit_price);
-            } else if (name.includes('tax_value')) {
-                $element.val(item.tax_value || 0);
-                console.log('Set tax_value:', item.tax_value);
-            } else if (name.includes('tax_name')) {
-                $element.val(item.tax_name || '');
-                console.log('Set tax_name:', item.tax_name);
-            } else if (name.includes('tax') && !name.includes('tax_')) {
-                $element.val(item.tax || '');
-                console.log('Set tax:', item.tax);
-            } else if (name.includes('unit_id')) {
-                $element.val(item.unit_id || '');
-                console.log('Set unit_id:', item.unit_id);
-            } else if (name.includes('total')) {
-                $element.val(item.total || item.total_money || 0);
-                console.log('Set total:', item.total || item.total_money);
-            } else if (name.includes('into_money')) {
-                $element.val(item.into_money || 0);
-                console.log('Set into_money:', item.into_money);
-            }
+      var $element = $(this);
+      var name = $element.attr('name');
+
+      if (name) {
+        // Update name attribute with new index
+        var newName = name.replace(/\[\d*\]/, '[' + rowIndex + ']');
+        $element.attr('name', newName);
+
+        // Set values based on item data
+        if (name.includes('item_code')) {
+          $element.val(item.item_code || '');
+          // console.log('Set item_code:', item.item_code);
+        } else if (name.includes('item_text') || name.includes('description')) {
+          $element.val(item.item_text || item.description || '');
+          console.log('Set item_text/description:', item.item_text || item.description);
+        } else if (name.includes('quantity')) {
+          $element.val(item.quantity || 1);
+          console.log('Set quantity:', item.quantity);
+        } else if (name.includes('unit_price')) {
+          $element.val(item.unit_price || 0);
+          console.log('Set unit_price:', item.unit_price);
+        } else if (name.includes('tax_value')) {
+          $element.val(item.tax_value || 0);
+          console.log('Set tax_value:', item.tax_value);
+        } else if (name.includes('tax_name')) {
+          $element.val(item.tax_name || '');
+          console.log('Set tax_name:', item.tax_name);
+        } else if (name.includes('tax') && !name.includes('tax_')) {
+          $element.val(item.tax || '');
+          console.log('Set tax:', item.tax);
+        } else if (name.includes('unit_id')) {
+          $element.val(item.unit_id || '');
+          console.log('Set unit_id:', item.unit_id);
+        } else if (name.includes('total')) {
+          $element.val(item.total || item.total_money || 0);
+          // console.log('Set total:', item.total || item.total_money);
+        } else if (name.includes('into_money')) {
+          $element.val(item.into_money || 0);
+          // console.log('Set into_money:', item.into_money);
         }
+      }
     });
-    
+
     // Insert before the last row (template row)
     $newRow.insertBefore($lastRow);
     console.log('New row inserted into table');
-    
+
     // Reinitialize any select2 dropdowns
     $newRow.find('.select2').each(function() {
-        $(this).select2('destroy').select2();
+      $(this).select2('destroy').select2();
     });
-    console.log('Select2 dropdowns reinitialized');
-    
+    // console.log('Select2 dropdowns reinitialized');
+
     // Trigger change events to recalculate
     $newRow.find('input[name*="quantity"], input[name*="unit_price"]').trigger('change');
-    console.log('Change events triggered for calculation');
-}
+    // console.log('Change events triggered for calculation');
+  }
 
-// Test if the function is accessible
-$(document).ready(function() {
-    console.log('Document ready - coppy_pur_request function available:', typeof coppy_pur_request);
-    console.log('jQuery available:', typeof $ !== 'undefined');
-    console.log('Purchase request dropdown found:', $('#pur_request').length > 0);
-    console.log('Invoice items table found:', $('.invoice-items-table').length > 0);
-});
+  // Test if the function is accessible
+  // $(document).ready(function() {
+  //   console.log('Document ready - coppy_pur_request function available:', typeof coppy_pur_request);
+  //   console.log('jQuery available:', typeof $ !== 'undefined');
+  //   console.log('Purchase request dropdown found:', $('#pur_request').length > 0);
+  //   console.log('Invoice items table found:', $('.invoice-items-table').length > 0);
+  // });
 </script>
 
 <?php require('plugins/Purchase/assets/js/purchase_orders/pur_order_js.php'); ?>
