@@ -2893,13 +2893,10 @@ class Purchase_model extends Crud_model
    *
    * @return     string  The pur request pdf html.
    */
-  public function get_pur_request_pdf_html($pur_request_id)
+  public function get_pur_request_pdf_html($pur_order_id)
   {
-
-    $pur_request = $this->get_purchase_request($pur_request_id);
-
+    $pur_request = $this->get_purchase_request($pur_order_id);;
     $project_name = '';
-
     if ($pur_request->project > 0) {
       $projects_model = model("Models\Projects_model");
       $project        = $projects_model->get_details(['id' => $pur_request->project])->getRow();
@@ -2907,120 +2904,128 @@ class Purchase_model extends Crud_model
         $project_name = $project->title;
       }
     }
-
-    $tax_data = $this->get_html_tax_pur_request($pur_request_id);
-
+    $tax_data = $this->get_html_tax_pur_request($pur_order_id);
     if ($pur_request->currency != '') {
       $base_currency = $pur_request->currency;
     } else {
       $base_currency = get_base_currency();
     }
-
     if ($base_currency == get_setting('default_currency')) {
       $base_currency = get_setting('currency_symbol');
     }
-
-    $pur_request_detail = $this->get_pur_request_detail($pur_request_id);
-
+    $pur_request_detail = $this->get_pur_request_detail($pur_order_id);
     $company_name = '';
-
     $company_model = model("Models\Company_model");
     $company       = $company_model->get_details(['is_default' => 1])->getRow();
     if (isset($company->name)) {
       $company_name = $company->name;
     }
-
     $address = '';
     if (isset($company->address)) {
       $address = $company->address;
     }
-
+    $company_gst = $company->vat_number ?? null;
+    $company_mail = $company->email ?? "";
     $teams_model = model("Models\Team_model");
     $dpm_name    = $teams_model->get_details(['id' => $pur_request->department])->getRow()->title;
-
     $day                 = date('d', strtotime($pur_request->request_date));
     $month               = date('m', strtotime($pur_request->request_date));
     $year                = date('Y', strtotime($pur_request->request_date));
-    $list_approve_status = $this->get_list_approval_details($pur_request_id, 'pur_request');
+    $list_approve_status = $this->get_list_approval_details($pur_order_id, 'pur_request');
+    // $vendor = $this->vendors_model->get_details(['id' => 1])->getRow();
 
-    $html = '<table class="table">
-        <tbody>
-          <tr>
-            <td class="font_td_cpn width70">' . _l('purchase_company_name') . ': ' . $company_name . '</td>
-            <td rowspan="3" class="text-right width30"><img src="' . get_pdf_logo_url() . '"></td>
-          </tr>
-          <tr>
-            <td class="font_500">' . _l('address') . ': ' . $address . '</td>
-          </tr>
-          <tr>
-            <td class="font_500">' . $pur_request->pur_rq_code . '</td>
-          </tr>
-        </tbody>
-      </table>
-      <table class="table">
-        <tbody>
-          <tr>
 
-            <td class="td_ali_font"><h2 class="h2_style">' . mb_strtoupper(_l('purchase_request')) . '</h2></td>
+    $html = '
+      <div class="mx-auto bg-white border border-2 border-dark p-4">
+          <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom border-dark">
+            <img src="' . FCPATH . 'uploads/rsra_logo.png" alt="Company Logo" class="img-fluid" style="max-width: 80px;">
+            <h2 class="fw-bold mb-0 fs-4">' . mb_strtoupper(_l('purchase_request')) . '</h2>
+            <small>(Original)</small>
+          </div>
+  
+          <table class="table table-bordered table-sm mb-3">
+            <tbody>
+              <tr>
+                <td class="bg-light fw-bold" style="width: 15%;">Invoice To</td>
+                <td style="width: 35%;"><strong>' . $company_name . '</strong><br>' .
+      $address . '<br>' . 'GSTIN/UIN :' . $company_gst . '<br>
+                State Name : Haryana, Code : 06<br>
+                E-Mail :' . $company_mail .
+      '</td>
+      <td class="bg-light fw-bold" style="width: 15%;">Voucher No.</td>
+      <td style="width: 15%;">' . $pur_request->pur_rq_code . '</td>
+      <td class="bg-light fw-bold" style="width: 10%;">Dated</td>
+      <td style="width: 10%;">' . date('d-M-y', strtotime($pur_request->request_date)) .
+      '</td> 
+      </tr>
+      <tr>
+                      <td class="bg-light fw-bold">Consignee (Ship to)</td>
+                     <td style="width: 35%;">
+                          <strong>' . $company_name . '</strong><br>' .
+      $address . '<br>' .
+      'GSTIN/UIN :' . $company_gst . '<br>
+                          State Name : Haryana, Code : 06<br>
+                          E-Mail :' . $company_mail .
+      '</td>
+                      <td class="bg-light fw-bold" style="width: 15%;">Voucher No.</td>
+                      <td style="width: 15%;">' . $pur_request->pur_rq_code . '</td>
+                      <td class="bg-light fw-bold" style="width: 10%;">Dated</td>
+                      <td style="width: 10%;">' . date('d-M-y', strtotime($pur_request->request_date)) .
+      '</td>
+                      <td class="bg-light fw-bold">Mode/Terms of Payment</td>
+                      <td> 30 days</td>
+                      <td class="bg-light fw-bold">Reference No. & Date</td>
+                      <td>' . $pur_request->pur_rq_code . '</td>
+                  </tr>
+                  <tr>
+                      <td class="bg-light fw-bold">Supplier (Bill from)</td>
+                      <td>' .
+      // <strong>' . $vendor->company . '</strong><br>
+      // ' . $vendor->address . '<br>
+      // GSTIN/UIN : ' . $vendor->vat_number . '<br>
+      // State Name : ' . $vendor->state . '
+      ' </td>
+                      <td class="bg-light fw-bold">Dispatched through</td>
+                      <td> Delivery Date</td>
+                      <td class="bg-light fw-bold">Destination</td>
+                      <td> Detination </td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td></td>
+                      <td class="bg-light fw-bold">Terms of Delivery</td>
+                      <td colspan="3"> terms </td>
+                  </tr>
+              </tbody>
+          </table>
+  
+          <table class="table table-bordered table-sm">
+              <thead class="table-light">
+                  <tr>
+                      <th class="text-center" style="width: 5%;">Sl</th>
+                      <th class="text-center" style="width: 35%;">Description of Goods</th>
+                      <th class="text-center" style="width: 12%;">HSN/SAC</th>
+                      <th class="text-center" style="width: 12%;">Quantity</th>
+                      <th class="text-center" style="width: 10%;">Rate</th>
+                      <th class="text-center" style="width: 6%;">per</th>
+                      <th class="text-center" style="width: 8%;">Disc. %</th>
+                      <th class="text-center" style="width: 12%;">Amount</th>
+                  </tr>
+              </thead>
+              <tbody>';
 
-          </tr>
-          <tr>
-
-            <td class="align_cen">' . _l('days') . ' ' . $day . ' ' . _l('month') . ' ' . $month . ' ' . _l('year') . ' ' . $year . '</td>
-
-          </tr>
-
-        </tbody>
-      </table>
-      <table class="table">
-        <tbody>
-          <tr>
-            <td class="td_width_25"><h4>' . _l('requester') . ':</h4></td>
-            <td class="td_width_75">' . get_staff_full_name1($pur_request->requester) . '</td>
-          </tr>
-          <tr>
-            <td class="font_500"><h4>' . _l('department') . ':</h4></td>
-            <td>' . $dpm_name . '</td>
-          </tr>
-          <tr>
-            <td class="font_500"><h4>' . _l('type') . ':</h4></td>
-            <td>' . _l($pur_request->type) . '</td>
-          </tr>
-          <tr>
-            <td class="font_500"><h4>' . _l('project') . ':</h4></td>
-            <td>' . $project_name . '</td>
-          </tr>
-        </tbody>
-      </table>
-      <br><br>
-      ';
-
-    $html .= '<table class="table pur_request-item">
-            <thead>
-              <tr class="border_tr">
-                <th align="left" class="thead-dark">' . _l('items') . '</th>
-                <th align="right" class="thead-dark">' . _l('purchase_unit_price') . '</th>
-                <th align="right" class="thead-dark">' . _l('purchase_quantity') . '</th>
-                <th align="right" class="thead-dark">' . _l('into_money') . '</th>';
-    if (get_setting('show_purchase_tax_column')) {
-      $html .= '<th align="right" class="thead-dark">' . _l('tax_value') . '</th>';
-    }
-    $html .= '<th align="right" class="thead-dark">' . _l('total') . '</th>
-              </tr>
-            </thead>
-          <tbody>';
 
     $tmn    = 0;
     $_total = 0;
+    $total_qty = 0;
+
     foreach ($pur_request_detail as $row) {
       $items = $this->get_items_by_id($row['item_code']);
       $units = $this->get_units_by_id($row['unit_id']);
       if ($items) {
         $unit_name = isset($units->unit_name) ? $units->unit_name : '';
-
         $html .= '<tr class="border_tr">
                 <td >' . $items->commodity_code . ' - ' . $items->title . '</td>
-
                 <td align="right">' . to_currency($row['unit_price'], $base_currency) . '</td>
                 <td align="right">' . to_decimal_format($row['quantity']) . ' ' . $unit_name . '</td>
                 <td align="right">' . to_currency($row['into_money'], $base_currency) . '</td>';
@@ -3033,7 +3038,6 @@ class Purchase_model extends Crud_model
         $unit_name = isset($units->unit_name) ? $units->unit_name : '';
         $html .= '<tr class="border_tr">
                 <td >' . $row['item_text'] . '</td>
-
                 <td align="right">' . to_currency($row['unit_price'], $base_currency) . '</td>
                 <td align="right">' . $row['quantity'] . '</td>
                 <td align="right">' . to_currency($row['into_money'], $base_currency) . '</td>';
@@ -3043,67 +3047,60 @@ class Purchase_model extends Crud_model
         $html .= '<td align="right">' . to_currency($row['total'], $base_currency) . '</td>
               </tr>';
       }
-
       $tmn += $row['into_money'];
       $_total += $row['total'];
     }
-    $html .= '</tbody>
-      </table><br><br>';
 
-    $html .= '<table class="table text-right"><tbody>';
-    $html .= '<tr>
-                 <td class="width33"></td>
-                 <td>' . _l('subtotal') . '</td>
-                 <td class="subtotal">
-                    ' . to_currency($tmn, $base_currency) . '
-                 </td>
-              </tr>';
+    $html .= '
+          <tr style="height: 200px;">
+              <td colspan="8"></td>
+          </tr>
+          <tr class="table-light fw-bold">
+              <td colspan="3" class="text-end">Total</td>
+              <td class="text-center">' . $total_qty . '</td>
+              <td colspan="3"></td>
+              <td class="text-end">' . to_currency($pur_request->total, $base_currency) . '</td>
+          </tr>
+      </tbody>
+      </table>
+  
+      <div class="mb-3">
+          <div class="fw-bold">Amount Chargeable (in words)</div>
+          <div class="fw-bold">INR ' . ' Only </div>
+          <div class="text-end mt-2"><small>E. & O.E</small></div>
+      </div>
+  
+      <div class="mb-4">
+          <div class="fw-bold">Declaration</div>
+          <div class="small">
+              1. Our purchase order no & date must be included on your challan/invoice Etc.<br>
+              2. Any dispute arising out of this contract shall be within jurisdiction of the courts in Gurgaon
+          </div>
+      </div>
+  
+      <div class="row text-center mb-3">
+          <div class="col-4">
+              <div class="border-bottom border-dark mb-2" style="height: 50px;"></div>
+              <small>Prepared by</small>
+          </div>
+          <div class="col-4">
+              <div class="border-bottom border-dark mb-2" style="height: 50px;"></div>
+              <small>Verified by</small>
+          </div>
+          <div class="col-4">
+              <div class="border-bottom border-dark mb-2" style="height: 50px;"></div>
+              <small>for RS ROBOTICS AND AUTOMATION<br>Authorised Signatory</small>
+          </div>
+      </div>
+  
+      <div class="text-center border-top border-dark pt-2">
+          <small>This is a Computer Generated Document</small>
+      </div>
+      </div>';
 
-    $html .= $tax_data['pdf_html'];
-    $html .= '<tr>
-                 <td class="width33"></td>
-                 <td>' . _l('total') . '</td>
-                 <td class="subtotal">
-                    ' . to_currency($pur_request->total, $base_currency) . '
-                 </td>
-              </tr>';
-
-    $html .= ' </tbody></table>';
-
-    $html .= '<br>
-      <br>
-      <br>
-      <br>
-      <table class="table">
-        <tbody>
-          <tr>';
-    if (count($list_approve_status) > 0) {
-
-      foreach ($list_approve_status as $value) {
-        $html .= '<td class="td_appr">';
-        if ($value['action'] == 'sign') {
-          $html .= '<h3>' . mb_strtoupper(get_staff_full_name1($value['staffid'])) . '</h3>';
-          if ($value['approve'] == 2) {
-            $html .= '<img src="' . FCPATH . PLUGIN_URL_PATH . 'Purchase/Uploads/pur_request/signature/' . $pur_request->id . '/signature_' . $value['id'] . '.png" class="img_style">';
-          }
-        } else {
-          $html .= '<h3>' . mb_strtoupper(get_staff_full_name1($value['staffid'])) . '</h3>';
-          if ($value['approve'] == 2) {
-            $html .= '<img src="' . FCPATH . PLUGIN_URL_PATH . 'Purchase/Uploads/approval/approved.png" class="img_style">';
-          } elseif ($value['approve'] == 3) {
-            $html .= '<img src="' . FCPATH . PLUGIN_URL_PATH . 'Purchase/Uploads/approval/rejected.png" class="img_style">';
-          }
-        }
-        $html .= '</td>';
-      }
-    }
-    $html .= '<td class="td_ali_font"><h3>' . mb_strtoupper(_l('purchase_requestor')) . '</h3></td>
-            <td class="td_ali_font"><h3>' . mb_strtoupper(_l('purchase_treasurer')) . '</h3></td></tr>
-        </tbody>
-      </table>';
-    $html .= '<link href="' . FCPATH . PLUGIN_URL_PATH . 'Purchase/assets/css/pur_order_pdf.css' . '"  rel="stylesheet" type="text/css" />';
     return $html;
   }
+
 
   /**
    * Gets the pur request pdf html.
