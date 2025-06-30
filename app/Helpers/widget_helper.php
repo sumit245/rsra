@@ -9,13 +9,13 @@ use App\Libraries\Template;
  */
 if (!function_exists('clock_widget')) {
 
-    function clock_widget() {
+    function clock_widget()
+    {
         $ci = new Security_Controller(false);
         $view_data["clock_status"] = $ci->Attendance_model->current_clock_in_record($ci->login_user->id);
         $template = new Template();
         return $template->view("attendance/clock_widget", $view_data);
     }
-
 }
 
 /**
@@ -25,7 +25,8 @@ if (!function_exists('clock_widget')) {
  */
 if (!function_exists('activity_logs_widget')) {
 
-    function activity_logs_widget($params = array()) {
+    function activity_logs_widget($params = array())
+    {
         $ci = new Security_Controller(false);
 
         $limit = get_array_value($params, "limit");
@@ -54,7 +55,6 @@ if (!function_exists('activity_logs_widget')) {
 
         echo $view_data["result_remaining"] = view("activity_logs/activity_logs_widget", $view_data);
     }
-
 }
 
 /**
@@ -64,7 +64,8 @@ if (!function_exists('activity_logs_widget')) {
  */
 if (!function_exists('timeline_widget')) {
 
-    function timeline_widget($params = array()) {
+    function timeline_widget($params = array())
+    {
         $ci = new Security_Controller(false);
         $limit = get_array_value($params, "limit");
         $limit = $limit ? $limit : "20";
@@ -107,7 +108,6 @@ if (!function_exists('timeline_widget')) {
             return $template->view("timeline/post_list", $view_data);
         }
     }
-
 }
 
 
@@ -118,7 +118,8 @@ if (!function_exists('timeline_widget')) {
  */
 if (!function_exists('announcements_alert_widget')) {
 
-    function announcements_alert_widget() {
+    function announcements_alert_widget()
+    {
         $ci = new Security_Controller(false);
 
         $client_group_ids = "";
@@ -131,7 +132,6 @@ if (!function_exists('announcements_alert_widget')) {
         $template = new Template();
         return $template->view("announcements/alert", $view_data);
     }
-
 }
 
 
@@ -142,13 +142,13 @@ if (!function_exists('announcements_alert_widget')) {
  */
 if (!function_exists('my_open_tasks_widget')) {
 
-    function my_open_tasks_widget() {
+    function my_open_tasks_widget()
+    {
         $ci = new Security_Controller(false);
         $view_data["total"] = $ci->Tasks_model->count_my_open_tasks($ci->login_user->id);
         $template = new Template();
         return $template->view("projects/tasks/open_tasks_widget", $view_data);
     }
-
 }
 
 
@@ -159,7 +159,8 @@ if (!function_exists('my_open_tasks_widget')) {
  */
 if (!function_exists('my_task_stataus_widget')) {
 
-    function my_task_stataus_widget($custom_class = "") {
+    function my_task_stataus_widget($custom_class = "")
+    {
         $ci = new Security_Controller(false);
         $view_data["task_statuses"] = $ci->Tasks_model->get_task_statistics(array("user_id" => $ci->login_user->id))->task_statuses;
         $view_data["custom_class"] = $custom_class;
@@ -167,7 +168,6 @@ if (!function_exists('my_task_stataus_widget')) {
         $template = new Template();
         return $template->view("projects/tasks/my_task_status_widget", $view_data);
     }
-
 }
 
 
@@ -178,7 +178,8 @@ if (!function_exists('my_task_stataus_widget')) {
  */
 if (!function_exists('events_today_widget')) {
 
-    function events_today_widget() {
+    function events_today_widget()
+    {
         $ci = new Security_Controller(false);
 
         $options = array(
@@ -194,7 +195,6 @@ if (!function_exists('events_today_widget')) {
         $template = new Template();
         return $template->view("events/events_today", $view_data);
     }
-
 }
 
 
@@ -205,7 +205,8 @@ if (!function_exists('events_today_widget')) {
  */
 if (!function_exists('new_posts_widget')) {
 
-    function new_posts_widget() {
+    function new_posts_widget()
+    {
         $ci = new Security_Controller(false);
 
         //allowed on specific member/teams only
@@ -225,7 +226,6 @@ if (!function_exists('new_posts_widget')) {
         $template = new Template();
         return $template->view("timeline/new_posts_widget", $view_data);
     }
-
 }
 
 
@@ -236,7 +236,8 @@ if (!function_exists('new_posts_widget')) {
  */
 if (!function_exists('events_widget')) {
 
-    function events_widget() {
+    function events_widget()
+    {
         $ci = new Security_Controller(false);
 
         $options = array("user_id" => $ci->login_user->id, "limit" => 10, "team_ids" => $ci->login_user->team_ids);
@@ -250,7 +251,6 @@ if (!function_exists('events_widget')) {
         $template = new Template();
         return $template->view("events/events_widget", $view_data);
     }
-
 }
 
 
@@ -261,7 +261,8 @@ if (!function_exists('events_widget')) {
  */
 if (!function_exists('get_event_icon')) {
 
-    function get_event_icon($share_with = "") {
+    function get_event_icon($share_with = "")
+    {
         $icon = "";
         if (!$share_with) {
             $icon = "lock";
@@ -272,7 +273,6 @@ if (!function_exists('get_event_icon')) {
         }
         return $icon;
     }
-
 }
 
 
@@ -283,12 +283,12 @@ if (!function_exists('get_event_icon')) {
  */
 if (!function_exists('has_my_open_timers')) {
 
-    function has_my_open_timers() {
+    function has_my_open_timers()
+    {
         $ci = new Security_Controller(false);
         $timers = $ci->Timesheets_model->get_open_timers($ci->login_user->id);
         return $timers->resultID->num_rows;
     }
-
 }
 
 
@@ -299,7 +299,8 @@ if (!function_exists('has_my_open_timers')) {
  */
 if (!function_exists('income_vs_expenses_widget')) {
 
-    function income_vs_expenses_widget($custom_class = "") {
+    function income_vs_expenses_widget($custom_class = "")
+    {
         $Expenses_model = model("App\Models\Expenses_model");
         $info = $Expenses_model->get_income_expenses_info();
 
@@ -315,7 +316,6 @@ if (!function_exists('income_vs_expenses_widget')) {
         $template = new Template();
         return $template->view("expenses/income_expenses_widget", $view_data);
     }
-
 }
 
 
@@ -326,7 +326,8 @@ if (!function_exists('income_vs_expenses_widget')) {
  */
 if (!function_exists('ticket_status_widget')) {
 
-    function ticket_status_widget($data = array()) {
+    function ticket_status_widget($data = array())
+    {
         $ci = new Security_Controller(false);
         $Tickets_model = model("App\Models\Tickets_model");
 
@@ -349,7 +350,7 @@ if (!function_exists('ticket_status_widget')) {
 
         $ticket_result_array = array();
         foreach ($tickets_result as $ticket) {
-            $ticket_result_array [$ticket->date] = $ticket->total;
+            $ticket_result_array[$ticket->date] = $ticket->total;
         }
 
         $ticks = array();
@@ -387,7 +388,6 @@ if (!function_exists('ticket_status_widget')) {
         $template = new Template();
         return $template->view("tickets/ticket_status_widget", $view_data);
     }
-
 }
 
 
@@ -400,7 +400,8 @@ if (!function_exists('ticket_status_widget')) {
  */
 if (!function_exists('invoice_statistics_widget')) {
 
-    function invoice_statistics_widget($options = array()) {
+    function invoice_statistics_widget($options = array())
+    {
         $ci = new Security_Controller(false);
 
         $currency = get_array_value($options, "currency");
@@ -454,7 +455,6 @@ if (!function_exists('invoice_statistics_widget')) {
         $template = new Template();
         return $template->view("invoices/invoice_statistics_widget/index", $view_data);
     }
-
 }
 
 
@@ -465,7 +465,8 @@ if (!function_exists('invoice_statistics_widget')) {
  */
 if (!function_exists('project_timesheet_statistics_widget')) {
 
-    function project_timesheet_statistics_widget($type = "") {
+    function project_timesheet_statistics_widget($type = "")
+    {
         $ci = new Security_Controller(false);
 
         $timesheets = array();
@@ -509,7 +510,6 @@ if (!function_exists('project_timesheet_statistics_widget')) {
         $template = new Template();
         return $template->view("projects/timesheets/timesheet_wedget", $view_data);
     }
-
 }
 
 
@@ -520,7 +520,8 @@ if (!function_exists('project_timesheet_statistics_widget')) {
  */
 if (!function_exists('timecard_statistics_widget')) {
 
-    function timecard_statistics_widget() {
+    function timecard_statistics_widget()
+    {
         $ci = new Security_Controller(false);
 
         $timecards = array();
@@ -556,7 +557,6 @@ if (!function_exists('timecard_statistics_widget')) {
         $template = new Template();
         return $template->view("attendance/timecard_statistics", $view_data);
     }
-
 }
 
 
@@ -567,7 +567,8 @@ if (!function_exists('timecard_statistics_widget')) {
  */
 if (!function_exists('count_clock_status_widget')) {
 
-    function count_clock_status_widget() {
+    function count_clock_status_widget()
+    {
         $Attendance_model = model("App\Models\Attendance_model");
         $info = $Attendance_model->count_clock_status();
         $view_data["members_clocked_in"] = $info->members_clocked_in ? $info->members_clocked_in : 0;
@@ -575,7 +576,6 @@ if (!function_exists('count_clock_status_widget')) {
         $template = new Template();
         return $template->view("attendance/count_clock_status_widget", $view_data);
     }
-
 }
 
 
@@ -587,7 +587,8 @@ if (!function_exists('count_clock_status_widget')) {
  */
 if (!function_exists('count_project_status_widget')) {
 
-    function count_project_status_widget($user_id = 0) {
+    function count_project_status_widget($user_id = 0)
+    {
         $ci = new Security_Controller(false);
 
         if (!$user_id && $ci->login_user->is_admin) {
@@ -606,7 +607,6 @@ if (!function_exists('count_project_status_widget')) {
         $template = new Template();
         return $template->view("projects/widgets/project_status_widget", $view_data);
     }
-
 }
 
 
@@ -618,7 +618,8 @@ if (!function_exists('count_project_status_widget')) {
  */
 if (!function_exists('count_total_time_widget')) {
 
-    function count_total_time_widget($user_id = 0) {
+    function count_total_time_widget($user_id = 0)
+    {
         $ci = new Security_Controller(false);
         $options = array("user_id" => $user_id ? $user_id : $ci->login_user->id);
         $info = $ci->Timesheets_model->count_total_time($options);
@@ -645,7 +646,6 @@ if (!function_exists('count_total_time_widget')) {
         $template = new Template();
         return $template->view("attendance/total_time_widget", $view_data);
     }
-
 }
 
 
@@ -658,7 +658,8 @@ if (!function_exists('count_total_time_widget')) {
  */
 if (!function_exists('count_total_time_widget_small')) {
 
-    function count_total_time_widget_small($user_id = 0, $widget_type = "") {
+    function count_total_time_widget_small($user_id = 0, $widget_type = "")
+    {
         $ci = new Security_Controller(false);
         $options = array("user_id" => $user_id ? $user_id : $ci->login_user->id);
         $info = $ci->Timesheets_model->count_total_time($options);
@@ -668,7 +669,6 @@ if (!function_exists('count_total_time_widget_small')) {
         $template = new Template();
         return $template->view("attendance/total_time_widget_small", $view_data);
     }
-
 }
 
 
@@ -680,13 +680,13 @@ if (!function_exists('count_total_time_widget_small')) {
  */
 if (!function_exists('social_links_widget')) {
 
-    function social_links_widget($weblinks) {
+    function social_links_widget($weblinks)
+    {
         $view_data["weblinks"] = $weblinks;
 
         $template = new Template();
         return $template->view("users/social_links_widget", $view_data);
     }
-
 }
 
 
@@ -696,11 +696,11 @@ if (!function_exists('social_links_widget')) {
  */
 if (!function_exists('count_unread_message')) {
 
-    function count_unread_message() {
+    function count_unread_message()
+    {
         $ci = new Security_Controller(false);
         return $ci->Messages_model->count_unread_message($ci->login_user->id, $ci->get_allowed_user_ids());
     }
-
 }
 
 
@@ -711,11 +711,11 @@ if (!function_exists('count_unread_message')) {
  */
 if (!function_exists('count_new_tickets')) {
 
-    function count_new_tickets($ticket_types = "", $show_assigned_tickets_only_user_id = 0) {
+    function count_new_tickets($ticket_types = "", $show_assigned_tickets_only_user_id = 0)
+    {
         $Tickets_model = model("App\Models\Tickets_model");
         return $Tickets_model->count_new_tickets($ticket_types, $show_assigned_tickets_only_user_id);
     }
-
 }
 
 
@@ -726,7 +726,8 @@ if (!function_exists('count_new_tickets')) {
  */
 if (!function_exists('all_tasks_kanban_widget')) {
 
-    function all_tasks_kanban_widget() {
+    function all_tasks_kanban_widget()
+    {
         $ci = new Security_Controller(false);
 
         $projects = $ci->Tasks_model->get_my_projects_dropdown_list($ci->login_user->id)->getResult();
@@ -767,7 +768,6 @@ if (!function_exists('all_tasks_kanban_widget')) {
         $template = new Template();
         return $template->view("projects/tasks/kanban/all_tasks_kanban_widget", $view_data);
     }
-
 }
 
 
@@ -778,11 +778,11 @@ if (!function_exists('all_tasks_kanban_widget')) {
  */
 if (!function_exists('todo_list_widget')) {
 
-    function todo_list_widget() {
+    function todo_list_widget()
+    {
         $template = new Template();
         return $template->view("todo/todo_lists_widget");
     }
-
 }
 
 
@@ -793,11 +793,11 @@ if (!function_exists('todo_list_widget')) {
  */
 if (!function_exists('invalid_access_widget')) {
 
-    function invalid_access_widget() {
+    function invalid_access_widget()
+    {
         $template = new Template();
         return $template->view("dashboards/custom_dashboards/invalid_access_widget");
     }
-
 }
 
 
@@ -809,7 +809,8 @@ if (!function_exists('invalid_access_widget')) {
  */
 if (!function_exists('open_projects_widget')) {
 
-    function open_projects_widget($user_id = 0) {
+    function open_projects_widget($user_id = 0)
+    {
         $ci = new Security_Controller(false);
 
         if ($ci->login_user->is_admin) {
@@ -826,7 +827,6 @@ if (!function_exists('open_projects_widget')) {
         $template = new Template();
         return $template->view("projects/widgets/open_projects_widget", $view_data);
     }
-
 }
 
 
@@ -838,7 +838,8 @@ if (!function_exists('open_projects_widget')) {
  */
 if (!function_exists('completed_projects_widget')) {
 
-    function completed_projects_widget($user_id = 0) {
+    function completed_projects_widget($user_id = 0)
+    {
         $ci = new Security_Controller(false);
 
         if ($ci->login_user->is_admin) {
@@ -855,7 +856,6 @@ if (!function_exists('completed_projects_widget')) {
         $template = new Template();
         return $template->view("projects/widgets/completed_projects_widget", $view_data);
     }
-
 }
 
 
@@ -866,14 +866,14 @@ if (!function_exists('completed_projects_widget')) {
  */
 if (!function_exists('count_clock_in_widget')) {
 
-    function count_clock_in_widget() {
+    function count_clock_in_widget()
+    {
         $Attendance_model = model("App\Models\Attendance_model");
         $info = $Attendance_model->count_clock_status()->members_clocked_in;
         $view_data["members_clocked_in"] = $info ? $info : 0;
         $template = new Template();
         return $template->view("attendance/count_clock_in_widget", $view_data);
     }
-
 }
 
 
@@ -884,14 +884,14 @@ if (!function_exists('count_clock_in_widget')) {
  */
 if (!function_exists('count_clock_out_widget')) {
 
-    function count_clock_out_widget() {
+    function count_clock_out_widget()
+    {
         $Attendance_model = model("App\Models\Attendance_model");
         $info = $Attendance_model->count_clock_status()->members_clocked_out;
         $view_data["members_clocked_out"] = $info ? $info : 0;
         $template = new Template();
         return $template->view("attendance/count_clock_out_widget", $view_data);
     }
-
 }
 
 
@@ -902,7 +902,8 @@ if (!function_exists('count_clock_out_widget')) {
  */
 if (!function_exists('my_open_projects_widget')) {
 
-    function my_open_projects_widget($client_id = 0) {
+    function my_open_projects_widget($client_id = 0)
+    {
         $ci = new Security_Controller(false);
 
         $options = array(
@@ -921,7 +922,6 @@ if (!function_exists('my_open_projects_widget')) {
         $template = new Template();
         return $template->view("projects/widgets/my_open_projects_widget", $view_data);
     }
-
 }
 
 
@@ -933,7 +933,8 @@ if (!function_exists('my_open_projects_widget')) {
  */
 if (!function_exists('my_starred_projects_widget')) {
 
-    function my_starred_projects_widget($user_id = 0) {
+    function my_starred_projects_widget($user_id = 0)
+    {
         $ci = new Security_Controller(false);
 
         $options = array(
@@ -945,7 +946,6 @@ if (!function_exists('my_starred_projects_widget')) {
         $template = new Template();
         return $template->view("projects/widgets/my_starred_projects_widget", $view_data);
     }
-
 }
 
 
@@ -957,11 +957,11 @@ if (!function_exists('my_starred_projects_widget')) {
  */
 if (!function_exists('sticky_note_widget')) {
 
-    function sticky_note_widget($custom_class = "") {
+    function sticky_note_widget($custom_class = "")
+    {
         $template = new Template();
         return $template->view("dashboards/sticky_note_widget", array("custom_class" => $custom_class));
     }
-
 }
 
 
@@ -974,7 +974,8 @@ if (!function_exists('sticky_note_widget')) {
  */
 if (!function_exists('ticket_status_widget_small')) {
 
-    function ticket_status_widget_small($data = array()) {
+    function ticket_status_widget_small($data = array())
+    {
         $ci = new Security_Controller(false);
         $allowed_ticket_types = get_array_value($data, "allowed_ticket_types");
         $status = get_array_value($data, "status");
@@ -993,7 +994,6 @@ if (!function_exists('ticket_status_widget_small')) {
         $template = new Template();
         return $template->view("tickets/ticket_status_widget_small", $view_data);
     }
-
 }
 
 
@@ -1004,14 +1004,14 @@ if (!function_exists('ticket_status_widget_small')) {
  */
 if (!function_exists('all_team_members_widget')) {
 
-    function all_team_members_widget() {
+    function all_team_members_widget()
+    {
         $Users_model = model("App\Models\Users_model");
         $options = array("status" => "active", "user_type" => "staff");
         $view_data["members"] = $Users_model->get_details($options)->getResult();
         $template = new Template();
         return $template->view("team_members/team_members_widget", $view_data);
     }
-
 }
 
 
@@ -1023,7 +1023,8 @@ if (!function_exists('all_team_members_widget')) {
  */
 if (!function_exists('clocked_in_team_members_widget')) {
 
-    function clocked_in_team_members_widget($data = array()) {
+    function clocked_in_team_members_widget($data = array())
+    {
         $ci = new Security_Controller(false);
 
         $options = array(
@@ -1038,7 +1039,6 @@ if (!function_exists('clocked_in_team_members_widget')) {
         $template = new Template();
         return $template->view("team_members/clocked_in_team_members_widget", $view_data);
     }
-
 }
 
 
@@ -1050,7 +1050,8 @@ if (!function_exists('clocked_in_team_members_widget')) {
  */
 if (!function_exists('clocked_out_team_members_widget')) {
 
-    function clocked_out_team_members_widget($data = array()) {
+    function clocked_out_team_members_widget($data = array())
+    {
         $ci = new Security_Controller(false);
 
         $options = array(
@@ -1063,7 +1064,6 @@ if (!function_exists('clocked_out_team_members_widget')) {
         $template = new Template();
         return $template->view("team_members/clocked_out_team_members_widget", $view_data);
     }
-
 }
 
 
@@ -1074,7 +1074,8 @@ if (!function_exists('clocked_out_team_members_widget')) {
  */
 if (!function_exists('active_members_and_clients_widget')) {
 
-    function active_members_and_clients_widget($user_type = "", $show_own_clients_only_user_id = "", $allowed_client_groups = "") {
+    function active_members_and_clients_widget($user_type = "", $show_own_clients_only_user_id = "", $allowed_client_groups = "")
+    {
         $ci = new Security_Controller(false);
 
         $options = array("user_type" => $user_type, "exclude_user_id" => $ci->login_user->id, "show_own_clients_only_user_id" => $show_own_clients_only_user_id, "client_groups" => $allowed_client_groups);
@@ -1084,7 +1085,6 @@ if (!function_exists('active_members_and_clients_widget')) {
         $template = new Template();
         return $template->view("team_members/active_members_and_clients_widget", $view_data);
     }
-
 }
 
 
@@ -1096,14 +1096,14 @@ if (!function_exists('active_members_and_clients_widget')) {
  */
 if (!function_exists('get_invoices_value_widget')) {
 
-    function get_invoices_value_widget($type = "") {
+    function get_invoices_value_widget($type = "")
+    {
         $Invoices_model = model("App\Models\Invoices_model");
         $view_data["invoices_info"] = $Invoices_model->get_invoices_total_and_paymnts();
         $view_data["type"] = $type;
         $template = new Template();
         return $template->view("invoices/total_invoices_value_widget", $view_data);
     }
-
 }
 
 
@@ -1114,13 +1114,13 @@ if (!function_exists('get_invoices_value_widget')) {
  */
 if (!function_exists('my_tasks_list_widget')) {
 
-    function my_tasks_list_widget() {
+    function my_tasks_list_widget()
+    {
         $Task_status_model = model("App\Models\Task_status_model");
         $view_data['task_statuses'] = $Task_status_model->get_details()->getResult();
         $template = new Template();
         return $template->view("projects/tasks/my_tasks_list_widget", $view_data);
     }
-
 }
 
 /**
@@ -1130,7 +1130,8 @@ if (!function_exists('my_tasks_list_widget')) {
  */
 if (!function_exists('pending_leave_approval_widget')) {
 
-    function pending_leave_approval_widget($data = array()) {
+    function pending_leave_approval_widget($data = array())
+    {
         $ci = new Security_Controller(false);
 
         $options = array(
@@ -1144,7 +1145,6 @@ if (!function_exists('pending_leave_approval_widget')) {
         $template = new Template();
         return $template->view("leaves/pending_leave_approval_widget", $view_data);
     }
-
 }
 
 /**
@@ -1154,13 +1154,13 @@ if (!function_exists('pending_leave_approval_widget')) {
  */
 if (!function_exists('draft_invoices_widget')) {
 
-    function draft_invoices_widget() {
+    function draft_invoices_widget()
+    {
         $Invoices_model = model("App\Models\Invoices_model");
         $view_data["draft_invoices"] = $Invoices_model->count_invoices(array("status" => "draft"));
         $template = new Template();
         return $template->view("invoices/draft_invoices_widget", $view_data);
     }
-
 }
 
 /**
@@ -1170,13 +1170,13 @@ if (!function_exists('draft_invoices_widget')) {
  */
 if (!function_exists('total_clients_widget')) {
 
-    function total_clients_widget($show_own_clients_only_user_id = "", $allowed_client_groups = "") {
+    function total_clients_widget($show_own_clients_only_user_id = "", $allowed_client_groups = "")
+    {
         $Clients_model = model("App\Models\Clients_model");
         $view_data["total"] = $Clients_model->count_total_clients(array("show_own_clients_only_user_id" => $show_own_clients_only_user_id, "client_groups" => $allowed_client_groups));
         $template = new Template();
         return $template->view("clients/total_clients_widget", $view_data);
     }
-
 }
 
 /**
@@ -1186,13 +1186,13 @@ if (!function_exists('total_clients_widget')) {
  */
 if (!function_exists('total_contacts_widget')) {
 
-    function total_contacts_widget($show_own_clients_only_user_id = "", $allowed_client_groups = "") {
+    function total_contacts_widget($show_own_clients_only_user_id = "", $allowed_client_groups = "")
+    {
         $Users_model = model("App\Models\Users_model");
         $view_data["total"] = $Users_model->count_total_contacts(array("show_own_clients_only_user_id" => $show_own_clients_only_user_id, "client_groups" => $allowed_client_groups));
         $template = new Template();
         return $template->view("clients/total_contacts_widget", $view_data);
     }
-
 }
 
 /**
@@ -1202,14 +1202,14 @@ if (!function_exists('total_contacts_widget')) {
  */
 if (!function_exists('active_members_on_projects_widget')) {
 
-    function active_members_on_projects_widget() {
+    function active_members_on_projects_widget()
+    {
         $Timesheets_model = model("App\Models\Timesheets_model");
         $view_data["users_info"] = $Timesheets_model->active_members_on_projects()->getResult();
 
         $template = new Template();
         return $template->view("team_members/active_members_on_projects_widget", $view_data);
     }
-
 }
 
 /**
@@ -1219,7 +1219,8 @@ if (!function_exists('active_members_on_projects_widget')) {
  */
 if (!function_exists('open_tickets_list_widget')) {
 
-    function open_tickets_list_widget() {
+    function open_tickets_list_widget()
+    {
         $ci = new Security_Controller(false);
 
         if ($ci->login_user->user_type == "client") {
@@ -1231,7 +1232,6 @@ if (!function_exists('open_tickets_list_widget')) {
             return $template->view("tickets/open_tickets_list_widget");
         }
     }
-
 }
 
 /**
@@ -1241,14 +1241,14 @@ if (!function_exists('open_tickets_list_widget')) {
  */
 if (!function_exists('total_leads_widget')) {
 
-    function total_leads_widget($returen_as_data = false, $show_own_leads_only_user_id = "") {
+    function total_leads_widget($returen_as_data = false, $show_own_leads_only_user_id = "")
+    {
         $Clients_model = model("App\Models\Clients_model");
         $view_data["total"] = $Clients_model->count_total_leads($show_own_leads_only_user_id);
 
         $template = new Template();
         return $template->view('leads/total_leads_widget', $view_data, $returen_as_data);
     }
-
 }
 
 /**
@@ -1259,7 +1259,8 @@ if (!function_exists('total_leads_widget')) {
  */
 if (!function_exists('client_contacts_logged_in_widget')) {
 
-    function client_contacts_logged_in_widget($widget_type = "", $show_own_clients_only_user_id = "", $allowed_client_groups = "", $return_as_data = false) {
+    function client_contacts_logged_in_widget($widget_type = "", $show_own_clients_only_user_id = "", $allowed_client_groups = "", $return_as_data = false)
+    {
         $ci = new Security_Controller(false);
 
         $last_online = "";
@@ -1277,7 +1278,6 @@ if (!function_exists('client_contacts_logged_in_widget')) {
         $template = new Template();
         return $template->view("clients/widgets/client_contacts_logged_in_widget", $view_data, $return_as_data);
     }
-
 }
 
 /**
@@ -1288,7 +1288,8 @@ if (!function_exists('client_contacts_logged_in_widget')) {
  */
 if (!function_exists('client_invoices_widget')) {
 
-    function client_invoices_widget($widget_type = "", $show_own_clients_only_user_id = "", $allowed_client_groups = "", $return_as_data = false) {
+    function client_invoices_widget($widget_type = "", $show_own_clients_only_user_id = "", $allowed_client_groups = "", $return_as_data = false)
+    {
         $Clients_model = model("App\Models\Clients_model");
 
         $options = array("filter" => $widget_type, "show_own_clients_only_user_id" => $show_own_clients_only_user_id, "client_groups" => $allowed_client_groups);
@@ -1299,7 +1300,6 @@ if (!function_exists('client_invoices_widget')) {
         $template = new Template();
         return $template->view("clients/widgets/client_invoices_widget", $view_data, $return_as_data);
     }
-
 }
 
 /**
@@ -1309,7 +1309,8 @@ if (!function_exists('client_invoices_widget')) {
  */
 if (!function_exists('client_projects_widget')) {
 
-    function client_projects_widget($show_own_clients_only_user_id = "", $allowed_client_groups = "", $return_as_data = false) {
+    function client_projects_widget($show_own_clients_only_user_id = "", $allowed_client_groups = "", $return_as_data = false)
+    {
         $Clients_model = model("App\Models\Clients_model");
 
         $view_data["clients_has_open_projects"] = $Clients_model->count_total_clients(array("filter" => "has_open_projects", "show_own_clients_only_user_id" => $show_own_clients_only_user_id, "client_groups" => $allowed_client_groups));
@@ -1320,7 +1321,6 @@ if (!function_exists('client_projects_widget')) {
         $template = new Template();
         return $template->view("clients/widgets/projects_info_widget", $view_data, $return_as_data);
     }
-
 }
 
 /**
@@ -1330,7 +1330,8 @@ if (!function_exists('client_projects_widget')) {
  */
 if (!function_exists('client_estimates_widget')) {
 
-    function client_estimates_widget($show_own_clients_only_user_id = "", $allowed_client_groups = "", $return_as_data = false) {
+    function client_estimates_widget($show_own_clients_only_user_id = "", $allowed_client_groups = "", $return_as_data = false)
+    {
         $Clients_model = model("App\Models\Clients_model");
 
         $view_data["clients_has_open_estimates"] = $Clients_model->count_total_clients(array("filter" => "has_open_estimates", "show_own_clients_only_user_id" => $show_own_clients_only_user_id, "client_groups" => $allowed_client_groups));
@@ -1341,7 +1342,6 @@ if (!function_exists('client_estimates_widget')) {
         $template = new Template();
         return $template->view("clients/widgets/client_estimates_widget", $view_data, $return_as_data);
     }
-
 }
 
 /**
@@ -1351,7 +1351,8 @@ if (!function_exists('client_estimates_widget')) {
  */
 if (!function_exists('clients_has_open_tickets_widget')) {
 
-    function clients_has_open_tickets_widget($show_own_clients_only_user_id = "", $allowed_client_groups = "") {
+    function clients_has_open_tickets_widget($show_own_clients_only_user_id = "", $allowed_client_groups = "")
+    {
         $Clients_model = model("App\Models\Clients_model");
 
         $options = array("show_own_clients_only_user_id" => $show_own_clients_only_user_id, "filter" => "has_open_tickets", "client_groups" => $allowed_client_groups);
@@ -1361,7 +1362,6 @@ if (!function_exists('clients_has_open_tickets_widget')) {
         $template = new Template();
         return $template->view("clients/widgets/clients_has_open_tickets_widget", $view_data);
     }
-
 }
 
 /**
@@ -1371,7 +1371,8 @@ if (!function_exists('clients_has_open_tickets_widget')) {
  */
 if (!function_exists('clients_has_new_orders_widget')) {
 
-    function clients_has_new_orders_widget($show_own_clients_only_user_id = "", $allowed_client_groups = "") {
+    function clients_has_new_orders_widget($show_own_clients_only_user_id = "", $allowed_client_groups = "")
+    {
         $Clients_model = model("App\Models\Clients_model");
 
         $options = array("filter" => "has_new_orders", "show_own_clients_only_user_id" => $show_own_clients_only_user_id, "client_groups" => $allowed_client_groups);
@@ -1381,7 +1382,6 @@ if (!function_exists('clients_has_new_orders_widget')) {
         $template = new Template();
         return $template->view("clients/widgets/clients_has_new_orders_widget", $view_data);
     }
-
 }
 
 /**
@@ -1391,7 +1391,8 @@ if (!function_exists('clients_has_new_orders_widget')) {
  */
 if (!function_exists('client_proposals_widget')) {
 
-    function client_proposals_widget($show_own_clients_only_user_id = "", $allowed_client_groups = "", $return_as_data = false) {
+    function client_proposals_widget($show_own_clients_only_user_id = "", $allowed_client_groups = "", $return_as_data = false)
+    {
         $Clients_model = model("App\Models\Clients_model");
 
         $view_data["clients_has_open_proposals"] = $Clients_model->count_total_clients(array("filter" => "has_open_proposals", "show_own_clients_only_user_id" => $show_own_clients_only_user_id, "client_groups" => $allowed_client_groups));
@@ -1401,12 +1402,12 @@ if (!function_exists('client_proposals_widget')) {
         $template = new Template();
         return $template->view("clients/widgets/client_proposals_widget", $view_data, $return_as_data);
     }
-
 }
 
 if (!function_exists('company_widget')) {
 
-    function company_widget($company_id = 0) {
+    function company_widget($company_id = 0)
+    {
         $options = array("is_default" => true);
         if ($company_id) {
             $options = array("id" => $company_id);
@@ -1427,7 +1428,6 @@ if (!function_exists('company_widget')) {
 
         return view("company/company_widget", $view_data);
     }
-
 }
 
 /**
@@ -1438,7 +1438,8 @@ if (!function_exists('company_widget')) {
  */
 if (!function_exists('projects_overview_widget')) {
 
-    function projects_overview_widget() {
+    function projects_overview_widget()
+    {
         $ci = new Security_Controller(false);
 
         if ($ci->login_user->is_admin) {
@@ -1458,23 +1459,23 @@ if (!function_exists('projects_overview_widget')) {
         $template = new Template();
         return $template->view("projects/widgets/projects_overview_widget", $view_data);
     }
-
 }
 
 if (!function_exists('reminders_widget')) {
 
-    function reminders_widget($return_reminders_only = false) {
+    function reminders_widget($return_reminders_only = false)
+    {
         $ci = new Security_Controller();
 
         $Events_model = model('App\Models\Events_model');
         $local_time = get_my_local_time("Y-m-d H:i") . ":00";
         $reminders = $Events_model->get_details(array(
-                    "user_id" => $ci->login_user->id,
-                    "type" => "all",
-                    "reminder_status" => "new",
-                    "reminder_start_date_time" => $local_time,
-                    "reminder_end_date_time" => add_period_to_date($local_time, "1", "days", "Y-m-d H:i:s") //get reminders of next 24 hours
-                ))->getResult();
+            "user_id" => $ci->login_user->id,
+            "type" => "all",
+            "reminder_status" => "new",
+            "reminder_start_date_time" => $local_time,
+            "reminder_end_date_time" => add_period_to_date($local_time, "1", "days", "Y-m-d H:i:s") //get reminders of next 24 hours
+        ))->getResult();
 
         if ($return_reminders_only) {
             return $reminders;
@@ -1484,7 +1485,6 @@ if (!function_exists('reminders_widget')) {
 
         echo view("reminders/reminders_widget", $view_data);
     }
-
 }
 
 
@@ -1495,7 +1495,8 @@ if (!function_exists('reminders_widget')) {
  */
 if (!function_exists('estimate_sent_statistics_widget')) {
 
-    function estimate_sent_statistics_widget($options = array()) {
+    function estimate_sent_statistics_widget($options = array())
+    {
         $ci = new Security_Controller(false);
 
         $currency_symbol = get_array_value($options, "currency");
@@ -1526,7 +1527,6 @@ if (!function_exists('estimate_sent_statistics_widget')) {
         $template = new Template();
         return $template->view("estimates/estimate_sent_statistics_widget/index", $view_data);
     }
-
 }
 
 
@@ -1536,7 +1536,8 @@ if (!function_exists('estimate_sent_statistics_widget')) {
  */
 if (!function_exists('last_announcement_widget')) {
 
-    function last_announcement_widget() {
+    function last_announcement_widget()
+    {
         $ci = new Security_Controller(false);
 
         $options["user_type"] = $ci->login_user->user_type;
@@ -1554,7 +1555,6 @@ if (!function_exists('last_announcement_widget')) {
         $template = new Template();
         return $template->view("announcements/last_announcement_widget", $view_data);
     }
-
 }
 
 
@@ -1565,7 +1565,8 @@ if (!function_exists('last_announcement_widget')) {
  */
 if (!function_exists('team_members_overview_widget')) {
 
-    function team_members_overview_widget($data = array()) {
+    function team_members_overview_widget($data = array())
+    {
         $ci = new Security_Controller(false);
 
         $view_data["total_team_members"] = $ci->Users_model->count_total_users();
@@ -1586,7 +1587,6 @@ if (!function_exists('team_members_overview_widget')) {
         $template = new Template();
         return $template->view("team_members/team_members_overview_widget", $view_data);
     }
-
 }
 
 /**
@@ -1596,7 +1596,8 @@ if (!function_exists('team_members_overview_widget')) {
  */
 if (!function_exists('all_tasks_overview_widget')) {
 
-    function all_tasks_overview_widget() {
+    function all_tasks_overview_widget()
+    {
         $ci = new Security_Controller(false);
         $permissions = $ci->login_user->permissions;
 
@@ -1614,7 +1615,6 @@ if (!function_exists('all_tasks_overview_widget')) {
         $template = new Template();
         return $template->view("projects/tasks/all_tasks_overview_widget", $view_data);
     }
-
 }
 
 /**
@@ -1625,7 +1625,8 @@ if (!function_exists('all_tasks_overview_widget')) {
  */
 if (!function_exists('invoice_overview_widget')) {
 
-    function invoice_overview_widget($options = array()) {
+    function invoice_overview_widget($options = array())
+    {
         $ci = new Security_Controller(false);
 
         $today = get_my_local_time("Y-m-d");
@@ -1687,7 +1688,6 @@ if (!function_exists('invoice_overview_widget')) {
         $template = new Template();
         return $template->view("invoices/invoice_overview_widget", $view_data);
     }
-
 }
 
 /**
@@ -1697,7 +1697,8 @@ if (!function_exists('invoice_overview_widget')) {
  */
 if (!function_exists('next_reminder_widget')) {
 
-    function next_reminder_widget() {
+    function next_reminder_widget()
+    {
         $ci = new Security_Controller();
 
         $Events_model = model('App\Models\Events_model');
@@ -1709,18 +1710,17 @@ if (!function_exists('next_reminder_widget')) {
         );
 
         $reminders_of_today = $Events_model->get_details(array_merge($options, array(
-                    "reminder_end_date_time" => get_my_local_time("Y-m-d") . " 23:59:00" //get reminders of today means from now to 23:59:00
-                )))->getResult();
+            "reminder_end_date_time" => get_my_local_time("Y-m-d") . " 23:59:00" //get reminders of today means from now to 23:59:00
+        )))->getResult();
         $view_data["reminders_of_today"] = count($reminders_of_today);
 
         $next_reminder = $Events_model->get_details(array_merge($options, array(
-                    "limit" => 1, //get next reminder only
-                    "get_future_events_only" => true,
-                )))->getRow();
+            "limit" => 1, //get next reminder only
+            "get_future_events_only" => true,
+        )))->getRow();
         $view_data["next_reminder"] = $next_reminder;
 
         $template = new Template();
         return $template->view("reminders/next_reminder_widget", $view_data);
     }
-
 }

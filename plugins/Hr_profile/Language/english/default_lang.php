@@ -311,6 +311,7 @@ $lang['hr_hr_place_of_issue']                                             = 'Pla
 $lang['hr_hr_resident']                                                 = 'Resident';
 $lang['hr_staff_profile']                                                 = 'Staff profile';
 $lang['hr_hr_relationship']                                             = 'Relationship';
+$lang['wh_import']                                                      = 'Import Staff';
 $lang['hr_job_id']                                                     = 'ID';
 $lang['hr_import_job_position_code']                                     = 'Job position code: if not entered, it will automatically generate';
 $lang['hr_import_job_position_group']                                     = 'Enter multiple group, group ID are separated by "," for example (1,2,3)';

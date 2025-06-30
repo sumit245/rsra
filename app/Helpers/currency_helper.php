@@ -9,7 +9,8 @@
  */
 if (!function_exists('to_currency')) {
 
-    function to_currency($number = 0, $currency = "", $no_of_decimals = 2) {
+    function to_currency($number = 0, $currency = "", $no_of_decimals = 2)
+    {
         $decimal_separator = get_setting("decimal_separator");
         $thousand_separator = get_setting("thousand_separator");
         $number = is_null($number) ? 0 : $number;
@@ -54,7 +55,6 @@ if (!function_exists('to_currency')) {
             }
         }
     }
-
 }
 
 /**
@@ -65,7 +65,8 @@ if (!function_exists('to_currency')) {
  */
 if (!function_exists('to_decimal_format')) {
 
-    function to_decimal_format($number = 0) {
+    function to_decimal_format($number = 0)
+    {
         $decimal_separator = get_setting("decimal_separator");
         $number = is_null($number) ? 0 : $number;
 
@@ -79,7 +80,6 @@ if (!function_exists('to_decimal_format')) {
             return number_format($number, $decimal, ".", ",");
         }
     }
-
 }
 
 /**
@@ -90,8 +90,9 @@ if (!function_exists('to_decimal_format')) {
  */
 if (!function_exists('unformat_currency')) {
 
-    function unformat_currency($currency = "") {
-// remove everything except a digit "0-9", a comma ",", and a dot "."
+    function unformat_currency($currency = "")
+    {
+        // remove everything except a digit "0-9", a comma ",", and a dot "."
         $new_money = preg_replace('/[^\d,-\.]/', '', $currency);
         $decimal_separator = get_setting("decimal_separator");
         if ($decimal_separator === ",") {
@@ -102,7 +103,6 @@ if (!function_exists('unformat_currency')) {
         }
         return $new_money;
     }
-
 }
 
 /**
@@ -112,7 +112,8 @@ if (!function_exists('unformat_currency')) {
  */
 if (!function_exists('get_international_currency_code_list')) {
 
-    function get_international_currency_code_list() {
+    function get_international_currency_code_list()
+    {
         return array(
             "AED",
             "AFN",
@@ -293,7 +294,6 @@ if (!function_exists('get_international_currency_code_list')) {
             "ZMW"
         );
     }
-
 }
 
 
@@ -304,14 +304,14 @@ if (!function_exists('get_international_currency_code_list')) {
  */
 if (!function_exists('get_international_currency_code_dropdown')) {
 
-    function get_international_currency_code_dropdown() {
+    function get_international_currency_code_dropdown()
+    {
         $result = array();
         foreach (get_international_currency_code_list() as $value) {
             $result[$value] = $value;
         }
         return $result;
     }
-
 }
 
 
@@ -322,18 +322,19 @@ if (!function_exists('get_international_currency_code_dropdown')) {
  */
 if (!function_exists('ignor_minor_value')) {
 
-    function ignor_minor_value($value) {
+    function ignor_minor_value($value)
+    {
         if (abs($value) < 0.05) {
             $value = 0;
         }
         return $value;
     }
-
 }
 
 if (!function_exists('get_converted_amount')) {
 
-    function get_converted_amount($currency = "", $value = 0) {
+    function get_converted_amount($currency = "", $value = 0)
+    {
         if (!$currency) {
             //no currency given
             return $value;
@@ -355,5 +356,4 @@ if (!function_exists('get_converted_amount')) {
         //conversion rate found
         return ((1 / $conversion_rate_for_this_currency) * 1) * $value;
     }
-
 }

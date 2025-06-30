@@ -12,7 +12,8 @@ use App\Libraries\Google;
  */
 if (!function_exists('convert_file_size')) {
 
-    function convert_file_size($bytes) {
+    function convert_file_size($bytes)
+    {
         $bytes = floatval($bytes);
         $result = 0 . " KB";
         $bytes_array = array(
@@ -32,7 +33,6 @@ if (!function_exists('convert_file_size')) {
         }
         return $result;
     }
-
 }
 
 
@@ -44,7 +44,8 @@ if (!function_exists('convert_file_size')) {
  */
 if (!function_exists('get_file_icon')) {
 
-    function get_file_icon($file_ext = "") {
+    function get_file_icon($file_ext = "")
+    {
         switch ($file_ext) {
             case "jpeg":
             case "jpg":
@@ -105,7 +106,6 @@ if (!function_exists('get_file_icon')) {
                 return "file";
         };
     }
-
 }
 
 /**
@@ -116,12 +116,12 @@ if (!function_exists('get_file_icon')) {
  */
 if (!function_exists('is_image_file')) {
 
-    function is_image_file($file_name = "") {
+    function is_image_file($file_name = "")
+    {
         $extension = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
         $image_files = array("jpg", "jpeg", "png", "gif", "bmp");
         return (in_array($extension, $image_files)) ? true : false;
     }
-
 }
 
 
@@ -133,12 +133,12 @@ if (!function_exists('is_image_file')) {
  */
 if (!function_exists('is_google_preview_available')) {
 
-    function is_google_preview_available($file_name = "") {
+    function is_google_preview_available($file_name = "")
+    {
         $extension = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
         $image_files = array("doc", "docx", "ppt", "pptx", "css");
         return (in_array($extension, $image_files)) ? true : false;
     }
-
 }
 
 /**
@@ -149,19 +149,20 @@ if (!function_exists('is_google_preview_available')) {
  */
 if (!function_exists('is_viewable_image_file')) {
 
-    function is_viewable_image_file($file_name = "") {
+    function is_viewable_image_file($file_name = "")
+    {
         $viewable_extansions = array(
             "jpeg",
             "jpg",
             "png",
             "gif",
-            "bmp");
+            "bmp"
+        );
         $file_extension = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
         if (in_array($file_extension, $viewable_extansions)) {
             return true;
         }
     }
-
 }
 
 /**
@@ -172,7 +173,8 @@ if (!function_exists('is_viewable_image_file')) {
  */
 if (!function_exists('is_viewable_video_file')) {
 
-    function is_viewable_video_file($file_name = "") {
+    function is_viewable_video_file($file_name = "")
+    {
         $viewable_extansions = array(
             "mp4",
             "webm",
@@ -184,7 +186,6 @@ if (!function_exists('is_viewable_video_file')) {
             return true;
         }
     }
-
 }
 
 
@@ -196,7 +197,8 @@ if (!function_exists('is_viewable_video_file')) {
  */
 if (!function_exists('upload_file_to_temp')) {
 
-    function upload_file_to_temp($upload_to_local = false) {
+    function upload_file_to_temp($upload_to_local = false)
+    {
         if (!empty($_FILES)) {
             $temp_file = $_FILES['file']['tmp_name'];
             $file_name = $_FILES['file']['name'];
@@ -230,7 +232,6 @@ if (!function_exists('upload_file_to_temp')) {
             }
         }
     }
-
 }
 
 /**
@@ -247,7 +248,8 @@ if (!function_exists('upload_file_to_temp')) {
  */
 if (!function_exists('move_temp_file')) {
 
-    function move_temp_file($file_name, $target_path, $related_to = "", $source_path = NULL, $static_file_name = "", $file_content = "") {
+    function move_temp_file($file_name, $target_path, $related_to = "", $source_path = NULL, $static_file_name = "", $file_content = "")
+    {
         //to make the file name unique we'll add a prefix
         $filename_prefix = $related_to . "_" . uniqid("file") . "-";
 
@@ -332,7 +334,6 @@ if (!function_exists('move_temp_file')) {
             return false;
         }
     }
-
 }
 
 /**
@@ -342,7 +343,8 @@ if (!function_exists('move_temp_file')) {
  */
 if (!function_exists("get_drive_folder_name")) {
 
-    function get_drive_folder_name($target_path = "") {
+    function get_drive_folder_name($target_path = "")
+    {
         if ($target_path) {
             $folder_array = array("profile_images", "timeline_files", "project_files", "system", "general", "temp");
             $explode_target_path = explode("/", $target_path);
@@ -356,7 +358,6 @@ if (!function_exists("get_drive_folder_name")) {
             return "others"; //if not matched anything
         }
     }
-
 }
 
 /**
@@ -368,7 +369,8 @@ if (!function_exists("get_drive_folder_name")) {
  */
 if (!function_exists('get_source_url_of_file')) {
 
-    function get_source_url_of_file($file_info = array(), $file_path = "", $view_type = "", $only_file_path = false, $add_slash = false, $show_full_size_thumbnail = false) {
+    function get_source_url_of_file($file_info = array(), $file_path = "", $view_type = "", $only_file_path = false, $add_slash = false, $show_full_size_thumbnail = false)
+    {
         $file_name = get_array_value($file_info, 'file_name');
         $file_id = get_array_value($file_info, "file_id");
         $service_type = get_array_value($file_info, "service_type");
@@ -401,7 +403,6 @@ if (!function_exists('get_source_url_of_file')) {
             }
         }
     }
-
 }
 
 /**
@@ -411,7 +412,8 @@ if (!function_exists('get_source_url_of_file')) {
  */
 if (!function_exists("get_source_url_of_google_drive_file")) {
 
-    function get_source_url_of_google_drive_file($file_id = "", $view_type = "", $show_full_size_thumbnail = false) {
+    function get_source_url_of_google_drive_file($file_id = "", $view_type = "", $show_full_size_thumbnail = false)
+    {
         if ($view_type == "raw") {
             //get raw file url
             return "https://drive.google.com/uc?id=$file_id";
@@ -424,7 +426,6 @@ if (!function_exists("get_source_url_of_google_drive_file")) {
             return "https://drive.google.com/file/d/$file_id/preview";
         }
     }
-
 }
 
 /**
@@ -436,7 +437,8 @@ if (!function_exists("get_source_url_of_google_drive_file")) {
  */
 if (!function_exists('copy_text_based_image')) {
 
-    function copy_text_based_image($source_path, $target_path) {
+    function copy_text_based_image($source_path, $target_path)
+    {
 
         if (ini_get('allow_url_fopen')) {
 
@@ -459,7 +461,6 @@ if (!function_exists('copy_text_based_image')) {
             }
         }
     }
-
 }
 
 /**
@@ -470,10 +471,10 @@ if (!function_exists('copy_text_based_image')) {
  */
 if (!function_exists('remove_file_prefix')) {
 
-    function remove_file_prefix($file_name = "") {
+    function remove_file_prefix($file_name = "")
+    {
         return substr($file_name, strpos($file_name, "-") + 1);
     }
-
 }
 
 
@@ -486,11 +487,12 @@ if (!function_exists('remove_file_prefix')) {
  */
 if (!function_exists('copy_recursively')) {
 
-    function copy_recursively($src, $dst) {
+    function copy_recursively($src, $dst)
+    {
         $dir = opendir($src);
         @mkdir($dst);
-        while (false !== ( $file = readdir($dir))) {
-            if (( $file != '.' ) && ( $file != '..' )) {
+        while (false !== ($file = readdir($dir))) {
+            if (($file != '.') && ($file != '..')) {
                 if (is_dir($src . '/' . $file)) {
                     copy_recursively($src . '/' . $file, $dst . '/' . $file);
                 } else {
@@ -500,7 +502,6 @@ if (!function_exists('copy_recursively')) {
         }
         closedir($dir);
     }
-
 }
 
 
@@ -520,7 +521,8 @@ if (!function_exists('copy_recursively')) {
  */
 if (!function_exists('move_files_from_temp_dir_to_permanent_dir')) {
 
-    function move_files_from_temp_dir_to_permanent_dir($target_path = "", $related_to = "") {
+    function move_files_from_temp_dir_to_permanent_dir($target_path = "", $related_to = "")
+    {
 
         $request = \Config\Services::request();
 
@@ -562,7 +564,6 @@ if (!function_exists('move_files_from_temp_dir_to_permanent_dir')) {
         }
         return serialize($files_data);
     }
-
 }
 
 
@@ -574,14 +575,14 @@ if (!function_exists('move_files_from_temp_dir_to_permanent_dir')) {
  */
 if (!function_exists('validate_post_file')) {
 
-    function validate_post_file($file_name = "") {
+    function validate_post_file($file_name = "")
+    {
         if (is_valid_file_to_upload($file_name)) {
             echo json_encode(array("success" => true));
         } else {
             echo json_encode(array("success" => false, 'message' => app_lang('invalid_file_type') . " ($file_name)"));
         }
     }
-
 }
 
 
@@ -593,7 +594,8 @@ if (!function_exists('validate_post_file')) {
  */
 if (!function_exists('is_valid_file_to_upload')) {
 
-    function is_valid_file_to_upload($file_name = "") {
+    function is_valid_file_to_upload($file_name = "")
+    {
 
         if (!$file_name)
             return false;
@@ -605,7 +607,6 @@ if (!function_exists('is_valid_file_to_upload')) {
             return true;
         }
     }
-
 }
 
 /**
@@ -615,13 +616,13 @@ if (!function_exists('is_valid_file_to_upload')) {
  */
 if (!function_exists('delete_file_from_directory')) {
 
-    function delete_file_from_directory($file_path = "") {
+    function delete_file_from_directory($file_path = "")
+    {
         $source_path = getcwd() . "/" . $file_path;
         if (file_exists($source_path)) {
             unlink($source_path);
         }
     }
-
 }
 
 /**
@@ -631,7 +632,8 @@ if (!function_exists('delete_file_from_directory')) {
  */
 if (!function_exists("delete_app_files")) {
 
-    function delete_app_files($directory_path = "", $files = array()) {
+    function delete_app_files($directory_path = "", $files = array())
+    {
         if (is_array($files)) {
             foreach ($files as $file) {
                 if (is_array($file)) {
@@ -651,7 +653,6 @@ if (!function_exists("delete_app_files")) {
                         try {
                             $google->delete_file($file_id);
                         } catch (\Exception $ex) {
-                            
                         }
                     } else {
                         $source_path = $directory_path . $file_name;
@@ -665,7 +666,6 @@ if (!function_exists("delete_app_files")) {
             delete_file_from_directory($directory_path . $files); //system files won't be array at first time
         }
     }
-
 }
 
 /**
@@ -675,7 +675,8 @@ if (!function_exists("delete_app_files")) {
  */
 if (!function_exists("make_array_of_file")) {
 
-    function make_array_of_file($file_info) {
+    function make_array_of_file($file_info)
+    {
         if ($file_info) {
             return array(
                 "file_name" => $file_info->file_name,
@@ -684,7 +685,6 @@ if (!function_exists("make_array_of_file")) {
             );
         }
     }
-
 }
 
 /**
@@ -694,7 +694,8 @@ if (!function_exists("make_array_of_file")) {
  */
 if (!function_exists("get_system_files_setting_value")) {
 
-    function get_system_files_setting_value($setting_name = "") {
+    function get_system_files_setting_value($setting_name = "")
+    {
         $setting_value = get_setting($setting_name);
         if ($setting_value) {
             $setting_as_array = @unserialize($setting_value);
@@ -705,7 +706,6 @@ if (!function_exists("get_system_files_setting_value")) {
             }
         }
     }
-
 }
 
 /**
@@ -717,7 +717,8 @@ if (!function_exists("get_system_files_setting_value")) {
  */
 if (!function_exists('prepare_attachment_of_files')) {
 
-    function prepare_attachment_of_files($directory_path, $serialized_file_data) {
+    function prepare_attachment_of_files($directory_path, $serialized_file_data)
+    {
         $result = array();
         if ($serialized_file_data) {
 
@@ -737,7 +738,6 @@ if (!function_exists('prepare_attachment_of_files')) {
         }
         return $result;
     }
-
 }
 
 
@@ -750,7 +750,8 @@ if (!function_exists('prepare_attachment_of_files')) {
  */
 if (!function_exists('update_saved_files')) {
 
-    function update_saved_files($file_path, $serialized_file_data, $new_files_array) {
+    function update_saved_files($file_path, $serialized_file_data, $new_files_array)
+    {
         if ($serialized_file_data && $file_path) {
             $files_array = unserialize($serialized_file_data);
             $request = \Config\Services::request();
@@ -777,7 +778,6 @@ if (!function_exists('update_saved_files')) {
         }
         return $new_files_array;
     }
-
 }
 
 
@@ -790,7 +790,8 @@ if (!function_exists('update_saved_files')) {
  */
 if (!function_exists('get_general_file_path')) {
 
-    function get_general_file_path($context, $context_id) {
+    function get_general_file_path($context, $context_id)
+    {
         if ($context && $context_id) {
             $target_path = get_setting("general_file_path");
             if (!$target_path) {
@@ -800,7 +801,6 @@ if (!function_exists('get_general_file_path')) {
             return $target_path . $context . "/" . $context_id . "/";
         }
     }
-
 }
 
 
@@ -811,7 +811,8 @@ if (!function_exists('get_general_file_path')) {
  */
 if (!function_exists('get_language_list')) {
 
-    function get_language_list($type = "") {
+    function get_language_list($type = "")
+    {
         $language_dropdown = array();
         $dir = "./app/Language/";
         if (is_dir($dir)) {
@@ -830,12 +831,12 @@ if (!function_exists('get_language_list')) {
         }
         return $language_dropdown;
     }
-
 }
 
 if (!function_exists('update_file_indexes')) {
 
-    function update_file_indexes($old_files = "", $new_files_array = array()) {
+    function update_file_indexes($old_files = "", $new_files_array = array())
+    {
         if (isset($old_files) && $old_files && $new_files_array) {
             $old_files_array = unserialize($old_files);
             if (count($old_files_array)) {
@@ -850,12 +851,12 @@ if (!function_exists('update_file_indexes')) {
             }
         }
     }
-
 }
 
 if (!function_exists('get_store_item_image')) {
 
-    function get_store_item_image($files) {
+    function get_store_item_image($files)
+    {
         $files = @unserialize($files);
         if ($files && is_array($files) && count($files)) {
             $first_file = get_array_value($files, 0);
@@ -864,7 +865,6 @@ if (!function_exists('get_store_item_image')) {
             return get_source_url_of_file(array("file_name" => "store-item-no-image.png"), get_setting("system_file_path"));
         }
     }
-
 }
 
 
@@ -876,10 +876,10 @@ if (!function_exists('get_store_item_image')) {
  */
 if (!function_exists('is_iframe_preview_available')) {
 
-    function is_iframe_preview_available($file_name = "") {
+    function is_iframe_preview_available($file_name = "")
+    {
         $extension = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
         $image_files = array("pdf", "txt");
         return (in_array($extension, $image_files)) ? true : false;
     }
-
 }

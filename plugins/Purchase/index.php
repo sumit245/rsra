@@ -81,10 +81,8 @@ app_hooks()->do_action('app_hook_role_permissions_extension', function () {
 });
 
 app_hooks()->add_filter('app_filter_role_permissions_save_data', function ($permissions, $data) {
-    $purchase = $data['purchase_permission'];
-
+    $purchase = [];
     $permissions = array_merge($permissions, ['purchase' => $purchase]);
-
     return $permissions;
 });
 

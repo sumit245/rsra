@@ -1,0 +1,148 @@
+ERROR - 2025-06-29 15:31:50 --> 
+              SELECT SQL_CALC_FOUND_ROWS pur_rq_code, requester, department, request_date, rise_pur_request.status, rise_pur_request.id, rise_items.title as item_title, rise_team.title as department_title, first_name, last_name ,rise_pur_request.id,pur_rq_code,title,first_name,last_name
+              FROM rise_pur_request
+              LEFT JOIN rise_team ON rise_team.id = rise_pur_request.department LEFT JOIN rise_users ON rise_users.id = rise_pur_request.requester LEFT JOIN rise_pur_request_detail ON rise_pur_request_detail.pur_request = rise_pur_request.id LEFT JOIN rise_items ON rise_items.id = rise_pur_request_detail.item_code
+              
+              
+              
+              ORDER BY pur_rq_code DESC
+              LIMIT 0, 25
+              
+ERROR - 2025-06-29 15:31:50 --> Column 'title' in field list is ambiguous
+CRITICAL - 2025-06-29 15:31:50 --> Column 'title' in field list is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('
+              SELECT SQL_CALC_FOUND_ROWS pur_rq_code, requester, department, request_date, rise_pur_request.status, rise_pur_request.id, rise_items.title as item_title, rise_team.title as department_title, first_name, last_name ,rise_pur_request.id,pur_rq_code,title,first_name,last_name
+              FROM rise_pur_request
+              LEFT JOIN rise_team ON rise_team.id = rise_pur_request.department LEFT JOIN rise_users ON rise_users.id = rise_pur_request.requester LEFT JOIN rise_pur_request_detail ON rise_pur_request_detail.pur_request = rise_pur_request.id LEFT JOIN rise_items ON rise_items.id = rise_pur_request_detail.item_code
+              
+              
+              
+              ORDER BY pur_rq_code DESC
+              LIMIT 0, 25
+              ', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(695): CodeIgniter\Database\MySQLi\Connection->execute('
+              SELECT SQL_CALC_FOUND_ROWS pur_rq_code, requester, department, request_date, rise_pur_request.status, rise_pur_request.id, rise_items.title as item_title, rise_team.title as department_title, first_name, last_name ,rise_pur_request.id,pur_rq_code,title,first_name,last_name
+              FROM rise_pur_request
+              LEFT JOIN rise_team ON rise_team.id = rise_pur_request.department LEFT JOIN rise_users ON rise_users.id = rise_pur_request.requester LEFT JOIN rise_pur_request_detail ON rise_pur_request_detail.pur_request = rise_pur_request.id LEFT JOIN rise_items ON rise_items.id = rise_pur_request_detail.item_code
+              
+              
+              
+              ORDER BY pur_rq_code DESC
+              LIMIT 0, 25
+              ')
+ 3 SYSTEMPATH\Database\BaseConnection.php(609): CodeIgniter\Database\BaseConnection->simpleQuery('
+              SELECT SQL_CALC_FOUND_ROWS pur_rq_code, requester, department, request_date, rise_pur_request.status, rise_pur_request.id, rise_items.title as item_title, rise_team.title as department_title, first_name, last_name ,rise_pur_request.id,pur_rq_code,title,first_name,last_name
+              FROM rise_pur_request
+              LEFT JOIN rise_team ON rise_team.id = rise_pur_request.department LEFT JOIN rise_users ON rise_users.id = rise_pur_request.requester LEFT JOIN rise_pur_request_detail ON rise_pur_request_detail.pur_request = rise_pur_request.id LEFT JOIN rise_items ON rise_items.id = rise_pur_request_detail.item_code
+              
+              
+              
+              ORDER BY pur_rq_code DESC
+              LIMIT 0, 25
+              ')
+ 4 FCPATH\plugins\Purchase\Models\Purchase_model.php(7984): CodeIgniter\Database\BaseConnection->query('
+              SELECT SQL_CALC_FOUND_ROWS pur_rq_code, requester, department, request_date, rise_pur_request.status, rise_pur_request.id, rise_items.title as item_title, rise_team.title as department_title, first_name, last_name ,rise_pur_request.id,pur_rq_code,title,first_name,last_name
+              FROM rise_pur_request
+              LEFT JOIN rise_team ON rise_team.id = rise_pur_request.department LEFT JOIN rise_users ON rise_users.id = rise_pur_request.requester LEFT JOIN rise_pur_request_detail ON rise_pur_request_detail.pur_request = rise_pur_request.id LEFT JOIN rise_items ON rise_items.id = rise_pur_request_detail.item_code
+              
+              
+              
+              ORDER BY pur_rq_code DESC
+              LIMIT 0, 25
+              ')
+ 5 FCPATH\plugins\Purchase\Helpers\purchase_datatables_helper.php(291): Purchase\Models\Purchase_model->get_pur_request_with_items('
+              SELECT SQL_CALC_FOUND_ROWS pur_rq_code, requester, department, request_date, rise_pur_request.status, rise_pur_request.id, rise_items.title as item_title, rise_team.title as department_title, first_name, last_name ,rise_pur_request.id,pur_rq_code,title,first_name,last_name
+              FROM rise_pur_request
+              LEFT JOIN rise_team ON rise_team.id = rise_pur_request.department LEFT JOIN rise_users ON rise_users.id = rise_pur_request.requester LEFT JOIN rise_pur_request_detail ON rise_pur_request_detail.pur_request = rise_pur_request.id LEFT JOIN rise_items ON rise_items.id = rise_pur_request_detail.item_code
+              
+              
+              
+              ORDER BY pur_rq_code DESC
+              LIMIT 0, 25
+              ')
+ 6 FCPATH\plugins\Purchase\Views\purchase_request\table_pur_request.php(44): data_tables_purchase([...], 'id', 'rise_pur_request', 'LEFT JOIN rise_team ON rise_team.id = rise_pur_request.department LEFT JOIN rise_users ON rise_users.id = rise_pur_request.requester LEFT JOIN rise_pur_request_detail ON rise_pur_request_detail.pur_request = rise_pur_request.id LEFT JOIN rise_items ON rise_items.id = rise_pur_request_detail.item_code', 'C:\\xampp\\htdocs\\rsra', [...], 'C:\\xampp\\htdocs\\rsra', [...], [...])
+ 7 FCPATH\plugins\Purchase\Models\Purchase_model.php(690): include_once('FCPATH\\plugins\\Purchase\\Views\\purchase_request\\table_pur_request.php')
+ 8 FCPATH\plugins\Purchase\Controllers\Purchase.php(2122): Purchase\Models\Purchase_model->get_table_data('FCPATH\\plugins/Purchase/Views/purchase_request/table_pur_request', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(896): Purchase\Controllers\Purchase->table_pur_request()
+10 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(Purchase\Controllers\Purchase))
+11 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-06-29 15:34:46 --> 
+              SELECT SQL_CALC_FOUND_ROWS pur_rq_code, requester, department, request_date, rise_pur_request.status, rise_pur_request.id ,rise_pur_request.id,pur_rq_code,title,first_name,last_name
+              FROM rise_pur_request
+              LEFT JOIN rise_team ON rise_team.id = rise_pur_request.department LEFT JOIN rise_users ON rise_users.id = rise_pur_request.requester
+              
+              
+              
+              ORDER BY pur_rq_code DESC
+              LIMIT 0, 25
+              
+CRITICAL - 2025-06-29 15:34:47 --> Array
+(
+    [0] => Array
+        (
+            [pur_rq_code] => #PRRSRA-00013-2025
+            [requester] => 1
+            [department] => 2
+            [request_date] => 2025-06-29 14:50:22
+            [status] => 2
+            [id] => 21
+            [title] => Electrical
+            [first_name] => Sumit
+            [last_name] => Ranjan
+        )
+
+)
+
+ERROR - 2025-06-29 15:34:49 --> 
+              SELECT SQL_CALC_FOUND_ROWS pur_rq_code, requester, department, request_date, rise_pur_request.status, rise_pur_request.id ,rise_pur_request.id,pur_rq_code,title,first_name,last_name
+              FROM rise_pur_request
+              LEFT JOIN rise_team ON rise_team.id = rise_pur_request.department LEFT JOIN rise_users ON rise_users.id = rise_pur_request.requester
+              
+              
+              
+              ORDER BY pur_rq_code DESC
+              LIMIT 0, 25
+              
+CRITICAL - 2025-06-29 15:34:49 --> Array
+(
+    [0] => Array
+        (
+            [pur_rq_code] => #PRRSRA-00013-2025
+            [requester] => 1
+            [department] => 2
+            [request_date] => 2025-06-29 14:50:22
+            [status] => 2
+            [id] => 21
+            [title] => Electrical
+            [first_name] => Sumit
+            [last_name] => Ranjan
+        )
+
+)
+
+CRITICAL - 2025-06-29 17:06:48 --> The action you requested is not allowed.
+in SYSTEMPATH\Security\Security.php on line 286.
+ 1 SYSTEMPATH\Security\Security.php(286): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+ 2 SYSTEMPATH\Filters\CSRF.php(54): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 4 SYSTEMPATH\CodeIgniter.php(440): CodeIgniter\Filters\Filters->run('messages/count_notifications', 'before')
+ 5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-29 17:06:49 --> The action you requested is not allowed.
+in SYSTEMPATH\Security\Security.php on line 286.
+ 1 SYSTEMPATH\Security\Security.php(286): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+ 2 SYSTEMPATH\Filters\CSRF.php(54): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 4 SYSTEMPATH\CodeIgniter.php(440): CodeIgniter\Filters\Filters->run('messages/count_notifications', 'before')
+ 5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-29 23:35:39 --> The action you requested is not allowed.
+in SYSTEMPATH\Security\Security.php on line 286.
+ 1 SYSTEMPATH\Security\Security.php(286): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+ 2 SYSTEMPATH\Filters\CSRF.php(54): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 4 SYSTEMPATH\CodeIgniter.php(440): CodeIgniter\Filters\Filters->run('messages/get_notifications', 'before')
+ 5 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
