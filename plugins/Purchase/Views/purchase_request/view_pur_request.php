@@ -519,68 +519,76 @@
 </div><!-- /.modal -->
 
 
-<?php require FCPATH . PLUGIN_URL_PATH . "Purchase/assets/js/purchase_request/view_pur_request_js.php";  ?>
+
 
 <script>
-  function addComment() {
-    var comment = $('#comment_content').val().trim();
+  $(document).ready(function () {
+    window.addComment = function () {
+      var comment = $('#comment_content').val().trim();
 
-    if (comment === '') {
-      alert('Please enter a comment');
-      return;
-    }
-
-    var button = $('#add-comment-btn');
-    var originalText = button.text();
-    button.text('Adding...').prop('disabled', true);
-
-    $.ajax({
-      url: '<?php echo admin_url('purchase/add_comment'); ?>',
-      type: 'POST',
-      data: {
-        comment: comment,
-        pur_request_id: <?php echo $pur_request->id; ?>
-      },
-      dataType: 'json',
-      success: function(response) {
-        if (response.success) {
-          $('#comment_content').val('');
-
-          var currentDate = new Date();
-          var formattedDate = currentDate.toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'short',
-            day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit'
-          });
-
-          var commentHtml = '<div class="comment mb15">' +
-            '<div class="comment-header">' +
-            '<strong>' + response.comment.user_name + '</strong> - ' +
-            '<span class="text-muted">' + formattedDate + '</span>' +
-            '</div>' +
-            '<div class="comment-body">' +
-            response.comment.comment.replace(/\n/g, '<br>') +
-            '</div>' +
-            '</div>';
-
-          $('.no-comments').remove();
-
-          $('#comments-list').prepend(commentHtml);
-
-        } else {
-          alert('Error: ' + response.message);
-        }
-      },
-      error: function(xhr, status, error) {
-        console.log('AJAX Error:', xhr.responseText);
-        alert('An error occurred while adding the comment');
-      },
-      complete: function() {
-        button.text(originalText).prop('disabled', false);
+      if (comment === '') {
+        alert('Please enter a comment');
+        return;
       }
-    });
-  }
+
+      var button = $('#add-comment-btn');
+      var originalText = button.text();
+      button.text('Adding...').prop('disabled', true);
+
+      var relatedId = <?php echo json_encode($pur_request->id); ?>;
+      var dataToSend = {
+        comment: comment,
+        related_id: relatedId,
+        comment_type: 'pur_request'
+      };
+
+      console.log('Sending data to server:', dataToSend); // Debug output
+
+      $.ajax({
+        url: '<?php echo admin_url('purchase/add_comment'); ?>',
+        type: 'POST',
+        data: dataToSend,
+        dataType: 'json',
+        success: function (response) {
+          if (response.success) {
+            $('#comment_content').val('');
+
+            var currentDate = new Date();
+            var formattedDate = currentDate.toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'short',
+              day: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit'
+            });
+
+            var commentHtml = '<div class="comment mb15">' +
+              '<div class="comment-header">' +
+              '<strong>' + response.comment.user_name + '</strong> - ' +
+              '<span class="text-muted">' + formattedDate + '</span>' +
+              '</div>' +
+              '<div class="comment-body">' +
+              response.comment.comment.replace(/\n/g, '<br>') +
+              '</div>' +
+              '</div>';
+
+            $('.no-comments').remove();
+            $('#comments-list').prepend(commentHtml);
+
+          } else {
+            alert('Error: ' + response.message);
+          }
+        },
+        error: function (xhr, status, error) {
+          console.error('AJAX Error:', xhr.responseText);
+          alert('An error occurred while adding the comment');
+        },
+        complete: function () {
+          button.text(originalText).prop('disabled', false);
+        }
+      });
+    };
+  });
 </script>
+
 <?php require FCPATH . PLUGIN_URL_PATH . "Purchase/assets/js/purchase_request/view_pur_request_js.php";  ?>
