@@ -542,7 +542,7 @@
         comment_type: 'pur_request'
       };
 
-      console.log('Sending data to server:', dataToSend); // Debug output
+  
 
       $.ajax({
         url: '<?php echo admin_url('purchase/add_comment'); ?>',
