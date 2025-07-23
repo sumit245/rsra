@@ -6,16 +6,19 @@ $aColumns = [
    'requester',
    'department',
    'request_date',
+   'project',
    db_prefix() . 'pur_request.status',
    db_prefix() . 'pur_request.id',
 ];
 
 $sIndexColumn = 'id';
 $sTable       = db_prefix() . 'pur_request';
-$join         = [
+$join = [
    'LEFT JOIN ' . db_prefix() . 'team ON ' . db_prefix() . 'team.id = ' . db_prefix() . 'pur_request.department',
    'LEFT JOIN ' . db_prefix() . 'users ON ' . db_prefix() . 'users.id = ' . db_prefix() . 'pur_request.requester',
+   'LEFT JOIN ' . db_prefix() . 'projects ON ' . db_prefix() . 'projects.id = ' . db_prefix() . 'pur_request.project', // ✅ Add this line
 ];
+
 $where = [];
 
 if (isset($dataPost['from_date']) && $dataPost['from_date'] != '') {
@@ -35,7 +38,24 @@ if ($dataPost['user_type'] == 'vendor') {
    array_push($where, 'AND find_in_set(' . $vendor_id . ', send_to_vendors) AND ' . db_prefix() . 'pur_request.status = 2');
 }
 
-$result = data_tables_purchase($aColumns, $sIndexColumn, $sTable, $join, $where, [db_prefix() . 'pur_request.id', 'pur_rq_code', 'title', 'first_name', 'last_name'], '', ['items.sku_code', 'items.sku_name', 'items.title'], $dataPost);
+$result = data_tables_purchase(
+   $aColumns,
+   $sIndexColumn,
+   $sTable,
+   $join,
+   $where,
+   [
+   db_prefix() . 'pur_request.id',
+   'pur_rq_code',
+   'rise_team.title as department_title',
+   'first_name',
+   'last_name',
+   db_prefix() . 'projects.title as project' // ✅ This brings in the name of the project
+   ],
+   '',
+   ['items.sku_code', 'items.sku_name', 'items.title'],
+   $dataPost
+);
 
 $output  = $result['output'];
 $rResult = $result['rResult'];
@@ -169,6 +189,8 @@ $rResult = $result['rResult'];
 
 $finalData = [];
 foreach ($rResult as $aRow) {
+   error_log('Project Row: ' . print_r($aRow, true));
+
    $items = $aRow['items'] ?? [['title' => '', 'commodity_code' => '', 'model_id' => '']];
    foreach ($items as $item) {
       $row = [];
@@ -186,7 +208,10 @@ foreach ($rResult as $aRow) {
          } elseif ($aColumns[$i] == 'requester') {
             $_data = $aRow['first_name'] . ' ' . $aRow['last_name'];
          } elseif ($aColumns[$i] == 'department') {
-            $_data = $aRow['title'];
+            $_data = $aRow['department_title'];
+            } elseif ($aColumns[$i] == 'project') {
+   $_data = $aRow['project'] ?? '-';
+
          } elseif ($aColumns[$i] == db_prefix() . 'pur_request.status') {
             // Keep your status badge logic here unchanged
             $approve_status = get_status_approve($aRow['status']);
@@ -275,10 +300,13 @@ foreach ($rResult as $aRow) {
       // $row[] = $item['title'] ?? '';
       // $row[] = $item['commodity_code'] ?? '';
       // $row[] = $item['model_id'] ?? '';
+log_message('debug', 'Project name: ' . ($aRow['project'] ?? 'not set'));
 
       $finalData[] = $row;
    }
+   
 }
+
 $output['aaData'] = $finalData;
 
 // echo json_encode($output);
