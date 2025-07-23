@@ -43,6 +43,7 @@
         _l('requester'),
         'Department',
         _l('pur_request_date'),
+        'Project',
         "Item",
         "Make",
         "Model",
