@@ -591,8 +591,6 @@
     };
   });
 </script>
-<<<<<<< HEAD
-=======
 
 <?php require FCPATH . PLUGIN_URL_PATH . "Purchase/assets/js/purchase_request/view_pur_request_js.php";  ?>
->>>>>>> 2180eaa085690fd324ba8f65391d5eed0b4f7622
+
