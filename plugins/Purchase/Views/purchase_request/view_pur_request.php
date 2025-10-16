@@ -1,4 +1,14 @@
+<?php
+$db = \Config\Database::connect();
 
+$builder = $db->table(db_prefix() . 'pur_request');
+$builder->select(db_prefix() . 'projects.title as project_title');
+$builder->join(db_prefix() . 'projects', db_prefix() . 'projects.id = ' . db_prefix() . 'pur_request.project', 'left');
+$builder->where(db_prefix() . 'pur_request.id', $pur_request->id);
+
+$project_result = $builder->get()->getRow();
+$project_title = $project_result ? $project_result->project_title : 'Not Assigned';
+?>
 <div id="page-content" class="page-wrapper clearfix">
   <div class="card clearfix">
 
@@ -116,7 +126,11 @@
                 <td class="bold"><?php echo _l('rq_description'); ?></td>
                 <td><?php echo html_entity_decode($pur_request->rq_description); ?></td>
               </tr>
+<tr>
+    <td class="bold">Project</td> 
+    <td><?= esc($project_title) ?></td>
 
+              </tr>
             </tbody>
           </table>
         </div>

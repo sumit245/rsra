@@ -148,6 +148,10 @@ class HTMLPurifier_Lexer
     }
 
     // -- CONVENIENCE MEMBERS ---------------------------------------------
+   /**
+     * @var HTMLPurifier_EntityParser
+     */
+    protected $_entity_parser;
 
     public function __construct()
     {
