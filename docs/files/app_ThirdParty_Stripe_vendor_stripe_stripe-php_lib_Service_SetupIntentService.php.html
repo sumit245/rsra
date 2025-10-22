@@ -1,0 +1,105 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\SetupIntentService.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\SetupIntentService.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\SetupIntentService.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5008 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Returns a list of SetupIntents.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\SetupIntent></p>
+
+<p>A SetupIntent object can be canceled when it is in one of these statuses:</p>
+<p><code>requires_payment_method</code>, <code>requires_confirmation</code>, or</p>
+<p><code>requires_action</code>.</p>
+<p>Once canceled, setup is abandoned and any operations on the SetupIntent will</p>
+<p>fail with an error.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\SetupIntent</p>
+
+<p>Confirm that your customer intends to set up the current or provided payment</p>
+<p>method. For example, you would confirm a SetupIntent when a customer hits the</p>
+<p>“Save” button on a payment method management page on your website.</p>
+<p>If the selected payment method does not require any additional steps from the</p>
+<p>customer, the SetupIntent will transition to the <code>succeeded</code> status.</p>
+<p>Otherwise, it will transition to the <code>requires_action</code> status and</p>
+<p>suggest additional actions via <code>next_action</code>. If setup fails, the</p>
+<p>SetupIntent will transition to the <code>requires_payment_method</code> status.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\SetupIntent</p>
+
+<p>Creates a SetupIntent object.</p>
+<p>After the SetupIntent is created, attach a payment method and <a</p>
+<p>href="/docs/api/setup_intents/confirm">confirm</a> to collect any required</p>
+<p>permissions to charge the payment method later.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\SetupIntent</p>
+
+<p>Retrieves the details of a SetupIntent that has previously been created.</p>
+<p>Client-side retrieval using a publishable key is allowed when the</p>
+<p><code>client_secret</code> is provided in the query string.</p>
+<p>When retrieved with a publishable key, only a subset of properties will be</p>
+<p>returned. Please refer to the <a href="#setup_intent_object">SetupIntent</a></p>
+<p>object reference for more details.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\SetupIntent</p>
+
+<p>Updates a SetupIntent object.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\SetupIntent</p>
+
+<p>Verifies microdeposits on a SetupIntent object.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\SetupIntent</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\SetupIntentService.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Service\SetupIntentService extends \Stripe\Service\AbstractService</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>all($params = null, $opts = null)</code></li>
+<li><code>cancel($id, $params = null, $opts = null)</code></li>
+<li><code>confirm($id, $params = null, $opts = null)</code></li>
+<li><code>create($params = null, $opts = null)</code></li>
+<li><code>retrieve($id, $params = null, $opts = null)</code></li>
+<li><code>update($id, $params = null, $opts = null)</code></li>
+<li><code>verifyMicrodeposits($id, $params = null, $opts = null)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,172 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\php-htmldiff\vendor\caxy\php-htmldiff\lib\Caxy\HtmlDiff\AbstractDiff.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\php-htmldiff\vendor\caxy\php-htmldiff\lib\Caxy\HtmlDiff\AbstractDiff.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\php-htmldiff\vendor\caxy\php-htmldiff\lib\Caxy\HtmlDiff\AbstractDiff.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 11518 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Class AbstractDiff.</p>
+
+<p>@var array</p>
+<p>@deprecated since 0.1.0</p>
+
+<p>@var array</p>
+<p>@deprecated since 0.1.0</p>
+
+<p>@var bool</p>
+<p>@deprecated since 0.1.0</p>
+
+<p>@var HtmlDiffConfig</p>
+
+<p>@var string</p>
+
+<p>@var string</p>
+
+<p>@var string</p>
+
+<p>@var array</p>
+
+<p>@var array</p>
+
+<p>@var DiffCache[]</p>
+
+<p>@var HTMLPurifier|null</p>
+
+<p>@var HTMLPurifier_Config|null</p>
+
+<p>@see array_slice_cached();</p>
+<p>@var bool</p>
+
+<p>@var MbStringUtil</p>
+
+<p>AbstractDiff constructor.</p>
+<p>@param string     $oldText</p>
+<p>@param string     $newText</p>
+<p>@param string     $encoding</p>
+<p>@param null|array $specialCaseTags (this does nothing, it is just here to keep the interface compatible)</p>
+<p>@param null|bool  $groupDiffs</p>
+
+<p>@return bool|string</p>
+
+<p>Initializes HTMLPurifier with cache location.</p>
+<p>@param null|string $defaultPurifierSerializerCache</p>
+
+<p>Prepare (purify) the HTML</p>
+<p>@return void</p>
+
+<p>@return DiffCache|null</p>
+
+<p>@return bool</p>
+
+<p>@return HtmlDiffConfig</p>
+
+<p>@param HtmlDiffConfig $config</p>
+<p>@return AbstractDiff</p>
+
+<p>@return int</p>
+<p>@deprecated since 0.1.0</p>
+
+<p>@param int $matchThreshold</p>
+<p>@return AbstractDiff</p>
+<p>@deprecated since 0.1.0</p>
+
+<p>@param array $chars</p>
+<p>@deprecated since 0.1.0</p>
+
+<p>@return array|null</p>
+<p>@deprecated since 0.1.0</p>
+
+<p>@param string $char</p>
+<p>@deprecated since 0.1.0</p>
+
+<p>@param string $char</p>
+<p>@deprecated since 0.1.0</p>
+
+<p>@param array $tags</p>
+<p>@deprecated since 0.1.0</p>
+
+<p>@param string $tag</p>
+<p>@deprecated since 0.1.0</p>
+
+<p>@param string $tag</p>
+<p>@deprecated since 0.1.0</p>
+
+<p>@return array|null</p>
+<p>@deprecated since 0.1.0</p>
+
+<p>@return string</p>
+
+<p>@return string</p>
+
+<p>@return string</p>
+
+<p>Clears the diff content.</p>
+<p>@return void</p>
+
+<p>@param bool $boolean</p>
+<p>@return $this</p>
+<p>@deprecated since 0.1.0</p>
+
+<p>@return bool</p>
+<p>@deprecated since 0.1.0</p>
+
+<p>@param HTMLPurifier_Config $config</p>
+
+<p>@param string $html</p>
+<p>@return string</p>
+
+<p>@param array $oldWords</p>
+
+<p>@param array $newWords</p>
+
+<p>@return string[]</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\php-htmldiff\vendor\caxy\php-htmldiff\lib\Caxy\HtmlDiff\AbstractDiff.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Caxy\HtmlDiff\AbstractDiff</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($oldText, $newText, $encoding = 'UTF-8', $specialCaseTags = null, $groupDiffs = null)</code></li>
+<li><code>build()</code></li>
+<li><code>initPurifier($defaultPurifierSerializerCache = null)</code></li>
+<li><code>prepare()</code></li>
+<li><code>getDiffCache()</code></li>
+<li><code>hasDiffCache()</code></li>
+<li><code>getConfig()</code></li>
+<li><code>setConfig(HtmlDiffConfig $config)</code></li>
+<li><code>getMatchThreshold()</code></li>
+<li><code>setMatchThreshold($matchThreshold)</code></li>
+<li><code>setSpecialCaseChars(array $chars)</code></li>
+<li><code>getSpecialCaseChars()</code></li>
+<li><code>addSpecialCaseChar($char)</code></li>
+<li><code>removeSpecialCaseChar($char)</code></li>
+<li><code>setSpecialCaseTags(array $tags = array()</code></li>
+<li><code>addSpecialCaseTag($tag)</code></li>
+<li><code>removeSpecialCaseTag($tag)</code></li>
+<li><code>getSpecialCaseTags()</code></li>
+<li><code>getOldHtml()</code></li>
+<li><code>getNewHtml()</code></li>
+<li><code>getDifference()</code></li>
+<li><code>clearContent()</code></li>
+<li><code>setGroupDiffs($boolean)</code></li>
+<li><code>isGroupDiffs()</code></li>
+<li><code>setHTMLPurifierConfig(HTMLPurifier_Config $config)</code></li>
+<li><code>purifyHtml($html)</code></li>
+<li><code>splitInputsToWords()</code></li>
+<li><code>setOldWords(array $oldWords)</code></li>
+<li><code>setNewWords(array $newWords)</code></li>
+<li><code>convertHtmlToListOfWords(string $text)</code></li>
+<li><code>normalizeWhitespaceInHtmlSentence(string $sentence)</code></li>
+</ul>
+</body></html>

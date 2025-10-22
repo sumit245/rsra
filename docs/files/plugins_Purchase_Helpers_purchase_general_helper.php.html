@@ -1,0 +1,226 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\Purchase\Helpers\purchase_general_helper.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\Purchase\Helpers\purchase_general_helper.php</h1>
+
+<ul>
+<li>Path: <code>plugins\Purchase\Helpers\purchase_general_helper.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 31461 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>link the css files </p>
+
+<p>@param array $array</p>
+<p>@return print css links</p>
+
+<p>link the css files </p>
+
+<p>@param array $array</p>
+<p>@return print css links</p>
+
+<p>Gets the status approve.</p>
+<p>@param      integer|string  $status  The status</p>
+<p>@return     string          The status approve.</p>
+
+<p>Gets the po html by pur request.</p>
+<p>@param  $pur_request  The pur request</p>
+
+<p>wh get item variatiom</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>pur get unit name</p>
+<p>@param  boolean $id </p>
+<p>@return [type]</p>
+
+<p>{ pur get currency rate }</p>
+
+<p>Gets the item identifier by description.</p>
+<p>@param        $des       The description</p>
+<p>@param        $long_des  The long description</p>
+<p>@return     string  The item identifier by description.</p>
+
+<p>Function that format task status for the final user</p>
+<p>@param  string  $id    status id</p>
+<p>@param  boolean $text</p>
+<p>@param  boolean $clean</p>
+<p>@return string</p>
+
+<p>Gets the status approve string.</p>
+<p>@param      integer  $status  The status</p>
+<p>@return     string   The status approve string.</p>
+
+<p>Gets the item hp.</p>
+<p>@param      string  $id     The identifier</p>
+<p>@return     <type>  a item or list item.</p>
+
+<p>Gets the pdf logo url.</p>
+<p>@return       The pdf logo url.</p>
+
+<p>warehouse process digital signature image</p>
+<p>@param  string $partBase64</p>
+<p>@param  string $path</p>
+<p>@param  string $image_name</p>
+<p>@return boolean</p>
+
+<p>{ handle purchase order file }</p>
+<p>@param      string   $id     The identifier</p>
+<p>@return     boolean</p>
+
+<p>{ handle purchase order file }</p>
+<p>@param      string   $id     The identifier</p>
+<p>@return     boolean</p>
+
+<p>{ function_description }</p>
+<p>@return     <type>  ( description_of_the_return_value )</p>
+
+<p>{ format pur estimate number }</p>
+<p>@param      <type>  $id     The identifier</p>
+<p>@return     string  ( estimate number )</p>
+
+<p>Gets the vendor category html.</p>
+<p>@param      string  $category  The category</p>
+
+<p>Gets the vendor cate name by identifier.</p>
+<p>@param        $id     The identifier</p>
+<p>@return     string  The vendor cate name by identifier.</p>
+
+<p>Gets the vendor company name.</p>
+<p>@param      string   $userid                 The userid</p>
+<p>@param      boolean  $prevent_empty_company  The prevent empty company</p>
+<p>@return     string   The vendor company name.</p>
+
+<p>{ handle purchase order file }</p>
+<p>@param      string   $id     The identifier</p>
+<p>@return     boolean</p>
+
+<p>Gets the pur order subject.</p>
+<p>@param      <type>  $pur_order  The pur order</p>
+<p>@return     string  The pur order subject.</p>
+
+<p>Gets the payment request status by inv.</p>
+<p>@param        $id     The identifier</p>
+<p>@return     string  The payment request status by inv.</p>
+
+<p>Gets the tax rate item.</p>
+<p>@param      bool    $id     The identifier</p>
+<p>@return       The tax rate item.</p>
+
+<p>Gets the vendor currency.</p>
+<p>@param        $vendor_id  The vendor identifier</p>
+
+<p>{ purchase invoice left to pay }</p>
+<p>@param      <type>   $id     The purchase order</p>
+<p>@return     integer  ( purchase order left to pay )</p>
+
+<p>{ handle purchase order file }</p>
+<p>@param      string   $id     The identifier</p>
+<p>@return     boolean</p>
+
+<p>Gets the payment mode by identifier.</p>
+<p>@param      <type>  $id     The identifier</p>
+<p>@return     string  The payment mode by identifier.</p>
+
+<p>Gets the pur invoice number.</p>
+<p>@param        $id     The identifier</p>
+<p>@return     string  The pur invoice number.</p>
+
+<p>{ purorder inv left to pay }</p>
+<p>@param        $pur_order  The pur order</p>
+
+<p>Gets the invoice currency identifier.</p>
+<p>@param        $invoice_id  The invoice identifier</p>
+<p>@return     int     The invoice currency identifier.</p>
+
+<p>Determines whether the specified identifier is empty vendor company.</p>
+<p>@param      <type>   $id     The identifier</p>
+<p>@return     boolean  True if the specified identifier is empty vendor company, False otherwise.</p>
+
+<p>Gets the vendor user identifier.</p>
+
+<p>get unit type</p>
+<p>@param  integer $id</p>
+<p>@return array or row</p>
+
+<p>{ handle item password file }</p>
+<p>@param      string   $id     The identifier</p>
+<p>@return     boolean</p>
+
+<p>Performs fixes when $_FILES is array and the index is messed up</p>
+<p>Eq user click on + then remove the file and then added new file</p>
+<p>In this case the indexes will be 0,2 - 1 is missing because it's removed but they should be 0,1</p>
+<p>@param  string $index_name $_FILES index name</p>
+<p>@return null</p>
+
+<p>{ vendor item images }</p>
+<p>@param        $item_id  The item identifier</p>
+
+<p>get group name</p>
+<p>@param  integer $id</p>
+<p>@return array or row</p>
+
+<p>get tax rate</p>
+<p>@param  integer $id</p>
+<p>@return array or row</p>
+
+<p>get commodity name</p>
+<p>@param  integer $id</p>
+<p>@return array or row</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\Purchase\Helpers\purchase_general_helper.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>purchase_load_css(array $array)</code></li>
+<li><code>purchase_load_js(array $array)</code></li>
+<li><code>get_unit_type($id = false)</code></li>
+<li><code>get_status_approve($status)</code></li>
+<li><code>get_po_html_by_pur_request($pur_request)</code></li>
+<li><code>get_base_currency()</code></li>
+<li><code>pur_convert_item_taxes($tax, $tax_rate, $tax_name)</code></li>
+<li><code>pur_get_item_variatiom($id)</code></li>
+<li><code>pur_get_unit_name($id = false)</code></li>
+<li><code>pur_get_currency_rate($currency_str)</code></li>
+<li><code>get_item_id_by_des($des)</code></li>
+<li><code>pur_format_approve_status($status, $text = false, $clean = false)</code></li>
+<li><code>get_status_approve_str($status)</code></li>
+<li><code>get_item_hp($id = '')</code></li>
+<li><code>get_pdf_logo_url()</code></li>
+<li><code>pur_log_notification($event, $options = array()</code></li>
+<li><code>purchase_process_digital_signature_image($partBase64, $path, $image_name)</code></li>
+<li><code>handle_purchase_request_file($id)</code></li>
+<li><code>handle_purchase_estimate_file($id)</code></li>
+<li><code>max_number_estimates()</code></li>
+<li><code>format_pur_estimate_number($id)</code></li>
+<li><code>sales_number_format($number, $format, $applied_prefix, $date)</code></li>
+<li><code>get_vendor_category_html($category)</code></li>
+<li><code>get_vendor_cate_name_by_id($id)</code></li>
+<li><code>get_vendor_company_name($userid, $prevent_empty_company = false)</code></li>
+<li><code>handle_purchase_order_file($id)</code></li>
+<li><code>get_pur_order_subject($pur_order)</code></li>
+<li><code>get_payment_request_status_by_inv($id)</code></li>
+<li><code>get_tax_rate_item($id = false)</code></li>
+<li><code>get_vendor_currency($vendor_id)</code></li>
+<li><code>purinvoice_left_to_pay($id)</code></li>
+<li><code>handle_pur_invoice_file($id)</code></li>
+<li><code>get_payment_mode_by_id($id)</code></li>
+<li><code>get_pur_invoice_number($id)</code></li>
+<li><code>purorder_inv_left_to_pay($pur_order)</code></li>
+<li><code>get_invoice_currency_id($invoice_id)</code></li>
+<li><code>is_empty_vendor_company($id)</code></li>
+<li><code>get_vendor_user_id()</code></li>
+<li><code>has_permission($permission, $staffid = '', $can = '')</code></li>
+<li><code>get_unit_type_item($id = false)</code></li>
+<li><code>handle_vendor_item_attachment($id)</code></li>
+<li><code>_file_attachments_index_fix($index_name)</code></li>
+<li><code>vendor_item_images($item_id)</code></li>
+<li><code>get_group_name_pur($id = false)</code></li>
+<li><code>pur_get_tax_rate($id = false)</code></li>
+<li><code>pur_get_commodity_name($id)</code></li>
+</ul>
+</body></html>

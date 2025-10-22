@@ -1,0 +1,1323 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\Hr_profile\Models\Hr_profile_model.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\Hr_profile\Models\Hr_profile_model.php</h1>
+
+<ul>
+<li>Path: <code>plugins\Hr_profile\Models\Hr_profile_model.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 226881 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>prefixed table fields wildcard</p>
+<p>@param  [type] $table </p>
+<p>@param  [type] $alias </p>
+<p>@param  [type] $field </p>
+<p>@return [type]</p>
+
+<p>hr profile run query</p>
+<p>@param  [type] $query_string </p>
+<p>@return [type]</p>
+
+<p>count items</p>
+<p>@return [type]</p>
+
+<p>Function that will parse table data from the tables folder for amin area</p>
+<p>@param  string $table  table filename</p>
+<p>@param  array  $params additional params</p>
+<p>@return void</p>
+
+<p>get hr profile dashboard data</p>
+<p>@return array</p>
+
+<p>staff chart by age</p>
+<p>@return array</p>
+
+<p>contract type chart</p>
+<p>@return  array</p>
+
+<p>staff chart by departments</p>
+<p>@return [type]</p>
+
+<p>staff chart by job positions</p>
+<p>@return [type]</p>
+
+<p>report by staffs</p>
+<p>@return [type]</p>
+
+<p>new staff by month</p>
+<p>@param  [type] $from </p>
+<p>@param  [type] $to   </p>
+<p>@return [type]</p>
+
+<p>staff working by_month</p>
+<p>@param  [type] $from </p>
+<p>@param  [type] $to   </p>
+<p>@return [type]</p>
+
+<p>staff quit work by month</p>
+<p>@param  [type] $month </p>
+<p>@return [type]</p>
+
+<p>get contracttype</p>
+<p>@param  boolean $id </p>
+<p>@return [type]</p>
+
+<p>get data departmentchart</p>
+<p>@return array</p>
+
+<p>get child node chart</p>
+<p>@param  integer $id      </p>
+<p>@param  integer $arr_dep </p>
+<p>@return array</p>
+
+<p>get data departmentchart v2</p>
+<p>@return [type]</p>
+
+<p>get child node chart v2</p>
+<p>@param  [type] $id      </p>
+<p>@param  [type] $arr_dep </p>
+<p>@return [type]</p>
+
+<p>check is manager</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>count reality now</p>
+<p>@param  integer $department </p>
+<p>@return integer</p>
+
+<p>get data chart</p>
+<p>@return array</p>
+
+<p>get data chart v2</p>
+<p>@return [type]</p>
+
+<p>check is team manage</p>
+<p>@param  [type] $data       </p>
+<p>@param  [type] $manager_id </p>
+<p>@return [type]</p>
+
+<p>get department tree</p>
+<p>@return array</p>
+
+<p>Get child node of department tree</p>
+<p>@param  $id      current department id</p>
+<p>@param  $arr_dep department array</p>
+<p>@return current department tree</p>
+
+<p>get department name</p>
+<p>@param  integer $departmentid </p>
+<p>@return object</p>
+
+<p>get all staff not in record</p>
+<p>@return array object</p>
+
+<p>get setting transfer records</p>
+<p>@return array</p>
+
+<p>get_staff_tree</p>
+<p>@return array</p>
+
+<p>Get child node of department tree</p>
+<p>@param  $id      current department id</p>
+<p>@param  $arr_dep department array</p>
+<p>@return current department tree</p>
+
+<p>get all jp interview training</p>
+<p>@return object</p>
+
+<p>get setting asset allocation</p>
+<p>@return array</p>
+
+<p>get list record meta</p>
+<p>@return array</p>
+
+<p>add setting transfer records</p>
+
+<p>add setting asset allocation</p>
+<p>@param array $data_asset_name</p>
+
+<p>add rec transfer records</p>
+<p>@param array $data_asset_name</p>
+
+<p>group checklist</p>
+<p>@return array</p>
+
+<p>get setting training </p>
+<p>@return object</p>
+
+<p>get job position</p>
+<p>@param  integer $id </p>
+<p>@return array or object</p>
+
+<p>get allowance type</p>
+<p>@param  integer $id </p>
+<p>@return array or object</p>
+
+<p>get salary form</p>
+<p>@param  integer $id </p>
+<p>@return array or object</p>
+
+<p>get procedure retire</p>
+<p>@param  integer $id </p>
+<p>@return array</p>
+
+<p>get allowance type tax</p>
+<p>@param  integer $id</p>
+
+<p>add contract type</p>
+<p>@param array $data</p>
+
+<p>delete contract type</p>
+<p>@param  integer $id</p>
+
+<p>add allowance type</p>
+<p>@param array $data</p>
+
+<p>update allowance type</p>
+<p>@param  array $data </p>
+<p>@param  integer $id   </p>
+<p>@return boolean</p>
+
+<p>update contract type</p>
+<p>@param  array $data </p>
+<p>@param  integer $id   </p>
+<p>@return boolean</p>
+
+<p>delete allowance type</p>
+<p>@param  integer $id </p>
+<p>@return boolean</p>
+
+<p>add salary form</p>
+<p>@param array $data</p>
+
+<p>update salary form</p>
+<p>@param  array $data </p>
+<p>@param  integer $id   </p>
+<p>@return boolean</p>
+
+<p>delete salary form</p>
+<p>@param  integer $id </p>
+<p>@return boolean</p>
+
+<p>add procedure form manage</p>
+<p>@param array $data</p>
+
+<p>update procedure form manage</p>
+<p>@param  array $data </p>
+<p>@param  integer $id   </p>
+<p>@return boolean</p>
+
+<p>get procedure form manage</p>
+<p>@param  integer $id </p>
+<p>@return array or object</p>
+
+<p>delete procedure form manage</p>
+<p>@param  integer $id </p>
+<p>@return boolean</p>
+
+<p>check department on procedure</p>
+<p>@param  integer $departmentid </p>
+<p>@return array</p>
+
+<p>add procedure retire</p>
+<p>@param array $data</p>
+
+<p>delete procedure retire</p>
+<p>@param  integer $id </p>
+<p>@return boolean</p>
+
+<p>get edit procedure retire</p>
+<p>@param  integer $id </p>
+<p>@return object</p>
+
+<p>edit procedure retire</p>
+<p>@param  array $data </p>
+<p>@param  integer $id   </p>
+<p>@return boolean</p>
+
+<p>get job position training process</p>
+<p>@param  integer $id </p>
+<p>@return array</p>
+
+<p>get job position interview process</p>
+<p>@param  integer $id </p>
+<p>@return array or object</p>
+
+<p>add position training</p>
+<p>@param [type] $data</p>
+
+<p>update position training</p>
+<p>@param  [type] $data        </p>
+<p>@param  [type] $training_id </p>
+<p>@return [type]</p>
+
+<p>get position training</p>
+<p>@param  integer $id </p>
+<p>@return array</p>
+
+<p>add training question</p>
+<p>@param [type] $data</p>
+
+<p>insert training question</p>
+<p>@param  [type] $training_id </p>
+<p>@param  string $question    </p>
+<p>@return [type]</p>
+
+<p>Add new question type</p>
+<p>@param  string $type       checkbox/textarea/radio/input</p>
+<p>@param  mixed $questionid question id</p>
+<p>@return mixed</p>
+
+<p>update question</p>
+<p>@param  array $data </p>
+<p>@return boolean</p>
+
+<p>update survey questions orders</p>
+<p>@param  array $data</p>
+
+<p>remove question</p>
+<p>@param  integer $questionid </p>
+<p>@return boolean</p>
+
+<p>remove box description</p>
+<p>@param  integer $questionbod </p>
+<p>@return boolean</p>
+
+<p>add box description</p>
+<p>@param integer $questionid  </p>
+<p>@param integer $boxid       </p>
+<p>@param string $description</p>
+<p>@return  integer</p>
+
+<p>add training result</p>
+<p>@param integer $id     </p>
+<p>@param array $result</p>
+
+<p>get training question box id</p>
+<p>@param  integer $questionid </p>
+<p>@return integer</p>
+
+<p>update answer question</p>
+<p>@param  array $data </p>
+<p>@return array</p>
+
+<p>get child training type</p>
+<p>@param  integer $id </p>
+<p>@return array</p>
+
+<p>add job position training process</p>
+<p>@param array $data</p>
+
+<p>update job position training process</p>
+<p>@param  array $data </p>
+<p>@param  integer $id   </p>
+<p>@return integer or boolean</p>
+
+<p>get jobposition by department</p>
+<p>@param integer $department_id </p>
+<p>@param  integer $status        </p>
+<p>@return string</p>
+
+<p>get job position</p>
+<p>@param  integer $id </p>
+<p>@return object or array</p>
+
+<p>add job position</p>
+<p>@param array $data</p>
+
+<p>update job position</p>
+<p>@param  array $data </p>
+<p>@param  integer $id   </p>
+<p>@return boolean</p>
+
+<p>delete job position</p>
+<p>@param  integer $id </p>
+<p>@return boolean</p>
+
+<p>add job position</p>
+<p>@param aray $data</p>
+
+<p>update job position</p>
+<p>@param aray $data</p>
+
+<p>delete job position</p>
+<p>@param aray $data</p>
+
+<p>get list job position tags file</p>
+<p>@param  [type] $job_position_id </p>
+<p>@return [type]</p>
+
+<p>get hrm attachments file</p>
+<p>@param  [type] $rel_id   </p>
+<p>@param  [type] $rel_type </p>
+<p>@return [type]</p>
+
+<p>get department from job p</p>
+<p>@param  integer $job_p_id </p>
+<p>@return array</p>
+
+<p>check child in job position</p>
+<p>@param  integer $id </p>
+<p>@return boolean</p>
+
+<p>get array job position</p>
+<p>@param  integer $id </p>
+<p>@return boolean</p>
+
+<p>get job position tag</p>
+<p>@param  integer $id</p>
+
+<p>get array interview process by position id</p>
+<p>@param  integer $id</p>
+<p>@return  array</p>
+
+<p>get array training process by position id</p>
+<p>@param  integer $id</p>
+<p>@return  array</p>
+
+<p>get job position salary scale</p>
+<p>@param  integer $job_position_id </p>
+<p>@return array</p>
+
+<p>get hr profile attachments file</p>
+<p>@param  integer $rel_id   </p>
+<p>@param  integer $rel_type </p>
+<p>@return array</p>
+
+<p>get department from position department</p>
+<p>@param  array $arr_value </p>
+<p>@param  integer $position  </p>
+<p>@return string</p>
+
+<p>get position by department</p>
+<p>@param integer $department_id </p>
+<p>@param  integer $status        </p>
+<p>@return string</p>
+
+<p>job position add update salary scale</p>
+<p>@param  array $data </p>
+<p>@return boolean</p>
+
+<p>get staff</p>
+<p>@param  integer $id    </p>
+<p>@param  array  $where </p>
+<p>@return array</p>
+
+<p>add manage info reception</p>
+<p>@param array $data</p>
+
+<p>add setting training</p>
+
+<p>checklist by group</p>
+<p>@param  integer $group_id </p>
+<p>@return array</p>
+
+<p>count max checklist</p>
+<p>@return [type]</p>
+
+<p>get staff info id</p>
+<p>@param  [type] $staffid </p>
+<p>@return [type]</p>
+
+<p>add_manage_info_reception_for_staff</p>
+<p>@param integer $id_staff </p>
+<p>@param integer $data</p>
+
+<p>add asset staff</p>
+<p>@param integer $id   </p>
+<p>@param array $data</p>
+
+<p>get jp interview training</p>
+<p>@param  integer $position_id   </p>
+<p>@param  integer $training_type </p>
+<p>@return object</p>
+
+<p>add training staff</p>
+<p>@param integer $data_training </p>
+<p>@param integer $id_staff</p>
+
+<p>add transfer records reception</p>
+<p>@param array $data    </p>
+<p>@param integer $staffid</p>
+
+<p>getPercent</p>
+<p>@param  integer $total  </p>
+<p>@param  integer $effect </p>
+<p>@return foat</p>
+
+<p>get group checklist allocation by staff id</p>
+<p>@param  integer $staffid </p>
+<p>@return integer</p>
+
+<p>get checklist allocation by group id</p>
+<p>@param  integer $id_group </p>
+<p>@return array</p>
+
+<p>get resultset training</p>
+<p>@param  integer $id </p>
+<p>@return integer</p>
+
+<p>get allocation asset</p>
+<p>@param  integer $staff_id </p>
+<p>@return array</p>
+
+<p>get result training staff</p>
+<p>@param  integer $list_resultsetid </p>
+<p>@return array</p>
+
+<p>get id result correct</p>
+<p>@param  integer $id_question </p>
+<p>@return object</p>
+
+<p>get point training question form</p>
+<p>@param  [type] $id_question </p>
+<p>@return [type]</p>
+
+<p>delete manage info reception</p>
+<p>@param  integer $id</p>
+
+<p>delete setting training</p>
+<p>@param  integer $id</p>
+
+<p>delete setting asset allocation</p>
+<p>@param  integer $id </p>
+<p>@return integer</p>
+
+<p>delete reception</p>
+<p>@param  integer $id </p>
+<p>@return boolean</p>
+
+<p>get department by staffid</p>
+<p>@param  integer $id_staff </p>
+<p>@return object</p>
+
+<p>get transfer records reception staff</p>
+<p>@param  integer $id </p>
+<p>@return integer</p>
+
+<p>update checklist</p>
+<p>@param  array $data </p>
+<p>@return boolean</p>
+
+<p>delete tag item</p>
+<p>@param  array $data </p>
+<p>@return boolean</p>
+
+<p>add new asset staff</p>
+<p>@param integer $id   </p>
+<p>@param array $data</p>
+
+<p>update asset staff</p>
+<p>@param  array $data </p>
+<p>@return boolean</p>
+
+<p>delete allocation asset</p>
+<p>@param  integer $allocation_id </p>
+<p>@return boolean</p>
+
+<p>get training allocation staff</p>
+<p>@param  integer $id </p>
+<p>@return object</p>
+
+<p>@param  integer ID (option)</p>
+<p>@param  boolean (optional)</p>
+<p>@return mixed</p>
+<p>Get departments where staff belongs</p>
+<p>If $onlyids passed return only departmentsID (simple array) if not returns array of all departments</p>
+
+<p>Get staff permissions</p>
+<p>@param  mixed $id staff id</p>
+<p>@return array</p>
+
+<p>get workplace array id</p>
+<p>@return [type]</p>
+
+<p>get workplace</p>
+<p>@param  boolean $id </p>
+<p>@return [type]</p>
+
+<p>add workplace</p>
+<p>@param [type] $data</p>
+
+<p>update workplace</p>
+<p>@param  [type] $data </p>
+<p>@param  [type] $id   </p>
+<p>@return [type]</p>
+
+<p>delete workplace</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>format date</p>
+<p>@param  date $date     </p>
+<p>@return date</p>
+
+<p>format date time</p>
+<p>@param  date $date     </p>
+<p>@return date</p>
+
+<p>check format date ymd</p>
+<p>@param  date $date </p>
+<p>@return boolean</p>
+
+<p>check format date</p>
+<p>@param  date $date </p>
+<p>@return boolean</p>
+
+<p>@param  integer (optional)</p>
+<p>@return object</p>
+<p>Get single goal</p>
+
+<p>update staff</p>
+<p>@param  [type] $data </p>
+<p>@param  [type] $id   </p>
+<p>@return [type]</p>
+
+<p>get department name</p>
+<p>@param  integer $staffid</p>
+
+<p>get child node staff chart</p>
+<p>@param  integer $id      </p>
+<p>@param  integer $arr_dep </p>
+<p>@return array</p>
+
+<p>get hr profile attachments</p>
+<p>@param  integer $staffid </p>
+<p>@return array</p>
+
+<p>get records received</p>
+<p>@param  integer $id</p>
+<p>@return object</p>
+
+<p>get hr profile profile file</p>
+<p>@param  integer $staffid </p>
+<p>@return array</p>
+
+<p>get duration</p>
+<p>@return array</p>
+
+<p>add education</p>
+<p>@param array $data</p>
+
+<p>update education</p>
+<p>@param array $data</p>
+
+<p>delete education</p>
+<p>@param integer $id</p>
+
+<p>member get evaluate form</p>
+<p>@param  integer $staffid </p>
+<p>@return array</p>
+
+<p>get evaluate form status</p>
+<p>@return array</p>
+
+<p>get dataobject result evaluate</p>
+<p>@param  integer  $id       </p>
+<p>@param  boolean $arrstaff </p>
+<p>@return integer</p>
+
+<p>add attachment to database</p>
+<p>@param integer  $rel_id     </p>
+<p>@param string  $rel_type   </p>
+<p>@param string  $attachment </p>
+<p>@param integer $insert_id</p>
+
+<p>function get file for hrm staff</p>
+<p>@param  integer  $id     </p>
+<p>@param  boolean $rel_id </p>
+<p>@return object</p>
+
+<p>delete staff attchement</p>
+<p>@param  integer $attachment_id </p>
+<p>@return integer</p>
+
+<p>get hr profile attachments delete</p>
+<p>@param  integer $id </p>
+<p>@return object</p>
+
+<p>update staff permissions</p>
+<p>@param  array $data </p>
+<p>@param  integer $id   </p>
+<p>@return boolean</p>
+
+<p>update permissions</p>
+<p>@param  array $permissions </p>
+<p>@param  integer $id          </p>
+<p>@return boolean</p>
+
+<p>get file info</p>
+<p>@param  integer $id       </p>
+<p>@param  string $rel_type </p>
+<p>@return object</p>
+
+<p>update staff profile</p>
+<p>@param  array $data </p>
+<p>@return boolean</p>
+
+<p>get staff in deparment</p>
+<p>@param  integer $department_id </p>
+<p>@return integer</p>
+
+<p>get staff role</p>
+<p>@param  [type] $staff_id </p>
+<p>@return [type]</p>
+
+<p>delete hr profile permission</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>get data dpm chart</p>
+<p>@param  [type] $dpm </p>
+<p>@return [type]</p>
+
+<p>list job department</p>
+<p>@param  [type] $department </p>
+<p>@return [type]</p>
+
+<p>delete hr job position attachment file</p>
+<p>@param  [type] $attachment_id </p>
+<p>@return [type]</p>
+
+<p>get hrm profile file</p>
+<p>@param  [type] $rel_id   </p>
+<p>@param  [type] $rel_type </p>
+<p>@return [type]</p>
+
+<p>get job position training de</p>
+<p>@param  boolean $id </p>
+<p>@return [type]</p>
+
+<p>delete job position training process</p>
+<p>@param  [type] $trainingid </p>
+<p>@return [type]</p>
+
+<p>delete position training</p>
+<p>@param  [type] $trainingid </p>
+<p>@return [type]</p>
+
+<p>get list position training by id training</p>
+<p>@param  array $training_id_aray </p>
+<p>@return array</p>
+
+<p>get contract</p>
+<p>@param  integer $id </p>
+<p>@return array</p>
+
+<p>get contract detail</p>
+<p>@param  integer $id </p>
+<p>@return array</p>
+
+<p>add contract</p>
+<p>@param array $data</p>
+
+<p>update contract</p>
+<p>@param  array $data </p>
+<p>@param  integer $id   </p>
+<p>@return boolean</p>
+
+<p>delete contract</p>
+<p>@param  integer $id </p>
+<p>@return boolean</p>
+
+<p>get contracttype by id</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>get staff active</p>
+<p>@return array</p>
+
+<p>get staff active has contract</p>
+<p>@return array</p>
+
+<p>update prefix number</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>create code</p>
+<p>@param  [type] $rel_type </p>
+<p>@return [type]</p>
+
+<p>check department format</p>
+<p>@param  [type] $department </p>
+<p>@return [type]</p>
+
+<p>get dependent person</p>
+<p>@param  boolean $id </p>
+<p>@return [type]</p>
+
+<p>get dependent person bytstaff</p>
+<p>@param  [type] $staffid </p>
+<p>@return [type]</p>
+
+<p>add dependent person</p>
+<p>@param [type] $data</p>
+
+<p>update dependent person</p>
+<p>@param  [type] $data </p>
+<p>@param  [type] $id   </p>
+<p>@return [type]</p>
+
+<p>delete dependent person</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>update approval status</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>update approval status</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>add resignation procedure</p>
+<p>@param [type] $data</p>
+
+<p>get data asset</p>
+<p>@param  [type] $staffid </p>
+<p>@return [type]</p>
+
+<p>add data of staff quit work by id</p>
+<p>@param [type] $rel_name         </p>
+<p>@param string $people_handle_id</p>
+
+<p>add data of staff quit work</p>
+<p>@param [type] $rel_id      </p>
+<p>@param [type] $option_name </p>
+<p>@param [type] $staffid</p>
+
+<p>get resignation procedure by staff</p>
+<p>@param  [type] $staff_id </p>
+<p>@return [type]</p>
+
+<p>delete procedures for quitting work</p>
+<p>@param  [type] $staffid </p>
+<p>@return [type]</p>
+
+<p>get data procedure retire of staff</p>
+<p>@param  [type] $staffid </p>
+<p>@return [type]</p>
+
+<p>update status quit work</p>
+<p>@param  [type] $staffid </p>
+<p>@return [type]</p>
+
+<p>update status procedure retire of staff</p>
+<p>@param  array  $where </p>
+<p>@return [type]</p>
+
+<p>delete hr q a attachment file</p>
+<p>@param  [type] $attachment_id </p>
+<p>@return [type]</p>
+
+<p>get salary allowance handsontable</p>
+<p>@return [type]</p>
+
+<p>delete hr contract attachment file</p>
+<p>@param  [type] $attachment_id </p>
+<p>@return [type]</p>
+
+<p>get salary allowance for table</p>
+<p>@param  [type] $contract_id </p>
+<p>@return [type]</p>
+
+<p>send mail training</p>
+<p>@param  [type] $email       </p>
+<p>@param  [type] $sender_name </p>
+<p>@param  [type] $subject     </p>
+<p>@param  [type] $body        </p>
+<p>@return [type]</p>
+
+<p>get board mark form</p>
+<p>@param  [type] $rel_id </p>
+<p>@return [type]</p>
+
+<p>get list quiting work</p>
+<p>@param  [type] $staffid </p>
+<p>@return [type]</p>
+
+<p>get staff by _month</p>
+<p>@param  [type] $from_month </p>
+<p>@param  [type] $to_month   </p>
+<p>@return [type]</p>
+
+<p>get dstafflist by year</p>
+<p>@param  [type] $year  </p>
+<p>@param  [type] $month </p>
+<p>@return [type]</p>
+
+<p>get staff by department id and time</p>
+<p>@param  [type] $id_department </p>
+<p>@param  [type] $from_time     </p>
+<p>@param  [type] $to_time       </p>
+<p>@return [type]</p>
+
+<p>get department by list id</p>
+<p>@param  string $list_id </p>
+<p>@return [type]</p>
+
+<p>get list contract detail staff</p>
+<p>@param  [type] $staffid </p>
+<p>@return [type]</p>
+
+<p>get list staff by year</p>
+<p>@param  [type] $year </p>
+<p>@return [type]</p>
+
+<p>count staff by department literacy</p>
+<p>@param  string $department_ids </p>
+<p>@return [type]</p>
+
+<p>report by staffs month</p>
+<p>@param  [type] $from_date </p>
+<p>@param  [type] $to_date   </p>
+<p>@return [type]</p>
+
+<p>[report_new_staff_by_month</p>
+<p>@param  [type] $month </p>
+<p>@return [type]</p>
+
+<p>report staff working by month</p>
+<p>@param  [type] $month </p>
+<p>@return [type]</p>
+
+<p>report staff quit work by month</p>
+<p>@param  [type] $month </p>
+<p>@return [type]</p>
+
+<p>hr get training question form by relid</p>
+<p>@param  [type] $relid </p>
+<p>@return [type]</p>
+
+<p>hr get form results by resultsetid</p>
+<p>@param  [type] $resultsetid </p>
+<p>@return [type]</p>
+
+<p>delete hr article attachment file</p>
+<p>@param  [type] $attachment_id </p>
+<p>@return [type]</p>
+
+<p>get type of training</p>
+<p>@param  boolean $id </p>
+<p>@return [type]</p>
+
+<p>add type of training</p>
+<p>@param [type] $data</p>
+
+<p>update type of training</p>
+<p>@param  [type] $data </p>
+<p>@param  [type] $id   </p>
+<p>@return [type]</p>
+
+<p>delete type of training</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>get list training program</p>
+<p>@param  [type] $position_id   </p>
+<p>@param  [type] $training_type </p>
+<p>@return [type]</p>
+
+<p>delete tranining result by staffid</p>
+<p>@param  [type] $staff_id </p>
+<p>@return [type]</p>
+
+<p>get additional training</p>
+<p>@param  [type] $staff_id </p>
+<p>@return [type]</p>
+
+<p>get mark staff from resultsetid</p>
+<p>@param  [type] $resultsetid </p>
+<p>@return [type]</p>
+
+<p>get training library</p>
+<p>@return [type]</p>
+
+<p>get training result by training program</p>
+<p>@param  [type] $training_program_id </p>
+<p>@return [type]</p>
+
+<p>get mark staff v2</p>
+<p>@param  [type] $id_staff            </p>
+<p>@param  [type] $training_process_id </p>
+<p>@return [type]</p>
+
+<p>get staff from training program</p>
+<p>@param  [type] $training_programs </p>
+<p>@return [type]</p>
+
+<p>get department by manager</p>
+<p>@return [type]</p>
+
+<p>get staff by manager</p>
+<p>@return [type]</p>
+
+<p>get staff in teammanage</p>
+<p>@param  [type] $teammanage </p>
+<p>@return [type]</p>
+
+<p>get staff by job position</p>
+<p>@param  [type] $job_position_id </p>
+<p>@return [type]</p>
+
+<p>contract clear signature</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>hr_get_staff_contract_pdf_only_for_pdf</p>
+<p>@param  string  $id         </p>
+<p>@param  array   $where      </p>
+<p>@param  boolean $for_editor </p>
+<p>@return [type]</p>
+
+<p>get contract template</p>
+<p>@param  boolean $id </p>
+<p>@return [type]</p>
+
+<p>add contract template</p>
+<p>@param [type] $data</p>
+
+<p>update contract template</p>
+<p>@param  [type] $data </p>
+<p>@param  [type] $id   </p>
+<p>@return [type]</p>
+
+<p>delete contract template </p>
+<p>@param  [type] $id [</p>
+<p>@return [type]     [</p>
+
+<p>hr get contract template by staff</p>
+<p>@param  [type] $staffid </p>
+<p>@return [type]</p>
+
+<p>update hr staff contract content</p>
+<p>@param  [type] $id      </p>
+<p>@param  [type] $staffid </p>
+<p>@return [type]</p>
+
+<p>add_department</p>
+<p>@param [type] $data</p>
+
+<p>update department</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>delete dependent</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>add staff into department</p>
+<p>@param [type] $departments </p>
+<p>@param [type] $staff_id</p>
+
+<p>import add staff</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>update staff</p>
+<p>@param  [type] $data </p>
+<p>@param  [type] $id   </p>
+<p>@return [type]</p>
+
+<p>hr_create_notification</p>
+<p>@param  [type]  $event      </p>
+<p>@param  [type]  $user_id    </p>
+<p>@param  array   $options    </p>
+<p>@param  integer $to_user_id </p>
+<p>@return [type]</p>
+
+<p>get type of training has training program</p>
+<p>@return [type]</p>
+
+<h2>References</h2>
+
+<p><strong>Models Used</strong></p>
+<ul>
+<li><code>departments_model</code></li>
+</ul>
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>job</code></li>
+<li><code>position</code></li>
+<li><code>resultsetid</code></li>
+<li><code>training</code></li>
+<li><code>plugin</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\Hr_profile\Models\Hr_profile_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Hr_profile\Models\Hr_profile_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>prefixed_table_fields_wildcard($table, $alias, $field)</code></li>
+<li><code>hr_profile_run_query($query_string)</code></li>
+<li><code>count_all_items($where = '')</code></li>
+<li><code>get_table_data($table, $dataPost, $params = [])</code></li>
+<li><code>get_hr_profile_dashboard_data()</code></li>
+<li><code>staff_chart_by_age()</code></li>
+<li><code>contract_type_chart()</code></li>
+<li><code>staff_chart_by_departments()</code></li>
+<li><code>staff_chart_by_job_positions()</code></li>
+<li><code>report_by_staffs()</code></li>
+<li><code>new_staff_by_month($month)</code></li>
+<li><code>staff_working_by_month($month)</code></li>
+<li><code>staff_quit_work_by_month($month)</code></li>
+<li><code>get_contracttype($id = false)</code></li>
+<li><code>get_data_departmentchart()</code></li>
+<li><code>get_child_node_chart($id, $arr_dep)</code></li>
+<li><code>get_data_departmentchart_v2()</code></li>
+<li><code>get_child_node_chart_v2($id, $arr_dep)</code></li>
+<li><code>check_is_manager($data, $manager_id)</code></li>
+<li><code>count_reality_now($department)</code></li>
+<li><code>get_data_chart()</code></li>
+<li><code>get_data_chart_v2()</code></li>
+<li><code>check_is_team_manage($data, $manager_id)</code></li>
+<li><code>get_department_tree()</code></li>
+<li><code>get_child_node($id, $arr_dep)</code></li>
+<li><code>hr_profile_get_department_name($departmentid = 0)</code></li>
+<li><code>get_all_staff_not_in_record()</code></li>
+<li><code>get_setting_transfer_records()</code></li>
+<li><code>get_staff_tree()</code></li>
+<li><code>get_child_node_staff($id, $arr_dep)</code></li>
+<li><code>get_all_jp_interview_training()</code></li>
+<li><code>get_setting_asset_allocation()</code></li>
+<li><code>get_list_record_meta()</code></li>
+<li><code>add_setting_transfer_records($data_transfer_meta)</code></li>
+<li><code>add_setting_asset_allocation($data_asset_name)</code></li>
+<li><code>add_rec_transfer_records($data)</code></li>
+<li><code>group_checklist()</code></li>
+<li><code>get_setting_training()</code></li>
+<li><code>get_job_position($id = false)</code></li>
+<li><code>get_allowance_type($id = false)</code></li>
+<li><code>get_salary_form($id = false)</code></li>
+<li><code>get_procedure_retire($id = '')</code></li>
+<li><code>get_allowance_type_tax($id = false)</code></li>
+<li><code>add_contract_type($data)</code></li>
+<li><code>delete_contract_type($id)</code></li>
+<li><code>add_allowance_type($data)</code></li>
+<li><code>update_allowance_type($data, $id)</code></li>
+<li><code>update_contract_type($data, $id)</code></li>
+<li><code>delete_allowance_type($id)</code></li>
+<li><code>add_salary_form($data)</code></li>
+<li><code>update_salary_form($data, $id)</code></li>
+<li><code>delete_salary_form($id)</code></li>
+<li><code>add_procedure_form_manage($data)</code></li>
+<li><code>update_procedure_form_manage($data, $id)</code></li>
+<li><code>get_procedure_form_manage($id = '')</code></li>
+<li><code>delete_procedure_form_manage($id)</code></li>
+<li><code>check_department_on_procedure($departmentid)</code></li>
+<li><code>add_procedure_retire($data)</code></li>
+<li><code>delete_procedure_retire($id)</code></li>
+<li><code>get_edit_procedure_retire($id)</code></li>
+<li><code>edit_procedure_retire($data, $id)</code></li>
+<li><code>get_job_position_training_process($id = false)</code></li>
+<li><code>get_job_position_interview_process($id = false)</code></li>
+<li><code>add_position_training($data)</code></li>
+<li><code>update_position_training($data, $training_id)</code></li>
+<li><code>get_position_training($id = '')</code></li>
+<li><code>add_training_question($data)</code></li>
+<li><code>insert_training_question($training_id, $question = '')</code></li>
+<li><code>insert_question_type($type, $questionid)</code></li>
+<li><code>update_question($data)</code></li>
+<li><code>update_survey_questions_orders($data)</code></li>
+<li><code>remove_question($questionid)</code></li>
+<li><code>remove_box_description($questionboxdescriptionid)</code></li>
+<li><code>add_box_description($questionid, $boxid, $description = '')</code></li>
+<li><code>add_training_result($id, $result)</code></li>
+<li><code>get_training_question_box_id($questionid)</code></li>
+<li><code>update_answer_question($data)</code></li>
+<li><code>get_child_training_type($id)</code></li>
+<li><code>add_job_position_training_process($data)</code></li>
+<li><code>update_job_position_training_process($data, $id)</code></li>
+<li><code>get_jobposition_by_department($department_id = '', $status)</code></li>
+<li><code>get_jobposition_by_department($status, $department_id = '')</code></li>
+<li><code>get_job_p($id = false)</code></li>
+<li><code>add_job_p($data)</code></li>
+<li><code>update_job_p($data, $id)</code></li>
+<li><code>delete_job_p($id)</code></li>
+<li><code>add_job_position($data)</code></li>
+<li><code>update_job_position($data, $id)</code></li>
+<li><code>delete_job_position($id)</code></li>
+<li><code>get_list_job_position_tags_file($job_position_id)</code></li>
+<li><code>get_hrm_attachments_file($rel_id, $rel_type)</code></li>
+<li><code>get_department_from_job_p($job_p_id)</code></li>
+<li><code>check_child_in_job_p($id)</code></li>
+<li><code>get_array_job_position($id = false)</code></li>
+<li><code>get_job_position_tag($id = '')</code></li>
+<li><code>get_interview_process_byposition($id = false)</code></li>
+<li><code>get_traing_process_byposition($id = false)</code></li>
+<li><code>get_job_position_salary_scale($job_position_id)</code></li>
+<li><code>get_hr_profile_attachments_file($rel_id, $rel_type)</code></li>
+<li><code>get_department_from_position_department($arr_value, $position)</code></li>
+<li><code>get_position_by_department($department_id, $status)</code></li>
+<li><code>job_position_add_update_salary_scale($data)</code></li>
+<li><code>get_staff($id = '', $where = [])</code></li>
+<li><code>add_manage_info_reception($data)</code></li>
+<li><code>add_setting_training($data)</code></li>
+<li><code>checklist_by_group($group_id = '')</code></li>
+<li><code>count_max_checklist()</code></li>
+<li><code>get_staff_info_id($staffid)</code></li>
+<li><code>add_manage_info_reception_for_staff($id_staff, $data)</code></li>
+<li><code>add_asset_staff($id, $data)</code></li>
+<li><code>get_jp_interview_training($position_id, $training_type = '')</code></li>
+<li><code>add_training_staff($data_training, $id_staff)</code></li>
+<li><code>add_transfer_records_reception($data, $staffid)</code></li>
+<li><code>getPercent($total, $effect)</code></li>
+<li><code>get_group_checklist_allocation_by_staff_id($staffid)</code></li>
+<li><code>get_checklist_allocation_by_group_id($id_group)</code></li>
+<li><code>get_resultset_training($id, $training_process_id)</code></li>
+<li><code>get_allocation_asset($staff_id)</code></li>
+<li><code>get_result_training_staff($list_resultsetid)</code></li>
+<li><code>get_id_result_correct($question_id)</code></li>
+<li><code>get_point_training_question_form($id_question)</code></li>
+<li><code>delete_manage_info_reception($id)</code></li>
+<li><code>delete_setting_training($id)</code></li>
+<li><code>delete_setting_asset_allocation($id)</code></li>
+<li><code>delete_reception($id)</code></li>
+<li><code>get_department_by_staffid($id_staff)</code></li>
+<li><code>get_transfer_records_reception_staff($id)</code></li>
+<li><code>update_checklist($data)</code></li>
+<li><code>delete_tag_item($tag_id)</code></li>
+<li><code>add_new_asset_staff($id, $data)</code></li>
+<li><code>update_asset_staff($data)</code></li>
+<li><code>delete_allocation_asset($allocation_id)</code></li>
+<li><code>get_training_allocation_staff($id)</code></li>
+<li><code>get_staff_departments($userid = false, $onlyids = false)</code></li>
+<li><code>get_staff_permissions($id)</code></li>
+<li><code>get_job_position_arrayid()</code></li>
+<li><code>get_workplace_array_id()</code></li>
+<li><code>get_workplace($id = false)</code></li>
+<li><code>add_workplace($data)</code></li>
+<li><code>update_workplace($data, $id)</code></li>
+<li><code>delete_workplace($id)</code></li>
+<li><code>format_date($date)</code></li>
+<li><code>format_date_time($date)</code></li>
+<li><code>check_format_date_ymd($date)</code></li>
+<li><code>check_format_date($date)</code></li>
+<li><code>add_staff($data)</code></li>
+<li><code>update_staff($data, $id)</code></li>
+<li><code>getdepartment_name($staffid)</code></li>
+<li><code>get_child_node_staff_chart($id, $arr_dep)</code></li>
+<li><code>get_hr_profile_attachments($staffid)</code></li>
+<li><code>get_records_received($id)</code></li>
+<li><code>get_hr_profile_profile_file($staffid)</code></li>
+<li><code>get_duration()</code></li>
+<li><code>add_education($data)</code></li>
+<li><code>update_education($data)</code></li>
+<li><code>delete_education($id)</code></li>
+<li><code>member_get_evaluate_form($staffid)</code></li>
+<li><code>get_evaluate_form_status()</code></li>
+<li><code>get_dataobject_result_evaluate($id, $arrstaff = false)</code></li>
+<li><code>add_attachment_to_database($rel_id, $rel_type, $attachment, $external = false)</code></li>
+<li><code>get_file($id, $rel_id = false)</code></li>
+<li><code>delete_hr_profile_staff_attachment($attachment_id)</code></li>
+<li><code>get_hr_profile_attachments_delete($id)</code></li>
+<li><code>update_staff_permissions($data)</code></li>
+<li><code>update_permissions($permissions, $id)</code></li>
+<li><code>get_file_info($id, $rel_type)</code></li>
+<li><code>update_staff_profile($data)</code></li>
+<li><code>get_staff_in_deparment($department_id)</code></li>
+<li><code>get_staff_role($staff_id)</code></li>
+<li><code>delete_hr_profile_permission($id)</code></li>
+<li><code>get_data_dpm_chart($dpm)</code></li>
+<li><code>list_job_department($department)</code></li>
+<li><code>delete_hr_job_position_attachment_file($attachment_id)</code></li>
+<li><code>get_hr_profile_file($rel_id, $rel_type)</code></li>
+<li><code>get_job_position_training_de($id = false)</code></li>
+<li><code>delete_job_position_training_process($trainingid)</code></li>
+<li><code>delete_position_training($trainingid)</code></li>
+<li><code>get_list_position_training_by_id_training($training_id_aray)</code></li>
+<li><code>get_contract($id)</code></li>
+<li><code>get_contract_detail($id)</code></li>
+<li><code>add_contract($data)</code></li>
+<li><code>update_contract($data, $id)</code></li>
+<li><code>delete_contract($id)</code></li>
+<li><code>get_contracttype_by_id($id)</code></li>
+<li><code>get_staff_active()</code></li>
+<li><code>get_staff_active_has_contract()</code></li>
+<li><code>update_prefix_number($data)</code></li>
+<li><code>create_code($rel_type)</code></li>
+<li><code>check_department_format($departments)</code></li>
+<li><code>get_dependent_person($id = false)</code></li>
+<li><code>get_dependent_person_bytstaff($staffid)</code></li>
+<li><code>add_dependent_person($data)</code></li>
+<li><code>update_dependent_person($data, $id)</code></li>
+<li><code>delete_dependent_person($id)</code></li>
+<li><code>update_approval_dependent_person($data)</code></li>
+<li><code>update_approval_status($data)</code></li>
+<li><code>add_resignation_procedure($data)</code></li>
+<li><code>get_data_asset($staffid)</code></li>
+<li><code>add_data_of_staff_quit_work_by_id($rel_name, $people_handle_id = '')</code></li>
+<li><code>add_data_of_staff_quit_work($rel_id, $option_name, $staffid)</code></li>
+<li><code>get_resignation_procedure_by_staff($staff_id)</code></li>
+<li><code>delete_procedures_for_quitting_work($staffid)</code></li>
+<li><code>get_data_procedure_retire_of_staff($staffid)</code></li>
+<li><code>update_status_quit_work($staffid, $id)</code></li>
+<li><code>update_status_procedure_retire_of_staff($where = [])</code></li>
+<li><code>delete_hr_q_a_attachment_file($attachment_id)</code></li>
+<li><code>get_salary_allowance_handsontable()</code></li>
+<li><code>delete_hr_contract_attachment_file($attachment_id)</code></li>
+<li><code>get_salary_allowance_for_table($contract_id)</code></li>
+<li><code>send_mail_training($email, $sender_name, $subject, $body)</code></li>
+<li><code>get_board_mark_form($rel_id)</code></li>
+<li><code>report_by_leave_statistics()</code></li>
+<li><code>get_list_quiting_work($staffid = '')</code></li>
+<li><code>get_staff_by_month($from_month, $to_month)</code></li>
+<li><code>get_dstafflist_by_year($year, $month)</code></li>
+<li><code>get_staff_by_department_id_and_time($id_department, $from_time, $to_time)</code></li>
+<li><code>get_department_by_list_id($list_id = '')</code></li>
+<li><code>get_list_contract_detail_staff($staffid)</code></li>
+<li><code>get_list_staff_by_year($year)</code></li>
+<li><code>count_staff_by_department_literacy($department_ids = '')</code></li>
+<li><code>report_by_staffs_month($from_date, $to_date)</code></li>
+<li><code>report_new_staff_by_month($from_date, $to_date)</code></li>
+<li><code>report_staff_working_by_month($from_date, $to_date)</code></li>
+<li><code>report_staff_quit_work_by_month($from_date, $to_date)</code></li>
+<li><code>hr_get_training_question_form_by_relid($rel_id)</code></li>
+<li><code>hr_get_form_results_by_resultsetid($resultsetid, $questionid)</code></li>
+<li><code>delete_hr_article_attachment_file($attachment_id)</code></li>
+<li><code>get_type_of_training($id = false)</code></li>
+<li><code>add_type_of_training($data)</code></li>
+<li><code>update_type_of_training($data, $id)</code></li>
+<li><code>delete_type_of_training($id)</code></li>
+<li><code>get_list_training_program($position_id, $training_type)</code></li>
+<li><code>delete_tranining_result_by_staffid($staff_id, $training_id)</code></li>
+<li><code>get_additional_training($staff_id)</code></li>
+<li><code>get_mark_staff_from_resultsetid($resultsetid, $id, $staff_id)</code></li>
+<li><code>get_training_library()</code></li>
+<li><code>get_training_result_by_training_program($training_program_id)</code></li>
+<li><code>get_mark_staff_v2($trainingid, $resultsetid)</code></li>
+<li><code>get_staff_from_training_program($training_programs)</code></li>
+<li><code>get_department_by_manager()</code></li>
+<li><code>get_staff_by_manager()</code></li>
+<li><code>get_staff_in_teammanage($teammanage)</code></li>
+<li><code>get_staff_by_job_position($job_position_id)</code></li>
+<li><code>contract_clear_signature($id)</code></li>
+<li><code>hr_get_staff_contract_pdf($id = '', $where = [], $for_editor = false)</code></li>
+<li><code>hr_get_staff_contract_pdf_only_for_pdf($id = '', $where = [], $for_editor = false)</code></li>
+<li><code>get_contract_template($id = false)</code></li>
+<li><code>add_contract_template($data)</code></li>
+<li><code>update_contract_template($data, $id)</code></li>
+<li><code>delete_contract_template($id)</code></li>
+<li><code>hr_get_contract_template_by_staff($staffid)</code></li>
+<li><code>update_hr_staff_contract_content($id, $staffid)</code></li>
+<li><code>add_department($data)</code></li>
+<li><code>update_department($data, $id)</code></li>
+<li><code>delete_department($id)</code></li>
+<li><code>add_staff_into_department($departments, $staff_id)</code></li>
+<li><code>import_add_staff($data)</code></li>
+<li><code>import_update_staff($data, $id)</code></li>
+<li><code>hr_create_notification($event, $user_id, $options = array()</code></li>
+<li><code>get_type_of_training_has_training_program()</code></li>
+</ul>
+</body></html>

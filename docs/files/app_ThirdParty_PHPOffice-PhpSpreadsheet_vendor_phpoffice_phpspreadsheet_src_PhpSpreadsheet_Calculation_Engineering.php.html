@@ -1,0 +1,883 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Engineering.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Engineering.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Engineering.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 51497 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@deprecated 1.18.0</p>
+
+<p>EULER.</p>
+<p>@deprecated 1.18.0</p>
+<p>@see Use Engineering\Constants\EULER instead</p>
+
+<p>parseComplex.</p>
+<p>Parses a complex number into its real and imaginary parts, and an I or J suffix</p>
+<p>@deprecated 1.12.0 No longer used by internal code. Please use the \Complex\Complex class instead</p>
+<p>@param string $complexNumber The complex number</p>
+<p>@return mixed[] Indexed on "real", "imaginary" and "suffix"</p>
+
+<p>BESSELI.</p>
+<p>   Returns the modified Bessel function In(x), which is equivalent to the Bessel function evaluated</p>
+<p>       for purely imaginary arguments</p>
+<p>   Excel Function:</p>
+<p>       BESSELI(x,ord)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Use the BESSELI() method in the Engineering\BesselI class instead</p>
+<p>@param float $x The value at which to evaluate the function.</p>
+<p>                               If x is nonnumeric, BESSELI returns the #VALUE! error value.</p>
+<p>@param int $ord The order of the Bessel function.</p>
+<p>                               If ord is not an integer, it is truncated.</p>
+<p>                               If $ord is nonnumeric, BESSELI returns the #VALUE! error value.</p>
+<p>                               If $ord < 0, BESSELI returns the #NUM! error value.</p>
+<p>@return array|float|string Result, or a string containing an error</p>
+
+<p>BESSELJ.</p>
+<p>   Returns the Bessel function</p>
+<p>   Excel Function:</p>
+<p>       BESSELJ(x,ord)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Use the BESSELJ() method in the Engineering\BesselJ class instead</p>
+<p>@param float $x The value at which to evaluate the function.</p>
+<p>                               If x is nonnumeric, BESSELJ returns the #VALUE! error value.</p>
+<p>@param int $ord The order of the Bessel function. If n is not an integer, it is truncated.</p>
+<p>                               If $ord is nonnumeric, BESSELJ returns the #VALUE! error value.</p>
+<p>                               If $ord < 0, BESSELJ returns the #NUM! error value.</p>
+<p>@return array|float|string Result, or a string containing an error</p>
+
+<p>BESSELK.</p>
+<p>   Returns the modified Bessel function Kn(x), which is equivalent to the Bessel functions evaluated</p>
+<p>       for purely imaginary arguments.</p>
+<p>   Excel Function:</p>
+<p>       BESSELK(x,ord)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Use the BESSELK() method in the Engineering\BesselK class instead</p>
+<p>@param float $x The value at which to evaluate the function.</p>
+<p>                               If x is nonnumeric, BESSELK returns the #VALUE! error value.</p>
+<p>@param int $ord The order of the Bessel function. If n is not an integer, it is truncated.</p>
+<p>                               If $ord is nonnumeric, BESSELK returns the #VALUE! error value.</p>
+<p>                               If $ord < 0, BESSELK returns the #NUM! error value.</p>
+<p>@return array|float|string Result, or a string containing an error</p>
+
+<p>BESSELY.</p>
+<p>Returns the Bessel function, which is also called the Weber function or the Neumann function.</p>
+<p>   Excel Function:</p>
+<p>       BESSELY(x,ord)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Use the BESSELY() method in the Engineering\BesselY class instead</p>
+<p>@param float $x The value at which to evaluate the function.</p>
+<p>                               If x is nonnumeric, BESSELY returns the #VALUE! error value.</p>
+<p>@param int $ord The order of the Bessel function. If n is not an integer, it is truncated.</p>
+<p>                               If $ord is nonnumeric, BESSELY returns the #VALUE! error value.</p>
+<p>                               If $ord < 0, BESSELY returns the #NUM! error value.</p>
+<p>@return array|float|string Result, or a string containing an error</p>
+
+<p>BINTODEC.</p>
+<p>Return a binary value as decimal.</p>
+<p>Excel Function:</p>
+<p>       BIN2DEC(x)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Use the toDecimal() method in the Engineering\ConvertBinary class instead</p>
+<p>@param mixed $x The binary number (as a string) that you want to convert. The number</p>
+<p>                               cannot contain more than 10 characters (10 bits). The most significant</p>
+<p>                               bit of number is the sign bit. The remaining 9 bits are magnitude bits.</p>
+<p>                               Negative numbers are represented using two's-complement notation.</p>
+<p>                               If number is not a valid binary number, or if number contains more than</p>
+<p>                               10 characters (10 bits), BIN2DEC returns the #NUM! error value.</p>
+<p>@return array|string</p>
+
+<p>BINTOHEX.</p>
+<p>Return a binary value as hex.</p>
+<p>Excel Function:</p>
+<p>       BIN2HEX(x[,places])</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Use the toHex() method in the Engineering\ConvertBinary class instead</p>
+<p>@param mixed $x The binary number (as a string) that you want to convert. The number</p>
+<p>                               cannot contain more than 10 characters (10 bits). The most significant</p>
+<p>                               bit of number is the sign bit. The remaining 9 bits are magnitude bits.</p>
+<p>                               Negative numbers are represented using two's-complement notation.</p>
+<p>                               If number is not a valid binary number, or if number contains more than</p>
+<p>                               10 characters (10 bits), BIN2HEX returns the #NUM! error value.</p>
+<p>@param mixed $places The number of characters to use. If places is omitted, BIN2HEX uses the</p>
+<p>                               minimum number of characters necessary. Places is useful for padding the</p>
+<p>                               return value with leading 0s (zeros).</p>
+<p>                               If places is not an integer, it is truncated.</p>
+<p>                               If places is nonnumeric, BIN2HEX returns the #VALUE! error value.</p>
+<p>                               If places is negative, BIN2HEX returns the #NUM! error value.</p>
+<p>@return array|string</p>
+
+<p>BINTOOCT.</p>
+<p>Return a binary value as octal.</p>
+<p>Excel Function:</p>
+<p>       BIN2OCT(x[,places])</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Use the toOctal() method in the Engineering\ConvertBinary class instead</p>
+<p>@param mixed $x The binary number (as a string) that you want to convert. The number</p>
+<p>                               cannot contain more than 10 characters (10 bits). The most significant</p>
+<p>                               bit of number is the sign bit. The remaining 9 bits are magnitude bits.</p>
+<p>                               Negative numbers are represented using two's-complement notation.</p>
+<p>                               If number is not a valid binary number, or if number contains more than</p>
+<p>                               10 characters (10 bits), BIN2OCT returns the #NUM! error value.</p>
+<p>@param mixed $places The number of characters to use. If places is omitted, BIN2OCT uses the</p>
+<p>                               minimum number of characters necessary. Places is useful for padding the</p>
+<p>                               return value with leading 0s (zeros).</p>
+<p>                               If places is not an integer, it is truncated.</p>
+<p>                               If places is nonnumeric, BIN2OCT returns the #VALUE! error value.</p>
+<p>                               If places is negative, BIN2OCT returns the #NUM! error value.</p>
+<p>@return array|string</p>
+
+<p>DECTOBIN.</p>
+<p>Return a decimal value as binary.</p>
+<p>Excel Function:</p>
+<p>       DEC2BIN(x[,places])</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Use the toBinary() method in the Engineering\ConvertDecimal class instead</p>
+<p>@param mixed $x The decimal integer you want to convert. If number is negative,</p>
+<p>                               valid place values are ignored and DEC2BIN returns a 10-character</p>
+<p>                               (10-bit) binary number in which the most significant bit is the sign</p>
+<p>                               bit. The remaining 9 bits are magnitude bits. Negative numbers are</p>
+<p>                               represented using two's-complement notation.</p>
+<p>                               If number < -512 or if number > 511, DEC2BIN returns the #NUM! error</p>
+<p>                               value.</p>
+<p>                               If number is nonnumeric, DEC2BIN returns the #VALUE! error value.</p>
+<p>                               If DEC2BIN requires more than places characters, it returns the #NUM!</p>
+<p>                               error value.</p>
+<p>@param mixed $places The number of characters to use. If places is omitted, DEC2BIN uses</p>
+<p>                               the minimum number of characters necessary. Places is useful for</p>
+<p>                               padding the return value with leading 0s (zeros).</p>
+<p>                               If places is not an integer, it is truncated.</p>
+<p>                               If places is nonnumeric, DEC2BIN returns the #VALUE! error value.</p>
+<p>                               If places is zero or negative, DEC2BIN returns the #NUM! error value.</p>
+<p>@return array|string</p>
+
+<p>DECTOHEX.</p>
+<p>Return a decimal value as hex.</p>
+<p>Excel Function:</p>
+<p>       DEC2HEX(x[,places])</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Use the toHex() method in the Engineering\ConvertDecimal class instead</p>
+<p>@param mixed $x The decimal integer you want to convert. If number is negative,</p>
+<p>                               places is ignored and DEC2HEX returns a 10-character (40-bit)</p>
+<p>                               hexadecimal number in which the most significant bit is the sign</p>
+<p>                               bit. The remaining 39 bits are magnitude bits. Negative numbers</p>
+<p>                               are represented using two's-complement notation.</p>
+<p>                               If number < -549,755,813,888 or if number > 549,755,813,887,</p>
+<p>                               DEC2HEX returns the #NUM! error value.</p>
+<p>                               If number is nonnumeric, DEC2HEX returns the #VALUE! error value.</p>
+<p>                               If DEC2HEX requires more than places characters, it returns the</p>
+<p>                               #NUM! error value.</p>
+<p>@param mixed $places The number of characters to use. If places is omitted, DEC2HEX uses</p>
+<p>                               the minimum number of characters necessary. Places is useful for</p>
+<p>                               padding the return value with leading 0s (zeros).</p>
+<p>                               If places is not an integer, it is truncated.</p>
+<p>                               If places is nonnumeric, DEC2HEX returns the #VALUE! error value.</p>
+<p>                               If places is zero or negative, DEC2HEX returns the #NUM! error value.</p>
+<p>@return array|string</p>
+
+<p>DECTOOCT.</p>
+<p>Return an decimal value as octal.</p>
+<p>Excel Function:</p>
+<p>       DEC2OCT(x[,places])</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Use the toOctal() method in the Engineering\ConvertDecimal class instead</p>
+<p>@param mixed $x The decimal integer you want to convert. If number is negative,</p>
+<p>                               places is ignored and DEC2OCT returns a 10-character (30-bit)</p>
+<p>                               octal number in which the most significant bit is the sign bit.</p>
+<p>                               The remaining 29 bits are magnitude bits. Negative numbers are</p>
+<p>                               represented using two's-complement notation.</p>
+<p>                               If number < -536,870,912 or if number > 536,870,911, DEC2OCT</p>
+<p>                               returns the #NUM! error value.</p>
+<p>                               If number is nonnumeric, DEC2OCT returns the #VALUE! error value.</p>
+<p>                               If DEC2OCT requires more than places characters, it returns the</p>
+<p>                               #NUM! error value.</p>
+<p>@param mixed $places The number of characters to use. If places is omitted, DEC2OCT uses</p>
+<p>                               the minimum number of characters necessary. Places is useful for</p>
+<p>                               padding the return value with leading 0s (zeros).</p>
+<p>                               If places is not an integer, it is truncated.</p>
+<p>                               If places is nonnumeric, DEC2OCT returns the #VALUE! error value.</p>
+<p>                               If places is zero or negative, DEC2OCT returns the #NUM! error value.</p>
+<p>@return array|string</p>
+
+<p>HEXTOBIN.</p>
+<p>Return a hex value as binary.</p>
+<p>Excel Function:</p>
+<p>       HEX2BIN(x[,places])</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Use the toBinary() method in the Engineering\ConvertHex class instead</p>
+<p>@param mixed $x the hexadecimal number (as a string) that you want to convert.</p>
+<p>                 Number cannot contain more than 10 characters.</p>
+<p>                 The most significant bit of number is the sign bit (40th bit from the right).</p>
+<p>                 The remaining 9 bits are magnitude bits.</p>
+<p>                 Negative numbers are represented using two's-complement notation.</p>
+<p>                 If number is negative, HEX2BIN ignores places and returns a 10-character binary number.</p>
+<p>                 If number is negative, it cannot be less than FFFFFFFE00,</p>
+<p>                     and if number is positive, it cannot be greater than 1FF.</p>
+<p>                 If number is not a valid hexadecimal number, HEX2BIN returns the #NUM! error value.</p>
+<p>                 If HEX2BIN requires more than places characters, it returns the #NUM! error value.</p>
+<p>@param mixed $places The number of characters to use. If places is omitted,</p>
+<p>                                   HEX2BIN uses the minimum number of characters necessary. Places</p>
+<p>                                   is useful for padding the return value with leading 0s (zeros).</p>
+<p>                                   If places is not an integer, it is truncated.</p>
+<p>                                   If places is nonnumeric, HEX2BIN returns the #VALUE! error value.</p>
+<p>                                   If places is negative, HEX2BIN returns the #NUM! error value.</p>
+<p>@return array|string</p>
+
+<p>HEXTODEC.</p>
+<p>Return a hex value as decimal.</p>
+<p>Excel Function:</p>
+<p>       HEX2DEC(x)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Use the toDecimal() method in the Engineering\ConvertHex class instead</p>
+<p>@param mixed $x The hexadecimal number (as a string) that you want to convert. This number cannot</p>
+<p>                               contain more than 10 characters (40 bits). The most significant</p>
+<p>                               bit of number is the sign bit. The remaining 39 bits are magnitude</p>
+<p>                               bits. Negative numbers are represented using two's-complement</p>
+<p>                               notation.</p>
+<p>                               If number is not a valid hexadecimal number, HEX2DEC returns the</p>
+<p>                               #NUM! error value.</p>
+<p>@return array|string</p>
+
+<p>HEXTOOCT.</p>
+<p>Return a hex value as octal.</p>
+<p>Excel Function:</p>
+<p>       HEX2OCT(x[,places])</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Use the toOctal() method in the Engineering\ConvertHex class instead</p>
+<p>@param mixed $x The hexadecimal number (as a string) that you want to convert. Number cannot</p>
+<p>                                   contain more than 10 characters. The most significant bit of</p>
+<p>                                   number is the sign bit. The remaining 39 bits are magnitude</p>
+<p>                                   bits. Negative numbers are represented using two's-complement</p>
+<p>                                   notation.</p>
+<p>                                   If number is negative, HEX2OCT ignores places and returns a</p>
+<p>                                   10-character octal number.</p>
+<p>                                   If number is negative, it cannot be less than FFE0000000, and</p>
+<p>                                   if number is positive, it cannot be greater than 1FFFFFFF.</p>
+<p>                                   If number is not a valid hexadecimal number, HEX2OCT returns</p>
+<p>                                   the #NUM! error value.</p>
+<p>                                   If HEX2OCT requires more than places characters, it returns</p>
+<p>                                   the #NUM! error value.</p>
+<p>@param mixed $places The number of characters to use. If places is omitted, HEX2OCT</p>
+<p>                                   uses the minimum number of characters necessary. Places is</p>
+<p>                                   useful for padding the return value with leading 0s (zeros).</p>
+<p>                                   If places is not an integer, it is truncated.</p>
+<p>                                   If places is nonnumeric, HEX2OCT returns the #VALUE! error</p>
+<p>                                   value.</p>
+<p>                                   If places is negative, HEX2OCT returns the #NUM! error value.</p>
+<p>@return array|string</p>
+
+<p>OCTTOBIN.</p>
+<p>Return an octal value as binary.</p>
+<p>Excel Function:</p>
+<p>       OCT2BIN(x[,places])</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Use the toBinary() method in the Engineering\ConvertOctal class instead</p>
+<p>@param mixed $x The octal number you want to convert. Number may not</p>
+<p>                                   contain more than 10 characters. The most significant</p>
+<p>                                   bit of number is the sign bit. The remaining 29 bits</p>
+<p>                                   are magnitude bits. Negative numbers are represented</p>
+<p>                                   using two's-complement notation.</p>
+<p>                                   If number is negative, OCT2BIN ignores places and returns</p>
+<p>                                   a 10-character binary number.</p>
+<p>                                   If number is negative, it cannot be less than 7777777000,</p>
+<p>                                   and if number is positive, it cannot be greater than 777.</p>
+<p>                                   If number is not a valid octal number, OCT2BIN returns</p>
+<p>                                   the #NUM! error value.</p>
+<p>                                   If OCT2BIN requires more than places characters, it</p>
+<p>                                   returns the #NUM! error value.</p>
+<p>@param mixed $places The number of characters to use. If places is omitted,</p>
+<p>                                   OCT2BIN uses the minimum number of characters necessary.</p>
+<p>                                   Places is useful for padding the return value with</p>
+<p>                                   leading 0s (zeros).</p>
+<p>                                   If places is not an integer, it is truncated.</p>
+<p>                                   If places is nonnumeric, OCT2BIN returns the #VALUE!</p>
+<p>                                   error value.</p>
+<p>                                   If places is negative, OCT2BIN returns the #NUM! error</p>
+<p>                                   value.</p>
+<p>@return array|string</p>
+
+<p>OCTTODEC.</p>
+<p>Return an octal value as decimal.</p>
+<p>Excel Function:</p>
+<p>       OCT2DEC(x)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Use the toDecimal() method in the Engineering\ConvertOctal class instead</p>
+<p>@param mixed $x The octal number you want to convert. Number may not contain</p>
+<p>                               more than 10 octal characters (30 bits). The most significant</p>
+<p>                               bit of number is the sign bit. The remaining 29 bits are</p>
+<p>                               magnitude bits. Negative numbers are represented using</p>
+<p>                               two's-complement notation.</p>
+<p>                               If number is not a valid octal number, OCT2DEC returns the</p>
+<p>                               #NUM! error value.</p>
+<p>@return array|string</p>
+
+<p>OCTTOHEX.</p>
+<p>Return an octal value as hex.</p>
+<p>Excel Function:</p>
+<p>       OCT2HEX(x[,places])</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Use the toHex() method in the Engineering\ConvertOctal class instead</p>
+<p>@param mixed $x The octal number you want to convert. Number may not contain</p>
+<p>                                   more than 10 octal characters (30 bits). The most significant</p>
+<p>                                   bit of number is the sign bit. The remaining 29 bits are</p>
+<p>                                   magnitude bits. Negative numbers are represented using</p>
+<p>                                   two's-complement notation.</p>
+<p>                                   If number is negative, OCT2HEX ignores places and returns a</p>
+<p>                                   10-character hexadecimal number.</p>
+<p>                                   If number is not a valid octal number, OCT2HEX returns the</p>
+<p>                                   #NUM! error value.</p>
+<p>                                   If OCT2HEX requires more than places characters, it returns</p>
+<p>                                   the #NUM! error value.</p>
+<p>@param mixed $places The number of characters to use. If places is omitted, OCT2HEX</p>
+<p>                                   uses the minimum number of characters necessary. Places is useful</p>
+<p>                                   for padding the return value with leading 0s (zeros).</p>
+<p>                                   If places is not an integer, it is truncated.</p>
+<p>                                   If places is nonnumeric, OCT2HEX returns the #VALUE! error value.</p>
+<p>                                   If places is negative, OCT2HEX returns the #NUM! error value.</p>
+<p>@return array|string</p>
+
+<p>COMPLEX.</p>
+<p>Converts real and imaginary coefficients into a complex number of the form x +/- yi or x +/- yj.</p>
+<p>Excel Function:</p>
+<p>       COMPLEX(realNumber,imaginary[,suffix])</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the COMPLEX() method in the Engineering\Complex class instead</p>
+<p>@param array|float $realNumber the real coefficient of the complex number</p>
+<p>@param array|float $imaginary the imaginary coefficient of the complex number</p>
+<p>@param array|string $suffix The suffix for the imaginary component of the complex number.</p>
+<p>                                       If omitted, the suffix is assumed to be "i".</p>
+<p>@return array|string</p>
+
+<p>IMAGINARY.</p>
+<p>Returns the imaginary coefficient of a complex number in x + yi or x + yj text format.</p>
+<p>Excel Function:</p>
+<p>       IMAGINARY(complexNumber)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the IMAGINARY() method in the Engineering\Complex class instead</p>
+<p>@param string $complexNumber the complex number for which you want the imaginary</p>
+<p>                                        coefficient</p>
+<p>@return array|float|string</p>
+
+<p>IMREAL.</p>
+<p>Returns the real coefficient of a complex number in x + yi or x + yj text format.</p>
+<p>Excel Function:</p>
+<p>       IMREAL(complexNumber)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the IMREAL() method in the Engineering\Complex class instead</p>
+<p>@param string $complexNumber the complex number for which you want the real coefficient</p>
+<p>@return array|float|string</p>
+
+<p>IMABS.</p>
+<p>Returns the absolute value (modulus) of a complex number in x + yi or x + yj text format.</p>
+<p>Excel Function:</p>
+<p>       IMABS(complexNumber)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the IMABS() method in the Engineering\ComplexFunctions class instead</p>
+<p>@param string $complexNumber the complex number for which you want the absolute value</p>
+<p>@return array|float|string</p>
+
+<p>IMARGUMENT.</p>
+<p>Returns the argument theta of a complex number, i.e. the angle in radians from the real</p>
+<p>axis to the representation of the number in polar coordinates.</p>
+<p>Excel Function:</p>
+<p>       IMARGUMENT(complexNumber)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the IMARGUMENT() method in the Engineering\ComplexFunctions class instead</p>
+<p>@param array|string $complexNumber the complex number for which you want the argument theta</p>
+<p>@return array|float|string</p>
+
+<p>IMCONJUGATE.</p>
+<p>Returns the complex conjugate of a complex number in x + yi or x + yj text format.</p>
+<p>Excel Function:</p>
+<p>       IMCONJUGATE(complexNumber)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the IMARGUMENT() method in the Engineering\ComplexFunctions class instead</p>
+<p>@param array|string $complexNumber the complex number for which you want the conjugate</p>
+<p>@return array|string</p>
+
+<p>IMCOS.</p>
+<p>Returns the cosine of a complex number in x + yi or x + yj text format.</p>
+<p>Excel Function:</p>
+<p>       IMCOS(complexNumber)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the IMCOS() method in the Engineering\ComplexFunctions class instead</p>
+<p>@param array|string $complexNumber the complex number for which you want the cosine</p>
+<p>@return array|float|string</p>
+
+<p>IMCOSH.</p>
+<p>Returns the hyperbolic cosine of a complex number in x + yi or x + yj text format.</p>
+<p>Excel Function:</p>
+<p>       IMCOSH(complexNumber)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the IMCOSH() method in the Engineering\ComplexFunctions class instead</p>
+<p>@param array|string $complexNumber the complex number for which you want the hyperbolic cosine</p>
+<p>@return array|float|string</p>
+
+<p>IMCOT.</p>
+<p>Returns the cotangent of a complex number in x + yi or x + yj text format.</p>
+<p>Excel Function:</p>
+<p>       IMCOT(complexNumber)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the IMCOT() method in the Engineering\ComplexFunctions class instead</p>
+<p>@param array|string $complexNumber the complex number for which you want the cotangent</p>
+<p>@return array|float|string</p>
+
+<p>IMCSC.</p>
+<p>Returns the cosecant of a complex number in x + yi or x + yj text format.</p>
+<p>Excel Function:</p>
+<p>       IMCSC(complexNumber)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the IMCSC() method in the Engineering\ComplexFunctions class instead</p>
+<p>@param array|string $complexNumber the complex number for which you want the cosecant</p>
+<p>@return array|float|string</p>
+
+<p>IMCSCH.</p>
+<p>Returns the hyperbolic cosecant of a complex number in x + yi or x + yj text format.</p>
+<p>Excel Function:</p>
+<p>       IMCSCH(complexNumber)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the IMCSCH() method in the Engineering\ComplexFunctions class instead</p>
+<p>@param array|string $complexNumber the complex number for which you want the hyperbolic cosecant</p>
+<p>@return array|float|string</p>
+
+<p>IMSIN.</p>
+<p>Returns the sine of a complex number in x + yi or x + yj text format.</p>
+<p>Excel Function:</p>
+<p>       IMSIN(complexNumber)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the IMSIN() method in the Engineering\ComplexFunctions class instead</p>
+<p>@param string $complexNumber the complex number for which you want the sine</p>
+<p>@return array|float|string</p>
+
+<p>IMSINH.</p>
+<p>Returns the hyperbolic sine of a complex number in x + yi or x + yj text format.</p>
+<p>Excel Function:</p>
+<p>       IMSINH(complexNumber)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the IMSINH() method in the Engineering\ComplexFunctions class instead</p>
+<p>@param string $complexNumber the complex number for which you want the hyperbolic sine</p>
+<p>@return array|float|string</p>
+
+<p>IMSEC.</p>
+<p>Returns the secant of a complex number in x + yi or x + yj text format.</p>
+<p>Excel Function:</p>
+<p>       IMSEC(complexNumber)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the IMSEC() method in the Engineering\ComplexFunctions class instead</p>
+<p>@param string $complexNumber the complex number for which you want the secant</p>
+<p>@return array|float|string</p>
+
+<p>IMSECH.</p>
+<p>Returns the hyperbolic secant of a complex number in x + yi or x + yj text format.</p>
+<p>Excel Function:</p>
+<p>       IMSECH(complexNumber)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the IMSECH() method in the Engineering\ComplexFunctions class instead</p>
+<p>@param string $complexNumber the complex number for which you want the hyperbolic secant</p>
+<p>@return array|float|string</p>
+
+<p>IMTAN.</p>
+<p>Returns the tangent of a complex number in x + yi or x + yj text format.</p>
+<p>Excel Function:</p>
+<p>       IMTAN(complexNumber)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the IMTAN() method in the Engineering\ComplexFunctions class instead</p>
+<p>@param string $complexNumber the complex number for which you want the tangent</p>
+<p>@return array|float|string</p>
+
+<p>IMSQRT.</p>
+<p>Returns the square root of a complex number in x + yi or x + yj text format.</p>
+<p>Excel Function:</p>
+<p>       IMSQRT(complexNumber)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the IMSQRT() method in the Engineering\ComplexFunctions class instead</p>
+<p>@param string $complexNumber the complex number for which you want the square root</p>
+<p>@return array|string</p>
+
+<p>IMLN.</p>
+<p>Returns the natural logarithm of a complex number in x + yi or x + yj text format.</p>
+<p>Excel Function:</p>
+<p>       IMLN(complexNumber)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the IMLN() method in the Engineering\ComplexFunctions class instead</p>
+<p>@param string $complexNumber the complex number for which you want the natural logarithm</p>
+<p>@return array|string</p>
+
+<p>IMLOG10.</p>
+<p>Returns the common logarithm (base 10) of a complex number in x + yi or x + yj text format.</p>
+<p>Excel Function:</p>
+<p>       IMLOG10(complexNumber)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the IMLOG10() method in the Engineering\ComplexFunctions class instead</p>
+<p>@param string $complexNumber the complex number for which you want the common logarithm</p>
+<p>@return array|string</p>
+
+<p>IMLOG2.</p>
+<p>Returns the base-2 logarithm of a complex number in x + yi or x + yj text format.</p>
+<p>Excel Function:</p>
+<p>       IMLOG2(complexNumber)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the IMLOG2() method in the Engineering\ComplexFunctions class instead</p>
+<p>@param string $complexNumber the complex number for which you want the base-2 logarithm</p>
+<p>@return array|string</p>
+
+<p>IMEXP.</p>
+<p>Returns the exponential of a complex number in x + yi or x + yj text format.</p>
+<p>Excel Function:</p>
+<p>       IMEXP(complexNumber)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the IMEXP() method in the Engineering\ComplexFunctions class instead</p>
+<p>@param string $complexNumber the complex number for which you want the exponential</p>
+<p>@return array|string</p>
+
+<p>IMPOWER.</p>
+<p>Returns a complex number in x + yi or x + yj text format raised to a power.</p>
+<p>Excel Function:</p>
+<p>       IMPOWER(complexNumber,realNumber)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the IMPOWER() method in the Engineering\ComplexFunctions class instead</p>
+<p>@param string $complexNumber the complex number you want to raise to a power</p>
+<p>@param float $realNumber the power to which you want to raise the complex number</p>
+<p>@return array|string</p>
+
+<p>IMDIV.</p>
+<p>Returns the quotient of two complex numbers in x + yi or x + yj text format.</p>
+<p>Excel Function:</p>
+<p>       IMDIV(complexDividend,complexDivisor)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the IMDIV() method in the Engineering\ComplexOperations class instead</p>
+<p>@param string $complexDividend the complex numerator or dividend</p>
+<p>@param string $complexDivisor the complex denominator or divisor</p>
+<p>@return array|string</p>
+
+<p>IMSUB.</p>
+<p>Returns the difference of two complex numbers in x + yi or x + yj text format.</p>
+<p>Excel Function:</p>
+<p>       IMSUB(complexNumber1,complexNumber2)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the IMSUB() method in the Engineering\ComplexOperations class instead</p>
+<p>@param string $complexNumber1 the complex number from which to subtract complexNumber2</p>
+<p>@param string $complexNumber2 the complex number to subtract from complexNumber1</p>
+<p>@return array|string</p>
+
+<p>IMSUM.</p>
+<p>Returns the sum of two or more complex numbers in x + yi or x + yj text format.</p>
+<p>Excel Function:</p>
+<p>       IMSUM(complexNumber[,complexNumber[,...]])</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the IMSUM() method in the Engineering\ComplexOperations class instead</p>
+<p>@param string ...$complexNumbers Series of complex numbers to add</p>
+<p>@return string</p>
+
+<p>IMPRODUCT.</p>
+<p>Returns the product of two or more complex numbers in x + yi or x + yj text format.</p>
+<p>Excel Function:</p>
+<p>       IMPRODUCT(complexNumber[,complexNumber[,...]])</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the IMPRODUCT() method in the Engineering\ComplexOperations class instead</p>
+<p>@param string ...$complexNumbers Series of complex numbers to multiply</p>
+<p>@return string</p>
+
+<p>DELTA.</p>
+<p>Tests whether two values are equal. Returns 1 if number1 = number2; returns 0 otherwise.</p>
+<p>Use this function to filter a set of values. For example, by summing several DELTA</p>
+<p>    functions you calculate the count of equal pairs. This function is also known as the</p>
+<p>    Kronecker Delta function.</p>
+<p>   Excel Function:</p>
+<p>       DELTA(a[,b])</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Use the DELTA() method in the Engineering\Compare class instead</p>
+<p>@param float $a the first number</p>
+<p>@param float $b The second number. If omitted, b is assumed to be zero.</p>
+<p>@return array|int|string (string in the event of an error)</p>
+
+<p>GESTEP.</p>
+<p>   Excel Function:</p>
+<p>       GESTEP(number[,step])</p>
+<p>   Returns 1 if number >= step; returns 0 (zero) otherwise</p>
+<p>   Use this function to filter a set of values. For example, by summing several GESTEP</p>
+<p>       functions you calculate the count of values that exceed a threshold.</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Use the GESTEP() method in the Engineering\Compare class instead</p>
+<p>@param float $number the value to test against step</p>
+<p>@param float $step The threshold value. If you omit a value for step, GESTEP uses zero.</p>
+<p>@return array|int|string (string in the event of an error)</p>
+
+<p>BITAND.</p>
+<p>Returns the bitwise AND of two integer values.</p>
+<p>Excel Function:</p>
+<p>       BITAND(number1, number2)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Use the BITAND() method in the Engineering\BitWise class instead</p>
+<p>@param int $number1</p>
+<p>@param int $number2</p>
+<p>@return array|int|string</p>
+
+<p>BITOR.</p>
+<p>Returns the bitwise OR of two integer values.</p>
+<p>Excel Function:</p>
+<p>       BITOR(number1, number2)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Use the BITOR() method in the Engineering\BitWise class instead</p>
+<p>@param int $number1</p>
+<p>@param int $number2</p>
+<p>@return array|int|string</p>
+
+<p>BITXOR.</p>
+<p>Returns the bitwise XOR of two integer values.</p>
+<p>Excel Function:</p>
+<p>       BITXOR(number1, number2)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Use the BITXOR() method in the Engineering\BitWise class instead</p>
+<p>@param int $number1</p>
+<p>@param int $number2</p>
+<p>@return array|int|string</p>
+
+<p>BITLSHIFT.</p>
+<p>Returns the number value shifted left by shift_amount bits.</p>
+<p>Excel Function:</p>
+<p>       BITLSHIFT(number, shift_amount)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Use the BITLSHIFT() method in the Engineering\BitWise class instead</p>
+<p>@param int $number</p>
+<p>@param int $shiftAmount</p>
+<p>@return array|float|int|string</p>
+
+<p>BITRSHIFT.</p>
+<p>Returns the number value shifted right by shift_amount bits.</p>
+<p>Excel Function:</p>
+<p>       BITRSHIFT(number, shift_amount)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Use the BITRSHIFT() method in the Engineering\BitWise class instead</p>
+<p>@param int $number</p>
+<p>@param int $shiftAmount</p>
+<p>@return array|float|int|string</p>
+
+<p>ERF.</p>
+<p>Returns the error function integrated between the lower and upper bound arguments.</p>
+<p>   Note: In Excel 2007 or earlier, if you input a negative value for the upper or lower bound arguments,</p>
+<p>           the function would return a #NUM! error. However, in Excel 2010, the function algorithm was</p>
+<p>           improved, so that it can now calculate the function for both positive and negative ranges.</p>
+<p>           PhpSpreadsheet follows Excel 2010 behaviour, and accepts negative arguments.</p>
+<p>   Excel Function:</p>
+<p>       ERF(lower[,upper])</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Use the ERF() method in the Engineering\Erf class instead</p>
+<p>@param float $lower lower bound for integrating ERF</p>
+<p>@param float $upper upper bound for integrating ERF.</p>
+<p>                               If omitted, ERF integrates between zero and lower_limit</p>
+<p>@return array|float|string</p>
+
+<p>ERFPRECISE.</p>
+<p>Returns the error function integrated between the lower and upper bound arguments.</p>
+<p>   Excel Function:</p>
+<p>       ERF.PRECISE(limit)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Use the ERFPRECISE() method in the Engineering\Erf class instead</p>
+<p>@param float $limit bound for integrating ERF</p>
+<p>@return array|float|string</p>
+
+<p>ERFC.</p>
+<p>   Returns the complementary ERF function integrated between x and infinity</p>
+<p>   Note: In Excel 2007 or earlier, if you input a negative value for the lower bound argument,</p>
+<p>       the function would return a #NUM! error. However, in Excel 2010, the function algorithm was</p>
+<p>       improved, so that it can now calculate the function for both positive and negative x values.</p>
+<p>           PhpSpreadsheet follows Excel 2010 behaviour, and accepts nagative arguments.</p>
+<p>   Excel Function:</p>
+<p>       ERFC(x)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Use the ERFC() method in the Engineering\ErfC class instead</p>
+<p>@param float $x The lower bound for integrating ERFC</p>
+<p>@return array|float|string</p>
+
+<p>getConversionGroups</p>
+<p>Returns a list of the different conversion groups for UOM conversions.</p>
+<p>@Deprecated 1.16.0</p>
+<p>@see Use the getConversionCategories() method in the Engineering\ConvertUOM class instead</p>
+<p>@return array</p>
+
+<p>getConversionGroupUnits</p>
+<p>Returns an array of units of measure, for a specified conversion group, or for all groups.</p>
+<p>@Deprecated 1.16.0</p>
+<p>@see Use the getConversionCategoryUnits() method in the ConvertUOM class instead</p>
+<p>@param null|mixed $category</p>
+<p>@return array</p>
+
+<p>getConversionGroupUnitDetails.</p>
+<p>@Deprecated 1.16.0</p>
+<p>@see Use the getConversionCategoryUnitDetails() method in the ConvertUOM class instead</p>
+<p>@param null|mixed $category</p>
+<p>@return array</p>
+
+<p>getConversionMultipliers</p>
+<p>Returns an array of the Multiplier prefixes that can be used with Units of Measure in CONVERTUOM().</p>
+<p>@Deprecated 1.16.0</p>
+<p>@see Use the getConversionMultipliers() method in the ConvertUOM class instead</p>
+<p>@return mixed[]</p>
+
+<p>getBinaryConversionMultipliers.</p>
+<p>Returns an array of the additional Multiplier prefixes that can be used with Information Units of Measure</p>
+<p>    in CONVERTUOM().</p>
+<p>@Deprecated 1.16.0</p>
+<p>@see Use the getBinaryConversionMultipliers() method in the ConvertUOM class instead</p>
+<p>@return mixed[]</p>
+
+<p>CONVERTUOM.</p>
+<p>Converts a number from one measurement system to another.</p>
+<p>   For example, CONVERT can translate a table of distances in miles to a table of distances</p>
+<p>in kilometers.</p>
+<p>   Excel Function:</p>
+<p>       CONVERT(value,fromUOM,toUOM)</p>
+<p>@Deprecated 1.16.0</p>
+<p>@see Use the CONVERT() method in the ConvertUOM class instead</p>
+<p>@param float|int $value the value in fromUOM to convert</p>
+<p>@param string $fromUOM the units for value</p>
+<p>@param string $toUOM the units for the result</p>
+<p>@return array|float|string</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>which</code></li>
+<li><code>complexNumber1</code></li>
+<li><code>one</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Engineering.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\Engineering</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>parseComplex($complexNumber)</code></li>
+<li><code>In(x)</code></li>
+<li><code>BESSELI($x, $ord)</code></li>
+<li><code>BESSELJ($x, $ord)</code></li>
+<li><code>Kn(x)</code></li>
+<li><code>BESSELK($x, $ord)</code></li>
+<li><code>BESSELY($x, $ord)</code></li>
+<li><code>BINTODEC($x)</code></li>
+<li><code>BINTOHEX($x, $places = null)</code></li>
+<li><code>BINTOOCT($x, $places = null)</code></li>
+<li><code>DECTOBIN($x, $places = null)</code></li>
+<li><code>DECTOHEX($x, $places = null)</code></li>
+<li><code>DECTOOCT($x, $places = null)</code></li>
+<li><code>HEXTOBIN($x, $places = null)</code></li>
+<li><code>HEXTODEC($x)</code></li>
+<li><code>HEXTOOCT($x, $places = null)</code></li>
+<li><code>OCTTOBIN($x, $places = null)</code></li>
+<li><code>OCTTODEC($x)</code></li>
+<li><code>OCTTOHEX($x, $places = null)</code></li>
+<li><code>COMPLEX($realNumber = 0.0, $imaginary = 0.0, $suffix = 'i')</code></li>
+<li><code>IMAGINARY($complexNumber)</code></li>
+<li><code>IMREAL($complexNumber)</code></li>
+<li><code>IMABS($complexNumber)</code></li>
+<li><code>IMARGUMENT($complexNumber)</code></li>
+<li><code>IMCONJUGATE($complexNumber)</code></li>
+<li><code>IMCOS($complexNumber)</code></li>
+<li><code>IMCOSH($complexNumber)</code></li>
+<li><code>IMCOT($complexNumber)</code></li>
+<li><code>IMCSC($complexNumber)</code></li>
+<li><code>IMCSCH($complexNumber)</code></li>
+<li><code>IMSIN($complexNumber)</code></li>
+<li><code>IMSINH($complexNumber)</code></li>
+<li><code>IMSEC($complexNumber)</code></li>
+<li><code>IMSECH($complexNumber)</code></li>
+<li><code>IMTAN($complexNumber)</code></li>
+<li><code>IMSQRT($complexNumber)</code></li>
+<li><code>IMLN($complexNumber)</code></li>
+<li><code>IMLOG10($complexNumber)</code></li>
+<li><code>IMLOG2($complexNumber)</code></li>
+<li><code>IMEXP($complexNumber)</code></li>
+<li><code>IMPOWER($complexNumber, $realNumber)</code></li>
+<li><code>IMDIV($complexDividend, $complexDivisor)</code></li>
+<li><code>IMSUB($complexNumber1, $complexNumber2)</code></li>
+<li><code>IMSUM(...$complexNumbers)</code></li>
+<li><code>IMPRODUCT(...$complexNumbers)</code></li>
+<li><code>DELTA($a, $b = 0)</code></li>
+<li><code>GESTEP($number, $step = 0)</code></li>
+<li><code>BITAND($number1, $number2)</code></li>
+<li><code>BITOR($number1, $number2)</code></li>
+<li><code>BITXOR($number1, $number2)</code></li>
+<li><code>BITLSHIFT($number, $shiftAmount)</code></li>
+<li><code>BITRSHIFT($number, $shiftAmount)</code></li>
+<li><code>ERF($lower, $upper = null)</code></li>
+<li><code>ERFPRECISE($limit)</code></li>
+<li><code>ERFC($x)</code></li>
+<li><code>getConversionGroups()</code></li>
+<li><code>getConversionGroupUnits($category = null)</code></li>
+<li><code>getConversionGroupUnitDetails($category = null)</code></li>
+<li><code>getConversionMultipliers()</code></li>
+<li><code>getBinaryConversionMultipliers()</code></li>
+<li><code>CONVERTUOM($value, $fromUOM, $toUOM)</code></li>
+</ul>
+</body></html>

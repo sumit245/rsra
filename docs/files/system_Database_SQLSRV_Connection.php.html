@@ -1,0 +1,158 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Database\SQLSRV\Connection.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Database\SQLSRV\Connection.php</h1>
+
+<ul>
+<li>Path: <code>system\Database\SQLSRV\Connection.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 15021 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Connection for SQLSRV</p>
+
+<p>Database driver</p>
+<p>@var string</p>
+
+<p>Database name</p>
+<p>@var string</p>
+
+<p>Scrollable flag</p>
+<p>Determines what cursor type to use when executing queries.</p>
+<p>FALSE or SQLSRV_CURSOR_FORWARD would increase performance,</p>
+<p>but would disable num_rows() (and possibly insert_id())</p>
+<p>@var mixed</p>
+
+<p>Identifier escape character</p>
+<p>@var string</p>
+
+<p>Database schema</p>
+<p>@var string</p>
+
+<p>Quoted identifier flag</p>
+<p>Whether to use SQL-92 standard quoted identifier</p>
+<p>(double quotes) or brackets for identifier escaping.</p>
+<p>@var bool</p>
+
+<p>List of reserved identifiers</p>
+<p>Identifiers that must NOT be escaped.</p>
+<p>@var string[]</p>
+
+<p>Class constructor</p>
+
+<p>Connect to the database.</p>
+<p>@throws DatabaseException</p>
+<p>@return mixed</p>
+
+<p>Keep or establish the connection if no queries have been sent for</p>
+<p>a length of time exceeding the server's idle timeout.</p>
+
+<p>Close the database connection.</p>
+
+<p>Platform-dependant string escape</p>
+
+<p>Insert ID</p>
+
+<p>Generates the SQL for listing tables in a platform-dependent manner.</p>
+
+<p>Generates a platform-specific query string so that the column names can be fetched.</p>
+
+<p>Returns an array of objects with index data</p>
+<p>@throws DatabaseException</p>
+<p>@return stdClass[]</p>
+
+<p>Returns an array of objects with Foreign key data</p>
+<p>referenced_object_id  parent_object_id</p>
+<p>@throws DatabaseException</p>
+<p>@return stdClass[]</p>
+
+<p>Disables foreign key checks temporarily.</p>
+<p>@return string</p>
+
+<p>Enables foreign key checks temporarily.</p>
+<p>@return string</p>
+
+<p>Returns an array of objects with field data</p>
+<p>@throws DatabaseException</p>
+<p>@return stdClass[]</p>
+
+<p>Begin Transaction</p>
+
+<p>Commit Transaction</p>
+
+<p>Rollback Transaction</p>
+
+<p>Returns the last error code and message.</p>
+<p>Must return this format: ['code' => string|int, 'message' => string]</p>
+<p>intval(code) === 0 means "no error".</p>
+<p>@return array<string, int|string></p>
+
+<p>Returns the total number of rows affected by this query.</p>
+
+<p>Select a specific database table to use.</p>
+<p>@return mixed</p>
+
+<p>Executes the query against the database.</p>
+<p>@return mixed</p>
+
+<p>Returns the last error encountered by this connection.</p>
+<p>@return mixed</p>
+<p>@deprecated Use <code>error()</code> instead.</p>
+
+<p>The name of the platform in use (MySQLi, mssql, etc)</p>
+
+<p>Returns a string containing the version of the database being used.</p>
+
+<p>Determines if a query is a "write" type.</p>
+<p>Overrides BaseConnection::isWriteType, adding additional read query types.</p>
+<p>@param mixed $sql</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>INFORMATION_SCHEMA</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Database\SQLSRV\Connection.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Database\SQLSRV\Connection extends BaseConnection</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(array $params)</code></li>
+<li><code>connect(bool $persistent = false)</code></li>
+<li><code>reconnect()</code></li>
+<li><code>_close()</code></li>
+<li><code>_escapeString(string $str)</code></li>
+<li><code>insertID()</code></li>
+<li><code>_listTables(bool $prefixLimit = false)</code></li>
+<li><code>_listColumns(string $table = '')</code></li>
+<li><code>_indexData(string $table)</code></li>
+<li><code>_foreignKeyData(string $table)</code></li>
+<li><code>_disableForeignKeyChecks()</code></li>
+<li><code>_enableForeignKeyChecks()</code></li>
+<li><code>_fieldData(string $table)</code></li>
+<li><code>_transBegin()</code></li>
+<li><code>_transCommit()</code></li>
+<li><code>_transRollback()</code></li>
+<li><code>error()</code></li>
+<li><code>affectedRows()</code></li>
+<li><code>setDatabase(?string $databaseName = null)</code></li>
+<li><code>execute(string $sql)</code></li>
+<li><code>getError()</code></li>
+<li><code>getPlatform()</code></li>
+<li><code>getVersion()</code></li>
+<li><code>isWriteType($sql)</code></li>
+</ul>
+</body></html>

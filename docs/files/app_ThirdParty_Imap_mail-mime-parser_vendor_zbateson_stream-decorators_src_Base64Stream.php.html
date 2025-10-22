@@ -1,0 +1,126 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\stream-decorators\src\Base64Stream.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\stream-decorators\src\Base64Stream.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\stream-decorators\src\Base64Stream.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5825 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\StreamDecorators project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>GuzzleHttp\Psr7 stream decoder extension for base64 streams.</p>
+<p>Note that it's expected the underlying stream will only contain valid base64</p>
+<p>characters (normally the stream should be wrapped in a</p>
+<p>PregReplaceFilterStream to filter out non-base64 characters for reading).</p>
+<p>```</p>
+<p>$f = fopen(...);</p>
+<p>$stream = new Base64Stream(new PregReplaceFilterStream(</p>
+<p>     Psr7\stream_for($f), '/[^a-zA-Z0-9\/\+=]/', ''</p>
+<p>));</p>
+<p>//...</p>
+<p>```</p>
+<p>For writing, a ChunkSplitStream could come in handy so the output is split</p>
+<p>into lines:</p>
+<p>```</p>
+<p>$f = fopen(...);</p>
+<p>$stream = new Base64Stream(new ChunkSplitStream(new PregReplaceFilterStream(</p>
+<p>     Psr7\stream_for($f), '/[^a-zA-Z0-9\/\+=]/', ''</p>
+<p>)));</p>
+<p>//...</p>
+<p>```</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var BufferStream buffered bytes</p>
+
+<p>@var string remainder of write operation if the bytes didn't align to 3</p>
+<p>     bytes</p>
+
+<p>@var int current number of read/written bytes (for tell())</p>
+
+<p>@param StreamInterface $stream</p>
+
+<p>Returns the current position of the file read/write pointer</p>
+<p>@return int</p>
+
+<p>Returns null, getSize isn't supported</p>
+<p>@return null</p>
+
+<p>Not implemented (yet).</p>
+<p>Seek position can be calculated.</p>
+<p>@param int $offset</p>
+<p>@param int $whence</p>
+<p>@throws RuntimeException</p>
+
+<p>Overridden to return false</p>
+<p>@return boolean</p>
+
+<p>Returns true if the end of stream has been reached.</p>
+<p>@return boolean</p>
+
+<p>Fills the internal byte buffer after reading and decoding data from the</p>
+<p>underlying stream.</p>
+<p>Note that it's expected the underlying stream will only contain valid</p>
+<p>base64 characters (normally the stream should be wrapped in a</p>
+<p>PregReplaceFilterStream to filter out non-base64 characters).</p>
+<p>@param int $length</p>
+
+<p>Attempts to read $length bytes after decoding them, and returns them.</p>
+<p>Note that reading and writing to the same stream may result in wrongly</p>
+<p>encoded data and is not supported.</p>
+<p>@param int $length</p>
+<p>@return string</p>
+
+<p>Writes the passed string to the underlying stream after encoding it to</p>
+<p>base64.</p>
+<p>Base64Stream::close or detach must be called.  Failing to do so may</p>
+<p>result in 1-2 bytes missing from the end of the stream if there's a</p>
+<p>remainder.  Note that the default Stream destructor calls close as well.</p>
+<p>Note that reading and writing to the same stream may result in wrongly</p>
+<p>encoded data and is not supported.</p>
+<p>@param string $string</p>
+<p>@return int the number of bytes written</p>
+
+<p>Writes out any remaining bytes at the end of the stream and closes.</p>
+
+<p>Closes the underlying stream after writing out any remaining bytes</p>
+<p>needing to be encoded.</p>
+
+<p>Detaches the underlying stream after writing out any remaining bytes</p>
+<p>needing to be encoded.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\stream-decorators\src\Base64Stream.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\StreamDecorators\Base64Stream implements StreamInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(StreamInterface $stream)</code></li>
+<li><code>tell()</code></li>
+<li><code>getSize()</code></li>
+<li><code>seek($offset, $whence = SEEK_SET)</code></li>
+<li><code>isSeekable()</code></li>
+<li><code>eof()</code></li>
+<li><code>fillBuffer($length)</code></li>
+<li><code>read($length)</code></li>
+<li><code>write($string)</code></li>
+<li><code>beforeClose()</code></li>
+<li><code>close()</code></li>
+<li><code>detach()</code></li>
+</ul>
+</body></html>

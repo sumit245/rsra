@@ -1,0 +1,104 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\SetupIntent.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\SetupIntent.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\SetupIntent.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 8575 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>A SetupIntent guides you through the process of setting up and saving a</p>
+<p>customer's payment credentials for future payments. For example, you could use a</p>
+<p>SetupIntent to set up and save your customer's card without immediately</p>
+<p>collecting a payment. Later, you can use <a</p>
+<p>href="https://stripe.com/docs/api#payment_intents">PaymentIntents</a> to drive</p>
+<p>the payment flow.</p>
+<p>Create a SetupIntent as soon as you're ready to collect your customer's payment</p>
+<p>credentials. Do not maintain long-lived, unconfirmed SetupIntents as they may no</p>
+<p>longer be valid. The SetupIntent then transitions through multiple <a</p>
+<p>href="https://stripe.com/docs/payments/intents#intent-statuses">statuses</a> as</p>
+<p>it guides you through the setup process.</p>
+<p>Successful SetupIntents result in payment credentials that are optimized for</p>
+<p>future payments. For example, cardholders in <a</p>
+<p>href="/guides/strong-customer-authentication">certain regions</a> may need to be</p>
+<p>run through <a</p>
+<p>href="https://stripe.com/docs/strong-customer-authentication">Strong Customer</p>
+<p>Authentication</a> at the time of payment method collection in order to</p>
+<p>streamline later <a</p>
+<p>href="https://stripe.com/docs/payments/setup-intents">off-session payments</a>.</p>
+<p>If the SetupIntent is used with a <a</p>
+<p>href="https://stripe.com/docs/api#setup_intent_object-customer">Customer</a>,</p>
+<p>upon success, it will automatically attach the resulting payment method to that</p>
+<p>Customer. We recommend using SetupIntents or <a</p>
+<p>href="https://stripe.com/docs/api#payment_intent_object-setup_future_usage">setup_future_usage</a></p>
+<p>on PaymentIntents to save payment methods in order to prevent saving invalid or</p>
+<p>unoptimized payment methods.</p>
+<p>By using SetupIntents, you ensure that your customers experience the minimum set</p>
+<p>of required friction, even as regulations change over time.</p>
+<p>Related guide: <a href="https://stripe.com/docs/payments/setup-intents">Setup</p>
+<p>Intents API</a>.</p>
+<p>@property string $id Unique identifier for the object.</p>
+<p>@property string $object String representing the object's type. Objects of the same type share the same value.</p>
+<p>@property null|string|\Stripe\StripeObject $application ID of the Connect application that created the SetupIntent.</p>
+<p>@property bool $attach_to_self <p>If present, the SetupIntent's payment method will be attached to the in-context Stripe Account.</p><p>It can only be used for this Stripe Account’s own money movement flows like InboundTransfer and OutboundTransfers. It cannot be set to true when setting up a PaymentMethod for a Customer, and defaults to false when attaching a PaymentMethod to a Customer.</p></p>
+<p>@property null|string $cancellation_reason Reason for cancellation of this SetupIntent, one of <code>abandoned</code>, <code>requested_by_customer</code>, or <code>duplicate</code>.</p>
+<p>@property null|string $client_secret <p>The client secret of this SetupIntent. Used for client-side retrieval using a publishable key.</p><p>The client secret can be used to complete payment setup from your frontend. It should not be stored, logged, or exposed to anyone other than the customer. Make sure that you have TLS enabled on any page that includes the client secret.</p></p>
+<p>@property int $created Time at which the object was created. Measured in seconds since the Unix epoch.</p>
+<p>@property null|string|\Stripe\Customer $customer <p>ID of the Customer this SetupIntent belongs to, if one exists.</p><p>If present, the SetupIntent's payment method will be attached to the Customer on successful setup. Payment methods attached to other Customers cannot be used with this SetupIntent.</p></p>
+<p>@property null|string $description An arbitrary string attached to the object. Often useful for displaying to users.</p>
+<p>@property null|string[] $flow_directions <p>Indicates the directions of money movement for which this payment method is intended to be used.</p><p>Include <code>inbound</code> if you intend to use the payment method as the origin to pull funds from. Include <code>outbound</code> if you intend to use the payment method as the destination to send funds to. You can include both if you intend to use the payment method for both purposes.</p></p>
+<p>@property null|\Stripe\StripeObject $last_setup_error The error encountered in the previous SetupIntent confirmation.</p>
+<p>@property null|string|\Stripe\SetupAttempt $latest_attempt The most recent SetupAttempt for this SetupIntent.</p>
+<p>@property bool $livemode Has the value <code>true</code> if the object exists in live mode or the value <code>false</code> if the object exists in test mode.</p>
+<p>@property null|string|\Stripe\Mandate $mandate ID of the multi use Mandate generated by the SetupIntent.</p>
+<p>@property null|\Stripe\StripeObject $metadata Set of <a href="https://stripe.com/docs/api/metadata">key-value pairs</a> that you can attach to an object. This can be useful for storing additional information about the object in a structured format.</p>
+<p>@property null|\Stripe\StripeObject $next_action If present, this property tells you what actions you need to take in order for your customer to continue payment setup.</p>
+<p>@property null|string|\Stripe\Account $on_behalf_of The account (if any) for which the setup is intended.</p>
+<p>@property null|string|\Stripe\PaymentMethod $payment_method ID of the payment method used with this SetupIntent.</p>
+<p>@property null|\Stripe\StripeObject $payment_method_options Payment-method-specific configuration for this SetupIntent.</p>
+<p>@property string[] $payment_method_types The list of payment method types (e.g. card) that this SetupIntent is allowed to set up.</p>
+<p>@property null|string|\Stripe\Mandate $single_use_mandate ID of the single_use Mandate generated by the SetupIntent.</p>
+<p>@property string $status <a href="https://stripe.com/docs/payments/intents#intent-statuses">Status</a> of this SetupIntent, one of <code>requires_payment_method</code>, <code>requires_confirmation</code>, <code>requires_action</code>, <code>processing</code>, <code>canceled</code>, or <code>succeeded</code>.</p>
+<p>@property string $usage <p>Indicates how the payment method is intended to be used in the future.</p><p>Use <code>on_session</code> if you intend to only reuse the payment method when the customer is in your checkout flow. Use <code>off_session</code> if your customer may or may not be in your checkout flow. If not provided, this value defaults to <code>off_session</code>.</p></p>
+
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\SetupIntent the canceled setup intent</p>
+
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\SetupIntent the confirmed setup intent</p>
+
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\SetupIntent the verified setup intent</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+<li><code>your</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\SetupIntent.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\SetupIntent extends ApiResource</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>cancel($params = null, $opts = null)</code></li>
+<li><code>confirm($params = null, $opts = null)</code></li>
+<li><code>verifyMicrodeposits($params = null, $opts = null)</code></li>
+</ul>
+</body></html>

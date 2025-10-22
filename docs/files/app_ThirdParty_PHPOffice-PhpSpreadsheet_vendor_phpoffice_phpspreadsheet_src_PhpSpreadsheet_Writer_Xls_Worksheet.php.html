@@ -1,0 +1,524 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xls\Worksheet.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xls\Worksheet.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xls\Worksheet.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 115923 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@var int</p>
+
+<p>@var int</p>
+
+<p>Formula parser.</p>
+<p>@var \PhpOffice\PhpSpreadsheet\Writer\Xls\Parser</p>
+
+<p>Maximum number of characters for a string (LABEL record in BIFF5).</p>
+<p>@var int</p>
+
+<p>Array containing format information for columns.</p>
+<p>@var array</p>
+
+<p>Array containing the selected area for the worksheet.</p>
+<p>@var array</p>
+
+<p>The active pane for the worksheet.</p>
+<p>@var int</p>
+
+<p>Whether to use outline.</p>
+<p>@var bool</p>
+
+<p>Auto outline styles.</p>
+<p>@var bool</p>
+
+<p>Whether to have outline summary below.</p>
+<p>@var bool</p>
+
+<p>Whether to have outline summary at the right.</p>
+<p>@var bool</p>
+
+<p>Reference to the total number of strings in the workbook.</p>
+<p>@var int</p>
+
+<p>Reference to the number of unique strings in the workbook.</p>
+<p>@var int</p>
+
+<p>Reference to the array containing all the unique strings in the workbook.</p>
+<p>@var array</p>
+
+<p>Color cache.</p>
+
+<p>Index of first used row (at least 0).</p>
+<p>@var int</p>
+
+<p>Index of last used row. (no used rows means -1).</p>
+<p>@var int</p>
+
+<p>Index of first used column (at least 0).</p>
+<p>@var int</p>
+
+<p>Index of last used column (no used columns means -1).</p>
+<p>@var int</p>
+
+<p>Sheet object.</p>
+<p>@var \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet</p>
+
+<p>Count cell style Xfs.</p>
+<p>@var int</p>
+
+<p>Escher object corresponding to MSODRAWING.</p>
+<p>@var null|\PhpOffice\PhpSpreadsheet\Shared\Escher</p>
+
+<p>Array of font hashes associated to FONT records index.</p>
+<p>@var array</p>
+
+<p>@var bool</p>
+
+<p>@var int</p>
+
+<p>Constructor.</p>
+<p>@param int $str_total Total number of strings</p>
+<p>@param int $str_unique Total number of unique strings</p>
+<p>@param array $str_table String Table</p>
+<p>@param array $colors Colour Table</p>
+<p>@param Parser $parser The formula parser created for the Workbook</p>
+<p>@param bool $preCalculateFormulas Flag indicating whether formulas should be calculated or just written</p>
+<p>@param \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet $phpSheet The worksheet to write</p>
+
+<p>Add data to the beginning of the workbook (note the reverse order)</p>
+<p>and to the end of the workbook.</p>
+<p>@see \PhpOffice\PhpSpreadsheet\Writer\Xls\Workbook::storeWorkbook()</p>
+
+<p>@var Conditional $conditional</p>
+
+<p>Write a cell range address in BIFF8</p>
+<p>always fixed range</p>
+<p>See section 2.5.14 in OpenOffice.org's Documentation of the Microsoft Excel File Format.</p>
+<p>@param string $range E.g. 'A1' or 'A1:B6'</p>
+<p>@return string Binary data</p>
+
+<p>Retrieves data from memory in one chunk, or from disk</p>
+<p>sized chunks.</p>
+<p>@return string The data</p>
+
+<p>Set the option to print the row and column headers on the printed page.</p>
+<p>@param int $print Whether to print the headers or not. Defaults to 1 (print).</p>
+
+<p>This method sets the properties for outlining and grouping. The defaults</p>
+<p>correspond to Excel's defaults.</p>
+<p>@param bool $visible</p>
+<p>@param bool $symbols_below</p>
+<p>@param bool $symbols_right</p>
+<p>@param bool $auto_style</p>
+
+<p>Write a double to the specified row and column (zero indexed).</p>
+<p>An integer can be written as a double. Excel will display an</p>
+<p>integer. $format is optional.</p>
+<p>Returns  0 : normal termination</p>
+<p>        -2 : row or column out of range</p>
+<p>@param int $row Zero indexed row</p>
+<p>@param int $col Zero indexed column</p>
+<p>@param float $num The number to write</p>
+<p>@param mixed $xfIndex The optional XF format</p>
+<p>@return int</p>
+
+<p>Write a LABELSST record or a LABEL record. Which one depends on BIFF version.</p>
+<p>@param int $row Row index (0-based)</p>
+<p>@param int $col Column index (0-based)</p>
+<p>@param string $str The string</p>
+<p>@param int $xfIndex Index to XF record</p>
+
+<p>Write a LABELSST record or a LABEL record. Which one depends on BIFF version</p>
+<p>It differs from writeString by the writing of rich text strings.</p>
+<p>@param int $row Row index (0-based)</p>
+<p>@param int $col Column index (0-based)</p>
+<p>@param string $str The string</p>
+<p>@param int $xfIndex The XF format index for the cell</p>
+<p>@param array $arrcRun Index to Font record and characters beginning</p>
+
+<p>Write a string to the specified row and column (zero indexed).</p>
+<p>This is the BIFF8 version (no 255 chars limit).</p>
+<p>$format is optional.</p>
+<p>@param int $row Zero indexed row</p>
+<p>@param int $col Zero indexed column</p>
+<p>@param string $str The string to write</p>
+<p>@param mixed $xfIndex The XF format index for the cell</p>
+
+<p>Write a blank cell to the specified row and column (zero indexed).</p>
+<p>A blank cell is used to specify formatting without adding a string</p>
+<p>or a number.</p>
+<p>A blank cell without a format serves no purpose. Therefore, we don't write</p>
+<p>a BLANK record unless a format is specified.</p>
+<p>Returns  0 : normal termination (including no format)</p>
+<p>        -1 : insufficient number of arguments</p>
+<p>        -2 : row or column out of range</p>
+<p>@param int $row Zero indexed row</p>
+<p>@param int $col Zero indexed column</p>
+<p>@param mixed $xfIndex The XF format index</p>
+<p>@return int</p>
+
+<p>Write a boolean or an error type to the specified row and column (zero indexed).</p>
+<p>@param int $row Row index (0-based)</p>
+<p>@param int $col Column index (0-based)</p>
+<p>@param int $value</p>
+<p>@param bool $isError Error or Boolean?</p>
+<p>@param int $xfIndex</p>
+<p>@return int</p>
+
+<p>Write a formula to the specified row and column (zero indexed).</p>
+<p>The textual representation of the formula is passed to the parser in</p>
+<p>Parser.php which returns a packed binary string.</p>
+<p>Returns  0 : WRITE_FORMULA_NORMAL  normal termination</p>
+<p>        -1 : WRITE_FORMULA_ERRORS formula errors (bad formula)</p>
+<p>        -2 : WRITE_FORMULA_RANGE  row or column out of range</p>
+<p>        -3 : WRITE_FORMULA_EXCEPTION parse raised exception, probably due to definedname</p>
+<p>@param int $row Zero indexed row</p>
+<p>@param int $col Zero indexed column</p>
+<p>@param string $formula The formula text string</p>
+<p>@param mixed $xfIndex The XF format index</p>
+<p>@param mixed $calculatedValue Calculated value</p>
+<p>@return int</p>
+
+<p>Write a STRING record. This.</p>
+<p>@param string $stringValue</p>
+
+<p>Write a hyperlink.</p>
+<p>This is comprised of two elements: the visible label and</p>
+<p>the invisible link. The visible label is the same as the link unless an</p>
+<p>alternative string is specified. The label is written using the</p>
+<p>writeString() method. Therefore the 255 characters string limit applies.</p>
+<p>$string and $format are optional.</p>
+<p>The hyperlink can be to a http, ftp, mail, internal sheet (not yet), or external</p>
+<p>directory url.</p>
+<p>@param int $row Row</p>
+<p>@param int $col Column</p>
+<p>@param string $url URL string</p>
+
+<p>This is the more general form of writeUrl(). It allows a hyperlink to be</p>
+<p>written to a range of cells. This function also decides the type of hyperlink</p>
+<p>to be written. These are either, Web (http, ftp, mailto), Internal</p>
+<p>(Sheet1!A1) or external ('c:\temp\foo.xls#Sheet1!A1').</p>
+<p>@param int $row1 Start row</p>
+<p>@param int $col1 Start column</p>
+<p>@param int $row2 End row</p>
+<p>@param int $col2 End column</p>
+<p>@param string $url URL string</p>
+<p>@see writeUrl()</p>
+
+<p>Used to write http, ftp and mailto hyperlinks.</p>
+<p>The link type ($options) is 0x03 is the same as absolute dir ref without</p>
+<p>sheet. However it is differentiated by the $unknown2 data stream.</p>
+<p>@param int $row1 Start row</p>
+<p>@param int $col1 Start column</p>
+<p>@param int $row2 End row</p>
+<p>@param int $col2 End column</p>
+<p>@param string $url URL string</p>
+<p>@see writeUrl()</p>
+
+<p>@phpstan-ignore-next-line</p>
+
+<p>Used to write internal reference hyperlinks such as "Sheet1!A1".</p>
+<p>@param int $row1 Start row</p>
+<p>@param int $col1 Start column</p>
+<p>@param int $row2 End row</p>
+<p>@param int $col2 End column</p>
+<p>@param string $url URL string</p>
+<p>@see writeUrl()</p>
+
+<p>Write links to external directory names such as 'c:\foo.xls',</p>
+<p>c:\foo.xls#Sheet1!A1', '../../foo.xls'. and '../../foo.xls#Sheet1!A1'.</p>
+<p>Note: Excel writes some relative links with the $dir_long string. We ignore</p>
+<p>these cases for the sake of simpler code.</p>
+<p>@param int $row1 Start row</p>
+<p>@param int $col1 Start column</p>
+<p>@param int $row2 End row</p>
+<p>@param int $col2 End column</p>
+<p>@param string $url URL string</p>
+<p>@see writeUrl()</p>
+
+<p>This method is used to set the height and format for a row.</p>
+<p>@param int $row The row to set</p>
+<p>@param int $height Height we are giving to the row.</p>
+<p>                       Use null to set XF without setting height</p>
+<p>@param int $xfIndex The optional cell style Xf index to apply to the columns</p>
+<p>@param bool $hidden The optional hidden attribute</p>
+<p>@param int $level The optional outline level for row, in range [0,7]</p>
+
+<p>Writes Excel DIMENSIONS to define the area in which there is data.</p>
+
+<p>Write BIFF record Window2.</p>
+
+<p>Write BIFF record DEFAULTROWHEIGHT.</p>
+
+<p>Write BIFF record DEFCOLWIDTH if COLINFO records are in use.</p>
+
+<p>Write BIFF record COLINFO to define column widths.</p>
+<p>Note: The SDK says the record length is 0x0B but Excel writes a 0x0C</p>
+<p>length record.</p>
+<p>@param array $col_array This is the only parameter received and is composed of the following:</p>
+<p>               0 => First formatted column,</p>
+<p>               1 => Last formatted column,</p>
+<p>               2 => Col width (8.43 is Excel default),</p>
+<p>               3 => The optional XF format of the column,</p>
+<p>               4 => Option flags.</p>
+<p>               5 => Optional outline level</p>
+
+<p>Write BIFF record SELECTION.</p>
+
+<p>Store the MERGEDCELLS records for all ranges of merged cells.</p>
+
+<p>Write SHEETLAYOUT record.</p>
+
+<p>Write SHEETPROTECTION.</p>
+
+<p>Write BIFF record RANGEPROTECTION.</p>
+<p>Openoffice.org's Documentation of the Microsoft Excel File Format uses term RANGEPROTECTION for these records</p>
+<p>Microsoft Office Excel 97-2007 Binary File Format Specification uses term FEAT for these records</p>
+
+<p>Writes the Excel BIFF PANE record.</p>
+<p>The panes can either be frozen or thawed (unfrozen).</p>
+<p>Frozen panes are specified in terms of an integer number of rows and columns.</p>
+<p>Thawed panes are specified in terms of Excel's units for rows and columns.</p>
+
+<p>Store the page setup SETUP BIFF record.</p>
+
+<p>Store the header caption BIFF record.</p>
+
+<p>Store the footer caption BIFF record.</p>
+
+<p>Store the horizontal centering HCENTER BIFF record.</p>
+
+<p>Store the vertical centering VCENTER BIFF record.</p>
+
+<p>Store the LEFTMARGIN BIFF record.</p>
+
+<p>Store the RIGHTMARGIN BIFF record.</p>
+
+<p>Store the TOPMARGIN BIFF record.</p>
+
+<p>Store the BOTTOMMARGIN BIFF record.</p>
+
+<p>Write the PRINTHEADERS BIFF record.</p>
+
+<p>Write the PRINTGRIDLINES BIFF record. Must be used in conjunction with the</p>
+<p>GRIDSET record.</p>
+
+<p>Write the GRIDSET BIFF record. Must be used in conjunction with the</p>
+<p>PRINTGRIDLINES record.</p>
+
+<p>Write the AUTOFILTERINFO BIFF record. This is used to configure the number of autofilter select used in the sheet.</p>
+
+<p>Write the GUTS BIFF record. This is used to configure the gutter margins</p>
+<p>where Excel outline symbols are displayed. The visibility of the gutters is</p>
+<p>controlled by a flag in WSBOOL.</p>
+<p>@see writeWsbool()</p>
+
+<p>Write the WSBOOL BIFF record, mainly for fit-to-page. Used in conjunction</p>
+<p>with the SETUP record.</p>
+
+<p>Write the HORIZONTALPAGEBREAKS and VERTICALPAGEBREAKS BIFF records.</p>
+
+<p>Set the Biff PROTECT record to indicate that the worksheet is protected.</p>
+
+<p>Write SCENPROTECT.</p>
+
+<p>Write OBJECTPROTECT.</p>
+
+<p>Write the worksheet PASSWORD record.</p>
+
+<p>Insert a 24bit bitmap image in a worksheet.</p>
+<p>@param int $row The row we are going to insert the bitmap into</p>
+<p>@param int $col The column we are going to insert the bitmap into</p>
+<p>@param mixed $bitmap The bitmap filename or GD-image resource</p>
+<p>@param int $x the horizontal position (offset) of the image inside the cell</p>
+<p>@param int $y the vertical position (offset) of the image inside the cell</p>
+<p>@param float $scale_x The horizontal scale</p>
+<p>@param float $scale_y The vertical scale</p>
+
+<p>Calculate the vertices that define the position of the image as required by</p>
+<p>the OBJ record.</p>
+<p>        +------------+------------+</p>
+<p>        |     A      |      B     |</p>
+<p>  +-----+------------+------------+</p>
+<p>  |     |(x1,y1)     |            |</p>
+<p>  |  1  |(A1)._______|______      |</p>
+<p>  |     |    |              |     |</p>
+<p>  |     |    |              |     |</p>
+<p>  +-----+----|    BITMAP    |-----+</p>
+<p>  |     |    |              |     |</p>
+<p>  |  2  |    |______________.     |</p>
+<p>  |     |            |        (B2)|</p>
+<p>  |     |            |     (x2,y2)|</p>
+<p>  +---- +------------+------------+</p>
+<p>Example of a bitmap that covers some of the area from cell A1 to cell B2.</p>
+<p>Based on the width and height of the bitmap we need to calculate 8 vars:</p>
+<p>    $col_start, $row_start, $col_end, $row_end, $x1, $y1, $x2, $y2.</p>
+<p>The width and height of the cells are also variable and have to be taken into</p>
+<p>account.</p>
+<p>The values of $col_start and $row_start are passed in from the calling</p>
+<p>function. The values of $col_end and $row_end are calculated by subtracting</p>
+<p>the width and height of the bitmap from the width and height of the</p>
+<p>underlying cells.</p>
+<p>The vertices are expressed as a percentage of the underlying cell width as</p>
+<p>follows (rhs values are in pixels):</p>
+<p>      x1 = X / W *1024</p>
+<p>      y1 = Y / H *256</p>
+<p>      x2 = (X-1) / W *1024</p>
+<p>      y2 = (Y-1) / H *256</p>
+<p>      Where:  X is distance from the left side of the underlying cell</p>
+<p>              Y is distance from the top of the underlying cell</p>
+<p>              W is the width of the cell</p>
+<p>              H is the height of the cell</p>
+<p>The SDK incorrectly states that the height should be expressed as a</p>
+<p>       percentage of 1024.</p>
+<p>@param int $col_start Col containing upper left corner of object</p>
+<p>@param int $row_start Row containing top left corner of object</p>
+<p>@param int $x1 Distance to left side of object</p>
+<p>@param int $y1 Distance to top of object</p>
+<p>@param int $width Width of image frame</p>
+<p>@param int $height Height of image frame</p>
+
+<p>Store the OBJ record that precedes an IMDATA record. This could be generalise</p>
+<p>to support other Excel objects.</p>
+<p>@param int $colL Column containing upper left corner of object</p>
+<p>@param int $dxL Distance from left side of cell</p>
+<p>@param int $rwT Row containing top left corner of object</p>
+<p>@param int $dyT Distance from top of cell</p>
+<p>@param int $colR Column containing lower right corner of object</p>
+<p>@param int $dxR Distance from right of cell</p>
+<p>@param int $rwB Row containing bottom right corner of object</p>
+<p>@param int $dyB Distance from bottom of cell</p>
+
+<p>Convert a GD-image into the internal format.</p>
+<p>@param GdImage|resource $image The image to process</p>
+<p>@return array Array with data and properties of the bitmap</p>
+
+<p>@phpstan-ignore-next-line</p>
+
+<p>Convert a 24 bit bitmap into the modified internal format used by Windows.</p>
+<p>This is described in BITMAPCOREHEADER and BITMAPCOREINFO structures in the</p>
+<p>MSDN library.</p>
+<p>@param string $bitmap The bitmap to process</p>
+<p>@return array Array with data and properties of the bitmap</p>
+
+<p>@phpstan-ignore-next-line</p>
+
+<p>Store the window zoom factor. This should be a reduced fraction but for</p>
+<p>simplicity we will store all fractions with a numerator of 100.</p>
+
+<p>Get Escher object.</p>
+
+<p>Set Escher object.</p>
+
+<p>Write MSODRAWING record.</p>
+
+<p>Store the DATAVALIDATIONS and DATAVALIDATION records.</p>
+
+<p>Write PLV Record.</p>
+
+<p>Write CFRule Record.</p>
+
+<p>Write CFHeader record.</p>
+<p>@param Conditional[] $conditionalStyles</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>memory</code></li>
+<li><code>disk</code></li>
+<li><code>writeString</code></li>
+<li><code>printer</code></li>
+<li><code>cell</code></li>
+<li><code>left</code></li>
+<li><code>top</code></li>
+<li><code>right</code></li>
+<li><code>bottom</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xls\Worksheet.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Writer\Xls\library</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Writer\Xls\Worksheet extends BIFFwriter</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(&$str_total, &$str_unique, &$str_table, &$colors, Parser $parser, $preCalculateFormulas, \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet $phpSheet)</code></li>
+<li><code>close()</code></li>
+<li><code>writeConditionalFormatting()</code></li>
+<li><code>writeBIFF8CellRangeAddressFixed($range)</code></li>
+<li><code>getData()</code></li>
+<li><code>printRowColHeaders($print = 1)</code></li>
+<li><code>setOutline($visible = true, $symbols_below = true, $symbols_right = true, $auto_style = false)</code></li>
+<li><code>writeNumber($row, $col, $num, $xfIndex)</code></li>
+<li><code>writeString($row, $col, $str, $xfIndex)</code></li>
+<li><code>writeRichTextString($row, $col, $str, $xfIndex, $arrcRun)</code></li>
+<li><code>writeLabelSst($row, $col, $str, $xfIndex)</code></li>
+<li><code>writeBlank($row, $col, $xfIndex)</code></li>
+<li><code>writeBoolErr($row, $col, $value, $isError, $xfIndex)</code></li>
+<li><code>writeFormula($row, $col, $formula, $xfIndex, $calculatedValue)</code></li>
+<li><code>writeStringRecord($stringValue)</code></li>
+<li><code>writeUrl($row, $col, $url)</code></li>
+<li><code>writeUrlRange($row1, $col1, $row2, $col2, $url)</code></li>
+<li><code>writeUrlWeb($row1, $col1, $row2, $col2, $url)</code></li>
+<li><code>writeUrlInternal($row1, $col1, $row2, $col2, $url)</code></li>
+<li><code>writeUrlExternal($row1, $col1, $row2, $col2, $url)</code></li>
+<li><code>writeRow($row, $height, $xfIndex, $hidden = false, $level = 0)</code></li>
+<li><code>writeDimensions()</code></li>
+<li><code>writeWindow2()</code></li>
+<li><code>writeDefaultRowHeight()</code></li>
+<li><code>writeDefcol()</code></li>
+<li><code>writeColinfo($col_array)</code></li>
+<li><code>writeSelection()</code></li>
+<li><code>writeMergedCells()</code></li>
+<li><code>writeSheetLayout()</code></li>
+<li><code>writeSheetProtection()</code></li>
+<li><code>writeRangeProtection()</code></li>
+<li><code>writePanes()</code></li>
+<li><code>writeSetup()</code></li>
+<li><code>writeHeader()</code></li>
+<li><code>writeFooter()</code></li>
+<li><code>writeHcenter()</code></li>
+<li><code>writeVcenter()</code></li>
+<li><code>writeMarginLeft()</code></li>
+<li><code>writeMarginRight()</code></li>
+<li><code>writeMarginTop()</code></li>
+<li><code>writeMarginBottom()</code></li>
+<li><code>writePrintHeaders()</code></li>
+<li><code>writePrintGridlines()</code></li>
+<li><code>writeGridset()</code></li>
+<li><code>writeAutoFilterInfo()</code></li>
+<li><code>writeGuts()</code></li>
+<li><code>writeWsbool()</code></li>
+<li><code>writeBreaks()</code></li>
+<li><code>writeProtect()</code></li>
+<li><code>writeScenProtect()</code></li>
+<li><code>writeObjectProtect()</code></li>
+<li><code>writePassword()</code></li>
+<li><code>insertBitmap($row, $col, $bitmap, $x = 0, $y = 0, $scale_x = 1, $scale_y = 1)</code></li>
+<li><code>positionImage($col_start, $row_start, $x1, $y1, $width, $height)</code></li>
+<li><code>writeObjPicture($colL, $dxL, $rwT, $dyT, $colR, $dxR, $rwB, $dyB)</code></li>
+<li><code>processBitmapGd($image)</code></li>
+<li><code>processBitmap($bitmap)</code></li>
+<li><code>writeZoom()</code></li>
+<li><code>getEscher()</code></li>
+<li><code>setEscher(?\PhpOffice\PhpSpreadsheet\Shared\Escher $escher)</code></li>
+<li><code>writeMsoDrawing()</code></li>
+<li><code>writeDataValidity()</code></li>
+<li><code>writePageLayoutView()</code></li>
+<li>`writeCFRule(ConditionalHelper $conditionalFormulaHelper,</li>
+<p>        Conditional $conditional,</p>
+<p>        string $cellRange)`</p>
+<li><code>writeCFHeader(string $cellCoordinate, array $conditionalStyles)</code></li>
+<li><code>getDataBlockProtection(Conditional $conditional)</code></li>
+</ul>
+</body></html>

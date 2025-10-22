@@ -1,0 +1,74 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\Config\Logger.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\Config\Logger.php</h1>
+
+<ul>
+<li>Path: <code>app\Config\Logger.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5936 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Error Logging Threshold</p>
+<p>--------------------------------------------------------------------------</p>
+<p>You can enable error logging by setting a threshold over zero. The</p>
+<p>threshold determines what gets logged. Any values below or equal to the</p>
+<p>threshold will be logged.</p>
+<p>Threshold options are:</p>
+<ul>
+<li>0 = Disables logging, Error logging TURNED OFF</li>
+<li>1 = Emergency Messages - System is unusable</li>
+<li>2 = Alert Messages - Action Must Be Taken Immediately</li>
+<li>3 = Critical Messages - Application component unavailable, unexpected exception.</li>
+<li>4 = Runtime Errors - Don't need immediate action, but should be monitored.</li>
+<li>5 = Warnings - Exceptional occurrences that are not errors.</li>
+<li>6 = Notices - Normal but significant events.</li>
+<li>7 = Info - Interesting events, like user logging in, etc.</li>
+<li>8 = Debug - Detailed debug information.</li>
+<li>9 = All Messages</li>
+<p>You can also pass an array with threshold levels to show individual error types</p>
+<p>    array(1, 2, 3, 8) = Emergency, Alert, Critical, and Debug messages</p>
+<p>For a live site you'll usually enable Critical or higher (3) to be logged otherwise</p>
+<p>your log files will fill up very fast.</p>
+<p>@var array|int</p>
+</ul>
+<p>--------------------------------------------------------------------------</p>
+<p>Date Format for Logs</p>
+<p>--------------------------------------------------------------------------</p>
+<p>Each item that is logged has an associated date. You can use PHP date</p>
+<p>codes to set your own date formatting</p>
+<p>@var string</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Log Handlers</p>
+<p>--------------------------------------------------------------------------</p>
+<p>The logging system supports multiple actions to be taken when something</p>
+<p>is logged. This is done by allowing for multiple Handlers, special classes</p>
+<p>designed to write the log to their chosen destinations, whether that is</p>
+<p>a file on the getServer, a cloud-based service, or even taking actions such</p>
+<p>as emailing the dev team.</p>
+<p>Each handler is defined by the class name used for that handler, and it</p>
+<p>MUST implement the <code>CodeIgniter\Log\Handlers\HandlerInterface</code> interface.</p>
+<p>The value of each key is an array of configuration items that are sent</p>
+<p>to the constructor of each handler. The only required configuration item</p>
+<p>is the 'handles' element, which must be an array of integer log levels.</p>
+<p>This is most easily handled by using the constants defined in the</p>
+<p><code>Psr\Log\LogLevel</code> class.</p>
+<p>Handlers are executed in the order defined in this array, starting with</p>
+<p>the handler on top and continuing down.</p>
+<p>@var array</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\Config\Logger.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Config\Logger extends BaseConfig</code></li>
+<li><code>Config\name</code></li>
+<li><code>Config\constants</code></li>
+</ul>
+</body></html>

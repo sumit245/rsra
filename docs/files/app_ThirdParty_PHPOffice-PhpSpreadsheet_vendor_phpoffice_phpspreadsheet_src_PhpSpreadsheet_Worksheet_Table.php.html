@@ -1,0 +1,150 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\Table.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\Table.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\Table.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 12901 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Table Name.</p>
+<p>@var string</p>
+
+<p>Show Header Row.</p>
+<p>@var bool</p>
+
+<p>Show Totals Row.</p>
+<p>@var bool</p>
+
+<p>Table Range.</p>
+<p>@var string</p>
+
+<p>Table Worksheet.</p>
+<p>@var null|Worksheet</p>
+
+<p>Table Column.</p>
+<p>@var Table\Column[]</p>
+
+<p>Table Style.</p>
+<p>@var TableStyle</p>
+
+<p>Create a new Table.</p>
+<p>@param AddressRange|array<int>|string $range</p>
+<p>           A simple string containing a Cell range like 'A1:E10' is permitted</p>
+<p>             or passing in an array of [$fromColumnIndex, $fromRow, $toColumnIndex, $toRow] (e.g. [3, 5, 6, 8]),</p>
+<p>             or an AddressRange object.</p>
+<p>@param string $name (e.g. Table1)</p>
+
+<p>Get Table name.</p>
+
+<p>Set Table name.</p>
+
+<p>Get show Header Row.</p>
+
+<p>Set show Header Row.</p>
+
+<p>Get show Totals Row.</p>
+
+<p>Set show Totals Row.</p>
+
+<p>Get Table Range.</p>
+
+<p>Set Table Cell Range.</p>
+<p>@param AddressRange|array<int>|string $range</p>
+<p>           A simple string containing a Cell range like 'A1:E10' is permitted</p>
+<p>             or passing in an array of [$fromColumnIndex, $fromRow, $toColumnIndex, $toRow] (e.g. [3, 5, 6, 8]),</p>
+<p>             or an AddressRange object.</p>
+
+<p>Set Table Cell Range to max row.</p>
+
+<p>Get Table's Worksheet.</p>
+
+<p>Set Table's Worksheet.</p>
+
+<p>Get all Table Columns.</p>
+<p>@return Table\Column[]</p>
+
+<p>Validate that the specified column is in the Table range.</p>
+<p>@param string $column Column name (e.g. A)</p>
+<p>@return int The column offset within the table range</p>
+
+<p>Get a specified Table Column Offset within the defined Table range.</p>
+<p>@param string $column Column name (e.g. A)</p>
+<p>@return int The offset of the specified column within the table range</p>
+
+<p>Get a specified Table Column.</p>
+<p>@param string $column Column name (e.g. A)</p>
+
+<p>Get a specified Table Column by it's offset.</p>
+<p>@param int $columnOffset Column offset within range (starting from 0)</p>
+
+<p>Set Table.</p>
+<p>@param string|Table\Column $columnObjectOrString</p>
+<p>           A simple string containing a Column ID like 'A' is permitted</p>
+
+<p>Clear a specified Table Column.</p>
+<p>@param string $column Column name (e.g. A)</p>
+
+<p>Shift an Table Column Rule to a different column.</p>
+<p>Note: This method bypasses validation of the destination column to ensure it is within this Table range.</p>
+<p>       Nor does it verify whether any column rule already exists at $toColumn, but will simply override any existing value.</p>
+<p>       Use with caution.</p>
+<p>@param string $fromColumn Column name (e.g. A)</p>
+<p>@param string $toColumn Column name (e.g. B)</p>
+
+<p>Get table Style.</p>
+
+<p>Set table Style.</p>
+
+<p>Implement PHP __clone to create a deep clone, not just a shallow copy.</p>
+
+<p>toString method replicates previous behavior by returning the range if object is</p>
+<p>referenced as a property of its worksheet.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>0</code></li>
+<li><code>worksheet</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\Table.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Worksheet\Table</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($range = '', string $name = '')</code></li>
+<li><code>getName()</code></li>
+<li><code>setName(string $name)</code></li>
+<li><code>getShowHeaderRow()</code></li>
+<li><code>setShowHeaderRow(bool $showHeaderRow)</code></li>
+<li><code>getShowTotalsRow()</code></li>
+<li><code>setShowTotalsRow(bool $showTotalsRow)</code></li>
+<li><code>getRange()</code></li>
+<li><code>setRange($range = '')</code></li>
+<li><code>setRangeToMaxRow()</code></li>
+<li><code>getWorksheet()</code></li>
+<li><code>setWorksheet(?Worksheet $worksheet = null)</code></li>
+<li><code>getColumns()</code></li>
+<li><code>isColumnInRange(string $column)</code></li>
+<li><code>getColumnOffset($column)</code></li>
+<li><code>getColumn($column)</code></li>
+<li><code>getColumnByOffset($columnOffset)</code></li>
+<li><code>setColumn($columnObjectOrString)</code></li>
+<li><code>clearColumn($column)</code></li>
+<li><code>shiftColumn($fromColumn, $toColumn)</code></li>
+<li><code>getStyle()</code></li>
+<li><code>setStyle(TableStyle $style)</code></li>
+<li><code>__clone()</code></li>
+<li><code>__toString()</code></li>
+</ul>
+</body></html>

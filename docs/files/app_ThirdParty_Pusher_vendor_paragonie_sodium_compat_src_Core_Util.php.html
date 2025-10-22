@@ -1,0 +1,356 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\Core\Util.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\Core\Util.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\Core\Util.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 27429 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Class ParagonIE_Sodium_Core_Util</p>
+
+<p>@param int $integer</p>
+<p>@param int $size (16, 32, 64)</p>
+<p>@return int</p>
+
+<p>@var int $realSize</p>
+
+<p>@var int $size</p>
+
+<p>Convert a binary string into a hexadecimal string without cache-timing</p>
+<p>leaks</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param string $binaryString (raw binary)</p>
+<p>@return string</p>
+<p>@throws TypeError</p>
+
+<p>@var array<int, int> $chunk</p>
+
+<p>@var int $c</p>
+
+<p>@var int $b</p>
+
+<p>Convert a binary string into a hexadecimal string without cache-timing</p>
+<p>leaks, returning uppercase letters (as per RFC 4648)</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param string $bin_string (raw binary)</p>
+<p>@return string</p>
+<p>@throws TypeError</p>
+
+<p>@var array<int, int> $chunk</p>
+
+<p>Lower 16 bits</p>
+<p>@var int $c</p>
+
+<p>Upper 16 bits</p>
+<p>@var int $b</p>
+
+<p>Use pack() and binary operators to turn the two integers</p>
+<p>into hexadecimal characters. We don't use chr() here, because</p>
+<p>it uses a lookup table internally and we want to avoid</p>
+<p>cache-timing side-channels.</p>
+
+<p>Cache-timing-safe variant of ord()</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param string $chr</p>
+<p>@return int</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var array<int, int> $chunk</p>
+
+<p>Compares two strings.</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param string $left</p>
+<p>@param string $right</p>
+<p>@param int $len</p>
+<p>@return int</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>If a variable does not match a given type, throw a TypeError.</p>
+<p>@param mixed $mixedVar</p>
+<p>@param string $type</p>
+<p>@param int $argumentIndex</p>
+<p>@throws TypeError</p>
+<p>@throws SodiumException</p>
+<p>@return void</p>
+
+<p>Evaluate whether or not two strings are equal (in constant-time)</p>
+<p>@param string $left</p>
+<p>@param string $right</p>
+<p>@return bool</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var int $len</p>
+
+<p>Convert a hexadecimal string into a binary string without cache-timing</p>
+<p>leaks</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param string $hexString</p>
+<p>@param bool $strictPadding</p>
+<p>@return string (raw binary)</p>
+<p>@throws RangeException</p>
+<p>@throws TypeError</p>
+
+<p>@var int $hex_pos</p>
+
+<p>@var string $bin</p>
+
+<p>@var int $c_acc</p>
+
+<p>@var int $hex_len</p>
+
+<p>@var int $state</p>
+
+<p>@var int $c</p>
+
+<p>@var int $c_num</p>
+
+<p>@var int $c_num0</p>
+
+<p>@var int $c_alpha</p>
+
+<p>@var int $c_alpha0</p>
+
+<p>@var int $c_val</p>
+
+<p>Turn an array of integers into a string</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param array<int, int> $ints</p>
+<p>@return string</p>
+
+<p>@var array<int, int> $args</p>
+
+<p>Cache-timing-safe variant of ord()</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param int $int</p>
+<p>@return string</p>
+<p>@throws TypeError</p>
+
+<p>Load a 3 character substring into an integer</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param string $string</p>
+<p>@return int</p>
+<p>@throws RangeException</p>
+<p>@throws TypeError</p>
+
+<p>@var array<int, int> $unpacked</p>
+
+<p>Load a 4 character substring into an integer</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param string $string</p>
+<p>@return int</p>
+<p>@throws RangeException</p>
+<p>@throws TypeError</p>
+
+<p>@var array<int, int> $unpacked</p>
+
+<p>Load a 8 character substring into an integer</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param string $string</p>
+<p>@return int</p>
+<p>@throws RangeException</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var array<int, int> $unpacked</p>
+
+<p>@var int $result</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param string $left</p>
+<p>@param string $right</p>
+<p>@return int</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>Multiply two integers in constant-time</p>
+<p>Micro-architecture timing side-channels caused by how your CPU</p>
+<p>implements multiplication are best prevented by never using the</p>
+<p>multiplication operators and ensuring that our code always takes</p>
+<p>the same number of operations to complete, regardless of the values</p>
+<p>of $a and $b.</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param int $a</p>
+<p>@param int $b</p>
+<p>@param int $size Limits the number of operations (useful for small,</p>
+<p>                 constant operands)</p>
+<p>@return int</p>
+
+<p>@var int $defaultSize</p>
+
+<p>@var int $defaultSize</p>
+
+<p>@var int $size</p>
+
+<p>@var int $size</p>
+
+<p>Mask is either -1 or 0.</p>
+<p>-1 in binary looks like 0x1111 ... 1111</p>
+<p> 0 in binary looks like 0x0000 ... 0000</p>
+<p>@var int</p>
+
+<p>Ensure $b is a positive integer, without creating</p>
+<p>a branching side-channel</p>
+<p>@var int $b</p>
+
+<p>Unless $size is provided:</p>
+<p>This loop always runs 32 times when PHP_INT_SIZE is 4.</p>
+<p>This loop always runs 64 times when PHP_INT_SIZE is 8.</p>
+
+<p>If $b was negative, we then apply the same value to $c here.</p>
+<p>It doesn't matter much if $a was negative; the $c += above would</p>
+<p>have produced a negative integer to begin with. But a negative $b</p>
+<p>makes $b >>= 1 never return 0, so we would end up with incorrect</p>
+<p>results.</p>
+<p>The end result is what we'd expect from integer multiplication.</p>
+
+<p>Convert any arbitrary numbers into two 32-bit integers that represent</p>
+<p>a 64-bit integer.</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param int|float $num</p>
+<p>@return array<int, int></p>
+
+<p>@var int $low</p>
+
+<p>@var int $high</p>
+
+<p>@var int $high</p>
+
+<p>Store a 24-bit integer into a string, treating it as big-endian.</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param int $int</p>
+<p>@return string</p>
+<p>@throws TypeError</p>
+
+<p>@var string $packed</p>
+
+<p>Store a 32-bit integer into a string, treating it as little-endian.</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param int $int</p>
+<p>@return string</p>
+<p>@throws TypeError</p>
+
+<p>@var string $packed</p>
+
+<p>Store a 32-bit integer into a string, treating it as big-endian.</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param int $int</p>
+<p>@return string</p>
+<p>@throws TypeError</p>
+
+<p>@var string $packed</p>
+
+<p>Stores a 64-bit integer as an string, treating it as little-endian.</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param int $int</p>
+<p>@return string</p>
+<p>@throws TypeError</p>
+
+<p>@var string $packed</p>
+
+<p>Safe string length</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@ref mbstring.func_overload</p>
+<p>@param string $str</p>
+<p>@return int</p>
+<p>@throws TypeError</p>
+
+<p>Turn a string into an array of integers</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param string $string</p>
+<p>@return array<int, int></p>
+<p>@throws TypeError</p>
+
+<p>@var array<int, int></p>
+
+<p>Safe substring</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@ref mbstring.func_overload</p>
+<p>@param string $str</p>
+<p>@param int $start</p>
+<p>@param int $length</p>
+<p>@return string</p>
+<p>@throws TypeError</p>
+
+<p>Compare a 16-character byte string in constant time.</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param string $a</p>
+<p>@param string $b</p>
+<p>@return bool</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>Compare a 32-character byte string in constant time.</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param string $a</p>
+<p>@param string $b</p>
+<p>@return bool</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>Calculate $a ^ $b for two strings.</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param string $a</p>
+<p>@param string $b</p>
+<p>@return string</p>
+<p>@throws TypeError</p>
+
+<p>Returns whether or not mbstring.func_overload is in effect.</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@return bool</p>
+
+<p>@var bool $mbstring</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>another</code></li>
+<li><code>integer</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\Core\Util.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ParagonIE_Sodium_Core_Util</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>abs($integer, $size = 0)</code></li>
+<li><code>bin2hex($binaryString)</code></li>
+<li><code>bin2hexUpper($bin_string)</code></li>
+<li><code>chrToInt($chr)</code></li>
+<li><code>compare($left, $right, $len = null)</code></li>
+<li><code>declareScalarType(&$mixedVar = null, $type = 'void', $argumentIndex = 0)</code></li>
+<li><code>hashEquals($left, $right)</code></li>
+<li><code>hex2bin($hexString, $strictPadding = false)</code></li>
+<li><code>intArrayToString(array $ints)</code></li>
+<li><code>intToChr($int)</code></li>
+<li><code>load_3($string)</code></li>
+<li><code>load_4($string)</code></li>
+<li><code>load64_le($string)</code></li>
+<li><code>memcmp($left, $right)</code></li>
+<li><code>mul($a, $b, $size = 0)</code></li>
+<li><code>numericTo64BitInteger($num)</code></li>
+<li><code>store_3($int)</code></li>
+<li><code>store32_le($int)</code></li>
+<li><code>store_4($int)</code></li>
+<li><code>store64_le($int)</code></li>
+<li><code>strlen($str)</code></li>
+<li><code>stringToIntArray($string)</code></li>
+<li><code>substr($str, $start = 0, $length = null)</code></li>
+<li><code>verify_16($a, $b)</code></li>
+<li><code>verify_32($a, $b)</code></li>
+<li><code>xorStrings($a, $b)</code></li>
+<li><code>isMbStringOverride()</code></li>
+</ul>
+</body></html>

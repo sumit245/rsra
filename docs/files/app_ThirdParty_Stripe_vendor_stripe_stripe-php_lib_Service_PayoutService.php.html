@@ -1,0 +1,99 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\PayoutService.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\PayoutService.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\PayoutService.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4690 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Returns a list of existing payouts sent to third-party bank accounts or that</p>
+<p>Stripe has sent you. The payouts are returned in sorted order, with the most</p>
+<p>recently created payouts appearing first.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\Payout></p>
+
+<p>A previously created payout can be canceled if it has not yet been paid out.</p>
+<p>Funds will be refunded to your available balance. You may not cancel automatic</p>
+<p>Stripe payouts.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Payout</p>
+
+<p>To send funds to your own bank account, you create a new payout object. Your <a</p>
+<p>href="#balance">Stripe balance</a> must be able to cover the payout amount, or</p>
+<p>you’ll receive an “Insufficient Funds” error.</p>
+<p>If your API key is in test mode, money won’t actually be sent, though everything</p>
+<p>else will occur as if in live mode.</p>
+<p>If you are creating a manual payout on a Stripe account that uses multiple</p>
+<p>payment source types, you’ll need to specify the source type balance that the</p>
+<p>payout should draw from. The <a href="#balance_object">balance object</a></p>
+<p>details available and pending amounts by source type.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Payout</p>
+
+<p>Retrieves the details of an existing payout. Supply the unique payout ID from</p>
+<p>either a payout creation request or the payout list, and Stripe will return the</p>
+<p>corresponding payout information.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Payout</p>
+
+<p>Reverses a payout by debiting the destination bank account. Only payouts for</p>
+<p>connected accounts to US bank accounts may be reversed at this time. If the</p>
+<p>payout is in the <code>pending</code> status,</p>
+<p><code>/v1/payouts/:id/cancel</code> should be used instead.</p>
+<p>By requesting a reversal via <code>/v1/payouts/:id/reverse</code>, you confirm</p>
+<p>that the authorized signatory of the selected bank account has authorized the</p>
+<p>debit on the bank account and that no other authorization is required.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Payout</p>
+
+<p>Updates the specified payout by setting the values of the parameters passed. Any</p>
+<p>parameters not provided will be left unchanged. This request accepts only the</p>
+<p>metadata as arguments.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Payout</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\PayoutService.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Service\PayoutService extends \Stripe\Service\AbstractService</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>all($params = null, $opts = null)</code></li>
+<li><code>cancel($id, $params = null, $opts = null)</code></li>
+<li><code>create($params = null, $opts = null)</code></li>
+<li><code>retrieve($id, $params = null, $opts = null)</code></li>
+<li><code>reverse($id, $params = null, $opts = null)</code></li>
+<li><code>update($id, $params = null, $opts = null)</code></li>
+</ul>
+</body></html>

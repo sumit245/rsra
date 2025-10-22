@@ -4,10 +4,16 @@ namespace RestApi\Controllers;
 
 class ProjectsController extends Rest_api_Controller {
 	protected $ProjectsModel = 'RestApi\Models\ProjectsModel';
+	protected $projects_model;
+	protected $restapi_projects_model;
+	protected $restapi_clients_model;
+	protected $restapi_labels_model;
+	protected $clients_model;
+	protected $labels_model;
 
 	public function __construct() {
 		parent::__construct();
-		
+
 		$this->projects_model         = model('App\Models\Projects_model');
 		$this->restapi_projects_model = model($this->ProjectsModel);
 		$this->restapi_clients_model  = model("RestApi\Models\ClientsModel");
@@ -226,7 +232,7 @@ class ProjectsController extends Rest_api_Controller {
 					}
 				}
 			}
-			
+
 			$success = $this->projects_model->ci_save($insert_data);
 			if ($success) {
 				$response = [
@@ -347,7 +353,7 @@ class ProjectsController extends Rest_api_Controller {
 			if (isset($posted_data->client_id)) {
 				$client_id = $posted_data->client_id;
 			}
-			
+
 			$insert_data = [
 				'title'       => $posted_data->title ?? $is_project_exits['title'],
 				'client_id'   => $posted_data->client_id ?? $is_project_exits['client_id'],
@@ -375,7 +381,7 @@ class ProjectsController extends Rest_api_Controller {
 					}
 				}
 			}
-			
+
 			$success = $this->projects_model->ci_save($insert_data, $id);
 			if ($success) {
 				$response = [
@@ -440,7 +446,7 @@ class ProjectsController extends Rest_api_Controller {
 			  ];
 			return $this->fail($response);
 		}
-		
+
 		if ($this->projects_model->get_details(['id' => $id])->getResult()) {
 			if ($this->projects_model->delete_project_and_sub_items($id)) {
 				$response = [

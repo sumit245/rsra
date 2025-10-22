@@ -1,0 +1,51 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\RedisHandler.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\RedisHandler.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\RedisHandler.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2889 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Logs to a Redis key using rpush</p>
+<p>usage example:</p>
+<p>  $log = new Logger('application');</p>
+<p>  $redis = new RedisHandler(new Predis\Client("tcp://localhost:6379"), "logs", "prod");</p>
+<p>  $log->pushHandler($redis);</p>
+<p>@author Thomas Tourlourat <thomas@tourlourat.com></p>
+
+<p>@param \Predis\Client|\Redis $redis   The redis instance</p>
+<p>@param string                $key     The key name to push records to</p>
+<p>@param int                   $level   The minimum logging level at which this handler will be triggered</p>
+<p>@param bool                  $bubble  Whether the messages that are handled can bubble up the stack or not</p>
+<p>@param int                   $capSize Number of entries to limit list size to</p>
+
+<p>{@inheritDoc}</p>
+
+<p>Write and cap the collection</p>
+<p>Writes the record to the redis list and caps its</p>
+<p>@param  array $record associative record array</p>
+<p>@return void</p>
+
+<p>{@inheritDoc}</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\RedisHandler.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Monolog\Handler\RedisHandler extends AbstractProcessingHandler</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($redis, $key, $level = Logger::DEBUG, $bubble = true, $capSize = false)</code></li>
+<li><code>write(array $record)</code></li>
+<li><code>writeCapped(array $record)</code></li>
+<li><code>getDefaultFormatter()</code></li>
+</ul>
+</body></html>

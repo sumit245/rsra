@@ -1,0 +1,65 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\BrowserConsoleHandler.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\BrowserConsoleHandler.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\BrowserConsoleHandler.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7162 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Handler sending logs to browser's javascript console with no browser extension required</p>
+<p>@author Olivier Poitrey <rs@dailymotion.com></p>
+
+<p>{@inheritDoc}</p>
+<p>Formatted output may contain some formatting markers to be transferred to <code>console.log</code> using the %c format.</p>
+<p>Example of formatted string:</p>
+<p>    You can do [[blue text]]{color: blue} or [[green background]]{background-color: green; color: white}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>Convert records to javascript console commands and send it to the browser.</p>
+<p>This method is automatically called on PHP shutdown if output is HTML or Javascript.</p>
+
+<p>Forget all logged records</p>
+
+<p>Wrapper for register_shutdown_function to allow overriding</p>
+
+<p>Wrapper for echo to allow overriding</p>
+<p>@param string $str</p>
+
+<p>Checks the format of the response</p>
+<p>If Content-Type is set to application/javascript or text/javascript -> js</p>
+<p>If Content-Type is set to text/html, or is unset -> html</p>
+<p>If Content-Type is anything else -> unknown</p>
+<p>@return string One of 'js', 'html' or 'unknown'</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\BrowserConsoleHandler.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Monolog\Handler\BrowserConsoleHandler extends AbstractProcessingHandler</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getDefaultFormatter()</code></li>
+<li><code>write(array $record)</code></li>
+<li><code>send()</code></li>
+<li><code>reset()</code></li>
+<li><code>registerShutdownFunction()</code></li>
+<li><code>writeOutput($str)</code></li>
+<li><code>getResponseFormat()</code></li>
+<li><code>generateScript()</code></li>
+<li><code>handleStyles($formatted)</code></li>
+<li><code>handleCustomStyles($style, $string)</code></li>
+<li><code>dump($title, array $dict)</code></li>
+<li><code>quote($arg)</code></li>
+<li><code>call()</code></li>
+<li><code>call_array($method, array $args)</code></li>
+</ul>
+</body></html>

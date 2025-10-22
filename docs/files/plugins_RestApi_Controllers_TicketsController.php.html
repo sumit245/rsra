@@ -1,0 +1,229 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\RestApi\Controllers\TicketsController.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\RestApi\Controllers\TicketsController.php</h1>
+
+<ul>
+<li>Path: <code>plugins\RestApi\Controllers\TicketsController.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 16373 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@api {get} /api/tickets/:ticketid List all Tickets information</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName getTickets</p>
+<p>@apiGroup Tickets</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiParam {Number} ticketid Mandatory ticket unique ID</p>
+<p>@apiSuccess {Object} Tickets information</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>{</p>
+<p>  "id": "1",</p>
+<p>  "client_id": "2",</p>
+<p>  "project_id": "0",</p>
+<p>  "ticket_type_id": "1",</p>
+<p>  "title": "Title",</p>
+<p>  "created_by": "1",</p>
+<p>  "requested_by": "4",</p>
+<p>  "created_at": "2021-09-12 06:47:36",</p>
+<p>  "status": "new",</p>
+<p>  "last_activity_at": "2021-09-12 06:47:36",</p>
+<p>  "assigned_to": "3",</p>
+<p>  "creator_name": "",</p>
+<p>  "creator_email": "",</p>
+<p>  "labels": "9,10",</p>
+<p>  "task_id": "0",</p>
+<p>  "closed_at": "0000-00-00 00:00:00",</p>
+<p>  "deleted": "0",</p>
+<p>  "ticket_type": "General Support",</p>
+<p>  "company_name": "Company",</p>
+<p>  "project_title": null,</p>
+<p>  "task_title": null,</p>
+<p> "assigned_to_user": "chirag jagani",</p>
+<p>  "assigned_to_avatar": null,</p>
+<p>  "labels_list": "9--::--label 2--::--#ad159e,10--::--label 3--::--#29c2c2",</p>
+<p>  "requested_by_name": "chirag jagani"</p>
+<p>}</p>
+<p>@apiError {Boolean} status Request status</p>
+<p>@apiError {String} message No data were found</p>
+
+<p>Return the properties of a resource object</p>
+<p>@return mixed</p>
+
+<p>@api {get} /api/tickets/search/:keysearch Search Ticket Information</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName getTicketsSearch</p>
+<p>@apiGroup Tickets</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiParam {String} keysearch Search Keywords</p>
+<p>@apiSuccess {Object} Tickets information</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>{</p>
+<p>  "id": "1",</p>
+<p>  "client_id": "2",</p>
+<p>  "project_id": "0",</p>
+<p>  "ticket_type_id": "1",</p>
+<p>  "title": "Title",</p>
+<p>  "created_by": "1",</p>
+<p>  "requested_by": "4",</p>
+<p>  "created_at": "2021-09-12 06:47:36",</p>
+<p>  "status": "new",</p>
+<p>  "last_activity_at": "2021-09-12 06:47:36",</p>
+<p>  "assigned_to": "3",</p>
+<p>  "creator_name": "",</p>
+<p>  "creator_email": "",</p>
+<p>  "labels": "9,10",</p>
+<p>  "task_id": "0",</p>
+<p>  "closed_at": "0000-00-00 00:00:00",</p>
+<p>  "deleted": "0",</p>
+<p>  "ticket_type": "General Support",</p>
+<p>  "company_name": "Company",</p>
+<p>  "project_title": null,</p>
+<p>  "task_title": null,</p>
+<p> "assigned_to_user": "chirag jagani",</p>
+<p>  "assigned_to_avatar": null,</p>
+<p>  "labels_list": "9--::--label 2--::--#ad159e,10--::--label 3--::--#29c2c2",</p>
+<p>  "requested_by_name": "chirag jagani"</p>
+<p>}</p>
+<p>@apiError {Boolean} status Request status</p>
+<p>@apiError {String} message No data were found</p>
+
+<p>Return a new resource object, with default properties</p>
+<p>@return mixed</p>
+
+<p>@api {post} api/tickets Add New Ticket</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName create</p>
+<p>@apiGroup Tickets</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiParam {string} title                          Mandatory Ticket title. </p>
+<p>@apiParam {int} client_id                         Mandatory Ticket client_id. </p>
+<p>@apiParam {int} requested_by_id                   Mandatory Ticket requested_by_id. </p>
+<p>@apiParam {int} ticket_type_id	                 Mandatory Ticket ticket_type_id. </p>
+<p>@apiParam {int} description   	                 Mandatory Ticket description. </p>
+<p>@apiParam {int} assigned_to   	                 Mandatory Ticket assigned_to. 	 </p>
+<p>@apiParam {string} ticket_labels 				 Optional Ticket ticket_labels. </p>
+<p>@apiParamExample Request-Example:</p>
+<p>    array (size=7)</p>
+<p>       'title' => string 'title' (length=5)</p>
+<p>       'owner_id' =>  '1' (length=1)</p>
+<p>       'requested_by_id' =>  '1' (length=1)</p>
+<p>       'ticket_type_id' => '1' (length=1)</p>
+<p>       'description' => string 'description' (length=11)</p>
+<p>       'assigned_to' =>  '1' (length=1)</p>
+<p>       'ticket_labels' => string '1,2' (length=3)     *</p>
+<p>@apiSuccess {Boolean} status Request status.</p>
+<p>@apiSuccess {String} message Ticket add successful.</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>    HTTP/1.1 200 OK</p>
+<p>    {</p>
+<p>      "status": true,</p>
+<p>      "message": "Ticket add successful."</p>
+<p>    }</p>
+<p>@apiError {Boolean} status Request status.</p>
+<p>@apiError {String} message Ticket add fail.</p>
+<p>@apiErrorExample Error-Response:</p>
+<p>    HTTP/1.1 404 Not Found</p>
+<p>    {</p>
+<p>      "status": false,</p>
+<p>      "message": "Ticket add fail."</p>
+<p>    }</p>
+
+<p>Return the editable properties of a resource object</p>
+<p>@return mixed</p>
+
+<p>@api {put} api/tickets/:id Update a Ticket</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName update</p>
+<p>@apiGroup Tickets</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiParam {Number} id tickets unique ID.</p>
+<p>@apiParam {string} title                          Mandatory Ticket title. </p>
+<p>@apiParam {int} client_id                         Mandatory Ticket client_id. </p>
+<p>@apiParam {int} requested_by_id                   Mandatory Ticket requested_by_id. </p>
+<p>@apiParam {int} ticket_type_id	                 Mandatory Ticket ticket_type_id. </p>
+<p>@apiParam {int} description   	                 Mandatory Ticket description. </p>
+<p>@apiParam {int} assigned_to   	                 Mandatory Ticket assigned_to. 	 </p>
+<p>@apiParam {string} ticket_labels 				 Optional Ticket ticket_labels. </p>
+<p>@apiParamExample {json} Request-Example:</p>
+<p>{</p>
+<p>    "description":"updated description",</p>
+<p>    "ticket_labels":"9,10",</p>
+<p>    "title":"Title updated",</p>
+<p>    "assigned_to":3</p>
+<p>}</p>
+<p>@apiSuccess {Boolean} status Request status.</p>
+<p>@apiSuccess {String} message Ticket update successful.</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>    HTTP/1.1 200 OK</p>
+<p>    {</p>
+<p>      "status": true,</p>
+<p>      "message": "Ticket update successful."</p>
+<p>    }</p>
+<p>@apiError {Boolean} status Request status.</p>
+<p>@apiError {String} message Ticket update fail.</p>
+<p>@apiErrorExample Error-Response:</p>
+<p>    HTTP/1.1 404 Not Found</p>
+<p>    {</p>
+<p>      "status": false,</p>
+<p>      "message": "Ticket update fail."</p>
+<p>    }</p>
+
+<p>@api {delete} api/tickets/:id Delete a Ticket</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName Delete</p>
+<p>@apiGroup Tickets</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiParam {Number} id ticket unique ID.</p>
+<p>@apiSuccess {String} status Request status.</p>
+<p>@apiSuccess {String} message Ticket Deleted Successfuly.</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>    HTTP/1.1 200 OK</p>
+<p>    {</p>
+<p>      "status": true,</p>
+<p>      "message": "Ticket Deleted Successfuly."</p>
+<p>    }</p>
+<p>@apiError {Boolean} status Request status.</p>
+<p>@apiError {String} message Ticket Delete Fail.</p>
+<p>@apiErrorExample Error-Response:</p>
+<p>    HTTP/1.1 404 Not Found</p>
+<p>    {</p>
+<p>      "status": false,</p>
+<p>      "message": "Ticket Delete Fail."</p>
+<p>    }</p>
+
+<h2>References</h2>
+
+<p><strong>Models Used</strong></p>
+<ul>
+<li><code>tickets_model</code></li>
+<li><code>clients_model</code></li>
+<li><code>restapi_labels_model</code></li>
+<li><code>users_model</code></li>
+<li><code>ticket_types_model</code></li>
+<li><code>team_model</code></li>
+<li><code>restapi_tickets_model</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\RestApi\Controllers\TicketsController.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>RestApi\Controllers\TicketsController extends Rest_api_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index($tickets_id="")</code></li>
+<li><code>show($id = null, $searchTerm = "")</code></li>
+<li><code>search($key = '')</code></li>
+<li><code>new()</code></li>
+<li><code>create()</code></li>
+<li><code>edit($id = null)</code></li>
+<li><code>update($id = null)</code></li>
+<li><code>delete($id = null)</code></li>
+</ul>
+</body></html>

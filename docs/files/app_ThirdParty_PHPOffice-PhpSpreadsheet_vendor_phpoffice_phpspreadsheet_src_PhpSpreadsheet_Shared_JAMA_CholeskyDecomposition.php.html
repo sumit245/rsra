@@ -1,0 +1,63 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\JAMA\CholeskyDecomposition.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\JAMA\CholeskyDecomposition.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\JAMA\CholeskyDecomposition.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3862 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Cholesky decomposition class.</p>
+<p>   For a symmetric, positive definite matrix A, the Cholesky decomposition</p>
+<p>   is an lower triangular matrix L so that A = L*L'.</p>
+<p>   If the matrix is not symmetric or positive definite, the constructor</p>
+<p>   returns a partial decomposition and sets an internal flag that may</p>
+<p>   be queried by the isSPD() method.</p>
+<p>   @author Paul Meagher</p>
+<p>   @author Michael Bommarito</p>
+<p>   @version 1.2</p>
+
+<p>Decomposition storage.</p>
+<p>@var array</p>
+
+<p>Matrix row and column dimension.</p>
+<p>@var int</p>
+
+<p>Symmetric positive definite flag.</p>
+<p>@var bool</p>
+
+<p>CholeskyDecomposition.</p>
+<p>   Class constructor - decomposes symmetric positive definite matrix</p>
+<p>@param Matrix $A Matrix square symmetric positive definite matrix</p>
+
+<p>Is the matrix symmetric and positive definite?</p>
+<p>@return bool</p>
+
+<p>getL.</p>
+<p>Return triangular factor.</p>
+<p>@return Matrix Lower triangular matrix</p>
+
+<p>Solve A*X = B.</p>
+<p>@param Matrix $B Row-equal matrix</p>
+<p>@return Matrix L * L' * X = B</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\JAMA\CholeskyDecomposition.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Shared\JAMA\CholeskyDecomposition</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(Matrix $A)</code></li>
+<li><code>isSPD()</code></li>
+<li><code>getL()</code></li>
+<li><code>solve(Matrix $B)</code></li>
+</ul>
+</body></html>

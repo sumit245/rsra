@@ -1,0 +1,78 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Cookie\Exceptions\CookieException.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Cookie\Exceptions\CookieException.php</h1>
+
+<ul>
+<li>Path: <code>system\Cookie\Exceptions\CookieException.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3223 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>CookieException is thrown for invalid cookies initialization and management.</p>
+
+<p>Thrown for invalid type given for the "Expires" attribute.</p>
+<p>@return static</p>
+
+<p>Thrown when the value provided for "Expires" is invalid.</p>
+<p>@return static</p>
+
+<p>Thrown when the cookie name contains invalid characters per RFC 2616.</p>
+<p>@return static</p>
+
+<p>Thrown when the cookie name is empty.</p>
+<p>@return static</p>
+
+<p>Thrown when using the <code>__Secure-</code> prefix but the <code>Secure</code> attribute</p>
+<p>is not set to true.</p>
+<p>@return static</p>
+
+<p>Thrown when using the <code>__Host-</code> prefix but the <code>Secure</code> flag is not</p>
+<p>set, the <code>Domain</code> is set, and the <code>Path</code> is not <code>/</code>.</p>
+<p>@return static</p>
+
+<p>Thrown when the <code>SameSite</code> attribute given is not of the valid types.</p>
+<p>@return static</p>
+
+<p>Thrown when the <code>SameSite</code> attribute is set to <code>None</code> but the <code>Secure</code></p>
+<p>attribute is not set.</p>
+<p>@return static</p>
+
+<p>Thrown when the <code>CookieStore</code> class is filled with invalid Cookie objects.</p>
+<p>@param array<int|string> $data</p>
+<p>@return static</p>
+
+<p>Thrown when the queried Cookie object does not exist in the cookie collection.</p>
+<p>@param string[] $data</p>
+<p>@return static</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Cookie\Exceptions\CookieException.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Cookie\Exceptions\CookieException extends FrameworkException</code></li>
+<li><code>CodeIgniter\Cookie\Exceptions\is</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>forInvalidExpiresTime(string $type)</code></li>
+<li><code>forInvalidExpiresValue()</code></li>
+<li><code>forInvalidCookieName(string $name)</code></li>
+<li><code>forEmptyCookieName()</code></li>
+<li><code>forInvalidSecurePrefix()</code></li>
+<li><code>forInvalidHostPrefix()</code></li>
+<li><code>forInvalidSameSite(string $sameSite)</code></li>
+<li><code>forInvalidSameSiteNone()</code></li>
+<li><code>forInvalidCookieInstance(array $data)</code></li>
+<li><code>forUnknownCookieInstance(array $data)</code></li>
+</ul>
+</body></html>

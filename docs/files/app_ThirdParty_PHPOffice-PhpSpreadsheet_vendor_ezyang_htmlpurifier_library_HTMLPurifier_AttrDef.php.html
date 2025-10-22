@@ -1,0 +1,88 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\AttrDef.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\AttrDef.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\AttrDef.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5195 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Base class for all validating attribute definitions.</p>
+<p>This family of classes forms the core for not only HTML attribute validation,</p>
+<p>but also any sort of string that needs to be validated or cleaned (which</p>
+<p>means CSS properties and composite definitions are defined here too).</p>
+<p>Besides defining (through code) what precisely makes the string valid,</p>
+<p>subclasses are also responsible for cleaning the code if possible.</p>
+
+<p>Tells us whether or not an HTML attribute is minimized.</p>
+<p>Has no meaning in other contexts.</p>
+<p>@type bool</p>
+
+<p>Tells us whether or not an HTML attribute is required.</p>
+<p>Has no meaning in other contexts</p>
+<p>@type bool</p>
+
+<p>Validates and cleans passed string according to a definition.</p>
+<p>@param string $string String to be validated and cleaned.</p>
+<p>@param HTMLPurifier_Config $config Mandatory HTMLPurifier_Config object.</p>
+<p>@param HTMLPurifier_Context $context Mandatory HTMLPurifier_Context object.</p>
+
+<p>Convenience method that parses a string as if it were CDATA.</p>
+<p>This method process a string in the manner specified at</p>
+<p><http://www.w3.org/TR/html4/types.html#h-6.2> by removing</p>
+<p>leading and trailing whitespace, ignoring line feeds, and replacing</p>
+<p>carriage returns and tabs with spaces.  While most useful for HTML</p>
+<p>attributes specified as CDATA, it can also be applied to most CSS</p>
+<p>values.</p>
+<p>@note This method is not entirely standards compliant, as trim() removes</p>
+<p>      more types of whitespace than specified in the spec. In practice,</p>
+<p>      this is rarely a problem, as those extra characters usually have</p>
+<p>      already been removed by HTMLPurifier_Encoder.</p>
+<p>@warning This processing is inconsistent with XML's whitespace handling</p>
+<p>         as specified by section 3.3.3 and referenced XHTML 1.0 section</p>
+<p>         4.7.  However, note that we are NOT necessarily</p>
+<p>         parsing XML, thus, this behavior may still be correct. We</p>
+<p>         assume that newlines have been normalized.</p>
+
+<p>Factory method for creating this class from a string.</p>
+<p>@param string $string String construction info</p>
+<p>@return HTMLPurifier_AttrDef Created AttrDef object corresponding to $string</p>
+
+<p>Removes spaces from rgb(0, 0, 0) so that shorthand CSS properties work</p>
+<p>properly. THIS IS A HACK!</p>
+<p>@param string $string a CSS colour definition</p>
+<p>@return string</p>
+
+<p>Parses a possibly escaped CSS string and returns the "pure"</p>
+<p>version of it.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+<li><code>rgb</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\AttrDef.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>for</code></li>
+<li><code>HTMLPurifier_AttrDef</code></li>
+<li><code>from</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>validate($string, $config, $context)</code></li>
+<li><code>parseCDATA($string)</code></li>
+<li><code>make($string)</code></li>
+<li><code>mungeRgb($string)</code></li>
+<li><code>expandCSSEscape($string)</code></li>
+</ul>
+</body></html>

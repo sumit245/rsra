@@ -1,0 +1,74 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Handler\MockHandler.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Handler\MockHandler.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Handler\MockHandler.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5860 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Handler that returns responses or throw exceptions from a queue.</p>
+
+<p>Creates a new MockHandler that uses the default handler stack list of</p>
+<p>middlewares.</p>
+<p>@param array $queue Array of responses, callables, or exceptions.</p>
+<p>@param callable $onFulfilled Callback to invoke when the return value is fulfilled.</p>
+<p>@param callable $onRejected  Callback to invoke when the return value is rejected.</p>
+<p>@return HandlerStack</p>
+
+<p>The passed in value must be an array of</p>
+<p>{@see Psr7\Http\Message\ResponseInterface} objects, Exceptions,</p>
+<p>callables, or Promises.</p>
+<p>@param array $queue</p>
+<p>@param callable $onFulfilled Callback to invoke when the return value is fulfilled.</p>
+<p>@param callable $onRejected  Callback to invoke when the return value is rejected.</p>
+
+<p>Adds one or more variadic requests, exceptions, callables, or promises</p>
+<p>to the queue.</p>
+
+<p>Get the last received request.</p>
+<p>@return RequestInterface</p>
+
+<p>Get the last received request options.</p>
+<p>@return array</p>
+
+<p>Returns the number of remaining items in the queue.</p>
+<p>@return int</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Handler\MockHandler.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>GuzzleHttp\Handler\MockHandler implements \Countable</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`createWithMiddleware(array $queue = null,</li>
+<p>        callable $onFulfilled = null,</p>
+<p>        callable $onRejected = null)`</p>
+<li>`__construct(array $queue = null,</li>
+<p>        callable $onFulfilled = null,</p>
+<p>        callable $onRejected = null)`</p>
+<li><code>__invoke(RequestInterface $request, array $options)</code></li>
+<li><code>append()</code></li>
+<li><code>getLastRequest()</code></li>
+<li><code>getLastOptions()</code></li>
+<li><code>count()</code></li>
+<li>`invokeStats(RequestInterface $request,</li>
+<p>        array $options,</p>
+<p>        ResponseInterface $response = null,</p>
+<p>        $reason = null)`</p>
+</ul>
+</body></html>

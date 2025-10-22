@@ -1,0 +1,89 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\FirePHPHandler.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\FirePHPHandler.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\FirePHPHandler.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5466 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Simple FirePHP Handler (http://www.firephp.org/), which uses the Wildfire protocol.</p>
+<p>@author Eric Clemmons (@ericclemmons) <eric@uxdriven.com></p>
+
+<p>WildFire JSON header message format</p>
+
+<p>FirePHP structure for parsing messages & their presentation</p>
+
+<p>Must reference a "known" plugin, otherwise headers won't display in FirePHP</p>
+
+<p>Header prefix for Wildfire to recognize & parse headers</p>
+
+<p>Whether or not Wildfire vendor-specific headers have been generated & sent yet</p>
+
+<p>Shared static message index between potentially multiple handlers</p>
+<p>@var int</p>
+
+<p>Base header creation function used by init headers & record headers</p>
+<p>@param  array  $meta    Wildfire Plugin, Protocol & Structure Indexes</p>
+<p>@param  string $message Log message</p>
+<p>@return array  Complete header string ready for the client as key and message as value</p>
+
+<p>Creates message header from record</p>
+<p>@see createHeader()</p>
+<p>@param  array  $record</p>
+<p>@return string</p>
+
+<p>{@inheritDoc}</p>
+
+<p>Wildfire initialization headers to enable message parsing</p>
+<p>@see createHeader()</p>
+<p>@see sendHeader()</p>
+<p>@return array</p>
+
+<p>Send header string to the client</p>
+<p>@param string $header</p>
+<p>@param string $content</p>
+
+<p>Creates & sends header for a record, ensuring init headers have been sent prior</p>
+<p>@see sendHeader()</p>
+<p>@see sendInitHeaders()</p>
+<p>@param array $record</p>
+
+<p>Verifies if the headers are accepted by the current user agent</p>
+<p>@return Boolean</p>
+
+<p>BC getter for the sendHeaders property that has been made static</p>
+
+<p>BC setter for the sendHeaders property that has been made static</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>record</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\FirePHPHandler.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Monolog\Handler\FirePHPHandler extends AbstractProcessingHandler</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>createHeader(array $meta, $message)</code></li>
+<li><code>createRecordHeader(array $record)</code></li>
+<li><code>getDefaultFormatter()</code></li>
+<li><code>getInitHeaders()</code></li>
+<li><code>sendHeader($header, $content)</code></li>
+<li><code>write(array $record)</code></li>
+<li><code>headersAccepted()</code></li>
+<li><code>__get($property)</code></li>
+<li><code>__set($property, $value)</code></li>
+</ul>
+</body></html>

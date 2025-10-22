@@ -1,0 +1,142 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xlsx\Worksheet.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xlsx\Worksheet.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xlsx\Worksheet.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 64522 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Write worksheet to XML format.</p>
+<p>@param string[] $stringTable</p>
+<p>@param bool $includeCharts Flag indicating if we should write charts</p>
+<p>@return string XML Output</p>
+
+<p>Write SheetPr.</p>
+
+<p>Write Dimension.</p>
+
+<p>Write SheetViews.</p>
+
+<p>Write SheetFormatPr.</p>
+
+<p>Write Cols.</p>
+
+<p>Write SheetProtection.</p>
+
+<p>@var ConditionalDataBar $dataBar</p>
+
+<p>Write ConditionalFormatting.</p>
+
+<p>Write DataValidations.</p>
+
+<p>Write Hyperlinks.</p>
+
+<p>Write ProtectedRanges.</p>
+
+<p>Write MergeCells.</p>
+
+<p>Write PrintOptions.</p>
+
+<p>Write PageMargins.</p>
+
+<p>Write AutoFilter.</p>
+
+<p>Write Table.</p>
+
+<p>Write PageSetup.</p>
+
+<p>Write Header / Footer.</p>
+
+<p>Write Breaks.</p>
+
+<p>Write SheetData.</p>
+<p>@param string[] $stringTable String table</p>
+
+<p>@param RichText|string $cellValue</p>
+
+<p>@param RichText|string $cellValue</p>
+<p>@param string[] $flippedStringTable</p>
+
+<p>@param float|int $cellValue</p>
+
+<p>Write Cell.</p>
+<p>@param string $cellAddress Cell Address</p>
+<p>@param string[] $flippedStringTable String table (flipped), for faster index searching</p>
+
+<p>Write Drawings.</p>
+<p>@param bool $includeCharts Flag indicating if we should include drawing details for charts</p>
+
+<p>Write LegacyDrawing.</p>
+
+<p>Write LegacyDrawingHF.</p>
+
+<p>write <ExtLst></p>
+<p>only implementation conditionalFormattings.</p>
+<p>@url https://docs.microsoft.com/en-us/openspecs/office_standards/ms-xlsx/07d607af-5618-4ca2-b683-6a78dc0d9627</p>
+
+<p>@var Conditional $conditional</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>ms</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xlsx\Worksheet.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Writer\Xlsx\Worksheet extends WriterPart</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>writeWorksheet(PhpspreadsheetWorksheet $worksheet, $stringTable = null, $includeCharts = false)</code></li>
+<li><code>writeSheetPr(XMLWriter $objWriter, PhpspreadsheetWorksheet $worksheet)</code></li>
+<li><code>writeDimension(XMLWriter $objWriter, PhpspreadsheetWorksheet $worksheet)</code></li>
+<li><code>writeSheetViews(XMLWriter $objWriter, PhpspreadsheetWorksheet $worksheet)</code></li>
+<li><code>writeSheetFormatPr(XMLWriter $objWriter, PhpspreadsheetWorksheet $worksheet)</code></li>
+<li><code>writeCols(XMLWriter $objWriter, PhpspreadsheetWorksheet $worksheet)</code></li>
+<li><code>writeSheetProtection(XMLWriter $objWriter, PhpspreadsheetWorksheet $worksheet)</code></li>
+<li><code>writeAttributeIf(XMLWriter $objWriter, $condition, string $attr, string $val)</code></li>
+<li><code>writeAttributeNotNull(XMLWriter $objWriter, string $attr, ?string $val)</code></li>
+<li><code>writeElementIf(XMLWriter $objWriter, $condition, string $attr, string $val)</code></li>
+<li><code>writeOtherCondElements(XMLWriter $objWriter, Conditional $conditional, string $cellCoordinate)</code></li>
+<li><code>writeTimePeriodCondElements(XMLWriter $objWriter, Conditional $conditional, string $cellCoordinate)</code></li>
+<li><code>writeTextCondElements(XMLWriter $objWriter, Conditional $conditional, string $cellCoordinate)</code></li>
+<li><code>writeExtConditionalFormattingElements(XMLWriter $objWriter, ConditionalFormattingRuleExtension $ruleExtension)</code></li>
+<li><code>writeDataBarElements(XMLWriter $objWriter, $dataBar)</code></li>
+<li><code>writeConditionalFormatting(XMLWriter $objWriter, PhpspreadsheetWorksheet $worksheet)</code></li>
+<li><code>writeDataValidations(XMLWriter $objWriter, PhpspreadsheetWorksheet $worksheet)</code></li>
+<li><code>writeHyperlinks(XMLWriter $objWriter, PhpspreadsheetWorksheet $worksheet)</code></li>
+<li><code>writeProtectedRanges(XMLWriter $objWriter, PhpspreadsheetWorksheet $worksheet)</code></li>
+<li><code>writeMergeCells(XMLWriter $objWriter, PhpspreadsheetWorksheet $worksheet)</code></li>
+<li><code>writePrintOptions(XMLWriter $objWriter, PhpspreadsheetWorksheet $worksheet)</code></li>
+<li><code>writePageMargins(XMLWriter $objWriter, PhpspreadsheetWorksheet $worksheet)</code></li>
+<li><code>writeAutoFilter(XMLWriter $objWriter, PhpspreadsheetWorksheet $worksheet)</code></li>
+<li><code>writeTable(XMLWriter $objWriter, PhpspreadsheetWorksheet $worksheet)</code></li>
+<li><code>writePageSetup(XMLWriter $objWriter, PhpspreadsheetWorksheet $worksheet)</code></li>
+<li><code>writeHeaderFooter(XMLWriter $objWriter, PhpspreadsheetWorksheet $worksheet)</code></li>
+<li><code>writeBreaks(XMLWriter $objWriter, PhpspreadsheetWorksheet $worksheet)</code></li>
+<li><code>writeSheetData(XMLWriter $objWriter, PhpspreadsheetWorksheet $worksheet, array $stringTable)</code></li>
+<li><code>writeCellInlineStr(XMLWriter $objWriter, string $mappedType, $cellValue)</code></li>
+<li><code>writeCellString(XMLWriter $objWriter, string $mappedType, $cellValue, array $flippedStringTable)</code></li>
+<li><code>writeCellNumeric(XMLWriter $objWriter, $cellValue)</code></li>
+<li><code>writeCellBoolean(XMLWriter $objWriter, string $mappedType, bool $cellValue)</code></li>
+<li><code>writeCellError(XMLWriter $objWriter, string $mappedType, string $cellValue, string $formulaerr = '#NULL!')</code></li>
+<li><code>writeCellFormula(XMLWriter $objWriter, string $cellValue, Cell $cell)</code></li>
+<li><code>writeCell(XMLWriter $objWriter, PhpspreadsheetWorksheet $worksheet, string $cellAddress, array $flippedStringTable)</code></li>
+<li><code>writeDrawings(XMLWriter $objWriter, PhpspreadsheetWorksheet $worksheet, $includeCharts = false)</code></li>
+<li><code>writeLegacyDrawing(XMLWriter $objWriter, PhpspreadsheetWorksheet $worksheet)</code></li>
+<li><code>writeLegacyDrawingHF(XMLWriter $objWriter, PhpspreadsheetWorksheet $worksheet)</code></li>
+<li><code>writeAlternateContent(XMLWriter $objWriter, PhpspreadsheetWorksheet $worksheet)</code></li>
+<li><code>writeExtLst(XMLWriter $objWriter, PhpspreadsheetWorksheet $worksheet)</code></li>
+</ul>
+</body></html>

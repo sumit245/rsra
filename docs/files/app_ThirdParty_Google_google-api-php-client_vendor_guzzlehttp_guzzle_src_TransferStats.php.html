@@ -1,0 +1,80 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\TransferStats.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\TransferStats.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\TransferStats.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3085 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Represents data at the point after it was transferred either successfully</p>
+<p>or after a network error.</p>
+
+<p>@param RequestInterface  $request          Request that was sent.</p>
+<p>@param ResponseInterface $response         Response received (if any)</p>
+<p>@param null              $transferTime     Total handler transfer time.</p>
+<p>@param mixed             $handlerErrorData Handler error data.</p>
+<p>@param array             $handlerStats     Handler specific stats.</p>
+
+<p>@return RequestInterface</p>
+
+<p>Returns the response that was received (if any).</p>
+<p>@return ResponseInterface|null</p>
+
+<p>Returns true if a response was received.</p>
+<p>@return bool</p>
+
+<p>Gets handler specific error data.</p>
+<p>This might be an exception, a integer representing an error code, or</p>
+<p>anything else. Relying on this value assumes that you know what handler</p>
+<p>you are using.</p>
+<p>@return mixed</p>
+
+<p>Get the effective URI the request was sent to.</p>
+<p>@return UriInterface</p>
+
+<p>Get the estimated time the request was being transferred by the handler.</p>
+<p>@return float Time in seconds.</p>
+
+<p>Gets an array of all of the handler specific transfer data.</p>
+<p>@return array</p>
+
+<p>Get a specific handler statistic from the handler by name.</p>
+<p>@param string $stat Handler specific transfer stat to retrieve.</p>
+<p>@return mixed|null</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\TransferStats.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>GuzzleHttp\TransferStats</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`__construct(RequestInterface $request,</li>
+<p>        ResponseInterface $response = null,</p>
+<p>        $transferTime = null,</p>
+<p>        $handlerErrorData = null,</p>
+<p>        $handlerStats = [])`</p>
+<li><code>getRequest()</code></li>
+<li><code>getResponse()</code></li>
+<li><code>hasResponse()</code></li>
+<li><code>getHandlerErrorData()</code></li>
+<li><code>getEffectiveUri()</code></li>
+<li><code>getTransferTime()</code></li>
+<li><code>getHandlerStats()</code></li>
+<li><code>getHandlerStat($stat)</code></li>
+</ul>
+</body></html>

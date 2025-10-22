@@ -1,0 +1,139 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Pager\Pager.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Pager\Pager.php</h1>
+
+<ul>
+<li>Path: <code>system\Pager\Pager.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 11984 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Class Pager</p>
+<p>The Pager class provides semi-automatic and manual methods for creating</p>
+<p>pagination links and reading the current url's query variable, "page"</p>
+<p>to determine the current page. This class can support multiple</p>
+<p>paginations on a single page.</p>
+
+<p>The group data.</p>
+<p>@var array</p>
+
+<p>URI segment for groups if provided.</p>
+<p>@var array</p>
+
+<p>Our configuration instance.</p>
+<p>@var PagerConfig</p>
+
+<p>The view engine to render the links with.</p>
+<p>@var RendererInterface</p>
+
+<p>List of only permitted queries</p>
+<p>@var array</p>
+
+<p>Constructor.</p>
+
+<p>Handles creating and displaying the</p>
+<p>@param string $template The output template alias to render.</p>
+
+<p>Creates simple Next/Previous links, instead of full pagination.</p>
+
+<p>Allows for a simple, manual, form of pagination where all of the data</p>
+<p>is provided by the user. The URL is the current URI.</p>
+<p>@param string      $template The output template alias to render.</p>
+<p>@param int         $segment  (whether page number is provided by URI segment)</p>
+<p>@param string|null $group    optional group (i.e. if we'd like to define custom path)</p>
+
+<p>Does the actual work of displaying the view file. Used internally</p>
+<p>by links(), simpleLinks(), and makeLinks().</p>
+
+<p>Stores a set of pagination data for later display. Most commonly used</p>
+<p>by the model to automate the process.</p>
+<p>@return $this</p>
+
+<p>Sets segment for a group.</p>
+<p>@return mixed</p>
+
+<p>Sets the path that an aliased group of links will use.</p>
+<p>@return mixed</p>
+
+<p>Returns the total number of items in data store.</p>
+
+<p>Returns the total number of pages.</p>
+
+<p>Returns the number of the current page of results.</p>
+
+<p>Tells whether this group of results has any more pages of results.</p>
+
+<p>Returns the last page, if we have a total that we can calculate with.</p>
+<p>@return int|null</p>
+
+<p>Determines the first page # that should be shown.</p>
+
+<p>Returns the URI for a specific page for the specified group.</p>
+<p>@return string|URI</p>
+
+<p>@var URI $uri</p>
+
+<p>Returns the full URI to the next page of results, or null.</p>
+<p>@return string|null</p>
+
+<p>Returns the full URL to the previous page of results, or null.</p>
+<p>@return string|null</p>
+
+<p>Returns the number of results per page that should be shown.</p>
+
+<p>Returns an array with details about the results, including</p>
+<p>total, per_page, current_page, last_page, next_url, prev_url, from, to.</p>
+<p>Does not include the actual data. This data is suitable for adding</p>
+<p>a 'data' object to with the result set and converting to JSON.</p>
+
+<p>Sets only allowed queries on pagination links.</p>
+
+<p>Ensures that an array exists for the group specified.</p>
+<p>@param int $perPage</p>
+
+<p>Calculating the current page</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Pager\Pager.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Pager\provides</code></li>
+<li><code>CodeIgniter\Pager\can</code></li>
+<li><code>CodeIgniter\Pager\Pager implements PagerInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(PagerConfig $config, RendererInterface $view)</code></li>
+<li><code>links(string $group = 'default', string $template = 'default_full')</code></li>
+<li><code>simpleLinks(string $group = 'default', string $template = 'default_simple')</code></li>
+<li><code>makeLinks(int $page, ?int $perPage, int $total, string $template = 'default_full', int $segment = 0, ?string $group = 'default')</code></li>
+<li><code>displayLinks(string $group, string $template)</code></li>
+<li><code>store(string $group, int $page, ?int $perPage, int $total, int $segment = 0)</code></li>
+<li><code>setSegment(int $number, string $group = 'default')</code></li>
+<li><code>setPath(string $path, string $group = 'default')</code></li>
+<li><code>getTotal(string $group = 'default')</code></li>
+<li><code>getPageCount(string $group = 'default')</code></li>
+<li><code>getCurrentPage(string $group = 'default')</code></li>
+<li><code>hasMore(string $group = 'default')</code></li>
+<li><code>getLastPage(string $group = 'default')</code></li>
+<li><code>getFirstPage(string $group = 'default')</code></li>
+<li><code>getPageURI(?int $page = null, string $group = 'default', bool $returnObject = false)</code></li>
+<li><code>getNextPageURI(string $group = 'default', bool $returnObject = false)</code></li>
+<li><code>getPreviousPageURI(string $group = 'default', bool $returnObject = false)</code></li>
+<li><code>getPerPage(string $group = 'default')</code></li>
+<li><code>getDetails(string $group = 'default')</code></li>
+<li><code>only(array $queries)</code></li>
+<li><code>ensureGroup(string $group, ?int $perPage = null)</code></li>
+<li><code>calculateCurrentPage(string $group)</code></li>
+</ul>
+</body></html>

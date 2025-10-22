@@ -1,0 +1,90 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\RestApi\ThirdParty\Requests\Proxy\HTTP.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\RestApi\ThirdParty\Requests\Proxy\HTTP.php</h1>
+
+<ul>
+<li>Path: <code>plugins\RestApi\ThirdParty\Requests\Proxy\HTTP.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3488 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>HTTP Proxy connection interface</p>
+<p>@package Requests</p>
+<p>@subpackage Proxy</p>
+<p>@since 1.6</p>
+
+<p>HTTP Proxy connection interface</p>
+<p>Provides a handler for connection via an HTTP proxy</p>
+<p>@package Requests</p>
+<p>@subpackage Proxy</p>
+<p>@since 1.6</p>
+
+<p>Proxy host and port</p>
+<p>Notation: "host:port" (eg 127.0.0.1:8080 or someproxy.com:3128)</p>
+<p>@var string</p>
+
+<p>Username</p>
+<p>@var string</p>
+
+<p>Password</p>
+<p>@var string</p>
+
+<p>Do we need to authenticate? (ie username & password have been provided)</p>
+<p>@var boolean</p>
+
+<p>Constructor</p>
+<p>@since 1.6</p>
+<p>@throws Requests_Exception On incorrect number of arguments (<code>authbasicbadargs</code>)</p>
+<p>@param array|null $args Array of user and password. Must have exactly two elements</p>
+
+<p>Register the necessary callbacks</p>
+<p>@since 1.6</p>
+<p>@see curl_before_send</p>
+<p>@see fsockopen_remote_socket</p>
+<p>@see fsockopen_remote_host_path</p>
+<p>@see fsockopen_header</p>
+<p>@param Requests_Hooks $hooks Hook system</p>
+
+<p>Set cURL parameters before the data is sent</p>
+<p>@since 1.6</p>
+<p>@param resource $handle cURL resource</p>
+
+<p>Alter remote socket information before opening socket connection</p>
+<p>@since 1.6</p>
+<p>@param string $remote_socket Socket connection string</p>
+
+<p>Alter remote path before getting stream data</p>
+<p>@since 1.6</p>
+<p>@param string $path Path to send in HTTP request string ("GET ...")</p>
+<p>@param string $url Full URL we're requesting</p>
+
+<p>Add extra headers to the request before sending</p>
+<p>@since 1.6</p>
+<p>@param string $out HTTP header string</p>
+
+<p>Get the authentication string (user:pass)</p>
+<p>@since 1.6</p>
+<p>@return string</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\RestApi\ThirdParty\Requests\Proxy\HTTP.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Requests_Proxy_HTTP implements Requests_Proxy</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($args = null)</code></li>
+<li><code>register(Requests_Hooks $hooks)</code></li>
+<li><code>curl_before_send(&$handle)</code></li>
+<li><code>fsockopen_remote_socket(&$remote_socket)</code></li>
+<li><code>fsockopen_remote_host_path(&$path, $url)</code></li>
+<li><code>fsockopen_header(&$out)</code></li>
+<li><code>get_auth_string()</code></li>
+</ul>
+</body></html>

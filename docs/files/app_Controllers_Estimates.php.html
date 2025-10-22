@@ -1,0 +1,94 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\Controllers\Estimates.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\Controllers\Estimates.php</h1>
+
+<ul>
+<li>Path: <code>app\Controllers\Estimates.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 47414 bytes</li>
+</ul>
+<h2>References</h2>
+
+<p><strong>Models Used</strong></p>
+<ul>
+<li><code>Custom_fields_model</code></li>
+<li><code>Clients_model</code></li>
+<li><code>Estimates_model</code></li>
+<li><code>Estimate_items_model</code></li>
+<li><code>Proposals_model</code></li>
+<li><code>Contracts_model</code></li>
+<li><code>Orders_model</code></li>
+<li><code>Taxes_model</code></li>
+<li><code>Proposal_items_model</code></li>
+<li><code>Contract_items_model</code></li>
+<li><code>Order_items_model</code></li>
+<li><code>Projects_model</code></li>
+<li><code>Estimate_comments_model</code></li>
+<li><code>Items_model</code></li>
+<li><code>Invoice_items_model</code></li>
+<li><code>Users_model</code></li>
+<li><code>Email_templates_model</code></li>
+</ul>
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>estimate</code></li>
+<li><code>the</code></li>
+<li><code>accepted</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\Controllers\Estimates.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Estimates extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>show_own_estimates_only_user_id()</code></li>
+<li><code>can_access_this_estimate($estimate_id = 0)</code></li>
+<li><code>can_access_this_estimate_item($estimate_item_id = 0)</code></li>
+<li><code>yearly()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save()</code></li>
+<li><code>_copy_related_items_to_estimate($copy_items_from_proposal, $copy_items_from_contract, $copy_items_from_order, $estimate_id)</code></li>
+<li><code>update_estimate_status($estimate_id, $status, $is_modal = false)</code></li>
+<li><code>_create_project_from_estimate($estimate_id)</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>estimate_list_data_of_client($client_id)</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data, $custom_fields)</code></li>
+<li><code>_get_estimate_status_label($estimate_info, $return_html = true)</code></li>
+<li><code>view($estimate_id = 0)</code></li>
+<li><code>_get_estimate_total_view($estimate_id = 0)</code></li>
+<li><code>discount_modal_form()</code></li>
+<li><code>save_discount()</code></li>
+<li><code>item_modal_form()</code></li>
+<li><code>save_item()</code></li>
+<li><code>delete_item()</code></li>
+<li><code>item_list_data($estimate_id = 0)</code></li>
+<li><code>_make_item_row($data)</code></li>
+<li><code>get_estimate_item_suggestion()</code></li>
+<li><code>get_estimate_item_info_suggestion()</code></li>
+<li><code>preview($estimate_id = 0, $show_close_preview = false)</code></li>
+<li><code>download_pdf($estimate_id = 0, $mode = "download")</code></li>
+<li><code>_check_estimate_access_permission($estimate_data)</code></li>
+<li><code>get_estimate_status_bar($estimate_id = 0)</code></li>
+<li><code>send_estimate_modal_form($estimate_id)</code></li>
+<li><code>send_estimate()</code></li>
+<li><code>update_item_sort_values($id = 0)</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_estimate_file()</code></li>
+<li><code>save_comment()</code></li>
+<li><code>delete_comment($id = 0)</code></li>
+<li><code>download_comment_files($id)</code></li>
+<li><code>comment_modal_form()</code></li>
+<li><code>load_statistics_of_selected_currency($currency = "")</code></li>
+<li><code>print_estimate($estimate_id = 0)</code></li>
+</ul>
+</body></html>

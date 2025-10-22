@@ -1,0 +1,127 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\ddeboer-imap\vendor\ddeboer\imap\src\Mailbox.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\ddeboer-imap\vendor\ddeboer\imap\src\Mailbox.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\ddeboer-imap\vendor\ddeboer\imap\src\Mailbox.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 8682 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>An IMAP mailbox (commonly referred to as a 'folder').</p>
+
+<p>@var ImapResourceInterface</p>
+
+<p>@var string</p>
+
+<p>@var \stdClass</p>
+
+<p>Constructor.</p>
+<p>@param ImapResourceInterface $resource IMAP resource</p>
+<p>@param string                $name     Mailbox decoded name</p>
+<p>@param \stdClass             $info     Mailbox info</p>
+
+<p>Get mailbox decoded name.</p>
+<p>@return string</p>
+
+<p>Get mailbox encoded path.</p>
+<p>@return string</p>
+
+<p>Get mailbox encoded full name.</p>
+<p>@return string</p>
+
+<p>Get mailbox attributes.</p>
+<p>@return int</p>
+
+<p>Get mailbox delimiter.</p>
+<p>@return string</p>
+
+<p>Get number of messages in this mailbox.</p>
+<p>@return int</p>
+
+<p>Get Mailbox status.</p>
+<p>@param null|int $flags</p>
+<p>@return \stdClass</p>
+
+<p>Bulk Set Flag for Messages.</p>
+<p>@param string                       $flag    \Seen, \Answered, \Flagged, \Deleted, and \Draft</p>
+<p>@param array|MessageIterator|string $numbers Message numbers</p>
+<p>@return bool</p>
+
+<p>Bulk Clear Flag for Messages.</p>
+<p>@param string                       $flag    \Seen, \Answered, \Flagged, \Deleted, and \Draft</p>
+<p>@param array|MessageIterator|string $numbers Message numbers</p>
+<p>@return bool</p>
+
+<p>Get message ids.</p>
+<p>@param ConditionInterface $search Search expression (optional)</p>
+<p>@return MessageIteratorInterface</p>
+
+<p>Get message iterator for a sequence.</p>
+<p>@param string $sequence Message numbers</p>
+<p>@return MessageIteratorInterface</p>
+
+<p>Get a message by message number.</p>
+<p>@param int $number Message number</p>
+<p>@return MessageInterface</p>
+
+<p>Get messages in this mailbox.</p>
+<p>@return MessageIteratorInterface</p>
+
+<p>Add a message to the mailbox.</p>
+<p>@param string                 $message</p>
+<p>@param null|string            $options</p>
+<p>@param null|DateTimeInterface $internalDate</p>
+<p>@return bool</p>
+
+<p>Returns a tree of threaded message for the current Mailbox.</p>
+<p>@return array</p>
+
+<p>Bulk move messages.</p>
+<p>@param array|MessageIterator|string $numbers Message numbers</p>
+<p>@param MailboxInterface             $mailbox Destination Mailbox to move the messages to</p>
+<p>@throws \Ddeboer\Imap\Exception\MessageMoveException</p>
+
+<p>Bulk copy messages.</p>
+<p>@param array|MessageIterator|string $numbers Message numbers</p>
+<p>@param MailboxInterface             $mailbox Destination Mailbox to copy the messages to</p>
+<p>@throws \Ddeboer\Imap\Exception\MessageCopyException</p>
+
+<p>Prepare message ids for the use with bulk functions.</p>
+<p>@param array|MessageIterator|string $messageIds Message numbers</p>
+<p>@return string</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\ddeboer-imap\vendor\ddeboer\imap\src\Mailbox.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Ddeboer\Imap\Mailbox implements MailboxInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(ImapResourceInterface $resource, string $name, \stdClass $info)</code></li>
+<li><code>getName()</code></li>
+<li><code>getEncodedName()</code></li>
+<li><code>getFullEncodedName()</code></li>
+<li><code>getAttributes()</code></li>
+<li><code>getDelimiter()</code></li>
+<li><code>count()</code></li>
+<li><code>getStatus(int $flags = null)</code></li>
+<li><code>setFlag(string $flag, $numbers)</code></li>
+<li><code>clearFlag(string $flag, $numbers)</code></li>
+<li><code>getMessages(ConditionInterface $search = null, int $sortCriteria = null, bool $descending = false)</code></li>
+<li><code>getMessageSequence(string $sequence)</code></li>
+<li><code>getMessage(int $number)</code></li>
+<li><code>getIterator()</code></li>
+<li><code>addMessage(string $message, string $options = null, DateTimeInterface $internalDate = null)</code></li>
+<li><code>getThread()</code></li>
+<li><code>move($numbers, MailboxInterface $mailbox)</code></li>
+<li><code>copy($numbers, MailboxInterface $mailbox)</code></li>
+<li><code>prepareMessageIds($messageIds)</code></li>
+</ul>
+</body></html>

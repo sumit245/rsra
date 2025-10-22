@@ -1,0 +1,73 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\VarParser.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\VarParser.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\VarParser.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5990 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Parses string representations into their corresponding native PHP</p>
+<p>variable type. The base implementation does a simple type-check.</p>
+
+<p>Lookup table of allowed types. Mainly for backwards compatibility, but</p>
+<p>also convenient for transforming string type names to the integer constants.</p>
+
+<p>Lookup table of types that are string, and can have aliases or</p>
+<p>allowed value lists.</p>
+
+<p>Validate a variable according to type.</p>
+<p>It may return NULL as a valid type if $allow_null is true.</p>
+<p>@param mixed $var Variable to validate</p>
+<p>@param int $type Type of variable, see HTMLPurifier_VarParser->types</p>
+<p>@param bool $allow_null Whether or not to permit null as a value</p>
+<p>@return string Validated and type-coerced variable</p>
+<p>@throws HTMLPurifier_VarParserException</p>
+
+<p>Actually implements the parsing. Base implementation does not</p>
+<p>do anything to $var. Subclasses should overload this!</p>
+<p>@param mixed $var</p>
+<p>@param int $type</p>
+<p>@param bool $allow_null</p>
+<p>@return string</p>
+
+<p>Throws an exception.</p>
+<p>@throws HTMLPurifier_VarParserException</p>
+
+<p>Throws an inconsistency exception.</p>
+<p>@note This should not ever be called. It would be called if we</p>
+<p>      extend the allowed values of HTMLPurifier_VarParser without</p>
+<p>      updating subclasses.</p>
+<p>@param string $class</p>
+<p>@param int $type</p>
+<p>@throws HTMLPurifier_Exception</p>
+
+<p>Generic error for if a type didn't work.</p>
+<p>@param mixed $var</p>
+<p>@param int $type</p>
+
+<p>@param int $type</p>
+<p>@return string</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\VarParser.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>HTMLPurifier_VarParser</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>parse($var, $type, $allow_null = false)</code></li>
+<li><code>parseImplementation($var, $type, $allow_null)</code></li>
+<li><code>error($msg)</code></li>
+<li><code>errorInconsistent($class, $type)</code></li>
+<li><code>errorGeneric($var, $type)</code></li>
+<li><code>getTypeName($type)</code></li>
+</ul>
+</body></html>

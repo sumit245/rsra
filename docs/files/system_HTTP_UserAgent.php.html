@@ -1,0 +1,132 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\HTTP\UserAgent.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\HTTP\UserAgent.php</h1>
+
+<ul>
+<li>Path: <code>system\HTTP\UserAgent.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7975 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Abstraction for an HTTP user agent</p>
+
+<p>Current user-agent</p>
+<p>@var string</p>
+
+<p>Flag for if the user-agent belongs to a browser</p>
+<p>@var bool</p>
+
+<p>Flag for if the user-agent is a robot</p>
+<p>@var bool</p>
+
+<p>Flag for if the user-agent is a mobile browser</p>
+<p>@var bool</p>
+
+<p>Holds the config file contents.</p>
+<p>@var UserAgents</p>
+
+<p>Current user-agent platform</p>
+<p>@var string</p>
+
+<p>Current user-agent browser</p>
+<p>@var string</p>
+
+<p>Current user-agent version</p>
+<p>@var string</p>
+
+<p>Current user-agent mobile name</p>
+<p>@var string</p>
+
+<p>Current user-agent robot name</p>
+<p>@var string</p>
+
+<p>HTTP Referer</p>
+<p>@var mixed</p>
+
+<p>Constructor</p>
+<p>Sets the User Agent and runs the compilation routine</p>
+
+<p>Is Browser</p>
+<p>@param string $key</p>
+
+<p>Is Robot</p>
+<p>@param string $key</p>
+
+<p>Is Mobile</p>
+<p>@param string $key</p>
+
+<p>Is this a referral from another site?</p>
+
+<p>Agent String</p>
+
+<p>Get Platform</p>
+
+<p>Get Browser Name</p>
+
+<p>Get the Browser Version</p>
+
+<p>Get The Robot Name</p>
+
+<p>Get the Mobile Device</p>
+
+<p>Get the referrer</p>
+
+<p>Parse a custom user-agent string</p>
+
+<p>Compile the User Agent Data</p>
+
+<p>Set the Platform</p>
+
+<p>Set the Browser</p>
+
+<p>Set the Robot</p>
+
+<p>Set the Mobile Device</p>
+
+<p>Outputs the original Agent String when cast as a string.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>another</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\HTTP\UserAgent.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\HTTP\UserAgent</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(?UserAgents $config = null)</code></li>
+<li><code>isBrowser(?string $key = null)</code></li>
+<li><code>isRobot(?string $key = null)</code></li>
+<li><code>isMobile(?string $key = null)</code></li>
+<li><code>isReferral()</code></li>
+<li><code>getAgentString()</code></li>
+<li><code>getPlatform()</code></li>
+<li><code>getBrowser()</code></li>
+<li><code>getVersion()</code></li>
+<li><code>getRobot()</code></li>
+<li><code>getMobile()</code></li>
+<li><code>getReferrer()</code></li>
+<li><code>parse(string $string)</code></li>
+<li><code>compileData()</code></li>
+<li><code>setPlatform()</code></li>
+<li><code>setBrowser()</code></li>
+<li><code>setRobot()</code></li>
+<li><code>setMobile()</code></li>
+<li><code>__toString()</code></li>
+</ul>
+</body></html>

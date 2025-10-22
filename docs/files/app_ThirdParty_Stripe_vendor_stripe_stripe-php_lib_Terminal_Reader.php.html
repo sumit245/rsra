@@ -1,0 +1,72 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Terminal\Reader.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Terminal\Reader.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Terminal\Reader.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4040 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>A Reader represents a physical device for accepting payment details.</p>
+<p>Related guide: <a</p>
+<p>href="https://stripe.com/docs/terminal/payments/connect-reader">Connecting to a</p>
+<p>Reader</a>.</p>
+<p>@property string $id Unique identifier for the object.</p>
+<p>@property string $object String representing the object's type. Objects of the same type share the same value.</p>
+<p>@property null|\Stripe\StripeObject $action The most recent action performed by the reader.</p>
+<p>@property null|string $device_sw_version The current software version of the reader.</p>
+<p>@property string $device_type Type of reader, one of <code>bbpos_wisepad3</code>, <code>stripe_m2</code>, <code>bbpos_chipper2x</code>, <code>bbpos_wisepos_e</code>, <code>verifone_P400</code>, or <code>simulated_wisepos_e</code>.</p>
+<p>@property null|string $ip_address The local IP address of the reader.</p>
+<p>@property string $label Custom label given to the reader for easier identification.</p>
+<p>@property bool $livemode Has the value <code>true</code> if the object exists in live mode or the value <code>false</code> if the object exists in test mode.</p>
+<p>@property null|string|\Stripe\Terminal\Location $location The location identifier of the reader.</p>
+<p>@property \Stripe\StripeObject $metadata Set of <a href="https://stripe.com/docs/api/metadata">key-value pairs</a> that you can attach to an object. This can be useful for storing additional information about the object in a structured format.</p>
+<p>@property string $serial_number Serial number of the reader.</p>
+<p>@property null|string $status The networking status of the reader.</p>
+
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Terminal\Reader the canceled reader</p>
+
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Terminal\Reader the processed reader</p>
+
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Terminal\Reader the processed reader</p>
+
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Terminal\Reader the seted reader</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Terminal\Reader.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Terminal\Reader extends \Stripe\ApiResource</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>cancelAction($params = null, $opts = null)</code></li>
+<li><code>processPaymentIntent($params = null, $opts = null)</code></li>
+<li><code>processSetupIntent($params = null, $opts = null)</code></li>
+<li><code>setReaderDisplay($params = null, $opts = null)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,117 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Validation\Rules.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Validation\Rules.php</h1>
+
+<ul>
+<li>Path: <code>system\Validation\Rules.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 8665 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Validation Rules.</p>
+
+<p>The value does not match another field in $data.</p>
+<p>@param array $data Other field/value pairs</p>
+
+<p>Equals the static value provided.</p>
+
+<p>Returns true if $str is $val characters long.</p>
+<p>$val = "5" (one) | "5,8,12" (multiple values)</p>
+
+<p>Greater than</p>
+
+<p>Equal to or Greater than</p>
+
+<p>Checks the database to see if the given value exist.</p>
+<p>Can ignore records by field/value to filter (currently</p>
+<p>accept only one filter).</p>
+<p>Example:</p>
+<p>   is_not_unique[table.field,where_field,where_value]</p>
+<p>   is_not_unique[menu.id,active,1]</p>
+
+<p>Value should be within an array of values</p>
+
+<p>Checks the database to see if the given value is unique. Can</p>
+<p>ignore a single record by field/value to make it useful during</p>
+<p>record updates.</p>
+<p>Example:</p>
+<p>   is_unique[table.field,ignore_field,ignore_value]</p>
+<p>   is_unique[users.email,id,5]</p>
+
+<p>Less than</p>
+
+<p>Equal to or Less than</p>
+
+<p>Matches the value of another field in $data.</p>
+<p>@param array $data Other field/value pairs</p>
+
+<p>Returns true if $str is $val or fewer characters in length.</p>
+
+<p>Returns true if $str is at least $val length.</p>
+
+<p>Does not equal the static value provided.</p>
+<p>@param string $str</p>
+
+<p>Value should not be within an array of values.</p>
+<p>@param string $value</p>
+
+<p>@param mixed $str</p>
+
+<p>The field is required when any of the other required fields are present</p>
+<p>in the data.</p>
+<p>Example (field is required when the password field is present):</p>
+<p>    required_with[password]</p>
+<p>@param string|null $str</p>
+<p>@param string|null $fields List of fields that we should check if present</p>
+<p>@param array       $data   Complete list of fields from the form</p>
+
+<p>The field is required when all of the other fields are present</p>
+<p>in the data but not required.</p>
+<p>Example (field is required when the id or email field is missing):</p>
+<p>    required_without[id,email]</p>
+<p>@param string|null $str</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Validation\Rules.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Validation\Rules</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>differs(?string $str, string $field, array $data)</code></li>
+<li><code>equals(?string $str, string $val)</code></li>
+<li><code>exact_length(?string $str, string $val)</code></li>
+<li><code>greater_than(?string $str, string $min)</code></li>
+<li><code>greater_than_equal_to(?string $str, string $min)</code></li>
+<li><code>is_not_unique(?string $str, string $field, array $data)</code></li>
+<li><code>in_list(?string $value, string $list)</code></li>
+<li><code>is_unique(?string $str, string $field, array $data)</code></li>
+<li><code>less_than(?string $str, string $max)</code></li>
+<li><code>less_than_equal_to(?string $str, string $max)</code></li>
+<li><code>matches(?string $str, string $field, array $data)</code></li>
+<li><code>max_length(?string $str, string $val)</code></li>
+<li><code>min_length(?string $str, string $val)</code></li>
+<li><code>not_equals(?string $str, string $val)</code></li>
+<li><code>not_in_list(?string $value, string $list)</code></li>
+<li><code>required($str = null)</code></li>
+<li><code>required_with($str = null, ?string $fields = null, array $data = [])</code></li>
+<li><code>required_without($str = null, ?string $fields = null, array $data = [])</code></li>
+</ul>
+</body></html>

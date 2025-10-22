@@ -1,0 +1,210 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\Rijndael.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\Rijndael.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\Rijndael.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 41781 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Pure-PHP implementation of Rijndael.</p>
+<p>Uses mcrypt, if available/possible, and an internal implementation, otherwise.</p>
+<p>PHP version 5</p>
+<p>If {@link self::setBlockLength() setBlockLength()} isn't called, it'll be assumed to be 128 bits.  If</p>
+<p>{@link self::setKeyLength() setKeyLength()} isn't called, it'll be calculated from</p>
+<p>{@link self::setKey() setKey()}.  ie. if the key is 128-bits, the key length will be 128-bits.  If it's</p>
+<p>136-bits it'll be null-padded to 192-bits and 192 bits will be the key length until</p>
+<p>{@link self::setKey() setKey()} is called, again, at which point, it'll be recalculated.</p>
+<p>Not all Rijndael implementations may support 160-bits or 224-bits as the block length / key length.  mcrypt, for example,</p>
+<p>does not.  AES, itself, only supports block lengths of 128 and key lengths of 128, 192, and 256.</p>
+<p>{@link http://csrc.nist.gov/archive/aes/rijndael/Rijndael-ammended.pdf#page=10 Rijndael-ammended.pdf#page=10} defines the</p>
+<p>algorithm for block lengths of 192 and 256 but not for block lengths / key lengths of 160 and 224.  Indeed, 160 and 224</p>
+<p>are first defined as valid key / block lengths in</p>
+<p>{@link http://csrc.nist.gov/archive/aes/rijndael/Rijndael-ammended.pdf#page=44 Rijndael-ammended.pdf#page=44}:</p>
+<p>Extensions: Other block and Cipher Key lengths.</p>
+<p>Note: Use of 160/224-bit Keys must be explicitly set by setKeyLength(160) respectively setKeyLength(224).</p>
+<p>{@internal The variable names are the same as those in</p>
+<p>{@link http://www.csrc.nist.gov/publications/fips/fips197/fips-197.pdf#page=10 fips-197.pdf#page=10}.}}</p>
+<p>Here's a short example of how to use this library:</p>
+<p><code></p>
+<p><?php</p>
+<p>   include 'vendor/autoload.php';</p>
+<p>   $rijndael = new \phpseclib\Crypt\Rijndael();</p>
+<p>   $rijndael->setKey('abcdefghijklmnop');</p>
+<p>   $size = 10 * 1024;</p>
+<p>   $plaintext = '';</p>
+<p>   for ($i = 0; $i < $size; $i++) {</p>
+<p>       $plaintext.= 'a';</p>
+<p>   }</p>
+<p>   echo $rijndael->decrypt($rijndael->encrypt($plaintext));</p>
+<p>?></p>
+<p></code></p>
+<p>@category  Crypt</p>
+<p>@package   Rijndael</p>
+<p>@author    Jim Wigginton <terrafrost@php.net></p>
+<p>@copyright 2008 Jim Wigginton</p>
+<p>@license   http://www.opensource.org/licenses/mit-license.html  MIT License</p>
+<p>@link      http://phpseclib.sourceforge.net</p>
+
+<p>Pure-PHP implementation of Rijndael.</p>
+<p>@package Rijndael</p>
+<p>@author  Jim Wigginton <terrafrost@php.net></p>
+<p>@access  public</p>
+
+<p>The mcrypt specific name of the cipher</p>
+<p>Mcrypt is useable for 128/192/256-bit $block_size/$key_length. For 160/224 not.</p>
+<p>\phpseclib\Crypt\Rijndael determines automatically whether mcrypt is useable</p>
+<p>or not for the current $block_size/$key_length.</p>
+<p>In case of, $cipher_name_mcrypt will be set dynamically at run time accordingly.</p>
+<p>@see \phpseclib\Crypt\Base::cipher_name_mcrypt</p>
+<p>@see \phpseclib\Crypt\Base::engine</p>
+<p>@see self::isValidEngine()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>The default salt used by setPassword()</p>
+<p>@see \phpseclib\Crypt\Base::password_default_salt</p>
+<p>@see \phpseclib\Crypt\Base::setPassword()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>The Key Schedule</p>
+<p>@see self::_setup()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>The Inverse Key Schedule</p>
+<p>@see self::_setup()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>The Block Length divided by 32</p>
+<p>@see self::setBlockLength()</p>
+<p>@var int</p>
+<p>@access private</p>
+<p>@internal The max value is 256 / 32 = 8, the min value is 128 / 32 = 4.  Exists in conjunction with $block_size</p>
+<p>   because the encryption / decryption / key schedule creation requires this number and not $block_size.  We could</p>
+<p>   derive this from $block_size or vice versa, but that'd mean we'd have to do multiple shift operations, so in lieu</p>
+<p>   of that, we'll just precompute it once.</p>
+
+<p>The Key Length (in bytes)</p>
+<p>@see self::setKeyLength()</p>
+<p>@var int</p>
+<p>@access private</p>
+<p>@internal The max value is 256 / 8 = 32, the min value is 128 / 8 = 16.  Exists in conjunction with $Nk</p>
+<p>   because the encryption / decryption / key schedule creation requires this number and not $key_length.  We could</p>
+<p>   derive this from $key_length or vice versa, but that'd mean we'd have to do multiple shift operations, so in lieu</p>
+<p>   of that, we'll just precompute it once.</p>
+
+<p>The Key Length divided by 32</p>
+<p>@see self::setKeyLength()</p>
+<p>@var int</p>
+<p>@access private</p>
+<p>@internal The max value is 256 / 32 = 8, the min value is 128 / 32 = 4</p>
+
+<p>The Number of Rounds</p>
+<p>@var int</p>
+<p>@access private</p>
+<p>@internal The max value is 14, the min value is 10.</p>
+
+<p>Shift offsets</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Holds the last used key- and block_size information</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Sets the key length.</p>
+<p>Valid key lengths are 128, 160, 192, 224, and 256.  If the length is less than 128, it will be rounded up to</p>
+<p>128.  If the length is greater than 128 and invalid, it will be rounded down to the closest valid amount.</p>
+<p>Note: phpseclib extends Rijndael (and AES) for using 160- and 224-bit keys but they are officially not defined</p>
+<p>      and the most (if not all) implementations are not able using 160/224-bit keys but round/pad them up to</p>
+<p>      192/256 bits as, for example, mcrypt will do.</p>
+<p>      That said, if you want be compatible with other Rijndael and AES implementations,</p>
+<p>      you should not setKeyLength(160) or setKeyLength(224).</p>
+<p>Additional: In case of 160- and 224-bit keys, phpseclib will/can, for that reason, not use</p>
+<p>            the mcrypt php extension, even if available.</p>
+<p>            This results then in slower encryption.</p>
+<p>@access public</p>
+<p>@param int $length</p>
+
+<p>Sets the block length</p>
+<p>Valid block lengths are 128, 160, 192, 224, and 256.  If the length is less than 128, it will be rounded up to</p>
+<p>128.  If the length is greater than 128 and invalid, it will be rounded down to the closest valid amount.</p>
+<p>@access public</p>
+<p>@param int $length</p>
+
+<p>Test for engine validity</p>
+<p>This is mainly just a wrapper to set things up for \phpseclib\Crypt\Base::isValidEngine()</p>
+<p>@see \phpseclib\Crypt\Base::__construct()</p>
+<p>@param int $engine</p>
+<p>@access public</p>
+<p>@return bool</p>
+
+<p>Encrypts a block</p>
+<p>@access private</p>
+<p>@param string $in</p>
+<p>@return string</p>
+
+<p>Decrypts a block</p>
+<p>@access private</p>
+<p>@param string $in</p>
+<p>@return string</p>
+
+<p>Setup the key (expansion)</p>
+<p>@see \phpseclib\Crypt\Base::_setupKey()</p>
+<p>@access private</p>
+
+<p>Performs S-Box substitutions</p>
+<p>@access private</p>
+<p>@param int $word</p>
+
+<p>Provides the mixColumns and sboxes tables</p>
+<p>@see self::_encryptBlock()</p>
+<p>@see self::_setupInlineCrypt()</p>
+<p>@see self::_subWord()</p>
+<p>@access private</p>
+<p>@return array &$tables</p>
+
+<p>Provides the inverse mixColumns and inverse sboxes tables</p>
+<p>@see self::_decryptBlock()</p>
+<p>@see self::_setupInlineCrypt()</p>
+<p>@see self::_setupKey()</p>
+<p>@access private</p>
+<p>@return array &$tables</p>
+
+<p>Setup the performance-optimized function for de/encrypt()</p>
+<p>@see \phpseclib\Crypt\Base::_setupInlineCrypt()</p>
+<p>@access private</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\Rijndael.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>phpseclib\Crypt\Rijndael extends Base</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>setKeyLength($length)</code></li>
+<li><code>setBlockLength($length)</code></li>
+<li><code>isValidEngine($engine)</code></li>
+<li><code>_encryptBlock($in)</code></li>
+<li><code>_decryptBlock($in)</code></li>
+<li><code>_setupKey()</code></li>
+<li><code>_subWord($word)</code></li>
+<li><code>_setupInlineCrypt()</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,364 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\ZipEntry.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\ZipEntry.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\ZipEntry.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 31667 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>ZIP file entry.</p>
+<p>@see     https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT .ZIP File Format Specification</p>
+
+<p>@var int the unknown value for numeric properties</p>
+
+<p>@var string Entry name (filename in archive)</p>
+
+<p>@var bool Is directory</p>
+
+<p>@var ZipData|null Zip entry contents</p>
+
+<p>@var int Made by platform</p>
+
+<p>@var int Extracted by platform</p>
+
+<p>@var int Software version</p>
+
+<p>@var int Version needed to extract</p>
+
+<p>@var int Compression method</p>
+
+<p>@var int General purpose bit flags</p>
+
+<p>@var int Dos time</p>
+
+<p>@var int Crc32</p>
+
+<p>@var int Compressed size</p>
+
+<p>@var int Uncompressed size</p>
+
+<p>@var int Internal attributes</p>
+
+<p>@var int External attributes</p>
+
+<p>@var int relative Offset Of Local File Header</p>
+
+<p>Collections of Extra Fields in Central Directory.</p>
+<p>Keys from Header ID [int] and value Extra Field [ExtraField].</p>
+
+<p>Collections of Extra Fields int local header.</p>
+<p>Keys from Header ID [int] and value Extra Field [ExtraField].</p>
+
+<p>@var string|null comment field</p>
+
+<p>@var string|null entry password for read or write encryption data</p>
+
+<p>@var int encryption method</p>
+
+<p>@var int compression level</p>
+
+<p>@var string|null entry name charset</p>
+
+<p>@param string      $name    Entry name</p>
+<p>@param string|null $charset Entry name charset</p>
+
+<p>This method only internal use.</p>
+<p>@internal</p>
+<p>@noinspection PhpTooManyParametersInspection</p>
+<p>@param ?string $comment</p>
+<p>@param ?string $charset</p>
+<p>@return ZipEntry</p>
+
+<p>Set entry name.</p>
+<p>@param string      $name    New entry name</p>
+<p>@param string|null $charset Entry name charset</p>
+<p>@return ZipEntry</p>
+
+<p>@see DosCodePage::getCodePages()</p>
+<p>@param ?string $charset</p>
+<p>@return ZipEntry</p>
+
+<p>@param string $newName New entry name</p>
+<p>@return ZipEntry new {@see ZipEntry} object with new name</p>
+<p>@internal</p>
+
+<p>Returns the ZIP entry name.</p>
+
+<p>@return int platform</p>
+
+<p>Set platform.</p>
+<p>@return ZipEntry</p>
+
+<p>Set extracted OS.</p>
+<p>@return ZipEntry</p>
+
+<p>@return ZipEntry</p>
+
+<p>Version needed to extract.</p>
+
+<p>Set version needed to extract.</p>
+<p>@return ZipEntry</p>
+
+<p>Returns the compressed size of this entry.</p>
+
+<p>Sets the compressed size of this entry.</p>
+<p>@param int $compressedSize the Compressed Size</p>
+<p>@return ZipEntry</p>
+<p>@internal</p>
+
+<p>Returns the uncompressed size of this entry.</p>
+
+<p>Sets the uncompressed size of this entry.</p>
+<p>@param int $uncompressedSize the (Uncompressed) Size</p>
+<p>@return ZipEntry</p>
+<p>@internal</p>
+
+<p>Return relative Offset Of Local File Header.</p>
+
+<p>@return ZipEntry</p>
+<p>@internal</p>
+
+<p>Returns the General Purpose Bit Flags.</p>
+
+<p>Sets the General Purpose Bit Flags.</p>
+<p>@param int $gpbf general purpose bit flags</p>
+<p>@return ZipEntry</p>
+<p>@internal</p>
+
+<p>@return ZipEntry</p>
+
+<p>Enabling or disabling the use of the Data Descriptor block.</p>
+
+<p>Returns true if and only if this ZIP entry is encrypted.</p>
+
+<p>Sets the encryption property to false and removes any other</p>
+<p>encryption artifacts.</p>
+<p>@return ZipEntry</p>
+
+<p>Sets the encryption flag for this ZIP entry.</p>
+<p>@return ZipEntry</p>
+
+<p>Returns the compression method for this entry.</p>
+
+<p>Sets the compression method for this entry.</p>
+<p>@throws ZipUnsupportMethodException</p>
+<p>@return ZipEntry</p>
+<p>@see ZipCompressionMethod::STORED</p>
+<p>@see ZipCompressionMethod::DEFLATED</p>
+<p>@see ZipCompressionMethod::BZIP2</p>
+
+<p>Get Unix Timestamp.</p>
+
+<p>Get Dos Time.</p>
+
+<p>Set Dos Time.</p>
+<p>@return ZipEntry</p>
+
+<p>Set time from unix timestamp.</p>
+<p>@return ZipEntry</p>
+
+<p>Returns the external file attributes.</p>
+<p>@return int the external file attributes</p>
+
+<p>Sets the external file attributes.</p>
+<p>@param int $externalAttributes the external file attributes</p>
+<p>@return ZipEntry</p>
+
+<p>Returns the internal file attributes.</p>
+<p>@return int the internal file attributes</p>
+
+<p>Sets the internal file attributes.</p>
+<p>@param int $internalAttributes the internal file attributes</p>
+<p>@return ZipEntry</p>
+
+<p>Returns true if and only if this ZIP entry represents a directory entry</p>
+<p>(i.e. end with '/').</p>
+
+<p>@return ZipEntry</p>
+
+<p>@return ZipEntry</p>
+
+<p>Returns comment entry.</p>
+
+<p>Set entry comment.</p>
+<p>@param ?string $comment</p>
+<p>@return ZipEntry</p>
+
+<p>Return crc32 content or 0 for WinZip AES v2.</p>
+
+<p>Set crc32 content.</p>
+<p>@return ZipEntry</p>
+<p>@internal</p>
+
+<p>Set password and encryption method from entry.</p>
+<p>@param ?string $password</p>
+<p>@param ?int    $encryptionMethod</p>
+<p>@return ZipEntry</p>
+
+<p>Set encryption method.</p>
+<p>@see ZipEncryptionMethod::NONE</p>
+<p>@see ZipEncryptionMethod::PKWARE</p>
+<p>@see ZipEncryptionMethod::WINZIP_AES_256</p>
+<p>@see ZipEncryptionMethod::WINZIP_AES_192</p>
+<p>@see ZipEncryptionMethod::WINZIP_AES_128</p>
+<p>@param ?int $encryptionMethod</p>
+<p>@return ZipEntry</p>
+
+<p>@return ZipEntry</p>
+
+<p>Update general purpose bit flogs.</p>
+
+<p>Sets Unix permissions in a way that is understood by Info-Zip's</p>
+<p>unzip command.</p>
+<p>@param int $mode mode an int value</p>
+<p>@return ZipEntry</p>
+
+<p>Unix permission.</p>
+<p>@return int the unix permissions</p>
+
+<p>@var AsiExtraField $asiExtraField</p>
+
+<p>Offset MUST be considered in decision about ZIP64 format - see</p>
+<p>description of Data Descriptor in ZIP File Format Specification.</p>
+
+<p>Returns true if this entry represents a unix symlink,</p>
+<p>in which case the entry's content contains the target path</p>
+<p>for the symlink.</p>
+<p>@return bool true if the entry represents a unix symlink,</p>
+<p>             false otherwise</p>
+
+<p>@var NtfsExtraField|null $ntfsExtra</p>
+
+<p>@var ExtendedTimestampExtraField|null $extendedExtra</p>
+
+<p>@var OldUnixExtraField|null $oldUnixExtra</p>
+
+<p>@var NtfsExtraField|null $ntfsExtra</p>
+
+<p>@var ExtendedTimestampExtraField|null $extendedExtra</p>
+
+<p>@var OldUnixExtraField|null $oldUnixExtra</p>
+
+<p>@var NtfsExtraField|null $ntfsExtra</p>
+
+<p>@var ExtendedTimestampExtraField|null $extendedExtra</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>Header</code></li>
+<li><code>unix</code></li>
+<li><code>entry</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\ZipEntry.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpZip\Model\ZipEntry</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(string $name, ?string $charset = null)</code></li>
+<li>`create(string $name,</li>
+<p>        int $createdOS,</p>
+<p>        int $extractedOS,</p>
+<p>        int $softwareVersion,</p>
+<p>        int $extractVersion,</p>
+<p>        int $compressionMethod,</p>
+<p>        int $gpbf,</p>
+<p>        int $dosTime,</p>
+<p>        int $crc,</p>
+<p>        int $compressedSize,</p>
+<p>        int $uncompressedSize,</p>
+<p>        int $internalAttributes,</p>
+<p>        int $externalAttributes,</p>
+<p>        int $offsetLocalHeader,</p>
+<p>        ?string $comment = null,</p>
+<p>        ?string $charset = null)`</p>
+<li><code>setName(string $name, ?string $charset = null)</code></li>
+<li><code>setCharset(?string $charset = null)</code></li>
+<li><code>getCharset()</code></li>
+<li><code>rename(string $newName)</code></li>
+<li><code>getName()</code></li>
+<li><code>getData()</code></li>
+<li><code>setData(?ZipData $data)</code></li>
+<li><code>getCreatedOS()</code></li>
+<li><code>setCreatedOS(int $platform)</code></li>
+<li><code>getExtractedOS()</code></li>
+<li><code>setExtractedOS(int $platform)</code></li>
+<li><code>getSoftwareVersion()</code></li>
+<li><code>setSoftwareVersion(int $softwareVersion)</code></li>
+<li><code>getExtractVersion()</code></li>
+<li><code>setExtractVersion(int $version)</code></li>
+<li><code>getCompressedSize()</code></li>
+<li><code>setCompressedSize(int $compressedSize)</code></li>
+<li><code>getUncompressedSize()</code></li>
+<li><code>setUncompressedSize(int $uncompressedSize)</code></li>
+<li><code>getLocalHeaderOffset()</code></li>
+<li><code>setLocalHeaderOffset(int $localHeaderOffset)</code></li>
+<li><code>getGeneralPurposeBitFlags()</code></li>
+<li><code>setGeneralPurposeBitFlags(int $gpbf)</code></li>
+<li><code>updateCompressionLevel()</code></li>
+<li><code>setGeneralBitFlag(int $mask, bool $enable)</code></li>
+<li><code>isSetGeneralBitFlag(int $mask)</code></li>
+<li><code>isDataDescriptorEnabled()</code></li>
+<li><code>enableDataDescriptor(bool $enabled = true)</code></li>
+<li><code>enableUtf8Name(bool $enabled)</code></li>
+<li><code>isUtf8Flag()</code></li>
+<li><code>isEncrypted()</code></li>
+<li><code>isStrongEncryption()</code></li>
+<li><code>disableEncryption()</code></li>
+<li><code>setEncrypted(bool $encrypted)</code></li>
+<li><code>getCompressionMethod()</code></li>
+<li><code>setCompressionMethod(int $compressionMethod)</code></li>
+<li><code>getTime()</code></li>
+<li><code>getDosTime()</code></li>
+<li><code>setDosTime(int $dosTime)</code></li>
+<li><code>setTime(int $unixTimestamp)</code></li>
+<li><code>getExternalAttributes()</code></li>
+<li><code>setExternalAttributes(int $externalAttributes)</code></li>
+<li><code>getInternalAttributes()</code></li>
+<li><code>setInternalAttributes(int $internalAttributes)</code></li>
+<li><code>isDirectory()</code></li>
+<li><code>getCdExtraFields()</code></li>
+<li><code>getCdExtraField(int $headerId)</code></li>
+<li><code>setCdExtraFields(ExtraFieldsCollection $cdExtraFields)</code></li>
+<li><code>getLocalExtraFields()</code></li>
+<li><code>getLocalExtraField(int $headerId)</code></li>
+<li><code>setLocalExtraFields(ExtraFieldsCollection $localExtraFields)</code></li>
+<li><code>getExtraField(int $headerId)</code></li>
+<li><code>hasExtraField(int $headerId)</code></li>
+<li><code>removeExtraField(int $headerId)</code></li>
+<li><code>addExtraField(ZipExtraField $zipExtraField)</code></li>
+<li><code>addLocalExtraField(ZipExtraField $zipExtraField)</code></li>
+<li><code>addCdExtraField(ZipExtraField $zipExtraField)</code></li>
+<li><code>getComment()</code></li>
+<li><code>setComment(?string $comment)</code></li>
+<li><code>isDataDescriptorRequired()</code></li>
+<li><code>getCrc()</code></li>
+<li><code>setCrc(int $crc)</code></li>
+<li><code>getPassword()</code></li>
+<li><code>setPassword(?string $password, ?int $encryptionMethod = null)</code></li>
+<li><code>getEncryptionMethod()</code></li>
+<li><code>setEncryptionMethod(?int $encryptionMethod)</code></li>
+<li><code>getCompressionLevel()</code></li>
+<li><code>setCompressionLevel(int $compressionLevel)</code></li>
+<li><code>updateGbpfCompLevel()</code></li>
+<li><code>setUnixMode(int $mode)</code></li>
+<li><code>getUnixMode()</code></li>
+<li><code>isZip64ExtensionsRequired()</code></li>
+<li><code>isUnixSymlink()</code></li>
+<li><code>getMTime()</code></li>
+<li><code>getATime()</code></li>
+<li><code>getCTime()</code></li>
+<li><code>__clone()</code></li>
+</ul>
+</body></html>

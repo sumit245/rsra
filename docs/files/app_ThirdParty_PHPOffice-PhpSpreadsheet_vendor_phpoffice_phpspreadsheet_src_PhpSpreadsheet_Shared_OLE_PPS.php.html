@@ -1,0 +1,97 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\OLE\PPS.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\OLE\PPS.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\OLE\PPS.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7198 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Class for creating PPS's for OLE containers.</p>
+<p>@author   Xavier Noguer <xnoguer@php.net></p>
+
+<p>The PPS index.</p>
+<p>@var int</p>
+
+<p>The PPS name (in Unicode).</p>
+<p>@var string</p>
+
+<p>The PPS type. Dir, Root or File.</p>
+<p>@var int</p>
+
+<p>The index of the previous PPS.</p>
+<p>@var int</p>
+
+<p>The index of the next PPS.</p>
+<p>@var int</p>
+
+<p>The index of it's first child if this is a Dir or Root PPS.</p>
+<p>@var int</p>
+
+<p>A timestamp.</p>
+<p>@var float|int</p>
+
+<p>A timestamp.</p>
+<p>@var float|int</p>
+
+<p>Starting block (small or big) for this PPS's data  inside the container.</p>
+<p>@var int</p>
+
+<p>The size of the PPS's data (in bytes).</p>
+<p>@var int</p>
+
+<p>The PPS's data (only used if it's not using a temporary file).</p>
+<p>@var string</p>
+
+<p>Array of child PPS's (only used by Root and Dir PPS's).</p>
+<p>@var array</p>
+
+<p>Pointer to OLE container.</p>
+<p>@var OLE</p>
+
+<p>The constructor.</p>
+<p>@param int $No The PPS index</p>
+<p>@param string $name The PPS name</p>
+<p>@param int $type The PPS type. Dir, Root or File</p>
+<p>@param int $prev The index of the previous PPS</p>
+<p>@param int $next The index of the next PPS</p>
+<p>@param int $dir The index of it's first child if this is a Dir or Root PPS</p>
+<p>@param null|float|int $time_1st A timestamp</p>
+<p>@param null|float|int $time_2nd A timestamp</p>
+<p>@param string $data The (usually binary) source data of the PPS</p>
+<p>@param array $children Array containing children PPS for this PPS</p>
+
+<p>Returns the amount of data saved for this PPS.</p>
+<p>@return int The amount of data (in bytes)</p>
+
+<p>Returns a string with the PPS's WK (What is a WK?).</p>
+<p>@return string The binary string</p>
+
+<p>Updates index and pointers to previous, next and children PPS's for this</p>
+<p>PPS. I don't think it'll work with Dir PPS's.</p>
+<p>@param array $raList Reference to the array of PPS's for the whole OLE</p>
+<p>                         container</p>
+<p>@param mixed $to_save</p>
+<p>@param mixed $depth</p>
+<p>@return int The index for this PPS</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\OLE\PPS.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Shared\OLE\PPS</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($No, $name, $type, $prev, $next, $dir, $time_1st, $time_2nd, $data, $children)</code></li>
+<li><code>getDataLen()</code></li>
+<li><code>getPpsWk()</code></li>
+<li><code>savePpsSetPnt(&$raList, $to_save, $depth = 0)</code></li>
+</ul>
+</body></html>

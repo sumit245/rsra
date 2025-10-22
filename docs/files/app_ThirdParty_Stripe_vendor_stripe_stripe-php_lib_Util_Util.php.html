@@ -1,0 +1,86 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Util\Util.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Util\Util.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Util\Util.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7407 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Whether the provided array (or other) is a list rather than a dictionary.</p>
+<p>A list is defined as an array for which all the keys are consecutive</p>
+<p>integers starting at 0. Empty arrays are considered to be lists.</p>
+<p>@param array|mixed $array</p>
+<p>@return bool true if the given object is a list</p>
+
+<p>Converts a response from the Stripe API to the corresponding PHP object.</p>
+<p>@param array $resp the response from the Stripe API</p>
+<p>@param array $opts</p>
+<p>@return array|StripeObject</p>
+
+<p>@param mixed|string $value a string to UTF8-encode</p>
+<p>@return mixed|string the UTF8-encoded string, or the object passed in if</p>
+<p>   it wasn't a string</p>
+
+<p>Compares two strings for equality. The time taken is independent of the</p>
+<p>number of characters that match.</p>
+<p>@param string $a one of the strings to compare</p>
+<p>@param string $b the other string to compare</p>
+<p>@return bool true if the strings are equal, false otherwise</p>
+
+<p>Recursively goes through an array of parameters. If a parameter is an instance of</p>
+<p>ApiResource, then it is replaced by the resource's ID.</p>
+<p>Also clears out null values.</p>
+<p>@param mixed $h</p>
+<p>@return mixed</p>
+
+<p>@param array $params</p>
+<p>@return string</p>
+
+<p>@param array $params</p>
+<p>@param null|string $parentKey</p>
+<p>@return array</p>
+
+<p>@param array $value</p>
+<p>@param string $calculatedKey</p>
+<p>@return array</p>
+
+<p>@param string $key a string to URL-encode</p>
+<p>@return string the URL-encoded string</p>
+
+<p>Returns UNIX timestamp in milliseconds.</p>
+<p>@return int current time in millis</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Util\Util.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Util\Util</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>isList($array)</code></li>
+<li><code>convertToStripeObject($resp, $opts)</code></li>
+<li><code>utf8($value)</code></li>
+<li><code>secureCompare($a, $b)</code></li>
+<li><code>objectsToIds($h)</code></li>
+<li><code>encodeParameters($params)</code></li>
+<li><code>flattenParams($params, $parentKey = null)</code></li>
+<li><code>flattenParamsList($value, $calculatedKey)</code></li>
+<li><code>urlEncode($key)</code></li>
+<li><code>normalizeId($id)</code></li>
+<li><code>currentTimeMillis()</code></li>
+</ul>
+</body></html>

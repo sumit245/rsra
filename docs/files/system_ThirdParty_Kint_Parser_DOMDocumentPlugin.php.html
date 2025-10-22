@@ -1,0 +1,58 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\ThirdParty\Kint\Parser\DOMDocumentPlugin.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\ThirdParty\Kint\Parser\DOMDocumentPlugin.php</h1>
+
+<ul>
+<li>Path: <code>system\ThirdParty\Kint\Parser\DOMDocumentPlugin.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 11535 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>The DOMDocument parser plugin is particularly useful as it is both the only</p>
+<p>way to see inside the DOMNode without print_r, and the only way to see mixed</p>
+<p>text and node inside XML (SimpleXMLElement will strip out the text).</p>
+
+<p>List of properties to skip parsing.</p>
+<p>The properties of a DOMNode can do a *lot* of damage to debuggers. The</p>
+<p>DOMNode contains not one, not two, not three, not four, not 5, not 6,</p>
+<p>not 7 but 8 different ways to recurse into itself:</p>
+<p>* firstChild</p>
+<p>* lastChild</p>
+<p>* previousSibling</p>
+<p>* nextSibling</p>
+<p>* ownerDocument</p>
+<p>* parentNode</p>
+<p>* childNodes</p>
+<p>* attributes</p>
+<p>All of this combined: the tiny SVGs used as the caret in Kint are already</p>
+<p>enough to make parsing and rendering take over a second, and send memory</p>
+<p>usage over 128 megs. So we blacklist every field we don't strictly need</p>
+<p>and hope that that's good enough.</p>
+<p>In retrospect - this is probably why print_r does the same</p>
+<p>@var array</p>
+
+<p>Show all properties and methods.</p>
+<p>@var bool</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\ThirdParty\Kint\Parser\DOMDocumentPlugin.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Kint\Parser\DOMDocumentPlugin extends Plugin</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getTypes()</code></li>
+<li><code>getTriggers()</code></li>
+<li><code>parse(&$var, Value &$o, $trigger)</code></li>
+<li><code>parseList(&$var, InstanceValue &$o, $trigger)</code></li>
+<li><code>parseNode(&$var, InstanceValue &$o)</code></li>
+<li><code>parseProperty(InstanceValue $o, $prop, &$var)</code></li>
+<li><code>textualNodeToString(InstanceValue $o)</code></li>
+</ul>
+</body></html>

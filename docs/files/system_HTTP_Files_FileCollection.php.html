@@ -1,0 +1,87 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\HTTP\Files\FileCollection.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\HTTP\Files\FileCollection.php</h1>
+
+<ul>
+<li>Path: <code>system\HTTP\Files\FileCollection.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7284 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Class FileCollection</p>
+<p>Provides easy access to uploaded files for a request.</p>
+
+<p>An array of UploadedFile instances for any files</p>
+<p>uploaded as part of this request.</p>
+<p>Populated the first time either files(), file(), or hasFile()</p>
+<p>is called.</p>
+<p>@var array|null</p>
+
+<p>Returns an array of all uploaded files that were found.</p>
+<p>Each element in the array will be an instance of UploadedFile.</p>
+<p>The key of each element will be the client filename.</p>
+<p>@return array|null</p>
+
+<p>Attempts to get a single file from the collection of uploaded files.</p>
+<p>@return UploadedFile|null</p>
+
+<p>Verify if a file exist in the collection of uploaded files and is have been uploaded with multiple option.</p>
+<p>@return array|null</p>
+
+<p>Checks whether an uploaded file with name $fileID exists in</p>
+<p>this request.</p>
+<p>@param string $fileID The name of the uploaded file (from the input)</p>
+
+<p>Taking information from the $_FILES array, it creates an instance</p>
+<p>of UploadedFile for each one, saving the results to this->files.</p>
+<p>Called by files(), file(), and hasFile()</p>
+
+<p>Given a file array, will create UploadedFile instances. Will</p>
+<p>loop over an array and create objects for each.</p>
+<p>@return array|UploadedFile</p>
+
+<p>Reformats the odd $_FILES array into something much more like</p>
+<p>we would expect, with each object having its own array.</p>
+<p>Thanks to Jack Sleight on the PHP Manual page for the basis</p>
+<p>of this method.</p>
+<p>@see http://php.net/manual/en/reserved.variables.files.php#118294</p>
+
+<p>Navigate through an array looking for a particular index</p>
+<p>@param array $index The index sequence we are navigating down</p>
+<p>@param array $value The portion of the array to process</p>
+<p>@return mixed</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\HTTP\Files\FileCollection.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\HTTP\Files\FileCollection</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>all()</code></li>
+<li><code>getFile(string $name)</code></li>
+<li><code>getFileMultiple(string $name)</code></li>
+<li><code>hasFile(string $fileID)</code></li>
+<li><code>populateFiles()</code></li>
+<li><code>createFileObject(array $array)</code></li>
+<li><code>fixFilesArray(array $data)</code></li>
+<li><code>getValueDotNotationSyntax(array $index, array $value)</code></li>
+</ul>
+</body></html>

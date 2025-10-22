@@ -1,0 +1,125 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\ParameterConsumer.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\ParameterConsumer.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\ParameterConsumer.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7165 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Reads headers separated into parameters consisting of a main value, and</p>
+<p>subsequent name/value pairs - for example text/html; charset=utf-8.</p>
+
+<p>A ParameterConsumer's parts are separated by a semi-colon.  Its name/value</p>
+<p>pairs are separated with an '=' character.</p>
+
+<p>Parts may be mime-encoded entities.  Additionally, a value can be quoted and</p>
+<p>comments may exist.</p>
+
+<p>@author Zaahid Bateson</p>
+
+<p>Returns semi-colon and equals char as token separators.</p>
+
+<p>@return string[]</p>
+
+<p>Overridden to use a specialized regex for finding mime-encoded parts</p>
+<p>(RFC 2047).</p>
+<p>Some implementations seem to place mime-encoded parts within quoted</p>
+<p>parameters, and split the mime-encoded parts across multiple split</p>
+<p>parameters.  The specialized regex doesn't allow double quotes inside a</p>
+<p>mime encoded part, so it can be "continued" in another parameter.</p>
+<p>@return string the regex pattern</p>
+
+<p>Creates and returns a \ZBateson\MailMimeParser\Header\Part\Token out of</p>
+<p>the passed string token and returns it, unless the token is an escaped</p>
+<p>literal, in which case a LiteralPart is returned.</p>
+
+<p>@param string $token</p>
+<p>@param bool $isLiteral</p>
+<p>@return \ZBateson\MailMimeParser\Header\Part\HeaderPart</p>
+
+<p>Adds the passed parameter with the given name and value to a</p>
+<p>SplitParameterToken, at the passed index. If one with the given name</p>
+<p>doesn't exist, it is created.</p>
+
+<p>@param ArrayObject $splitParts</p>
+<p>@param string $name</p>
+<p>@param string $value</p>
+<p>@param int $index</p>
+<p>@param boolean $isEncoded</p>
+
+<p>Instantiates and returns either a MimeLiteralPart if $strName is empty,</p>
+<p>a SplitParameterToken if the parameter is a split parameter and is the</p>
+<p>first in a series, null if it's a split parameter but is not the first</p>
+<p>part in its series, or a ParameterPart is returned otherwise.</p>
+
+<p>If the part is a SplitParameterToken, it's added to the passed</p>
+<p>$splitParts as well with its name as a key.</p>
+
+<p>@param string $strName</p>
+<p>@param string $strValue</p>
+<p>@param ArrayObject $splitParts</p>
+<p>@return \ZBateson\MailMimeParser\Header\Part\MimeLiteralPart</p>
+<p>        |SplitParameterToken|\ZBateson\MailMimeParser\Header\Part\ParameterPart</p>
+
+<p>Handles parameter separator tokens during final processing.</p>
+
+<p>If the end token is found, a new HeaderPart is assigned to the passed</p>
+<p>$combined array.  If an '=' character is found, $strCat is assigned to</p>
+<p>$strName and emptied.</p>
+
+<p>Returns true if the token was processed, and false otherwise.</p>
+
+<p>@param string $tokenValue</p>
+<p>@param ArrayObject $combined</p>
+<p>@param ArrayObject $splitParts</p>
+<p>@param string $strName</p>
+<p>@param string $strCat</p>
+<p>@return boolean</p>
+
+<p>Loops over parts in the passed array, creating ParameterParts out of any</p>
+<p>parsed SplitParameterTokens, replacing them in the array.</p>
+
+<p>The method then calls filterIgnoreSpaces to filter out empty elements in</p>
+<p>the combined array and returns an array.</p>
+
+<p>@param ArrayObject $combined</p>
+<p>@return HeaderPart[]|array</p>
+
+<p>Post processing involves creating Part\LiteralPart or Part\ParameterPart</p>
+<p>objects out of created Token and LiteralParts.</p>
+
+<p>@param HeaderPart[] $parts</p>
+<p>@return HeaderPart[]|array</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\ParameterConsumer.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Header\Consumer\ParameterConsumer extends GenericConsumer</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getTokenSeparators()</code></li>
+<li><code>getTokenSplitPattern()</code></li>
+<li><code>getPartForToken($token, $isLiteral)</code></li>
+<li><code>addToSplitPart(ArrayObject $splitParts, $name, $value, $index, $isEncoded)</code></li>
+<li><code>getPartFor($strName, $strValue, ArrayObject $splitParts)</code></li>
+<li>`processTokenPart($tokenValue,</li>
+<p>        ArrayObject $combined,</p>
+<p>        ArrayObject $splitParts,</p>
+<p>        &$strName,</p>
+<p>        &$strCat)`</p>
+<li><code>finalizeParameterParts(ArrayObject $combined)</code></li>
+<li><code>processParts(array $parts)</code></li>
+</ul>
+</body></html>

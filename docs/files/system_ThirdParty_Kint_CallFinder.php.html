@@ -1,0 +1,47 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\ThirdParty\Kint\CallFinder.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\ThirdParty\Kint\CallFinder.php</h1>
+
+<ul>
+<li>Path: <code>system\ThirdParty\Kint\CallFinder.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 16422 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Things we need to do specially for operator tokens:</p>
+<ul>
+<li>Refuse to strip spaces around them</li>
+<li>Wrap the access path in parentheses if there</li>
+<p>  are any of these in the final short parameter.</p>
+</ul>
+<p>@var array{int, string, int} $prev_tokens[0]</p>
+
+<p>We need a separate method to check if tokens are operators because we</p>
+<p>occasionally add "..." to short parameter versions. If we simply check</p>
+<p>for <code>$token[0]</code> then "..." will incorrectly match the "." operator.</p>
+<p>@param array|string $token The token to check</p>
+<p>@return bool</p>
+
+<p>@var array|string $last</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\ThirdParty\Kint\CallFinder.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Kint\CallFinder</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getFunctionCalls($source, $line, $function)</code></li>
+<li><code>realTokenIndex(array $tokens, $index)</code></li>
+<li><code>tokenIsOperator($token)</code></li>
+<li><code>tokensToString(array $tokens)</code></li>
+<li><code>tokensTrim(array $tokens)</code></li>
+<li><code>tokensFormatted(array $tokens)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,72 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\stream-decorators\src\PregReplaceFilterStream.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\stream-decorators\src\PregReplaceFilterStream.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\stream-decorators\src\PregReplaceFilterStream.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2696 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\StreamDecorators project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Calls preg_replace on each read operation with the passed pattern and</p>
+<p>replacement string.  Should only really be used to find single characters,</p>
+<p>since a pattern intended to match more may be split across multiple read()</p>
+<p>operations.</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var string The regex pattern</p>
+
+<p>@var string The replacement</p>
+
+<p>@var BufferStream Buffered stream of input from the underlying stream</p>
+
+<p>Returns true if the end of stream has been reached.</p>
+<p>@return boolean</p>
+
+<p>Not supported by PregReplaceFilterStream</p>
+<p>@param int $offset</p>
+<p>@param int $whence</p>
+<p>@throws RuntimeException</p>
+
+<p>Overridden to return false</p>
+<p>@return boolean</p>
+
+<p>Fills the BufferStream with at least 8192 characters of input for future</p>
+<p>read operations.</p>
+<p>@param int $length</p>
+
+<p>Reads from the underlying stream, filters it and returns up to $length</p>
+<p>bytes.</p>
+<p>@param int $length</p>
+<p>@return string</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\stream-decorators\src\PregReplaceFilterStream.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\StreamDecorators\PregReplaceFilterStream implements StreamInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(StreamInterface $stream, $pattern, $replacement)</code></li>
+<li><code>eof()</code></li>
+<li><code>seek($offset, $whence = SEEK_SET)</code></li>
+<li><code>isSeekable()</code></li>
+<li><code>fillBuffer($length)</code></li>
+<li><code>read($length)</code></li>
+</ul>
+</body></html>

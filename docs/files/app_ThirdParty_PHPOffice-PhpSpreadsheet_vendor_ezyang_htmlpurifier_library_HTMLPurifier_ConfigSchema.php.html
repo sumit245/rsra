@@ -1,0 +1,112 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\ConfigSchema.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\ConfigSchema.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\ConfigSchema.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5903 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Configuration definition, defines directives and their defaults.</p>
+
+<p>Defaults of the directives and namespaces.</p>
+<p>@type array</p>
+<p>@note This shares the exact same structure as HTMLPurifier_Config::$conf</p>
+
+<p>The default property list. Do not edit this property list.</p>
+<p>@type array</p>
+
+<p>Definition of the directives.</p>
+<p>The structure of this is:</p>
+<p> array(</p>
+<p>     'Namespace' => array(</p>
+<p>         'Directive' => new stdClass(),</p>
+<p>     )</p>
+<p> )</p>
+<p>The stdClass may have the following properties:</p>
+<p> - If isAlias isn't set:</p>
+<p>     - type: Integer type of directive, see HTMLPurifier_VarParser for definitions</p>
+<p>     - allow_null: If set, this directive allows null values</p>
+<p>     - aliases: If set, an associative array of value aliases to real values</p>
+<p>     - allowed: If set, a lookup array of allowed (string) values</p>
+<p> - If isAlias is set:</p>
+<p>     - namespace: Namespace this directive aliases to</p>
+<p>     - name: Directive name this directive aliases to</p>
+<p>In certain degenerate cases, stdClass will actually be an integer. In</p>
+<p>that case, the value is equivalent to an stdClass with the type</p>
+<p>property set to the integer. If the integer is negative, type is</p>
+<p>equal to the absolute value of integer, and allow_null is true.</p>
+<p>This class is friendly with HTMLPurifier_Config. If you need introspection</p>
+<p>about the schema, you're better of using the ConfigSchema_Interchange,</p>
+<p>which uses more memory but has much richer information.</p>
+<p>@type array</p>
+
+<p>Application-wide singleton</p>
+<p>@type HTMLPurifier_ConfigSchema</p>
+
+<p>Unserializes the default ConfigSchema.</p>
+<p>@return HTMLPurifier_ConfigSchema</p>
+
+<p>Retrieves an instance of the application-wide configuration definition.</p>
+<p>@param HTMLPurifier_ConfigSchema $prototype</p>
+<p>@return HTMLPurifier_ConfigSchema</p>
+
+<p>Defines a directive for configuration</p>
+<p>@warning Will fail of directive's namespace is defined.</p>
+<p>@warning This method's signature is slightly different from the legacy</p>
+<p>         define() static method! Beware!</p>
+<p>@param string $key Name of directive</p>
+<p>@param mixed $default Default value of directive</p>
+<p>@param string $type Allowed type of the directive. See</p>
+<p>     HTMLPurifier_VarParser::$types for allowed values</p>
+<p>@param bool $allow_null Whether or not to allow null values</p>
+
+<p>Defines a directive value alias.</p>
+<p>Directive value aliases are convenient for developers because it lets</p>
+<p>them set a directive to several values and get the same result.</p>
+<p>@param string $key Name of Directive</p>
+<p>@param array $aliases Hash of aliased values to the real alias</p>
+
+<p>Defines a set of allowed values for a directive.</p>
+<p>@warning This is slightly different from the corresponding static</p>
+<p>         method definition.</p>
+<p>@param string $key Name of directive</p>
+<p>@param array $allowed Lookup array of allowed values</p>
+
+<p>Defines a directive alias for backwards compatibility</p>
+<p>@param string $key Directive that will be aliased</p>
+<p>@param string $new_key Directive that the alias will be to</p>
+
+<p>Replaces any stdClass that only has the type property with type integer.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\ConfigSchema.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>HTMLPurifier_ConfigSchema</code></li>
+<li><code>is</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>makeFromSerial()</code></li>
+<li><code>instance($prototype = null)</code></li>
+<li><code>add($key, $default, $type, $allow_null)</code></li>
+<li><code>addValueAliases($key, $aliases)</code></li>
+<li><code>addAllowedValues($key, $allowed)</code></li>
+<li><code>addAlias($key, $new_key)</code></li>
+<li><code>postProcess()</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,568 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\Crypto32.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\Crypto32.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\Crypto32.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 55119 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Class ParagonIE_Sodium_Crypto</p>
+<p>ATTENTION!</p>
+<p>If you are using this library, you should be using</p>
+<p>ParagonIE_Sodium_Compat in your code, not this class.</p>
+
+<p>AEAD Decryption with ChaCha20-Poly1305</p>
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $message</p>
+<p>@param string $ad</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var int $len - Length of message (ciphertext + MAC)</p>
+
+<p>@var int  $clen - Length of ciphertext</p>
+
+<p>@var int $adlen - Length of associated data</p>
+
+<p>@var string $mac - Message authentication code</p>
+
+<p>@var string $ciphertext - The encrypted message (sans MAC)</p>
+
+<p>@var string The first block of the chacha20 keystream, used as a poly1305 key</p>
+
+<p>AEAD Encryption with ChaCha20-Poly1305</p>
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $message</p>
+<p>@param string $ad</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var int $len - Length of the plaintext message</p>
+
+<p>@var int $adlen - Length of the associated data</p>
+
+<p>@var string The first block of the chacha20 keystream, used as a poly1305 key</p>
+
+<p>@var string $ciphertext - Raw encrypted data</p>
+
+<p>AEAD Decryption with ChaCha20-Poly1305, IETF mode (96-bit nonce)</p>
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $message</p>
+<p>@param string $ad</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var int $adlen - Length of associated data</p>
+
+<p>@var int $len - Length of message (ciphertext + MAC)</p>
+
+<p>@var int  $clen - Length of ciphertext</p>
+
+<p>@var string The first block of the chacha20 keystream, used as a poly1305 key</p>
+
+<p>@var string $mac - Message authentication code</p>
+
+<p>@var string $ciphertext - The encrypted message (sans MAC)</p>
+
+<p>AEAD Encryption with ChaCha20-Poly1305, IETF mode (96-bit nonce)</p>
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $message</p>
+<p>@param string $ad</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var int $len - Length of the plaintext message</p>
+
+<p>@var int $adlen - Length of the associated data</p>
+
+<p>@var string The first block of the chacha20 keystream, used as a poly1305 key</p>
+
+<p>@var string $ciphertext - Raw encrypted data</p>
+
+<p>AEAD Decryption with ChaCha20-Poly1305, IETF mode (96-bit nonce)</p>
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $message</p>
+<p>@param string $ad</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>AEAD Encryption with ChaCha20-Poly1305, IETF mode (96-bit nonce)</p>
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $message</p>
+<p>@param string $ad</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>HMAC-SHA-512-256 (a.k.a. the leftmost 256 bits of HMAC-SHA-512)</p>
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $message</p>
+<p>@param string $key</p>
+<p>@return string</p>
+<p>@throws TypeError</p>
+
+<p>HMAC-SHA-512-256 validation. Constant-time via hash_equals().</p>
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $mac</p>
+<p>@param string $message</p>
+<p>@param string $key</p>
+<p>@return bool</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>X25519 key exchange followed by XSalsa20Poly1305 symmetric encryption</p>
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $plaintext</p>
+<p>@param string $nonce</p>
+<p>@param string $keypair</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>X25519-XSalsa20-Poly1305 with one ephemeral X25519 keypair.</p>
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $message</p>
+<p>@param string $publicKey</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var string $ephemeralKeypair</p>
+
+<p>@var string $ephemeralSK</p>
+
+<p>@var string $ephemeralPK</p>
+
+<p>@var string $nonce</p>
+
+<p>@var string $keypair - The combined keypair used in crypto_box()</p>
+
+<p>@var string $ciphertext Ciphertext + MAC from crypto_box</p>
+
+<p>Opens a message encrypted via box_seal().</p>
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $message</p>
+<p>@param string $keypair</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var string $ephemeralPK</p>
+
+<p>@var string $ciphertext (ciphertext + MAC)</p>
+
+<p>@var string $secretKey</p>
+
+<p>@var string $publicKey</p>
+
+<p>@var string $nonce</p>
+
+<p>@var string $keypair</p>
+
+<p>@var string $m</p>
+
+<p>Used by crypto_box() to get the crypto_secretbox() key.</p>
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $sk</p>
+<p>@param string $pk</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@return string</p>
+<p>@throws Exception</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@param string $seed</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $sKey</p>
+<p>@param string $pKey</p>
+<p>@return string</p>
+<p>@throws TypeError</p>
+
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $keypair</p>
+<p>@return string</p>
+<p>@throws RangeException</p>
+<p>@throws TypeError</p>
+
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $keypair</p>
+<p>@return string</p>
+<p>@throws RangeException</p>
+<p>@throws TypeError</p>
+
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $sKey</p>
+<p>@return string</p>
+<p>@throws RangeException</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>Decrypt a message encrypted with box().</p>
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $ciphertext</p>
+<p>@param string $nonce</p>
+<p>@param string $keypair</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>Calculate a BLAKE2b hash.</p>
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $message</p>
+<p>@param string|null $key</p>
+<p>@param int $outlen</p>
+<p>@return string</p>
+<p>@throws RangeException</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var SplFixedArray $k</p>
+
+<p>@var SplFixedArray $in</p>
+
+<p>@var SplFixedArray $ctx</p>
+
+<p>@var SplFixedArray $out</p>
+
+<p>@var array<int, int></p>
+
+<p>Finalize a BLAKE2b hashing context, returning the hash.</p>
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $ctx</p>
+<p>@param int $outlen</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var SplFixedArray $context</p>
+
+<p>@var SplFixedArray $out</p>
+
+<p>@var array<int, int></p>
+
+<p>Initialize a hashing context for BLAKE2b.</p>
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $key</p>
+<p>@param int $outputLength</p>
+<p>@return string</p>
+<p>@throws RangeException</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var SplFixedArray $ctx</p>
+
+<p>Initialize a hashing context for BLAKE2b.</p>
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $key</p>
+<p>@param int $outputLength</p>
+<p>@param string $salt</p>
+<p>@param string $personal</p>
+<p>@return string</p>
+<p>@throws RangeException</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var SplFixedArray $ctx</p>
+
+<p>Update a hashing context for BLAKE2b with $message</p>
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $ctx</p>
+<p>@param string $message</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var SplFixedArray $context</p>
+
+<p>@var SplFixedArray $in</p>
+
+<p>Libsodium's crypto_kx().</p>
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $my_sk</p>
+<p>@param string $their_pk</p>
+<p>@param string $client_pk</p>
+<p>@param string $server_pk</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>ECDH over Curve25519</p>
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $sKey</p>
+<p>@param string $pKey</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>ECDH over Curve25519, using the basepoint.</p>
+<p>Used to get a secret key from a public key.</p>
+<p>@param string $secret</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>This throws an Error if a zero public key was passed to the function.</p>
+<p>@param string $q</p>
+<p>@return void</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>XSalsa20-Poly1305 authenticated symmetric-key encryption.</p>
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $plaintext</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var string $subkey</p>
+
+<p>@var string $block0</p>
+
+<p>@var int $mlen - Length of the plaintext message</p>
+
+<p>@var string $block0</p>
+
+<p>@var string $c</p>
+
+<p>@var string $c - MAC || ciphertext</p>
+
+<p>Decrypt a ciphertext generated via secretbox().</p>
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $ciphertext</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var string $mac</p>
+
+<p>@var string $c</p>
+
+<p>@var int $clen</p>
+
+<p>@var string $subkey</p>
+
+<p>@var string $block0</p>
+
+<p>@var string $m - Decrypted message</p>
+
+<p>XChaCha20-Poly1305 authenticated symmetric-key encryption.</p>
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $plaintext</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var string $subkey</p>
+
+<p>@var string $block0</p>
+
+<p>@var int $mlen - Length of the plaintext message</p>
+
+<p>@var string $block0</p>
+
+<p>@var string $c</p>
+
+<p>@var string $c - MAC || ciphertext</p>
+
+<p>Decrypt a ciphertext generated via secretbox_xchacha20poly1305().</p>
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $ciphertext</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var string $mac</p>
+
+<p>@var string $c</p>
+
+<p>@var int $clen</p>
+
+<p>@var string $subkey</p>
+
+<p>@var string $block0</p>
+
+<p>@var string $m - Decrypted message</p>
+
+<p>@param string $key</p>
+<p>@return array<int, string> Returns a state and a header.</p>
+<p>@throws Exception</p>
+<p>@throws SodiumException</p>
+
+<p>@param string $key</p>
+<p>@param string $header</p>
+<p>@return string Returns a state.</p>
+<p>@throws Exception</p>
+
+<p>@param string $state</p>
+<p>@param string $msg</p>
+<p>@param string $aad</p>
+<p>@param int $tag</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+
+<p>@var bool $rekey</p>
+
+<p>@param string $state</p>
+<p>@param string $cipher</p>
+<p>@param string $aad</p>
+<p>@return bool|array{0: string, 1: int}</p>
+<p>@throws SodiumException</p>
+
+<p>@var bool $rekey</p>
+
+<p>@param string $state</p>
+<p>@return void</p>
+<p>@throws SodiumException</p>
+
+<p>Detached Ed25519 signature.</p>
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $message</p>
+<p>@param string $sk</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>Attached Ed25519 signature. (Returns a signed message.)</p>
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $message</p>
+<p>@param string $sk</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>Opens a signed message. If valid, returns the message.</p>
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $signedMessage</p>
+<p>@param string $pk</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>Verify a detached signature of a given message and public key.</p>
+<p>@internal Do not use this directly. Use ParagonIE_Sodium_Compat.</p>
+<p>@param string $signature</p>
+<p>@param string $message</p>
+<p>@param string $pk</p>
+<p>@return bool</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>crypto_box</code></li>
+<li><code>a</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\Crypto32.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ParagonIE_Sodium_Crypto32</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`aead_chacha20poly1305_decrypt($message = '',</li>
+<p>        $ad = '',</p>
+<p>        $nonce = '',</p>
+<p>        $key = '')`</p>
+<li>`aead_chacha20poly1305_encrypt($message = '',</li>
+<p>        $ad = '',</p>
+<p>        $nonce = '',</p>
+<p>        $key = '')`</p>
+<li>`aead_chacha20poly1305_ietf_decrypt($message = '',</li>
+<p>        $ad = '',</p>
+<p>        $nonce = '',</p>
+<p>        $key = '')`</p>
+<li>`aead_chacha20poly1305_ietf_encrypt($message = '',</li>
+<p>        $ad = '',</p>
+<p>        $nonce = '',</p>
+<p>        $key = '')`</p>
+<li>`aead_xchacha20poly1305_ietf_decrypt($message = '',</li>
+<p>        $ad = '',</p>
+<p>        $nonce = '',</p>
+<p>        $key = '')`</p>
+<li>`aead_xchacha20poly1305_ietf_encrypt($message = '',</li>
+<p>        $ad = '',</p>
+<p>        $nonce = '',</p>
+<p>        $key = '')`</p>
+<li><code>auth($message, $key)</code></li>
+<li><code>auth_verify($mac, $message, $key)</code></li>
+<li><code>box($plaintext, $nonce, $keypair)</code></li>
+<li><code>box_seal($message, $publicKey)</code></li>
+<li><code>box_seal_open($message, $keypair)</code></li>
+<li><code>box_beforenm($sk, $pk)</code></li>
+<li><code>box_keypair()</code></li>
+<li><code>box_seed_keypair($seed)</code></li>
+<li><code>box_keypair_from_secretkey_and_publickey($sKey, $pKey)</code></li>
+<li><code>box_secretkey($keypair)</code></li>
+<li><code>box_publickey($keypair)</code></li>
+<li><code>box_publickey_from_secretkey($sKey)</code></li>
+<li><code>box_open($ciphertext, $nonce, $keypair)</code></li>
+<li><code>generichash($message, $key = '', $outlen = 32)</code></li>
+<li><code>generichash_final($ctx, $outlen = 32)</code></li>
+<li><code>generichash_init($key = '', $outputLength = 32)</code></li>
+<li>`generichash_init_salt_personal($key = '',</li>
+<p>        $outputLength = 32,</p>
+<p>        $salt = '',</p>
+<p>        $personal = '')`</p>
+<li><code>generichash_update($ctx, $message)</code></li>
+<li><code>keyExchange($my_sk, $their_pk, $client_pk, $server_pk)</code></li>
+<li><code>scalarmult($sKey, $pKey)</code></li>
+<li><code>scalarmult_base($secret)</code></li>
+<li><code>scalarmult_throw_if_zero($q)</code></li>
+<li><code>secretbox($plaintext, $nonce, $key)</code></li>
+<li><code>secretbox_open($ciphertext, $nonce, $key)</code></li>
+<li><code>secretbox_xchacha20poly1305($plaintext, $nonce, $key)</code></li>
+<li><code>secretbox_xchacha20poly1305_open($ciphertext, $nonce, $key)</code></li>
+<li><code>secretstream_xchacha20poly1305_init_push($key)</code></li>
+<li><code>secretstream_xchacha20poly1305_init_pull($key, $header)</code></li>
+<li><code>secretstream_xchacha20poly1305_push(&$state, $msg, $aad = '', $tag = 0)</code></li>
+<li><code>secretstream_xchacha20poly1305_pull(&$state, $cipher, $aad = '')</code></li>
+<li><code>secretstream_xchacha20poly1305_rekey(&$state)</code></li>
+<li><code>sign_detached($message, $sk)</code></li>
+<li><code>sign($message, $sk)</code></li>
+<li><code>sign_open($signedMessage, $pk)</code></li>
+<li><code>sign_verify_detached($signature, $message, $pk)</code></li>
+</ul>
+</body></html>

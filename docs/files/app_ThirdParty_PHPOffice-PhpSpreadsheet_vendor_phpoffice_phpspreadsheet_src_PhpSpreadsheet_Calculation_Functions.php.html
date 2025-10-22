@@ -1,0 +1,309 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Functions.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Functions.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Functions.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 19351 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>2 / PI.</p>
+
+<p>Use of RETURNDATE_PHP_NUMERIC is discouraged - not 32-bit Y2038-safe, no timezone.</p>
+
+<p>Use of RETURNDATE_UNIX_TIMESTAMP is discouraged - not 32-bit Y2038-safe, no timezone.</p>
+
+<p>Compatibility mode to use for error checking and responses.</p>
+<p>@var string</p>
+
+<p>Data Type to use when returning date values.</p>
+<p>@var string</p>
+
+<p>Set the Compatibility Mode.</p>
+<p>@param string $compatibilityMode Compatibility Mode</p>
+<p>                                 Permitted values are:</p>
+<p>                                     Functions::COMPATIBILITY_EXCEL        'Excel'</p>
+<p>                                     Functions::COMPATIBILITY_GNUMERIC     'Gnumeric'</p>
+<p>                                     Functions::COMPATIBILITY_OPENOFFICE   'OpenOfficeCalc'</p>
+<p>@return bool (Success or Failure)</p>
+
+<p>Return the current Compatibility Mode.</p>
+<p>@return string Compatibility Mode</p>
+<p>               Possible Return values are:</p>
+<p>                   Functions::COMPATIBILITY_EXCEL        'Excel'</p>
+<p>                   Functions::COMPATIBILITY_GNUMERIC     'Gnumeric'</p>
+<p>                   Functions::COMPATIBILITY_OPENOFFICE   'OpenOfficeCalc'</p>
+
+<p>Set the Return Date Format used by functions that return a date/time (Excel, PHP Serialized Numeric or PHP DateTime Object).</p>
+<p>@param string $returnDateType Return Date Format</p>
+<p>                              Permitted values are:</p>
+<p>                                  Functions::RETURNDATE_UNIX_TIMESTAMP       'P'</p>
+<p>                                  Functions::RETURNDATE_PHP_DATETIME_OBJECT  'O'</p>
+<p>                                  Functions::RETURNDATE_EXCEL                'E'</p>
+<p>@return bool Success or failure</p>
+
+<p>Return the current Return Date Format for functions that return a date/time (Excel, PHP Serialized Numeric or PHP Object).</p>
+<p>@return string Return Date Format</p>
+<p>               Possible Return values are:</p>
+<p>                   Functions::RETURNDATE_UNIX_TIMESTAMP         'P'</p>
+<p>                   Functions::RETURNDATE_PHP_DATETIME_OBJECT    'O'</p>
+<p>                   Functions::RETURNDATE_EXCEL            '     'E'</p>
+
+<p>DUMMY.</p>
+<p>@return string #Not Yet Implemented</p>
+
+<p>NULL.</p>
+<p>Returns the error value #NULL!</p>
+<p>@Deprecated 1.23.0</p>
+<p>@return string #NULL!</p>
+<p>@see Information\ExcelError::null()</p>
+<p>Use the null() method in the Information\Error class instead</p>
+
+<p>NaN.</p>
+<p>Returns the error value #NUM!</p>
+<p>@Deprecated 1.23.0</p>
+<p>@return string #NUM!</p>
+<p>@see Information\ExcelError::NAN()</p>
+<p>Use the NAN() method in the Information\Error class instead</p>
+
+<p>REF.</p>
+<p>Returns the error value #REF!</p>
+<p>@Deprecated 1.23.0</p>
+<p>@return string #REF!</p>
+<p>@see Information\ExcelError::REF()</p>
+<p>Use the REF() method in the Information\Error class instead</p>
+
+<p>NA.</p>
+<p>Excel Function:</p>
+<p>       =NA()</p>
+<p>Returns the error value #N/A</p>
+<p>       #N/A is the error value that means "no value is available."</p>
+<p>@Deprecated 1.23.0</p>
+<p>@return string #N/A!</p>
+<p>@see Information\ExcelError::NA()</p>
+<p>Use the NA() method in the Information\Error class instead</p>
+
+<p>VALUE.</p>
+<p>Returns the error value #VALUE!</p>
+<p>@Deprecated 1.23.0</p>
+<p>@return string #VALUE!</p>
+<p>@see Information\ExcelError::VALUE()</p>
+<p>Use the VALUE() method in the Information\Error class instead</p>
+
+<p>NAME.</p>
+<p>Returns the error value #NAME?</p>
+<p>@Deprecated 1.23.0</p>
+<p>@return string #NAME?</p>
+<p>@see Information\ExcelError::NAME()</p>
+<p>Use the NAME() method in the Information\Error class instead</p>
+
+<p>DIV0.</p>
+<p>@Deprecated 1.23.0</p>
+<p>@return string #Not Yet Implemented</p>
+<p>@see Information\ExcelError::DIV0()</p>
+<p>Use the DIV0() method in the Information\Error class instead</p>
+
+<p>ERROR_TYPE.</p>
+<p>@param mixed $value Value to check</p>
+<p>@Deprecated 1.23.0</p>
+<p>@return array|int|string</p>
+<p>@see Information\ExcelError::type()</p>
+<p>Use the type() method in the Information\Error class instead</p>
+
+<p>IS_BLANK.</p>
+<p>@param mixed $value Value to check</p>
+<p>@Deprecated 1.23.0</p>
+<p>@see Information\Value::isBlank()</p>
+<p>Use the isBlank() method in the Information\Value class instead</p>
+<p>@return array|bool</p>
+
+<p>IS_ERR.</p>
+<p>@param mixed $value Value to check</p>
+<p>@Deprecated 1.23.0</p>
+<p>@see Information\Value::isErr()</p>
+<p>Use the isErr() method in the Information\Value class instead</p>
+<p>@return array|bool</p>
+
+<p>IS_ERROR.</p>
+<p>@param mixed $value Value to check</p>
+<p>@Deprecated 1.23.0</p>
+<p>@see Information\Value::isError()</p>
+<p>Use the isError() method in the Information\Value class instead</p>
+<p>@return array|bool</p>
+
+<p>IS_NA.</p>
+<p>@param mixed $value Value to check</p>
+<p>@Deprecated 1.23.0</p>
+<p>@see Information\Value::isNa()</p>
+<p>Use the isNa() method in the Information\Value class instead</p>
+<p>@return array|bool</p>
+
+<p>IS_EVEN.</p>
+<p>@param mixed $value Value to check</p>
+<p>@Deprecated 1.23.0</p>
+<p>@see Information\Value::isEven()</p>
+<p>Use the isEven() method in the Information\Value class instead</p>
+<p>@return array|bool|string</p>
+
+<p>IS_ODD.</p>
+<p>@param mixed $value Value to check</p>
+<p>@Deprecated 1.23.0</p>
+<p>@see Information\Value::isOdd()</p>
+<p>Use the isOdd() method in the Information\Value class instead</p>
+<p>@return array|bool|string</p>
+
+<p>IS_NUMBER.</p>
+<p>@param mixed $value Value to check</p>
+<p>@Deprecated 1.23.0</p>
+<p>@see Information\Value::isNumber()</p>
+<p>Use the isNumber() method in the Information\Value class instead</p>
+<p>@return array|bool</p>
+
+<p>IS_LOGICAL.</p>
+<p>@param mixed $value Value to check</p>
+<p>@Deprecated 1.23.0</p>
+<p>@see Information\Value::isLogical()</p>
+<p>Use the isLogical() method in the Information\Value class instead</p>
+<p>@return array|bool</p>
+
+<p>IS_TEXT.</p>
+<p>@param mixed $value Value to check</p>
+<p>@Deprecated 1.23.0</p>
+<p>@see Information\Value::isText()</p>
+<p>Use the isText() method in the Information\Value class instead</p>
+<p>@return array|bool</p>
+
+<p>IS_NONTEXT.</p>
+<p>@param mixed $value Value to check</p>
+<p>@Deprecated 1.23.0</p>
+<p>@see Information\Value::isNonText()</p>
+<p>Use the isNonText() method in the Information\Value class instead</p>
+<p>@return array|bool</p>
+
+<p>N.</p>
+<p>Returns a value converted to a number</p>
+<p>@Deprecated 1.23.0</p>
+<p>@see Information\Value::asNumber()</p>
+<p>Use the asNumber() method in the Information\Value class instead</p>
+<p>@param null|mixed $value The value you want converted</p>
+<p>@return number|string N converts values listed in the following table</p>
+<p>       If value is or refers to N returns</p>
+<p>       A number            That number</p>
+<p>       A date                The serial number of that date</p>
+<p>       TRUE                1</p>
+<p>       FALSE                0</p>
+<p>       An error value        The error value</p>
+<p>       Anything else        0</p>
+
+<p>TYPE.</p>
+<p>Returns a number that identifies the type of a value</p>
+<p>@Deprecated 1.23.0</p>
+<p>@see Information\Value::type()</p>
+<p>Use the type() method in the Information\Value class instead</p>
+<p>@param null|mixed $value The value you want tested</p>
+<p>@return number N converts values listed in the following table</p>
+<p>       If value is or refers to N returns</p>
+<p>       A number            1</p>
+<p>       Text                2</p>
+<p>       Logical Value        4</p>
+<p>       An error value        16</p>
+<p>       Array or Matrix        64</p>
+
+<p>Convert a multi-dimensional array to a simple 1-dimensional array.</p>
+<p>@param array|mixed $array Array to be flattened</p>
+<p>@return array Flattened array</p>
+
+<p>@param mixed $value</p>
+<p>@return null|mixed</p>
+
+<p>Convert a multi-dimensional array to a simple 1-dimensional array, but retain an element of indexing.</p>
+<p>@param array|mixed $array Array to be flattened</p>
+<p>@return array Flattened array</p>
+
+<p>Convert an array to a single scalar value by extracting the first element.</p>
+<p>@param mixed $value Array or scalar value</p>
+<p>@return mixed</p>
+
+<p>ISFORMULA.</p>
+<p>@Deprecated 1.23.0</p>
+<p>@see Information\Value::isFormula()</p>
+<p>Use the isFormula() method in the Information\Value class instead</p>
+<p>@param mixed $cellReference The cell to check</p>
+<p>@param ?Cell $cell The current cell (containing this formula)</p>
+<p>@return array|bool|string</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Functions.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\Functions</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>setCompatibilityMode($compatibilityMode)</code></li>
+<li><code>getCompatibilityMode()</code></li>
+<li><code>setReturnDateType($returnDateType)</code></li>
+<li><code>getReturnDateType()</code></li>
+<li><code>DUMMY()</code></li>
+<li><code>isMatrixValue($idx)</code></li>
+<li><code>isValue($idx)</code></li>
+<li><code>isCellValue($idx)</code></li>
+<li><code>ifCondition($condition)</code></li>
+<li><code>operandSpecialHandling($operand)</code></li>
+<li><code>null()</code></li>
+<li><code>NAN()</code></li>
+<li><code>REF()</code></li>
+<li><code>NA()</code></li>
+<li><code>VALUE()</code></li>
+<li><code>NAME()</code></li>
+<li><code>DIV0()</code></li>
+<li><code>errorType($value = '')</code></li>
+<li><code>isBlank($value = null)</code></li>
+<li><code>isErr($value = '')</code></li>
+<li><code>isError($value = '')</code></li>
+<li><code>isNa($value = '')</code></li>
+<li><code>isEven($value = null)</code></li>
+<li><code>isOdd($value = null)</code></li>
+<li><code>isNumber($value = null)</code></li>
+<li><code>isLogical($value = null)</code></li>
+<li><code>isText($value = null)</code></li>
+<li><code>isNonText($value = null)</code></li>
+<li><code>n($value = null)</code></li>
+<li><code>TYPE($value = null)</code></li>
+<li><code>flattenArray($array)</code></li>
+<li><code>scalar($value)</code></li>
+<li><code>flattenArrayIndexed($array)</code></li>
+<li><code>flattenSingleValue($value = '')</code></li>
+<li><code>isFormula($cellReference = '', ?Cell $cell = null)</code></li>
+<li><code>expandDefinedName(string $coordinate, Cell $cell)</code></li>
+<li><code>trimTrailingRange(string $coordinate)</code></li>
+<li><code>trimSheetFromCellReference(string $coordinate)</code></li>
+</ul>
+</body></html>

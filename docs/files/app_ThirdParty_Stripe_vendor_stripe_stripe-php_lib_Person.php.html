@@ -1,0 +1,88 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Person.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Person.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Person.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5948 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This is an object representing a person associated with a Stripe account.</p>
+<p>A platform cannot access a Standard or Express account's persons after the</p>
+<p>account starts onboarding, such as after generating an account link for the</p>
+<p>account. See the <a</p>
+<p>href="https://stripe.com/docs/connect/standard-accounts">Standard onboarding</a></p>
+<p>or <a href="https://stripe.com/docs/connect/express-accounts">Express onboarding</p>
+<p>documentation</a> for information about platform pre-filling and account</p>
+<p>onboarding steps.</p>
+<p>Related guide: <a</p>
+<p>href="https://stripe.com/docs/connect/identity-verification-api#person-information">Handling</p>
+<p>Identity Verification with the API</a>.</p>
+<p>@property string $id Unique identifier for the object.</p>
+<p>@property string $object String representing the object's type. Objects of the same type share the same value.</p>
+<p>@property string $account The account the person is associated with.</p>
+<p>@property \Stripe\StripeObject $address</p>
+<p>@property null|\Stripe\StripeObject $address_kana The Kana variation of the person's address (Japan only).</p>
+<p>@property null|\Stripe\StripeObject $address_kanji The Kanji variation of the person's address (Japan only).</p>
+<p>@property int $created Time at which the object was created. Measured in seconds since the Unix epoch.</p>
+<p>@property \Stripe\StripeObject $dob</p>
+<p>@property null|string $email The person's email address.</p>
+<p>@property null|string $first_name The person's first name.</p>
+<p>@property null|string $first_name_kana The Kana variation of the person's first name (Japan only).</p>
+<p>@property null|string $first_name_kanji The Kanji variation of the person's first name (Japan only).</p>
+<p>@property string[] $full_name_aliases A list of alternate names or aliases that the person is known by.</p>
+<p>@property null|\Stripe\StripeObject $future_requirements Information about the upcoming new requirements for this person, including what information needs to be collected, and by when.</p>
+<p>@property null|string $gender The person's gender (International regulations require either &quot;male&quot; or &quot;female&quot;).</p>
+<p>@property bool $id_number_provided Whether the person's <code>id_number</code> was provided.</p>
+<p>@property bool $id_number_secondary_provided Whether the person's <code>id_number_secondary</code> was provided.</p>
+<p>@property null|string $last_name The person's last name.</p>
+<p>@property null|string $last_name_kana The Kana variation of the person's last name (Japan only).</p>
+<p>@property null|string $last_name_kanji The Kanji variation of the person's last name (Japan only).</p>
+<p>@property null|string $maiden_name The person's maiden name.</p>
+<p>@property \Stripe\StripeObject $metadata Set of <a href="https://stripe.com/docs/api/metadata">key-value pairs</a> that you can attach to an object. This can be useful for storing additional information about the object in a structured format.</p>
+<p>@property null|string $nationality The country where the person is a national.</p>
+<p>@property null|string $phone The person's phone number.</p>
+<p>@property string $political_exposure Indicates if the person or any of their representatives, family members, or other closely related persons, declares that they hold or have held an important public job or function, in any jurisdiction.</p>
+<p>@property \Stripe\StripeObject $registered_address</p>
+<p>@property \Stripe\StripeObject $relationship</p>
+<p>@property null|\Stripe\StripeObject $requirements Information about the requirements for this person, including what information needs to be collected, and by when.</p>
+<p>@property bool $ssn_last_4_provided Whether the last four digits of the person's Social Security number have been provided (U.S. only).</p>
+<p>@property \Stripe\StripeObject $verification</p>
+
+<p>@return string the API URL for this Stripe account reversal</p>
+
+<p>@param array|string $_id</p>
+<p>@param null|array|string $_opts</p>
+<p>@throws \Stripe\Exception\BadMethodCallException</p>
+
+<p>@param string $_id</p>
+<p>@param null|array $_params</p>
+<p>@param null|array|string $_options</p>
+<p>@throws \Stripe\Exception\BadMethodCallException</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Person.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Person extends ApiResource</code></li>
+<li><code>Stripe\instance</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>instanceUrl()</code></li>
+<li><code>retrieve($_id, $_opts = null)</code></li>
+<li><code>update($_id, $_params = null, $_options = null)</code></li>
+</ul>
+</body></html>

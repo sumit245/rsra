@@ -1,0 +1,79 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Filter\ExtractStyleBlocks.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Filter\ExtractStyleBlocks.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Filter\ExtractStyleBlocks.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 13604 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This filter extracts <style> blocks from input HTML, cleans them up</p>
+<p>using CSSTidy, and then places them in $purifier->context->get('StyleBlocks')</p>
+<p>so they can be used elsewhere in the document.</p>
+<p>@note</p>
+<p>     See tests/HTMLPurifier/Filter/ExtractStyleBlocksTest.php for</p>
+<p>     sample usage.</p>
+<p>@note</p>
+<p>     This filter can also be used on stylesheets not included in the</p>
+<p>     document--something purists would probably prefer. Just directly</p>
+<p>     call HTMLPurifier_Filter_ExtractStyleBlocks->cleanCSS()</p>
+
+<p>@type string</p>
+
+<p>@type array</p>
+
+<p>@type csstidy</p>
+
+<p>@type HTMLPurifier_AttrDef_HTML_ID</p>
+
+<p>@type HTMLPurifier_AttrDef_CSS_Ident</p>
+
+<p>@type HTMLPurifier_AttrDef_Enum</p>
+
+<p>Save the contents of CSS blocks to style matches</p>
+<p>@param array $matches preg_replace style $matches array</p>
+
+<p>Removes inline <style> tags from HTML, saves them for later use</p>
+<p>@param string $html</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@param HTMLPurifier_Context $context</p>
+<p>@return string</p>
+<p>@todo Extend to indicate non-text/css style blocks</p>
+
+<p>Takes CSS (the stuff found in <style>) and cleans it.</p>
+<p>@warning Requires CSSTidy <http://csstidy.sourceforge.net/></p>
+<p>@param string $css CSS styling to clean</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@param HTMLPurifier_Context $context</p>
+<p>@throws HTMLPurifier_Exception</p>
+<p>@return string Cleaned CSS</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>input</code></li>
+<li><code>HTML</code></li>
+<li><code>CSS</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Filter\ExtractStyleBlocks.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>HTMLPurifier_Filter_ExtractStyleBlocks extends HTMLPurifier_Filter</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>htmlpurifier_filter_extractstyleblocks_muteerrorhandler()</code></li>
+<li><code>__construct()</code></li>
+<li><code>styleCallback($matches)</code></li>
+<li><code>preFilter($html, $config, $context)</code></li>
+<li><code>cleanCSS($css, $config, $context)</code></li>
+</ul>
+</body></html>

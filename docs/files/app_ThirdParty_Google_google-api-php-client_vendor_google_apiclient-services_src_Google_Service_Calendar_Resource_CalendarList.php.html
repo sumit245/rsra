@@ -1,0 +1,147 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Calendar\Resource\CalendarList.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Calendar\Resource\CalendarList.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Calendar\Resource\CalendarList.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9455 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>The "calendarList" collection of methods.</p>
+<p>Typical usage is:</p>
+<p> <code></p>
+<p>  $calendarService = new Google_Service_Calendar(...);</p>
+<p>  $calendarList = $calendarService->calendarList;</p>
+<p> </code></p>
+
+<p>Deletes an entry on the user's calendar list. (calendarList.delete)</p>
+<p>@param string $calendarId Calendar identifier. To retrieve calendar IDs call</p>
+<p>the calendarList.list method. If you want to access the primary calendar of</p>
+<p>the currently logged in user, use the "primary" keyword.</p>
+<p>@param array $optParams Optional parameters.</p>
+
+<p>Returns an entry on the user's calendar list. (calendarList.get)</p>
+<p>@param string $calendarId Calendar identifier. To retrieve calendar IDs call</p>
+<p>the calendarList.list method. If you want to access the primary calendar of</p>
+<p>the currently logged in user, use the "primary" keyword.</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@return Google_Service_Calendar_CalendarListEntry</p>
+
+<p>Adds an entry to the user's calendar list. (calendarList.insert)</p>
+<p>@param Google_Service_Calendar_CalendarListEntry $postBody</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@opt_param bool colorRgbFormat Whether to use the foregroundColor and</p>
+<p>backgroundColor fields to write the calendar colors (RGB). If this feature is</p>
+<p>used, the index-based colorId field will be set to the best matching option</p>
+<p>automatically. Optional. The default is False.</p>
+<p>@return Google_Service_Calendar_CalendarListEntry</p>
+
+<p>Returns entries on the user's calendar list. (calendarList.listCalendarList)</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@opt_param int maxResults Maximum number of entries returned on one result</p>
+<p>page. By default the value is 100 entries. The page size can never be larger</p>
+<p>than 250 entries. Optional.</p>
+<p>@opt_param string minAccessRole The minimum access role for the user in the</p>
+<p>returned entries. Optional. The default is no restriction.</p>
+<p>@opt_param string pageToken Token specifying which result page to return.</p>
+<p>Optional.</p>
+<p>@opt_param bool showDeleted Whether to include deleted calendar list entries</p>
+<p>in the result. Optional. The default is False.</p>
+<p>@opt_param bool showHidden Whether to show hidden entries. Optional. The</p>
+<p>default is False.</p>
+<p>@opt_param string syncToken Token obtained from the nextSyncToken field</p>
+<p>returned on the last page of results from the previous list request. It makes</p>
+<p>the result of this list request contain only entries that have changed since</p>
+<p>then. If only read-only fields such as calendar properties or ACLs have</p>
+<p>changed, the entry won't be returned. All entries deleted and hidden since</p>
+<p>the previous list request will always be in the result set and it is not</p>
+<p>allowed to set showDeleted neither showHidden to False. To ensure client</p>
+<p>state consistency minAccessRole query parameter cannot be specified together</p>
+<p>with nextSyncToken. If the syncToken expires, the server will respond with a</p>
+<p>410 GONE response code and the client should clear its storage and perform a</p>
+<p>full synchronization without any syncToken. Learn more about incremental</p>
+<p>synchronization. Optional. The default is to return all entries.</p>
+<p>@return Google_Service_Calendar_CalendarList</p>
+
+<p>Updates an entry on the user's calendar list. This method supports patch</p>
+<p>semantics. (calendarList.patch)</p>
+<p>@param string $calendarId Calendar identifier. To retrieve calendar IDs call</p>
+<p>the calendarList.list method. If you want to access the primary calendar of</p>
+<p>the currently logged in user, use the "primary" keyword.</p>
+<p>@param Google_Service_Calendar_CalendarListEntry $postBody</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@opt_param bool colorRgbFormat Whether to use the foregroundColor and</p>
+<p>backgroundColor fields to write the calendar colors (RGB). If this feature is</p>
+<p>used, the index-based colorId field will be set to the best matching option</p>
+<p>automatically. Optional. The default is False.</p>
+<p>@return Google_Service_Calendar_CalendarListEntry</p>
+
+<p>Updates an entry on the user's calendar list. (calendarList.update)</p>
+<p>@param string $calendarId Calendar identifier. To retrieve calendar IDs call</p>
+<p>the calendarList.list method. If you want to access the primary calendar of</p>
+<p>the currently logged in user, use the "primary" keyword.</p>
+<p>@param Google_Service_Calendar_CalendarListEntry $postBody</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@opt_param bool colorRgbFormat Whether to use the foregroundColor and</p>
+<p>backgroundColor fields to write the calendar colors (RGB). If this feature is</p>
+<p>used, the index-based colorId field will be set to the best matching option</p>
+<p>automatically. Optional. The default is False.</p>
+<p>@return Google_Service_Calendar_CalendarListEntry</p>
+
+<p>Watch for changes to CalendarList resources. (calendarList.watch)</p>
+<p>@param Google_Service_Calendar_Channel $postBody</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@opt_param int maxResults Maximum number of entries returned on one result</p>
+<p>page. By default the value is 100 entries. The page size can never be larger</p>
+<p>than 250 entries. Optional.</p>
+<p>@opt_param string minAccessRole The minimum access role for the user in the</p>
+<p>returned entries. Optional. The default is no restriction.</p>
+<p>@opt_param string pageToken Token specifying which result page to return.</p>
+<p>Optional.</p>
+<p>@opt_param bool showDeleted Whether to include deleted calendar list entries</p>
+<p>in the result. Optional. The default is False.</p>
+<p>@opt_param bool showHidden Whether to show hidden entries. Optional. The</p>
+<p>default is False.</p>
+<p>@opt_param string syncToken Token obtained from the nextSyncToken field</p>
+<p>returned on the last page of results from the previous list request. It makes</p>
+<p>the result of this list request contain only entries that have changed since</p>
+<p>then. If only read-only fields such as calendar properties or ACLs have</p>
+<p>changed, the entry won't be returned. All entries deleted and hidden since</p>
+<p>the previous list request will always be in the result set and it is not</p>
+<p>allowed to set showDeleted neither showHidden to False. To ensure client</p>
+<p>state consistency minAccessRole query parameter cannot be specified together</p>
+<p>with nextSyncToken. If the syncToken expires, the server will respond with a</p>
+<p>410 GONE response code and the client should clear its storage and perform a</p>
+<p>full synchronization without any syncToken. Learn more about incremental</p>
+<p>synchronization. Optional. The default is to return all entries.</p>
+<p>@return Google_Service_Calendar_Channel</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Calendar\Resource\CalendarList.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Google_Service_Calendar_Resource_CalendarList extends Google_Service_Resource</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>delete($calendarId, $optParams = array()</code></li>
+<li><code>get($calendarId, $optParams = array()</code></li>
+<li><code>insert(Google_Service_Calendar_CalendarListEntry $postBody, $optParams = array()</code></li>
+<li><code>listCalendarList($optParams = array()</code></li>
+<li><code>patch($calendarId, Google_Service_Calendar_CalendarListEntry $postBody, $optParams = array()</code></li>
+<li><code>update($calendarId, Google_Service_Calendar_CalendarListEntry $postBody, $optParams = array()</code></li>
+<li><code>watch(Google_Service_Calendar_Channel $postBody, $optParams = array()</code></li>
+</ul>
+</body></html>

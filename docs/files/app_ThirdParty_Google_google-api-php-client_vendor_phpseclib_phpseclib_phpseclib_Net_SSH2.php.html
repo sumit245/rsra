@@ -1,0 +1,1056 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Net\SSH2.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Net\SSH2.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Net\SSH2.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 156506 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Pure-PHP implementation of SSHv2.</p>
+<p>PHP version 5</p>
+<p>Here are some examples of how to use this library:</p>
+<p><code></p>
+<p><?php</p>
+<p>   include 'vendor/autoload.php';</p>
+<p>   $ssh = new \phpseclib\Net\SSH2('www.domain.tld');</p>
+<p>   if (!$ssh->login('username', 'password')) {</p>
+<p>       exit('Login Failed');</p>
+<p>   }</p>
+<p>   echo $ssh->exec('pwd');</p>
+<p>   echo $ssh->exec('ls -la');</p>
+<p>?></p>
+<p></code></p>
+<p><code></p>
+<p><?php</p>
+<p>   include 'vendor/autoload.php';</p>
+<p>   $key = new \phpseclib\Crypt\RSA();</p>
+<p>   //$key->setPassword('whatever');</p>
+<p>   $key->loadKey(file_get_contents('privatekey'));</p>
+<p>   $ssh = new \phpseclib\Net\SSH2('www.domain.tld');</p>
+<p>   if (!$ssh->login('username', $key)) {</p>
+<p>       exit('Login Failed');</p>
+<p>   }</p>
+<p>   echo $ssh->read('username@username:~$');</p>
+<p>   $ssh->write("ls -la\n");</p>
+<p>   echo $ssh->read('username@username:~$');</p>
+<p>?></p>
+<p></code></p>
+<p>@category  Net</p>
+<p>@package   SSH2</p>
+<p>@author    Jim Wigginton <terrafrost@php.net></p>
+<p>@copyright 2007 Jim Wigginton</p>
+<p>@license   http://www.opensource.org/licenses/mit-license.html  MIT License</p>
+<p>@link      http://phpseclib.sourceforge.net</p>
+
+<p>Pure-PHP implementation of SSHv2.</p>
+<p>@package SSH2</p>
+<p>@author  Jim Wigginton <terrafrost@php.net></p>
+<p>@access  public</p>
+
+<p>#@+</p>
+<p>Execution Bitmap Masks</p>
+<p>@see \phpseclib\Net\SSH2::bitmap</p>
+<p>@access private</p>
+
+<p>#@-</p>
+
+<p>#@+</p>
+<p>Channel constants</p>
+<p>RFC4254 refers not to client and server channels but rather to sender and recipient channels.  we don't refer</p>
+<p>to them in that way because RFC4254 toggles the meaning. the client sends a SSH_MSG_CHANNEL_OPEN message with</p>
+<p>a sender channel and the server sends a SSH_MSG_CHANNEL_OPEN_CONFIRMATION in response, with a sender and a</p>
+<p>recepient channel.  at first glance, you might conclude that SSH_MSG_CHANNEL_OPEN_CONFIRMATION's sender channel</p>
+<p>would be the same thing as SSH_MSG_CHANNEL_OPEN's sender channel, but it's not, per this snipet:</p>
+<p>    The 'recipient channel' is the channel number given in the original</p>
+<p>    open request, and 'sender channel' is the channel number allocated by</p>
+<p>    the other side.</p>
+<p>@see \phpseclib\Net\SSH2::_send_channel_packet()</p>
+<p>@see \phpseclib\Net\SSH2::_get_channel_packet()</p>
+<p>@access private</p>
+
+<p>#@-</p>
+
+<p>#@+</p>
+<p>@access public</p>
+<p>@see \phpseclib\Net\SSH2::getLog()</p>
+
+<p>Returns the message numbers</p>
+
+<p>Returns the message content</p>
+
+<p>Outputs the content real-time</p>
+
+<p>Dumps the content real-time to a file</p>
+
+<p>Make sure that the log never gets larger than this</p>
+
+<p>#@-</p>
+
+<p>#@+</p>
+<p>@access public</p>
+<p>@see \phpseclib\Net\SSH2::read()</p>
+
+<p>Returns when a string matching $expect exactly is found</p>
+
+<p>Returns when a string matching the regular expression $expect is found</p>
+
+<p>Returns when a string matching the regular expression $expect is found</p>
+
+<p>#@-</p>
+
+<p>The SSH identifier</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>The Socket Object</p>
+<p>@var object</p>
+<p>@access private</p>
+
+<p>Execution Bitmap</p>
+<p>The bits that are set represent functions that have been called already.  This is used to determine</p>
+<p>if a requisite function has been successfully executed.  If not, an error should be thrown.</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Error information</p>
+<p>@see self::getErrors()</p>
+<p>@see self::getLastError()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Server Identifier</p>
+<p>@see self::getServerIdentification()</p>
+<p>@var array|false</p>
+<p>@access private</p>
+
+<p>Key Exchange Algorithms</p>
+<p>@see self::getKexAlgorithims()</p>
+<p>@var array|false</p>
+<p>@access private</p>
+
+<p>Minimum Diffie-Hellman Group Bit Size in RFC 4419 Key Exchange Methods</p>
+<p>@see self::_key_exchange()</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Preferred Diffie-Hellman Group Bit Size in RFC 4419 Key Exchange Methods</p>
+<p>@see self::_key_exchange()</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Maximum Diffie-Hellman Group Bit Size in RFC 4419 Key Exchange Methods</p>
+<p>@see self::_key_exchange()</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Server Host Key Algorithms</p>
+<p>@see self::getServerHostKeyAlgorithms()</p>
+<p>@var array|false</p>
+<p>@access private</p>
+
+<p>Encryption Algorithms: Client to Server</p>
+<p>@see self::getEncryptionAlgorithmsClient2Server()</p>
+<p>@var array|false</p>
+<p>@access private</p>
+
+<p>Encryption Algorithms: Server to Client</p>
+<p>@see self::getEncryptionAlgorithmsServer2Client()</p>
+<p>@var array|false</p>
+<p>@access private</p>
+
+<p>MAC Algorithms: Client to Server</p>
+<p>@see self::getMACAlgorithmsClient2Server()</p>
+<p>@var array|false</p>
+<p>@access private</p>
+
+<p>MAC Algorithms: Server to Client</p>
+<p>@see self::getMACAlgorithmsServer2Client()</p>
+<p>@var array|false</p>
+<p>@access private</p>
+
+<p>Compression Algorithms: Client to Server</p>
+<p>@see self::getCompressionAlgorithmsClient2Server()</p>
+<p>@var array|false</p>
+<p>@access private</p>
+
+<p>Compression Algorithms: Server to Client</p>
+<p>@see self::getCompressionAlgorithmsServer2Client()</p>
+<p>@var array|false</p>
+<p>@access private</p>
+
+<p>Languages: Server to Client</p>
+<p>@see self::getLanguagesServer2Client()</p>
+<p>@var array|false</p>
+<p>@access private</p>
+
+<p>Languages: Client to Server</p>
+<p>@see self::getLanguagesClient2Server()</p>
+<p>@var array|false</p>
+<p>@access private</p>
+
+<p>Block Size for Server to Client Encryption</p>
+<p>"Note that the length of the concatenation of 'packet_length',</p>
+<p> 'padding_length', 'payload', and 'random padding' MUST be a multiple</p>
+<p> of the cipher block size or 8, whichever is larger.  This constraint</p>
+<p> MUST be enforced, even when using stream ciphers."</p>
+<p> -- http://tools.ietf.org/html/rfc4253#section-6</p>
+<p>@see self::__construct()</p>
+<p>@see self::_send_binary_packet()</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Block Size for Client to Server Encryption</p>
+<p>@see self::__construct()</p>
+<p>@see self::_get_binary_packet()</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Server to Client Encryption Object</p>
+<p>@see self::_get_binary_packet()</p>
+<p>@var object</p>
+<p>@access private</p>
+
+<p>Client to Server Encryption Object</p>
+<p>@see self::_send_binary_packet()</p>
+<p>@var object</p>
+<p>@access private</p>
+
+<p>Client to Server HMAC Object</p>
+<p>@see self::_send_binary_packet()</p>
+<p>@var object</p>
+<p>@access private</p>
+
+<p>Server to Client HMAC Object</p>
+<p>@see self::_get_binary_packet()</p>
+<p>@var object</p>
+<p>@access private</p>
+
+<p>Size of server to client HMAC</p>
+<p>We need to know how big the HMAC will be for the server to client direction so that we know how many bytes to read.</p>
+<p>For the client to server side, the HMAC object will make the HMAC as long as it needs to be.  All we need to do is</p>
+<p>append it.</p>
+<p>@see self::_get_binary_packet()</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Server Public Host Key</p>
+<p>@see self::getServerPublicHostKey()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Session identifier</p>
+<p>"The exchange hash H from the first key exchange is additionally</p>
+<p> used as the session identifier, which is a unique identifier for</p>
+<p> this connection."</p>
+<p> -- http://tools.ietf.org/html/rfc4253#section-7.2</p>
+<p>@see self::_key_exchange()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Exchange hash</p>
+<p>The current exchange hash</p>
+<p>@see self::_key_exchange()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Message Numbers</p>
+<p>@see self::__construct()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Disconnection Message 'reason codes' defined in RFC4253</p>
+<p>@see self::__construct()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>SSH_MSG_CHANNEL_OPEN_FAILURE 'reason codes', defined in RFC4254</p>
+<p>@see self::__construct()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Terminal Modes</p>
+<p>@link http://tools.ietf.org/html/rfc4254#section-8</p>
+<p>@see self::__construct()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>SSH_MSG_CHANNEL_EXTENDED_DATA's data_type_codes</p>
+<p>@link http://tools.ietf.org/html/rfc4254#section-5.2</p>
+<p>@see self::__construct()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Send Sequence Number</p>
+<p>See 'Section 6.4.  Data Integrity' of rfc4253 for more info.</p>
+<p>@see self::_send_binary_packet()</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Get Sequence Number</p>
+<p>See 'Section 6.4.  Data Integrity' of rfc4253 for more info.</p>
+<p>@see self::_get_binary_packet()</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Server Channels</p>
+<p>Maps client channels to server channels</p>
+<p>@see self::_get_channel_packet()</p>
+<p>@see self::exec()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Channel Buffers</p>
+<p>If a client requests a packet from one channel but receives two packets from another those packets should</p>
+<p>be placed in a buffer</p>
+<p>@see self::_get_channel_packet()</p>
+<p>@see self::exec()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Channel Status</p>
+<p>Contains the type of the last sent message</p>
+<p>@see self::_get_channel_packet()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Packet Size</p>
+<p>Maximum packet size indexed by channel</p>
+<p>@see self::_send_channel_packet()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Message Number Log</p>
+<p>@see self::getLog()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Message Log</p>
+<p>@see self::getLog()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>The Window Size</p>
+<p>Bytes the other party can send before it must wait for the window to be adjusted (0x7FFFFFFF = 2GB)</p>
+<p>@var int</p>
+<p>@see self::_send_channel_packet()</p>
+<p>@see self::exec()</p>
+<p>@access private</p>
+
+<p>Window size, server to client</p>
+<p>Window size indexed by channel</p>
+<p>@see self::_send_channel_packet()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Window size, client to server</p>
+<p>Window size indexed by channel</p>
+<p>@see self::_get_channel_packet()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Server signature</p>
+<p>Verified against $this->session_id</p>
+<p>@see self::getServerPublicHostKey()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Server signature format</p>
+<p>ssh-rsa or ssh-dss.</p>
+<p>@see self::getServerPublicHostKey()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Interactive Buffer</p>
+<p>@see self::read()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Current log size</p>
+<p>Should never exceed self::LOG_MAX_SIZE</p>
+<p>@see self::_send_binary_packet()</p>
+<p>@see self::_get_binary_packet()</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Timeout</p>
+<p>@see self::setTimeout()</p>
+<p>@access private</p>
+
+<p>Current Timeout</p>
+<p>@see self::_get_channel_packet()</p>
+<p>@access private</p>
+
+<p>Real-time log file pointer</p>
+<p>@see self::_append_log()</p>
+<p>@var resource</p>
+<p>@access private</p>
+
+<p>Real-time log file size</p>
+<p>@see self::_append_log()</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Has the signature been validated?</p>
+<p>@see self::getServerPublicHostKey()</p>
+<p>@var bool</p>
+<p>@access private</p>
+
+<p>Real-time log file wrap boolean</p>
+<p>@see self::_append_log()</p>
+<p>@access private</p>
+
+<p>Flag to suppress stderr from output</p>
+<p>@see self::enableQuietMode()</p>
+<p>@access private</p>
+
+<p>Time of first network activity</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Exit status returned from ssh if any</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Flag to request a PTY when using exec()</p>
+<p>@var bool</p>
+<p>@see self::enablePTY()</p>
+<p>@access private</p>
+
+<p>Flag set while exec() is running when using enablePTY()</p>
+<p>@var bool</p>
+<p>@access private</p>
+
+<p>Flag set after startSubsystem() is called</p>
+<p>@var bool</p>
+<p>@access private</p>
+
+<p>Contents of stdError</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>The Last Interactive Response</p>
+<p>@see self::_keyboard_interactive_process()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Keyboard Interactive Request / Responses</p>
+<p>@see self::_keyboard_interactive_process()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Banner Message</p>
+<p>Quoting from the RFC, "in some jurisdictions, sending a warning message before</p>
+<p>authentication may be relevant for getting legal protection."</p>
+<p>@see self::_filter()</p>
+<p>@see self::getBannerMessage()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Did read() timeout or return normally?</p>
+<p>@see self::isTimeout()</p>
+<p>@var bool</p>
+<p>@access private</p>
+
+<p>Log Boundary</p>
+<p>@see self::_format_log()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Log Long Width</p>
+<p>@see self::_format_log()</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Log Short Width</p>
+<p>@see self::_format_log()</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Hostname</p>
+<p>@see self::__construct()</p>
+<p>@see self::_connect()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Port Number</p>
+<p>@see self::__construct()</p>
+<p>@see self::_connect()</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Number of columns for terminal window size</p>
+<p>@see self::getWindowColumns()</p>
+<p>@see self::setWindowColumns()</p>
+<p>@see self::setWindowSize()</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Number of columns for terminal window size</p>
+<p>@see self::getWindowRows()</p>
+<p>@see self::setWindowRows()</p>
+<p>@see self::setWindowSize()</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Crypto Engine</p>
+<p>@see self::setCryptoEngine()</p>
+<p>@see self::_key_exchange()</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>A System_SSH_Agent for use in the SSH2 Agent Forwarding scenario</p>
+<p>@var System_SSH_Agent</p>
+<p>@access private</p>
+
+<p>Send the identification string first?</p>
+<p>@var bool</p>
+<p>@access private</p>
+
+<p>Send the key exchange initiation packet first?</p>
+<p>@var bool</p>
+<p>@access private</p>
+
+<p>Some versions of OpenSSH incorrectly calculate the key size</p>
+<p>@var bool</p>
+<p>@access private</p>
+
+<p>The selected decryption algorithm</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Should we try to re-connect to re-establish keys?</p>
+<p>@var bool</p>
+<p>@access private</p>
+
+<p>Binary Packet Buffer</p>
+<p>@var string|false</p>
+<p>@access private</p>
+
+<p>Default Constructor.</p>
+<p>$host can either be a string, representing the host, or a stream resource.</p>
+<p>@param mixed $host</p>
+<p>@param int $port</p>
+<p>@param int $timeout</p>
+<p>@see self::login()</p>
+<p>@return \phpseclib\Net\SSH2</p>
+<p>@access public</p>
+
+<p>Set Crypto Engine Mode</p>
+<p>Possible $engine values:</p>
+<p>CRYPT_MODE_INTERNAL, CRYPT_MODE_MCRYPT</p>
+<p>@param int $engine</p>
+<p>@access public</p>
+
+<p>Send Identification String First</p>
+<p>https://tools.ietf.org/html/rfc4253#section-4.2 says "when the connection has been established,</p>
+<p>both sides MUST send an identification string". It does not say which side sends it first. In</p>
+<p>theory it shouldn't matter but it is a fact of life that some SSH servers are simply buggy</p>
+<p>@access public</p>
+
+<p>Send Identification String Last</p>
+<p>https://tools.ietf.org/html/rfc4253#section-4.2 says "when the connection has been established,</p>
+<p>both sides MUST send an identification string". It does not say which side sends it first. In</p>
+<p>theory it shouldn't matter but it is a fact of life that some SSH servers are simply buggy</p>
+<p>@access public</p>
+
+<p>Send SSH_MSG_KEXINIT First</p>
+<p>https://tools.ietf.org/html/rfc4253#section-7.1 says "key exchange begins by each sending</p>
+<p>sending the [SSH_MSG_KEXINIT] packet". It does not say which side sends it first. In theory</p>
+<p>it shouldn't matter but it is a fact of life that some SSH servers are simply buggy</p>
+<p>@access public</p>
+
+<p>Send SSH_MSG_KEXINIT Last</p>
+<p>https://tools.ietf.org/html/rfc4253#section-7.1 says "key exchange begins by each sending</p>
+<p>sending the [SSH_MSG_KEXINIT] packet". It does not say which side sends it first. In theory</p>
+<p>it shouldn't matter but it is a fact of life that some SSH servers are simply buggy</p>
+<p>@access public</p>
+
+<p>Connect to an SSHv2 server</p>
+<p>@return bool</p>
+<p>@access private</p>
+
+<p>Generates the SSH identifier</p>
+<p>You should overwrite this method in your own class if you want to use another identifier</p>
+<p>@access protected</p>
+<p>@return string</p>
+
+<p>Key Exchange</p>
+<p>@param string $kexinit_payload_server optional</p>
+<p>@access private</p>
+
+<p>Maps an encryption algorithm name to the number of key bytes.</p>
+<p>@param string $algorithm Name of the encryption algorithm</p>
+<p>@return int|null Number of bytes as an integer or null for unknown</p>
+<p>@access private</p>
+
+<p>Maps an encryption algorithm name to an instance of a subclass of</p>
+<p>\phpseclib\Crypt\Base.</p>
+<p>@param string $algorithm Name of the encryption algorithm</p>
+<p>@return mixed Instance of \phpseclib\Crypt\Base or null for unknown</p>
+<p>@access private</p>
+
+<p>Login</p>
+<p>The $password parameter can be a plaintext password, a \phpseclib\Crypt\RSA object or an array</p>
+<p>@param string $username</p>
+<p>@param mixed $password</p>
+<p>@param mixed $...</p>
+<p>@return bool</p>
+<p>@see self::_login()</p>
+<p>@access public</p>
+
+<p>Login Helper</p>
+<p>@param string $username</p>
+<p>@param mixed $password</p>
+<p>@param mixed $...</p>
+<p>@return bool</p>
+<p>@see self::_login_helper()</p>
+<p>@access private</p>
+
+<p>Login Helper</p>
+<p>@param string $username</p>
+<p>@param string $password</p>
+<p>@return bool</p>
+<p>@access private</p>
+<p>@internal It might be worthwhile, at some point, to protect against {@link http://tools.ietf.org/html/rfc4251#section-9.3.9 traffic analysis}</p>
+<p>          by sending dummy SSH_MSG_IGNORE messages.</p>
+
+<p>Login via keyboard-interactive authentication</p>
+<p>See {@link http://tools.ietf.org/html/rfc4256 RFC4256} for details.  This is not a full-featured keyboard-interactive authenticator.</p>
+<p>@param string $username</p>
+<p>@param string $password</p>
+<p>@return bool</p>
+<p>@access private</p>
+
+<p>Handle the keyboard-interactive requests / responses.</p>
+<p>@param string $responses...</p>
+<p>@return bool</p>
+<p>@access private</p>
+
+<p>Login with an ssh-agent provided key</p>
+<p>@param string $username</p>
+<p>@param \phpseclib\System\SSH\Agent $agent</p>
+<p>@return bool</p>
+<p>@access private</p>
+
+<p>Login with an RSA private key</p>
+<p>@param string $username</p>
+<p>@param \phpseclib\Crypt\RSA $password</p>
+<p>@return bool</p>
+<p>@access private</p>
+<p>@internal It might be worthwhile, at some point, to protect against {@link http://tools.ietf.org/html/rfc4251#section-9.3.9 traffic analysis}</p>
+<p>          by sending dummy SSH_MSG_IGNORE messages.</p>
+
+<p>Set Timeout</p>
+<p>$ssh->exec('ping 127.0.0.1'); on a Linux host will never return and will run indefinitely.  setTimeout() makes it so it'll timeout.</p>
+<p>Setting $timeout to false or 0 will mean there is no timeout.</p>
+<p>@param mixed $timeout</p>
+<p>@access public</p>
+
+<p>Get the output from stdError</p>
+<p>@access public</p>
+
+<p>Execute Command</p>
+<p>If $callback is set to false then \phpseclib\Net\SSH2::_get_channel_packet(self::CHANNEL_EXEC) will need to be called manually.</p>
+<p>In all likelihood, this is not a feature you want to be taking advantage of.</p>
+<p>@param string $command</p>
+<p>@param Callback $callback</p>
+<p>@return string</p>
+<p>@access public</p>
+
+<p>Creates an interactive shell</p>
+<p>@see self::read()</p>
+<p>@see self::write()</p>
+<p>@return bool</p>
+<p>@access private</p>
+
+<p>Return the channel to be used with read() / write()</p>
+<p>@see self::read()</p>
+<p>@see self::write()</p>
+<p>@return int</p>
+<p>@access public</p>
+
+<p>Return an available open channel</p>
+<p>@return int</p>
+<p>@access public</p>
+
+<p>Returns the output of an interactive shell</p>
+<p>Returns when there's a match for $expect, which can take the form of a string literal or,</p>
+<p>if $mode == self::READ_REGEX, a regular expression.</p>
+<p>@see self::write()</p>
+<p>@param string $expect</p>
+<p>@param int $mode</p>
+<p>@return string</p>
+<p>@access public</p>
+
+<p>Inputs a command into an interactive shell.</p>
+<p>@see self::read()</p>
+<p>@param string $cmd</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Start a subsystem.</p>
+<p>Right now only one subsystem at a time is supported. To support multiple subsystem's stopSubsystem() could accept</p>
+<p>a string that contained the name of the subsystem, but at that point, only one subsystem of each type could be opened.</p>
+<p>To support multiple subsystem's of the same name maybe it'd be best if startSubsystem() generated a new channel id and</p>
+<p>returns that and then that that was passed into stopSubsystem() but that'll be saved for a future date and implemented</p>
+<p>if there's sufficient demand for such a feature.</p>
+<p>@see self::stopSubsystem()</p>
+<p>@param string $subsystem</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Stops a subsystem.</p>
+<p>@see self::startSubsystem()</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Closes a channel</p>
+<p>If read() timed out you might want to just close the channel and have it auto-restart on the next read() call</p>
+<p>@access public</p>
+
+<p>Is timeout?</p>
+<p>Did exec() or read() return because they timed out or because they encountered the end?</p>
+<p>@access public</p>
+
+<p>Disconnect</p>
+<p>@access public</p>
+
+<p>Destructor.</p>
+<p>Will be called, automatically, if you're supporting just PHP5.  If you're supporting PHP4, you'll need to call</p>
+<p>disconnect().</p>
+<p>@access public</p>
+
+<p>Is the connection still active?</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Have you successfully been logged in?</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Resets a connection for re-use</p>
+<p>@param int $reason</p>
+<p>@access private</p>
+
+<p>Gets Binary Packets</p>
+<p>See '6. Binary Packet Protocol' of rfc4253 for more info.</p>
+<p>@see self::_send_binary_packet()</p>
+<p>@return string</p>
+<p>@access private</p>
+
+<p>Filter Binary Packets</p>
+<p>Because some binary packets need to be ignored...</p>
+<p>@see self::_get_binary_packet()</p>
+<p>@return string</p>
+<p>@access private</p>
+
+<p>Enable Quiet Mode</p>
+<p>Suppress stderr from output</p>
+<p>@access public</p>
+
+<p>Disable Quiet Mode</p>
+<p>Show stderr in output</p>
+<p>@access public</p>
+
+<p>Returns whether Quiet Mode is enabled or not</p>
+<p>@see self::enableQuietMode()</p>
+<p>@see self::disableQuietMode()</p>
+<p>@access public</p>
+<p>@return bool</p>
+
+<p>Enable request-pty when using exec()</p>
+<p>@access public</p>
+
+<p>Disable request-pty when using exec()</p>
+<p>@access public</p>
+
+<p>Returns whether request-pty is enabled or not</p>
+<p>@see self::enablePTY()</p>
+<p>@see self::disablePTY()</p>
+<p>@access public</p>
+<p>@return bool</p>
+
+<p>Gets channel data</p>
+<p>Returns the data as a string if it's available and false if not.</p>
+<p>@param $client_channel</p>
+<p>@return mixed</p>
+<p>@access private</p>
+
+<p>Sends Binary Packets</p>
+<p>See '6. Binary Packet Protocol' of rfc4253 for more info.</p>
+<p>@param string $data</p>
+<p>@param string $logged</p>
+<p>@see self::_get_binary_packet()</p>
+<p>@return bool</p>
+<p>@access private</p>
+
+<p>Logs data packets</p>
+<p>Makes sure that only the last 1MB worth of packets will be logged</p>
+<p>@param string $data</p>
+<p>@access private</p>
+
+<p>Sends channel data</p>
+<p>Spans multiple SSH_MSG_CHANNEL_DATAs if appropriate</p>
+<p>@param int $client_channel</p>
+<p>@param string $data</p>
+<p>@return bool</p>
+<p>@access private</p>
+
+<p>Closes and flushes a channel</p>
+<p>\phpseclib\Net\SSH2 doesn't properly close most channels.  For exec() channels are normally closed by the server</p>
+<p>and for SFTP channels are presumably closed when the client disconnects.  This functions is intended</p>
+<p>for SCP more than anything.</p>
+<p>@param int $client_channel</p>
+<p>@param bool $want_reply</p>
+<p>@return bool</p>
+<p>@access private</p>
+
+<p>Disconnect</p>
+<p>@param int $reason</p>
+<p>@return bool</p>
+<p>@access private</p>
+
+<p>String Shift</p>
+<p>Inspired by array_shift</p>
+<p>@param string $string</p>
+<p>@param int $index</p>
+<p>@return string</p>
+<p>@access private</p>
+
+<p>Define Array</p>
+<p>Takes any number of arrays whose indices are integers and whose values are strings and defines a bunch of</p>
+<p>named constants from it, using the value as the name of the constant and the index as the value of the constant.</p>
+<p>If any of the constants that would be defined already exists, none of the constants will be defined.</p>
+<p>@param array $array</p>
+<p>@access private</p>
+
+<p>Returns a log of the packets that have been sent and received.</p>
+<p>Returns a string if NET_SSH2_LOGGING == self::LOG_COMPLEX, an array if NET_SSH2_LOGGING == self::LOG_SIMPLE and false if !defined('NET_SSH2_LOGGING')</p>
+<p>@access public</p>
+<p>@return array|false|string</p>
+
+<p>Formats a log for printing</p>
+<p>@param array $message_log</p>
+<p>@param array $message_number_log</p>
+<p>@access private</p>
+<p>@return string</p>
+
+<p>Helper function for _format_log</p>
+<p>For use with preg_replace_callback()</p>
+<p>@param array $matches</p>
+<p>@access private</p>
+<p>@return string</p>
+
+<p>Helper function for agent->_on_channel_open()</p>
+<p>Used when channels are created to inform agent</p>
+<p>of said channel opening. Must be called after</p>
+<p>channel open confirmation received</p>
+<p>@access private</p>
+
+<p>Returns the first value of the intersection of two arrays or false if</p>
+<p>the intersection is empty. The order is defined by the first parameter.</p>
+<p>@param array $array1</p>
+<p>@param array $array2</p>
+<p>@return mixed False if intersection is empty, else intersected value.</p>
+<p>@access private</p>
+
+<p>Returns all errors</p>
+<p>@return string[]</p>
+<p>@access public</p>
+
+<p>Returns the last error</p>
+<p>@return string</p>
+<p>@access public</p>
+
+<p>Return the server identification.</p>
+<p>@return string</p>
+<p>@access public</p>
+
+<p>Return a list of the key exchange algorithms the server supports.</p>
+<p>@return array</p>
+<p>@access public</p>
+
+<p>Return a list of the host key (public key) algorithms the server supports.</p>
+<p>@return array</p>
+<p>@access public</p>
+
+<p>Return a list of the (symmetric key) encryption algorithms the server supports, when receiving stuff from the client.</p>
+<p>@return array</p>
+<p>@access public</p>
+
+<p>Return a list of the (symmetric key) encryption algorithms the server supports, when sending stuff to the client.</p>
+<p>@return array</p>
+<p>@access public</p>
+
+<p>Return a list of the MAC algorithms the server supports, when receiving stuff from the client.</p>
+<p>@return array</p>
+<p>@access public</p>
+
+<p>Return a list of the MAC algorithms the server supports, when sending stuff to the client.</p>
+<p>@return array</p>
+<p>@access public</p>
+
+<p>Return a list of the compression algorithms the server supports, when receiving stuff from the client.</p>
+<p>@return array</p>
+<p>@access public</p>
+
+<p>Return a list of the compression algorithms the server supports, when sending stuff to the client.</p>
+<p>@return array</p>
+<p>@access public</p>
+
+<p>Return a list of the languages the server supports, when sending stuff to the client.</p>
+<p>@return array</p>
+<p>@access public</p>
+
+<p>Return a list of the languages the server supports, when receiving stuff from the client.</p>
+<p>@return array</p>
+<p>@access public</p>
+
+<p>Returns the banner message.</p>
+<p>Quoting from the RFC, "in some jurisdictions, sending a warning message before</p>
+<p>authentication may be relevant for getting legal protection."</p>
+<p>@return string</p>
+<p>@access public</p>
+
+<p>Returns the server public host key.</p>
+<p>Caching this the first time you connect to a server and checking the result on subsequent connections</p>
+<p>is recommended.  Returns false if the server signature is not signed correctly with the public host key.</p>
+<p>@return mixed</p>
+<p>@access public</p>
+
+<p>Returns the exit status of an SSH command or false.</p>
+<p>@return false|int</p>
+<p>@access public</p>
+
+<p>Returns the number of columns for the terminal window size.</p>
+<p>@return int</p>
+<p>@access public</p>
+
+<p>Returns the number of rows for the terminal window size.</p>
+<p>@return int</p>
+<p>@access public</p>
+
+<p>Sets the number of columns for the terminal window size.</p>
+<p>@param int $value</p>
+<p>@access public</p>
+
+<p>Sets the number of rows for the terminal window size.</p>
+<p>@param int $value</p>
+<p>@access public</p>
+
+<p>Sets the number of columns and rows for the terminal window size.</p>
+<p>@param int $columns</p>
+<p>@param int $rows</p>
+<p>@access public</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>one</code></li>
+<li><code>another</code></li>
+<li><code>output</code></li>
+<li><code>ssh</code></li>
+<li><code>stdError</code></li>
+<li><code>socket</code></li>
+<li><code>packet_length</code></li>
+<li><code>all</code></li>
+<li><code>it</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Net\SSH2.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>phpseclib\Net\SSH2</code></li>
+<li><code>phpseclib\Net\if</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($host, $port = 22, $timeout = 10)</code></li>
+<li><code>setCryptoEngine($engine)</code></li>
+<li><code>sendIdentificationStringFirst()</code></li>
+<li><code>sendIdentificationStringLast()</code></li>
+<li><code>sendKEXINITFirst()</code></li>
+<li><code>sendKEXINITLast()</code></li>
+<li><code>_connect()</code></li>
+<li><code>_generate_identifier()</code></li>
+<li><code>_key_exchange($kexinit_payload_server = false)</code></li>
+<li><code>_encryption_algorithm_to_key_size($algorithm)</code></li>
+<li><code>_encryption_algorithm_to_crypt_instance($algorithm)</code></li>
+<li><code>_bad_algorithm_candidate($algorithm)</code></li>
+<li><code>login($username)</code></li>
+<li><code>_login($username)</code></li>
+<li><code>_login_helper($username, $password = null)</code></li>
+<li><code>_keyboard_interactive_login($username, $password)</code></li>
+<li><code>_keyboard_interactive_process()</code></li>
+<li><code>_ssh_agent_login($username, $agent)</code></li>
+<li><code>_privatekey_login($username, $privatekey)</code></li>
+<li><code>setTimeout($timeout)</code></li>
+<li><code>getStdError()</code></li>
+<li><code>exec($command, $callback = null)</code></li>
+<li><code>_initShell()</code></li>
+<li><code>_get_interactive_channel()</code></li>
+<li><code>_get_open_channel()</code></li>
+<li><code>read($expect = '', $mode = self::READ_SIMPLE)</code></li>
+<li><code>write($cmd)</code></li>
+<li><code>startSubsystem($subsystem)</code></li>
+<li><code>stopSubsystem()</code></li>
+<li><code>reset()</code></li>
+<li><code>isTimeout()</code></li>
+<li><code>disconnect()</code></li>
+<li><code>__destruct()</code></li>
+<li><code>isConnected()</code></li>
+<li><code>isAuthenticated()</code></li>
+<li><code>_reset_connection($reason)</code></li>
+<li><code>_get_binary_packet($skip_channel_filter = false)</code></li>
+<li><code>_filter($payload, $skip_channel_filter)</code></li>
+<li><code>enableQuietMode()</code></li>
+<li><code>disableQuietMode()</code></li>
+<li><code>isQuietModeEnabled()</code></li>
+<li><code>enablePTY()</code></li>
+<li><code>disablePTY()</code></li>
+<li><code>isPTYEnabled()</code></li>
+<li><code>_get_channel_packet($client_channel, $skip_extended = false)</code></li>
+<li><code>_send_binary_packet($data, $logged = null)</code></li>
+<li><code>_append_log($message_number, $message)</code></li>
+<li><code>_send_channel_packet($client_channel, $data)</code></li>
+<li><code>_close_channel($client_channel, $want_reply = false)</code></li>
+<li><code>_disconnect($reason)</code></li>
+<li><code>_string_shift(&$string, $index = 1)</code></li>
+<li><code>_define_array()</code></li>
+<li><code>getLog()</code></li>
+<li><code>_format_log($message_log, $message_number_log)</code></li>
+<li><code>_format_log_helper($matches)</code></li>
+<li><code>_on_channel_open()</code></li>
+<li><code>_array_intersect_first($array1, $array2)</code></li>
+<li><code>getErrors()</code></li>
+<li><code>getLastError()</code></li>
+<li><code>getServerIdentification()</code></li>
+<li><code>getKexAlgorithms()</code></li>
+<li><code>getServerHostKeyAlgorithms()</code></li>
+<li><code>getEncryptionAlgorithmsClient2Server()</code></li>
+<li><code>getEncryptionAlgorithmsServer2Client()</code></li>
+<li><code>getMACAlgorithmsClient2Server()</code></li>
+<li><code>getMACAlgorithmsServer2Client()</code></li>
+<li><code>getCompressionAlgorithmsClient2Server()</code></li>
+<li><code>getCompressionAlgorithmsServer2Client()</code></li>
+<li><code>getLanguagesServer2Client()</code></li>
+<li><code>getLanguagesClient2Server()</code></li>
+<li><code>getBannerMessage()</code></li>
+<li><code>getServerPublicHostKey()</code></li>
+<li><code>getExitStatus()</code></li>
+<li><code>getWindowColumns()</code></li>
+<li><code>getWindowRows()</code></li>
+<li><code>setWindowColumns($value)</code></li>
+<li><code>setWindowRows($value)</code></li>
+<li><code>setWindowSize($columns = 80, $rows = 24)</code></li>
+</ul>
+</body></html>

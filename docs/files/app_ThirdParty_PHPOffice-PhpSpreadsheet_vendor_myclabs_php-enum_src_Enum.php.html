@@ -1,0 +1,181 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\myclabs\php-enum\src\Enum.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\myclabs\php-enum\src\Enum.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\myclabs\php-enum\src\Enum.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 8174 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@link    http://github.com/myclabs/php-enum</p>
+<p>@license http://www.opensource.org/licenses/mit-license.php MIT (see the LICENSE file)</p>
+
+<p>Base Enum class</p>
+<p>Create an enum by implementing this class and adding class constants.</p>
+<p>@author Matthieu Napoli <matthieu@mnapoli.fr></p>
+<p>@author Daniel Costa <danielcosta@gmail.com></p>
+<p>@author Mirosław Filip <mirfilip@gmail.com></p>
+<p>@psalm-template T</p>
+<p>@psalm-immutable</p>
+<p>@psalm-consistent-constructor</p>
+
+<p>Enum value</p>
+<p>@var mixed</p>
+<p>@psalm-var T</p>
+
+<p>Enum key, the constant name</p>
+<p>@var string</p>
+
+<p>Store existing constants in a static cache per object.</p>
+<p>@var array</p>
+<p>@psalm-var array<class-string, array<string, mixed>></p>
+
+<p>Cache of instances of the Enum class</p>
+<p>@var array</p>
+<p>@psalm-var array<class-string, array<string, static>></p>
+
+<p>Creates a new value of some type</p>
+<p>@psalm-pure</p>
+<p>@param mixed $value</p>
+<p>@psalm-param T $value</p>
+<p>@throws \UnexpectedValueException if incompatible type is given.</p>
+
+<p>@psalm-var T</p>
+
+<p>@psalm-suppress ImplicitToStringCast assertValidValueReturningKey returns always a string but psalm has currently an issue here</p>
+
+<p>@psalm-var T</p>
+
+<p>This method exists only for the compatibility reason when deserializing a previously serialized version</p>
+<p>that didn't had the key property</p>
+
+<p>@psalm-suppress DocblockTypeContradiction key can be null when deserializing an enum without the key</p>
+
+<p>@psalm-suppress InaccessibleProperty key is not readonly as marked by psalm</p>
+<p>@psalm-suppress PossiblyFalsePropertyAssignmentValue deserializing a case that was removed</p>
+
+<p>@param mixed $value</p>
+<p>@return static</p>
+
+<p>@psalm-pure</p>
+<p>@return mixed</p>
+<p>@psalm-return T</p>
+
+<p>Returns the enum key (i.e. the constant name).</p>
+<p>@psalm-pure</p>
+<p>@return string</p>
+
+<p>@psalm-pure</p>
+<p>@psalm-suppress InvalidCast</p>
+<p>@return string</p>
+
+<p>Determines if Enum should be considered equal with the variable passed as a parameter.</p>
+<p>Returns false if an argument is an object of different class or not an object.</p>
+<p>This method is final, for more information read https://github.com/myclabs/php-enum/issues/4</p>
+<p>@psalm-pure</p>
+<p>@psalm-param mixed $variable</p>
+<p>@return bool</p>
+
+<p>Returns the names (keys) of all constants in the Enum class</p>
+<p>@psalm-pure</p>
+<p>@psalm-return list<string></p>
+<p>@return array</p>
+
+<p>Returns instances of the Enum class of all Enum constants</p>
+<p>@psalm-pure</p>
+<p>@psalm-return array<string, static></p>
+<p>@return static[] Constant name in key, Enum instance in value</p>
+
+<p>@psalm-var T $value</p>
+
+<p>Returns all possible values as an array</p>
+<p>@psalm-pure</p>
+<p>@psalm-suppress ImpureStaticProperty</p>
+<p>@psalm-return array<string, mixed></p>
+<p>@return array Constant name in key, constant value in value</p>
+
+<p>@psalm-suppress ImpureMethodCall this reflection API usage has no side-effects here</p>
+
+<p>@psalm-suppress ImpureMethodCall this reflection API usage has no side-effects here</p>
+
+<p>Check if is valid enum value</p>
+<p>@param $value</p>
+<p>@psalm-param mixed $value</p>
+<p>@psalm-pure</p>
+<p>@psalm-assert-if-true T $value</p>
+<p>@return bool</p>
+
+<p>Asserts valid enum value</p>
+<p>@psalm-pure</p>
+<p>@psalm-assert T $value</p>
+<p>@param mixed $value</p>
+
+<p>Asserts valid enum value</p>
+<p>@psalm-pure</p>
+<p>@psalm-assert T $value</p>
+<p>@param mixed $value</p>
+<p>@return string</p>
+
+<p>Check if is valid enum key</p>
+<p>@param $key</p>
+<p>@psalm-param string $key</p>
+<p>@psalm-pure</p>
+<p>@return bool</p>
+
+<p>Return key for value</p>
+<p>@param mixed $value</p>
+<p>@psalm-param mixed $value</p>
+<p>@psalm-pure</p>
+<p>@return string|false</p>
+
+<p>Returns a value when called statically like so: MyEnum::SOME_VALUE() given SOME_VALUE is a class constant</p>
+<p>@param string $name</p>
+<p>@param array  $arguments</p>
+<p>@return static</p>
+<p>@throws \BadMethodCallException</p>
+<p>@psalm-pure</p>
+
+<p>Specify data which should be serialized to JSON. This method returns data that can be serialized by json_encode()</p>
+<p>natively.</p>
+<p>@return mixed</p>
+<p>@link http://php.net/manual/en/jsonserializable.jsonserialize.php</p>
+<p>@psalm-pure</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\myclabs\php-enum\src\Enum.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>MyCLabs\Enum\and</code></li>
+<li><code>MyCLabs\Enum\constants</code></li>
+<li><code>MyCLabs\Enum\Enum implements \JsonSerializable</code></li>
+<li><code>MyCLabs\Enum\or</code></li>
+<li><code>MyCLabs\Enum\of</code></li>
+<li><code>MyCLabs\Enum\constant</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($value)</code></li>
+<li><code>__wakeup()</code></li>
+<li><code>from($value)</code></li>
+<li><code>getValue()</code></li>
+<li><code>getKey()</code></li>
+<li><code>__toString()</code></li>
+<li><code>equals($variable = null)</code></li>
+<li><code>keys()</code></li>
+<li><code>values()</code></li>
+<li><code>toArray()</code></li>
+<li><code>isValid($value)</code></li>
+<li><code>assertValidValue($value)</code></li>
+<li><code>assertValidValueReturningKey($value)</code></li>
+<li><code>isValidKey($key)</code></li>
+<li><code>search($value)</code></li>
+<li><code>__callStatic($name, $arguments)</code></li>
+<li><code>jsonSerialize()</code></li>
+</ul>
+</body></html>

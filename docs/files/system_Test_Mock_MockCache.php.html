@@ -1,0 +1,120 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Test\Mock\MockCache.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Test\Mock\MockCache.php</h1>
+
+<ul>
+<li>Path: <code>system\Test\Mock\MockCache.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7327 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Mock cache storage.</p>
+<p>@var array</p>
+
+<p>Expiration times.</p>
+<p>@var ?int[]</p>
+
+<p>If true, will not cache any data.</p>
+<p>@var bool</p>
+
+<p>Takes care of any handler-specific setup that must be done.</p>
+
+<p>Attempts to fetch an item from the cache store.</p>
+<p>@param string $key Cache item name</p>
+<p>@return mixed</p>
+
+<p>Get an item from the cache, or execute the given Closure and store the result.</p>
+<p>@return mixed</p>
+
+<p>Saves an item to the cache store.</p>
+<p>The $raw parameter is only utilized by Mamcache in order to</p>
+<p>allow usage of increment() and decrement().</p>
+<p>@param string $key   Cache item name</p>
+<p>@param mixed  $value the data to save</p>
+<p>@param int    $ttl   Time To Live, in seconds (default 60)</p>
+<p>@param bool   $raw   Whether to store the raw value.</p>
+<p>@return bool</p>
+
+<p>Deletes a specific item from the cache store.</p>
+<p>@return bool</p>
+
+<p>Deletes items from the cache store matching a given pattern.</p>
+<p>@return int</p>
+
+<p>Performs atomic incrementation of a raw stored value.</p>
+<p>@return bool</p>
+
+<p>Performs atomic decrementation of a raw stored value.</p>
+<p>@return bool</p>
+
+<p>Will delete all items in the entire cache.</p>
+<p>@return bool</p>
+
+<p>Returns information on the entire cache.</p>
+<p>The information returned and the structure of the data</p>
+<p>varies depending on the handler.</p>
+<p>@return string[] Keys currently present in the store</p>
+
+<p>Returns detailed information about the specific item in the cache.</p>
+<p>@return array|null Returns null if the item does not exist, otherwise array<string, mixed></p>
+<p>                   with at least the 'expire' key for absolute epoch expiry (or null).</p>
+
+<p>Determine if the driver is supported on this system.</p>
+
+<p>Instructs the class to ignore all</p>
+<p>requests to cache an item, and always "miss"</p>
+<p>when checked for existing data.</p>
+<p>@return $this</p>
+
+<p>Asserts that the cache has an item named $key.</p>
+<p>The value is not checked since storing false or null</p>
+<p>values is valid.</p>
+
+<p>Asserts that the cache has an item named $key with a value matching $value.</p>
+<p>@param mixed $value</p>
+
+<p>Asserts that the cache does NOT have an item named $key.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Test\Mock\MockCache.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Test\Mock\MockCache extends BaseHandler implements CacheInterface</code></li>
+<li><code>CodeIgniter\Test\Mock\to</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>initialize()</code></li>
+<li><code>get(string $key)</code></li>
+<li><code>remember(string $key, int $ttl, Closure $callback)</code></li>
+<li><code>save(string $key, $value, int $ttl = 60, bool $raw = false)</code></li>
+<li><code>delete(string $key)</code></li>
+<li><code>deleteMatching(string $pattern)</code></li>
+<li><code>increment(string $key, int $offset = 1)</code></li>
+<li><code>decrement(string $key, int $offset = 1)</code></li>
+<li><code>clean()</code></li>
+<li><code>getCacheInfo()</code></li>
+<li><code>getMetaData(string $key)</code></li>
+<li><code>isSupported()</code></li>
+<li><code>bypass(bool $bypass = true)</code></li>
+<li><code>assertHas(string $key)</code></li>
+<li><code>assertHasValue(string $key, $value = null)</code></li>
+<li><code>assertMissing(string $key)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,298 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Net\SFTP\Stream.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Net\SFTP\Stream.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Net\SFTP\Stream.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 21793 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>SFTP Stream Wrapper</p>
+<p>Creates an sftp:// protocol handler that can be used with, for example, fopen(), dir(), etc.</p>
+<p>PHP version 5</p>
+<p>@category  Net</p>
+<p>@package   SFTP</p>
+<p>@author    Jim Wigginton <terrafrost@php.net></p>
+<p>@copyright 2013 Jim Wigginton</p>
+<p>@license   http://www.opensource.org/licenses/mit-license.html  MIT License</p>
+<p>@link      http://phpseclib.sourceforge.net</p>
+
+<p>SFTP Stream Wrapper</p>
+<p>@package SFTP</p>
+<p>@author  Jim Wigginton <terrafrost@php.net></p>
+<p>@access  public</p>
+
+<p>SFTP instances</p>
+<p>Rather than re-create the connection we re-use instances if possible</p>
+<p>@var array</p>
+
+<p>SFTP instance</p>
+<p>@var object</p>
+<p>@access private</p>
+
+<p>Path</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Mode</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Position</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Size</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Directory entries</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>EOF flag</p>
+<p>@var bool</p>
+<p>@access private</p>
+
+<p>Context resource</p>
+<p>Technically this needs to be publically accessible so PHP can set it directly</p>
+<p>@var resource</p>
+<p>@access public</p>
+
+<p>Notification callback function</p>
+<p>@var callable</p>
+<p>@access public</p>
+
+<p>Registers this class as a URL wrapper.</p>
+<p>@param string $protocol The wrapper name to be registered.</p>
+<p>@return bool True on success, false otherwise.</p>
+<p>@access public</p>
+
+<p>The Constructor</p>
+<p>@access public</p>
+
+<p>Path Parser</p>
+<p>Extract a path from a URI and actually connect to an SSH server if appropriate</p>
+<p>If "notification" is set as a context parameter the message code for successful login is</p>
+<p>NET_SSH2_MSG_USERAUTH_SUCCESS. For a failed login it's NET_SSH2_MSG_USERAUTH_FAILURE.</p>
+<p>@param string $path</p>
+<p>@return string</p>
+<p>@access private</p>
+
+<p>Opens file or URL</p>
+<p>@param string $path</p>
+<p>@param string $mode</p>
+<p>@param int $options</p>
+<p>@param string $opened_path</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Read from stream</p>
+<p>@param int $count</p>
+<p>@return mixed</p>
+<p>@access public</p>
+
+<p>Write to stream</p>
+<p>@param string $data</p>
+<p>@return mixed</p>
+<p>@access public</p>
+
+<p>Retrieve the current position of a stream</p>
+<p>@return int</p>
+<p>@access public</p>
+
+<p>Tests for end-of-file on a file pointer</p>
+<p>In my testing there are four classes functions that normally effect the pointer:</p>
+<p>fseek, fputs  / fwrite, fgets / fread and ftruncate.</p>
+<p>Only fgets / fread, however, results in feof() returning true. do fputs($fp, 'aaa') on a blank file and feof()</p>
+<p>will return false. do fread($fp, 1) and feof() will then return true. do fseek($fp, 10) on ablank file and feof()</p>
+<p>will return false. do fread($fp, 1) and feof() will then return true.</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Seeks to specific location in a stream</p>
+<p>@param int $offset</p>
+<p>@param int $whence</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Change stream options</p>
+<p>@param string $path</p>
+<p>@param int $option</p>
+<p>@param mixed $var</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Retrieve the underlaying resource</p>
+<p>@param int $cast_as</p>
+<p>@return resource</p>
+<p>@access public</p>
+
+<p>Advisory file locking</p>
+<p>@param int $operation</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Renames a file or directory</p>
+<p>Attempts to rename oldname to newname, moving it between directories if necessary.</p>
+<p>If newname exists, it will be overwritten.  This is a departure from what \phpseclib\Net\SFTP</p>
+<p>does.</p>
+<p>@param string $path_from</p>
+<p>@param string $path_to</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Open directory handle</p>
+<p>The only $options is "whether or not to enforce safe_mode (0x04)". Since safe mode was deprecated in 5.3 and</p>
+<p>removed in 5.4 I'm just going to ignore it.</p>
+<p>Also, nlist() is the best that this function is realistically going to be able to do. When an SFTP client</p>
+<p>sends a SSH_FXP_READDIR packet you don't generally get info on just one file but on multiple files. Quoting</p>
+<p>the SFTP specs:</p>
+<p>   The SSH_FXP_NAME response has the following format:</p>
+<p>       uint32     id</p>
+<p>       uint32     count</p>
+<p>       repeats count times:</p>
+<p>               string     filename</p>
+<p>               string     longname</p>
+<p>               ATTRS      attrs</p>
+<p>@param string $path</p>
+<p>@param int $options</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Read entry from directory handle</p>
+<p>@return mixed</p>
+<p>@access public</p>
+
+<p>Rewind directory handle</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Close directory handle</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Create a directory</p>
+<p>Only valid $options is STREAM_MKDIR_RECURSIVE</p>
+<p>@param string $path</p>
+<p>@param int $mode</p>
+<p>@param int $options</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Removes a directory</p>
+<p>Only valid $options is STREAM_MKDIR_RECURSIVE per <http://php.net/streamwrapper.rmdir>, however,</p>
+<p><http://php.net/rmdir>  does not have a $recursive parameter as mkdir() does so I don't know how</p>
+<p>STREAM_MKDIR_RECURSIVE is supposed to be set. Also, when I try it out with rmdir() I get 8 as</p>
+<p>$options. What does 8 correspond to?</p>
+<p>@param string $path</p>
+<p>@param int $mode</p>
+<p>@param int $options</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Flushes the output</p>
+<p>See <http://php.net/fflush>. Always returns true because \phpseclib\Net\SFTP doesn't cache stuff before writing</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Retrieve information about a file resource</p>
+<p>@return mixed</p>
+<p>@access public</p>
+
+<p>Delete a file</p>
+<p>@param string $path</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Retrieve information about a file</p>
+<p>Ignores the STREAM_URL_STAT_QUIET flag because the entirety of \phpseclib\Net\SFTP\Stream is quiet by default</p>
+<p>might be worthwhile to reconstruct bits 12-16 (ie. the file type) if mode doesn't have them but we'll</p>
+<p>cross that bridge when and if it's reached</p>
+<p>@param string $path</p>
+<p>@param int $flags</p>
+<p>@return mixed</p>
+<p>@access public</p>
+
+<p>Truncate stream</p>
+<p>@param int $new_size</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Change stream options</p>
+<p>STREAM_OPTION_WRITE_BUFFER isn't supported for the same reason stream_flush isn't.</p>
+<p>The other two aren't supported because of limitations in \phpseclib\Net\SFTP.</p>
+<p>@param int $option</p>
+<p>@param int $arg1</p>
+<p>@param int $arg2</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Close an resource</p>
+<p>@access public</p>
+
+<p>__call Magic Method</p>
+<p>When you're utilizing an SFTP stream you're not calling the methods in this class directly - PHP is calling them for you.</p>
+<p>Which kinda begs the question... what methods is PHP calling and what parameters is it passing to them? This function</p>
+<p>lets you figure that out.</p>
+<p>If NET_SFTP_STREAM_LOGGING is defined all calls will be output on the screen and then (regardless of whether or not</p>
+<p>NET_SFTP_STREAM_LOGGING is enabled) the parameters will be passed through to the appropriate method.</p>
+<p>@param string</p>
+<p>@param array</p>
+<p>@return mixed</p>
+<p>@access public</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+<li><code>stream</code></li>
+<li><code>what</code></li>
+<li><code>directory</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Net\SFTP\Stream.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>phpseclib\Net\SFTP\Stream</code></li>
+<li><code>phpseclib\Net\SFTP\as</code></li>
+<li><code>phpseclib\Net\SFTP\directly</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>register($protocol = 'sftp')</code></li>
+<li><code>__construct()</code></li>
+<li><code>_parse_path($path)</code></li>
+<li><code>_stream_open($path, $mode, $options, &$opened_path)</code></li>
+<li><code>_stream_read($count)</code></li>
+<li><code>_stream_write($data)</code></li>
+<li><code>_stream_tell()</code></li>
+<li><code>_stream_eof()</code></li>
+<li><code>_stream_seek($offset, $whence)</code></li>
+<li><code>_stream_metadata($path, $option, $var)</code></li>
+<li><code>_stream_cast($cast_as)</code></li>
+<li><code>_stream_lock($operation)</code></li>
+<li><code>_rename($path_from, $path_to)</code></li>
+<li><code>_dir_opendir($path, $options)</code></li>
+<li><code>_dir_readdir()</code></li>
+<li><code>_dir_rewinddir()</code></li>
+<li><code>_dir_closedir()</code></li>
+<li><code>_mkdir($path, $mode, $options)</code></li>
+<li><code>_rmdir($path, $options)</code></li>
+<li><code>_stream_flush()</code></li>
+<li><code>_stream_stat()</code></li>
+<li><code>_unlink($path)</code></li>
+<li><code>_url_stat($path, $flags)</code></li>
+<li><code>_stream_truncate($new_size)</code></li>
+<li><code>_stream_set_option($option, $arg1, $arg2)</code></li>
+<li><code>_stream_close()</code></li>
+<li><code>__call($name, $arguments)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,176 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\ReceivedHeader.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\ReceivedHeader.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\ReceivedHeader.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9176 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Represents a Received header.</p>
+
+<p>The returned header value (as returned by a call to {@see</p>
+<p>ReceivedHeader::getValue()}) for a</p>
+<p>ReceivedHeader is the same as the raw value (as returned by a call to</p>
+<p>{@see ReceivedHeader::getRawValue()}) since the header doesn't have a single</p>
+<p>'value' to extract.</p>
+<p>The parsed parts of a Received header can be accessed as parameters.  To</p>
+<p>check if a part exists, call {@see ReceivedHeader::hasParameter()} with the</p>
+<p>name of the part, for example: ``<code> $header->hasParameter('from') </code>`` or</p>
+<p>``<code> $header->hasParameter('id') </code>``.  The value of the part can be obtained</p>
+<p>by calling {@see ReceivedHeader::getValueFor()}, for example</p>
+<p>``<code> $header->getValueFor('with'); </code>``.</p>
+<p>Additional parsing is performed on the "FROM" and "BY" parts of a received</p>
+<p>header in an attempt to extract the self-identified name of the server, its</p>
+<p>hostname, and its address (depending on what's included).  These can be</p>
+<p>accessed directly from the ReceivedHeader object by calling one of the</p>
+<p>following methods:</p>
+<p>o {@see ReceivedHeader::getFromName()} -- the name portion of the FROM part</p>
+<p>o {@see ReceivedHeader::getFromHostname()} -- the hostname of the FROM part</p>
+<p>o {@see ReceivedHeader::getFromAddress()} -- the adddress portion of the FROM</p>
+<p>  part</p>
+<p>o {@see ReceivedHeader::getByName()} -- same as getFromName, but for the BY</p>
+<p>  part, and etc... below</p>
+<p>o {@see ReceivedHeader::getByHostname()}</p>
+<p>o {@see ReceivedHeader::getByAddress()}</p>
+<p>The parsed parts of the FROM and BY parts are determined as follows:</p>
+<p>o Anything outside and before a parenthesized expression is considered "the</p>
+<p>  name", for example "FROM AlainDeBotton", "AlainDeBotton" would be the name,</p>
+<p>  but also if the name is an address, but exists outside the parenthesized</p>
+<p>  expression, it's still considered "the name".  For example:</p>
+<p>  "From [1.2.3.4]", getFromName would return "[1.2.3.4]".</p>
+<p>o A parenthesized expression MUST match what looks like either a domain name</p>
+<p>  on its own, or a domain name and an address.  Otherwise the parenthesized</p>
+<p>  expression is considered a comment, and not parsed into hostname and</p>
+<p>  address.  The rules are defined loosely because many implementations differ</p>
+<p>  in how strictly they follow the standard.  For a domain, it's enough that</p>
+<p>  the expression starts with any alphanumeric character and contains at least</p>
+<p>  one '.', followed by any number of '.', '-' and alphanumeric characters.</p>
+<p>  The address portion must be surrounded in square brackets, and contain any</p>
+<p>  sequence of '.', ':', numbers, and characters 'a' through 'f'.  In addition</p>
+<p>  the string 'ipv6' may start the expression (for instance, '[ipv6:::1]'</p>
+<p>  would be valid).  A port number may also be considered valid as part of the</p>
+<p>  address, for example: [1.2.3.4:3231].  No additional validation on the</p>
+<p>  address is done, and so an invalid address such as '....' could be</p>
+<p>  returned, so users using the 'address' header are encouraged to validate it</p>
+<p>  before using it.  The square brackets are parsed out of the returned</p>
+<p>  address, so the value returned by getFromAddress() would be "2.2.2.2", not</p>
+<p>  "[2.2.2.2]".</p>
+<p>The date/time stamp can be accessed as a DateTime object by calling</p>
+<p>{@see ReceivedHeader::getDateTime()}.</p>
+<p>Parsed comments can be accessed by calling {@see</p>
+<p>ReceivedHeader::getComments()}.  Some implementations may include connection</p>
+<p>encryption information or other details in non-standardized comments.</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var string[] an array of comments in the header.</p>
+
+<p>@var DateTime the date/time stamp in the header.</p>
+
+<p>Returns a ReceivedConsumer.</p>
+
+<p>@param ConsumerService $consumerService</p>
+<p>@return \ZBateson\MailMimeParser\Header\Consumer\AbstractConsumer</p>
+
+<p>Overridden to assign comments to $this->comments, and the DateTime to</p>
+<p>$this->date.</p>
+
+<p>@param AbstractConsumer $consumer</p>
+
+<p>Returns the raw, unparsed header value, same as {@see</p>
+<p>ReceivedHeader::getRawValue()}.</p>
+<p>@return string</p>
+
+<p>Returns the name identified in the FROM part of the header.</p>
+<p>The returned value may either be a name or an address in the form</p>
+<p>"[1.2.3.4]".  Validation is not performed on this value, and so whatever</p>
+<p>exists in this position is returned -- be it contains spaces, or invalid</p>
+<p>characters, etc...</p>
+<p>@return string</p>
+
+<p>Returns the hostname part of a parenthesized FROM part.</p>
+<p>For example, "FROM name (host.name)" would return the string "host.name".</p>
+<p>Validation of the hostname is not performed, and the returned value may</p>
+<p>not be valid.  More details on how the value is parsed and extracted can</p>
+<p>be found in the class description for {@see ReceivedHeader}.</p>
+<p>@return string</p>
+
+<p>Returns the address part of a parenthesized FROM part.</p>
+<p>For example, "FROM name ([1.2.3.4])" would return the string "1.2.3.4".</p>
+<p>Validation of the address is not performed, and the returned value may</p>
+<p>not be valid.  More details on how the value is parsed and extracted can</p>
+<p>be found in the class description for {@see ReceivedHeader}.</p>
+<p>@return string</p>
+
+<p>Returns the name identified in the BY part of the header.</p>
+<p>The returned value may either be a name or an address in the form</p>
+<p>"[1.2.3.4]".  Validation is not performed on this value, and so whatever</p>
+<p>exists in this position is returned -- be it contains spaces, or invalid</p>
+<p>characters, etc...</p>
+<p>@return string</p>
+
+<p>Returns the hostname part of a parenthesized BY part.</p>
+<p>For example, "BY name (host.name)" would return the string "host.name".</p>
+<p>Validation of the hostname is not performed, and the returned value may</p>
+<p>not be valid.  More details on how the value is parsed and extracted can</p>
+<p>be found in the class description for {@see ReceivedHeader}.</p>
+<p>@return string</p>
+
+<p>Returns the address part of a parenthesized BY part.</p>
+<p>For example, "BY name ([1.2.3.4])" would return the string "1.2.3.4".</p>
+<p>Validation of the address is not performed, and the returned value may</p>
+<p>not be valid.  More details on how the value is parsed and extracted can</p>
+<p>be found in the class description for {@see ReceivedHeader}.</p>
+<p>@return string</p>
+
+<p>Returns an array of comments parsed from the header.  If there are no</p>
+<p>comments in the header, an empty array is returned.</p>
+<p>@return string[]</p>
+
+<p>Returns the date/time stamp for the received header.</p>
+<p>@return \DateTime</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>part</code></li>
+<li><code>and</code></li>
+<li><code>AlainDeBotton</code></li>
+<li><code>name</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\ReceivedHeader.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Header\ReceivedHeader extends ParameterHeader</code></li>
+<li><code>ZBateson\MailMimeParser\Header\description</code></li>
+<li><code>ZBateson\MailMimeParser\Header\description</code></li>
+<li><code>ZBateson\MailMimeParser\Header\description</code></li>
+<li><code>ZBateson\MailMimeParser\Header\description</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getConsumer(ConsumerService $consumerService)</code></li>
+<li><code>setParseHeaderValue(AbstractConsumer $consumer)</code></li>
+<li><code>getValue()</code></li>
+<li><code>getFromName()</code></li>
+<li><code>getFromHostname()</code></li>
+<li><code>getFromAddress()</code></li>
+<li><code>getByName()</code></li>
+<li><code>getByHostname()</code></li>
+<li><code>getByAddress()</code></li>
+<li><code>getComments()</code></li>
+<li><code>getDateTime()</code></li>
+</ul>
+</body></html>

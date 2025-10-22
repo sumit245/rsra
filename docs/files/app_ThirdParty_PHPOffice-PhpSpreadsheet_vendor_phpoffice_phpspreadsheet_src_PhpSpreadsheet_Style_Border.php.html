@@ -1,0 +1,101 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Style\Border.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Style\Border.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Style\Border.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 6378 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Border style.</p>
+<p>@var string</p>
+
+<p>Border color.</p>
+<p>@var Color</p>
+
+<p>@var null|int</p>
+
+<p>Create a new Border.</p>
+<p>@param bool $isSupervisor Flag indicating if this is a supervisor or not</p>
+<p>                                   Leave this value at default unless you understand exactly what</p>
+<p>                                       its ramifications are</p>
+
+<p>Get the shared style component for the currently active cell in currently active sheet.</p>
+<p>Only used for style supervisor.</p>
+<p>@return Border</p>
+
+<p>@var Style</p>
+
+<p>@var Borders $sharedComponent</p>
+
+<p>Build style array from subcomponents.</p>
+<p>@param array $array</p>
+<p>@return array</p>
+
+<p>@var Style</p>
+
+<p>Apply styles from array.</p>
+<p><code></p>
+<p>$spreadsheet->getActiveSheet()->getStyle('B2')->getBorders()->getTop()->applyFromArray(</p>
+<p>       [</p>
+<p>           'borderStyle' => Border::BORDER_DASHDOT,</p>
+<p>           'color' => [</p>
+<p>               'rgb' => '808080'</p>
+<p>           ]</p>
+<p>       ]</p>
+<p>);</p>
+<p></code></p>
+<p>@param array $styleArray Array containing style information</p>
+<p>@return $this</p>
+
+<p>Get Border style.</p>
+<p>@return string</p>
+
+<p>Set Border style.</p>
+<p>@param bool|string $style</p>
+<p>                           When passing a boolean, FALSE equates Border::BORDER_NONE</p>
+<p>                               and TRUE to Border::BORDER_MEDIUM</p>
+<p>@return $this</p>
+
+<p>Get Border Color.</p>
+<p>@return Color</p>
+
+<p>Set Border Color.</p>
+<p>@return $this</p>
+
+<p>Get hash code.</p>
+<p>@return string Hash code</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>subcomponents</code></li>
+<li><code>array</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Style\Border.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Style\Border extends Supervisor</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($isSupervisor = false)</code></li>
+<li><code>getSharedComponent()</code></li>
+<li><code>getStyleArray($array)</code></li>
+<li><code>applyFromArray(array $styleArray)</code></li>
+<li><code>getBorderStyle()</code></li>
+<li><code>setBorderStyle($style)</code></li>
+<li><code>getColor()</code></li>
+<li><code>setColor(Color $color)</code></li>
+<li><code>getHashCode()</code></li>
+<li><code>exportArray1()</code></li>
+</ul>
+</body></html>

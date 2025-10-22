@@ -1,0 +1,132 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\maennchen\zipstream-php\src\Option\Archive.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\maennchen\zipstream-php\src\Option\Archive.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\maennchen\zipstream-php\src\Option\Archive.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 6067 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@var string</p>
+
+<p>Size, in bytes, of the largest file to try</p>
+<p>and load into memory (used by</p>
+<p>addFileFromPath()).  Large files may also</p>
+<p>be compressed differently; see the</p>
+<p>'largeFileMethod' option. Default is ~20 Mb.</p>
+<p>@var int</p>
+
+<p>How to handle large files.  Legal values are</p>
+<p>Method::STORE() (the default), or</p>
+<p>Method::DEFLATE(). STORE sends the file</p>
+<p>raw and is significantly</p>
+<p>faster, while DEFLATE compresses the file</p>
+<p>and is much, much slower. Note that DEFLATE</p>
+<p>must compress the file twice and is extremely slow.</p>
+<p>@var Method</p>
+
+<p>Boolean indicating whether or not to send</p>
+<p>the HTTP headers for this file.</p>
+<p>@var bool</p>
+
+<p>The method called to send headers</p>
+<p>@var Callable</p>
+
+<p>Enable Zip64 extension, supporting very large</p>
+<p>archives (any size > 4 GB or file count > 64k)</p>
+<p>@var bool</p>
+
+<p>Enable streaming files with single read where</p>
+<p>general purpose bit 3 indicates local file header</p>
+<p>contain zero values in crc and size fields,</p>
+<p>these appear only after file contents</p>
+<p>in data descriptor block.</p>
+<p>@var bool</p>
+
+<p>Enable reading file stat for determining file size.</p>
+<p>When a 32-bit system reads file size that is</p>
+<p>over 2 GB, invalid value appears in file size</p>
+<p>due to integer overflow. Should be disabled on</p>
+<p>32-bit systems with method addFileFromPath</p>
+<p>if any file may exceed 2 GB. In this case file</p>
+<p>will be read in blocks and correct size will be</p>
+<p>determined from content.</p>
+<p>@var bool</p>
+
+<p>Enable flush after every write to output stream.</p>
+<p>@var bool</p>
+
+<p>HTTP Content-Disposition.  Defaults to</p>
+<p>'attachment', where</p>
+<p>FILENAME is the specified filename.</p>
+<p>Note that this does nothing if you are</p>
+<p>not sending HTTP headers.</p>
+<p>@var string</p>
+
+<p>Note that this does nothing if you are</p>
+<p>not sending HTTP headers.</p>
+<p>@var string</p>
+
+<p>@var int</p>
+
+<p>@var resource</p>
+
+<p>Options constructor.</p>
+
+<p>@return resource</p>
+
+<p>@param resource $outputStream</p>
+
+<p>@return int</p>
+
+<p>@param int $deflateLevel</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>content</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\maennchen\zipstream-php\src\Option\Archive.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZipStream\Option\Archive</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>getComment()</code></li>
+<li><code>setComment(string $comment)</code></li>
+<li><code>getLargeFileSize()</code></li>
+<li><code>setLargeFileSize(int $largeFileSize)</code></li>
+<li><code>getLargeFileMethod()</code></li>
+<li><code>setLargeFileMethod(Method $largeFileMethod)</code></li>
+<li><code>isSendHttpHeaders()</code></li>
+<li><code>setSendHttpHeaders(bool $sendHttpHeaders)</code></li>
+<li><code>getHttpHeaderCallback()</code></li>
+<li><code>setHttpHeaderCallback(Callable $httpHeaderCallback)</code></li>
+<li><code>isEnableZip64()</code></li>
+<li><code>setEnableZip64(bool $enableZip64)</code></li>
+<li><code>isZeroHeader()</code></li>
+<li><code>setZeroHeader(bool $zeroHeader)</code></li>
+<li><code>isFlushOutput()</code></li>
+<li><code>setFlushOutput(bool $flushOutput)</code></li>
+<li><code>isStatFiles()</code></li>
+<li><code>setStatFiles(bool $statFiles)</code></li>
+<li><code>getContentDisposition()</code></li>
+<li><code>setContentDisposition(string $contentDisposition)</code></li>
+<li><code>getContentType()</code></li>
+<li><code>setContentType(string $contentType)</code></li>
+<li><code>getOutputStream()</code></li>
+<li><code>setOutputStream($outputStream)</code></li>
+<li><code>getDeflateLevel()</code></li>
+<li><code>setDeflateLevel(int $deflateLevel)</code></li>
+</ul>
+</body></html>

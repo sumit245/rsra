@@ -1,0 +1,266 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\TextData.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\TextData.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\TextData.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 11619 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@deprecated 1.18.0</p>
+
+<p>CHARACTER.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the character() method in the TextData\CharacterConvert class instead</p>
+<p>@param string $character Value</p>
+<p>@return array|string</p>
+
+<p>TRIMNONPRINTABLE.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the nonPrintable() method in the TextData\Trim class instead</p>
+<p>@param mixed $stringValue Value to check</p>
+<p>@return null|array|string</p>
+
+<p>TRIMSPACES.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the spaces() method in the TextData\Trim class instead</p>
+<p>@param mixed $stringValue Value to check</p>
+<p>@return array|string</p>
+
+<p>ASCIICODE.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the code() method in the TextData\CharacterConvert class instead</p>
+<p>@param array|string $characters Value</p>
+<p>@return array|int|string A string if arguments are invalid</p>
+
+<p>CONCATENATE.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the CONCATENATE() method in the TextData\Concatenate class instead</p>
+<p>@return string</p>
+
+<p>DOLLAR.</p>
+<p>This function converts a number to text using currency format, with the decimals rounded to the specified place.</p>
+<p>The format used is $#,##0.00_);($#,##0.00)..</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the DOLLAR() method in the TextData\Format class instead</p>
+<p>@param float $value The value to format</p>
+<p>@param int $decimals The number of digits to display to the right of the decimal point.</p>
+<p>                                   If decimals is negative, number is rounded to the left of the decimal point.</p>
+<p>                                   If you omit decimals, it is assumed to be 2</p>
+<p>@return array|string</p>
+
+<p>FIND.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the sensitive() method in the TextData\Search class instead</p>
+<p>@param array|string $needle The string to look for</p>
+<p>@param array|string $haystack The string in which to look</p>
+<p>@param array|int $offset Offset within $haystack</p>
+<p>@return array|int|string</p>
+
+<p>SEARCH.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the insensitive() method in the TextData\Search class instead</p>
+<p>@param array|string $needle The string to look for</p>
+<p>@param array|string $haystack The string in which to look</p>
+<p>@param array|int $offset Offset within $haystack</p>
+<p>@return array|int|string</p>
+
+<p>FIXEDFORMAT.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the FIXEDFORMAT() method in the TextData\Format class instead</p>
+<p>@param mixed $value Value to check</p>
+<p>@param int $decimals</p>
+<p>@param bool $no_commas</p>
+<p>@return array|string</p>
+
+<p>LEFT.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the left() method in the TextData\Extract class instead</p>
+<p>@param array|string $value Value</p>
+<p>@param array|int $chars Number of characters</p>
+<p>@return array|string</p>
+
+<p>MID.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the mid() method in the TextData\Extract class instead</p>
+<p>@param array|string $value Value</p>
+<p>@param array|int $start Start character</p>
+<p>@param array|int $chars Number of characters</p>
+<p>@return array|string</p>
+
+<p>RIGHT.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the right() method in the TextData\Extract class instead</p>
+<p>@param array|string $value Value</p>
+<p>@param array|int $chars Number of characters</p>
+<p>@return array|string</p>
+
+<p>STRINGLENGTH.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the length() method in the TextData\Text class instead</p>
+<p>@param string $value Value</p>
+<p>@return array|int</p>
+
+<p>LOWERCASE.</p>
+<p>Converts a string value to lower case.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the lower() method in the TextData\CaseConvert class instead</p>
+<p>@param array|string $mixedCaseString</p>
+<p>@return array|string</p>
+
+<p>UPPERCASE.</p>
+<p>Converts a string value to upper case.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the upper() method in the TextData\CaseConvert class instead</p>
+<p>@param string $mixedCaseString</p>
+<p>@return array|string</p>
+
+<p>PROPERCASE.</p>
+<p>Converts a string value to proper/title case.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the proper() method in the TextData\CaseConvert class instead</p>
+<p>@param array|string $mixedCaseString</p>
+<p>@return array|string</p>
+
+<p>REPLACE.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the replace() method in the TextData\Replace class instead</p>
+<p>@param string $oldText String to modify</p>
+<p>@param int $start Start character</p>
+<p>@param int $chars Number of characters</p>
+<p>@param string $newText String to replace in defined position</p>
+<p>@return array|string</p>
+
+<p>SUBSTITUTE.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the substitute() method in the TextData\Replace class instead</p>
+<p>@param string $text Value</p>
+<p>@param string $fromText From Value</p>
+<p>@param string $toText To Value</p>
+<p>@param int $instance Instance Number</p>
+<p>@return array|string</p>
+
+<p>RETURNSTRING.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the test() method in the TextData\Text class instead</p>
+<p>@param mixed $testValue Value to check</p>
+<p>@return null|array|string</p>
+
+<p>TEXTFORMAT.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the TEXTFORMAT() method in the TextData\Format class instead</p>
+<p>@param mixed $value Value to check</p>
+<p>@param string $format Format mask to use</p>
+<p>@return array|string</p>
+
+<p>VALUE.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the VALUE() method in the TextData\Format class instead</p>
+<p>@param mixed $value Value to check</p>
+<p>@return array|DateTimeInterface|float|int|string A string if arguments are invalid</p>
+
+<p>NUMBERVALUE.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the NUMBERVALUE() method in the TextData\Format class instead</p>
+<p>@param mixed $value Value to check</p>
+<p>@param string $decimalSeparator decimal separator, defaults to locale defined value</p>
+<p>@param string $groupSeparator group/thosands separator, defaults to locale defined value</p>
+<p>@return array|float|string</p>
+
+<p>Compares two text strings and returns TRUE if they are exactly the same, FALSE otherwise.</p>
+<p>EXACT is case-sensitive but ignores formatting differences.</p>
+<p>Use EXACT to test text being entered into a document.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the exact() method in the TextData\Text class instead</p>
+<p>@param mixed $value1</p>
+<p>@param mixed $value2</p>
+<p>@return array|bool</p>
+
+<p>TEXTJOIN.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the TEXTJOIN() method in the TextData\Concatenate class instead</p>
+<p>@param mixed $delimiter</p>
+<p>@param mixed $ignoreEmpty</p>
+<p>@param mixed $args</p>
+<p>@return array|string</p>
+
+<p>REPT.</p>
+<p>Returns the result of builtin function repeat after validating args.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Use the builtinREPT() method in the TextData\Concatenate class instead</p>
+<p>@param array|string $str Should be numeric</p>
+<p>@param mixed $number Should be int</p>
+<p>@return array|string</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>Value</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\TextData.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\TextData</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>CHARACTER($character)</code></li>
+<li><code>TRIMNONPRINTABLE($stringValue = '')</code></li>
+<li><code>TRIMSPACES($stringValue = '')</code></li>
+<li><code>ASCIICODE($characters)</code></li>
+<li><code>CONCATENATE(...$args)</code></li>
+<li><code>DOLLAR($value = 0, $decimals = 2)</code></li>
+<li><code>SEARCHSENSITIVE($needle, $haystack, $offset = 1)</code></li>
+<li><code>SEARCHINSENSITIVE($needle, $haystack, $offset = 1)</code></li>
+<li><code>FIXEDFORMAT($value, $decimals = 2, $no_commas = false)</code></li>
+<li><code>LEFT($value = '', $chars = 1)</code></li>
+<li><code>MID($value = '', $start = 1, $chars = null)</code></li>
+<li><code>RIGHT($value = '', $chars = 1)</code></li>
+<li><code>STRINGLENGTH($value = '')</code></li>
+<li><code>LOWERCASE($mixedCaseString)</code></li>
+<li><code>UPPERCASE($mixedCaseString)</code></li>
+<li><code>PROPERCASE($mixedCaseString)</code></li>
+<li><code>REPLACE($oldText, $start, $chars, $newText)</code></li>
+<li><code>SUBSTITUTE($text = '', $fromText = '', $toText = '', $instance = 0)</code></li>
+<li><code>RETURNSTRING($testValue = '')</code></li>
+<li><code>TEXTFORMAT($value, $format)</code></li>
+<li><code>VALUE($value = '')</code></li>
+<li><code>NUMBERVALUE($value = '', $decimalSeparator = null, $groupSeparator = null)</code></li>
+<li><code>EXACT($value1, $value2)</code></li>
+<li><code>TEXTJOIN($delimiter, $ignoreEmpty, ...$args)</code></li>
+<li><code>builtinREPT($str, $number)</code></li>
+</ul>
+</body></html>

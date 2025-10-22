@@ -1,0 +1,124 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Csv.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Csv.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Csv.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 17624 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Input encoding.</p>
+<p>@var string</p>
+
+<p>Fallback encoding if guess strikes out.</p>
+<p>@var string</p>
+
+<p>Delimiter.</p>
+<p>@var ?string</p>
+
+<p>Enclosure.</p>
+<p>@var string</p>
+
+<p>Sheet index to read.</p>
+<p>@var int</p>
+
+<p>Load rows contiguously.</p>
+<p>@var bool</p>
+
+<p>The character that can escape the enclosure.</p>
+<p>@var string</p>
+
+<p>Callback for setting defaults in construction.</p>
+<p>@var ?callable</p>
+
+<p>Attempt autodetect line endings (deprecated after PHP8.1)?</p>
+<p>@var bool</p>
+
+<p>@var bool</p>
+
+<p>@var bool</p>
+
+<p>Create a new CSV Reader instance.</p>
+
+<p>Set a callback to change the defaults.</p>
+<p>The callback must accept the Csv Reader object as the first parameter,</p>
+<p>and it should return void.</p>
+
+<p>Move filepointer past any BOM marker.</p>
+
+<p>Identify any separator that is explicitly set in the file.</p>
+
+<p>Infer the separator if it isn't explicitly set in the file or specified by the user.</p>
+
+<p>Return worksheet info (Name, Last Column Letter, Last Column Index, Total Rows, Total Columns).</p>
+
+<p>Loads Spreadsheet from file.</p>
+
+<p>Loads PhpSpreadsheet from file into PhpSpreadsheet instance.</p>
+
+<p>Convert string true/false to boolean, and null to null-string.</p>
+<p>@param mixed $rowDatum</p>
+
+<p>Convert numeric strings to int or float values.</p>
+<p>@param mixed $rowDatum</p>
+
+<p>Can the current IReader read the file?</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>file</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Csv.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Reader\Csv extends BaseReader</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>setConstructorCallback(?callable $callback)</code></li>
+<li><code>getConstructorCallback()</code></li>
+<li><code>setInputEncoding(string $encoding)</code></li>
+<li><code>getInputEncoding()</code></li>
+<li><code>setFallbackEncoding(string $fallbackEncoding)</code></li>
+<li><code>getFallbackEncoding()</code></li>
+<li><code>skipBOM()</code></li>
+<li><code>checkSeparator()</code></li>
+<li><code>inferSeparator()</code></li>
+<li><code>listWorksheetInfo(string $filename)</code></li>
+<li><code>loadSpreadsheetFromFile(string $filename)</code></li>
+<li><code>openFileOrMemory(string $filename)</code></li>
+<li><code>setTestAutoDetect(bool $value)</code></li>
+<li><code>setAutoDetect(?string $value)</code></li>
+<li>`castFormattedNumberToNumeric(bool $castFormattedNumberToNumeric,</li>
+<p>        bool $preserveNumericFormatting = false)`</p>
+<li><code>loadIntoExisting(string $filename, Spreadsheet $spreadsheet)</code></li>
+<li><code>convertBoolean(&$rowDatum, bool $preserveBooleanString)</code></li>
+<li><code>convertFormattedNumber(&$rowDatum)</code></li>
+<li><code>getDelimiter()</code></li>
+<li><code>setDelimiter(?string $delimiter)</code></li>
+<li><code>getEnclosure()</code></li>
+<li><code>setEnclosure(string $enclosure)</code></li>
+<li><code>getSheetIndex()</code></li>
+<li><code>setSheetIndex(int $indexValue)</code></li>
+<li><code>setContiguous(bool $contiguous)</code></li>
+<li><code>getContiguous()</code></li>
+<li><code>setEscapeCharacter(string $escapeCharacter)</code></li>
+<li><code>getEscapeCharacter()</code></li>
+<li><code>canRead(string $filename)</code></li>
+<li><code>guessEncodingTestNoBom(string &$encoding, string &$contents, string $compare, string $setEncoding)</code></li>
+<li><code>guessEncodingNoBom(string $filename)</code></li>
+<li><code>guessEncodingTestBom(string &$encoding, string $first4, string $compare, string $setEncoding)</code></li>
+<li><code>guessEncodingBom(string $filename)</code></li>
+<li><code>guessEncoding(string $filename, string $dflt = self::DEFAULT_FALLBACK_ENCODING)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,73 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\HTTP\Message.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\HTTP\Message.php</h1>
+
+<ul>
+<li>Path: <code>system\HTTP\Message.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2732 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>An HTTP message</p>
+
+<p>Protocol version</p>
+<p>@var string</p>
+
+<p>List of valid protocol versions</p>
+<p>@var array</p>
+
+<p>Message body</p>
+<p>@var mixed</p>
+
+<p>Returns the Message's body.</p>
+<p>@return mixed</p>
+
+<p>Returns an array containing all headers.</p>
+<p>@return array<string, Header> An array of the request headers</p>
+<p>@deprecated Use Message::headers() to make room for PSR-7</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Returns a single header object. If multiple headers with the same</p>
+<p>name exist, then will return an array of header objects.</p>
+<p>@return array|Header|null</p>
+<p>@deprecated Use Message::header() to make room for PSR-7</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Determines whether a header exists.</p>
+
+<p>Retrieves a comma-separated string of the values for a single header.</p>
+<p>This method returns all of the header values of the given</p>
+<p>case-insensitive header name as a string concatenated together using</p>
+<p>a comma.</p>
+<p>NOTE: Not all header values may be appropriately represented using</p>
+<p>comma concatenation. For such headers, use getHeader() instead</p>
+<p>and supply your own delimiter when concatenating.</p>
+
+<p>Returns the HTTP Protocol Version.</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\HTTP\Message.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\HTTP\Message implements MessageInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getBody()</code></li>
+<li><code>getHeaders()</code></li>
+<li><code>getHeader(string $name)</code></li>
+<li><code>hasHeader(string $name)</code></li>
+<li><code>getHeaderLine(string $name)</code></li>
+<li><code>getProtocolVersion()</code></li>
+</ul>
+</body></html>

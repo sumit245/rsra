@@ -1,0 +1,70 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Cache\Handlers\BaseHandler.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Cache\Handlers\BaseHandler.php</h1>
+
+<ul>
+<li>Path: <code>system\Cache\Handlers\BaseHandler.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3140 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Base class for cache handling</p>
+
+<p>Reserved characters that cannot be used in a key or tag. May be overridden by the config.</p>
+<p>From https://github.com/symfony/cache-contracts/blob/c0446463729b89dd4fa62e9aeecc80287323615d/ItemInterface.php#L43</p>
+<p>@deprecated in favor of the Cache config</p>
+
+<p>Maximum key length.</p>
+
+<p>Prefix to apply to cache keys.</p>
+<p>May not be used by all handlers.</p>
+<p>@var string</p>
+
+<p>Validates a cache key according to PSR-6.</p>
+<p>Keys that exceed MAX_KEY_LENGTH are hashed.</p>
+<p>From https://github.com/symfony/cache/blob/7b024c6726af21fd4984ac8d1eae2b9f3d90de88/CacheItem.php#L158</p>
+<p>@param string $key    The key to validate</p>
+<p>@param string $prefix Optional prefix to include in length calculations</p>
+<p>@throws InvalidArgumentException When $key is not valid</p>
+
+<p>Get an item from the cache, or execute the given Closure and store the result.</p>
+<p>@param string  $key      Cache item name</p>
+<p>@param int     $ttl      Time to live</p>
+<p>@param Closure $callback Callback return value</p>
+<p>@return mixed</p>
+
+<p>Deletes items from the cache store matching a given pattern.</p>
+<p>@param string $pattern Cache items glob-style pattern</p>
+<p>@throws Exception</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>https</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Cache\Handlers\BaseHandler.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Cache\Handlers\for</code></li>
+<li><code>CodeIgniter\Cache\Handlers\BaseHandler implements CacheInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>validateKey($key, $prefix = '')</code></li>
+<li><code>remember(string $key, int $ttl, Closure $callback)</code></li>
+<li><code>deleteMatching(string $pattern)</code></li>
+</ul>
+</body></html>

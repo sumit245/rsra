@@ -1,0 +1,101 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\LookupRef\Sort.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\LookupRef\Sort.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\LookupRef\Sort.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 12411 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>SORT</p>
+<p>The SORT function returns a sorted array of the elements in an array.</p>
+<p>The returned array is the same shape as the provided array argument.</p>
+<p>Both $sortIndex and $sortOrder can be arrays, to provide multi-level sorting.</p>
+<p>@param mixed $sortArray The range of cells being sorted</p>
+<p>@param mixed $sortIndex The column or row number within the sortArray to sort on</p>
+<p>@param mixed $sortOrder Flag indicating whether to sort ascending or descending</p>
+<p>                         Ascending = 1 (self::ORDER_ASCENDING)</p>
+<p>                         Descending = -1 (self::ORDER_DESCENDING)</p>
+<p>@param mixed $byColumn Whether the sort should be determined by row (the default) or by column</p>
+<p>@return mixed The sorted values from the sort range</p>
+
+<p>SORTBY</p>
+<p>The SORTBY function sorts the contents of a range or array based on the values in a corresponding range or array.</p>
+<p>The returned array is the same shape as the provided array argument.</p>
+<p>Both $sortIndex and $sortOrder can be arrays, to provide multi-level sorting.</p>
+<p>@param mixed $sortArray The range of cells being sorted</p>
+<p>@param mixed $args</p>
+<p>             At least one additional argument must be provided, The vector or range to sort on</p>
+<p>             After that, arguments are passed as pairs:</p>
+<p>                   sort order: ascending or descending</p>
+<p>                        Ascending = 1 (self::ORDER_ASCENDING)</p>
+<p>                        Descending = -1 (self::ORDER_DESCENDING)</p>
+<p>                   additional arrays or ranges for multi-level sorting</p>
+<p>@return mixed The sorted values from the sort range</p>
+
+<p>@param mixed $sortIndex</p>
+<p>@param mixed $sortOrder</p>
+
+<p>@param mixed $sortVector</p>
+
+<p>@param mixed $sortOrder</p>
+
+<p>@param array $sortIndex</p>
+<p>@param mixed $sortOrder</p>
+
+<p>@param array[] $sortIndex</p>
+<p>@param int[] $sortOrder</p>
+
+<p>@param int[] $sortIndex</p>
+<p>@param int[] $sortOrder</p>
+
+<p>@param int[] $sortIndex</p>
+<p>@param int[] $sortOrder</p>
+
+<p>@param int[] $sortIndex</p>
+<p>@param int[] $sortOrder</p>
+
+<p>Hack to handle PHP 7:</p>
+<p>From PHP 8.0.0, If two members compare as equal in a sort, they retain their original order;</p>
+<p>     but prior to PHP 8.0.0, their relative order in the sorted array was undefined.</p>
+<p>MS Excel replicates the PHP 8.0.0 behaviour, retaining the original order of matching elements.</p>
+<p>To replicate that behaviour with PHP 7, we add an extra sort based on the row index.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>PHP</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\LookupRef\Sort.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\LookupRef\Sort extends LookupRefValidations</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>sort($sortArray, $sortIndex = 1, $sortOrder = self::ORDER_ASCENDING, $byColumn = false)</code></li>
+<li><code>sortBy($sortArray, ...$args)</code></li>
+<li><code>enumerateArrayKeys(array $sortArray)</code></li>
+<li><code>validateScalarArgumentsForSort(&$sortIndex, &$sortOrder, int $sortArraySize)</code></li>
+<li><code>validateSortVector($sortVector, int $sortArraySize)</code></li>
+<li><code>validateSortOrder($sortOrder)</code></li>
+<li><code>validateArrayArgumentsForSort(&$sortIndex, &$sortOrder, int $sortArraySize)</code></li>
+<li><code>prepareSortVectorValues(array $sortVector)</code></li>
+<li><code>processSortBy(array $sortArray, array $sortIndex, $sortOrder)</code></li>
+<li><code>sortByRow(array $sortArray, array $sortIndex, array $sortOrder)</code></li>
+<li><code>sortByColumn(array $sortArray, array $sortIndex, array $sortOrder)</code></li>
+<li><code>buildVectorForSort(array $sortArray, array $sortIndex, array $sortOrder)</code></li>
+<li><code>executeVectorSortQuery(array $sortData, array $sortArguments)</code></li>
+<li><code>sortLookupArrayFromVector(array $sortArray, array $sortVector)</code></li>
+<li><code>applyPHP7Patch(array $sortArray, array $sortArguments)</code></li>
+</ul>
+</body></html>

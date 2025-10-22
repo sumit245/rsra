@@ -1,0 +1,223 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\DES.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\DES.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\DES.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 71491 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Pure-PHP implementation of DES.</p>
+<p>Uses mcrypt, if available, and an internal implementation, otherwise.</p>
+<p>PHP version 5</p>
+<p>Useful resources are as follows:</p>
+<p> - {@link http://en.wikipedia.org/wiki/DES_supplementary_material Wikipedia: DES supplementary material}</p>
+<p> - {@link http://www.itl.nist.gov/fipspubs/fip46-2.htm FIPS 46-2 - (DES), Data Encryption Standard}</p>
+<p> - {@link http://www.cs.eku.edu/faculty/styer/460/Encrypt/JS-DES.html JavaScript DES Example}</p>
+<p>Here's a short example of how to use this library:</p>
+<p><code></p>
+<p><?php</p>
+<p>   include 'vendor/autoload.php';</p>
+<p>   $des = new \phpseclib\Crypt\DES();</p>
+<p>   $des->setKey('abcdefgh');</p>
+<p>   $size = 10 * 1024;</p>
+<p>   $plaintext = '';</p>
+<p>   for ($i = 0; $i < $size; $i++) {</p>
+<p>       $plaintext.= 'a';</p>
+<p>   }</p>
+<p>   echo $des->decrypt($des->encrypt($plaintext));</p>
+<p>?></p>
+<p></code></p>
+<p>@category  Crypt</p>
+<p>@package   DES</p>
+<p>@author    Jim Wigginton <terrafrost@php.net></p>
+<p>@copyright 2007 Jim Wigginton</p>
+<p>@license   http://www.opensource.org/licenses/mit-license.html  MIT License</p>
+<p>@link      http://phpseclib.sourceforge.net</p>
+
+<p>Pure-PHP implementation of DES.</p>
+<p>@package DES</p>
+<p>@author  Jim Wigginton <terrafrost@php.net></p>
+<p>@access  public</p>
+
+<p>#@+</p>
+<p>@access private</p>
+<p>@see \phpseclib\Crypt\DES::_setupKey()</p>
+<p>@see \phpseclib\Crypt\DES::_processBlock()</p>
+
+<p>Contains $keys[self::ENCRYPT]</p>
+
+<p>Contains $keys[self::DECRYPT]</p>
+
+<p>#@-</p>
+
+<p>Block Length of the cipher</p>
+<p>@see \phpseclib\Crypt\Base::block_size</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Key Length (in bytes)</p>
+<p>@see \phpseclib\Crypt\Base::setKeyLength()</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>The mcrypt specific name of the cipher</p>
+<p>@see \phpseclib\Crypt\Base::cipher_name_mcrypt</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>The OpenSSL names of the cipher / modes</p>
+<p>@see \phpseclib\Crypt\Base::openssl_mode_names</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Optimizing value while CFB-encrypting</p>
+<p>@see \phpseclib\Crypt\Base::cfb_init_len</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Switch for DES/3DES encryption</p>
+<p>Used only if $engine == self::ENGINE_INTERNAL</p>
+<p>@see self::_setupKey()</p>
+<p>@see self::_processBlock()</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>max possible size of $key</p>
+<p>@see self::setKey()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>The Key Schedule</p>
+<p>@see self::_setupKey()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Shuffle table.</p>
+<p>For each byte value index, the entry holds an 8-byte string</p>
+<p>with each byte containing all bits in the same state as the</p>
+<p>corresponding bit in the index value.</p>
+<p>@see self::_processBlock()</p>
+<p>@see self::_setupKey()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>IP mapping helper table.</p>
+<p>Indexing this table with each source byte performs the initial bit permutation.</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Inverse IP mapping helper table.</p>
+<p>Indexing this table with a byte value reverses the bit order.</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Pre-permuted S-box1</p>
+<p>Each box ($sbox1-$sbox8) has been vectorized, then each value pre-permuted using the</p>
+<p>P table: concatenation can then be replaced by exclusive ORs.</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Pre-permuted S-box2</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Pre-permuted S-box3</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Pre-permuted S-box4</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Pre-permuted S-box5</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Pre-permuted S-box6</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Pre-permuted S-box7</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Pre-permuted S-box8</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Test for engine validity</p>
+<p>This is mainly just a wrapper to set things up for \phpseclib\Crypt\Base::isValidEngine()</p>
+<p>@see \phpseclib\Crypt\Base::isValidEngine()</p>
+<p>@param int $engine</p>
+<p>@access public</p>
+<p>@return bool</p>
+
+<p>Sets the key.</p>
+<p>Keys can be of any length.  DES, itself, uses 64-bit keys (eg. strlen($key) == 8), however, we</p>
+<p>only use the first eight, if $key has more then eight characters in it, and pad $key with the</p>
+<p>null byte if it is less then eight characters long.</p>
+<p>DES also requires that every eighth bit be a parity bit, however, we'll ignore that.</p>
+<p>If the key is not explicitly set, it'll be assumed to be all zero's.</p>
+<p>@see \phpseclib\Crypt\Base::setKey()</p>
+<p>@access public</p>
+<p>@param string $key</p>
+
+<p>Encrypts a block</p>
+<p>@see \phpseclib\Crypt\Base::_encryptBlock()</p>
+<p>@see \phpseclib\Crypt\Base::encrypt()</p>
+<p>@see self::encrypt()</p>
+<p>@access private</p>
+<p>@param string $in</p>
+<p>@return string</p>
+
+<p>Decrypts a block</p>
+<p>@see \phpseclib\Crypt\Base::_decryptBlock()</p>
+<p>@see \phpseclib\Crypt\Base::decrypt()</p>
+<p>@see self::decrypt()</p>
+<p>@access private</p>
+<p>@param string $in</p>
+<p>@return string</p>
+
+<p>Encrypts or decrypts a 64-bit block</p>
+<p>$mode should be either self::ENCRYPT or self::DECRYPT.  See</p>
+<p>{@link http://en.wikipedia.org/wiki/Image:Feistel.png Feistel.png} to get a general</p>
+<p>idea of what this function does.</p>
+<p>@see self::_encryptBlock()</p>
+<p>@see self::_decryptBlock()</p>
+<p>@access private</p>
+<p>@param string $block</p>
+<p>@param int $mode</p>
+<p>@return string</p>
+
+<p>Creates the key schedule</p>
+<p>@see \phpseclib\Crypt\Base::_setupKey()</p>
+<p>@access private</p>
+
+<p>Setup the performance-optimized function for de/encrypt()</p>
+<p>@see \phpseclib\Crypt\Base::_setupInlineCrypt()</p>
+<p>@access private</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\DES.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>phpseclib\Crypt\DES extends Base</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>isValidEngine($engine)</code></li>
+<li><code>setKey($key)</code></li>
+<li><code>_encryptBlock($in)</code></li>
+<li><code>_decryptBlock($in)</code></li>
+<li><code>_processBlock($block, $mode)</code></li>
+<li><code>_setupKey()</code></li>
+<li><code>_setupInlineCrypt()</code></li>
+</ul>
+</body></html>

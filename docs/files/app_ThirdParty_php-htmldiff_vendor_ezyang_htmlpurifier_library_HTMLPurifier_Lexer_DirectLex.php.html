@@ -1,0 +1,70 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Lexer\DirectLex.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Lexer\DirectLex.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Lexer\DirectLex.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 20498 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Our in-house implementation of a parser.</p>
+<p>A pure PHP parser, DirectLex has absolutely no dependencies, making</p>
+<p>it a reasonably good default for PHP4.  Written with efficiency in mind,</p>
+<p>it can be four times faster than HTMLPurifier_Lexer_PEARSax3, although it</p>
+<p>pales in comparison to HTMLPurifier_Lexer_DOMLex.</p>
+<p>@todo Reread XML spec and document differences.</p>
+
+<p>@type bool</p>
+
+<p>Whitespace characters for str(c)spn.</p>
+<p>@type string</p>
+
+<p>Callback function for script CDATA fudge</p>
+<p>@param array $matches, in form of array(opening tag, contents, closing tag)</p>
+<p>@return string</p>
+
+<p>@param String $html</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@param HTMLPurifier_Context $context</p>
+<p>@return array|HTMLPurifier_Token[]</p>
+
+<p>PHP 5.0.x compatible substr_count that implements offset and length</p>
+<p>@param string $haystack</p>
+<p>@param string $needle</p>
+<p>@param int $offset</p>
+<p>@param int $length</p>
+<p>@return int</p>
+
+<p>Takes the inside of an HTML tag and makes an assoc array of attributes.</p>
+<p>@param string $string Inside of tag excluding name.</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@param HTMLPurifier_Context $context</p>
+<p>@return array Assoc array of attributes.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+<li><code>StartTags</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Lexer\DirectLex.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>HTMLPurifier_Lexer_DirectLex extends HTMLPurifier_Lexer</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>scriptCallback($matches)</code></li>
+<li><code>tokenizeHTML($html, $config, $context)</code></li>
+<li><code>substrCount($haystack, $needle, $offset, $length)</code></li>
+<li><code>parseAttributeString($string, $config, $context)</code></li>
+</ul>
+</body></html>

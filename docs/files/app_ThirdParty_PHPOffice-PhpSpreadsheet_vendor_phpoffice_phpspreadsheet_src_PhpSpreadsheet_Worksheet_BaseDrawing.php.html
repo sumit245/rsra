@@ -1,0 +1,158 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\BaseDrawing.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\BaseDrawing.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\BaseDrawing.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 11558 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>The editAs attribute, used only with two cell anchor.</p>
+<p>@var string</p>
+
+<p>Image counter.</p>
+<p>@var int</p>
+
+<p>Image index.</p>
+<p>@var int</p>
+
+<p>Name.</p>
+<p>@var string</p>
+
+<p>Description.</p>
+<p>@var string</p>
+
+<p>Worksheet.</p>
+<p>@var null|Worksheet</p>
+
+<p>Coordinates.</p>
+<p>@var string</p>
+
+<p>Offset X.</p>
+<p>@var int</p>
+
+<p>Offset Y.</p>
+<p>@var int</p>
+
+<p>Coordinates2.</p>
+<p>@var string</p>
+
+<p>Offset X2.</p>
+<p>@var int</p>
+
+<p>Offset Y2.</p>
+<p>@var int</p>
+
+<p>Width.</p>
+<p>@var int</p>
+
+<p>Height.</p>
+<p>@var int</p>
+
+<p>Pixel width of image. See $width for the size the Drawing will be in the sheet.</p>
+<p>@var int</p>
+
+<p>Pixel width of image. See $height for the size the Drawing will be in the sheet.</p>
+<p>@var int</p>
+
+<p>Proportional resize.</p>
+<p>@var bool</p>
+
+<p>Rotation.</p>
+<p>@var int</p>
+
+<p>Shadow.</p>
+<p>@var Drawing\Shadow</p>
+
+<p>Image hyperlink.</p>
+<p>@var null|Hyperlink</p>
+
+<p>Image type.</p>
+<p>@var int</p>
+
+<p>Create a new BaseDrawing.</p>
+
+<p>Set Worksheet.</p>
+<p>@param bool $overrideOld If a Worksheet has already been assigned, overwrite it and remove image from old Worksheet?</p>
+
+<p>Set width and height with proportional resize.</p>
+<p>Example:</p>
+<p><code></p>
+<p>$objDrawing->setResizeProportional(true);</p>
+<p>$objDrawing->setWidthAndHeight(160,120);</p>
+<p></code></p>
+<p>@author Vincent@luo MSN:kele_100@hotmail.com</p>
+
+<p>Get hash code.</p>
+<p>@return string Hash code</p>
+
+<p>Implement PHP __clone to create a deep clone, not just a shallow copy.</p>
+
+<p>Set Fact Sizes and Type of Image.</p>
+
+<p>Get Image Type.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>old</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\BaseDrawing.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Worksheet\BaseDrawing implements IComparable</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>getImageIndex()</code></li>
+<li><code>getName()</code></li>
+<li><code>setName(string $name)</code></li>
+<li><code>getDescription()</code></li>
+<li><code>setDescription(string $description)</code></li>
+<li><code>getWorksheet()</code></li>
+<li><code>setWorksheet(?Worksheet $worksheet = null, bool $overrideOld = false)</code></li>
+<li><code>getCoordinates()</code></li>
+<li><code>setCoordinates(string $coordinates)</code></li>
+<li><code>getOffsetX()</code></li>
+<li><code>setOffsetX(int $offsetX)</code></li>
+<li><code>getOffsetY()</code></li>
+<li><code>setOffsetY(int $offsetY)</code></li>
+<li><code>getCoordinates2()</code></li>
+<li><code>setCoordinates2(string $coordinates2)</code></li>
+<li><code>getOffsetX2()</code></li>
+<li><code>setOffsetX2(int $offsetX2)</code></li>
+<li><code>getOffsetY2()</code></li>
+<li><code>setOffsetY2(int $offsetY2)</code></li>
+<li><code>getWidth()</code></li>
+<li><code>setWidth(int $width)</code></li>
+<li><code>getHeight()</code></li>
+<li><code>setHeight(int $height)</code></li>
+<li><code>setWidthAndHeight(int $width, int $height)</code></li>
+<li><code>getResizeProportional()</code></li>
+<li><code>setResizeProportional(bool $resizeProportional)</code></li>
+<li><code>getRotation()</code></li>
+<li><code>setRotation(int $rotation)</code></li>
+<li><code>getShadow()</code></li>
+<li><code>setShadow(?Drawing\Shadow $shadow = null)</code></li>
+<li><code>getHashCode()</code></li>
+<li><code>__clone()</code></li>
+<li><code>setHyperlink(?Hyperlink $hyperlink = null)</code></li>
+<li><code>getHyperlink()</code></li>
+<li><code>setSizesAndType(string $path)</code></li>
+<li><code>getType()</code></li>
+<li><code>getImageWidth()</code></li>
+<li><code>getImageHeight()</code></li>
+<li><code>getEditAs()</code></li>
+<li><code>setEditAs(string $editAs)</code></li>
+<li><code>validEditAs()</code></li>
+</ul>
+</body></html>

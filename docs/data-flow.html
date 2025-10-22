@@ -1,0 +1,21 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Data Flow</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>Data Flow</h1>
+
+<p>Typical request-level data flow:</p>
+<p>1. Router matches URI to Controller@method.</p>
+<p>2. Controller validates input and delegates to one or more Models.</p>
+<p>3. Models query/update the database and return structured arrays/objects.</p>
+<p>4. Controller selects a View and passes data arrays (e.g., <code>$view_data</code>).</p>
+<p>5. View renders HTML/JS using the provided data.</p>
+
+<p>Notable data domains inferred from models/controllers:</p>
+<ul>
+<li>Projects, Tasks, Milestones, Timesheets</li>
+<li>Invoices, Estimates, Payments, Taxes</li>
+<li>Clients, Leads, Contacts, Companies</li>
+<li>Files, Comments, Notifications</li>
+<li>Tickets, Knowledge Base, Help</li>
+<li>Events, Calendars, Announcements</li>
+<li>Orders, Items, Item Categories</li>
+<li>Settings, Roles, Team, Permissions</li>
+</ul>
+</body></html>

@@ -1,0 +1,75 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\psr7\src\PumpStream.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\psr7\src\PumpStream.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\psr7\src\PumpStream.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4035 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Provides a read only stream that pumps data from a PHP callable.</p>
+<p>When invoking the provided callable, the PumpStream will pass the amount of</p>
+<p>data requested to read to the callable. The callable can choose to ignore</p>
+<p>this value and return fewer or more bytes than requested. Any extra data</p>
+<p>returned by the provided callable is buffered internally until drained using</p>
+<p>the read() function of the PumpStream. The provided callable MUST return</p>
+<p>false when there is no more data to read.</p>
+
+<p>@var callable</p>
+
+<p>@var int</p>
+
+<p>@var int</p>
+
+<p>@var array</p>
+
+<p>@var BufferStream</p>
+
+<p>@param callable $source Source of the stream data. The callable MAY</p>
+<p>                        accept an integer argument used to control the</p>
+<p>                        amount of data to return. The callable MUST</p>
+<p>                        return a string when called, or false on error</p>
+<p>                        or EOF.</p>
+<p>@param array $options   Stream options:</p>
+<p>                        - metadata: Hash of metadata to use with stream.</p>
+<p>                        - size: Size of the stream, if known.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\psr7\src\PumpStream.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>GuzzleHttp\Psr7\PumpStream implements StreamInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(callable $source, array $options = [])</code></li>
+<li><code>__toString()</code></li>
+<li><code>close()</code></li>
+<li><code>detach()</code></li>
+<li><code>getSize()</code></li>
+<li><code>tell()</code></li>
+<li><code>eof()</code></li>
+<li><code>isSeekable()</code></li>
+<li><code>rewind()</code></li>
+<li><code>seek($offset, $whence = SEEK_SET)</code></li>
+<li><code>isWritable()</code></li>
+<li><code>write($string)</code></li>
+<li><code>isReadable()</code></li>
+<li><code>read($length)</code></li>
+<li><code>getContents()</code></li>
+<li><code>getMetadata($key = null)</code></li>
+<li><code>pump($length)</code></li>
+</ul>
+</body></html>

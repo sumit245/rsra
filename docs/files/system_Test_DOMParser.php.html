@@ -1,0 +1,85 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Test\DOMParser.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Test\DOMParser.php</h1>
+
+<ul>
+<li>Path: <code>system\Test\DOMParser.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7483 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Load a response into a DOMDocument for testing assertions based on that</p>
+
+<p>DOM for the body,</p>
+<p>@var DOMDocument</p>
+
+<p>Constructor.</p>
+<p>@throws BadMethodCallException</p>
+
+<p>Returns the body of the current document.</p>
+
+<p>Sets a string as the body that we want to work with.</p>
+<p>@return $this</p>
+
+<p>Loads the contents of a file as a string</p>
+<p>so that we can work with it.</p>
+<p>@return DOMParser</p>
+
+<p>Checks to see if the text is found within the result.</p>
+<p>@param string $search</p>
+<p>@param string $element</p>
+
+<p>Checks to see if the text is NOT found within the result.</p>
+<p>@param string $search</p>
+
+<p>Checks to see if an element with the matching CSS specifier</p>
+<p>is found within the current DOM.</p>
+
+<p>Checks to see if the element is available within the result.</p>
+
+<p>Determines if a link with the specified text is found</p>
+<p>within the results.</p>
+
+<p>Checks for an input named $field with a value of $value.</p>
+
+<p>Checks for checkboxes that are currently checked.</p>
+
+<p>Search the DOM using an XPath expression.</p>
+<p>@return DOMNodeList</p>
+
+<p>Look for the a selector  in the passed text.</p>
+<p>@return array</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Test\DOMParser.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Test\DOMParser</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>getBody()</code></li>
+<li><code>withString(string $content)</code></li>
+<li><code>withFile(string $path)</code></li>
+<li><code>see(?string $search = null, ?string $element = null)</code></li>
+<li><code>dontSee(?string $search = null, ?string $element = null)</code></li>
+<li><code>seeElement(string $element)</code></li>
+<li><code>dontSeeElement(string $element)</code></li>
+<li><code>seeLink(string $text, ?string $details = null)</code></li>
+<li><code>seeInField(string $field, string $value)</code></li>
+<li><code>seeCheckboxIsChecked(string $element)</code></li>
+<li><code>doXPath(?string $search, string $element, array $paths = [])</code></li>
+<li><code>parseSelector(string $selector)</code></li>
+</ul>
+</body></html>

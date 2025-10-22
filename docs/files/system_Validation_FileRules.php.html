@@ -1,0 +1,59 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Validation\FileRules.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Validation\FileRules.php</h1>
+
+<ul>
+<li>Path: <code>system\Validation\FileRules.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 6654 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>File validation rules</p>
+
+<p>Request instance. So we can get access to the files.</p>
+<p>@var RequestInterface</p>
+
+<p>Constructor.</p>
+<p>@param RequestInterface $request</p>
+
+<p>Verifies that $name is the name of a valid uploaded file.</p>
+
+<p>Verifies if the file's size in Kilobytes is no larger than the parameter.</p>
+
+<p>Uses the mime config file to determine if a file is considered an "image",</p>
+<p>which for our purposes basically means that it's a raster image or svg.</p>
+
+<p>Checks to see if an uploaded file's mime type matches one in the parameter.</p>
+
+<p>Checks to see if an uploaded file's extension matches one in the parameter.</p>
+
+<p>Checks an uploaded file to verify that the dimensions are within</p>
+<p>a specified allowable dimension.</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Validation\FileRules.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Validation\FileRules</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(?RequestInterface $request = null)</code></li>
+<li><code>uploaded(?string $blank, string $name)</code></li>
+<li><code>max_size(?string $blank, string $params)</code></li>
+<li><code>is_image(?string $blank, string $params)</code></li>
+<li><code>mime_in(?string $blank, string $params)</code></li>
+<li><code>ext_in(?string $blank, string $params)</code></li>
+<li><code>max_dims(?string $blank, string $params)</code></li>
+</ul>
+</body></html>

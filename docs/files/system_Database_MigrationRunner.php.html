@@ -1,0 +1,200 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Database\MigrationRunner.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Database\MigrationRunner.php</h1>
+
+<ul>
+<li>Path: <code>system\Database\MigrationRunner.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 22546 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Class MigrationRunner</p>
+
+<p>Whether or not migrations are allowed to run.</p>
+<p>@var bool</p>
+
+<p>Name of table to store meta information</p>
+<p>@var string</p>
+
+<p>The Namespace where migrations can be found.</p>
+<p><code>null</code> is all namespaces.</p>
+<p>@var string|null</p>
+
+<p>The database Group to migrate.</p>
+<p>@var string</p>
+
+<p>The migration name.</p>
+<p>@var string</p>
+
+<p>The pattern used to locate migration file versions.</p>
+<p>@var string</p>
+
+<p>The main database connection. Used to store</p>
+<p>migration information in.</p>
+<p>@var BaseConnection</p>
+
+<p>If true, will continue instead of throwing</p>
+<p>exceptions.</p>
+<p>@var bool</p>
+
+<p>used to return messages for CLI.</p>
+<p>@var array</p>
+
+<p>Tracks whether we have already ensured</p>
+<p>the table exists or not.</p>
+<p>@var bool</p>
+
+<p>The full path to locate migration files.</p>
+<p>@var string</p>
+
+<p>The database Group filter.</p>
+<p>@var string|null</p>
+
+<p>Used to skip current migration.</p>
+<p>@var bool</p>
+
+<p>Constructor.</p>
+<p>When passing in $db, you may pass any of the following to connect:</p>
+<ul>
+<li>group name</li>
+<li>existing connection instance</li>
+<li>array of database configuration values</li>
+<p>@param array|ConnectionInterface|string|null $db</p>
+<p>@throws ConfigException</p>
+</ul>
+<p>Locate and run all new migrations</p>
+<p>@throws ConfigException</p>
+<p>@throws RuntimeException</p>
+<p>@return bool</p>
+
+<p>Migrate down to a previous batch</p>
+<p>Calls each migration step required to get to the provided batch</p>
+<p>@param int $targetBatch Target batch number, or negative for a relative batch, 0 for all</p>
+<p>@throws ConfigException</p>
+<p>@throws RuntimeException</p>
+<p>@return mixed Current batch number on success, FALSE on failure or no migrations are found</p>
+
+<p>Migrate a single file regardless of order or batches.</p>
+<p>Method "up" or "down" determined by presence in history.</p>
+<p>NOTE: This is not recommended and provided mostly for testing.</p>
+<p>@param string $path Full path to a valid migration file</p>
+<p>@param string $path Namespace of the target migration</p>
+
+<p>Retrieves list of available migration scripts</p>
+<p>@return array List of all located migrations by their UID</p>
+
+<p>Retrieves a list of available migration scripts for one namespace</p>
+
+<p>Create a migration object from a file path.</p>
+<p>@return false|object Returns the migration object, or false on failure</p>
+
+<p>Allows other scripts to modify on the fly as needed.</p>
+<p>@return MigrationRunner</p>
+
+<p>Allows other scripts to modify on the fly as needed.</p>
+<p>@return MigrationRunner</p>
+
+<p>@return MigrationRunner</p>
+
+<p>If $silent == true, then will not throw exceptions and will</p>
+<p>attempt to continue gracefully.</p>
+<p>@return MigrationRunner</p>
+
+<p>Extracts the migration number from a filename</p>
+
+<p>Extracts the migration class name from a filename</p>
+
+<p>Uses the non-repeatable portions of a migration or history</p>
+<p>to create a sortable unique key</p>
+<p>@param object $object migration or $history</p>
+
+<p>Retrieves messages formatted for CLI output</p>
+
+<p>Clears any CLI messages.</p>
+<p>@return MigrationRunner</p>
+
+<p>Truncates the history table.</p>
+
+<p>Add a history to the table.</p>
+<p>@param object $migration</p>
+
+<p>Removes a single history</p>
+<p>@param object $history</p>
+
+<p>Grabs the full migration history from the database for a group</p>
+
+<p>Returns the migration history for a single batch.</p>
+<p>@param string $order</p>
+
+<p>Returns all the batches from the database history in order</p>
+
+<p>Returns the value of the last batch in the database.</p>
+
+<p>Returns the version number of the first migration for a batch.</p>
+<p>Mostly just for tests.</p>
+
+<p>Returns the version number of the last migration for a batch.</p>
+<p>Mostly just for tests.</p>
+
+<p>Ensures that we have created our migrations table</p>
+<p>in the database.</p>
+
+<p>Handles the actual running of a migration.</p>
+<p>@param string $direction "up" or "down"</p>
+<p>@param object $migration The migration to run</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Database\MigrationRunner.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Database\MigrationRunner</code></li>
+<li><code>CodeIgniter\Database\name</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(MigrationsConfig $config, $db = null)</code></li>
+<li><code>latest(?string $group = null)</code></li>
+<li><code>regress(int $targetBatch = 0, ?string $group = null)</code></li>
+<li><code>force(string $path, string $namespace, ?string $group = null)</code></li>
+<li><code>findMigrations()</code></li>
+<li><code>findNamespaceMigrations(string $namespace)</code></li>
+<li><code>migrationFromFile(string $path, string $namespace)</code></li>
+<li><code>setNamespace(?string $namespace)</code></li>
+<li><code>setGroup(string $group)</code></li>
+<li><code>setName(string $name)</code></li>
+<li><code>setSilent(bool $silent)</code></li>
+<li><code>getMigrationNumber(string $migration)</code></li>
+<li><code>getMigrationName(string $migration)</code></li>
+<li><code>getObjectUid($object)</code></li>
+<li><code>getCliMessages()</code></li>
+<li><code>clearCliMessages()</code></li>
+<li><code>clearHistory()</code></li>
+<li><code>addHistory($migration, int $batch)</code></li>
+<li><code>removeHistory($history)</code></li>
+<li><code>getHistory(string $group = 'default')</code></li>
+<li><code>getBatchHistory(int $batch, $order = 'asc')</code></li>
+<li><code>getBatches()</code></li>
+<li><code>getLastBatch()</code></li>
+<li><code>getBatchStart(int $batch)</code></li>
+<li><code>getBatchEnd(int $batch)</code></li>
+<li><code>ensureTable()</code></li>
+<li><code>migrate($direction, $migration)</code></li>
+</ul>
+</body></html>

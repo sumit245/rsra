@@ -1,0 +1,158 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\HTTP\CURLRequest.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\HTTP\CURLRequest.php</h1>
+
+<ul>
+<li>Path: <code>system\HTTP\CURLRequest.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 19354 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>A lightweight HTTP client for sending synchronous HTTP requests via cURL.</p>
+
+<p>The response object associated with this request</p>
+<p>@var ResponseInterface|null</p>
+
+<p>The URI associated with this request</p>
+<p>@var URI</p>
+
+<p>The setting values</p>
+<p>@var array</p>
+
+<p>The default setting values</p>
+<p>@var array</p>
+
+<p>Default values for when 'allow_redirects'</p>
+<p>option is true.</p>
+<p>@var array</p>
+
+<p>The number of milliseconds to delay before</p>
+<p>sending the request.</p>
+<p>@var float</p>
+
+<p>The default options from the constructor. Applied to all requests.</p>
+
+<p>Whether share options between requests or not.</p>
+<p>If true, all the options won't be reset between requests.</p>
+<p>It may cause an error request with unnecessary headers.</p>
+
+<p>Takes an array of options to set the following possible class properties:</p>
+<p> - baseURI</p>
+<p> - timeout</p>
+<p> - any other request options to use as defaults.</p>
+<p>@param ResponseInterface $response</p>
+
+<p>@var ConfigCURLRequest|null $configCURLRequest</p>
+
+<p>Sends an HTTP request to the specified $url. If this is a relative</p>
+<p>URL, it will be merged with $this->baseURI to form a complete URL.</p>
+<p>@param string $method</p>
+
+<p>Reset all options to default.</p>
+
+<p>Convenience method for sending a GET request.</p>
+
+<p>Convenience method for sending a DELETE request.</p>
+
+<p>Convenience method for sending a HEAD request.</p>
+
+<p>Convenience method for sending an OPTIONS request.</p>
+
+<p>Convenience method for sending a PATCH request.</p>
+
+<p>Convenience method for sending a POST request.</p>
+
+<p>Convenience method for sending a PUT request.</p>
+
+<p>Set the HTTP Authentication.</p>
+<p>@param string $type basic or digest</p>
+<p>@return $this</p>
+
+<p>Set form data to be sent.</p>
+<p>@param bool $multipart Set TRUE if you are sending CURLFiles</p>
+<p>@return $this</p>
+
+<p>Set JSON data to be sent.</p>
+<p>@param mixed $data</p>
+<p>@return $this</p>
+
+<p>Sets the correct settings based on the options array</p>
+<p>passed in.</p>
+
+<p>If the $url is a relative URL, will attempt to create</p>
+<p>a full URL by prepending $this->baseURI to it.</p>
+
+<p>Get the request method. Overrides the Request class' method</p>
+<p>since users expect a different answer here.</p>
+<p>@param bool|false $upper Whether to return in upper or lower case.</p>
+
+<p>Fires the actual cURL request.</p>
+<p>@return ResponseInterface</p>
+
+<p>Adds $this->headers to the cURL request.</p>
+
+<p>Apply method</p>
+
+<p>Apply body</p>
+
+<p>Parses the header retrieved from the cURL response into</p>
+<p>our Response object.</p>
+
+<p>Set CURL options</p>
+<p>@throws InvalidArgumentException</p>
+<p>@return array</p>
+
+<p>Does the actual work of initializing cURL, setting the options,</p>
+<p>and grabbing the output.</p>
+<p>@codeCoverageIgnore</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\HTTP\CURLRequest.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\HTTP\CURLRequest extends Request</code></li>
+<li><code>CodeIgniter\HTTP\properties</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(App $config, URI $uri, ?ResponseInterface $response = null, array $options = [])</code></li>
+<li><code>request($method, string $url, array $options = [])</code></li>
+<li><code>resetOptions()</code></li>
+<li><code>get(string $url, array $options = [])</code></li>
+<li><code>delete(string $url, array $options = [])</code></li>
+<li><code>head(string $url, array $options = [])</code></li>
+<li><code>options(string $url, array $options = [])</code></li>
+<li><code>patch(string $url, array $options = [])</code></li>
+<li><code>post(string $url, array $options = [])</code></li>
+<li><code>put(string $url, array $options = [])</code></li>
+<li><code>setAuth(string $username, string $password, string $type = 'basic')</code></li>
+<li><code>setForm(array $params, bool $multipart = false)</code></li>
+<li><code>setJSON($data)</code></li>
+<li><code>parseOptions(array $options)</code></li>
+<li><code>prepareURL(string $url)</code></li>
+<li><code>getMethod(bool $upper = false)</code></li>
+<li><code>send(string $method, string $url)</code></li>
+<li><code>applyRequestHeaders(array $curlOptions = [])</code></li>
+<li><code>applyMethod(string $method, array $curlOptions)</code></li>
+<li><code>applyBody(array $curlOptions = [])</code></li>
+<li><code>setResponseHeaders(array $headers = [])</code></li>
+<li><code>setCURLOptions(array $curlOptions = [], array $config = [])</code></li>
+<li><code>sendRequest(array $curlOptions = [])</code></li>
+</ul>
+</body></html>

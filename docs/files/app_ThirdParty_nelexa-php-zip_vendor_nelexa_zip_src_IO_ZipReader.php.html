@@ -1,0 +1,191 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\IO\ZipReader.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\IO\ZipReader.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\IO\ZipReader.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 30218 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Zip reader.</p>
+
+<p>@var int file size</p>
+
+<p>@var resource</p>
+
+<p>@param resource $inStream</p>
+
+<p>@noinspection AdditionOperationOnArraysInspection</p>
+
+<p>@throws ZipException</p>
+
+<p>Read End of central directory record.</p>
+<p>end of central dir signature    4 bytes  (0x06054b50)</p>
+<p>number of this disk             2 bytes</p>
+<p>number of the disk with the</p>
+<p>start of the central directory  2 bytes</p>
+<p>total number of entries in the</p>
+<p>central directory on this disk  2 bytes</p>
+<p>total number of entries in</p>
+<p>the central directory           2 bytes</p>
+<p>size of the central directory   4 bytes</p>
+<p>offset of start of central</p>
+<p>directory with respect to</p>
+<p>the starting disk number        4 bytes</p>
+<p>.ZIP file comment length        2 bytes</p>
+<p>.ZIP file comment       (variable size)</p>
+<p>@throws ZipException</p>
+
+<p>Read Zip64 end of central directory locator and returns</p>
+<p>Zip64 end of central directory position.</p>
+<p>number of the disk with the</p>
+<p>start of the zip64 end of</p>
+<p>central directory               4 bytes</p>
+<p>relative offset of the zip64</p>
+<p>end of central directory record 8 bytes</p>
+<p>total number of disks           4 bytes</p>
+<p>@throws ZipException</p>
+<p>@return int Zip64 End Of Central Directory position</p>
+
+<p>Read zip64 end of central directory locator and zip64 end</p>
+<p>of central directory record.</p>
+<p>zip64 end of central dir</p>
+<p>signature                       4 bytes  (0x06064b50)</p>
+<p>size of zip64 end of central</p>
+<p>directory record                8 bytes</p>
+<p>version made by                 2 bytes</p>
+<p>version needed to extract       2 bytes</p>
+<p>number of this disk             4 bytes</p>
+<p>number of the disk with the</p>
+<p>start of the central directory  4 bytes</p>
+<p>total number of entries in the</p>
+<p>central directory on this disk  8 bytes</p>
+<p>total number of entries in the</p>
+<p>central directory               8 bytes</p>
+<p>size of the central directory   8 bytes</p>
+<p>offset of start of central</p>
+<p>directory with respect to</p>
+<p>the starting disk number        8 bytes</p>
+<p>zip64 extensible data sector    (variable size)</p>
+<p>@throws ZipException</p>
+
+<p>Reads the central directory from the given seekable byte channel</p>
+<p>and populates the internal tables with ZipEntry instances.</p>
+<p>The ZipEntry's will know all data that can be obtained from the</p>
+<p>central directory alone, but not the data that requires the local</p>
+<p>file header or additional data to be read.</p>
+<p>@throws ZipException</p>
+<p>@return ZipEntry[]</p>
+
+<p>@var UnicodePathExtraField|null $unicodePathExtraField</p>
+
+<p>Read central directory entry.</p>
+<p>central file header signature   4 bytes  (0x02014b50)</p>
+<p>version made by                 2 bytes</p>
+<p>version needed to extract       2 bytes</p>
+<p>general purpose bit flag        2 bytes</p>
+<p>compression method              2 bytes</p>
+<p>last mod file time              2 bytes</p>
+<p>last mod file date              2 bytes</p>
+<p>crc-32                          4 bytes</p>
+<p>compressed size                 4 bytes</p>
+<p>uncompressed size               4 bytes</p>
+<p>file name length                2 bytes</p>
+<p>extra field length              2 bytes</p>
+<p>file comment length             2 bytes</p>
+<p>disk number start               2 bytes</p>
+<p>internal file attributes        2 bytes</p>
+<p>external file attributes        4 bytes</p>
+<p>relative offset of local header 4 bytes</p>
+<p>file name (variable size)</p>
+<p>extra field (variable size)</p>
+<p>file comment (variable size)</p>
+<p>@param resource $stream</p>
+<p>@throws ZipException</p>
+
+<p>@var Zip64ExtraField|null $extraZip64</p>
+
+<p>@var string|ZipExtraField|null $className</p>
+
+<p>Read Local File Header.</p>
+<p>local file header signature     4 bytes  (0x04034b50)</p>
+<p>version needed to extract       2 bytes</p>
+<p>general purpose bit flag        2 bytes</p>
+<p>compression method              2 bytes</p>
+<p>last mod file time              2 bytes</p>
+<p>last mod file date              2 bytes</p>
+<p>crc-32                          4 bytes</p>
+<p>compressed size                 4 bytes</p>
+<p>uncompressed size               4 bytes</p>
+<p>file name length                2 bytes</p>
+<p>extra field length              2 bytes</p>
+<p>file name (variable size)</p>
+<p>extra field (variable size)</p>
+<p>@throws ZipException</p>
+
+<p>@throws ZipException</p>
+
+<p>@var WinZipAesExtraField|null $extraField</p>
+
+<p>Handle extra data in zip records.</p>
+<p>This is a special method in which you can process ExtraField</p>
+<p>and make changes to ZipEntry.</p>
+
+<p>@throws ZipException</p>
+<p>@throws Crc32Exception</p>
+<p>@return resource</p>
+
+<p>@param resource $outStream</p>
+<p>@throws Crc32Exception</p>
+<p>@throws ZipException</p>
+
+<p>@var WinZipAesExtraField|null $winZipAesExtra</p>
+
+<p>@param resource $outStream</p>
+
+<p>@psalm-suppress InvalidPropertyAssignmentValue</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>entry</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\IO\ZipReader.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpZip\IO\ZipReader</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($inStream, array $options = [])</code></li>
+<li><code>getDefaultOptions()</code></li>
+<li><code>read()</code></li>
+<li><code>getStreamMetaData()</code></li>
+<li><code>readEndOfCentralDirectory()</code></li>
+<li><code>findEndOfCentralDirectory()</code></li>
+<li><code>findZip64ECDPosition()</code></li>
+<li><code>readZip64EndOfCentralDirectory(int $zip64ECDPosition)</code></li>
+<li><code>readCentralDirectory(EndOfCentralDirectory $endCD)</code></li>
+<li><code>readZipEntry($stream)</code></li>
+<li><code>parseExtraFields(string $buffer, ZipEntry $zipEntry, bool $local = false)</code></li>
+<li><code>handleZip64Extra(Zip64ExtraField $extraZip64, ZipEntry $zipEntry)</code></li>
+<li><code>loadLocalExtraFields(ZipEntry $entry)</code></li>
+<li><code>handleExtraEncryptionFields(ZipEntry $zipEntry)</code></li>
+<li><code>handleExtraFields(ZipEntry $zipEntry)</code></li>
+<li><code>getEntryStream(ZipSourceFileData $zipFileData)</code></li>
+<li><code>copyUncompressedDataToStream(ZipSourceFileData $zipFileData, $outStream)</code></li>
+<li><code>copyCompressedDataToStream(ZipSourceFileData $zipData, $outStream)</code></li>
+<li><code>isZip64Support()</code></li>
+<li><code>close()</code></li>
+<li><code>__destruct()</code></li>
+</ul>
+</body></html>

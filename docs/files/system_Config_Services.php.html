@@ -1,0 +1,239 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Config\Services.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Config\Services.php</h1>
+
+<ul>
+<li>Path: <code>system\Config\Services.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 20553 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Services Configuration file.</p>
+<p>Services are simply other classes/libraries that the system uses</p>
+<p>to do its job. This is used by CodeIgniter to allow the core of the</p>
+<p>framework to be swapped out easily without affecting the usage within</p>
+<p>the rest of your application.</p>
+<p>This is used in place of a Dependency Injection container primarily</p>
+<p>due to its simplicity, which allows a better long-term maintenance</p>
+<p>of the applications built on top of CodeIgniter. A bonus side-effect</p>
+<p>is that IDEs are able to determine what class you are calling</p>
+<p>whereas with DI Containers there usually isn't a way for them to do this.</p>
+<p>@see http://blog.ircmaxell.com/2015/11/simple-easy-risk-and-change.html</p>
+<p>@see http://www.infoq.com/presentations/Simple-Made-Easy</p>
+
+<p>The cache class provides a simple way to store and retrieve</p>
+<p>complex data for later.</p>
+<p>@return CacheInterface</p>
+
+<p>The CLI Request class provides for ways to interact with</p>
+<p>a command line request.</p>
+<p>@return CLIRequest</p>
+
+<p>CodeIgniter, the core of the framework.</p>
+<p>@return CodeIgniter</p>
+
+<p>The commands utility for running and working with CLI commands.</p>
+<p>@return Commands</p>
+
+<p>Content Security Policy</p>
+<p>@return ContentSecurityPolicy</p>
+
+<p>The CURL Request class acts as a simple HTTP client for interacting</p>
+<p>with other servers, typically through APIs.</p>
+<p>@return CURLRequest</p>
+
+<p>The Email class allows you to send email via mail, sendmail, SMTP.</p>
+<p>@param array|EmailConfig|null $config</p>
+<p>@return Email</p>
+
+<p>The Encryption class provides two-way encryption.</p>
+<p>@param bool $getShared</p>
+<p>@return EncrypterInterface Encryption handler</p>
+
+<p>The Exceptions class holds the methods that handle:</p>
+<p> - set_exception_handler</p>
+<p> - set_error_handler</p>
+<p> - register_shutdown_function</p>
+<p>@return Exceptions</p>
+
+<p>Filters allow you to run tasks before and/or after a controller</p>
+<p>is executed. During before filters, the request can be modified,</p>
+<p>and actions taken based on the request, while after filters can</p>
+<p>act on or modify the response itself before it is sent to the client.</p>
+<p>@return Filters</p>
+
+<p>The Format class is a convenient place to create Formatters.</p>
+<p>@return Format</p>
+
+<p>The Honeypot provides a secret input on forms that bots should NOT</p>
+<p>fill in, providing an additional safeguard when accepting user input.</p>
+<p>@return Honeypot</p>
+
+<p>Acts as a factory for ImageHandler classes and returns an instance</p>
+<p>of the handler. Used like Services::image()->withFile($path)->rotate(90)->save();</p>
+<p>@return BaseHandler</p>
+
+<p>The Iterator class provides a simple way of looping over a function</p>
+<p>and timing the results and memory usage. Used when debugging and</p>
+<p>optimizing applications.</p>
+<p>@return Iterator</p>
+
+<p>Responsible for loading the language string translations.</p>
+<p>@return Language</p>
+
+<p>The Logger class is a PSR-3 compatible Logging class that supports</p>
+<p>multiple handlers that process the actual logging.</p>
+<p>@return Logger</p>
+
+<p>Return the appropriate Migration runner.</p>
+<p>@return MigrationRunner</p>
+
+<p>The Negotiate class provides the content negotiation features for</p>
+<p>working the request to determine correct language, encoding, charset,</p>
+<p>and more.</p>
+<p>@return Negotiate</p>
+
+<p>Return the appropriate pagination handler.</p>
+<p>@return Pager</p>
+
+<p>The Parser is a simple template parser.</p>
+<p>@return Parser</p>
+
+<p>The Renderer class is the class that actually displays a file to the user.</p>
+<p>The default View class within CodeIgniter is intentionally simple, but this</p>
+<p>service could easily be replaced by a template engine if the user needed to.</p>
+<p>@return View</p>
+
+<p>The Request class models an HTTP request.</p>
+<p>@return IncomingRequest</p>
+
+<p>The Response class models an HTTP response.</p>
+<p>@return Response</p>
+
+<p>The Redirect class provides nice way of working with redirects.</p>
+<p>@return RedirectResponse</p>
+
+<p>The Routes service is a class that allows for easily building</p>
+<p>a collection of routes.</p>
+<p>@return RouteCollection</p>
+
+<p>The Router class uses a RouteCollection's array of routes, and determines</p>
+<p>the correct Controller and Method to execute.</p>
+<p>@return Router</p>
+
+<p>The Security class provides a few handy tools for keeping the site</p>
+<p>secure, most notably the CSRF protection tools.</p>
+<p>@return Security</p>
+
+<p>Return the session manager.</p>
+<p>@return Session</p>
+
+<p>The Throttler class provides a simple method for implementing</p>
+<p>rate limiting in your applications.</p>
+<p>@return Throttler</p>
+
+<p>The Timer class provides a simple way to Benchmark portions of your</p>
+<p>application.</p>
+<p>@return Timer</p>
+
+<p>Return the debug toolbar.</p>
+<p>@return Toolbar</p>
+
+<p>The URI class provides a way to model and manipulate URIs.</p>
+<p>@param string $uri</p>
+<p>@return URI</p>
+
+<p>The Validation class provides tools for validating input data.</p>
+<p>@return Validation</p>
+
+<p>View cells are intended to let you insert HTML into view</p>
+<p>that has been generated by any callable in the system.</p>
+<p>@return Cell</p>
+
+<p>The Typography class provides a way to format text in semantically relevant ways.</p>
+<p>@return Typography</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Config\Services.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Config\you</code></li>
+<li><code>CodeIgniter\Config\Services extends BaseService</code></li>
+<li><code>CodeIgniter\Config\provides</code></li>
+<li><code>CodeIgniter\Config\provides</code></li>
+<li><code>CodeIgniter\Config\acts</code></li>
+<li><code>CodeIgniter\Config\allows</code></li>
+<li><code>CodeIgniter\Config\provides</code></li>
+<li><code>CodeIgniter\Config\holds</code></li>
+<li><code>CodeIgniter\Config\is</code></li>
+<li><code>CodeIgniter\Config\provides</code></li>
+<li><code>CodeIgniter\Config\is</code></li>
+<li><code>CodeIgniter\Config\that</code></li>
+<li><code>CodeIgniter\Config\provides</code></li>
+<li><code>CodeIgniter\Config\is</code></li>
+<li><code>CodeIgniter\Config\that</code></li>
+<li><code>CodeIgniter\Config\within</code></li>
+<li><code>CodeIgniter\Config\models</code></li>
+<li><code>CodeIgniter\Config\models</code></li>
+<li><code>CodeIgniter\Config\provides</code></li>
+<li><code>CodeIgniter\Config\that</code></li>
+<li><code>CodeIgniter\Config\uses</code></li>
+<li><code>CodeIgniter\Config\provides</code></li>
+<li><code>CodeIgniter\Config\provides</code></li>
+<li><code>CodeIgniter\Config\provides</code></li>
+<li><code>CodeIgniter\Config\provides</code></li>
+<li><code>CodeIgniter\Config\provides</code></li>
+<li><code>CodeIgniter\Config\provides</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>cache(?Cache $config = null, bool $getShared = true)</code></li>
+<li><code>clirequest(?App $config = null, bool $getShared = true)</code></li>
+<li><code>codeigniter(?App $config = null, bool $getShared = true)</code></li>
+<li><code>commands(bool $getShared = true)</code></li>
+<li><code>csp(?CSPConfig $config = null, bool $getShared = true)</code></li>
+<li><code>curlrequest(array $options = [], ?ResponseInterface $response = null, ?App $config = null, bool $getShared = true)</code></li>
+<li><code>email($config = null, bool $getShared = true)</code></li>
+<li><code>encrypter(?EncryptionConfig $config = null, $getShared = false)</code></li>
+<li>`exceptions(?ExceptionsConfig $config = null,</li>
+<p>        ?IncomingRequest $request = null,</p>
+<p>        ?Response $response = null,</p>
+<p>        bool $getShared = true)`</p>
+<li><code>filters(?FiltersConfig $config = null, bool $getShared = true)</code></li>
+<li><code>format(?FormatConfig $config = null, bool $getShared = true)</code></li>
+<li><code>honeypot(?HoneypotConfig $config = null, bool $getShared = true)</code></li>
+<li><code>image(?string $handler = null, ?Images $config = null, bool $getShared = true)</code></li>
+<li><code>iterator(bool $getShared = true)</code></li>
+<li><code>language(?string $locale = null, bool $getShared = true)</code></li>
+<li><code>logger(bool $getShared = true)</code></li>
+<li><code>migrations(?Migrations $config = null, ?ConnectionInterface $db = null, bool $getShared = true)</code></li>
+<li><code>negotiator(?RequestInterface $request = null, bool $getShared = true)</code></li>
+<li><code>pager(?PagerConfig $config = null, ?RendererInterface $view = null, bool $getShared = true)</code></li>
+<li><code>parser(?string $viewPath = null, ?ViewConfig $config = null, bool $getShared = true)</code></li>
+<li><code>renderer(?string $viewPath = null, ?ViewConfig $config = null, bool $getShared = true)</code></li>
+<li><code>request(?App $config = null, bool $getShared = true)</code></li>
+<li><code>response(?App $config = null, bool $getShared = true)</code></li>
+<li><code>redirectresponse(?App $config = null, bool $getShared = true)</code></li>
+<li><code>routes(bool $getShared = true)</code></li>
+<li><code>router(?RouteCollectionInterface $routes = null, ?Request $request = null, bool $getShared = true)</code></li>
+<li><code>security(?App $config = null, bool $getShared = true)</code></li>
+<li><code>session(?App $config = null, bool $getShared = true)</code></li>
+<li><code>throttler(bool $getShared = true)</code></li>
+<li><code>timer(bool $getShared = true)</code></li>
+<li><code>toolbar(?ToolbarConfig $config = null, bool $getShared = true)</code></li>
+<li><code>uri(?string $uri = null, bool $getShared = true)</code></li>
+<li><code>validation(?ValidationConfig $config = null, bool $getShared = true)</code></li>
+<li><code>viewcell(bool $getShared = true)</code></li>
+<li><code>typography(bool $getShared = true)</code></li>
+</ul>
+</body></html>

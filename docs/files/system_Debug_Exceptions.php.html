@@ -1,0 +1,104 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Debug\Exceptions.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Debug\Exceptions.php</h1>
+
+<ul>
+<li>Path: <code>system\Debug\Exceptions.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 15585 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Exceptions manager</p>
+
+<p>Nesting level of the output buffering mechanism</p>
+<p>@var int</p>
+
+<p>The path to the directory containing the</p>
+<p>cli and html error view directories.</p>
+<p>@var string</p>
+
+<p>Config for debug exceptions.</p>
+<p>@var ExceptionsConfig</p>
+
+<p>The incoming request.</p>
+<p>@var IncomingRequest</p>
+
+<p>The outgoing response.</p>
+<p>@var Response</p>
+
+<p>Responsible for registering the error, exception and shutdown</p>
+<p>handling of our application.</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Catches any uncaught errors and exceptions, including most Fatal errors</p>
+<p>(Yay PHP7!). Will log the error, display it if display_errors is on,</p>
+<p>and fire an event that allows custom actions to be taken at this point.</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Even in PHP7, some errors make it through to the errorHandler, so</p>
+<p>convert these to Exceptions and let the exception handler log it and</p>
+<p>display it.</p>
+<p>This seems to be primarily when a user triggers it with trigger_error().</p>
+<p>@throws ErrorException</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Checks to see if any errors have happened during shutdown that</p>
+<p>need to be caught and handle them.</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Determines the view to display based on the exception thrown,</p>
+<p>whether an HTTP or CLI request, etc.</p>
+<p>@return string The path and filename of the view file to use</p>
+
+<p>Given an exception and status code will display the error to the client.</p>
+
+<p>Gathers the variables that will be made available to the view.</p>
+
+<p>Mask sensitive data in the trace.</p>
+<p>@param array|object $trace</p>
+
+<p>Determines the HTTP status code and the exit status code for this request.</p>
+
+<p>This makes nicer looking paths for the error output.</p>
+<p>@deprecated Use dedicated <code>clean_path()</code> function.</p>
+
+<p>Describes memory usage in real-world units. Intended for use</p>
+<p>with memory_get_usage, etc.</p>
+
+<p>Creates a syntax-highlighted version of a PHP file.</p>
+<p>@return bool|string</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Debug\Exceptions.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Debug\Exceptions</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(ExceptionsConfig $config, IncomingRequest $request, Response $response)</code></li>
+<li><code>initialize()</code></li>
+<li><code>exceptionHandler(Throwable $exception)</code></li>
+<li><code>errorHandler(int $severity, string $message, ?string $file = null, ?int $line = null)</code></li>
+<li><code>shutdownHandler()</code></li>
+<li><code>determineView(Throwable $exception, string $templatePath)</code></li>
+<li><code>render(Throwable $exception, int $statusCode)</code></li>
+<li><code>collectVars(Throwable $exception, int $statusCode)</code></li>
+<li><code>maskSensitiveData(&$trace, array $keysToMask, string $path = '')</code></li>
+<li><code>determineCodes(Throwable $exception)</code></li>
+<li><code>cleanPath(string $file)</code></li>
+<li><code>describeMemory(int $bytes)</code></li>
+<li><code>highlightFile(string $file, int $lineNumber, int $lines = 15)</code></li>
+<li><code>renderBacktrace(array $backtrace)</code></li>
+</ul>
+</body></html>

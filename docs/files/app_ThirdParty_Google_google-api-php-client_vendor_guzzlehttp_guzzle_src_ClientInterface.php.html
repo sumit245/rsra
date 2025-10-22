@@ -1,0 +1,68 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\ClientInterface.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\ClientInterface.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\ClientInterface.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2797 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Client interface for sending HTTP requests.</p>
+
+<p>Send an HTTP request.</p>
+<p>@param RequestInterface $request Request to send</p>
+<p>@param array            $options Request options to apply to the given</p>
+<p>                                 request and to the transfer.</p>
+<p>@return ResponseInterface</p>
+<p>@throws GuzzleException</p>
+
+<p>Asynchronously send an HTTP request.</p>
+<p>@param RequestInterface $request Request to send</p>
+<p>@param array            $options Request options to apply to the given</p>
+<p>                                 request and to the transfer.</p>
+<p>@return PromiseInterface</p>
+
+<p>Create and send an HTTP request.</p>
+<p>Use an absolute path to override the base path of the client, or a</p>
+<p>relative path to append to the base path of the client. The URL can</p>
+<p>contain the query string as well.</p>
+<p>@param string              $method  HTTP method.</p>
+<p>@param string|UriInterface $uri     URI object or string.</p>
+<p>@param array               $options Request options to apply.</p>
+<p>@return ResponseInterface</p>
+<p>@throws GuzzleException</p>
+
+<p>Create and send an asynchronous HTTP request.</p>
+<p>Use an absolute path to override the base path of the client, or a</p>
+<p>relative path to append to the base path of the client. The URL can</p>
+<p>contain the query string as well. Use an array to provide a URL</p>
+<p>template and additional variables to use in the URL template expansion.</p>
+<p>@param string              $method  HTTP method</p>
+<p>@param string|UriInterface $uri     URI object or string.</p>
+<p>@param array               $options Request options to apply.</p>
+<p>@return PromiseInterface</p>
+
+<p>Get a client configuration option.</p>
+<p>These options include default request options of the client, a "handler"</p>
+<p>(if utilized by the concrete client), and a "base_uri" if utilized by</p>
+<p>the concrete client.</p>
+<p>@param string|null $option The config option to retrieve.</p>
+<p>@return mixed</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\ClientInterface.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>send(RequestInterface $request, array $options = [])</code></li>
+<li><code>sendAsync(RequestInterface $request, array $options = [])</code></li>
+<li><code>request($method, $uri, array $options = [])</code></li>
+<li><code>requestAsync($method, $uri, array $options = [])</code></li>
+<li><code>getConfig($option = null)</code></li>
+</ul>
+</body></html>

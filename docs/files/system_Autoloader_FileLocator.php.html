@@ -1,0 +1,88 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Autoloader\FileLocator.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Autoloader\FileLocator.php</h1>
+
+<ul>
+<li>Path: <code>system\Autoloader\FileLocator.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 11167 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Allows loading non-class files in a namespaced manner.</p>
+<p>Works with Helpers, Views, etc.</p>
+
+<p>The Autoloader to use.</p>
+<p>@var Autoloader</p>
+
+<p>Attempts to locate a file by examining the name for a namespace</p>
+<p>and looking through the PSR-4 namespaced files that we know about.</p>
+<p>@param string      $file   The namespaced file to locate</p>
+<p>@param string|null $folder The folder within the namespace that we should look for the file.</p>
+<p>@param string      $ext    The file extension the file should have.</p>
+<p>@return false|string The path to the file, or false if not found.</p>
+
+<p>Examines a file and returns the fully qualified class name.</p>
+
+<p>Searches through all of the defined namespaces looking for a file.</p>
+<p>Returns an array of all found locations for the defined file.</p>
+<p>Example:</p>
+<p> $locator->search('Config/Routes.php');</p>
+<p> // Assuming PSR4 namespaces include foo and bar, might return:</p>
+<p> [</p>
+<p>     'app/Modules/foo/Config/Routes.php',</p>
+<p>     'app/Modules/bar/Config/Routes.php',</p>
+<p> ]</p>
+
+<p>Ensures a extension is at the end of a filename</p>
+
+<p>Return the namespace mappings we know about.</p>
+<p>@return array<int, array<string, string>></p>
+
+<p>Find the qualified name of a file according to</p>
+<p>the namespace of the first matched namespace path.</p>
+<p>@return false|string The qualified name or false if the path is not found</p>
+
+<p>Scans the defined namespaces, returning a list of all files</p>
+<p>that are contained within the subpath specified by $path.</p>
+<p>@return string[] List of file paths</p>
+
+<p>Scans the provided namespace, returning a list of all files</p>
+<p>that are contained within the sub path specified by $path.</p>
+<p>@return string[] List of file paths</p>
+
+<p>Checks the app folder to see if the file can be found.</p>
+<p>Only for use with filenames that DO NOT include namespacing.</p>
+<p>@return false|string The path to the file, or false if not found.</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Autoloader\FileLocator.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Autoloader\files</code></li>
+<li><code>CodeIgniter\Autoloader\FileLocator</code></li>
+<li><code>CodeIgniter\Autoloader\name</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(Autoloader $autoloader)</code></li>
+<li><code>locateFile(string $file, ?string $folder = null, string $ext = 'php')</code></li>
+<li><code>getClassname(string $file)</code></li>
+<li><code>search(string $path, string $ext = 'php', bool $prioritizeApp = true)</code></li>
+<li><code>ensureExt(string $path, string $ext)</code></li>
+<li><code>getNamespaces()</code></li>
+<li><code>findQualifiedNameFromPath(string $path)</code></li>
+<li><code>listFiles(string $path)</code></li>
+<li><code>listNamespaceFiles(string $prefix, string $path)</code></li>
+<li><code>legacyLocate(string $file, ?string $folder = null)</code></li>
+</ul>
+</body></html>

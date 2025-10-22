@@ -1,0 +1,85 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\HeaderFactory.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\HeaderFactory.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\HeaderFactory.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4847 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Constructs various AbstractHeader types depending on the type of header</p>
+<p>passed.</p>
+
+<p>If the passed header resolves to a specific defined header type, it is parsed</p>
+<p>as such.  Otherwise, a GenericHeader is instantiated and returned.  Headers</p>
+<p>are mapped as follows:</p>
+
+<p>AddressHeader: From, To, Cc, Bcc, Sender, Reply-To, Resent-From, Resent-To,</p>
+<p>Resent-Cc, Resent-Bcc, Resent-Reply-To, Delivered-To</p>
+<p>DateHeader: Date, Resent-Date, Delivery-Date, Expires, Expiry-Date, Reply-By</p>
+<p>ParameterHeader: Content-Type, Content-Disposition</p>
+<p>IdHeader: Message-ID, Content-ID, In-Reply-To, References</p>
+<p>ReceivedHeader: Received</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var ConsumerService the passed ConsumerService providing</p>
+<p>AbstractConsumer singletons.</p>
+
+<p>@var \ZBateson\MailMimeParser\Header\Part\MimeLiteralPartFactory for</p>
+<p>mime decoding.</p>
+
+<p>@var string[][] maps AbstractHeader types to headers.</p>
+
+<p>@var string Defines the generic AbstractHeader type to use for headers</p>
+<p>that aren't mapped in $types</p>
+
+<p>Instantiates member variables with the passed objects.</p>
+
+<p>@param ConsumerService $consumerService</p>
+<p>@param MimeLiteralPartFactory $mimeLiteralPartFactory</p>
+
+<p>Returns the string in lower-case, and with non-alphanumeric characters</p>
+<p>stripped out.</p>
+<p>@param string $header</p>
+<p>@return string</p>
+
+<p>Returns the name of an AbstractHeader class for the passed header name.</p>
+
+<p>@param string $name</p>
+<p>@return string</p>
+
+<p>Creates an AbstractHeader instance for the passed header name and value,</p>
+<p>and returns it.</p>
+
+<p>@param string $name</p>
+<p>@param string $value</p>
+<p>@return \ZBateson\MailMimeParser\Header\AbstractHeader</p>
+
+<p>Creates and returns a HeaderContainer.</p>
+<p>@return HeaderContainer;</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\HeaderFactory.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Header\HeaderFactory</code></li>
+<li><code>ZBateson\MailMimeParser\Header\for</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(ConsumerService $consumerService, MimeLiteralPartFactory $mimeLiteralPartFactory)</code></li>
+<li><code>getNormalizedHeaderName($header)</code></li>
+<li><code>getClassFor($name)</code></li>
+<li><code>newInstance($name, $value)</code></li>
+<li><code>newHeaderContainer()</code></li>
+</ul>
+</body></html>

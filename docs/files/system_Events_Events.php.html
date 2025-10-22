@@ -1,0 +1,114 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Events\Events.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Events\Events.php</h1>
+
+<ul>
+<li>Path: <code>system\Events\Events.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7215 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Events</p>
+
+<p>The list of listeners.</p>
+<p>@var array</p>
+
+<p>Flag to let us know if we've read from the Config file(s)</p>
+<p>and have all of the defined events.</p>
+<p>@var bool</p>
+
+<p>If true, events will not actually be fired.</p>
+<p>Useful during testing.</p>
+<p>@var bool</p>
+
+<p>Stores information about the events</p>
+<p>for display in the debug toolbar.</p>
+<p>@var array<array<string, float|string>></p>
+
+<p>A list of found files.</p>
+<p>@var string[]</p>
+
+<p>Ensures that we have a events file ready.</p>
+
+<p>@var Modules $config</p>
+
+<p>Registers an action to happen on an event. The action can be any sort</p>
+<p>of callable:</p>
+<p> Events::on('create', 'myFunction');               // procedural function</p>
+<p> Events::on('create', ['myClass', 'myMethod']);    // Class::method</p>
+<p> Events::on('create', [$myInstance, 'myMethod']);  // Method on an existing instance</p>
+<p> Events::on('create', function() {});              // Closure</p>
+<p>@param string   $eventName</p>
+<p>@param callable $callback</p>
+<p>@param int      $priority</p>
+
+<p>Runs through all subscribed methods running them one at a time,</p>
+<p>until either:</p>
+<p> a) All subscribers have finished or</p>
+<p> b) a method returns false, at which point execution of subscribers stops.</p>
+<p>@param string $eventName</p>
+<p>@param mixed  $arguments</p>
+
+<p>Returns an array of listeners for a single event. They are</p>
+<p>sorted by priority.</p>
+<p>@param string $eventName</p>
+
+<p>Removes a single listener from an event.</p>
+<p>If the listener couldn't be found, returns FALSE, else TRUE if</p>
+<p>it was removed.</p>
+<p>@param string $eventName</p>
+
+<p>Removes all listeners.</p>
+<p>If the event_name is specified, only listeners for that event will be</p>
+<p>removed, otherwise all listeners for all events are removed.</p>
+<p>@param string|null $eventName</p>
+
+<p>Sets the path to the file that routes are read from.</p>
+
+<p>Returns the files that were found/loaded during this request.</p>
+<p>@return string[]</p>
+
+<p>Turns simulation on or off. When on, events will not be triggered,</p>
+<p>simply logged. Useful during testing when you don't actually want</p>
+<p>the tests to run.</p>
+
+<p>Getter for the performance log records.</p>
+<p>@return array<array<string, float|string>></p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>an</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Events\Events.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Events\Events</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>initialize()</code></li>
+<li><code>on($eventName, $callback, $priority = self::PRIORITY_NORMAL)</code></li>
+<li><code>trigger($eventName, ...$arguments)</code></li>
+<li><code>listeners($eventName)</code></li>
+<li><code>removeListener($eventName, callable $listener)</code></li>
+<li><code>removeAllListeners($eventName = null)</code></li>
+<li><code>setFiles(array $files)</code></li>
+<li><code>getFiles()</code></li>
+<li><code>simulate(bool $choice = true)</code></li>
+<li><code>getPerformanceLogs()</code></li>
+</ul>
+</body></html>

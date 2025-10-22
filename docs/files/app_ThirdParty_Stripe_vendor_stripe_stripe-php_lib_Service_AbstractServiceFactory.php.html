@@ -1,0 +1,48 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\AbstractServiceFactory.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\AbstractServiceFactory.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\AbstractServiceFactory.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 1476 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Abstract base class for all service factories used to expose service</p>
+<p>instances through {@link \Stripe\StripeClient}.</p>
+<p>Service factories serve two purposes:</p>
+<p>1. Expose properties for all services through the <code>__get()</code> magic method.</p>
+<p>2. Lazily initialize each service instance the first time the property for</p>
+<p>   a given service is used.</p>
+
+<p>@var \Stripe\StripeClientInterface</p>
+
+<p>@var array<string, AbstractService|AbstractServiceFactory></p>
+
+<p>@param \Stripe\StripeClientInterface $client</p>
+
+<p>@param string $name</p>
+<p>@return null|string</p>
+
+<p>@param string $name</p>
+<p>@return null|AbstractService|AbstractServiceFactory</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\AbstractServiceFactory.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Service\for</code></li>
+<li><code>Stripe\Service\AbstractServiceFactory</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($client)</code></li>
+<li><code>getServiceClass($name)</code></li>
+<li><code>__get($name)</code></li>
+</ul>
+</body></html>

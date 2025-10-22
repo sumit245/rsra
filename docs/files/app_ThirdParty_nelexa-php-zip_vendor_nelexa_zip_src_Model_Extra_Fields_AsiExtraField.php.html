@@ -1,0 +1,135 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\Fields\AsiExtraField.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\Fields\AsiExtraField.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\Fields\AsiExtraField.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7858 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>ASi Unix Extra Field:</p>
+<p>====================.</p>
+<p>The following is the layout of the ASi extra block for Unix.  The</p>
+<p>local-header and central-header versions are identical.</p>
+<p>(Last Revision 19960916)</p>
+<p>Value         Size        Description</p>
+<p>-----         ----        -----------</p>
+<p>(Unix3) 0x756e        Short       tag for this extra block type ("nu")</p>
+<p>TSize         Short       total data size for this block</p>
+<p>CRC           Long        CRC-32 of the remaining data</p>
+<p>Mode          Short       file permissions</p>
+<p>SizDev        Long        symlink'd size OR major/minor dev num</p>
+<p>UID           Short       user ID</p>
+<p>GID           Short       group ID</p>
+<p>(var.)        variable    symbolic link filename</p>
+<p>Mode is the standard Unix st_mode field from struct stat, containing</p>
+<p>user/group/other permissions, setuid/setgid and symlink info, etc.</p>
+<p>If Mode indicates that this file is a symbolic link, SizDev is the</p>
+<p>size of the file to which the link points.  Otherwise, if the file</p>
+<p>is a device, SizDev contains the standard Unix st_rdev field from</p>
+<p>struct stat (includes the major and minor numbers of the device).</p>
+<p>SizDev is undefined in other cases.</p>
+<p>If Mode indicates that the file is a symbolic link, the final field</p>
+<p>will be the name of the file to which the link points.  The file-</p>
+<p>name length can be inferred from TSize.</p>
+<p>[Note that TSize may incorrectly refer to the data size not counting</p>
+<p>the CRC; i.e., it may be four bytes too small.]</p>
+<p>@see ftp://ftp.info-zip.org/pub/infozip/doc/appnote-iz-latest.zip Info-ZIP version Specification</p>
+
+<p>@var int Header id</p>
+
+<p>Bits used for permissions (and sticky bit).</p>
+
+<p>@var int Standard Unix stat(2) file mode.</p>
+
+<p>@var int User ID.</p>
+
+<p>@var int Group ID.</p>
+
+<p>@var string File this entry points to, if it is a symbolic link.</p>
+<p>            Empty string - if entry is not a symbolic link.</p>
+
+<p>Returns the Header ID (type) of this Extra Field.</p>
+<p>The Header ID is an unsigned short integer (two bytes)</p>
+<p>which must be constant during the life cycle of this object.</p>
+
+<p>Populate data from this array as if it was in local file data.</p>
+<p>@param string        $buffer the buffer to read data from</p>
+<p>@param ZipEntry|null $entry  optional zip entry</p>
+<p>@throws Crc32Exception</p>
+<p>@return AsiExtraField</p>
+
+<p>Populate data from this array as if it was in central directory data.</p>
+<p>@param string        $buffer the buffer to read data from</p>
+<p>@param ZipEntry|null $entry  optional zip entry</p>
+<p>@throws Crc32Exception</p>
+<p>@return AsiExtraField</p>
+
+<p>The actual data to put into local file data - without Header-ID</p>
+<p>or length specifier.</p>
+<p>@return string the data</p>
+
+<p>The actual data to put into central directory - without Header-ID or</p>
+<p>length specifier.</p>
+<p>@return string the data</p>
+
+<p>Name of linked file.</p>
+<p>@return string name of the file this entry links to if it is a</p>
+<p>               symbolic link, the empty string otherwise</p>
+
+<p>Indicate that this entry is a symbolic link to the given filename.</p>
+<p>@param string $link name of the file this entry links to, empty</p>
+<p>                    string if it is not a symbolic link</p>
+
+<p>Is this entry a symbolic link?</p>
+<p>@return bool true if this is a symbolic link</p>
+
+<p>Get the file mode for given permissions with the correct file type.</p>
+<p>@param int $mode the mode</p>
+<p>@return int the type with the mode</p>
+
+<p>Is this entry a directory?</p>
+<p>@return bool true if this entry is a directory</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>struct</code></li>
+<li><code>TSize</code></li>
+<li><code>this</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\Fields\AsiExtraField.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpZip\Model\Extra\Fields\AsiExtraField implements ZipExtraField</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(int $mode, int $uid = self::USER_GID_PID, int $gid = self::USER_GID_PID, string $link = '')</code></li>
+<li><code>getHeaderId()</code></li>
+<li><code>unpackLocalFileData(string $buffer, ?ZipEntry $entry = null)</code></li>
+<li><code>unpackCentralDirData(string $buffer, ?ZipEntry $entry = null)</code></li>
+<li><code>packLocalFileData()</code></li>
+<li><code>packCentralDirData()</code></li>
+<li><code>getLink()</code></li>
+<li><code>setLink(string $link)</code></li>
+<li><code>isLink()</code></li>
+<li><code>getPermissionsMode(int $mode)</code></li>
+<li><code>isDirectory()</code></li>
+<li><code>getMode()</code></li>
+<li><code>setMode(int $mode)</code></li>
+<li><code>getUserId()</code></li>
+<li><code>setUserId(int $uid)</code></li>
+<li><code>getGroupId()</code></li>
+<li><code>setGroupId(int $gid)</code></li>
+<li><code>__toString()</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,108 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\PaymentMethodService.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\PaymentMethodService.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\PaymentMethodService.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5267 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Returns a list of PaymentMethods attached to the StripeAccount. For listing a</p>
+<p>customer’s payment methods, you should use <a</p>
+<p>href="/docs/api/payment_methods/customer_list">List a Customer’s</p>
+<p>PaymentMethods</a>.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\PaymentMethod></p>
+
+<p>Attaches a PaymentMethod object to a Customer.</p>
+<p>To attach a new PaymentMethod to a customer for future payments, we recommend</p>
+<p>you use a <a href="/docs/api/setup_intents">SetupIntent</a> or a PaymentIntent</p>
+<p>with <a</p>
+<p>href="/docs/api/payment_intents/create#create_payment_intent-setup_future_usage">setup_future_usage</a>.</p>
+<p>These approaches will perform any necessary steps to set up the PaymentMethod</p>
+<p>for future payments. Using the <code>/v1/payment_methods/:id/attach</code></p>
+<p>endpoint without first using a SetupIntent or PaymentIntent with</p>
+<p><code>setup_future_usage</code> does not optimize the PaymentMethod for future</p>
+<p>use, which makes later declines and payment friction more likely. See <a</p>
+<p>href="/docs/payments/payment-intents#future-usage">Optimizing cards for future</p>
+<p>payments</a> for more information about setting up future payments.</p>
+<p>To use this PaymentMethod as the default for invoice or subscription payments,</p>
+<p>set <a</p>
+<p>href="/docs/api/customers/update#update_customer-invoice_settings-default_payment_method"><code>invoice_settings.default_payment_method</code></a>,</p>
+<p>on the Customer to the PaymentMethod’s ID.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\PaymentMethod</p>
+
+<p>Creates a PaymentMethod object. Read the <a</p>
+<p>href="/docs/stripe-js/reference#stripe-create-payment-method">Stripe.js</p>
+<p>reference</a> to learn how to create PaymentMethods via Stripe.js.</p>
+<p>Instead of creating a PaymentMethod directly, we recommend using the <a</p>
+<p>href="/docs/payments/accept-a-payment">PaymentIntents</a> API to accept a</p>
+<p>payment immediately or the <a</p>
+<p>href="/docs/payments/save-and-reuse">SetupIntent</a> API to collect payment</p>
+<p>method details ahead of a future payment.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\PaymentMethod</p>
+
+<p>Detaches a PaymentMethod object from a Customer. After a PaymentMethod is</p>
+<p>detached, it can no longer be used for a payment or re-attached to a Customer.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\PaymentMethod</p>
+
+<p>Retrieves a PaymentMethod object attached to the StripeAccount. To retrieve a</p>
+<p>payment method attached to a Customer, you should use <a</p>
+<p>href="/docs/api/payment_methods/customer">Retrieve a Customer’s</p>
+<p>PaymentMethods</a>.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\PaymentMethod</p>
+
+<p>Updates a PaymentMethod object. A PaymentMethod must be attached a customer to</p>
+<p>be updated.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\PaymentMethod</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+<li><code>a</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\PaymentMethodService.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Service\PaymentMethodService extends \Stripe\Service\AbstractService</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>all($params = null, $opts = null)</code></li>
+<li><code>attach($id, $params = null, $opts = null)</code></li>
+<li><code>create($params = null, $opts = null)</code></li>
+<li><code>detach($id, $params = null, $opts = null)</code></li>
+<li><code>retrieve($id, $params = null, $opts = null)</code></li>
+<li><code>update($id, $params = null, $opts = null)</code></li>
+</ul>
+</body></html>

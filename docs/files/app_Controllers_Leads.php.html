@@ -1,0 +1,101 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\Controllers\Leads.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\Controllers\Leads.php</h1>
+
+<ul>
+<li>Path: <code>app\Controllers\Leads.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 69584 bytes</li>
+</ul>
+<h2>References</h2>
+
+<p><strong>Models Used</strong></p>
+<ul>
+<li><code>Custom_fields_model</code></li>
+<li><code>Lead_status_model</code></li>
+<li><code>Lead_source_model</code></li>
+<li><code>Clients_model</code></li>
+<li><code>Users_model</code></li>
+<li><code>General_files_model</code></li>
+<li><code>Social_links_model</code></li>
+<li><code>Email_templates_model</code></li>
+<li><code>Custom_field_values_model</code></li>
+</ul>
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>this</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\Controllers\Leads.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Leads extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>make_lead_modal_form_data($lead_id = 0)</code></li>
+<li><code>_get_owners_dropdown($view_type = "")</code></li>
+<li><code>save()</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data, $custom_fields)</code></li>
+<li><code>view($client_id = 0, $tab = "")</code></li>
+<li><code>estimates($client_id)</code></li>
+<li><code>estimate_requests($client_id)</code></li>
+<li><code>notes($client_id)</code></li>
+<li><code>events($client_id)</code></li>
+<li><code>files($client_id)</code></li>
+<li><code>file_modal_form()</code></li>
+<li><code>save_file()</code></li>
+<li><code>files_list_data($client_id = 0)</code></li>
+<li><code>_make_file_row($data)</code></li>
+<li><code>view_file($file_id = 0)</code></li>
+<li><code>download_file($id)</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_file()</code></li>
+<li><code>delete_file()</code></li>
+<li><code>contact_profile($contact_id = 0, $tab = "")</code></li>
+<li><code>contacts($client_id)</code></li>
+<li><code>add_new_contact_modal_form()</code></li>
+<li><code>contact_general_info_tab($contact_id = 0)</code></li>
+<li><code>company_info_tab($client_id = 0)</code></li>
+<li><code>contact_social_links_tab($contact_id = 0)</code></li>
+<li><code>save_contact()</code></li>
+<li><code>save_contact_social_links($contact_id = 0)</code></li>
+<li><code>save_profile_image($user_id = 0)</code></li>
+<li><code>delete_contact()</code></li>
+<li><code>contacts_list_data($client_id = 0)</code></li>
+<li><code>_contact_row_data($id)</code></li>
+<li><code>_make_contact_row($data, $custom_fields)</code></li>
+<li><code>save_lead_status($id = 0)</code></li>
+<li><code>all_leads_kanban()</code></li>
+<li><code>all_leads_kanban_data()</code></li>
+<li><code>save_lead_sort_and_status()</code></li>
+<li><code>make_client_modal_form($lead_id = 0)</code></li>
+<li><code>save_as_client()</code></li>
+<li><code>upload_excel_file()</code></li>
+<li><code>import_leads_modal_form()</code></li>
+<li><code>_prepare_lead_data($data_row, $allowed_headers)</code></li>
+<li><code>_get_existing_custom_field_id($title = "")</code></li>
+<li><code>_prepare_headers_for_submit($headers_row, $headers)</code></li>
+<li><code>save_lead_from_excel_file()</code></li>
+<li><code>_save_custom_fields_of_lead($lead_id, $custom_field_values_array)</code></li>
+<li><code>_get_allowed_headers()</code></li>
+<li><code>_store_headers_position($headers_row = array()</code></li>
+<li><code>validate_import_leads_file()</code></li>
+<li><code>validate_import_leads_file_data($check_on_submit = false)</code></li>
+<li><code>_row_data_validation_and_get_error_message($key, $data, $has_contact_first_name, $headers = array()</code></li>
+<li><code>download_sample_excel_file()</code></li>
+<li><code>proposals($client_id)</code></li>
+<li><code>contracts($client_id)</code></li>
+</ul>
+</body></html>

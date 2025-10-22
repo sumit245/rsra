@@ -1,0 +1,40 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Constants\ZipCompressionLevel.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Constants\ZipCompressionLevel.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Constants\ZipCompressionLevel.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 1914 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Compression levels for Deflate and BZIP2.</p>
+<p>{@see https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT} Section 4.4.4:</p>
+<p>For Methods 8 and 9 - Deflating</p>
+<p>-------------------------------</p>
+<p>Bit 2  Bit 1</p>
+<p>0      0    Normal (-en) compression option was used.</p>
+<p>0      1    Maximum (-exx/-ex) compression option was used.</p>
+<p>1      0    Fast (-ef) compression option was used.</p>
+<p>1      1    Super Fast (-es) compression option was used.</p>
+<p>Different programs encode compression level information in different ways:</p>
+<p>Deflate Compress Level  pkzip              zip      7z, WinRAR  WinZip</p>
+<p>----------------------  ----------------   -------  ----------  ------</p>
+<p>Super Fast compression  1                                       1</p>
+<p>Fast compression        2                  1, 2</p>
+<p>Normal Compression      3 - 8 (5 default)  3 - 7    1 - 9</p>
+<p>Maximum compression     9                  8, 9                 9</p>
+
+<p>@var int Compression level for super fast compression.</p>
+
+<p>@var int compression level for fast compression</p>
+
+<p>@var int compression level for normal compression</p>
+
+<p>@var int compression level for maximum compression</p>
+
+<p>@var int int Minimum compression level</p>
+<p>@internal</p>
+
+<p>@var int int Maximum compression level</p>
+<p>@internal</p>
+</body></html>

@@ -1,0 +1,341 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Common.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Common.php</h1>
+
+<ul>
+<li>Path: <code>system\Common.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 35558 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Returns the timezone the application has been set to display</p>
+<p>dates in. This might be different than the timezone set</p>
+<p>at the server level, as you often want to stores dates in UTC</p>
+<p>and convert them on the fly for the user.</p>
+
+<p>A convenience method that provides access to the Cache</p>
+<p>object. If no parameter is provided, will return the object,</p>
+<p>otherwise, will attempt to return the cached value.</p>
+<p>Examples:</p>
+<p>   cache()->save('foo', 'bar');</p>
+<p>   $foo = cache('bar');</p>
+<p>@return CacheInterface|mixed</p>
+
+<p>A convenience method to clean paths for</p>
+<p>a nicer looking output. Useful for exception</p>
+<p>handling, error logging, etc.</p>
+
+<p>Runs a single command.</p>
+<p>Input expected in a single string as would</p>
+<p>be used on the command line itself:</p>
+<p> > command('migrate:create SomeMigration');</p>
+<p>@return false|string</p>
+
+<p>Adopted from Symfony's <code>StringInput::tokenize()</code> with few changes.</p>
+<p>@see https://github.com/symfony/symfony/blob/master/src/Symfony/Component/Console/Input/StringInput.php</p>
+
+<p>More simple way of getting config instances from Factories</p>
+<p>@return mixed</p>
+
+<p>Simpler way to create a new Cookie instance.</p>
+<p>@param string $name    Name of the cookie</p>
+<p>@param string $value   Value of the cookie</p>
+<p>@param array  $options Array of options to be passed to the cookie</p>
+<p>@throws CookieException</p>
+
+<p>Fetches the global <code>CookieStore</code> instance held by <code>Response</code>.</p>
+<p>@param Cookie[] $cookies   If <code>getGlobal</code> is false, this is passed to CookieStore's constructor</p>
+<p>@param bool     $getGlobal If false, creates a new instance of CookieStore</p>
+
+<p>Returns the CSRF token name.</p>
+<p>Can be used in Views when building hidden inputs manually,</p>
+<p>or used in javascript vars when using APIs.</p>
+
+<p>Returns the CSRF header name.</p>
+<p>Can be used in Views by adding it to the meta tag</p>
+<p>or used in javascript to define a header name when using APIs.</p>
+
+<p>Returns the current hash value for the CSRF protection.</p>
+<p>Can be used in Views when building hidden inputs manually,</p>
+<p>or used in javascript vars for API usage.</p>
+
+<p>Generates a hidden input field for use within manually generated forms.</p>
+
+<p>Generates a meta tag for use within javascript calls.</p>
+
+<p>Generates a nonce attribute for style tag.</p>
+
+<p>Generates a nonce attribute for script tag.</p>
+
+<p>Grabs a database connection and returns it to the user.</p>
+<p>This is a convenience wrapper for \Config\Database::connect()</p>
+<p>and supports the same parameters. Namely:</p>
+<p>When passing in $db, you may pass any of the following to connect:</p>
+<ul>
+<li>group name</li>
+<li>existing connection instance</li>
+<li>array of database configuration values</li>
+<p>If $getShared === false then a new connection instance will be provided,</p>
+<p>otherwise it will all calls will return the same instance.</p>
+<p>@param array|ConnectionInterface|string|null $db</p>
+<p>@return BaseConnection</p>
+</ul>
+<p>Prints a Kint debug report and exits.</p>
+<p>@param array ...$vars</p>
+<p>@codeCoverageIgnore Can't be tested ... exits</p>
+
+<p>Allows user to retrieve values from the environment</p>
+<p>variables that have been set. Especially useful for</p>
+<p>retrieving values set from the .env file for</p>
+<p>use in config files.</p>
+<p>@param string|null $default</p>
+<p>@return mixed</p>
+
+<p>Performs simple auto-escaping of data for security reasons.</p>
+<p>Might consider making this more complex at a later date.</p>
+<p>If $data is a string, then it simply escapes and returns it.</p>
+<p>If $data is an array, then it loops over it, escaping each</p>
+<p>'value' of the key/value pairs.</p>
+<p>Valid context values: html, js, css, url, attr, raw</p>
+<p>@param array|string $data</p>
+<p>@param string       $encoding</p>
+<p>@throws InvalidArgumentException</p>
+<p>@return array|string</p>
+
+<p>Used to force a page to be accessed in via HTTPS.</p>
+<p>Uses a standard redirect, plus will set the HSTS header</p>
+<p>for modern browsers that support, which gives best</p>
+<p>protection against man-in-the-middle attacks.</p>
+<p>@see https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p>
+<p>@param int               $duration How long should the SSL header be set for? (in seconds)</p>
+<p>                                   Defaults to 1 year.</p>
+<p>@param RequestInterface  $request</p>
+<p>@param ResponseInterface $response</p>
+<p>@throws HTTPException</p>
+
+<p>Function usable</p>
+<p>Executes a function_exists() check, and if the Suhosin PHP</p>
+<p>extension is loaded - checks whether the function that is</p>
+<p>checked might be disabled in there as well.</p>
+<p>This is useful as function_exists() will return FALSE for</p>
+<p>functions disabled via the *disable_functions* php.ini</p>
+<p>setting, but not for *suhosin.executor.func.blacklist* and</p>
+<p>*suhosin.executor.disable_eval*. These settings will just</p>
+<p>terminate script execution if a disabled function is executed.</p>
+<p>The above described behavior turned out to be a bug in Suhosin,</p>
+<p>but even though a fix was committed for 0.9.34 on 2012-02-12,</p>
+<p>that version is yet to be released. This function will therefore</p>
+<p>be just temporary, but would probably be kept for a few years.</p>
+<p>@see   http://www.hardened-php.net/suhosin/</p>
+<p>@param string $functionName Function to check for</p>
+<p>@return bool TRUE if the function exists and is safe to call,</p>
+<p>             FALSE otherwise.</p>
+<p>@codeCoverageIgnore This is too exotic</p>
+
+<p>Loads a helper file into memory. Supports namespaced helpers,</p>
+<p>both in and out of the 'helpers' directory of a namespaced directory.</p>
+<p>Will load ALL helpers of the matching name, in the following order:</p>
+<p>  1. app/Helpers</p>
+<p>  2. {namespace}/Helpers</p>
+<p>  3. system/Helpers</p>
+<p>@param array|string $filenames</p>
+<p>@throws FileNotFoundException</p>
+
+<p>Check if PHP was invoked from the command line.</p>
+<p>@codeCoverageIgnore Cannot be tested fully as PHPUnit always run in php-cli</p>
+
+<p>Tests for file writability</p>
+<p>is_writable() returns TRUE on Windows servers when you really can't write to</p>
+<p>the file, based on the read-only attribute. is_writable() is also unreliable</p>
+<p>on Unix servers if safe_mode is on.</p>
+<p>@see https://bugs.php.net/bug.php?id=54709</p>
+<p>@throws Exception</p>
+<p>@codeCoverageIgnore Not practical to test, as travis runs on linux</p>
+
+<p>A convenience method to translate a string or array of them and format</p>
+<p>the result with the intl extension's MessageFormatter.</p>
+<p>@return string</p>
+
+<p>A convenience/compatibility method for logging events through</p>
+<p>the Log system.</p>
+<p>Allowed log levels are:</p>
+<p> - emergency</p>
+<p> - alert</p>
+<p> - critical</p>
+<p> - error</p>
+<p> - warning</p>
+<p> - notice</p>
+<p> - info</p>
+<p> - debug</p>
+<p>@return mixed</p>
+
+<p>More simple way of getting model instances from Factories</p>
+<p>@template T of Model</p>
+<p>@param class-string<T> $name</p>
+<p>@return T</p>
+
+<p>Provides access to "old input" that was set in the session</p>
+<p>during a redirect()->withInput().</p>
+<p>@param null        $default</p>
+<p>@param bool|string $escape</p>
+<p>@return mixed|null</p>
+
+<p>Convenience method that works with the current global $request and</p>
+<p>$router instances to redirect using named/reverse-routed routes</p>
+<p>to determine the URL to go to.</p>
+<p>If more control is needed, you must use $response->redirect explicitly.</p>
+<p>@param string $route</p>
+
+<p>Remove Invisible Characters</p>
+<p>This prevents sandwiching null characters</p>
+<p>between ascii characters, like Java\0script.</p>
+
+<p>Given a controller/method string and any params,</p>
+<p>will attempt to build the relative URL to the</p>
+<p>matching route.</p>
+<p>NOTE: This requires the controller/method to</p>
+<p>have a route defined in the routes Config file.</p>
+<p>@param mixed ...$params</p>
+<p>@return false|string</p>
+
+<p>A convenience method for accessing the session instance,</p>
+<p>or an item that has been set in the session.</p>
+<p>Examples:</p>
+<p>   session()->set('foo', 'bar');</p>
+<p>   $foo = session('bar');</p>
+<p>@param string $val</p>
+<p>@return mixed|Session|null</p>
+
+<p>Allows cleaner access to the Services Config file.</p>
+<p>Always returns a SHARED instance of the class, so</p>
+<p>calling the function multiple times should always</p>
+<p>return the same instance.</p>
+<p>These are equal:</p>
+<p> - $timer = service('timer')</p>
+<p> - $timer = \CodeIgniter\Config\Services::timer();</p>
+<p>@param mixed ...$params</p>
+<p>@return mixed</p>
+
+<p>Always returns a new instance of the class.</p>
+<p>@param mixed ...$params</p>
+<p>@return mixed</p>
+
+<p>Fetch a config file item with slash appended (if not empty)</p>
+<p>@param string $item Config item name</p>
+<p>@return string|null The configuration item or NULL if</p>
+<p>                    the item doesn't exist</p>
+
+<p>Stringify attributes for use in HTML tags.</p>
+<p>Helper function used to convert a string, array, or object</p>
+<p>of attributes to a string.</p>
+<p>@param mixed $attributes string, array, object</p>
+
+<p>A convenience method for working with the timer.</p>
+<p>If no parameter is passed, it will return the timer instance,</p>
+<p>otherwise will start or stop the timer intelligently.</p>
+<p>@return mixed|Timer</p>
+
+<p>Provides a backtrace to the current execution point, from Kint.</p>
+
+<p>Grabs the current RendererInterface-compatible class</p>
+<p>and tells it to render the specified view. Simply provides</p>
+<p>a convenience method that can be used in Controllers,</p>
+<p>libraries, and routed closures.</p>
+<p>NOTE: Does not provide any escaping of the data, so that must</p>
+<p>all be handled manually by the developer.</p>
+<p>@param array $options Unused - reserved for third-party extensions.</p>
+
+<p>@var CodeIgniter\View\View $renderer</p>
+
+<p>View cells are used within views to insert HTML chunks that are managed</p>
+<p>by other classes.</p>
+<p>@param array|string|null $params</p>
+<p>@throws ReflectionException</p>
+
+<p>These helpers come from Laravel so will not be</p>
+<p>re-tested and can be ignored safely.</p>
+<p>@see https://github.com/laravel/framework/blob/8.x/src/Illuminate/Support/helpers.php</p>
+
+<p>Get the class "basename" of the given object / class.</p>
+<p>@param object|string $class</p>
+<p>@return string</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Returns all traits used by a class, its parent classes and trait of their traits.</p>
+<p>@param object|string $class</p>
+<p>@return array</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Returns all traits used by a trait and its traits.</p>
+<p>@param string $trait</p>
+<p>@return array</p>
+<p>@codeCoverageIgnore</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>Symfony</code></li>
+<li><code>Factories</code></li>
+<li><code>the</code></li>
+<li><code>Kint</code></li>
+<li><code>Laravel</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Common.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>app_timezone()</code></li>
+<li><code>cache(?string $key = null)</code></li>
+<li><code>clean_path(string $path)</code></li>
+<li><code>command(string $command)</code></li>
+<li><code>config(string $name, bool $getShared = true)</code></li>
+<li><code>cookie(string $name, string $value = '', array $options = [])</code></li>
+<li><code>cookies(array $cookies = [], bool $getGlobal = true)</code></li>
+<li><code>csrf_token()</code></li>
+<li><code>csrf_header()</code></li>
+<li><code>csrf_hash()</code></li>
+<li><code>csrf_field(?string $id = null)</code></li>
+<li><code>csrf_meta(?string $id = null)</code></li>
+<li><code>csp_style_nonce()</code></li>
+<li><code>csp_script_nonce()</code></li>
+<li><code>db_connect($db = null, bool $getShared = true)</code></li>
+<li><code>dd(...$vars)</code></li>
+<li><code>env(string $key, $default = null)</code></li>
+<li><code>esc($data, string $context = 'html', ?string $encoding = null)</code></li>
+<li><code>force_https(int $duration = 31_536_000, ?RequestInterface $request = null, ?ResponseInterface $response = null)</code></li>
+<li><code>function_usable(string $functionName)</code></li>
+<li><code>helper($filenames)</code></li>
+<li><code>is_cli()</code></li>
+<li><code>is_really_writable(string $file)</code></li>
+<li><code>lang(string $line, array $args = [], ?string $locale = null)</code></li>
+<li><code>log_message(string $level, string $message, array $context = [])</code></li>
+<li><code>model(string $name, bool $getShared = true, ?ConnectionInterface &$conn = null)</code></li>
+<li><code>old(string $key, $default = null, $escape = 'html')</code></li>
+<li><code>redirect(?string $route = null)</code></li>
+<li><code>remove_invisible_characters(string $str, bool $urlEncoded = true)</code></li>
+<li><code>route_to(string $method, ...$params)</code></li>
+<li><code>session(?string $val = null)</code></li>
+<li><code>service(string $name, ...$params)</code></li>
+<li><code>single_service(string $name, ...$params)</code></li>
+<li><code>slash_item(string $item)</code></li>
+<li><code>stringify_attributes($attributes, bool $js = false)</code></li>
+<li><code>timer(?string $name = null)</code></li>
+<li><code>trace()</code></li>
+<li><code>view(string $name, array $data = [], array $options = [])</code></li>
+<li><code>view_cell(string $library, $params = null, int $ttl = 0, ?string $cacheName = null)</code></li>
+<li><code>class_basename($class)</code></li>
+<li><code>class_uses_recursive($class)</code></li>
+<li><code>trait_uses_recursive($trait)</code></li>
+</ul>
+</body></html>

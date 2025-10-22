@@ -1,0 +1,161 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Test\Fabricator.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Test\Fabricator.php</h1>
+
+<ul>
+<li>Path: <code>system\Test\Fabricator.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 14451 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Fabricator</p>
+<p>Bridge class for using Faker to create example data based on</p>
+<p>model specifications.</p>
+
+<p>Array of counts for fabricated items</p>
+<p>@var array</p>
+
+<p>Locale-specific Faker instance</p>
+<p>@var Generator</p>
+
+<p>Model instance (can be non-framework if it follows framework design)</p>
+<p>@var Model|object</p>
+
+<p>Locale used to initialize Faker</p>
+<p>@var string</p>
+
+<p>Map of properties and their formatter to use</p>
+<p>@var array|null</p>
+
+<p>Date fields present in the model</p>
+<p>@var array</p>
+
+<p>Array of data to add or override faked versions</p>
+<p>@var array</p>
+
+<p>Array of single-use data to override faked versions</p>
+<p>@var array|null</p>
+
+<p>Default formatter to use when nothing is detected</p>
+<p>@var string</p>
+
+<p>Store the model instance and initialize Faker to the locale.</p>
+<p>@param object|string $model      Instance or classname of the model to use</p>
+<p>@param array|null    $formatters Array of property => formatter</p>
+<p>@param string|null   $locale     Locale for Faker provider</p>
+<p>@throws InvalidArgumentException</p>
+
+<p>Reset internal counts</p>
+
+<p>Get the count for a specific table</p>
+<p>@param string $table Name of the target table</p>
+
+<p>Set the count for a specific table</p>
+<p>@param string $table Name of the target table</p>
+<p>@param int    $count Count value</p>
+<p>@return int The new count value</p>
+
+<p>Increment the count for a table</p>
+<p>@param string $table Name of the target table</p>
+<p>@return int The new count value</p>
+
+<p>Decrement the count for a table</p>
+<p>@param string $table Name of the target table</p>
+<p>@return int The new count value</p>
+
+<p>Returns the model instance</p>
+<p>@return object Framework or compatible model</p>
+
+<p>Returns the locale</p>
+
+<p>Returns the Faker generator</p>
+
+<p>Return and reset tempOverrides</p>
+
+<p>Set the overrides, once or persistent</p>
+<p>@param array $overrides Array of [field => value]</p>
+<p>@param bool  $persist   Whether these overrides should persist through the next operation</p>
+
+<p>Returns the current formatters</p>
+
+<p>Set the formatters to use. Will attempt to autodetect if none are available.</p>
+<p>@param array|null $formatters Array of [field => formatter], or null to detect</p>
+
+<p>Try to identify the appropriate Faker formatter for each field.</p>
+
+<p>Guess at the correct formatter to match a field name.</p>
+<p>@param string $field Name of the field</p>
+<p>@return string Name of the formatter</p>
+
+<p>Generate new entities with faked data</p>
+<p>@param int|null $count Optional number to create a collection</p>
+<p>@return array|object An array or object (based on returnType), or an array of returnTypes</p>
+
+<p>Generate an array of faked data</p>
+<p>@throws RuntimeException</p>
+<p>@return array An array of faked data</p>
+
+<p>Generate an object of faked data</p>
+<p>@param string|null $className Class name of the object to create; null to use model default</p>
+<p>@throws RuntimeException</p>
+<p>@return object An instance of the class with faked data</p>
+
+<p>Generate new entities from the database</p>
+<p>@param int|null $count Optional number to create a collection</p>
+<p>@param bool     $mock  Whether to execute or mock the insertion</p>
+<p>@throws FrameworkException</p>
+<p>@return array|object An array or object (based on returnType), or an array of returnTypes</p>
+
+<p>Generate new database entities without actually inserting them</p>
+<p>@param int|null $count Optional number to create a collection</p>
+<p>@return array|object An array or object (based on returnType), or an array of returnTypes</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>Faker</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Test\Fabricator.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Test\for</code></li>
+<li><code>CodeIgniter\Test\Fabricator</code></li>
+<li><code>CodeIgniter\Test\with</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($model, ?array $formatters = null, ?string $locale = null)</code></li>
+<li><code>resetCounts()</code></li>
+<li><code>getCount(string $table)</code></li>
+<li><code>setCount(string $table, int $count)</code></li>
+<li><code>upCount(string $table)</code></li>
+<li><code>downCount(string $table)</code></li>
+<li><code>getModel()</code></li>
+<li><code>getLocale()</code></li>
+<li><code>getFaker()</code></li>
+<li><code>getOverrides()</code></li>
+<li><code>setOverrides(array $overrides = [], $persist = true)</code></li>
+<li><code>getFormatters()</code></li>
+<li><code>setFormatters(?array $formatters = null)</code></li>
+<li><code>detectFormatters()</code></li>
+<li><code>guessFormatter($field)</code></li>
+<li><code>make(?int $count = null)</code></li>
+<li><code>makeArray()</code></li>
+<li><code>makeObject(?string $className = null)</code></li>
+<li><code>create(?int $count = null, bool $mock = false)</code></li>
+<li><code>createMock(?int $count = null)</code></li>
+</ul>
+</body></html>

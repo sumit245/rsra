@@ -1,0 +1,149 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Chart\DataSeriesValues.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Chart\DataSeriesValues.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Chart\DataSeriesValues.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9293 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Series Data Type.</p>
+<p>@var string</p>
+
+<p>Series Data Source.</p>
+<p>@var string</p>
+
+<p>Format Code.</p>
+<p>@var string</p>
+
+<p>Series Point Marker.</p>
+<p>@var string</p>
+
+<p>Point Count (The number of datapoints in the dataseries).</p>
+<p>@var int</p>
+
+<p>Data Values.</p>
+<p>@var mixed[]</p>
+
+<p>Fill color (can be array with colors if dataseries have custom colors).</p>
+<p>@var string|string[]</p>
+
+<p>Line Width.</p>
+<p>@var int</p>
+
+<p>Create a new DataSeriesValues object.</p>
+<p>@param string $dataType</p>
+<p>@param string $dataSource</p>
+<p>@param null|mixed $formatCode</p>
+<p>@param int $pointCount</p>
+<p>@param mixed $dataValues</p>
+<p>@param null|mixed $marker</p>
+<p>@param null|string|string[] $fillColor</p>
+
+<p>Get Series Data Type.</p>
+<p>@return string</p>
+
+<p>Set Series Data Type.</p>
+<p>@param string $dataType Datatype of this data series</p>
+<p>                               Typical values are:</p>
+<p>                                   DataSeriesValues::DATASERIES_TYPE_STRING</p>
+<p>                                       Normally used for axis point values</p>
+<p>                                   DataSeriesValues::DATASERIES_TYPE_NUMBER</p>
+<p>                                       Normally used for chart data values</p>
+<p>@return $this</p>
+
+<p>Get Series Data Source (formula).</p>
+<p>@return string</p>
+
+<p>Set Series Data Source (formula).</p>
+<p>@param string $dataSource</p>
+<p>@return $this</p>
+
+<p>Get Point Marker.</p>
+<p>@return string</p>
+
+<p>Set Point Marker.</p>
+<p>@param string $marker</p>
+<p>@return $this</p>
+
+<p>Get Series Format Code.</p>
+<p>@return string</p>
+
+<p>Set Series Format Code.</p>
+<p>@param string $formatCode</p>
+<p>@return $this</p>
+
+<p>Get Series Point Count.</p>
+<p>@return int</p>
+
+<p>Get fill color.</p>
+<p>@return string|string[] HEX color or array with HEX colors</p>
+
+<p>Set fill color for series.</p>
+<p>@param string|string[] $color HEX color or array with HEX colors</p>
+<p>@return   DataSeriesValues</p>
+
+<p>Method for validating hex color.</p>
+<p>@param string $color value for color</p>
+<p>@return bool true if validation was successful</p>
+
+<p>Get line width for series.</p>
+<p>@return int</p>
+
+<p>Set line width for the series.</p>
+<p>@param int $width</p>
+<p>@return $this</p>
+
+<p>Identify if the Data Series is a multi-level or a simple series.</p>
+<p>@return null|bool</p>
+
+<p>Return the level count of a multi-level Data Series.</p>
+<p>@return int</p>
+
+<p>Get Series Data Values.</p>
+<p>@return mixed[]</p>
+
+<p>Get the first Series Data value.</p>
+<p>@return mixed</p>
+
+<p>Set Series Data Values.</p>
+<p>@param array $dataValues</p>
+<p>@return $this</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Chart\DataSeriesValues.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Chart\DataSeriesValues</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($dataType = self::DATASERIES_TYPE_NUMBER, $dataSource = null, $formatCode = null, $pointCount = 0, $dataValues = [], $marker = null, $fillColor = null)</code></li>
+<li><code>getDataType()</code></li>
+<li><code>setDataType($dataType)</code></li>
+<li><code>getDataSource()</code></li>
+<li><code>setDataSource($dataSource)</code></li>
+<li><code>getPointMarker()</code></li>
+<li><code>setPointMarker($marker)</code></li>
+<li><code>getFormatCode()</code></li>
+<li><code>setFormatCode($formatCode)</code></li>
+<li><code>getPointCount()</code></li>
+<li><code>getFillColor()</code></li>
+<li><code>setFillColor($color)</code></li>
+<li><code>validateColor($color)</code></li>
+<li><code>getLineWidth()</code></li>
+<li><code>setLineWidth($width)</code></li>
+<li><code>isMultiLevelSeries()</code></li>
+<li><code>multiLevelCount()</code></li>
+<li><code>getDataValues()</code></li>
+<li><code>getDataValue()</code></li>
+<li><code>setDataValues($dataValues)</code></li>
+<li><code>refresh(Worksheet $worksheet, $flatten = true)</code></li>
+</ul>
+</body></html>

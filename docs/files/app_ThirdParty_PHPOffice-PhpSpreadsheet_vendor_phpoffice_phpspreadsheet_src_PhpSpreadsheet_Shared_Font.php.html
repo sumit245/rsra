@@ -1,0 +1,129 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\Font.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\Font.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\Font.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 27145 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Character set codes used by BIFF5-8 in Font records</p>
+
+<p>Font filenames</p>
+
+<p>AutoSize method.</p>
+<p>@var string</p>
+
+<p>Path to folder containing TrueType font .ttf files.</p>
+<p>@var string</p>
+
+<p>How wide is a default column for a given default font and size?</p>
+<p>Empirical data found by inspecting real Excel files and reading off the pixel width</p>
+<p>in Microsoft Office Excel 2007.</p>
+<p>@var array</p>
+
+<p>Set autoSize method.</p>
+<p>@param string $method see self::AUTOSIZE_METHOD_*</p>
+<p>@return bool Success or failure</p>
+
+<p>Get autoSize method.</p>
+<p>@return string</p>
+
+<p>Set the path to the folder containing .ttf files. There should be a trailing slash.</p>
+<p>Typical locations on variout some platforms:</p>
+<p>   <ul></p>
+<p>       <li>C:/Windows/Fonts/</li></p>
+<p>       <li>/usr/share/fonts/truetype/</li></p>
+<p>       <li>~/.fonts/</li></p>
+<p></ul>.</p>
+<p>@param string $folderPath</p>
+
+<p>Get the path to the folder containing .ttf files.</p>
+<p>@return string</p>
+
+<p>Calculate an (approximate) OpenXML column width, based on font size and text contained.</p>
+<p>@param FontStyle $font Font object</p>
+<p>@param RichText|string $cellText Text to calculate width</p>
+<p>@param int $rotation Rotation angle</p>
+<p>@param null|FontStyle $defaultFont Font object</p>
+<p>@param bool $filterAdjustment Add space for Autofilter or Table dropdown</p>
+
+<p>Get GD text width in pixels for a string of text in a certain font at a certain rotation angle.</p>
+
+<p>Get approximate width in pixels for a string of text in a certain font at a certain rotation angle.</p>
+<p>@param string $columnText</p>
+<p>@param int $rotation</p>
+<p>@return int Text width in pixels (no padding added)</p>
+
+<p>Calculate an (approximate) pixel size, based on a font points size.</p>
+<p>@param int $fontSizeInPoints Font size (in points)</p>
+<p>@return int Font size (in pixels)</p>
+
+<p>Calculate an (approximate) pixel size, based on inch size.</p>
+<p>@param int $sizeInInch Font size (in inch)</p>
+<p>@return int Size (in pixels)</p>
+
+<p>Calculate an (approximate) pixel size, based on centimeter size.</p>
+<p>@param int $sizeInCm Font size (in centimeters)</p>
+<p>@return float Size (in pixels)</p>
+
+<p>Returns the font path given the font.</p>
+<p>@return string Path to TrueType font file</p>
+
+<p>Returns the associated charset for the font name.</p>
+<p>@param string $fontName Font name</p>
+<p>@return int Character set code</p>
+
+<p>Get the effective column width for columns without a column dimension or column with width -1</p>
+<p>For example, for Calibri 11 this is 9.140625 (64 px).</p>
+<p>@param FontStyle $font The workbooks default font</p>
+<p>@param bool $returnAsPixels true = return column width in pixels, false = return in OOXML units</p>
+<p>@return mixed Column width</p>
+
+<p>Get the effective row height for rows without a row dimension or rows with height -1</p>
+<p>For example, for Calibri 11 this is 15 points.</p>
+<p>@param FontStyle $font The workbooks default font</p>
+<p>@return float Row height in points</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>pixel</code></li>
+<li><code>font</code></li>
+<li><code>Calibri</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\Font.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Shared\Font</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>setAutoSizeMethod($method)</code></li>
+<li><code>getAutoSizeMethod()</code></li>
+<li><code>setTrueTypeFontPath($folderPath)</code></li>
+<li><code>getTrueTypeFontPath()</code></li>
+<li>`calculateColumnWidth(FontStyle $font,</li>
+<p>        $cellText = '',</p>
+<p>        $rotation = 0,</p>
+<p>        ?FontStyle $defaultFont = null,</p>
+<p>        bool $filterAdjustment = false)`</p>
+<li><code>getTextWidthPixelsExact(string $text, FontStyle $font, int $rotation = 0)</code></li>
+<li><code>getTextWidthPixelsApprox($columnText, FontStyle $font, $rotation = 0)</code></li>
+<li><code>fontSizeToPixels($fontSizeInPoints)</code></li>
+<li><code>inchSizeToPixels($sizeInInch)</code></li>
+<li><code>centimeterSizeToPixels($sizeInCm)</code></li>
+<li><code>getTrueTypeFontFileFromFont(FontStyle $font)</code></li>
+<li><code>getCharsetFromFontName($fontName)</code></li>
+<li><code>getDefaultColumnWidthByFont(FontStyle $font, $returnAsPixels = false)</code></li>
+<li><code>getDefaultRowHeightByFont(FontStyle $font)</code></li>
+</ul>
+</body></html>

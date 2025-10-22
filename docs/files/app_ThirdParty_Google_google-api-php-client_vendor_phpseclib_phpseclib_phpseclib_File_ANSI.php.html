@@ -1,0 +1,166 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\File\ANSI.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\File\ANSI.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\File\ANSI.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 20266 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Pure-PHP ANSI Decoder</p>
+<p>PHP version 5</p>
+<p>If you call read() in \phpseclib\Net\SSH2 you may get {@link http://en.wikipedia.org/wiki/ANSI_escape_code ANSI escape codes} back.</p>
+<p>They'd look like chr(0x1B) . '[00m' or whatever (0x1B = ESC).  They tell a</p>
+<p>{@link http://en.wikipedia.org/wiki/Terminal_emulator terminal emulator} how to format the characters, what</p>
+<p>color to display them in, etc. \phpseclib\File\ANSI is a {@link http://en.wikipedia.org/wiki/VT100 VT100} terminal emulator.</p>
+<p>@category  File</p>
+<p>@package   ANSI</p>
+<p>@author    Jim Wigginton <terrafrost@php.net></p>
+<p>@copyright 2012 Jim Wigginton</p>
+<p>@license   http://www.opensource.org/licenses/mit-license.html  MIT License</p>
+<p>@link      http://phpseclib.sourceforge.net</p>
+
+<p>Pure-PHP ANSI Decoder</p>
+<p>@package ANSI</p>
+<p>@author  Jim Wigginton <terrafrost@php.net></p>
+<p>@access  public</p>
+
+<p>Max Width</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Max Height</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Max History</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>History</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>History Attributes</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Current Column</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Current Row</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Old Column</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Old Row</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>An empty attribute cell</p>
+<p>@var object</p>
+<p>@access private</p>
+
+<p>The current attribute cell</p>
+<p>@var object</p>
+<p>@access private</p>
+
+<p>An empty attribute row</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>The current screen text</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>The current screen attributes</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Current ANSI code</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Tokenization</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Default Constructor.</p>
+<p>@return \phpseclib\File\ANSI</p>
+<p>@access public</p>
+
+<p>Set terminal width and height</p>
+<p>Resets the screen as well</p>
+<p>@param int $x</p>
+<p>@param int $y</p>
+<p>@access public</p>
+
+<p>Set the number of lines that should be logged past the terminal height</p>
+<p>@param int $x</p>
+<p>@param int $y</p>
+<p>@access public</p>
+
+<p>Load a string</p>
+<p>@param string $source</p>
+<p>@access public</p>
+
+<p>Appdend a string</p>
+<p>@param string $source</p>
+<p>@access public</p>
+
+<p>Add a new line</p>
+<p>Also update the $this->screen and $this->history buffers</p>
+<p>@access private</p>
+
+<p>Returns the current coordinate without preformating</p>
+<p>@access private</p>
+<p>@return string</p>
+
+<p>Returns the current screen without preformating</p>
+<p>@access private</p>
+<p>@return string</p>
+
+<p>Returns the current screen</p>
+<p>@access public</p>
+<p>@return string</p>
+
+<p>Returns the current screen and the x previous lines</p>
+<p>@access public</p>
+<p>@return string</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>cursor</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\File\ANSI.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>phpseclib\File\ANSI</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>setDimensions($x, $y)</code></li>
+<li><code>setHistory($history)</code></li>
+<li><code>loadString($source)</code></li>
+<li><code>appendString($source)</code></li>
+<li><code>_newLine()</code></li>
+<li><code>_processCoordinate($last_attr, $cur_attr, $char)</code></li>
+<li><code>_getScreen()</code></li>
+<li><code>getScreen()</code></li>
+<li><code>getHistory()</code></li>
+</ul>
+</body></html>

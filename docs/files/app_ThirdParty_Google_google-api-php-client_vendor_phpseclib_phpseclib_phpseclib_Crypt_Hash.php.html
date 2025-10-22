@@ -1,0 +1,202 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\Hash.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\Hash.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\Hash.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 27648 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Pure-PHP implementations of keyed-hash message authentication codes (HMACs) and various cryptographic hashing functions.</p>
+<p>Uses hash() or mhash() if available and an internal implementation, otherwise.  Currently supports the following:</p>
+<p>md2, md5, md5-96, sha1, sha1-96, sha256, sha256-96, sha384, and sha512, sha512-96</p>
+<p>If {@link self::setKey() setKey()} is called, {@link self::hash() hash()} will return the HMAC as opposed to</p>
+<p>the hash.  If no valid algorithm is provided, sha1 will be used.</p>
+<p>PHP version 5</p>
+<p>{@internal The variable names are the same as those in</p>
+<p>{@link http://tools.ietf.org/html/rfc2104#section-2 RFC2104}.}}</p>
+<p>Here's a short example of how to use this library:</p>
+<p><code></p>
+<p><?php</p>
+<p>   include 'vendor/autoload.php';</p>
+<p>   $hash = new \phpseclib\Crypt\Hash('sha1');</p>
+<p>   $hash->setKey('abcdefg');</p>
+<p>   echo base64_encode($hash->hash('abcdefg'));</p>
+<p>?></p>
+<p></code></p>
+<p>@category  Crypt</p>
+<p>@package   Hash</p>
+<p>@author    Jim Wigginton <terrafrost@php.net></p>
+<p>@copyright 2007 Jim Wigginton</p>
+<p>@license   http://www.opensource.org/licenses/mit-license.html  MIT License</p>
+<p>@link      http://phpseclib.sourceforge.net</p>
+
+<p>Pure-PHP implementations of keyed-hash message authentication codes (HMACs) and various cryptographic hashing functions.</p>
+<p>@package Hash</p>
+<p>@author  Jim Wigginton <terrafrost@php.net></p>
+<p>@access  public</p>
+
+<p>#@+</p>
+<p>@access private</p>
+<p>@see \phpseclib\Crypt\Hash::__construct()</p>
+
+<p>Toggles the internal implementation</p>
+
+<p>Toggles the mhash() implementation, which has been deprecated on PHP 5.3.0+.</p>
+
+<p>Toggles the hash() implementation, which works on PHP 5.1.2+.</p>
+
+<p>#@-</p>
+
+<p>Hash Parameter</p>
+<p>@see self::setHash()</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Byte-length of compression blocks / key (Internal HMAC)</p>
+<p>@see self::setAlgorithm()</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Byte-length of hash output (Internal HMAC)</p>
+<p>@see self::setHash()</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Hash Algorithm</p>
+<p>@see self::setHash()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Key</p>
+<p>@see self::setKey()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Outer XOR (Internal HMAC)</p>
+<p>@see self::setKey()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Inner XOR (Internal HMAC)</p>
+<p>@see self::setKey()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Default Constructor.</p>
+<p>@param string $hash</p>
+<p>@return \phpseclib\Crypt\Hash</p>
+<p>@access public</p>
+
+<p>Sets the key for HMACs</p>
+<p>Keys can be of any length.</p>
+<p>@access public</p>
+<p>@param string $key</p>
+
+<p>Gets the hash function.</p>
+<p>As set by the constructor or by the setHash() method.</p>
+<p>@access public</p>
+<p>@return string</p>
+
+<p>Sets the hash function.</p>
+<p>@access public</p>
+<p>@param string $hash</p>
+
+<p>Compute the HMAC.</p>
+<p>@access public</p>
+<p>@param string $text</p>
+<p>@return string</p>
+
+<p>Returns the hash length (in bytes)</p>
+<p>@access public</p>
+<p>@return int</p>
+
+<p>Wrapper for MD5</p>
+<p>@access private</p>
+<p>@param string $m</p>
+
+<p>Wrapper for SHA1</p>
+<p>@access private</p>
+<p>@param string $m</p>
+
+<p>Pure-PHP implementation of MD2</p>
+<p>See {@link http://tools.ietf.org/html/rfc1319 RFC1319}.</p>
+<p>@access private</p>
+<p>@param string $m</p>
+
+<p>Pure-PHP implementation of SHA256</p>
+<p>See {@link http://en.wikipedia.org/wiki/SHA_hash_functions#SHA-256_.28a_SHA-2_variant.29_pseudocode SHA-256 (a SHA-2 variant) pseudocode - Wikipedia}.</p>
+<p>@access private</p>
+<p>@param string $m</p>
+
+<p>Pure-PHP implementation of SHA384 and SHA512</p>
+<p>@access private</p>
+<p>@param string $m</p>
+
+<p>Right Rotate</p>
+<p>@access private</p>
+<p>@param int $int</p>
+<p>@param int $amt</p>
+<p>@see self::_sha256()</p>
+<p>@return int</p>
+
+<p>Right Shift</p>
+<p>@access private</p>
+<p>@param int $int</p>
+<p>@param int $amt</p>
+<p>@see self::_sha256()</p>
+<p>@return int</p>
+
+<p>Not</p>
+<p>@access private</p>
+<p>@param int $int</p>
+<p>@see self::_sha256()</p>
+<p>@return int</p>
+
+<p>Add</p>
+<p>_sha256() adds multiple unsigned 32-bit integers.  Since PHP doesn't support unsigned integers and since the</p>
+<p>possibility of overflow exists, care has to be taken.  BigInteger could be used but this should be faster.</p>
+<p>@param int $...</p>
+<p>@return int</p>
+<p>@see self::_sha256()</p>
+<p>@access private</p>
+
+<p>String Shift</p>
+<p>Inspired by array_shift</p>
+<p>@param string $string</p>
+<p>@param int $index</p>
+<p>@return string</p>
+<p>@access private</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\Hash.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>phpseclib\Crypt\Hash</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($hash = 'sha1')</code></li>
+<li><code>setKey($key = false)</code></li>
+<li><code>getHash()</code></li>
+<li><code>setHash($hash)</code></li>
+<li><code>hash($text)</code></li>
+<li><code>getLength()</code></li>
+<li><code>_md5($m)</code></li>
+<li><code>_sha1($m)</code></li>
+<li><code>_md2($m)</code></li>
+<li><code>_sha256($m)</code></li>
+<li><code>_sha512($m)</code></li>
+<li><code>_rightRotate($int, $amt)</code></li>
+<li><code>_rightShift($int, $amt)</code></li>
+<li><code>_not($int)</code></li>
+<li><code>_add()</code></li>
+<li><code>_string_shift(&$string, $index = 1)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,213 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Part\PartBuilder.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Part\PartBuilder.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Part\PartBuilder.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 11759 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Used by MessageParser to keep information about a parsed message as an</p>
+<p>intermediary before creating a Message object and its MessagePart children.</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var int The offset read start position for this part (beginning of</p>
+<p>headers) in the message's stream.</p>
+
+<p>@var int The offset read end position for this part.  If the part is a</p>
+<p>multipart mime part, the end position is after all of this parts</p>
+<p>children.</p>
+
+<p>@var int The offset read start position in the message's stream for the</p>
+<p>beginning of this part's content (body).</p>
+
+<p>@var int The offset read end position in the message's stream for the</p>
+<p>end of this part's content (body).</p>
+
+<p>@var MessagePartFactory the factory</p>
+<p>     needed for creating the Message or MessagePart for the parsed part.</p>
+
+<p>@var boolean set to true once the end boundary of the currently-parsed</p>
+<p>     part is found.</p>
+
+<p>@var boolean set to true once a boundary belonging to this parent's part</p>
+<p>     is found.</p>
+
+<p>@var boolean|null|string false if not queried for in the content-type</p>
+<p>     header of this part, null if the current part does not have a</p>
+<p>     boundary, or the value of the boundary parameter of the content-type</p>
+<p>     header if the part contains one.</p>
+
+<p>@var HeaderContainer a container for found and parsed headers.</p>
+
+<p>@var PartBuilder[] an array of children found below this part for a mime</p>
+<p>     email</p>
+
+<p>@var PartBuilder the parent part.</p>
+
+<p>@var string[] key => value pairs of properties passed on to the </p>
+<p>     $messagePartFactory when constructing the Message and its children.</p>
+
+<p>Sets up class dependencies.</p>
+<p>@param MessagePartFactory $mpf</p>
+<p>@param HeaderContainer $headerContainer</p>
+
+<p>Adds a header with the given $name and $value to the headers array.</p>
+<p>Removes non-alphanumeric characters from $name, and sets it to lower-case</p>
+<p>to use as a key in the private headers array.  Sets the original $name</p>
+<p>and $value as elements in the headers' array value for the calculated</p>
+<p>key.</p>
+<p>@param string $name</p>
+<p>@param string $value</p>
+
+<p>Returns the HeaderContainer object containing parsed headers.</p>
+
+<p>@return HeaderContainer</p>
+
+<p>Sets the specified property denoted by $name to $value.</p>
+
+<p>@param string $name</p>
+<p>@param mixed $value</p>
+
+<p>Returns the value of the property with the given $name.</p>
+
+<p>@param string $name</p>
+<p>@return mixed</p>
+
+<p>Registers the passed PartBuilder as a child of the current PartBuilder.</p>
+
+<p>@param \ZBateson\MailMimeParser\Message\PartBuilder $partBuilder</p>
+
+<p>Returns all children PartBuilder objects.</p>
+
+<p>@return \ZBateson\MailMimeParser\Message\PartBuilder[]</p>
+
+<p>Returns this PartBuilder's parent.</p>
+
+<p>@return PartBuilder</p>
+
+<p>Returns true if either a Content-Type or Mime-Version header are defined</p>
+<p>in this PartBuilder's headers.</p>
+
+<p>@return boolean</p>
+
+<p>Returns a ParameterHeader representing the parsed Content-Type header for</p>
+<p>this PartBuilder.</p>
+
+<p>@return \ZBateson\MailMimeParser\Header\ParameterHeader</p>
+
+<p>Returns the parsed boundary parameter of the Content-Type header if set</p>
+<p>for a multipart message part.</p>
+
+<p>@return string</p>
+
+<p>Returns true if this part's content-type is multipart/*</p>
+<p>@return boolean</p>
+
+<p>Returns true if the passed $line of read input matches this PartBuilder's</p>
+<p>mime boundary, or any of its parent's mime boundaries for a multipart</p>
+<p>message.</p>
+
+<p>If the passed $line is the ending boundary for the current PartBuilder,</p>
+<p>$this->isEndBoundaryFound will return true after.</p>
+
+<p>@param string $line</p>
+<p>@return boolean</p>
+
+<p>Returns true if MessageParser passed an input line to setEndBoundary that</p>
+<p>matches a parent's mime boundary, and the following input belongs to a</p>
+<p>new part under its parent.</p>
+
+<p>@return boolean</p>
+
+<p>Called once EOF is reached while reading content.  The method sets the</p>
+<p>flag used by PartBuilder::isParentBoundaryFound to true on this part and</p>
+<p>all parent PartBuilders.</p>
+
+<p>Returns false if this part has a parent part in which endBoundaryFound is</p>
+<p>set to true (i.e. this isn't a discardable part following the parent's</p>
+<p>end boundary line).</p>
+
+<p>@return boolean</p>
+
+<p>Returns the offset for this part's stream within its parent stream.</p>
+<p>@return int</p>
+
+<p>Returns the length of this part's stream.</p>
+<p>@return int</p>
+
+<p>Returns the offset for this part's content within its part stream.</p>
+<p>@return int</p>
+
+<p>Returns the length of this part's content stream.</p>
+<p>@return int</p>
+
+<p>Sets the start position of the part in the input stream.</p>
+
+<p>@param int $streamPartStartPos</p>
+
+<p>Sets the end position of the part in the input stream, and also calls</p>
+<p>parent->setParentStreamPartEndPos to expand to parent parts.</p>
+
+<p>@param int $streamPartEndPos</p>
+
+<p>Sets the start position of the content in the input stream.</p>
+
+<p>@param int $streamContentStartPos</p>
+
+<p>Sets the end position of the content and part in the input stream.</p>
+
+<p>@param int $streamContentEndPos</p>
+
+<p>Creates a MessagePart and returns it using the PartBuilder's</p>
+<p>MessagePartFactory passed in during construction.</p>
+
+<p>@param StreamInterface $stream</p>
+<p>@return MessagePart</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Part\PartBuilder.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Message\Part\PartBuilder</code></li>
+<li><code>ZBateson\MailMimeParser\Message\Part\dependencies</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`__construct(MessagePartFactory $mpf,</li>
+<p>        HeaderContainer $headerContainer)`</p>
+<li><code>addHeader($name, $value)</code></li>
+<li><code>getHeaderContainer()</code></li>
+<li><code>setProperty($name, $value)</code></li>
+<li><code>getProperty($name)</code></li>
+<li><code>addChild(PartBuilder $partBuilder)</code></li>
+<li><code>getChildren()</code></li>
+<li><code>getParent()</code></li>
+<li><code>isMime()</code></li>
+<li><code>getContentType()</code></li>
+<li><code>getMimeBoundary()</code></li>
+<li><code>isMultiPart()</code></li>
+<li><code>setEndBoundaryFound($line)</code></li>
+<li><code>isParentBoundaryFound()</code></li>
+<li><code>setEof()</code></li>
+<li><code>canHaveHeaders()</code></li>
+<li><code>getStreamPartStartOffset()</code></li>
+<li><code>getStreamPartLength()</code></li>
+<li><code>getStreamContentStartOffset()</code></li>
+<li><code>getStreamContentLength()</code></li>
+<li><code>setStreamPartStartPos($streamPartStartPos)</code></li>
+<li><code>setStreamPartEndPos($streamPartEndPos)</code></li>
+<li><code>setStreamContentStartPos($streamContentStartPos)</code></li>
+<li><code>setStreamPartAndContentEndPos($streamContentEndPos)</code></li>
+<li><code>createMessagePart(StreamInterface $stream = null)</code></li>
+</ul>
+</body></html>

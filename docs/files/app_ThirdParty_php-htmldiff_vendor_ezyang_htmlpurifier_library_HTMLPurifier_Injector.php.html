@@ -1,0 +1,145 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Injector.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Injector.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Injector.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9006 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Injects tokens into the document while parsing for well-formedness.</p>
+<p>This enables "formatter-like" functionality such as auto-paragraphing,</p>
+<p>smiley-ification and linkification to take place.</p>
+<p>A note on how handlers create changes; this is done by assigning a new</p>
+<p>value to the $token reference. These values can take a variety of forms and</p>
+<p>are best described HTMLPurifier_Strategy_MakeWellFormed->processToken()</p>
+<p>documentation.</p>
+<p>@todo Allow injectors to request a re-run on their output. This</p>
+<p>      would help if an operation is recursive.</p>
+
+<p>Advisory name of injector, this is for friendly error messages.</p>
+<p>@type string</p>
+
+<p>@type HTMLPurifier_HTMLDefinition</p>
+
+<p>Reference to CurrentNesting variable in Context. This is an array</p>
+<p>list of tokens that we are currently "inside"</p>
+<p>@type array</p>
+
+<p>Reference to current token.</p>
+<p>@type HTMLPurifier_Token</p>
+
+<p>Reference to InputZipper variable in Context.</p>
+<p>@type HTMLPurifier_Zipper</p>
+
+<p>Array of elements and attributes this injector creates and therefore</p>
+<p>need to be allowed by the definition. Takes form of</p>
+<p>array('element' => array('attr', 'attr2'), 'element2')</p>
+<p>@type array</p>
+
+<p>Number of elements to rewind backwards (relative).</p>
+<p>@type bool|int</p>
+
+<p>Rewind to a spot to re-perform processing. This is useful if you</p>
+<p>deleted a node, and now need to see if this change affected any</p>
+<p>earlier nodes. Rewinding does not affect other injectors, and can</p>
+<p>result in infinite loops if not used carefully.</p>
+<p>@param bool|int $offset</p>
+<p>@warning HTML Purifier will prevent you from fast-forwarding with this</p>
+<p>         function.</p>
+
+<p>Retrieves rewind offset, and then unsets it.</p>
+<p>@return bool|int</p>
+
+<p>Prepares the injector by giving it the config and context objects:</p>
+<p>this allows references to important variables to be made within</p>
+<p>the injector. This function also checks if the HTML environment</p>
+<p>will work with the Injector (see checkNeeded()).</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@param HTMLPurifier_Context $context</p>
+<p>@return bool|string Boolean false if success, string of missing needed element/attribute if failure</p>
+
+<p>This function checks if the HTML environment</p>
+<p>will work with the Injector: if p tags are not allowed, the</p>
+<p>Auto-Paragraphing injector should not be enabled.</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@return bool|string Boolean false if success, string of missing needed element/attribute if failure</p>
+
+<p>Tests if the context node allows a certain element</p>
+<p>@param string $name Name of element to test for</p>
+<p>@return bool True if element is allowed, false if it is not</p>
+
+<p>Iterator function, which starts with the next token and continues until</p>
+<p>you reach the end of the input tokens.</p>
+<p>@warning Please prevent previous references from interfering with this</p>
+<p>         functions by setting $i = null beforehand!</p>
+<p>@param int $i Current integer index variable for inputTokens</p>
+<p>@param HTMLPurifier_Token $current Current token variable.</p>
+<p>         Do NOT use $token, as that variable is also a reference</p>
+<p>@return bool</p>
+
+<p>Similar to _forward, but accepts a third parameter $nesting (which</p>
+<p>should be initialized at 0) and stops when we hit the end tag</p>
+<p>for the node $this->inputIndex starts in.</p>
+<p>@param int $i Current integer index variable for inputTokens</p>
+<p>@param HTMLPurifier_Token $current Current token variable.</p>
+<p>         Do NOT use $token, as that variable is also a reference</p>
+<p>@param int $nesting</p>
+<p>@return bool</p>
+
+<p>Iterator function, starts with the previous token and continues until</p>
+<p>you reach the beginning of input tokens.</p>
+<p>@warning Please prevent previous references from interfering with this</p>
+<p>         functions by setting $i = null beforehand!</p>
+<p>@param int $i Current integer index variable for inputTokens</p>
+<p>@param HTMLPurifier_Token $current Current token variable.</p>
+<p>         Do NOT use $token, as that variable is also a reference</p>
+<p>@return bool</p>
+
+<p>Handler that is called when a text token is processed</p>
+
+<p>Handler that is called when a start or empty token is processed</p>
+
+<p>Handler that is called when an end token is processed</p>
+
+<p>Notifier that is called when an end token is processed</p>
+<p>@param HTMLPurifier_Token $token Current token variable.</p>
+<p>@note This differs from handlers in that the token is read-only</p>
+<p>@deprecated</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>fast</code></li>
+<li><code>interfering</code></li>
+<li><code>handlers</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Injector.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>HTMLPurifier_Injector</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>rewindOffset($offset)</code></li>
+<li><code>getRewindOffset()</code></li>
+<li><code>prepare($config, $context)</code></li>
+<li><code>checkNeeded($config)</code></li>
+<li><code>allowsElement($name)</code></li>
+<li><code>forward(&$i, &$current)</code></li>
+<li><code>forwardUntilEndToken(&$i, &$current, &$nesting)</code></li>
+<li><code>backward(&$i, &$current)</code></li>
+<li><code>handleText(&$token)</code></li>
+<li><code>handleElement(&$token)</code></li>
+<li><code>handleEnd(&$token)</code></li>
+<li><code>notifyEnd($token)</code></li>
+</ul>
+</body></html>

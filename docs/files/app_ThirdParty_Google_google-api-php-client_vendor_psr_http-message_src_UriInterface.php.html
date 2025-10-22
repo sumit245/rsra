@@ -1,0 +1,239 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\psr\http-message\src\UriInterface.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\psr\http-message\src\UriInterface.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\psr\http-message\src\UriInterface.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 12607 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Value object representing a URI.</p>
+<p>This interface is meant to represent URIs according to RFC 3986 and to</p>
+<p>provide methods for most common operations. Additional functionality for</p>
+<p>working with URIs can be provided on top of the interface or externally.</p>
+<p>Its primary use is for HTTP requests, but may also be used in other</p>
+<p>contexts.</p>
+<p>Instances of this interface are considered immutable; all methods that</p>
+<p>might change state MUST be implemented such that they retain the internal</p>
+<p>state of the current instance and return an instance that contains the</p>
+<p>changed state.</p>
+<p>Typically the Host header will be also be present in the request message.</p>
+<p>For server-side requests, the scheme will typically be discoverable in the</p>
+<p>server parameters.</p>
+<p>@link http://tools.ietf.org/html/rfc3986 (the URI specification)</p>
+
+<p>Retrieve the scheme component of the URI.</p>
+<p>If no scheme is present, this method MUST return an empty string.</p>
+<p>The value returned MUST be normalized to lowercase, per RFC 3986</p>
+<p>Section 3.1.</p>
+<p>The trailing ":" character is not part of the scheme and MUST NOT be</p>
+<p>added.</p>
+<p>@see https://tools.ietf.org/html/rfc3986#section-3.1</p>
+<p>@return string The URI scheme.</p>
+
+<p>Retrieve the authority component of the URI.</p>
+<p>If no authority information is present, this method MUST return an empty</p>
+<p>string.</p>
+<p>The authority syntax of the URI is:</p>
+<p><pre></p>
+<p>[user-info@]host[:port]</p>
+<p></pre></p>
+<p>If the port component is not set or is the standard port for the current</p>
+<p>scheme, it SHOULD NOT be included.</p>
+<p>@see https://tools.ietf.org/html/rfc3986#section-3.2</p>
+<p>@return string The URI authority, in "[user-info@]host[:port]" format.</p>
+
+<p>Retrieve the user information component of the URI.</p>
+<p>If no user information is present, this method MUST return an empty</p>
+<p>string.</p>
+<p>If a user is present in the URI, this will return that value;</p>
+<p>additionally, if the password is also present, it will be appended to the</p>
+<p>user value, with a colon (":") separating the values.</p>
+<p>The trailing "@" character is not part of the user information and MUST</p>
+<p>NOT be added.</p>
+<p>@return string The URI user information, in "username[:password]" format.</p>
+
+<p>Retrieve the host component of the URI.</p>
+<p>If no host is present, this method MUST return an empty string.</p>
+<p>The value returned MUST be normalized to lowercase, per RFC 3986</p>
+<p>Section 3.2.2.</p>
+<p>@see http://tools.ietf.org/html/rfc3986#section-3.2.2</p>
+<p>@return string The URI host.</p>
+
+<p>Retrieve the port component of the URI.</p>
+<p>If a port is present, and it is non-standard for the current scheme,</p>
+<p>this method MUST return it as an integer. If the port is the standard port</p>
+<p>used with the current scheme, this method SHOULD return null.</p>
+<p>If no port is present, and no scheme is present, this method MUST return</p>
+<p>a null value.</p>
+<p>If no port is present, but a scheme is present, this method MAY return</p>
+<p>the standard port for that scheme, but SHOULD return null.</p>
+<p>@return null|int The URI port.</p>
+
+<p>Retrieve the path component of the URI.</p>
+<p>The path can either be empty or absolute (starting with a slash) or</p>
+<p>rootless (not starting with a slash). Implementations MUST support all</p>
+<p>three syntaxes.</p>
+<p>Normally, the empty path "" and absolute path "/" are considered equal as</p>
+<p>defined in RFC 7230 Section 2.7.3. But this method MUST NOT automatically</p>
+<p>do this normalization because in contexts with a trimmed base path, e.g.</p>
+<p>the front controller, this difference becomes significant. It's the task</p>
+<p>of the user to handle both "" and "/".</p>
+<p>The value returned MUST be percent-encoded, but MUST NOT double-encode</p>
+<p>any characters. To determine what characters to encode, please refer to</p>
+<p>RFC 3986, Sections 2 and 3.3.</p>
+<p>As an example, if the value should include a slash ("/") not intended as</p>
+<p>delimiter between path segments, that value MUST be passed in encoded</p>
+<p>form (e.g., "%2F") to the instance.</p>
+<p>@see https://tools.ietf.org/html/rfc3986#section-2</p>
+<p>@see https://tools.ietf.org/html/rfc3986#section-3.3</p>
+<p>@return string The URI path.</p>
+
+<p>Retrieve the query string of the URI.</p>
+<p>If no query string is present, this method MUST return an empty string.</p>
+<p>The leading "?" character is not part of the query and MUST NOT be</p>
+<p>added.</p>
+<p>The value returned MUST be percent-encoded, but MUST NOT double-encode</p>
+<p>any characters. To determine what characters to encode, please refer to</p>
+<p>RFC 3986, Sections 2 and 3.4.</p>
+<p>As an example, if a value in a key/value pair of the query string should</p>
+<p>include an ampersand ("&") not intended as a delimiter between values,</p>
+<p>that value MUST be passed in encoded form (e.g., "%26") to the instance.</p>
+<p>@see https://tools.ietf.org/html/rfc3986#section-2</p>
+<p>@see https://tools.ietf.org/html/rfc3986#section-3.4</p>
+<p>@return string The URI query string.</p>
+
+<p>Retrieve the fragment component of the URI.</p>
+<p>If no fragment is present, this method MUST return an empty string.</p>
+<p>The leading "#" character is not part of the fragment and MUST NOT be</p>
+<p>added.</p>
+<p>The value returned MUST be percent-encoded, but MUST NOT double-encode</p>
+<p>any characters. To determine what characters to encode, please refer to</p>
+<p>RFC 3986, Sections 2 and 3.5.</p>
+<p>@see https://tools.ietf.org/html/rfc3986#section-2</p>
+<p>@see https://tools.ietf.org/html/rfc3986#section-3.5</p>
+<p>@return string The URI fragment.</p>
+
+<p>Return an instance with the specified scheme.</p>
+<p>This method MUST retain the state of the current instance, and return</p>
+<p>an instance that contains the specified scheme.</p>
+<p>Implementations MUST support the schemes "http" and "https" case</p>
+<p>insensitively, and MAY accommodate other schemes if required.</p>
+<p>An empty scheme is equivalent to removing the scheme.</p>
+<p>@param string $scheme The scheme to use with the new instance.</p>
+<p>@return static A new instance with the specified scheme.</p>
+<p>@throws \InvalidArgumentException for invalid or unsupported schemes.</p>
+
+<p>Return an instance with the specified user information.</p>
+<p>This method MUST retain the state of the current instance, and return</p>
+<p>an instance that contains the specified user information.</p>
+<p>Password is optional, but the user information MUST include the</p>
+<p>user; an empty string for the user is equivalent to removing user</p>
+<p>information.</p>
+<p>@param string $user The user name to use for authority.</p>
+<p>@param null|string $password The password associated with $user.</p>
+<p>@return static A new instance with the specified user information.</p>
+
+<p>Return an instance with the specified host.</p>
+<p>This method MUST retain the state of the current instance, and return</p>
+<p>an instance that contains the specified host.</p>
+<p>An empty host value is equivalent to removing the host.</p>
+<p>@param string $host The hostname to use with the new instance.</p>
+<p>@return static A new instance with the specified host.</p>
+<p>@throws \InvalidArgumentException for invalid hostnames.</p>
+
+<p>Return an instance with the specified port.</p>
+<p>This method MUST retain the state of the current instance, and return</p>
+<p>an instance that contains the specified port.</p>
+<p>Implementations MUST raise an exception for ports outside the</p>
+<p>established TCP and UDP port ranges.</p>
+<p>A null value provided for the port is equivalent to removing the port</p>
+<p>information.</p>
+<p>@param null|int $port The port to use with the new instance; a null value</p>
+<p>    removes the port information.</p>
+<p>@return static A new instance with the specified port.</p>
+<p>@throws \InvalidArgumentException for invalid ports.</p>
+
+<p>Return an instance with the specified path.</p>
+<p>This method MUST retain the state of the current instance, and return</p>
+<p>an instance that contains the specified path.</p>
+<p>The path can either be empty or absolute (starting with a slash) or</p>
+<p>rootless (not starting with a slash). Implementations MUST support all</p>
+<p>three syntaxes.</p>
+<p>If the path is intended to be domain-relative rather than path relative then</p>
+<p>it must begin with a slash ("/"). Paths not starting with a slash ("/")</p>
+<p>are assumed to be relative to some base path known to the application or</p>
+<p>consumer.</p>
+<p>Users can provide both encoded and decoded path characters.</p>
+<p>Implementations ensure the correct encoding as outlined in getPath().</p>
+<p>@param string $path The path to use with the new instance.</p>
+<p>@return static A new instance with the specified path.</p>
+<p>@throws \InvalidArgumentException for invalid paths.</p>
+
+<p>Return an instance with the specified query string.</p>
+<p>This method MUST retain the state of the current instance, and return</p>
+<p>an instance that contains the specified query string.</p>
+<p>Users can provide both encoded and decoded query characters.</p>
+<p>Implementations ensure the correct encoding as outlined in getQuery().</p>
+<p>An empty query string value is equivalent to removing the query string.</p>
+<p>@param string $query The query string to use with the new instance.</p>
+<p>@return static A new instance with the specified query string.</p>
+<p>@throws \InvalidArgumentException for invalid query strings.</p>
+
+<p>Return an instance with the specified URI fragment.</p>
+<p>This method MUST retain the state of the current instance, and return</p>
+<p>an instance that contains the specified URI fragment.</p>
+<p>Users can provide both encoded and decoded fragment characters.</p>
+<p>Implementations ensure the correct encoding as outlined in getFragment().</p>
+<p>An empty fragment value is equivalent to removing the fragment.</p>
+<p>@param string $fragment The fragment to use with the new instance.</p>
+<p>@return static A new instance with the specified fragment.</p>
+
+<p>Return the string representation as a URI reference.</p>
+<p>Depending on which components of the URI are present, the resulting</p>
+<p>string is either a full URI or relative reference according to RFC 3986,</p>
+<p>Section 4.1. The method concatenates the various components of the URI,</p>
+<p>using the appropriate delimiters:</p>
+<ul>
+<li>If a scheme is present, it MUST be suffixed by ":".</li>
+<li>If an authority is present, it MUST be prefixed by "//".</li>
+<li>The path can be concatenated without delimiters. But there are two</li>
+<p>  cases where the path has to be adjusted to make the URI reference</p>
+<p>  valid as PHP does not allow to throw an exception in __toString():</p>
+<p>    - If the path is rootless and an authority is present, the path MUST</p>
+<p>      be prefixed by "/".</p>
+<p>    - If the path is starting with more than one "/" and no authority is</p>
+<p>      present, the starting slashes MUST be reduced to one.</p>
+<li>If a query is present, it MUST be prefixed by "?".</li>
+<li>If a fragment is present, it MUST be prefixed by "#".</li>
+<p>@see http://tools.ietf.org/html/rfc3986#section-4.1</p>
+<p>@return string</p>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\psr\http-message\src\UriInterface.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getScheme()</code></li>
+<li><code>getAuthority()</code></li>
+<li><code>getUserInfo()</code></li>
+<li><code>getHost()</code></li>
+<li><code>getPort()</code></li>
+<li><code>getPath()</code></li>
+<li><code>getQuery()</code></li>
+<li><code>getFragment()</code></li>
+<li><code>withScheme($scheme)</code></li>
+<li><code>withUserInfo($user, $password = null)</code></li>
+<li><code>withHost($host)</code></li>
+<li><code>withPort($port)</code></li>
+<li><code>withPath($path)</code></li>
+<li><code>withQuery($query)</code></li>
+<li><code>withFragment($fragment)</code></li>
+<li><code>__toString()</code></li>
+</ul>
+</body></html>

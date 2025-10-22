@@ -1,0 +1,60 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\CashFlow\Variable\Periodic.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\CashFlow\Variable\Periodic.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\CashFlow\Variable\Periodic.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5544 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>IRR.</p>
+<p>Returns the internal rate of return for a series of cash flows represented by the numbers in values.</p>
+<p>These cash flows do not have to be even, as they would be for an annuity. However, the cash flows must occur</p>
+<p>at regular intervals, such as monthly or annually. The internal rate of return is the interest rate received</p>
+<p>for an investment consisting of payments (negative values) and income (positive values) that occur at regular</p>
+<p>periods.</p>
+<p>Excel Function:</p>
+<p>       IRR(values[,guess])</p>
+<p>@param mixed $values An array or a reference to cells that contain numbers for which you want</p>
+<p>                                   to calculate the internal rate of return.</p>
+<p>                               Values must contain at least one positive value and one negative value to</p>
+<p>                                   calculate the internal rate of return.</p>
+<p>@param mixed $guess A number that you guess is close to the result of IRR</p>
+<p>@return float|string</p>
+
+<p>MIRR.</p>
+<p>Returns the modified internal rate of return for a series of periodic cash flows. MIRR considers both</p>
+<p>       the cost of the investment and the interest received on reinvestment of cash.</p>
+<p>Excel Function:</p>
+<p>       MIRR(values,finance_rate, reinvestment_rate)</p>
+<p>@param mixed $values An array or a reference to cells that contain a series of payments and</p>
+<p>                        income occurring at regular intervals.</p>
+<p>                     Payments are negative value, income is positive values.</p>
+<p>@param mixed $financeRate The interest rate you pay on the money used in the cash flows</p>
+<p>@param mixed $reinvestmentRate The interest rate you receive on the cash flows as you reinvest them</p>
+<p>@return float|string Result, or a string containing an error</p>
+
+<p>NPV.</p>
+<p>Returns the Net Present Value of a cash flow series given a discount rate.</p>
+<p>@param mixed $rate</p>
+<p>@return float</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\CashFlow\Variable\Periodic.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\Financial\CashFlow\Variable\Periodic</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>rate($values, $guess = 0.1)</code></li>
+<li><code>modifiedRate($values, $financeRate, $reinvestmentRate)</code></li>
+<li><code>presentValue($rate, ...$args)</code></li>
+</ul>
+</body></html>

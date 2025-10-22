@@ -1,0 +1,125 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Part\HeaderPartFactory.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Part\HeaderPartFactory.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Part\HeaderPartFactory.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4956 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Constructs and returns HeaderPart objects.</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var MbWrapper $charsetConverter passed to HeaderPart constructors</p>
+<p>     for converting strings in HeaderPart::convertEncoding</p>
+
+<p>Sets up dependencies.</p>
+
+<p>@param MbWrapper $charsetConverter</p>
+
+<p>Creates and returns a default HeaderPart for this factory, allowing</p>
+<p>subclass factories for specialized HeaderParts.</p>
+
+<p>The default implementation returns a new Token.</p>
+
+<p>@param string $value</p>
+<p>@return HeaderPart</p>
+
+<p>Initializes and returns a new Token.</p>
+
+<p>@param string $value</p>
+<p>@return \ZBateson\MailMimeParser\Header\Part\Token</p>
+
+<p>Instantiates and returns a SplitParameterToken with the given name.</p>
+
+<p>@param string $name</p>
+<p>@return SplitParameterToken</p>
+
+<p>Initializes and returns a new LiteralPart.</p>
+
+<p>@param string $value</p>
+<p>@return \ZBateson\MailMimeParser\Header\Part\LiteralPart</p>
+
+<p>Initializes and returns a new MimeLiteralPart.</p>
+
+<p>@param string $value</p>
+<p>@return \ZBateson\MailMimeParser\Header\Part\MimeLiteralPart</p>
+
+<p>Initializes and returns a new CommentPart.</p>
+
+<p>@param string $value</p>
+<p>@return \ZBateson\MailMimeParser\Header\Part\CommentPart</p>
+
+<p>Initializes and returns a new AddressPart.</p>
+
+<p>@param string $name</p>
+<p>@param string $email</p>
+<p>@return \ZBateson\MailMimeParser\Header\Part\AddressPart</p>
+
+<p>Initializes and returns a new AddressGroupPart</p>
+
+<p>@param array $addresses</p>
+<p>@param string $name</p>
+<p>@return \ZBateson\MailMimeParser\Header\Part\AddressGroupPart</p>
+
+<p>Initializes and returns a new DatePart</p>
+
+<p>@param string $value</p>
+<p>@return \ZBateson\MailMimeParser\Header\Part\DatePart</p>
+
+<p>Initializes and returns a new ParameterPart.</p>
+
+<p>@param string $name</p>
+<p>@param string $value</p>
+<p>@param string $language</p>
+<p>@return \ZBateson\MailMimeParser\Header\Part\ParameterPart</p>
+
+<p>Initializes and returns a new ReceivedPart.</p>
+<p>@param string $name</p>
+<p>@param string $value</p>
+<p>@return \ZBateson\MailMimeParser\Header\Part\ReceivedPart</p>
+
+<p>Initializes and returns a new ReceivedDomainPart.</p>
+<p>@param string $name</p>
+<p>@param string $value</p>
+<p>@param string $ehloName</p>
+<p>@param string $hostName</p>
+<p>@param string $hostAddress</p>
+<p>@return \ZBateson\MailMimeParser\Header\Part\ReceivedDomainPart</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Part\HeaderPartFactory.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Header\Part\HeaderPartFactory</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(MbWrapper $charsetConverter)</code></li>
+<li><code>newInstance($value)</code></li>
+<li><code>newToken($value)</code></li>
+<li><code>newSplitParameterToken($name)</code></li>
+<li><code>newLiteralPart($value)</code></li>
+<li><code>newMimeLiteralPart($value)</code></li>
+<li><code>newCommentPart($value)</code></li>
+<li><code>newAddressPart($name, $email)</code></li>
+<li><code>newAddressGroupPart(array $addresses, $name = '')</code></li>
+<li><code>newDatePart($value)</code></li>
+<li><code>newParameterPart($name, $value, $language = null)</code></li>
+<li><code>newReceivedPart($name, $value)</code></li>
+<li>`newReceivedDomainPart($name,</li>
+<p>        $value,</p>
+<p>        $ehloName = null,</p>
+<p>        $hostName = null,</p>
+<p>        $hostAddress = null)`</p>
+</ul>
+</body></html>

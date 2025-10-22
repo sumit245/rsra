@@ -1,0 +1,74 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\CashFlow\Variable\NonPeriodic.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\CashFlow\Variable\NonPeriodic.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\CashFlow\Variable\NonPeriodic.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 8814 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>XIRR.</p>
+<p>Returns the internal rate of return for a schedule of cash flows that is not necessarily periodic.</p>
+<p>Excel Function:</p>
+<p>       =XIRR(values,dates,guess)</p>
+<p>@param float[] $values     A series of cash flow payments</p>
+<p>                               The series of values must contain at least one positive value & one negative value</p>
+<p>@param mixed[] $dates      A series of payment dates</p>
+<p>                               The first payment date indicates the beginning of the schedule of payments</p>
+<p>                               All other dates must be later than this date, but they may occur in any order</p>
+<p>@param mixed $guess        An optional guess at the expected answer</p>
+<p>@return float|string</p>
+
+<p>XNPV.</p>
+<p>Returns the net present value for a schedule of cash flows that is not necessarily periodic.</p>
+<p>To calculate the net present value for a series of cash flows that is periodic, use the NPV function.</p>
+<p>Excel Function:</p>
+<p>       =XNPV(rate,values,dates)</p>
+<p>@param float $rate the discount rate to apply to the cash flows</p>
+<p>@param float[] $values A series of cash flows that corresponds to a schedule of payments in dates.</p>
+<p>                         The first payment is optional and corresponds to a cost or payment that occurs</p>
+<p>                             at the beginning of the investment.</p>
+<p>                         If the first value is a cost or payment, it must be a negative value.</p>
+<p>                            All succeeding payments are discounted based on a 365-day year.</p>
+<p>                         The series of values must contain at least one positive value and one negative value.</p>
+<p>@param mixed[] $dates A schedule of payment dates that corresponds to the cash flow payments.</p>
+<p>                        The first payment date indicates the beginning of the schedule of payments.</p>
+<p>                        All other dates must be later than this date, but they may occur in any order.</p>
+<p>@return float|string</p>
+
+<p>@param mixed $values</p>
+<p>@param mixed $dates</p>
+
+<p>@return float|string</p>
+
+<p>@param mixed $rate</p>
+<p>@param mixed $values</p>
+<p>@param mixed $dates</p>
+<p>@return float|string</p>
+
+<p>@param mixed $rate</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\CashFlow\Variable\NonPeriodic.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\Financial\CashFlow\Variable\NonPeriodic</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>rate($values, $dates, $guess = self::DEFAULT_GUESS)</code></li>
+<li><code>presentValue($rate, $values, $dates)</code></li>
+<li><code>bothNegAndPos(bool $neg, bool $pos)</code></li>
+<li><code>xirrPart1(&$values, &$dates)</code></li>
+<li><code>xirrPart2(array &$values)</code></li>
+<li><code>xirrPart3(array $values, array $dates, float $x1, float $x2)</code></li>
+<li><code>xnpvOrdered($rate, $values, $dates, bool $ordered = true)</code></li>
+<li><code>validateXnpv($rate, array $values, array $dates)</code></li>
+</ul>
+</body></html>

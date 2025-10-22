@@ -1,0 +1,109 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Drive\Resource\Changes.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Drive\Resource\Changes.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Drive\Resource\Changes.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5851 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>The "changes" collection of methods.</p>
+<p>Typical usage is:</p>
+<p> <code></p>
+<p>  $driveService = new Google_Service_Drive(...);</p>
+<p>  $changes = $driveService->changes;</p>
+<p> </code></p>
+
+<p>Gets the starting pageToken for listing future changes.</p>
+<p>(changes.getStartPageToken)</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@opt_param bool supportsTeamDrives Whether the requesting application</p>
+<p>supports Team Drives.</p>
+<p>@opt_param string teamDriveId The ID of the Team Drive for which the starting</p>
+<p>pageToken for listing future changes from that Team Drive will be returned.</p>
+<p>@return Google_Service_Drive_StartPageToken</p>
+
+<p>Lists the changes for a user or Team Drive. (changes.listChanges)</p>
+<p>@param string $pageToken The token for continuing a previous list request on</p>
+<p>the next page. This should be set to the value of 'nextPageToken' from the</p>
+<p>previous response or to the response from the getStartPageToken method.</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@opt_param bool includeCorpusRemovals Whether changes should include the file</p>
+<p>resource if the file is still accessible by the user at the time of the</p>
+<p>request, even when a file was removed from the list of changes and there will</p>
+<p>be no further change entries for this file.</p>
+<p>@opt_param bool includeRemoved Whether to include changes indicating that</p>
+<p>items have been removed from the list of changes, for example by deletion or</p>
+<p>loss of access.</p>
+<p>@opt_param bool includeTeamDriveItems Whether Team Drive files or changes</p>
+<p>should be included in results.</p>
+<p>@opt_param int pageSize The maximum number of changes to return per page.</p>
+<p>@opt_param bool restrictToMyDrive Whether to restrict the results to changes</p>
+<p>inside the My Drive hierarchy. This omits changes to files such as those in</p>
+<p>the Application Data folder or shared files which have not been added to My</p>
+<p>Drive.</p>
+<p>@opt_param string spaces A comma-separated list of spaces to query within the</p>
+<p>user corpus. Supported values are 'drive', 'appDataFolder' and 'photos'.</p>
+<p>@opt_param bool supportsTeamDrives Whether the requesting application</p>
+<p>supports Team Drives.</p>
+<p>@opt_param string teamDriveId The Team Drive from which changes will be</p>
+<p>returned. If specified the change IDs will be reflective of the Team Drive;</p>
+<p>use the combined Team Drive ID and change ID as an identifier.</p>
+<p>@return Google_Service_Drive_ChangeList</p>
+
+<p>Subscribes to changes for a user. (changes.watch)</p>
+<p>@param string $pageToken The token for continuing a previous list request on</p>
+<p>the next page. This should be set to the value of 'nextPageToken' from the</p>
+<p>previous response or to the response from the getStartPageToken method.</p>
+<p>@param Google_Service_Drive_Channel $postBody</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@opt_param bool includeCorpusRemovals Whether changes should include the file</p>
+<p>resource if the file is still accessible by the user at the time of the</p>
+<p>request, even when a file was removed from the list of changes and there will</p>
+<p>be no further change entries for this file.</p>
+<p>@opt_param bool includeRemoved Whether to include changes indicating that</p>
+<p>items have been removed from the list of changes, for example by deletion or</p>
+<p>loss of access.</p>
+<p>@opt_param bool includeTeamDriveItems Whether Team Drive files or changes</p>
+<p>should be included in results.</p>
+<p>@opt_param int pageSize The maximum number of changes to return per page.</p>
+<p>@opt_param bool restrictToMyDrive Whether to restrict the results to changes</p>
+<p>inside the My Drive hierarchy. This omits changes to files such as those in</p>
+<p>the Application Data folder or shared files which have not been added to My</p>
+<p>Drive.</p>
+<p>@opt_param string spaces A comma-separated list of spaces to query within the</p>
+<p>user corpus. Supported values are 'drive', 'appDataFolder' and 'photos'.</p>
+<p>@opt_param bool supportsTeamDrives Whether the requesting application</p>
+<p>supports Team Drives.</p>
+<p>@opt_param string teamDriveId The Team Drive from which changes will be</p>
+<p>returned. If specified the change IDs will be reflective of the Team Drive;</p>
+<p>use the combined Team Drive ID and change ID as an identifier.</p>
+<p>@return Google_Service_Drive_Channel</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>that</code></li>
+<li><code>the</code></li>
+<li><code>which</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Drive\Resource\Changes.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Google_Service_Drive_Resource_Changes extends Google_Service_Resource</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getStartPageToken($optParams = array()</code></li>
+<li><code>listChanges($pageToken, $optParams = array()</code></li>
+<li><code>watch($pageToken, Google_Service_Drive_Channel $postBody, $optParams = array()</code></li>
+</ul>
+</body></html>

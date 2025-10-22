@@ -1,0 +1,515 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Spreadsheet.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Spreadsheet.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Spreadsheet.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 44456 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Unique ID.</p>
+<p>@var string</p>
+
+<p>Document properties.</p>
+<p>@var Document\Properties</p>
+
+<p>Document security.</p>
+<p>@var Document\Security</p>
+
+<p>Collection of Worksheet objects.</p>
+<p>@var Worksheet[]</p>
+
+<p>Calculation Engine.</p>
+<p>@var null|Calculation</p>
+
+<p>Active sheet index.</p>
+<p>@var int</p>
+
+<p>Named ranges.</p>
+<p>@var DefinedName[]</p>
+
+<p>CellXf supervisor.</p>
+<p>@var Style</p>
+
+<p>CellXf collection.</p>
+<p>@var Style[]</p>
+
+<p>CellStyleXf collection.</p>
+<p>@var Style[]</p>
+
+<p>hasMacros : this workbook have macros ?</p>
+<p>@var bool</p>
+
+<p>macrosCode : all macros code as binary data (the vbaProject.bin file, this include form, code,  etc.), null if no macro.</p>
+<p>@var null|string</p>
+
+<p>macrosCertificate : if macros are signed, contains binary data vbaProjectSignature.bin file, null if not signed.</p>
+<p>@var null|string</p>
+
+<p>ribbonXMLData : null if workbook is'nt Excel 2007 or not contain a customized UI.</p>
+<p>@var null|array{target: string, data: string}</p>
+
+<p>ribbonBinObjects : null if workbook is'nt Excel 2007 or not contain embedded objects (picture(s)) for Ribbon Elements</p>
+<p>ignored if $ribbonXMLData is null.</p>
+<p>@var null|array</p>
+
+<p>List of unparsed loaded data for export to same format with better compatibility.</p>
+<p>It has to be minimized when the library start to support currently unparsed data.</p>
+<p>@var array</p>
+
+<p>Controls visibility of the horizonal scroll bar in the application.</p>
+<p>@var bool</p>
+
+<p>Controls visibility of the horizonal scroll bar in the application.</p>
+<p>@var bool</p>
+
+<p>Controls visibility of the sheet tabs in the application.</p>
+<p>@var bool</p>
+
+<p>Specifies a boolean value that indicates whether the workbook window</p>
+<p>is minimized.</p>
+<p>@var bool</p>
+
+<p>Specifies a boolean value that indicates whether to group dates</p>
+<p>when presenting the user with filtering optiomd in the user</p>
+<p>interface.</p>
+<p>@var bool</p>
+
+<p>Specifies the index to the first sheet in the book view.</p>
+<p>@var int</p>
+
+<p>Specifies the visible status of the workbook.</p>
+<p>@var string</p>
+
+<p>Specifies the ratio between the workbook tabs bar and the horizontal</p>
+<p>scroll bar.  TabRatio is assumed to be out of 1000 of the horizontal</p>
+<p>window width.</p>
+<p>@var int</p>
+
+<p>The workbook has macros ?</p>
+<p>@return bool</p>
+
+<p>Define if a workbook has macros.</p>
+<p>@param bool $hasMacros true|false</p>
+
+<p>Set the macros code.</p>
+<p>@param string $macroCode string|null</p>
+
+<p>Return the macros code.</p>
+<p>@return null|string</p>
+
+<p>Set the macros certificate.</p>
+<p>@param null|string $certificate</p>
+
+<p>Is the project signed ?</p>
+<p>@return bool true|false</p>
+
+<p>Return the macros certificate.</p>
+<p>@return null|string</p>
+
+<p>Remove all macros, certificate from spreadsheet.</p>
+
+<p>set ribbon XML data.</p>
+<p>@param null|mixed $target</p>
+<p>@param null|mixed $xmlData</p>
+
+<p>retrieve ribbon XML Data.</p>
+<p>@param string $what</p>
+<p>@return null|array|string</p>
+
+<p>store binaries ribbon objects (pictures).</p>
+<p>@param null|mixed $BinObjectsNames</p>
+<p>@param null|mixed $BinObjectsData</p>
+
+<p>List of unparsed loaded data for export to same format with better compatibility.</p>
+<p>It has to be minimized when the library start to support currently unparsed data.</p>
+<p>@internal</p>
+<p>@return array</p>
+
+<p>List of unparsed loaded data for export to same format with better compatibility.</p>
+<p>It has to be minimized when the library start to support currently unparsed data.</p>
+<p>@internal</p>
+
+<p>return the extension of a filename. Internal use for a array_map callback (php<5.3 don't like lambda function).</p>
+<p>@param mixed $path</p>
+<p>@return string</p>
+
+<p>retrieve Binaries Ribbon Objects.</p>
+<p>@param string $what</p>
+<p>@return null|array</p>
+
+<p>This workbook have a custom UI ?</p>
+<p>@return bool</p>
+
+<p>This workbook have additionnal object for the ribbon ?</p>
+<p>@return bool</p>
+
+<p>Check if a sheet with a specified code name already exists.</p>
+<p>@param string $codeName Name of the worksheet to check</p>
+<p>@return bool</p>
+
+<p>Get sheet by code name. Warning : sheet don't have always a code name !</p>
+<p>@param string $codeName Sheet name</p>
+<p>@return null|Worksheet</p>
+
+<p>Create a new PhpSpreadsheet with one Worksheet.</p>
+
+<p>Code to execute when this worksheet is unset().</p>
+
+<p>Disconnect all worksheets from this PhpSpreadsheet workbook object,</p>
+<p>typically so that the PhpSpreadsheet object can be unset.</p>
+
+<p>Return the calculation engine for this worksheet.</p>
+<p>@return null|Calculation</p>
+
+<p>Get properties.</p>
+<p>@return Document\Properties</p>
+
+<p>Set properties.</p>
+
+<p>Get security.</p>
+<p>@return Document\Security</p>
+
+<p>Set security.</p>
+
+<p>Get active sheet.</p>
+<p>@return Worksheet</p>
+
+<p>Create sheet and add it to this workbook.</p>
+<p>@param null|int $sheetIndex Index where sheet should go (0,1,..., or null for last)</p>
+<p>@return Worksheet</p>
+
+<p>Check if a sheet with a specified name already exists.</p>
+<p>@param string $worksheetName Name of the worksheet to check</p>
+<p>@return bool</p>
+
+<p>Add sheet.</p>
+<p>@param Worksheet $worksheet The worksheet to add</p>
+<p>@param null|int $sheetIndex Index where sheet should go (0,1,..., or null for last)</p>
+<p>@return Worksheet</p>
+
+<p>Remove sheet by index.</p>
+<p>@param int $sheetIndex Index position of the worksheet to remove</p>
+
+<p>Get sheet by index.</p>
+<p>@param int $sheetIndex Sheet index</p>
+<p>@return Worksheet</p>
+
+<p>Get all sheets.</p>
+<p>@return Worksheet[]</p>
+
+<p>Get sheet by name.</p>
+<p>@param string $worksheetName Sheet name</p>
+<p>@return null|Worksheet</p>
+
+<p>Get index for sheet.</p>
+<p>@return int index</p>
+
+<p>Set index for sheet by sheet name.</p>
+<p>@param string $worksheetName Sheet name to modify index for</p>
+<p>@param int $newIndexPosition New index for the sheet</p>
+<p>@return int New sheet index</p>
+
+<p>Get sheet count.</p>
+<p>@return int</p>
+
+<p>Get active sheet index.</p>
+<p>@return int Active sheet index</p>
+
+<p>Set active sheet index.</p>
+<p>@param int $worksheetIndex Active sheet index</p>
+<p>@return Worksheet</p>
+
+<p>Set active sheet index by name.</p>
+<p>@param string $worksheetName Sheet title</p>
+<p>@return Worksheet</p>
+
+<p>Get sheet names.</p>
+<p>@return string[]</p>
+
+<p>Add external sheet.</p>
+<p>@param Worksheet $worksheet External sheet to add</p>
+<p>@param null|int $sheetIndex Index where sheet should go (0,1,..., or null for last)</p>
+<p>@return Worksheet</p>
+
+<p>Get an array of all Named Ranges.</p>
+<p>@return DefinedName[]</p>
+
+<p>Get an array of all Named Formulae.</p>
+<p>@return DefinedName[]</p>
+
+<p>Get an array of all Defined Names (both named ranges and named formulae).</p>
+<p>@return DefinedName[]</p>
+
+<p>Add a named range.</p>
+<p>If a named range with this name already exists, then this will replace the existing value.</p>
+
+<p>Add a named formula.</p>
+<p>If a named formula with this name already exists, then this will replace the existing value.</p>
+
+<p>Add a defined name (either a named range or a named formula).</p>
+<p>If a defined named with this name already exists, then this will replace the existing value.</p>
+
+<p>Get named range.</p>
+<p>@param null|Worksheet $worksheet Scope. Use null for global scope</p>
+
+<p>Get named formula.</p>
+<p>@param null|Worksheet $worksheet Scope. Use null for global scope</p>
+
+<p>Get named range.</p>
+<p>@param null|Worksheet $worksheet Scope. Use null for global scope</p>
+
+<p>Remove named range.</p>
+<p>@param null|Worksheet $worksheet scope: use null for global scope</p>
+<p>@return $this</p>
+
+<p>Remove named formula.</p>
+<p>@param null|Worksheet $worksheet scope: use null for global scope</p>
+<p>@return $this</p>
+
+<p>Remove defined name.</p>
+<p>@param null|Worksheet $worksheet scope: use null for global scope</p>
+<p>@return $this</p>
+
+<p>Get worksheet iterator.</p>
+<p>@return Iterator</p>
+
+<p>Copy workbook (!= clone!).</p>
+<p>@return Spreadsheet</p>
+
+<p>Implement PHP __clone to create a deep clone, not just a shallow copy.</p>
+
+<p>Get the workbook collection of cellXfs.</p>
+<p>@return Style[]</p>
+
+<p>Get cellXf by index.</p>
+<p>@param int $cellStyleIndex</p>
+<p>@return Style</p>
+
+<p>Get cellXf by hash code.</p>
+<p>@param string $hashcode</p>
+<p>@return false|Style</p>
+
+<p>Check if style exists in style collection.</p>
+<p>@return bool</p>
+
+<p>Get default style.</p>
+<p>@return Style</p>
+
+<p>Add a cellXf to the workbook.</p>
+
+<p>Remove cellXf by index. It is ensured that all cells get their xf index updated.</p>
+<p>@param int $cellStyleIndex Index to cellXf</p>
+
+<p>Get the cellXf supervisor.</p>
+<p>@return Style</p>
+
+<p>Get the workbook collection of cellStyleXfs.</p>
+<p>@return Style[]</p>
+
+<p>Get cellStyleXf by index.</p>
+<p>@param int $cellStyleIndex Index to cellXf</p>
+<p>@return Style</p>
+
+<p>Get cellStyleXf by hash code.</p>
+<p>@param string $hashcode</p>
+<p>@return false|Style</p>
+
+<p>Add a cellStyleXf to the workbook.</p>
+
+<p>Remove cellStyleXf by index.</p>
+<p>@param int $cellStyleIndex Index to cellXf</p>
+
+<p>Eliminate all unneeded cellXf and afterwards update the xfIndex for all cells</p>
+<p>and columns in the workbook.</p>
+
+<p>Return the unique ID value assigned to this spreadsheet workbook.</p>
+<p>@return string</p>
+
+<p>Get the visibility of the horizonal scroll bar in the application.</p>
+<p>@return bool True if horizonal scroll bar is visible</p>
+
+<p>Set the visibility of the horizonal scroll bar in the application.</p>
+<p>@param bool $showHorizontalScroll True if horizonal scroll bar is visible</p>
+
+<p>Get the visibility of the vertical scroll bar in the application.</p>
+<p>@return bool True if vertical scroll bar is visible</p>
+
+<p>Set the visibility of the vertical scroll bar in the application.</p>
+<p>@param bool $showVerticalScroll True if vertical scroll bar is visible</p>
+
+<p>Get the visibility of the sheet tabs in the application.</p>
+<p>@return bool True if the sheet tabs are visible</p>
+
+<p>Set the visibility of the sheet tabs  in the application.</p>
+<p>@param bool $showSheetTabs True if sheet tabs are visible</p>
+
+<p>Return whether the workbook window is minimized.</p>
+<p>@return bool true if workbook window is minimized</p>
+
+<p>Set whether the workbook window is minimized.</p>
+<p>@param bool $minimized true if workbook window is minimized</p>
+
+<p>Return whether to group dates when presenting the user with</p>
+<p>filtering optiomd in the user interface.</p>
+<p>@return bool true if workbook window is minimized</p>
+
+<p>Set whether to group dates when presenting the user with</p>
+<p>filtering optiomd in the user interface.</p>
+<p>@param bool $autoFilterDateGrouping true if workbook window is minimized</p>
+
+<p>Return the first sheet in the book view.</p>
+<p>@return int First sheet in book view</p>
+
+<p>Set the first sheet in the book view.</p>
+<p>@param int $firstSheetIndex First sheet in book view</p>
+
+<p>Return the visibility status of the workbook.</p>
+<p>This may be one of the following three values:</p>
+<ul>
+<li>visibile</li>
+<p>@return string Visible status</p>
+</ul>
+<p>Set the visibility status of the workbook.</p>
+<p>Valid values are:</p>
+<p> - 'visible' (self::VISIBILITY_VISIBLE):</p>
+<p>      Workbook window is visible</p>
+<p> - 'hidden' (self::VISIBILITY_HIDDEN):</p>
+<p>      Workbook window is hidden, but can be shown by the user</p>
+<p>      via the user interface</p>
+<p> - 'veryHidden' (self::VISIBILITY_VERY_HIDDEN):</p>
+<p>      Workbook window is hidden and cannot be shown in the</p>
+<p>      user interface.</p>
+<p>@param string $visibility visibility status of the workbook</p>
+
+<p>Get the ratio between the workbook tabs bar and the horizontal scroll bar.</p>
+<p>TabRatio is assumed to be out of 1000 of the horizontal window width.</p>
+<p>@return int Ratio between the workbook tabs bar and the horizontal scroll bar</p>
+
+<p>Set the ratio between the workbook tabs bar and the horizontal scroll bar</p>
+<p>TabRatio is assumed to be out of 1000 of the horizontal window width.</p>
+<p>@param int $tabRatio Ratio between the tabs bar and the horizontal scroll bar</p>
+
+<p>Silliness to mollify Scrutinizer.</p>
+<p>@codeCoverageIgnore</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>spreadsheet</code></li>
+<li><code>this</code></li>
+<li><code>the</code></li>
+<li><code>cells</code></li>
+<li><code>row</code></li>
+<li><code>column</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Spreadsheet.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Spreadsheet</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>hasMacros()</code></li>
+<li><code>setHasMacros($hasMacros)</code></li>
+<li><code>setMacrosCode($macroCode)</code></li>
+<li><code>getMacrosCode()</code></li>
+<li><code>setMacrosCertificate($certificate)</code></li>
+<li><code>hasMacrosCertificate()</code></li>
+<li><code>getMacrosCertificate()</code></li>
+<li><code>discardMacros()</code></li>
+<li><code>setRibbonXMLData($target, $xmlData)</code></li>
+<li><code>getRibbonXMLData($what = 'all')</code></li>
+<li><code>setRibbonBinObjects($BinObjectsNames, $BinObjectsData)</code></li>
+<li><code>getUnparsedLoadedData()</code></li>
+<li><code>setUnparsedLoadedData(array $unparsedLoadedData)</code></li>
+<li><code>getExtensionOnly($path)</code></li>
+<li><code>getRibbonBinObjects($what = 'all')</code></li>
+<li><code>hasRibbon()</code></li>
+<li><code>hasRibbonBinObjects()</code></li>
+<li><code>sheetCodeNameExists($codeName)</code></li>
+<li><code>getSheetByCodeName($codeName)</code></li>
+<li><code>__construct()</code></li>
+<li><code>__destruct()</code></li>
+<li><code>disconnectWorksheets()</code></li>
+<li><code>getCalculationEngine()</code></li>
+<li><code>getProperties()</code></li>
+<li><code>setProperties(Document\Properties $documentProperties)</code></li>
+<li><code>getSecurity()</code></li>
+<li><code>setSecurity(Document\Security $documentSecurity)</code></li>
+<li><code>getActiveSheet()</code></li>
+<li><code>createSheet($sheetIndex = null)</code></li>
+<li><code>sheetNameExists($worksheetName)</code></li>
+<li><code>addSheet(Worksheet $worksheet, $sheetIndex = null)</code></li>
+<li><code>removeSheetByIndex($sheetIndex)</code></li>
+<li><code>getSheet($sheetIndex)</code></li>
+<li><code>getAllSheets()</code></li>
+<li><code>getSheetByName($worksheetName)</code></li>
+<li><code>getIndex(Worksheet $worksheet)</code></li>
+<li><code>setIndexByName($worksheetName, $newIndexPosition)</code></li>
+<li><code>getSheetCount()</code></li>
+<li><code>getActiveSheetIndex()</code></li>
+<li><code>setActiveSheetIndex($worksheetIndex)</code></li>
+<li><code>setActiveSheetIndexByName($worksheetName)</code></li>
+<li><code>getSheetNames()</code></li>
+<li><code>addExternalSheet(Worksheet $worksheet, $sheetIndex = null)</code></li>
+<li><code>getNamedRanges()</code></li>
+<li><code>getNamedFormulae()</code></li>
+<li><code>getDefinedNames()</code></li>
+<li><code>addNamedRange(NamedRange $namedRange)</code></li>
+<li><code>addNamedFormula(NamedFormula $namedFormula)</code></li>
+<li><code>addDefinedName(DefinedName $definedName)</code></li>
+<li><code>getNamedRange(string $namedRange, ?Worksheet $worksheet = null)</code></li>
+<li><code>getNamedFormula(string $namedFormula, ?Worksheet $worksheet = null)</code></li>
+<li><code>getGlobalDefinedNameByType(string $name, bool $type)</code></li>
+<li><code>getLocalDefinedNameByType(string $name, bool $type, ?Worksheet $worksheet = null)</code></li>
+<li><code>getDefinedName(string $definedName, ?Worksheet $worksheet = null)</code></li>
+<li><code>removeNamedRange(string $namedRange, ?Worksheet $worksheet = null)</code></li>
+<li><code>removeNamedFormula(string $namedFormula, ?Worksheet $worksheet = null)</code></li>
+<li><code>removeDefinedName(string $definedName, ?Worksheet $worksheet = null)</code></li>
+<li><code>getWorksheetIterator()</code></li>
+<li><code>copy()</code></li>
+<li><code>__clone()</code></li>
+<li><code>getCellXfCollection()</code></li>
+<li><code>getCellXfByIndex($cellStyleIndex)</code></li>
+<li><code>getCellXfByHashCode($hashcode)</code></li>
+<li><code>cellXfExists(Style $cellStyleIndex)</code></li>
+<li><code>getDefaultStyle()</code></li>
+<li><code>addCellXf(Style $style)</code></li>
+<li><code>removeCellXfByIndex($cellStyleIndex)</code></li>
+<li><code>getCellXfSupervisor()</code></li>
+<li><code>getCellStyleXfCollection()</code></li>
+<li><code>getCellStyleXfByIndex($cellStyleIndex)</code></li>
+<li><code>getCellStyleXfByHashCode($hashcode)</code></li>
+<li><code>addCellStyleXf(Style $style)</code></li>
+<li><code>removeCellStyleXfByIndex($cellStyleIndex)</code></li>
+<li><code>garbageCollect()</code></li>
+<li><code>getID()</code></li>
+<li><code>getShowHorizontalScroll()</code></li>
+<li><code>setShowHorizontalScroll($showHorizontalScroll)</code></li>
+<li><code>getShowVerticalScroll()</code></li>
+<li><code>setShowVerticalScroll($showVerticalScroll)</code></li>
+<li><code>getShowSheetTabs()</code></li>
+<li><code>setShowSheetTabs($showSheetTabs)</code></li>
+<li><code>getMinimized()</code></li>
+<li><code>setMinimized($minimized)</code></li>
+<li><code>getAutoFilterDateGrouping()</code></li>
+<li><code>setAutoFilterDateGrouping($autoFilterDateGrouping)</code></li>
+<li><code>getFirstSheetIndex()</code></li>
+<li><code>setFirstSheetIndex($firstSheetIndex)</code></li>
+<li><code>getVisibility()</code></li>
+<li><code>setVisibility($visibility)</code></li>
+<li><code>getTabRatio()</code></li>
+<li><code>setTabRatio($tabRatio)</code></li>
+<li><code>reevaluateAutoFilters(bool $resetToMax)</code></li>
+<li><code>getSharedComponent()</code></li>
+</ul>
+</body></html>

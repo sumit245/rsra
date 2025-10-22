@@ -1,0 +1,155 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Helpers\text_helper.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Helpers\text_helper.php</h1>
+
+<ul>
+<li>Path: <code>system\Helpers\text_helper.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 20765 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Word Limiter</p>
+<p>Limits a string to X number of words.</p>
+<p>@param string $endChar the end character. Usually an ellipsis</p>
+
+<p>Character Limiter</p>
+<p>Limits the string based on the character count.  Preserves complete words</p>
+<p>so the character count may not be exactly as specified.</p>
+<p>@param string $endChar the end character. Usually an ellipsis</p>
+
+<p>High ASCII to Entities</p>
+<p>Converts high ASCII text and MS Word special characters to character entities</p>
+
+<p>Entities to ASCII</p>
+<p>Converts character entities back to ASCII</p>
+
+<p>Word Censoring Function</p>
+<p>Supply a string and an array of disallowed words and any</p>
+<p>matched words will be converted to #### or to the replacement</p>
+<p>word you've submitted.</p>
+<p>@param string $str         the text string</p>
+<p>@param array  $censored    the array of censored words</p>
+<p>@param string $replacement the optional replacement value</p>
+
+<p>Code Highlighter</p>
+<p>Colorizes code strings</p>
+<p>@param string $str the text string</p>
+
+<p>Phrase Highlighter</p>
+<p>Highlights a phrase within a text string</p>
+<p>@param string $str      the text string</p>
+<p>@param string $phrase   the phrase you'd like to highlight</p>
+<p>@param string $tagOpen  the opening tag to precede the phrase with</p>
+<p>@param string $tagClose the closing tag to end the phrase with</p>
+
+<p>Convert Accented Foreign Characters to ASCII</p>
+<p>@param string $str Input string</p>
+
+<p>Word Wrap</p>
+<p>Wraps text at the specified character. Maintains the integrity of words.</p>
+<p>Anything placed between {unwrap}{/unwrap} will not be word wrapped, nor</p>
+<p>will URLs.</p>
+<p>@param string $str     the text string</p>
+<p>@param int    $charlim = 76    the number of characters to wrap at</p>
+
+<p>Ellipsize String</p>
+<p>This function will strip tags from a string, split it at its max_length and ellipsize</p>
+<p>@param string $str       String to ellipsize</p>
+<p>@param int    $maxLength Max length of string</p>
+<p>@param mixed  $position  int (1|0) or float, .5, .2, etc for position to split</p>
+<p>@param string $ellipsis  ellipsis ; Default '...'</p>
+<p>@return string Ellipsized string</p>
+
+<p>Strip Slashes</p>
+<p>Removes slashes contained in a string or in an array</p>
+<p>@param mixed $str string or array</p>
+<p>@return mixed string or array</p>
+
+<p>Strip Quotes</p>
+<p>Removes single and double quotes from a string</p>
+
+<p>Quotes to Entities</p>
+<p>Converts single and double quotes to entities</p>
+
+<p>Reduce Double Slashes</p>
+<p>Converts double slashes in a string to a single slash,</p>
+<p>except those found in http://</p>
+<p>http://www.some-site.com//index.php</p>
+<p>becomes:</p>
+<p>http://www.some-site.com/index.php</p>
+
+<p>Reduce Multiples</p>
+<p>Reduces multiple instances of a particular character.  Example:</p>
+<p>Fred, Bill,, Joe, Jimmy</p>
+<p>becomes:</p>
+<p>Fred, Bill, Joe, Jimmy</p>
+<p>@param string $character the character you wish to reduce</p>
+<p>@param bool   $trim      TRUE/FALSE - whether to trim the character from the beginning/end</p>
+
+<p>Create a Random String</p>
+<p>Useful for generating passwords or hashes.</p>
+<p>@param string $type Type of random string.  basic, alpha, alnum, numeric, nozero, md5, sha1, and crypto</p>
+<p>@param int    $len  Number of characters</p>
+
+<p>Add's _1 to a string or increment the ending number to allow _2, _3, etc</p>
+<p>@param string $str       Required</p>
+<p>@param string $separator What should the duplicate number be appended with</p>
+<p>@param int    $first     Which number should be used for the first dupe increment</p>
+
+<p>Alternator</p>
+<p>Allows strings to be alternated. See docs...</p>
+<p>@param string ...$args (as many parameters as needed)</p>
+
+<p>Excerpt.</p>
+<p>Allows to extract a piece of text surrounding a word or phrase.</p>
+<p>@param string $text     String to search the phrase</p>
+<p>@param string $phrase   Phrase that will be searched for.</p>
+<p>@param int    $radius   The amount of characters returned around the phrase.</p>
+<p>@param string $ellipsis Ending that will be appended</p>
+<p>@return string</p>
+<p>If no $phrase is passed, will generate an excerpt of $radius characters</p>
+<p>from the beginning of $text.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>it</code></li>
+<li><code>a</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Helpers\text_helper.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>word_limiter(string $str, int $limit = 100, string $endChar = '&#8230;')</code></li>
+<li><code>character_limiter(string $str, int $n = 500, string $endChar = '&#8230;')</code></li>
+<li><code>ascii_to_entities(string $str)</code></li>
+<li><code>entities_to_ascii(string $str, bool $all = true)</code></li>
+<li><code>word_censor(string $str, array $censored, string $replacement = '')</code></li>
+<li><code>highlight_code(string $str)</code></li>
+<li><code>highlight_phrase(string $str, string $phrase, string $tagOpen = '<mark>', string $tagClose = '</mark>')</code></li>
+<li><code>convert_accented_characters(string $str)</code></li>
+<li><code>word_wrap(string $str, int $charlim = 76)</code></li>
+<li><code>ellipsize(string $str, int $maxLength, $position = 1, string $ellipsis = '&hellip;')</code></li>
+<li><code>strip_slashes($str)</code></li>
+<li><code>strip_quotes(string $str)</code></li>
+<li><code>quotes_to_entities(string $str)</code></li>
+<li><code>reduce_double_slashes(string $str)</code></li>
+<li><code>reduce_multiples(string $str, string $character = ',', bool $trim = false)</code></li>
+<li><code>random_string(string $type = 'alnum', int $len = 8)</code></li>
+<li><code>increment_string(string $str, string $separator = '_', int $first = 1)</code></li>
+<li><code>alternator(...$args)</code></li>
+<li><code>excerpt(string $text, ?string $phrase = null, int $radius = 100, string $ellipsis = '...')</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,126 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\ExtraFieldsCollection.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\ExtraFieldsCollection.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\ExtraFieldsCollection.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 6769 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Represents a collection of Extra Fields as they may</p>
+<p>be present at several locations in ZIP files.</p>
+
+<p>The map of Extra Fields.</p>
+<p>Maps from Header ID to Extra Field.</p>
+<p>Must not be null, but may be empty if no Extra Fields are used.</p>
+<p>The map is sorted by Header IDs in ascending order.</p>
+<p>@var ZipExtraField[]</p>
+
+<p>Returns the number of Extra Fields in this collection.</p>
+
+<p>Returns the Extra Field with the given Header ID or null</p>
+<p>if no such Extra Field exists.</p>
+<p>@param int $headerId the requested Header ID</p>
+<p>@return ZipExtraField|null the Extra Field with the given Header ID or</p>
+<p>                           if no such Extra Field exists</p>
+
+<p>Stores the given Extra Field in this collection.</p>
+<p>@param ZipExtraField $extraField the Extra Field to store in this collection</p>
+<p>@return ZipExtraField the Extra Field previously associated with the Header ID of</p>
+<p>                      of the given Extra Field or null if no such Extra Field existed</p>
+
+<p>@param ZipExtraField[] $extraFields</p>
+
+<p>@param ExtraFieldsCollection $collection</p>
+
+<p>@return ZipExtraField[]</p>
+
+<p>Returns Extra Field exists.</p>
+<p>@param int $headerId the requested Header ID</p>
+
+<p>Removes the Extra Field with the given Header ID.</p>
+<p>@param int $headerId the requested Header ID</p>
+<p>@return ZipExtraField|null the Extra Field with the given Header ID or null</p>
+<p>                           if no such Extra Field exists</p>
+
+<p>Whether a offset exists.</p>
+<p>@see http://php.net/manual/en/arrayaccess.offsetexists.php</p>
+<p>@param mixed $offset an offset to check for</p>
+<p>@return bool true on success or false on failure</p>
+
+<p>Offset to retrieve.</p>
+<p>@see http://php.net/manual/en/arrayaccess.offsetget.php</p>
+<p>@param mixed $offset the offset to retrieve</p>
+
+<p>Offset to set.</p>
+<p>@see http://php.net/manual/en/arrayaccess.offsetset.php</p>
+<p>@param mixed $offset the offset to assign the value to</p>
+<p>@param mixed $value  the value to set</p>
+
+<p>Offset to unset.</p>
+<p>@see http://php.net/manual/en/arrayaccess.offsetunset.php</p>
+<p>@param mixed $offset the offset to unset</p>
+
+<p>Return the current element.</p>
+<p>@see http://php.net/manual/en/iterator.current.php</p>
+
+<p>Move forward to next element.</p>
+<p>@see http://php.net/manual/en/iterator.next.php</p>
+
+<p>Return the key of the current element.</p>
+<p>@see http://php.net/manual/en/iterator.key.php</p>
+<p>@return int scalar on success, or null on failure</p>
+
+<p>Checks if current position is valid.</p>
+<p>@see http://php.net/manual/en/iterator.valid.php</p>
+<p>@return bool The return value will be casted to boolean and then evaluated.</p>
+<p>             Returns true on success or false on failure.</p>
+
+<p>Rewind the Iterator to the first element.</p>
+<p>@see http://php.net/manual/en/iterator.rewind.php</p>
+
+<p>If clone extra fields.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>Header</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\ExtraFieldsCollection.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpZip\Model\Extra\ExtraFieldsCollection implements \ArrayAccess, \Countable, \Iterator</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>count()</code></li>
+<li><code>get(int $headerId)</code></li>
+<li><code>validateHeaderId(int $headerId)</code></li>
+<li><code>add(ZipExtraField $extraField)</code></li>
+<li><code>addAll(array $extraFields)</code></li>
+<li><code>addCollection(self $collection)</code></li>
+<li><code>getAll()</code></li>
+<li><code>has(int $headerId)</code></li>
+<li><code>remove(int $headerId)</code></li>
+<li><code>offsetExists($offset)</code></li>
+<li><code>offsetGet($offset)</code></li>
+<li><code>offsetSet($offset, $value)</code></li>
+<li><code>offsetUnset($offset)</code></li>
+<li><code>current()</code></li>
+<li><code>next()</code></li>
+<li><code>key()</code></li>
+<li><code>valid()</code></li>
+<li><code>rewind()</code></li>
+<li><code>clear()</code></li>
+<li><code>__toString()</code></li>
+<li><code>__clone()</code></li>
+</ul>
+</body></html>

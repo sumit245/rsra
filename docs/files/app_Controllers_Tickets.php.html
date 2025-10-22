@@ -1,0 +1,80 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\Controllers\Tickets.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\Controllers\Tickets.php</h1>
+
+<ul>
+<li>Path: <code>app\Controllers\Tickets.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 44440 bytes</li>
+</ul>
+<h2>References</h2>
+
+<p><strong>Models Used</strong></p>
+<ul>
+<li><code>Ticket_templates_model</code></li>
+<li><code>Custom_fields_model</code></li>
+<li><code>Users_model</code></li>
+<li><code>Tickets_model</code></li>
+<li><code>Projects_model</code></li>
+<li><code>Ticket_types_model</code></li>
+<li><code>Clients_model</code></li>
+<li><code>Ticket_comments_model</code></li>
+<li><code>Settings_model</code></li>
+</ul>
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\Controllers\Tickets.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Tickets extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>can_delete_tickets()</code></li>
+<li><code>index($status = "", $ticket_type_id = 0)</code></li>
+<li><code>modal_form()</code></li>
+<li><code>get_project_suggestion($client_id = 0)</code></li>
+<li><code>save()</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_ticket_file()</code></li>
+<li><code>list_data($is_widget = 0)</code></li>
+<li><code>ticket_list_data_of_client($client_id, $is_widget = 0)</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data, $custom_fields)</code></li>
+<li><code>view($ticket_id = 0)</code></li>
+<li><code>delete()</code></li>
+<li><code>save_comment()</code></li>
+<li><code>save_ticket_status($ticket_id = 0, $status = "closed")</code></li>
+<li><code>download_comment_files($id)</code></li>
+<li><code>_check_permission_of_selected_ticket($ticket_id = 0)</code></li>
+<li><code>assign_to_me($ticket_id = 0)</code></li>
+<li><code>ticket_templates()</code></li>
+<li><code>can_view_ticket_template($id = 0)</code></li>
+<li><code>can_edit_ticket_template($id = 0)</code></li>
+<li><code>ticket_template_modal_form()</code></li>
+<li><code>save_ticket_template()</code></li>
+<li><code>delete_ticket_template()</code></li>
+<li><code>ticket_template_list_data($view_type = "", $ticket_type_id = 0)</code></li>
+<li><code>_row_data_for_ticket_templates($id)</code></li>
+<li><code>_make_row_for_ticket_templates($data, $view_type = "")</code></li>
+<li><code>ticket_template_view($id)</code></li>
+<li><code>insert_template_modal_form()</code></li>
+<li><code>add_client_modal_form($ticket_id = 0)</code></li>
+<li><code>link_to_client()</code></li>
+<li><code>settings_modal_form()</code></li>
+<li><code>save_settings()</code></li>
+<li><code>get_client_contact_suggestion($client_id = 0)</code></li>
+<li><code>_get_ticket_types_dropdown_list_for_filter($ticket_type_id = 0)</code></li>
+<li><code>ticket_list_data_of_project($project_id)</code></li>
+<li><code>batch_update_modal_form($ticket_ids = "")</code></li>
+<li><code>save_batch_update()</code></li>
+</ul>
+</body></html>

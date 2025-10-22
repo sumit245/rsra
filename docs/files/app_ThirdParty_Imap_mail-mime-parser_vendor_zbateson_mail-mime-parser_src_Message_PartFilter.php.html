@@ -1,0 +1,206 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\PartFilter.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\PartFilter.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\PartFilter.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 12948 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Provides a way to define a filter of MessagePart for use in various calls to</p>
+<p>add/remove MessagePart.</p>
+
+<p>A PartFilter is defined as a set of properties in the class, set to either be</p>
+<p>'included' or 'excluded'.  The filter is simplistic in that a property</p>
+<p>defined as included must be set on a part for it to be passed, and an</p>
+<p>excluded filter must not be set for the part to be passed.  There is no</p>
+<p>provision for creating logical conditions.</p>
+
+<p>The only property set by default is $signedpart, which defaults to</p>
+<p>FILTER_EXCLUDE.</p>
+
+<p>A PartFilter can be instantiated with an array of keys matching class</p>
+<p>properties, and values to set them for convenience.</p>
+
+<p>```php</p>
+<p>$inlineParts = $message->getAllParts(new PartFilter([</p>
+<p>    'multipart' => PartFilter::FILTER_INCLUDE,</p>
+<p>    'headers' => [ </p>
+<p>        FILTER_EXCLUDE => [</p>
+<p>            'Content-Disposition': 'attachment'</p>
+<p>        ]</p>
+<p>    ]</p>
+<p>]));</p>
+
+<p>$inlineTextPart = $message->getAllParts(PartFilter::fromInlineContentType('text/plain'));</p>
+<p>```</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var int indicates a filter is not in use</p>
+
+<p>@var int an excluded filter must not be included in a part</p>
+
+<p>@var int an included filter must be included in a part</p>
+
+<p>@var int filters based on whether MessagePart::hasContent is true</p>
+
+<p>@var int filters based on whether MimePart::isMultiPart is true</p>
+
+<p>@var int filters based on whether MessagePart::isTextPart is true</p>
+
+<p>@var int filters based on whether the parent of a part is a</p>
+<p>     multipart/signed part and this part has a content-type equal to its</p>
+<p>     parent's 'protocol' parameter in its content-type header</p>
+
+<p>@var string calculated hash of the filter</p>
+
+<p>@var string[][] array of header rules.  The top-level contains keys of</p>
+<p>FILTER_INCLUDE and/or FILTER_EXCLUDE, which contain key => value mapping</p>
+<p>of header names => values to search for.  Note that when searching</p>
+<p>MimePart::getHeaderValue is used (so additional parameters need not be</p>
+<p>matched) and strcasecmp is used.</p>
+
+<p>```php</p>
+<p>$filter = new PartFilter();</p>
+<p>$filter->headers = [ PartFilter::FILTER_INCLUDE => [ 'Content-Type' => 'text/plain' ] ];</p>
+<p>```</p>
+
+<p>Convenience method to filter for a specific mime type.</p>
+
+<p>@param string $mimeType</p>
+<p>@return PartFilter</p>
+
+<p>Convenience method to look for parts of a specific mime-type, and that</p>
+<p>do not specifically have a Content-Disposition equal to 'attachment'.</p>
+
+<p>@param string $mimeType</p>
+<p>@return PartFilter</p>
+
+<p>Convenience method to search for parts with a specific</p>
+<p>Content-Disposition, optionally including multipart parts.</p>
+
+<p>@param string $disposition</p>
+<p>@param int $multipart</p>
+<p>@return PartFilter</p>
+
+<p>Constructs a PartFilter, optionally instantiating member variables with</p>
+<p>values in the passed array.</p>
+
+<p>The passed array must use keys equal to member variable names, e.g.</p>
+<p>'multipart', 'textpart', 'signedpart' and 'headers'.</p>
+
+<p>@param array $filter</p>
+
+<p>Validates an argument passed to __set to insure it's set to a value in</p>
+<p>$valid.</p>
+
+<p>@param string $name Name of the member variable</p>
+<p>@param string $value The value to test</p>
+<p>@param array $valid an array of valid values</p>
+<p>@throws InvalidArgumentException</p>
+
+<p>Sets the PartFilter's headers filter to the passed array after validating</p>
+<p>it.</p>
+
+<p>@param array $headers</p>
+<p>@throws InvalidArgumentException</p>
+
+<p>Sets the member variable denoted by $name to the passed $value after</p>
+<p>validating it.</p>
+
+<p>@param string $name</p>
+<p>@param int|array $value</p>
+<p>@throws InvalidArgumentException</p>
+
+<p>Returns true if the variable denoted by $name is a member variable of</p>
+<p>PartFilter.</p>
+
+<p>@param string $name</p>
+<p>@return bool</p>
+
+<p>Returns the value of the member variable denoted by $name</p>
+
+<p>@param string $name</p>
+<p>@return mixed</p>
+
+<p>Returns true if the passed MessagePart fails the filter's hascontent</p>
+<p>filter settings.</p>
+<p>@param MessagePart $part</p>
+<p>@return bool</p>
+
+<p>Returns true if the passed MessagePart fails the filter's multipart</p>
+<p>filter settings.</p>
+
+<p>@param MessagePart $part</p>
+<p>@return bool</p>
+
+<p>Returns true if the passed MessagePart fails the filter's textpart filter</p>
+<p>settings.</p>
+
+<p>@param MessagePart $part</p>
+<p>@return bool</p>
+
+<p>Returns true if the passed MessagePart fails the filter's signedpart</p>
+<p>filter settings.</p>
+
+<p>@param MessagePart $part</p>
+<p>@return boolean</p>
+
+<p>Tests a single header value against $part, and returns true if the test</p>
+<p>fails.</p>
+
+<p>@staticvar array $map</p>
+<p>@param MessagePart $part</p>
+<p>@param int $type</p>
+<p>@param string $name</p>
+<p>@param string $header</p>
+<p>@return boolean</p>
+
+<p>Returns true if the passed MessagePart fails the filter's header filter</p>
+<p>settings.</p>
+
+<p>@param MessagePart $part</p>
+<p>@return boolean</p>
+
+<p>Determines if the passed MessagePart should be filtered out or not.</p>
+<p>If the MessagePart passes all filter tests, true is returned.  Otherwise</p>
+<p>false is returned.</p>
+
+<p>@param MessagePart $part</p>
+<p>@return boolean</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\PartFilter.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Message\PartFilter</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>fromContentType($mimeType)</code></li>
+<li><code>fromInlineContentType($mimeType)</code></li>
+<li><code>fromDisposition($disposition, $multipart = PartFilter::FILTER_OFF)</code></li>
+<li><code>__construct(array $filter = [])</code></li>
+<li><code>validateArgument($name, $value, array $valid)</code></li>
+<li><code>setHeaders(array $headers)</code></li>
+<li><code>__set($name, $value)</code></li>
+<li><code>__isset($name)</code></li>
+<li><code>__get($name)</code></li>
+<li><code>failsHasContentFilter(MessagePart $part)</code></li>
+<li><code>failsMultiPartFilter(MessagePart $part)</code></li>
+<li><code>failsTextPartFilter(MessagePart $part)</code></li>
+<li><code>failsSignedPartFilter(MessagePart $part)</code></li>
+<li><code>failsHeaderFor(MessagePart $part, $type, $name, $header)</code></li>
+<li><code>failsHeaderPartFilter(MessagePart $part)</code></li>
+<li><code>filter(MessagePart $part)</code></li>
+</ul>
+</body></html>

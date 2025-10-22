@@ -1,0 +1,85 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\RestApi\ThirdParty\Requests\Response.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\RestApi\ThirdParty\Requests\Response.php</h1>
+
+<ul>
+<li>Path: <code>plugins\RestApi\ThirdParty\Requests\Response.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2515 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>HTTP response class</p>
+<p>Contains a response from Requests::request()</p>
+<p>@package Requests</p>
+
+<p>HTTP response class</p>
+<p>Contains a response from Requests::request()</p>
+<p>@package Requests</p>
+
+<p>Constructor</p>
+
+<p>Response body</p>
+<p>@var string</p>
+
+<p>Raw HTTP data from the transport</p>
+<p>@var string</p>
+
+<p>Headers, as an associative array</p>
+<p>@var Requests_Response_Headers Array-like object representing headers</p>
+
+<p>Status code, false if non-blocking</p>
+<p>@var integer|boolean</p>
+
+<p>Protocol version, false if non-blocking</p>
+<p>@var float|boolean</p>
+
+<p>Whether the request succeeded or not</p>
+<p>@var boolean</p>
+
+<p>Number of redirects the request used</p>
+<p>@var integer</p>
+
+<p>URL requested</p>
+<p>@var string</p>
+
+<p>Previous requests (from redirects)</p>
+<p>@var array Array of Requests_Response objects</p>
+
+<p>Cookies from the request</p>
+<p>@var Requests_Cookie_Jar Array-like object representing a cookie jar</p>
+
+<p>Is the response a redirect?</p>
+<p>@return boolean True if redirect (3xx status), false if not.</p>
+
+<p>Throws an exception if the request was not successful</p>
+<p>@throws Requests_Exception If <code>$allow_redirects</code> is false, and code is 3xx (<code>response.no_redirects</code>)</p>
+<p>@throws Requests_Exception_HTTP On non-successful status code. Exception class corresponds to code (e.g. {@see Requests_Exception_HTTP_404})</p>
+<p>@param boolean $allow_redirects Set to false to throw on a 3xx as well</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>Requests</code></li>
+<li><code>the</code></li>
+<li><code>redirects</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\RestApi\ThirdParty\Requests\Response.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Requests_Response</code></li>
+<li><code>corresponds</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>is_redirect()</code></li>
+<li><code>throw_for_status($allow_redirects = true)</code></li>
+</ul>
+</body></html>

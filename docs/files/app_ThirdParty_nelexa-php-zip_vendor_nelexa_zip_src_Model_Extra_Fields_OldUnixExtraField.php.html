@@ -1,0 +1,120 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\Fields\OldUnixExtraField.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\Fields\OldUnixExtraField.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\Fields\OldUnixExtraField.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 8212 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Info-ZIP Unix Extra Field (type 1):</p>
+<p>==================================.</p>
+<p>The following is the layout of the old Info-ZIP extra block for</p>
+<p>Unix.  It has been replaced by the extended-timestamp extra block</p>
+<p>(0x5455) and the Unix type 2 extra block (0x7855).</p>
+<p>(Last Revision 19970118)</p>
+<p>Local-header version:</p>
+<p>Value         Size        Description</p>
+<p>-----         ----        -----------</p>
+<p>(Unix1) 0x5855        Short       tag for this extra block type ("UX")</p>
+<p>TSize         Short       total data size for this block</p>
+<p>AcTime        Long        time of last access (UTC/GMT)</p>
+<p>ModTime       Long        time of last modification (UTC/GMT)</p>
+<p>UID           Short       Unix user ID (optional)</p>
+<p>GID           Short       Unix group ID (optional)</p>
+<p>Central-header version:</p>
+<p>Value         Size        Description</p>
+<p>-----         ----        -----------</p>
+<p>(Unix1) 0x5855        Short       tag for this extra block type ("UX")</p>
+<p>TSize         Short       total data size for this block</p>
+<p>AcTime        Long        time of last access (GMT/UTC)</p>
+<p>ModTime       Long        time of last modification (GMT/UTC)</p>
+<p>The file access and modification times are in standard Unix signed-</p>
+<p>long format, indicating the number of seconds since 1 January 1970</p>
+<p>00:00:00.  The times are relative to Coordinated Universal Time</p>
+<p>(UTC), also sometimes referred to as Greenwich Mean Time (GMT).  To</p>
+<p>convert to local time, the software must know the local timezone</p>
+<p>offset from UTC/GMT.  The modification time may be used by non-Unix</p>
+<p>systems to support inter-timezone freshening and updating of zip</p>
+<p>archives.</p>
+<p>The local-header extra block may optionally contain UID and GID</p>
+<p>info for the file.  The local-header TSize value is the only</p>
+<p>indication of this.  Note that Unix UIDs and GIDs are usually</p>
+<p>specific to a particular machine, and they generally require root</p>
+<p>access to restore.</p>
+<p>This extra field type is obsolete, but it has been in use since</p>
+<p>mid-1994. Therefore future archiving software should continue to</p>
+<p>support it.</p>
+
+<p>@var int Header id</p>
+
+<p>@var int|null Access timestamp</p>
+
+<p>@var int|null Modify timestamp</p>
+
+<p>@var int|null User id</p>
+
+<p>@var int|null Group id</p>
+
+<p>Returns the Header ID (type) of this Extra Field.</p>
+<p>The Header ID is an unsigned short integer (two bytes)</p>
+<p>which must be constant during the life cycle of this object.</p>
+
+<p>Populate data from this array as if it was in local file data.</p>
+<p>@param string        $buffer the buffer to read data from</p>
+<p>@param ZipEntry|null $entry  optional zip entry</p>
+<p>@return OldUnixExtraField</p>
+
+<p>Populate data from this array as if it was in central directory data.</p>
+<p>@param string        $buffer the buffer to read data from</p>
+<p>@param ZipEntry|null $entry  optional zip entry</p>
+<p>@return OldUnixExtraField</p>
+
+<p>The actual data to put into local file data - without Header-ID</p>
+<p>or length specifier.</p>
+<p>@return string the data</p>
+
+<p>The actual data to put into central directory - without Header-ID or</p>
+<p>length specifier.</p>
+<p>@return string the data</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>UTC</code></li>
+<li><code>this</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\Fields\OldUnixExtraField.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpZip\Model\Extra\Fields\OldUnixExtraField implements ZipExtraField</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(?int $accessTime, ?int $modifyTime, ?int $uid, ?int $gid)</code></li>
+<li><code>getHeaderId()</code></li>
+<li><code>unpackLocalFileData(string $buffer, ?ZipEntry $entry = null)</code></li>
+<li><code>unpackCentralDirData(string $buffer, ?ZipEntry $entry = null)</code></li>
+<li><code>packLocalFileData()</code></li>
+<li><code>packCentralDirData()</code></li>
+<li><code>getAccessTime()</code></li>
+<li><code>setAccessTime(?int $accessTime)</code></li>
+<li><code>getAccessDateTime()</code></li>
+<li><code>getModifyTime()</code></li>
+<li><code>setModifyTime(?int $modifyTime)</code></li>
+<li><code>getModifyDateTime()</code></li>
+<li><code>getUid()</code></li>
+<li><code>setUid(?int $uid)</code></li>
+<li><code>getGid()</code></li>
+<li><code>setGid(?int $gid)</code></li>
+<li><code>__toString()</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,64 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Context.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Context.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Context.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2634 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Registry object that contains information about the current context.</p>
+<p>@warning Is a bit buggy when variables are set to null: it thinks</p>
+<p>         they don't exist! So use false instead, please.</p>
+<p>@note Since the variables Context deals with may not be objects,</p>
+<p>      references are very important here! Do not remove!</p>
+
+<p>Private array that stores the references.</p>
+<p>@type array</p>
+
+<p>Registers a variable into the context.</p>
+<p>@param string $name String name</p>
+<p>@param mixed $ref Reference to variable to be registered</p>
+
+<p>Retrieves a variable reference from the context.</p>
+<p>@param string $name String name</p>
+<p>@param bool $ignore_error Boolean whether or not to ignore error</p>
+<p>@return mixed</p>
+
+<p>Destroys a variable in the context.</p>
+<p>@param string $name String name</p>
+
+<p>Checks whether or not the variable exists.</p>
+<p>@param string $name String name</p>
+<p>@return bool</p>
+
+<p>Loads a series of variables from an associative array</p>
+<p>@param array $context_array Assoc array of variables to load</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>an</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Context.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>HTMLPurifier_Context</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>register($name, &$ref)</code></li>
+<li><code>destroy($name)</code></li>
+<li><code>exists($name)</code></li>
+<li><code>loadArray($context_array)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,110 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Logical\Conditional.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Logical\Conditional.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Logical\Conditional.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 8830 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>STATEMENT_IF.</p>
+<p>Returns one value if a condition you specify evaluates to TRUE and another value if it evaluates to FALSE.</p>
+<p>Excel Function:</p>
+<p>       =IF(condition[,returnIfTrue[,returnIfFalse]])</p>
+<p>       Condition is any value or expression that can be evaluated to TRUE or FALSE.</p>
+<p>           For example, A10=100 is a logical expression; if the value in cell A10 is equal to 100,</p>
+<p>           the expression evaluates to TRUE. Otherwise, the expression evaluates to FALSE.</p>
+<p>           This argument can use any comparison calculation operator.</p>
+<p>       ReturnIfTrue is the value that is returned if condition evaluates to TRUE.</p>
+<p>           For example, if this argument is the text string "Within budget" and</p>
+<p>               the condition argument evaluates to TRUE, then the IF function returns the text "Within budget"</p>
+<p>           If condition is TRUE and ReturnIfTrue is blank, this argument returns 0 (zero).</p>
+<p>           To display the word TRUE, use the logical value TRUE for this argument.</p>
+<p>           ReturnIfTrue can be another formula.</p>
+<p>       ReturnIfFalse is the value that is returned if condition evaluates to FALSE.</p>
+<p>           For example, if this argument is the text string "Over budget" and the condition argument evaluates</p>
+<p>               to FALSE, then the IF function returns the text "Over budget".</p>
+<p>           If condition is FALSE and ReturnIfFalse is omitted, then the logical value FALSE is returned.</p>
+<p>           If condition is FALSE and ReturnIfFalse is blank, then the value 0 (zero) is returned.</p>
+<p>           ReturnIfFalse can be another formula.</p>
+<p>@param mixed $condition Condition to evaluate</p>
+<p>@param mixed $returnIfTrue Value to return when condition is true</p>
+<p>             Note that this can be an array value</p>
+<p>@param mixed $returnIfFalse Optional value to return when condition is false</p>
+<p>             Note that this can be an array value</p>
+<p>@return mixed The value of returnIfTrue or returnIfFalse determined by condition</p>
+
+<p>STATEMENT_SWITCH.</p>
+<p>Returns corresponding with first match (any data type such as a string, numeric, date, etc).</p>
+<p>Excel Function:</p>
+<p>       =SWITCH (expression, value1, result1, value2, result2, ... value_n, result_n [, default])</p>
+<p>       Expression</p>
+<p>             The expression to compare to a list of values.</p>
+<p>       value1, value2, ... value_n</p>
+<p>             A list of values that are compared to expression.</p>
+<p>             The SWITCH function is looking for the first value that matches the expression.</p>
+<p>       result1, result2, ... result_n</p>
+<p>             A list of results. The SWITCH function returns the corresponding result when a value</p>
+<p>             matches expression.</p>
+<p>             Note that these can be array values to be returned</p>
+<p>        default</p>
+<p>             Optional. It is the default to return if expression does not match any of the values</p>
+<p>             (value1, value2, ... value_n).</p>
+<p>             Note that this can be an array value to be returned</p>
+<p>@param mixed $arguments Statement arguments</p>
+<p>@return mixed The value of matched expression</p>
+
+<p>IFERROR.</p>
+<p>Excel Function:</p>
+<p>       =IFERROR(testValue,errorpart)</p>
+<p>@param mixed $testValue Value to check, is also the value returned when no error</p>
+<p>                     Or can be an array of values</p>
+<p>@param mixed $errorpart Value to return when testValue is an error condition</p>
+<p>             Note that this can be an array value to be returned</p>
+<p>@return mixed The value of errorpart or testValue determined by error condition</p>
+<p>        If an array of values is passed as the $testValue argument, then the returned result will also be</p>
+<p>           an array with the same dimensions</p>
+
+<p>IFNA.</p>
+<p>Excel Function:</p>
+<p>       =IFNA(testValue,napart)</p>
+<p>@param mixed $testValue Value to check, is also the value returned when not an NA</p>
+<p>                     Or can be an array of values</p>
+<p>@param mixed $napart Value to return when testValue is an NA condition</p>
+<p>             Note that this can be an array value to be returned</p>
+<p>@return mixed The value of errorpart or testValue determined by error condition</p>
+<p>        If an array of values is passed as the $testValue argument, then the returned result will also be</p>
+<p>           an array with the same dimensions</p>
+
+<p>IFS.</p>
+<p>Excel Function:</p>
+<p>        =IFS(testValue1;returnIfTrue1;testValue2;returnIfTrue2;...;testValue_n;returnIfTrue_n)</p>
+<p>        testValue1 ... testValue_n</p>
+<p>            Conditions to Evaluate</p>
+<p>        returnIfTrue1 ... returnIfTrue_n</p>
+<p>            Value returned if corresponding testValue (nth) was true</p>
+<p>@param mixed ...$arguments Statement arguments</p>
+<p>             Note that this can be an array value to be returned</p>
+<p>@return mixed|string The value of returnIfTrue_n, if testValue_n was true. #N/A if none of testValues was true</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Logical\Conditional.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\Logical\Conditional</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>statementIf($condition = true, $returnIfTrue = 0, $returnIfFalse = false)</code></li>
+<li><code>statementSwitch(...$arguments)</code></li>
+<li><code>IFERROR($testValue = '', $errorpart = '')</code></li>
+<li><code>IFNA($testValue = '', $napart = '')</code></li>
+<li><code>IFS(...$arguments)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,788 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\Base.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\Base.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\Base.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 103316 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Base Class for all \phpseclib\Crypt\* cipher classes</p>
+<p>PHP version 5</p>
+<p>Internally for phpseclib developers:</p>
+<p> If you plan to add a new cipher class, please note following rules:</p>
+<p> - The new \phpseclib\Crypt\* cipher class should extend \phpseclib\Crypt\Base</p>
+<p> - Following methods are then required to be overridden/overloaded:</p>
+<p>   - _encryptBlock()</p>
+<p>   - _decryptBlock()</p>
+<p>   - _setupKey()</p>
+<p> - All other methods are optional to be overridden/overloaded</p>
+<p> - Look at the source code of the current ciphers how they extend \phpseclib\Crypt\Base</p>
+<p>   and take one of them as a start up for the new cipher class.</p>
+<p> - Please read all the other comments/notes/hints here also for each class var/method</p>
+<p>@category  Crypt</p>
+<p>@package   Base</p>
+<p>@author    Jim Wigginton <terrafrost@php.net></p>
+<p>@author    Hans-Juergen Petrich <petrich@tronic-media.com></p>
+<p>@copyright 2007 Jim Wigginton</p>
+<p>@license   http://www.opensource.org/licenses/mit-license.html  MIT License</p>
+<p>@link      http://phpseclib.sourceforge.net</p>
+
+<p>Base Class for all \phpseclib\Crypt\* cipher classes</p>
+<p>@package Base</p>
+<p>@author  Jim Wigginton <terrafrost@php.net></p>
+<p>@author  Hans-Juergen Petrich <petrich@tronic-media.com></p>
+
+<p>#@+</p>
+<p>@access public</p>
+<p>@see \phpseclib\Crypt\Base::encrypt()</p>
+<p>@see \phpseclib\Crypt\Base::decrypt()</p>
+
+<p>Encrypt / decrypt using the Counter mode.</p>
+<p>Set to -1 since that's what Crypt/Random.php uses to index the CTR mode.</p>
+<p>@link http://en.wikipedia.org/wiki/Block_cipher_modes_of_operation#Counter_.28CTR.29</p>
+
+<p>Encrypt / decrypt using the Electronic Code Book mode.</p>
+<p>@link http://en.wikipedia.org/wiki/Block_cipher_modes_of_operation#Electronic_codebook_.28ECB.29</p>
+
+<p>Encrypt / decrypt using the Code Book Chaining mode.</p>
+<p>@link http://en.wikipedia.org/wiki/Block_cipher_modes_of_operation#Cipher-block_chaining_.28CBC.29</p>
+
+<p>Encrypt / decrypt using the Cipher Feedback mode.</p>
+<p>@link http://en.wikipedia.org/wiki/Block_cipher_modes_of_operation#Cipher_feedback_.28CFB.29</p>
+
+<p>Encrypt / decrypt using the Cipher Feedback mode (8bit)</p>
+
+<p>Encrypt / decrypt using the Output Feedback mode.</p>
+<p>@link http://en.wikipedia.org/wiki/Block_cipher_modes_of_operation#Output_feedback_.28OFB.29</p>
+
+<p>Encrypt / decrypt using streaming mode.</p>
+
+<p>#@-</p>
+
+<p>Whirlpool available flag</p>
+<p>@see \phpseclib\Crypt\Base::_hashInlineCryptFunction()</p>
+<p>@var bool</p>
+<p>@access private</p>
+
+<p>#@+</p>
+<p>@access private</p>
+<p>@see \phpseclib\Crypt\Base::__construct()</p>
+
+<p>Base value for the internal implementation $engine switch</p>
+
+<p>Base value for the mcrypt implementation $engine switch</p>
+
+<p>Base value for the mcrypt implementation $engine switch</p>
+
+<p>#@-</p>
+
+<p>The Encryption Mode</p>
+<p>@see self::__construct()</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>The Block Length of the block cipher</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>The Key</p>
+<p>@see self::setKey()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>The Initialization Vector</p>
+<p>@see self::setIV()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>A "sliding" Initialization Vector</p>
+<p>@see self::enableContinuousBuffer()</p>
+<p>@see self::_clearBuffers()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>A "sliding" Initialization Vector</p>
+<p>@see self::enableContinuousBuffer()</p>
+<p>@see self::_clearBuffers()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Continuous Buffer status</p>
+<p>@see self::enableContinuousBuffer()</p>
+<p>@var bool</p>
+<p>@access private</p>
+
+<p>Encryption buffer for CTR, OFB and CFB modes</p>
+<p>@see self::encrypt()</p>
+<p>@see self::_clearBuffers()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Decryption buffer for CTR, OFB and CFB modes</p>
+<p>@see self::decrypt()</p>
+<p>@see self::_clearBuffers()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>mcrypt resource for encryption</p>
+<p>The mcrypt resource can be recreated every time something needs to be created or it can be created just once.</p>
+<p>Since mcrypt operates in continuous mode, by default, it'll need to be recreated when in non-continuous mode.</p>
+<p>@see self::encrypt()</p>
+<p>@var resource</p>
+<p>@access private</p>
+
+<p>mcrypt resource for decryption</p>
+<p>The mcrypt resource can be recreated every time something needs to be created or it can be created just once.</p>
+<p>Since mcrypt operates in continuous mode, by default, it'll need to be recreated when in non-continuous mode.</p>
+<p>@see self::decrypt()</p>
+<p>@var resource</p>
+<p>@access private</p>
+
+<p>Does the enmcrypt resource need to be (re)initialized?</p>
+<p>@see \phpseclib\Crypt\Twofish::setKey()</p>
+<p>@see \phpseclib\Crypt\Twofish::setIV()</p>
+<p>@var bool</p>
+<p>@access private</p>
+
+<p>Does the demcrypt resource need to be (re)initialized?</p>
+<p>@see \phpseclib\Crypt\Twofish::setKey()</p>
+<p>@see \phpseclib\Crypt\Twofish::setIV()</p>
+<p>@var bool</p>
+<p>@access private</p>
+
+<p>mcrypt resource for CFB mode</p>
+<p>mcrypt's CFB mode, in (and only in) buffered context,</p>
+<p>is broken, so phpseclib implements the CFB mode by it self,</p>
+<p>even when the mcrypt php extension is available.</p>
+<p>In order to do the CFB-mode work (fast) phpseclib</p>
+<p>use a separate ECB-mode mcrypt resource.</p>
+<p>@link http://phpseclib.sourceforge.net/cfb-demo.phps</p>
+<p>@see self::encrypt()</p>
+<p>@see self::decrypt()</p>
+<p>@see self::_setupMcrypt()</p>
+<p>@var resource</p>
+<p>@access private</p>
+
+<p>Optimizing value while CFB-encrypting</p>
+<p>Only relevant if $continuousBuffer enabled</p>
+<p>and $engine == self::ENGINE_MCRYPT</p>
+<p>It's faster to re-init $enmcrypt if</p>
+<p>$buffer bytes > $cfb_init_len than</p>
+<p>using the $ecb resource furthermore.</p>
+<p>This value depends of the chosen cipher</p>
+<p>and the time it would be needed for it's</p>
+<p>initialization [by mcrypt_generic_init()]</p>
+<p>which, typically, depends on the complexity</p>
+<p>on its internaly Key-expanding algorithm.</p>
+<p>@see self::encrypt()</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Does internal cipher state need to be (re)initialized?</p>
+<p>@see self::setKey()</p>
+<p>@see self::setIV()</p>
+<p>@see self::disableContinuousBuffer()</p>
+<p>@var bool</p>
+<p>@access private</p>
+
+<p>Padding status</p>
+<p>@see self::enablePadding()</p>
+<p>@var bool</p>
+<p>@access private</p>
+
+<p>Is the mode one that is paddable?</p>
+<p>@see self::__construct()</p>
+<p>@var bool</p>
+<p>@access private</p>
+
+<p>Holds which crypt engine internaly should be use,</p>
+<p>which will be determined automatically on __construct()</p>
+<p>Currently available $engines are:</p>
+<ul>
+<li>self::ENGINE_OPENSSL  (very fast, php-extension: openssl, extension_loaded('openssl') required)</li>
+<li>self::ENGINE_MCRYPT   (fast, php-extension: mcrypt, extension_loaded('mcrypt') required)</li>
+<li>self::ENGINE_INTERNAL (slower, pure php-engine, no php-extension required)</li>
+<p>@see self::_setEngine()</p>
+<p>@see self::encrypt()</p>
+<p>@see self::decrypt()</p>
+<p>@var int</p>
+<p>@access private</p>
+</ul>
+<p>Holds the preferred crypt engine</p>
+<p>@see self::_setEngine()</p>
+<p>@see self::setPreferredEngine()</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>The mcrypt specific name of the cipher</p>
+<p>Only used if $engine == self::ENGINE_MCRYPT</p>
+<p>@link http://www.php.net/mcrypt_module_open</p>
+<p>@link http://www.php.net/mcrypt_list_algorithms</p>
+<p>@see self::_setupMcrypt()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>The openssl specific name of the cipher</p>
+<p>Only used if $engine == self::ENGINE_OPENSSL</p>
+<p>@link http://www.php.net/openssl-get-cipher-methods</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>The openssl specific name of the cipher in ECB mode</p>
+<p>If OpenSSL does not support the mode we're trying to use (CTR)</p>
+<p>it can still be emulated with ECB mode.</p>
+<p>@link http://www.php.net/openssl-get-cipher-methods</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>The default salt used by setPassword()</p>
+<p>@see self::setPassword()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>The name of the performance-optimized callback function</p>
+<p>Used by encrypt() / decrypt()</p>
+<p>only if $engine == self::ENGINE_INTERNAL</p>
+<p>@see self::encrypt()</p>
+<p>@see self::decrypt()</p>
+<p>@see self::_setupInlineCrypt()</p>
+<p>@see self::$use_inline_crypt</p>
+<p>@var Callback</p>
+<p>@access private</p>
+
+<p>Holds whether performance-optimized $inline_crypt() can/should be used.</p>
+<p>@see self::encrypt()</p>
+<p>@see self::decrypt()</p>
+<p>@see self::inline_crypt</p>
+<p>@var mixed</p>
+<p>@access private</p>
+
+<p>If OpenSSL can be used in ECB but not in CTR we can emulate CTR</p>
+<p>@see self::_openssl_ctr_process()</p>
+<p>@var bool</p>
+<p>@access private</p>
+
+<p>Determines what options are passed to openssl_encrypt/decrypt</p>
+<p>@see self::isValidEngine()</p>
+<p>@var mixed</p>
+<p>@access private</p>
+
+<p>Has the key length explicitly been set or should it be derived from the key, itself?</p>
+<p>@see self::setKeyLength()</p>
+<p>@var bool</p>
+<p>@access private</p>
+
+<p>Don't truncate / null pad key</p>
+<p>@see self::_clearBuffers()</p>
+<p>@var bool</p>
+<p>@access private</p>
+
+<p>Default Constructor.</p>
+<p>Determines whether or not the mcrypt extension should be used.</p>
+<p>$mode could be:</p>
+<ul>
+<li>self::MODE_ECB</li>
+<li>self::MODE_CBC</li>
+<li>self::MODE_CTR</li>
+<li>self::MODE_CFB</li>
+<li>self::MODE_OFB</li>
+<p>If not explicitly set, self::MODE_CBC will be used.</p>
+<p>@param int $mode</p>
+<p>@access public</p>
+</ul>
+<p>Sets the initialization vector. (optional)</p>
+<p>SetIV is not required when self::MODE_ECB (or ie for AES: \phpseclib\Crypt\AES::MODE_ECB) is being used.  If not explicitly set, it'll be assumed</p>
+<p>to be all zero's.</p>
+<p>@access public</p>
+<p>@param string $iv</p>
+<p>@internal Can be overwritten by a sub class, but does not have to be</p>
+
+<p>Sets the key length.</p>
+<p>Keys with explicitly set lengths need to be treated accordingly</p>
+<p>@access public</p>
+<p>@param int $length</p>
+
+<p>Returns the current key length in bits</p>
+<p>@access public</p>
+<p>@return int</p>
+
+<p>Returns the current block length in bits</p>
+<p>@access public</p>
+<p>@return int</p>
+
+<p>Sets the key.</p>
+<p>The min/max length(s) of the key depends on the cipher which is used.</p>
+<p>If the key not fits the length(s) of the cipher it will paded with null bytes</p>
+<p>up to the closest valid key length.  If the key is more than max length,</p>
+<p>we trim the excess bits.</p>
+<p>If the key is not explicitly set, it'll be assumed to be all null bytes.</p>
+<p>@access public</p>
+<p>@param string $key</p>
+<p>@internal Could, but not must, extend by the child Crypt_* class</p>
+
+<p>Sets the password.</p>
+<p>Depending on what $method is set to, setPassword()'s (optional) parameters are as follows:</p>
+<p>    {@link http://en.wikipedia.org/wiki/PBKDF2 pbkdf2} or pbkdf1:</p>
+<p>        $hash, $salt, $count, $dkLen</p>
+<p>        Where $hash (default = sha1) currently supports the following hashes: see: Crypt/Hash.php</p>
+<p>@see Crypt/Hash.php</p>
+<p>@param string $password</p>
+<p>@param string $method</p>
+<p>@return bool</p>
+<p>@access public</p>
+<p>@internal Could, but not must, extend by the child Crypt_* class</p>
+
+<p>Encrypts a message.</p>
+<p>$plaintext will be padded with additional bytes such that it's length is a multiple of the block size. Other cipher</p>
+<p>implementations may or may not pad in the same manner.  Other common approaches to padding and the reasons why it's</p>
+<p>necessary are discussed in the following</p>
+<p>URL:</p>
+<p>{@link http://www.di-mgt.com.au/cryptopad.html http://www.di-mgt.com.au/cryptopad.html}</p>
+<p>An alternative to padding is to, separately, send the length of the file.  This is what SSH, in fact, does.</p>
+<p>strlen($plaintext) will still need to be a multiple of the block size, however, arbitrary values can be added to make it that</p>
+<p>length.</p>
+<p>@see self::decrypt()</p>
+<p>@access public</p>
+<p>@param string $plaintext</p>
+<p>@return string $ciphertext</p>
+<p>@internal Could, but not must, extend by the child Crypt_* class</p>
+
+<p>Decrypts a message.</p>
+<p>If strlen($ciphertext) is not a multiple of the block size, null bytes will be added to the end of the string until</p>
+<p>it is.</p>
+<p>@see self::encrypt()</p>
+<p>@access public</p>
+<p>@param string $ciphertext</p>
+<p>@return string $plaintext</p>
+<p>@internal Could, but not must, extend by the child Crypt_* class</p>
+
+<p>OpenSSL CTR Processor</p>
+<p>PHP's OpenSSL bindings do not operate in continuous mode so we'll wrap around it. Since the keystream</p>
+<p>for CTR is the same for both encrypting and decrypting this function is re-used by both Base::encrypt()</p>
+<p>and Base::decrypt(). Also, OpenSSL doesn't implement CTR for all of it's symmetric ciphers so this</p>
+<p>function will emulate CTR with ECB when necessary.</p>
+<p>@see self::encrypt()</p>
+<p>@see self::decrypt()</p>
+<p>@param string $plaintext</p>
+<p>@param string $encryptIV</p>
+<p>@param array $buffer</p>
+<p>@return string</p>
+<p>@access private</p>
+
+<p>OpenSSL OFB Processor</p>
+<p>PHP's OpenSSL bindings do not operate in continuous mode so we'll wrap around it. Since the keystream</p>
+<p>for OFB is the same for both encrypting and decrypting this function is re-used by both Base::encrypt()</p>
+<p>and Base::decrypt().</p>
+<p>@see self::encrypt()</p>
+<p>@see self::decrypt()</p>
+<p>@param string $plaintext</p>
+<p>@param string $encryptIV</p>
+<p>@param array $buffer</p>
+<p>@return string</p>
+<p>@access private</p>
+
+<p>phpseclib <-> OpenSSL Mode Mapper</p>
+<p>May need to be overwritten by classes extending this one in some cases</p>
+<p>@return int</p>
+<p>@access private</p>
+
+<p>Pad "packets".</p>
+<p>Block ciphers working by encrypting between their specified [$this->]block_size at a time</p>
+<p>If you ever need to encrypt or decrypt something that isn't of the proper length, it becomes necessary to</p>
+<p>pad the input so that it is of the proper length.</p>
+<p>Padding is enabled by default.  Sometimes, however, it is undesirable to pad strings.  Such is the case in SSH,</p>
+<p>where "packets" are padded with random bytes before being encrypted.  Unpad these packets and you risk stripping</p>
+<p>away characters that shouldn't be stripped away. (SSH knows how many bytes are added because the length is</p>
+<p>transmitted separately)</p>
+<p>@see self::disablePadding()</p>
+<p>@access public</p>
+
+<p>Do not pad packets.</p>
+<p>@see self::enablePadding()</p>
+<p>@access public</p>
+
+<p>Treat consecutive "packets" as if they are a continuous buffer.</p>
+<p>Say you have a 32-byte plaintext $plaintext.  Using the default behavior, the two following code snippets</p>
+<p>will yield different outputs:</p>
+<p><code></p>
+<p>   echo $rijndael->encrypt(substr($plaintext,  0, 16));</p>
+<p>   echo $rijndael->encrypt(substr($plaintext, 16, 16));</p>
+<p></code></p>
+<p><code></p>
+<p>   echo $rijndael->encrypt($plaintext);</p>
+<p></code></p>
+<p>The solution is to enable the continuous buffer.  Although this will resolve the above discrepancy, it creates</p>
+<p>another, as demonstrated with the following:</p>
+<p><code></p>
+<p>   $rijndael->encrypt(substr($plaintext, 0, 16));</p>
+<p>   echo $rijndael->decrypt($rijndael->encrypt(substr($plaintext, 16, 16)));</p>
+<p></code></p>
+<p><code></p>
+<p>   echo $rijndael->decrypt($rijndael->encrypt(substr($plaintext, 16, 16)));</p>
+<p></code></p>
+<p>With the continuous buffer disabled, these would yield the same output.  With it enabled, they yield different</p>
+<p>outputs.  The reason is due to the fact that the initialization vector's change after every encryption /</p>
+<p>decryption round when the continuous buffer is enabled.  When it's disabled, they remain constant.</p>
+<p>Put another way, when the continuous buffer is enabled, the state of the \phpseclib\Crypt\*() object changes after each</p>
+<p>encryption / decryption round, whereas otherwise, it'd remain constant.  For this reason, it's recommended that</p>
+<p>continuous buffers not be used.  They do offer better security and are, in fact, sometimes required (SSH uses them),</p>
+<p>however, they are also less intuitive and more likely to cause you problems.</p>
+<p>@see self::disableContinuousBuffer()</p>
+<p>@access public</p>
+<p>@internal Could, but not must, extend by the child Crypt_* class</p>
+
+<p>Treat consecutive packets as if they are a discontinuous buffer.</p>
+<p>The default behavior.</p>
+<p>@see self::enableContinuousBuffer()</p>
+<p>@access public</p>
+<p>@internal Could, but not must, extend by the child Crypt_* class</p>
+
+<p>Test for engine validity</p>
+<p>@see self::__construct()</p>
+<p>@param int $engine</p>
+<p>@access public</p>
+<p>@return bool</p>
+
+<p>Sets the preferred crypt engine</p>
+<p>Currently, $engine could be:</p>
+<ul>
+<li>\phpseclib\Crypt\Base::ENGINE_OPENSSL  [very fast]</li>
+<li>\phpseclib\Crypt\Base::ENGINE_MCRYPT   [fast]</li>
+<li>\phpseclib\Crypt\Base::ENGINE_INTERNAL [slow]</li>
+<p>If the preferred crypt engine is not available the fastest available one will be used</p>
+<p>@see self::__construct()</p>
+<p>@param int $engine</p>
+<p>@access public</p>
+</ul>
+<p>Returns the engine currently being utilized</p>
+<p>@see self::_setEngine()</p>
+<p>@access public</p>
+
+<p>Sets the engine as appropriate</p>
+<p>@see self::__construct()</p>
+<p>@access private</p>
+
+<p>Encrypts a block</p>
+<p>Note: Must be extended by the child \phpseclib\Crypt\* class</p>
+<p>@access private</p>
+<p>@param string $in</p>
+<p>@return string</p>
+
+<p>Decrypts a block</p>
+<p>Note: Must be extended by the child \phpseclib\Crypt\* class</p>
+<p>@access private</p>
+<p>@param string $in</p>
+<p>@return string</p>
+
+<p>Setup the key (expansion)</p>
+<p>Only used if $engine == self::ENGINE_INTERNAL</p>
+<p>Note: Must extend by the child \phpseclib\Crypt\* class</p>
+<p>@see self::_setup()</p>
+<p>@access private</p>
+
+<p>Setup the self::ENGINE_INTERNAL $engine</p>
+<p>(re)init, if necessary, the internal cipher $engine and flush all $buffers</p>
+<p>Used (only) if $engine == self::ENGINE_INTERNAL</p>
+<p>_setup() will be called each time if $changed === true</p>
+<p>typically this happens when using one or more of following public methods:</p>
+<ul>
+<li>setKey()</li>
+<li>setIV()</li>
+<li>disableContinuousBuffer()</li>
+<li>First run of encrypt() / decrypt() with no init-settings</li>
+<p>@see self::setKey()</p>
+<p>@see self::setIV()</p>
+<p>@see self::disableContinuousBuffer()</p>
+<p>@access private</p>
+<p>@internal _setup() is always called before en/decryption.</p>
+<p>@internal Could, but not must, extend by the child Crypt_* class</p>
+</ul>
+<p>Setup the self::ENGINE_MCRYPT $engine</p>
+<p>(re)init, if necessary, the (ext)mcrypt resources and flush all $buffers</p>
+<p>Used (only) if $engine = self::ENGINE_MCRYPT</p>
+<p>_setupMcrypt() will be called each time if $changed === true</p>
+<p>typically this happens when using one or more of following public methods:</p>
+<ul>
+<li>setKey()</li>
+<li>setIV()</li>
+<li>disableContinuousBuffer()</li>
+<li>First run of encrypt() / decrypt()</li>
+<p>@see self::setKey()</p>
+<p>@see self::setIV()</p>
+<p>@see self::disableContinuousBuffer()</p>
+<p>@access private</p>
+<p>@internal Could, but not must, extend by the child Crypt_* class</p>
+</ul>
+<p>Pads a string</p>
+<p>Pads a string using the RSA PKCS padding standards so that its length is a multiple of the blocksize.</p>
+<p>$this->block_size - (strlen($text) % $this->block_size) bytes are added, each of which is equal to</p>
+<p>chr($this->block_size - (strlen($text) % $this->block_size)</p>
+<p>If padding is disabled and $text is not a multiple of the blocksize, the string will be padded regardless</p>
+<p>and padding will, hence forth, be enabled.</p>
+<p>@see self::_unpad()</p>
+<p>@param string $text</p>
+<p>@access private</p>
+<p>@return string</p>
+
+<p>Unpads a string.</p>
+<p>If padding is enabled and the reported padding length is invalid the encryption key will be assumed to be wrong</p>
+<p>and false will be returned.</p>
+<p>@see self::_pad()</p>
+<p>@param string $text</p>
+<p>@access private</p>
+<p>@return string</p>
+
+<p>Clears internal buffers</p>
+<p>Clearing/resetting the internal buffers is done everytime</p>
+<p>after disableContinuousBuffer() or on cipher $engine (re)init</p>
+<p>ie after setKey() or setIV()</p>
+<p>@access public</p>
+<p>@internal Could, but not must, extend by the child Crypt_* class</p>
+
+<p>String Shift</p>
+<p>Inspired by array_shift</p>
+<p>@param string $string</p>
+<p>@param int $index</p>
+<p>@access private</p>
+<p>@return string</p>
+
+<p>String Pop</p>
+<p>Inspired by array_pop</p>
+<p>@param string $string</p>
+<p>@param int $index</p>
+<p>@access private</p>
+<p>@return string</p>
+
+<p>Increment the current string</p>
+<p>@see self::decrypt()</p>
+<p>@see self::encrypt()</p>
+<p>@param string $var</p>
+<p>@access private</p>
+
+<p>Setup the performance-optimized function for de/encrypt()</p>
+<p>Stores the created (or existing) callback function-name</p>
+<p>in $this->inline_crypt</p>
+<p>Internally for phpseclib developers:</p>
+<p>    _setupInlineCrypt() would be called only if:</p>
+<p>    - $engine == self::ENGINE_INTERNAL and</p>
+<p>    - $use_inline_crypt === true</p>
+<p>    - each time on _setup(), after(!) _setupKey()</p>
+<p>    This ensures that _setupInlineCrypt() has always a</p>
+<p>    full ready2go initializated internal cipher $engine state</p>
+<p>    where, for example, the keys allready expanded,</p>
+<p>    keys/block_size calculated and such.</p>
+<p>    It is, each time if called, the responsibility of _setupInlineCrypt():</p>
+<p>    - to set $this->inline_crypt to a valid and fully working callback function</p>
+<p>      as a (faster) replacement for encrypt() / decrypt()</p>
+<p>    - NOT to create unlimited callback functions (for memory reasons!)</p>
+<p>      no matter how often _setupInlineCrypt() would be called. At some</p>
+<p>      point of amount they must be generic re-useable.</p>
+<p>    - the code of _setupInlineCrypt() it self,</p>
+<p>      and the generated callback code,</p>
+<p>      must be, in following order:</p>
+<p>      - 100% safe</p>
+<p>      - 100% compatible to encrypt()/decrypt()</p>
+<p>      - using only php5+ features/lang-constructs/php-extensions if</p>
+<p>        compatibility (down to php4) or fallback is provided</p>
+<p>      - readable/maintainable/understandable/commented and... not-cryptic-styled-code :-)</p>
+<p>      - >= 10% faster than encrypt()/decrypt() [which is, by the way,</p>
+<p>        the reason for the existence of _setupInlineCrypt() :-)]</p>
+<p>      - memory-nice</p>
+<p>      - short (as good as possible)</p>
+<p>Note: - _setupInlineCrypt() is using _createInlineCryptFunction() to create the full callback function code.</p>
+<p>      - In case of using inline crypting, _setupInlineCrypt() must extend by the child \phpseclib\Crypt\* class.</p>
+<p>      - The following variable names are reserved:</p>
+<p>        - $_*  (all variable names prefixed with an underscore)</p>
+<p>        - $self (object reference to it self. Do not use $this, but $self instead)</p>
+<p>        - $in (the content of $in has to en/decrypt by the generated code)</p>
+<p>      - The callback function should not use the 'return' statement, but en/decrypt'ing the content of $in only</p>
+<p>@see self::_setup()</p>
+<p>@see self::_createInlineCryptFunction()</p>
+<p>@see self::encrypt()</p>
+<p>@see self::decrypt()</p>
+<p>@access private</p>
+<p>@internal If a Crypt_* class providing inline crypting it must extend _setupInlineCrypt()</p>
+
+<p>Creates the performance-optimized function for en/decrypt()</p>
+<p>Internally for phpseclib developers:</p>
+<p>   _createInlineCryptFunction():</p>
+<p>   - merge the $cipher_code [setup'ed by _setupInlineCrypt()]</p>
+<p>     with the current [$this->]mode of operation code</p>
+<p>   - create the $inline function, which called by encrypt() / decrypt()</p>
+<p>     as its replacement to speed up the en/decryption operations.</p>
+<p>   - return the name of the created $inline callback function</p>
+<p>   - used to speed up en/decryption</p>
+<p>   The main reason why can speed up things [up to 50%] this way are:</p>
+<p>   - using variables more effective then regular.</p>
+<p>     (ie no use of expensive arrays but integers $k_0, $k_1 ...</p>
+<p>     or even, for example, the pure $key[] values hardcoded)</p>
+<p>   - avoiding 1000's of function calls of ie _encryptBlock()</p>
+<p>     but inlining the crypt operations.</p>
+<p>     in the mode of operation for() loop.</p>
+<p>   - full loop unroll the (sometimes key-dependent) rounds</p>
+<p>     avoiding this way ++$i counters and runtime-if's etc...</p>
+<p>   The basic code architectur of the generated $inline en/decrypt()</p>
+<p>   lambda function, in pseudo php, is:</p>
+<p>   <code></p>
+<p>   +----------------------------------------------------------------------------------------------+</p>
+<p>   | callback $inline = create_function:                                                          |</p>
+<p>   | lambda_function_0001_crypt_ECB($action, $text)                                               |</p>
+<p>   | {                                                                                            |</p>
+<p>   |     INSERT PHP CODE OF:                                                                      |</p>
+<p>   |     $cipher_code['init_crypt'];                  // general init code.                       |</p>
+<p>   |                                                  // ie: $sbox'es declarations used for       |</p>
+<p>   |                                                  //     encrypt and decrypt'ing.             |</p>
+<p>   |                                                                                              |</p>
+<p>   |     switch ($action) {                                                                       |</p>
+<p>   |         case 'encrypt':                                                                      |</p>
+<p>   |             INSERT PHP CODE OF:                                                              |</p>
+<p>   |             $cipher_code['init_encrypt'];       // encrypt sepcific init code.               |</p>
+<p>   |                                                    ie: specified $key or $box                |</p>
+<p>   |                                                        declarations for encrypt'ing.         |</p>
+<p>   |                                                                                              |</p>
+<p>   |             foreach ($ciphertext) {                                                          |</p>
+<p>   |                 $in = $block_size of $ciphertext;                                            |</p>
+<p>   |                                                                                              |</p>
+<p>   |                 INSERT PHP CODE OF:                                                          |</p>
+<p>   |                 $cipher_code['encrypt_block'];  // encrypt's (string) $in, which is always:  |</p>
+<p>   |                                                 // strlen($in) == $this->block_size          |</p>
+<p>   |                                                 // here comes the cipher algorithm in action |</p>
+<p>   |                                                 // for encryption.                           |</p>
+<p>   |                                                 // $cipher_code['encrypt_block'] has to      |</p>
+<p>   |                                                 // encrypt the content of the $in variable   |</p>
+<p>   |                                                                                              |</p>
+<p>   |                 $plaintext .= $in;                                                           |</p>
+<p>   |             }                                                                                |</p>
+<p>   |             return $plaintext;                                                               |</p>
+<p>   |                                                                                              |</p>
+<p>   |         case 'decrypt':                                                                      |</p>
+<p>   |             INSERT PHP CODE OF:                                                              |</p>
+<p>   |             $cipher_code['init_decrypt'];       // decrypt sepcific init code                |</p>
+<p>   |                                                    ie: specified $key or $box                |</p>
+<p>   |                                                        declarations for decrypt'ing.         |</p>
+<p>   |             foreach ($plaintext) {                                                           |</p>
+<p>   |                 $in = $block_size of $plaintext;                                             |</p>
+<p>   |                                                                                              |</p>
+<p>   |                 INSERT PHP CODE OF:                                                          |</p>
+<p>   |                 $cipher_code['decrypt_block'];  // decrypt's (string) $in, which is always   |</p>
+<p>   |                                                 // strlen($in) == $this->block_size          |</p>
+<p>   |                                                 // here comes the cipher algorithm in action |</p>
+<p>   |                                                 // for decryption.                           |</p>
+<p>   |                                                 // $cipher_code['decrypt_block'] has to      |</p>
+<p>   |                                                 // decrypt the content of the $in variable   |</p>
+<p>   |                 $ciphertext .= $in;                                                          |</p>
+<p>   |             }                                                                                |</p>
+<p>   |             return $ciphertext;                                                              |</p>
+<p>   |     }                                                                                        |</p>
+<p>   | }                                                                                            |</p>
+<p>   +----------------------------------------------------------------------------------------------+</p>
+<p>   </code></p>
+<p>   See also the \phpseclib\Crypt\*::_setupInlineCrypt()'s for</p>
+<p>   productive inline $cipher_code's how they works.</p>
+<p>   Structure of:</p>
+<p>   <code></p>
+<p>   $cipher_code = array(</p>
+<p>       'init_crypt'    => (string) '', // optional</p>
+<p>       'init_encrypt'  => (string) '', // optional</p>
+<p>       'init_decrypt'  => (string) '', // optional</p>
+<p>       'encrypt_block' => (string) '', // required</p>
+<p>       'decrypt_block' => (string) ''  // required</p>
+<p>   );</p>
+<p>   </code></p>
+<p>@see self::_setupInlineCrypt()</p>
+<p>@see self::encrypt()</p>
+<p>@see self::decrypt()</p>
+<p>@param array $cipher_code</p>
+<p>@access private</p>
+<p>@return string (the name of the created callback function)</p>
+
+<p>Holds the lambda_functions table (classwide)</p>
+<p>Each name of the lambda function, created from</p>
+<p>_setupInlineCrypt() && _createInlineCryptFunction()</p>
+<p>is stored, classwide (!), here for reusing.</p>
+<p>The string-based index of $function is a classwide</p>
+<p>unique value representing, at least, the $mode of</p>
+<p>operation (or more... depends of the optimizing level)</p>
+<p>for which $mode the lambda function was created.</p>
+<p>@access private</p>
+<p>@return array &$functions</p>
+
+<p>Generates a digest from $bytes</p>
+<p>@see self::_setupInlineCrypt()</p>
+<p>@access private</p>
+<p>@param $bytes</p>
+<p>@return string</p>
+
+<p>Convert float to int</p>
+<p>On ARM CPUs converting floats to ints doesn't always work</p>
+<p>@access private</p>
+<p>@param string $x</p>
+<p>@return int</p>
+
+<p>eval()'able string for in-line float to int</p>
+<p>@access private</p>
+<p>@return string</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\Base.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>phpseclib\Crypt\should</code></li>
+<li><code>phpseclib\Crypt\var</code></li>
+<li><code>phpseclib\Crypt\Base</code></li>
+<li><code>phpseclib\Crypt\providing</code></li>
+<li><code>phpseclib\Crypt\var</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($mode = self::MODE_CBC)</code></li>
+<li><code>setIV($iv)</code></li>
+<li><code>setKeyLength($length)</code></li>
+<li><code>getKeyLength()</code></li>
+<li><code>getBlockLength()</code></li>
+<li><code>setKey($key)</code></li>
+<li><code>setPassword($password, $method = 'pbkdf2')</code></li>
+<li><code>encrypt($plaintext)</code></li>
+<li><code>decrypt($ciphertext)</code></li>
+<li><code>_openssl_ctr_process($plaintext, &$encryptIV, &$buffer)</code></li>
+<li><code>_openssl_ofb_process($plaintext, &$encryptIV, &$buffer)</code></li>
+<li><code>_openssl_translate_mode()</code></li>
+<li><code>enablePadding()</code></li>
+<li><code>disablePadding()</code></li>
+<li><code>enableContinuousBuffer()</code></li>
+<li><code>disableContinuousBuffer()</code></li>
+<li><code>isValidEngine($engine)</code></li>
+<li><code>setPreferredEngine($engine)</code></li>
+<li><code>getEngine()</code></li>
+<li><code>_setEngine()</code></li>
+<li><code>_encryptBlock($in)</code></li>
+<li><code>_decryptBlock($in)</code></li>
+<li><code>_setupKey()</code></li>
+<li><code>_setup()</code></li>
+<li><code>_setupMcrypt()</code></li>
+<li><code>_pad($text)</code></li>
+<li><code>_unpad($text)</code></li>
+<li><code>_clearBuffers()</code></li>
+<li><code>_string_shift(&$string, $index = 1)</code></li>
+<li><code>_string_pop(&$string, $index = 1)</code></li>
+<li><code>_increment_str(&$var)</code></li>
+<li><code>_setupInlineCrypt()</code></li>
+<li><code>_createInlineCryptFunction($cipher_code)</code></li>
+<li><code>_hashInlineCryptFunction($bytes)</code></li>
+<li><code>safe_intval($x)</code></li>
+<li><code>safe_intval_inline()</code></li>
+</ul>
+</body></html>

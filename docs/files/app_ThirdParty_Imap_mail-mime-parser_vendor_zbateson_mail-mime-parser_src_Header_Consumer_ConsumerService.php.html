@@ -1,0 +1,111 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\ConsumerService.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\ConsumerService.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\ConsumerService.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 6171 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Simple service provider for consumer singletons.</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var \ZBateson\MailMimeParser\Header\Part\HeaderPartFactory the</p>
+<p>HeaderPartFactory instance used to create HeaderParts.</p>
+
+<p>@var \ZBateson\MailMimeParser\Header\Part\MimeLiteralPartFactory used for</p>
+<p>GenericConsumer instances.</p>
+
+<p>@var Received\DomainConsumer[]|</p>
+<p>     Received\GenericReceivedConsumer[]|</p>
+<p>     Received\ReceivedDateConsumer[] an array of sub-received header</p>
+<p>     consumer instances.</p>
+
+<p>Sets up the HeaderPartFactory member variable.</p>
+
+<p>@param HeaderPartFactory $partFactory</p>
+<p>@param MimeLiteralPartFactory $mimeLiteralPartFactory</p>
+
+<p>Returns the AddressBaseConsumer singleton instance.</p>
+
+<p>@return \ZBateson\MailMimeParser\Header\Consumer\AddressBaseConsumer</p>
+
+<p>Returns the AddressConsumer singleton instance.</p>
+
+<p>@return \ZBateson\MailMimeParser\Header\Consumer\AddressConsumer</p>
+
+<p>Returns the AddressGroupConsumer singleton instance.</p>
+
+<p>@return \ZBateson\MailMimeParser\Header\Consumer\AddressGroupConsumer</p>
+
+<p>Returns the CommentConsumer singleton instance.</p>
+
+<p>@return \ZBateson\MailMimeParser\Header\Consumer\CommentConsumer</p>
+
+<p>Returns the GenericConsumer singleton instance.</p>
+
+<p>@return \ZBateson\MailMimeParser\Header\Consumer\GenericConsumer</p>
+
+<p>Returns the SubjectConsumer singleton instance.</p>
+
+<p>@return \ZBateson\MailMimeParser\Header\Consumer\SubjectConsumer</p>
+
+<p>Returns the QuotedStringConsumer singleton instance.</p>
+
+<p>@return \ZBateson\MailMimeParser\Header\Consumer\QuotedStringConsumer</p>
+
+<p>Returns the DateConsumer singleton instance.</p>
+
+<p>@return \ZBateson\MailMimeParser\Header\Consumer\DateConsumer</p>
+
+<p>Returns the ParameterConsumer singleton instance.</p>
+
+<p>@return \ZBateson\MailMimeParser\Header\Consumer\ParameterConsumer</p>
+
+<p>Returns the consumer instance corresponding to the passed part name of a</p>
+<p>Received header.</p>
+<p>@param string $partName</p>
+<p>@return \ZBateson\MailMimeParser\Header\Consumer\Received\FromConsumer</p>
+
+<p>Returns the ReceivedConsumer singleton instance.</p>
+<p>@return \ZBateson\MailMimeParser\Header\Consumer\ReceivedConsumer</p>
+
+<p>Returns the IdConsumer singleton instance.</p>
+<p>@return \ZBateson\MailMimeParser\Header\Consumer\IdConsumer</p>
+
+<p>Returns the IdBaseConsumer singleton instance.</p>
+<p>@return \ZBateson\MailMimeParser\Header\Consumer\IdBaseConsumer</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\ConsumerService.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Header\Consumer\ConsumerService</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(HeaderPartFactory $partFactory, MimeLiteralPartFactory $mimeLiteralPartFactory)</code></li>
+<li><code>getAddressBaseConsumer()</code></li>
+<li><code>getAddressConsumer()</code></li>
+<li><code>getAddressGroupConsumer()</code></li>
+<li><code>getCommentConsumer()</code></li>
+<li><code>getGenericConsumer()</code></li>
+<li><code>getSubjectConsumer()</code></li>
+<li><code>getQuotedStringConsumer()</code></li>
+<li><code>getDateConsumer()</code></li>
+<li><code>getParameterConsumer()</code></li>
+<li><code>getSubReceivedConsumer($partName)</code></li>
+<li><code>getReceivedConsumer()</code></li>
+<li><code>getIdConsumer()</code></li>
+<li><code>getIdBaseConsumer()</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,78 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Pusher\vendor\pusher\pusher-php-server\src\PusherCrypto.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Pusher\vendor\pusher\pusher-php-server\src\PusherCrypto.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Pusher\vendor\pusher\pusher-php-server\src\PusherCrypto.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 6881 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Checks if a given channel is an encrypted channel.</p>
+<p>@param string $channel the name of the channel</p>
+<p>@return bool true if channel is an encrypted channel</p>
+
+<p>Initialises a PusherCrypto instance.</p>
+<p>@param string $encryption_master_key the SECRET_KEY_LENGTH key that will be used for key derivation.</p>
+
+<p>Decrypts a given event.</p>
+<p>@param object $event an object that has an encrypted data property and a channel property.</p>
+<p>@return object the event with a decrypted payload, or false if decryption was unsuccessful.</p>
+
+<p>Derives a shared secret from the secret key and the channel to broadcast to.</p>
+<p>@param string $channel the name of the channel</p>
+<p>@return string a SHA256 hash (encoded as base64) of the channel name appended to the encryption key</p>
+
+<p>Encrypts a given plaintext for broadcast on a particular channel.</p>
+<p>@param string $channel   the name of the channel the payloads event will be broadcast on</p>
+<p>@param string $plaintext the data to encrypt</p>
+<p>@return string a string ready to be sent as the data of an event.</p>
+
+<p>Decrypts a given payload using the nonce and shared secret.</p>
+<p>@param string $payload       the ciphertext</p>
+<p>@param string $nonce         the nonce used in the encryption</p>
+<p>@param string $shared_secret the shared_secret used in the encryption</p>
+<p>@return string plaintext</p>
+
+<p>Formats an encrypted message ready for broadcast.</p>
+<p>@param string $nonce      the nonce used in the encryption process (bytes)</p>
+<p>@param string $ciphertext the ciphertext (bytes)</p>
+<p>@return string JSON with base64 encoded nonce and ciphertext`</p>
+
+<p>Parses an encrypted message into its nonce and ciphertext components.</p>
+<p>@param string $payload the encrypted message payload</p>
+<p>@return string php object with decoded nonce and ciphertext</p>
+
+<p>Generates a nonce that is SODIUM_CRYPTO_SECRETBOX_NONCEBYTES long.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Pusher\vendor\pusher\pusher-php-server\src\PusherCrypto.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Pusher\PusherCrypto</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>is_encrypted_channel($channel)</code></li>
+<li><code>parse_master_key($encryption_master_key, $encryption_master_key_base64)</code></li>
+<li><code>__construct($encryption_master_key)</code></li>
+<li><code>decrypt_event($event)</code></li>
+<li><code>generate_shared_secret($channel)</code></li>
+<li><code>encrypt_payload($channel, $plaintext)</code></li>
+<li><code>decrypt_payload($payload, $nonce, $shared_secret)</code></li>
+<li><code>format_encrypted_message($nonce, $ciphertext)</code></li>
+<li><code>parse_encrypted_message($payload)</code></li>
+<li><code>generate_nonce()</code></li>
+</ul>
+</body></html>

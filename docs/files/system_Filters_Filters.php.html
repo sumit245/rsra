@@ -1,0 +1,160 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Filters\Filters.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Filters\Filters.php</h1>
+
+<ul>
+<li>Path: <code>system\Filters\Filters.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 15563 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Filters</p>
+
+<p>The original config file</p>
+<p>@var FiltersConfig</p>
+
+<p>The active IncomingRequest or CLIRequest</p>
+<p>@var RequestInterface</p>
+
+<p>The active Response instance</p>
+<p>@var ResponseInterface</p>
+
+<p>Handle to the modules config.</p>
+<p>@var Modules</p>
+
+<p>Whether we've done initial processing</p>
+<p>on the filter lists.</p>
+<p>@var bool</p>
+
+<p>The processed filters that will</p>
+<p>be used to check against.</p>
+<p>@var array</p>
+
+<p>The collection of filters' class names that will</p>
+<p>be used to execute in each position.</p>
+<p>@var array</p>
+
+<p>Any arguments to be passed to filters.</p>
+<p>@var array</p>
+
+<p>Any arguments to be passed to filtersClass.</p>
+<p>@var array</p>
+
+<p>Constructor.</p>
+<p>@param FiltersConfig $config</p>
+
+<p>If discoverFilters is enabled in Config then system will try to</p>
+<p>auto-discover custom filters files in Namespaces and allow access to</p>
+<p>the config object via the variable $filters as with the routes file</p>
+<p>Sample :</p>
+<p>$filters->aliases['custom-auth'] = \Acme\Blob\Filters\BlobAuth::class;</p>
+
+<p>Set the response explicity.</p>
+
+<p>Runs through all of the filters for the specified</p>
+<p>uri and position.</p>
+<p>@throws FilterException</p>
+<p>@return mixed|RequestInterface|ResponseInterface</p>
+
+<p>Runs through our list of filters provided by the configuration</p>
+<p>object to get them ready for use, including getting uri masks</p>
+<p>to proper regex, removing those we can from the possibilities</p>
+<p>based on HTTP method, etc.</p>
+<p>The resulting $this->filters is an array of only filters</p>
+<p>that should be applied to this request.</p>
+<p>We go ahead and process the entire tree because we'll need to</p>
+<p>run through both a before and after and don't want to double</p>
+<p>process the rows.</p>
+<p>@return Filters</p>
+
+<p>Restores instance to its pre-initialized state.</p>
+<p>Most useful for testing so the service can be</p>
+<p>re-initialized to a different path.</p>
+
+<p>Returns the processed filters array.</p>
+
+<p>Returns the filtersClass array.</p>
+
+<p>Adds a new alias to the config file.</p>
+<p>MUST be called prior to initialize();</p>
+<p>Intended for use within routes files.</p>
+<p>@return $this</p>
+
+<p>Ensures that a specific filter is on and enabled for the current request.</p>
+<p>Filters can have "arguments". This is done by placing a colon immediately</p>
+<p>after the filter name, followed by a comma-separated list of arguments that</p>
+<p>are passed to the filter when executed.</p>
+<p>@return Filters</p>
+<p>@deprecated Use enableFilters(). This method will be private.</p>
+
+<p>Ensures that specific filters are on and enabled for the current request.</p>
+<p>Filters can have "arguments". This is done by placing a colon immediately</p>
+<p>after the filter name, followed by a comma-separated list of arguments that</p>
+<p>are passed to the filter when executed.</p>
+<p>@return Filters</p>
+
+<p>Returns the arguments for a specified key, or all.</p>
+<p>@return mixed</p>
+
+<p>Add any applicable (not excluded) global filter settings to the mix.</p>
+<p>@param string $uri</p>
+
+<p>Add any method-specific filters to the mix.</p>
+
+<p>Add any applicable configured filters to the mix.</p>
+<p>@param string $uri</p>
+
+<p>Maps filter aliases to the equivalent filter classes</p>
+<p>@throws FilterException</p>
+
+<p>Check paths for match for URI</p>
+<p>@param string $uri   URI to test against</p>
+<p>@param mixed  $paths The path patterns to test</p>
+<p>@return bool True if any of the paths apply to the URI</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Filters\Filters.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Filters\Filters</code></li>
+<li><code>CodeIgniter\Filters\names</code></li>
+<li><code>CodeIgniter\Filters\instanceof</code></li>
+<li><code>CodeIgniter\Filters\name</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($config, RequestInterface $request, ResponseInterface $response, ?Modules $modules = null)</code></li>
+<li><code>discoverFilters()</code></li>
+<li><code>setResponse(ResponseInterface $response)</code></li>
+<li><code>run(string $uri, string $position = 'before')</code></li>
+<li><code>initialize(?string $uri = null)</code></li>
+<li><code>reset()</code></li>
+<li><code>getFilters()</code></li>
+<li><code>getFiltersClass()</code></li>
+<li><code>addFilter(string $class, ?string $alias = null, string $when = 'before', string $section = 'globals')</code></li>
+<li><code>enableFilter(string $name, string $when = 'before')</code></li>
+<li><code>enableFilters(array $names, string $when = 'before')</code></li>
+<li><code>getArguments(?string $key = null)</code></li>
+<li><code>processGlobals(?string $uri = null)</code></li>
+<li><code>processMethods()</code></li>
+<li><code>processFilters(?string $uri = null)</code></li>
+<li><code>processAliasesToClass(string $position)</code></li>
+<li><code>pathApplies(string $uri, $paths)</code></li>
+</ul>
+</body></html>

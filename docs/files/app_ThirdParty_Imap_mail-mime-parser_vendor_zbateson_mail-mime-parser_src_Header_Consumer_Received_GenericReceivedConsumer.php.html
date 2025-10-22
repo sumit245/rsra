@@ -1,0 +1,102 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\Received\GenericReceivedConsumer.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\Received\GenericReceivedConsumer.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\Received\GenericReceivedConsumer.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4707 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Consumes simple literal strings for parts of a Received header.</p>
+<p>Starts consuming when the initialized $partName string is located, for</p>
+<p>instance when initialized with "FROM", will start consuming on " FROM" or</p>
+<p>"FROM ".</p>
+<p>The consumer ends when any possible "Received" header part is found, namely</p>
+<p>on one of the following tokens: from, by, via, with, id, for, or when the</p>
+<p>start token for the date stamp is found, ';'.</p>
+<p>The consumer allows comments in and around the consumer... although the</p>
+<p>Received header specification only allows them before a part, for example,</p>
+<p>technically speaking this is valid:</p>
+<p>"FROM machine (host) (comment) BY machine"</p>
+<p>However, this is not:</p>
+<p>"FROM machine (host) BY machine WITH (comment) ESMTP"</p>
+<p>The consumer will allow both.</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var string the current part name being parsed.</p>
+
+<p>Constructor overridden to include $partName parameter.</p>
+<p>@param ConsumerService $consumerService</p>
+<p>@param HeaderPartFactory $partFactory</p>
+<p>@param string $partName</p>
+
+<p>Returns the name of the part being parsed.</p>
+<p>This is always the lower-case name provided to the constructor, not the</p>
+<p>actual string that started the consumer, which could be in any case.</p>
+<p>@return string</p>
+
+<p>Overridden to return a CommentConsumer.</p>
+<p>@return AbstractConsumer[] the sub-consumers</p>
+
+<p>Returns true if the passed token matches (case-insensitively)</p>
+<p>$this->getPartName() with optional whitespace surrounding it.</p>
+<p>@param string $token</p>
+<p>@return bool</p>
+
+<p>Returns true if the token matches (case-insensitively) any of the</p>
+<p>following, with optional surrounding whitespace:</p>
+<p>o from</p>
+<p>o by</p>
+<p>o via</p>
+<p>o with</p>
+<p>o id</p>
+<p>o for</p>
+<p>o ;</p>
+<p>@param string $token</p>
+<p>@return boolean</p>
+
+<p>Returns a whitespace separator (for filtering ignorable whitespace</p>
+<p>between parts), and a separator matching the current part name as</p>
+<p>returned by $this->getPartName().</p>
+<p>@return string[] an array of regex pattern matchers</p>
+
+<p>Overridden to combine all part values into a single string and return it</p>
+<p>as the first element, followed by any comment elements as subsequent</p>
+<p>elements.</p>
+<p>@param \ZBateson\MailMimeParser\Header\Part\HeaderPart[] $parts</p>
+<p>@return \ZBateson\MailMimeParser\Header\Part\HeaderPart[]|</p>
+<p>        \ZBateson\MailMimeParser\Header\Part\CommentPart[]|</p>
+<p>        array</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>machine</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\Received\GenericReceivedConsumer.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Header\Consumer\Received\GenericReceivedConsumer extends GenericConsumer</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(ConsumerService $consumerService, HeaderPartFactory $partFactory, $partName)</code></li>
+<li><code>getPartName()</code></li>
+<li><code>getSubConsumers()</code></li>
+<li><code>isStartToken($token)</code></li>
+<li><code>isEndToken($token)</code></li>
+<li><code>getTokenSeparators()</code></li>
+<li><code>processParts(array $parts)</code></li>
+</ul>
+</body></html>

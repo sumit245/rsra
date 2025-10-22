@@ -1,0 +1,121 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\HTMLModuleManager.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\HTMLModuleManager.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\HTMLModuleManager.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 15946 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@type HTMLPurifier_DoctypeRegistry</p>
+
+<p>Instance of current doctype.</p>
+<p>@type string</p>
+
+<p>@type HTMLPurifier_AttrTypes</p>
+
+<p>Active instances of modules for the specified doctype are</p>
+<p>indexed, by name, in this array.</p>
+<p>@type HTMLPurifier_HTMLModule[]</p>
+
+<p>Array of recognized HTMLPurifier_HTMLModule instances,</p>
+<p>indexed by module's class name. This array is usually lazy loaded, but a</p>
+<p>user can overload a module by pre-emptively registering it.</p>
+<p>@type HTMLPurifier_HTMLModule[]</p>
+
+<p>List of extra modules that were added by the user</p>
+<p>using addModule(). These get unconditionally merged into the current doctype, whatever</p>
+<p>it may be.</p>
+<p>@type HTMLPurifier_HTMLModule[]</p>
+
+<p>Associative array of element name to list of modules that have</p>
+<p>definitions for the element; this array is dynamically filled.</p>
+<p>@type array</p>
+
+<p>List of prefixes we should use for registering small names.</p>
+<p>@type array</p>
+
+<p>@type HTMLPurifier_ContentSets</p>
+
+<p>@type HTMLPurifier_AttrCollections</p>
+
+<p>If set to true, unsafe elements and attributes will be allowed.</p>
+<p>@type bool</p>
+
+<p>Registers a module to the recognized module list, useful for</p>
+<p>overloading pre-existing modules.</p>
+<p>@param $module Mixed: string module name, with or without</p>
+<p>               HTMLPurifier_HTMLModule prefix, or instance of</p>
+<p>               subclass of HTMLPurifier_HTMLModule.</p>
+<p>@param $overload Boolean whether or not to overload previous modules.</p>
+<p>                 If this is not set, and you do overload a module,</p>
+<p>                 HTML Purifier will complain with a warning.</p>
+<p>@note This function will not call autoload, you must instantiate</p>
+<p>      (and thus invoke) autoload outside the method.</p>
+<p>@note If a string is passed as a module name, different variants</p>
+<p>      will be tested in this order:</p>
+<p>         - Check for HTMLPurifier_HTMLModule_$name</p>
+<p>         - Check all prefixes with $name in order they were added</p>
+<p>         - Check for literal object name</p>
+<p>         - Throw fatal error</p>
+<p>      If your object name collides with an internal class, specify</p>
+<p>      your module manually. All modules must have been included</p>
+<p>      externally: registerModule will not perform inclusions for you!</p>
+
+<p>Adds a module to the current doctype by first registering it,</p>
+<p>and then tacking it on to the active doctype</p>
+
+<p>Adds a class prefix that registerModule() will use to resolve a</p>
+<p>string name to a concrete class</p>
+
+<p>Performs processing on modules, after being called you may</p>
+<p>use getElement() and getElements()</p>
+<p>@param HTMLPurifier_Config $config</p>
+
+<p>Takes a module and adds it to the active module collection,</p>
+<p>registering it if necessary.</p>
+
+<p>Retrieves merged element definitions.</p>
+<p>@return Array of HTMLPurifier_ElementDef</p>
+
+<p>Retrieves a single merged element definition</p>
+<p>@param string $name Name of element</p>
+<p>@param bool $trusted Boolean trusted overriding parameter: set to true</p>
+<p>                if you want the full version of an element</p>
+<p>@return HTMLPurifier_ElementDef Merged HTMLPurifier_ElementDef</p>
+<p>@note You may notice that modules are getting iterated over twice (once</p>
+<p>      in getElements() and once here). This</p>
+<p>      is because</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\HTMLModuleManager.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>HTMLPurifier_HTMLModuleManager</code></li>
+<li><code>name</code></li>
+<li><code>prefix</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>registerModule($module, $overload = false)</code></li>
+<li><code>addModule($module)</code></li>
+<li><code>addPrefix($prefix)</code></li>
+<li><code>setup($config)</code></li>
+<li><code>processModule($module)</code></li>
+<li><code>getElements()</code></li>
+<li><code>getElement($name, $trusted = null)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,98 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\DefinitionCache.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\DefinitionCache.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\DefinitionCache.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3913 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Abstract class representing Definition cache managers that implements</p>
+<p>useful common methods and is a factory.</p>
+<p>@todo Create a separate maintenance file advanced users can use to</p>
+<p>      cache their custom HTMLDefinition, which can be loaded</p>
+<p>      via a configuration directive</p>
+<p>@todo Implement memcached</p>
+
+<p>@type string</p>
+
+<p>@param string $type Type of definition objects this instance of the</p>
+<p>     cache will handle.</p>
+
+<p>Generates a unique identifier for a particular configuration</p>
+<p>@param HTMLPurifier_Config $config Instance of HTMLPurifier_Config</p>
+<p>@return string</p>
+
+<p>Tests whether or not a key is old with respect to the configuration's</p>
+<p>version and revision number.</p>
+<p>@param string $key Key to test</p>
+<p>@param HTMLPurifier_Config $config Instance of HTMLPurifier_Config to test against</p>
+<p>@return bool</p>
+
+<p>Checks if a definition's type jives with the cache's type</p>
+<p>@note Throws an error on failure</p>
+<p>@param HTMLPurifier_Definition $def Definition object to check</p>
+<p>@return bool true if good, false if not</p>
+
+<p>Adds a definition object to the cache</p>
+<p>@param HTMLPurifier_Definition $def</p>
+<p>@param HTMLPurifier_Config $config</p>
+
+<p>Unconditionally saves a definition object to the cache</p>
+<p>@param HTMLPurifier_Definition $def</p>
+<p>@param HTMLPurifier_Config $config</p>
+
+<p>Replace an object in the cache</p>
+<p>@param HTMLPurifier_Definition $def</p>
+<p>@param HTMLPurifier_Config $config</p>
+
+<p>Retrieves a definition object from the cache</p>
+<p>@param HTMLPurifier_Config $config</p>
+
+<p>Removes a definition object to the cache</p>
+<p>@param HTMLPurifier_Config $config</p>
+
+<p>Clears all objects from cache</p>
+<p>@param HTMLPurifier_Config $config</p>
+
+<p>Clears all expired (older version or revision) objects from cache</p>
+<p>@note Be careful implementing this method as flush. Flush must</p>
+<p>      not interfere with other Definition types, and cleanup()</p>
+<p>      should not be repeatedly called by userland code.</p>
+<p>@param HTMLPurifier_Config $config</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>cache</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\DefinitionCache.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>representing</code></li>
+<li><code>HTMLPurifier_DefinitionCache</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($type)</code></li>
+<li><code>generateKey($config)</code></li>
+<li><code>isOld($key, $config)</code></li>
+<li><code>checkDefType($def)</code></li>
+<li><code>add($def, $config)</code></li>
+<li><code>set($def, $config)</code></li>
+<li><code>replace($def, $config)</code></li>
+<li><code>get($config)</code></li>
+<li><code>remove($config)</code></li>
+<li><code>flush($config)</code></li>
+<li><code>cleanup($config)</code></li>
+</ul>
+</body></html>

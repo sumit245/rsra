@@ -1,0 +1,150 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\RestApi\ThirdParty\Requests\Cookie.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\RestApi\ThirdParty\Requests\Cookie.php</h1>
+
+<ul>
+<li>Path: <code>plugins\RestApi\ThirdParty\Requests\Cookie.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 13033 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Cookie storage object</p>
+<p>@package Requests</p>
+<p>@subpackage Cookies</p>
+
+<p>Cookie storage object</p>
+<p>@package Requests</p>
+<p>@subpackage Cookies</p>
+
+<p>Cookie name.</p>
+<p>@var string</p>
+
+<p>Cookie value.</p>
+<p>@var string</p>
+
+<p>Cookie attributes</p>
+<p>Valid keys are (currently) path, domain, expires, max-age, secure and</p>
+<p>httponly.</p>
+<p>@var Requests_Utility_CaseInsensitiveDictionary|array Array-like object</p>
+
+<p>Cookie flags</p>
+<p>Valid keys are (currently) creation, last-access, persistent and</p>
+<p>host-only.</p>
+<p>@var array</p>
+
+<p>Reference time for relative calculations</p>
+<p>This is used in place of <code>time()</code> when calculating Max-Age expiration and</p>
+<p>checking time validity.</p>
+<p>@var int</p>
+
+<p>Create a new cookie object</p>
+<p>@param string $name</p>
+<p>@param string $value</p>
+<p>@param array|Requests_Utility_CaseInsensitiveDictionary $attributes Associative array of attribute data</p>
+
+<p>Check if a cookie is expired.</p>
+<p>Checks the age against $this->reference_time to determine if the cookie</p>
+<p>is expired.</p>
+<p>@return boolean True if expired, false if time is valid.</p>
+
+<p>Check if a cookie is valid for a given URI</p>
+<p>@param Requests_IRI $uri URI to check</p>
+<p>@return boolean Whether the cookie is valid for the given URI</p>
+
+<p>Check if a cookie is valid for a given domain</p>
+<p>@param string $string Domain to check</p>
+<p>@return boolean Whether the cookie is valid for the given domain</p>
+
+<p>Check if a cookie is valid for a given path</p>
+<p>From the path-match check in RFC 6265 section 5.1.4</p>
+<p>@param string $request_path Path to check</p>
+<p>@return boolean Whether the cookie is valid for the given path</p>
+
+<p>Normalize cookie and attributes</p>
+<p>@return boolean Whether the cookie was successfully normalized</p>
+
+<p>Parse an individual cookie attribute</p>
+<p>Handles parsing individual attributes from the cookie values.</p>
+<p>@param string $name Attribute name</p>
+<p>@param string|boolean $value Attribute value (string value, or true if empty/flag)</p>
+<p>@return mixed Value if available, or null if the attribute value is invalid (and should be skipped)</p>
+
+<p>Format a cookie for a Cookie header</p>
+<p>This is used when sending cookies to a server.</p>
+<p>@return string Cookie formatted for Cookie header</p>
+
+<p>Format a cookie for a Cookie header</p>
+<p>@codeCoverageIgnore</p>
+<p>@deprecated Use {@see Requests_Cookie::format_for_header}</p>
+<p>@return string</p>
+
+<p>Format a cookie for a Set-Cookie header</p>
+<p>This is used when sending cookies to clients. This isn't really</p>
+<p>applicable to client-side usage, but might be handy for debugging.</p>
+<p>@return string Cookie formatted for Set-Cookie header</p>
+
+<p>Format a cookie for a Set-Cookie header</p>
+<p>@codeCoverageIgnore</p>
+<p>@deprecated Use {@see Requests_Cookie::format_for_set_cookie}</p>
+<p>@return string</p>
+
+<p>Get the cookie value</p>
+<p>Attributes and other data can be accessed via methods.</p>
+
+<p>Parse a cookie string into a cookie object</p>
+<p>Based on Mozilla's parsing code in Firefox and related projects, which</p>
+<p>is an intentional deviation from RFC 2109 and RFC 2616. RFC 6265</p>
+<p>specifies some of this handling, but not in a thorough manner.</p>
+<p>@param string Cookie header value (from a Set-Cookie header)</p>
+<p>@return Requests_Cookie Parsed cookie object</p>
+
+<p>Parse all Set-Cookie headers from request headers</p>
+<p>@param Requests_Response_Headers $headers Headers to parse from</p>
+<p>@param Requests_IRI|null $origin URI for comparing cookie origins</p>
+<p>@param int|null $time Reference time for expiration calculation</p>
+<p>@return array</p>
+
+<p>Parse all Set-Cookie headers from request headers</p>
+<p>@codeCoverageIgnore</p>
+<p>@deprecated Use {@see Requests_Cookie::parse_from_headers}</p>
+<p>@return array</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>RFC</code></li>
+<li><code>a</code></li>
+<li><code>request</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\RestApi\ThirdParty\Requests\Cookie.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Requests_Cookie</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($name, $value, $attributes = array()</code></li>
+<li><code>is_expired()</code></li>
+<li><code>uri_matches(Requests_IRI $uri)</code></li>
+<li><code>domain_matches($string)</code></li>
+<li><code>path_matches($request_path)</code></li>
+<li><code>normalize()</code></li>
+<li><code>normalize_attribute($name, $value)</code></li>
+<li><code>format_for_header()</code></li>
+<li><code>formatForHeader()</code></li>
+<li><code>format_for_set_cookie()</code></li>
+<li><code>formatForSetCookie()</code></li>
+<li><code>__toString()</code></li>
+<li><code>parse($string, $name = '', $reference_time = null)</code></li>
+<li><code>parse_from_headers(Requests_Response_Headers $headers, Requests_IRI $origin = null, $time = null)</code></li>
+<li><code>parseFromHeaders(Requests_Response_Headers $headers)</code></li>
+</ul>
+</body></html>

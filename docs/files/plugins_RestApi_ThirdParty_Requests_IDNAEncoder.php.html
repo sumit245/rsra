@@ -1,0 +1,106 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\RestApi\ThirdParty\Requests\IDNAEncoder.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\RestApi\ThirdParty\Requests\IDNAEncoder.php</h1>
+
+<ul>
+<li>Path: <code>plugins\RestApi\ThirdParty\Requests\IDNAEncoder.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 11547 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>IDNA URL encoder</p>
+<p>Note: Not fully compliant, as nameprep does nothing yet.</p>
+<p>@package Requests</p>
+<p>@subpackage Utilities</p>
+<p>@see https://tools.ietf.org/html/rfc3490 IDNA specification</p>
+<p>@see https://tools.ietf.org/html/rfc3492 Punycode/Bootstrap specification</p>
+
+<p>ACE prefix used for IDNA</p>
+<p>@see https://tools.ietf.org/html/rfc3490#section-5</p>
+<p>@var string</p>
+
+<p>#@+</p>
+<p>Bootstrap constant for Punycode</p>
+<p>@see https://tools.ietf.org/html/rfc3492#section-5</p>
+<p>@var int</p>
+
+<p>#@-</p>
+
+<p>Encode a hostname using Punycode</p>
+<p>@param string $string Hostname</p>
+<p>@return string Punycode-encoded hostname</p>
+
+<p>Convert a UTF-8 string to an ASCII string using Punycode</p>
+<p>@throws Requests_Exception Provided string longer than 64 ASCII characters (<code>idna.provided_too_long</code>)</p>
+<p>@throws Requests_Exception Prepared string longer than 64 ASCII characters (<code>idna.prepared_too_long</code>)</p>
+<p>@throws Requests_Exception Provided string already begins with xn-- (<code>idna.provided_is_prefixed</code>)</p>
+<p>@throws Requests_Exception Encoded string longer than 64 ASCII characters (<code>idna.encoded_too_long</code>)</p>
+<p>@param string $string ASCII or UTF-8 string (max length 64 characters)</p>
+<p>@return string ASCII string</p>
+
+<p>Check whether a given string contains only ASCII characters</p>
+<p>@internal (Testing found regex was the fastest implementation)</p>
+<p>@param string $string</p>
+<p>@return bool Is the string ASCII-only?</p>
+
+<p>Prepare a string for use as an IDNA name</p>
+<p>@todo Implement this based on RFC 3491 and the newer 5891</p>
+<p>@param string $string</p>
+<p>@return string Prepared string</p>
+
+<p>Convert a UTF-8 string to a UCS-4 codepoint array</p>
+<p>Based on Requests_IRI::replace_invalid_with_pct_encoding()</p>
+<p>@throws Requests_Exception Invalid UTF-8 codepoint (<code>idna.invalidcodepoint</code>)</p>
+<p>@param string $input</p>
+<p>@return array Unicode code points</p>
+
+<p>RFC3492-compliant encoder</p>
+<p>@internal Pseudo-code from Section 6.3 is commented with "#" next to relevant code</p>
+<p>@throws Requests_Exception On character outside of the domain (never happens with Punycode) (<code>idna.character_outside_domain</code>)</p>
+<p>@param string $input UTF-8 encoded string to encode</p>
+<p>@return string Punycode-encoded string</p>
+
+<p>Convert a digit to its respective character</p>
+<p>@see https://tools.ietf.org/html/rfc3492#section-5</p>
+<p>@throws Requests_Exception On invalid digit (<code>idna.invalid_digit</code>)</p>
+<p>@param int $digit Digit in the range 0-35</p>
+<p>@return string Single character corresponding to digit</p>
+
+<p>Adapt the bias</p>
+<p>@see https://tools.ietf.org/html/rfc3492#section-6.1</p>
+<p>@param int $delta</p>
+<p>@param int $numpoints</p>
+<p>@param bool $firsttime</p>
+<p>@return int New bias</p>
+<p>function adapt(delta,numpoints,firsttime):</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>Section</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\RestApi\ThirdParty\Requests\IDNAEncoder.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Requests_IDNAEncoder</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>encode($string)</code></li>
+<li><code>to_ascii($string)</code></li>
+<li><code>is_ascii($string)</code></li>
+<li><code>nameprep($string)</code></li>
+<li><code>utf8_to_codepoints($input)</code></li>
+<li><code>punycode_encode($input)</code></li>
+<li><code>digit_to_char($digit)</code></li>
+<li><code>adapt(delta,numpoints,firsttime)</code></li>
+<li><code>adapt($delta, $numpoints, $firsttime)</code></li>
+</ul>
+</body></html>

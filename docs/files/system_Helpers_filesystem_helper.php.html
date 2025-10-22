@@ -1,0 +1,114 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Helpers\filesystem_helper.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Helpers\filesystem_helper.php</h1>
+
+<ul>
+<li>Path: <code>system\Helpers\filesystem_helper.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 15402 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Create a Directory Map</p>
+<p>Reads the specified directory and builds an array</p>
+<p>representation of it. Sub-folders contained with the</p>
+<p>directory will be mapped as well.</p>
+<p>@param string $sourceDir      Path to source</p>
+<p>@param int    $directoryDepth Depth of directories to traverse</p>
+<p>                              (0 = fully recursive, 1 = current dir, etc)</p>
+<p>@param bool   $hidden         Whether to show hidden files</p>
+
+<p>Recursively copies the files and directories of the origin directory</p>
+<p>into the target directory, i.e. "mirror" its contents.</p>
+<p>@param bool $overwrite Whether individual files overwrite on collision</p>
+<p>@throws InvalidArgumentException</p>
+
+<p>@var SplFileInfo $file</p>
+
+<p>Write File</p>
+<p>Writes data to the file specified in the path.</p>
+<p>Creates a new file if non-existent.</p>
+<p>@param string $path File path</p>
+<p>@param string $data Data to write</p>
+<p>@param string $mode fopen() mode (default: 'wb')</p>
+
+<p>Delete Files</p>
+<p>Deletes all files contained in the supplied directory path.</p>
+<p>Files must be writable or owned by the system in order to be deleted.</p>
+<p>If the second parameter is set to true, any directories contained</p>
+<p>within the supplied base directory will be nuked as well.</p>
+<p>@param string $path   File path</p>
+<p>@param bool   $delDir Whether to delete any directories found in the path</p>
+<p>@param bool   $htdocs Whether to skip deleting .htaccess and index page files</p>
+<p>@param bool   $hidden Whether to include hidden files (files beginning with a period)</p>
+
+<p>Get Filenames</p>
+<p>Reads the specified directory and builds an array containing the filenames.</p>
+<p>Any sub-folders contained within the specified path are read as well.</p>
+<p>@param string    $sourceDir   Path to source</p>
+<p>@param bool|null $includePath Whether to include the path as part of the filename; false for no path, null for a relative path, true for full path</p>
+<p>@param bool      $hidden      Whether to include hidden files (files beginning with a period)</p>
+<p>@param bool      $includeDir  Whether to include directories</p>
+
+<p>Get Directory File Information</p>
+<p>Reads the specified directory and builds an array containing the filenames,</p>
+<p>filesize, dates, and permissions</p>
+<p>Any sub-folders contained within the specified path are read as well.</p>
+<p>@param string $sourceDir    Path to source</p>
+<p>@param bool   $topLevelOnly Look only at the top level directory specified?</p>
+<p>@param bool   $recursion    Internal variable to determine recursion status - do not use in calls</p>
+
+<p>Get File Info</p>
+<p>Given a file and path, returns the name, path, size, date modified</p>
+<p>Second parameter allows you to explicitly declare what information you want returned</p>
+<p>Options are: name, server_path, size, date, readable, writable, executable, fileperms</p>
+<p>Returns false if the file cannot be found.</p>
+<p>@param string $file           Path to file</p>
+<p>@param mixed  $returnedValues Array or comma separated string of information returned</p>
+<p>@return array|null</p>
+
+<p>Symbolic Permissions</p>
+<p>Takes a numeric value representing a file's permissions and returns</p>
+<p>standard symbolic notation representing that value</p>
+<p>@param int $perms Permissions</p>
+
+<p>Octal Permissions</p>
+<p>Takes a numeric value representing a file's permissions and returns</p>
+<p>a three character string representing the file's octal permissions</p>
+<p>@param int $perms Permissions</p>
+
+<p>Checks if two files both exist and have identical hashes</p>
+<p>@return bool Same or not</p>
+
+<p>Set Realpath</p>
+<p>@param bool $checkExistence Checks to see if the path exists</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Helpers\filesystem_helper.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>directory_map(string $sourceDir, int $directoryDepth = 0, bool $hidden = false)</code></li>
+<li><code>directory_mirror(string $originDir, string $targetDir, bool $overwrite = true)</code></li>
+<li><code>write_file(string $path, string $data, string $mode = 'wb')</code></li>
+<li><code>delete_files(string $path, bool $delDir = false, bool $htdocs = false, bool $hidden = false)</code></li>
+<li>`get_filenames(string $sourceDir,</li>
+<p>        ?bool $includePath = false,</p>
+<p>        bool $hidden = false,</p>
+<p>        bool $includeDir = true)`</p>
+<li><code>get_dir_file_info(string $sourceDir, bool $topLevelOnly = true, bool $recursion = false)</code></li>
+<li><code>get_file_info(string $file, $returnedValues = ['name', 'server_path', 'size', 'date'])</code></li>
+<li><code>symbolic_permissions(int $perms)</code></li>
+<li><code>octal_permissions(int $perms)</code></li>
+<li><code>same_file(string $file1, string $file2)</code></li>
+<li><code>set_realpath(string $path, bool $checkExistence = false)</code></li>
+</ul>
+</body></html>

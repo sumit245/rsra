@@ -1,0 +1,87 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Typography\Typography.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Typography\Typography.php</h1>
+
+<ul>
+<li>Path: <code>system\Typography\Typography.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 13345 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Typography Class</p>
+
+<p>Block level elements that should not be wrapped inside <p> tags</p>
+<p>@var string</p>
+
+<p>Elements that should not have <p> and <br /> tags within them.</p>
+<p>@var string</p>
+
+<p>Tags we want the parser to completely ignore when splitting the string.</p>
+<p>@var string</p>
+
+<p>array of block level elements that require inner content to be within another block level element</p>
+<p>@var array</p>
+
+<p>the last block element parsed</p>
+<p>@var string</p>
+
+<p>whether or not to protect quotes within { curly braces }</p>
+<p>@var bool</p>
+
+<p>Auto Typography</p>
+<p>This function converts text, making it typographically correct:</p>
+<p>    - Converts double spaces into paragraphs.</p>
+<p>    - Converts single line breaks into <br /> tags</p>
+<p>    - Converts single and double quotes into correctly facing curly quote entities.</p>
+<p>    - Converts three dots into ellipsis.</p>
+<p>    - Converts double dashes into em-dashes.</p>
+<p> - Converts two spaces into entities</p>
+<p>@param bool $reduceLinebreaks whether to reduce more then two consecutive newlines to two</p>
+
+<p>Format Characters</p>
+<p>This function mainly converts double and single quotes</p>
+<p>to curly entities, but it also converts em-dashes,</p>
+<p>double spaces, and ampersands</p>
+
+<p>Format Newlines</p>
+<p>Converts newline characters into either <p> tags or <br /></p>
+
+<p>Protect Characters</p>
+<p>Protects special characters from being formatted later</p>
+<p>We don't want quotes converted within tags so we'll temporarily convert them to {@DQ} and {@SQ}</p>
+<p>and we don't want double dashes converted to emdash entities, so they are marked with {@DD}</p>
+<p>likewise double spaces are converted to {@NBS} to prevent entity conversion</p>
+
+<p>Convert newlines to HTML line breaks except within PRE tags</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>being</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Typography\Typography.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Typography\Typography</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>autoTypography(string $str, bool $reduceLinebreaks = false)</code></li>
+<li><code>formatCharacters(string $str)</code></li>
+<li><code>formatNewLines(string $str)</code></li>
+<li><code>protectCharacters(array $match)</code></li>
+<li><code>nl2brExceptPre(string $str)</code></li>
+</ul>
+</body></html>

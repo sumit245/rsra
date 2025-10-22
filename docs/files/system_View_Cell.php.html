@@ -1,0 +1,76 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\View\Cell.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\View\Cell.php</h1>
+
+<ul>
+<li>Path: <code>system\View\Cell.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 6076 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Class Cell</p>
+<p>A simple class that can call any other class that can be loaded,</p>
+<p>and echo out it's result. Intended for displaying small blocks of</p>
+<p>content within views that can be managed by other libraries and</p>
+<p>not require they are loaded within controller.</p>
+<p>Used with the helper function, it's use will look like:</p>
+<p>        viewCell('\Some\Class::method', 'limit=5 sort=asc', 60, 'cache-name');</p>
+<p>Parameters are matched up with the callback method's arguments of the same name:</p>
+<p>        class Class {</p>
+<p>            function method($limit, $sort)</p>
+<p>        }</p>
+<p>Alternatively, the params will be passed into the callback method as a simple array</p>
+<p>if matching params are not found.</p>
+<p>        class Class {</p>
+<p>            function method(array $params=null)</p>
+<p>        }</p>
+
+<p>Instance of the current Cache Instance</p>
+<p>@var CacheInterface</p>
+
+<p>Cell constructor.</p>
+
+<p>Render a cell, returning its body as a string.</p>
+<p>@param array|string|null $params</p>
+<p>@throws ReflectionException</p>
+
+<p>Parses the params attribute. If an array, returns untouched.</p>
+<p>If a string, it should be in the format "key1=value key2=value".</p>
+<p>It will be split and returned as an array.</p>
+<p>@param array|string|null $params</p>
+<p>@return array|null</p>
+
+<p>Given the library string, attempts to determine the class and method</p>
+<p>to call.</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\View\Cell.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\View\that</code></li>
+<li><code>CodeIgniter\View\that</code></li>
+<li><code>CodeIgniter\View\Class</code></li>
+<li><code>CodeIgniter\View\Class</code></li>
+<li><code>CodeIgniter\View\Cell</code></li>
+<li><code>CodeIgniter\View\and</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>method($limit, $sort)</code></li>
+<li><code>method(array $params=null)</code></li>
+<li><code>__construct(CacheInterface $cache)</code></li>
+<li><code>render(string $library, $params = null, int $ttl = 0, ?string $cacheName = null)</code></li>
+<li><code>prepareParams($params)</code></li>
+<li><code>determineClass(string $library)</code></li>
+</ul>
+</body></html>

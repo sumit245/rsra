@@ -1,0 +1,64 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Test\Interfaces\FabricatorModel.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Test\Interfaces\FabricatorModel.php</h1>
+
+<ul>
+<li>Path: <code>system\Test\Interfaces\FabricatorModel.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2251 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>FabricatorModel</p>
+<p>An interface defining the required methods and properties</p>
+<p>needed for a model to qualify for use with the Fabricator class.</p>
+<p>While interfaces cannot enforce properties, the following</p>
+<p>are required for use with Fabricator:</p>
+<p>@property string $returnType</p>
+<p>@property string $primaryKey</p>
+<p>@property string $dateFormat</p>
+
+<p>Fetches the row of database from $this->table with a primary key</p>
+<p>matching $id.</p>
+<p>@param array|mixed|null $id One primary key or an array of primary keys</p>
+<p>@return array|object|null The resulting row of data, or null.</p>
+
+<p>Inserts data into the current table. If an object is provided,</p>
+<p>it will attempt to convert it to an array.</p>
+<p>@param array|object $data</p>
+<p>@param bool         $returnID Whether insert ID should be returned or not.</p>
+<p>@throws ReflectionException</p>
+<p>@return bool|int|string</p>
+
+<p>The following properties and methods are optional, but if present should</p>
+<p>adhere to their definitions.</p>
+<p>@property array  $allowedFields</p>
+<p>@property string $useSoftDeletes</p>
+<p>@property string $useTimestamps</p>
+<p>@property string $createdField</p>
+<p>@property string $updatedField</p>
+<p>@property string $deletedField</p>
+
+<p>Faked data for Fabricator.</p>
+<p>@param Generator $faker</p>
+<p>@return array|object</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Test\Interfaces\FabricatorModel.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>find($id = null)</code></li>
+<li><code>insert($data = null, bool $returnID = true)</code></li>
+<li><code>withDeleted($val = true)</code></li>
+<li><code>fake(Generator &$faker)</code></li>
+</ul>
+</body></html>

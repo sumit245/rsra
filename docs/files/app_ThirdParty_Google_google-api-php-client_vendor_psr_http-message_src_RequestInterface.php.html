@@ -1,0 +1,111 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\psr\http-message\src\RequestInterface.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\psr\http-message\src\RequestInterface.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\psr\http-message\src\RequestInterface.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4814 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Representation of an outgoing, client-side request.</p>
+<p>Per the HTTP specification, this interface includes properties for</p>
+<p>each of the following:</p>
+<ul>
+<li>Protocol version</li>
+<li>HTTP method</li>
+<li>URI</li>
+<li>Headers</li>
+<li>Message body</li>
+<p>During construction, implementations MUST attempt to set the Host header from</p>
+<p>a provided URI if no Host header is provided.</p>
+<p>Requests are considered immutable; all methods that might change state MUST</p>
+<p>be implemented such that they retain the internal state of the current</p>
+<p>message and return an instance that contains the changed state.</p>
+</ul>
+<p>Retrieves the message's request target.</p>
+<p>Retrieves the message's request-target either as it will appear (for</p>
+<p>clients), as it appeared at request (for servers), or as it was</p>
+<p>specified for the instance (see withRequestTarget()).</p>
+<p>In most cases, this will be the origin-form of the composed URI,</p>
+<p>unless a value was provided to the concrete implementation (see</p>
+<p>withRequestTarget() below).</p>
+<p>If no URI is available, and no request-target has been specifically</p>
+<p>provided, this method MUST return the string "/".</p>
+<p>@return string</p>
+
+<p>Return an instance with the specific request-target.</p>
+<p>If the request needs a non-origin-form request-target — e.g., for</p>
+<p>specifying an absolute-form, authority-form, or asterisk-form —</p>
+<p>this method may be used to create an instance with the specified</p>
+<p>request-target, verbatim.</p>
+<p>This method MUST be implemented in such a way as to retain the</p>
+<p>immutability of the message, and MUST return an instance that has the</p>
+<p>changed request target.</p>
+<p>@link http://tools.ietf.org/html/rfc7230#section-5.3 (for the various</p>
+<p>    request-target forms allowed in request messages)</p>
+<p>@param mixed $requestTarget</p>
+<p>@return static</p>
+
+<p>Retrieves the HTTP method of the request.</p>
+<p>@return string Returns the request method.</p>
+
+<p>Return an instance with the provided HTTP method.</p>
+<p>While HTTP method names are typically all uppercase characters, HTTP</p>
+<p>method names are case-sensitive and thus implementations SHOULD NOT</p>
+<p>modify the given string.</p>
+<p>This method MUST be implemented in such a way as to retain the</p>
+<p>immutability of the message, and MUST return an instance that has the</p>
+<p>changed request method.</p>
+<p>@param string $method Case-sensitive method.</p>
+<p>@return static</p>
+<p>@throws \InvalidArgumentException for invalid HTTP methods.</p>
+
+<p>Retrieves the URI instance.</p>
+<p>This method MUST return a UriInterface instance.</p>
+<p>@link http://tools.ietf.org/html/rfc3986#section-4.3</p>
+<p>@return UriInterface Returns a UriInterface instance</p>
+<p>    representing the URI of the request.</p>
+
+<p>Returns an instance with the provided URI.</p>
+<p>This method MUST update the Host header of the returned request by</p>
+<p>default if the URI contains a host component. If the URI does not</p>
+<p>contain a host component, any pre-existing Host header MUST be carried</p>
+<p>over to the returned request.</p>
+<p>You can opt-in to preserving the original state of the Host header by</p>
+<p>setting <code>$preserveHost</code> to <code>true</code>. When <code>$preserveHost</code> is set to</p>
+<p><code>true</code>, this method interacts with the Host header in the following ways:</p>
+<ul>
+<li>If the Host header is missing or empty, and the new URI contains</li>
+<p>  a host component, this method MUST update the Host header in the returned</p>
+<p>  request.</p>
+<li>If the Host header is missing or empty, and the new URI does not contain a</li>
+<p>  host component, this method MUST NOT update the Host header in the returned</p>
+<p>  request.</p>
+<li>If a Host header is present and non-empty, this method MUST NOT update</li>
+<p>  the Host header in the returned request.</p>
+<p>This method MUST be implemented in such a way as to retain the</p>
+<p>immutability of the message, and MUST return an instance that has the</p>
+<p>new UriInterface instance.</p>
+<p>@link http://tools.ietf.org/html/rfc3986#section-4.3</p>
+<p>@param UriInterface $uri New request URI to use.</p>
+<p>@param bool $preserveHost Preserve the original state of the Host header.</p>
+<p>@return static</p>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\psr\http-message\src\RequestInterface.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getRequestTarget()</code></li>
+<li><code>withRequestTarget($requestTarget)</code></li>
+<li><code>getMethod()</code></li>
+<li><code>withMethod($method)</code></li>
+<li><code>getUri()</code></li>
+<li><code>withUri(UriInterface $uri, $preserveHost = false)</code></li>
+</ul>
+</body></html>

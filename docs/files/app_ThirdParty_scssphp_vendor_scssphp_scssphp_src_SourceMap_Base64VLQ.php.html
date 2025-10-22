@@ -1,0 +1,80 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\scssphp\vendor\scssphp\scssphp\src\SourceMap\Base64VLQ.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\scssphp\vendor\scssphp\scssphp\src\SourceMap\Base64VLQ.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\scssphp\vendor\scssphp\scssphp\src\SourceMap\Base64VLQ.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4248 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>SCSSPHP</p>
+<p>@copyright 2012-2020 Leaf Corcoran</p>
+<p>@license http://opensource.org/licenses/MIT MIT</p>
+<p>@link http://scssphp.github.io/scssphp</p>
+
+<p>Base 64 VLQ</p>
+<p>Based on the Base 64 VLQ implementation in Closure Compiler:</p>
+<p>https://github.com/google/closure-compiler/blob/master/src/com/google/debugging/sourcemap/Base64VLQ.java</p>
+<p>Copyright 2011 The Closure Compiler Authors.</p>
+<p>Licensed under the Apache License, Version 2.0 (the "License");</p>
+<p>you may not use this file except in compliance with the License.</p>
+<p>You may obtain a copy of the License at</p>
+<p>    http://www.apache.org/licenses/LICENSE-2.0</p>
+<p>Unless required by applicable law or agreed to in writing, software</p>
+<p>distributed under the License is distributed on an "AS IS" BASIS,</p>
+<p>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</p>
+<p>See the License for the specific language governing permissions and</p>
+<p>limitations under the License.</p>
+<p>@author John Lenz <johnlenz@google.com></p>
+<p>@author Anthon Pang <anthon.pang@gmail.com></p>
+<p>@internal</p>
+
+<p>Returns the VLQ encoded value.</p>
+<p>@param int $value</p>
+<p>@return string</p>
+
+<p>Decodes VLQValue.</p>
+<p>@param string $str</p>
+<p>@param int    $index</p>
+<p>@return int</p>
+
+<p>Converts from a two-complement value to a value where the sign bit is</p>
+<p>is placed in the least significant bit.  For example, as decimals:</p>
+<p>  1 becomes 2 (10 binary), -1 becomes 3 (11 binary)</p>
+<p>  2 becomes 4 (100 binary), -2 becomes 5 (101 binary)</p>
+<p>@param int $value</p>
+<p>@return int</p>
+
+<p>Converts to a two-complement value from a value where the sign bit is</p>
+<p>is placed in the least significant bit.  For example, as decimals:</p>
+<p>  2 (10 binary) becomes 1, 3 (11 binary) becomes -1</p>
+<p>  4 (100 binary) becomes 2, 5 (101 binary) becomes -2</p>
+<p>@param int $value</p>
+<p>@return int</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\scssphp\vendor\scssphp\scssphp\src\SourceMap\Base64VLQ.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ScssPhp\ScssPhp\SourceMap\Base64VLQ</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>encode($value)</code></li>
+<li><code>decode($str, &$index)</code></li>
+<li><code>toVLQSigned($value)</code></li>
+<li><code>fromVLQSigned($value)</code></li>
+</ul>
+</body></html>

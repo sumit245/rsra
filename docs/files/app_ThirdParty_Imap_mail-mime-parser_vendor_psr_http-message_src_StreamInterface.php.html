@@ -1,0 +1,127 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\psr\http-message\src\StreamInterface.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\psr\http-message\src\StreamInterface.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\psr\http-message\src\StreamInterface.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4746 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Describes a data stream.</p>
+<p>Typically, an instance will wrap a PHP stream; this interface provides</p>
+<p>a wrapper around the most common operations, including serialization of</p>
+<p>the entire stream to a string.</p>
+
+<p>Reads all data from the stream into a string, from the beginning to end.</p>
+<p>This method MUST attempt to seek to the beginning of the stream before</p>
+<p>reading data and read the stream until the end is reached.</p>
+<p>Warning: This could attempt to load a large amount of data into memory.</p>
+<p>This method MUST NOT raise an exception in order to conform with PHP's</p>
+<p>string casting operations.</p>
+<p>@see http://php.net/manual/en/language.oop5.magic.php#object.tostring</p>
+<p>@return string</p>
+
+<p>Closes the stream and any underlying resources.</p>
+<p>@return void</p>
+
+<p>Separates any underlying resources from the stream.</p>
+<p>After the stream has been detached, the stream is in an unusable state.</p>
+<p>@return resource|null Underlying PHP stream, if any</p>
+
+<p>Get the size of the stream if known.</p>
+<p>@return int|null Returns the size in bytes if known, or null if unknown.</p>
+
+<p>Returns the current position of the file read/write pointer</p>
+<p>@return int Position of the file pointer</p>
+<p>@throws \RuntimeException on error.</p>
+
+<p>Returns true if the stream is at the end of the stream.</p>
+<p>@return bool</p>
+
+<p>Returns whether or not the stream is seekable.</p>
+<p>@return bool</p>
+
+<p>Seek to a position in the stream.</p>
+<p>@link http://www.php.net/manual/en/function.fseek.php</p>
+<p>@param int $offset Stream offset</p>
+<p>@param int $whence Specifies how the cursor position will be calculated</p>
+<p>    based on the seek offset. Valid values are identical to the built-in</p>
+<p>    PHP $whence values for <code>fseek()</code>.  SEEK_SET: Set position equal to</p>
+<p>    offset bytes SEEK_CUR: Set position to current location plus offset</p>
+<p>    SEEK_END: Set position to end-of-stream plus offset.</p>
+<p>@throws \RuntimeException on failure.</p>
+
+<p>Seek to the beginning of the stream.</p>
+<p>If the stream is not seekable, this method will raise an exception;</p>
+<p>otherwise, it will perform a seek(0).</p>
+<p>@see seek()</p>
+<p>@link http://www.php.net/manual/en/function.fseek.php</p>
+<p>@throws \RuntimeException on failure.</p>
+
+<p>Returns whether or not the stream is writable.</p>
+<p>@return bool</p>
+
+<p>Write data to the stream.</p>
+<p>@param string $string The string that is to be written.</p>
+<p>@return int Returns the number of bytes written to the stream.</p>
+<p>@throws \RuntimeException on failure.</p>
+
+<p>Returns whether or not the stream is readable.</p>
+<p>@return bool</p>
+
+<p>Read data from the stream.</p>
+<p>@param int $length Read up to $length bytes from the object and return</p>
+<p>    them. Fewer than $length bytes may be returned if underlying stream</p>
+<p>    call returns fewer bytes.</p>
+<p>@return string Returns the data read from the stream, or an empty string</p>
+<p>    if no bytes are available.</p>
+<p>@throws \RuntimeException if an error occurs.</p>
+
+<p>Returns the remaining contents in a string</p>
+<p>@return string</p>
+<p>@throws \RuntimeException if unable to read or an error occurs while</p>
+<p>    reading.</p>
+
+<p>Get stream metadata as an associative array or retrieve a specific key.</p>
+<p>The keys returned are identical to the keys returned from PHP's</p>
+<p>stream_get_meta_data() function.</p>
+<p>@link http://php.net/manual/en/function.stream-get-meta-data.php</p>
+<p>@param string $key Specific metadata to retrieve.</p>
+<p>@return array|mixed|null Returns an associative array if no key is</p>
+<p>    provided. Returns a specific key value if a key is provided and the</p>
+<p>    value is found, or null if the key is not found.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>PHP</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\psr\http-message\src\StreamInterface.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__toString()</code></li>
+<li><code>close()</code></li>
+<li><code>detach()</code></li>
+<li><code>getSize()</code></li>
+<li><code>tell()</code></li>
+<li><code>eof()</code></li>
+<li><code>isSeekable()</code></li>
+<li><code>seek($offset, $whence = SEEK_SET)</code></li>
+<li><code>rewind()</code></li>
+<li><code>isWritable()</code></li>
+<li><code>write($string)</code></li>
+<li><code>isReadable()</code></li>
+<li><code>read($length)</code></li>
+<li><code>getContents()</code></li>
+<li><code>getMetadata($key = null)</code></li>
+</ul>
+</body></html>

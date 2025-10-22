@@ -1,0 +1,120 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\HandlerStack.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\HandlerStack.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\HandlerStack.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7618 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Creates a composed Guzzle handler function by stacking middlewares on top of</p>
+<p>an HTTP handler function.</p>
+
+<p>@var callable</p>
+
+<p>@var array</p>
+
+<p>@var callable|null</p>
+
+<p>Creates a default handler stack that can be used by clients.</p>
+<p>The returned handler will wrap the provided handler or use the most</p>
+<p>appropriate default handler for your system. The returned HandlerStack has</p>
+<p>support for cookies, redirects, HTTP error exceptions, and preparing a body</p>
+<p>before sending.</p>
+<p>The returned handler stack can be passed to a client in the "handler"</p>
+<p>option.</p>
+<p>@param callable $handler HTTP handler function to use with the stack. If no</p>
+<p>                         handler is provided, the best handler for your</p>
+<p>                         system will be utilized.</p>
+<p>@return HandlerStack</p>
+
+<p>@param callable $handler Underlying HTTP handler.</p>
+
+<p>Invokes the handler stack as a composed handler</p>
+<p>@param RequestInterface $request</p>
+<p>@param array            $options</p>
+
+<p>Dumps a string representation of the stack.</p>
+<p>@return string</p>
+
+<p>Set the HTTP handler that actually returns a promise.</p>
+<p>@param callable $handler Accepts a request and array of options and</p>
+<p>                         returns a Promise.</p>
+
+<p>Returns true if the builder has a handler.</p>
+<p>@return bool</p>
+
+<p>Unshift a middleware to the bottom of the stack.</p>
+<p>@param callable $middleware Middleware function</p>
+<p>@param string   $name       Name to register for this middleware.</p>
+
+<p>Push a middleware to the top of the stack.</p>
+<p>@param callable $middleware Middleware function</p>
+<p>@param string   $name       Name to register for this middleware.</p>
+
+<p>Add a middleware before another middleware by name.</p>
+<p>@param string   $findName   Middleware to find</p>
+<p>@param callable $middleware Middleware function</p>
+<p>@param string   $withName   Name to register for this middleware.</p>
+
+<p>Add a middleware after another middleware by name.</p>
+<p>@param string   $findName   Middleware to find</p>
+<p>@param callable $middleware Middleware function</p>
+<p>@param string   $withName   Name to register for this middleware.</p>
+
+<p>Remove a middleware by instance or name from the stack.</p>
+<p>@param callable|string $remove Middleware to remove by instance or name.</p>
+
+<p>Compose the middleware and handler into a single callable function.</p>
+<p>@return callable</p>
+
+<p>@param $name</p>
+<p>@return int</p>
+
+<p>Splices a function into the middleware list at a specific position.</p>
+<p>@param          $findName</p>
+<p>@param          $withName</p>
+<p>@param callable $middleware</p>
+<p>@param          $before</p>
+
+<p>Provides a debug string for a given callable.</p>
+<p>@param array|callable $fn Function to write as a string.</p>
+<p>@return string</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\HandlerStack.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>GuzzleHttp\HandlerStack</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>create(callable $handler = null)</code></li>
+<li><code>__construct(callable $handler = null)</code></li>
+<li><code>__invoke(RequestInterface $request, array $options)</code></li>
+<li><code>__toString()</code></li>
+<li><code>setHandler(callable $handler)</code></li>
+<li><code>hasHandler()</code></li>
+<li><code>unshift(callable $middleware, $name = null)</code></li>
+<li><code>push(callable $middleware, $name = '')</code></li>
+<li><code>before($findName, callable $middleware, $withName = '')</code></li>
+<li><code>after($findName, callable $middleware, $withName = '')</code></li>
+<li><code>remove($remove)</code></li>
+<li><code>resolve()</code></li>
+<li><code>findByName($name)</code></li>
+<li><code>splice($findName, $withName, callable $middleware, $before)</code></li>
+<li><code>debugCallable($fn)</code></li>
+</ul>
+</body></html>

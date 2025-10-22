@@ -1,0 +1,58 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Formatter\LogstashFormatter.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Formatter\LogstashFormatter.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Formatter\LogstashFormatter.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5307 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Serializes a log message to Logstash Event Format</p>
+<p>@see http://logstash.net/</p>
+<p>@see https://github.com/logstash/logstash/blob/master/lib/logstash/event.rb</p>
+<p>@author Tim Mower <timothy.mower@gmail.com></p>
+
+<p>@var string the name of the system for the Logstash log message, used to fill the @source field</p>
+
+<p>@var string an application name for the Logstash log message, used to fill the @type field</p>
+
+<p>@var string a prefix for 'extra' fields from the Monolog record (optional)</p>
+
+<p>@var string a prefix for 'context' fields from the Monolog record (optional)</p>
+
+<p>@var int logstash format version to use</p>
+
+<p>@param string $applicationName the application that sends the data, used as the "type" field of logstash</p>
+<p>@param string $systemName      the system/machine name, used as the "source" field of logstash, defaults to the hostname of the machine</p>
+<p>@param string $extraPrefix     prefix for extra keys inside logstash "fields"</p>
+<p>@param string $contextPrefix   prefix for context keys inside logstash "fields", defaults to ctxt_</p>
+<p>@param int    $version         the logstash format version to use, defaults to 0</p>
+
+<p>{@inheritdoc}</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Formatter\LogstashFormatter.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Monolog\Formatter\LogstashFormatter extends NormalizerFormatter</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($applicationName, $systemName = null, $extraPrefix = null, $contextPrefix = 'ctxt_', $version = self::V0)</code></li>
+<li><code>format(array $record)</code></li>
+<li><code>formatV0(array $record)</code></li>
+<li><code>formatV1(array $record)</code></li>
+</ul>
+</body></html>

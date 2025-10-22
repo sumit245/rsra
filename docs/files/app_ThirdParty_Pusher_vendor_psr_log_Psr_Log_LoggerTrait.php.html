@@ -1,0 +1,90 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Pusher\vendor\psr\log\Psr\Log\LoggerTrait.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Pusher\vendor\psr\log\Psr\Log\LoggerTrait.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Pusher\vendor\psr\log\Psr\Log\LoggerTrait.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3415 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This is a simple Logger trait that classes unable to extend AbstractLogger</p>
+<p>(because they extend another class, etc) can include.</p>
+<p>It simply delegates all log-level-specific methods to the <code>log</code> method to</p>
+<p>reduce boilerplate code that a simple Logger that does the same thing with</p>
+<p>messages regardless of the error level has to implement.</p>
+
+<p>System is unusable.</p>
+<p>@param string $message</p>
+<p>@param array  $context</p>
+<p>@return void</p>
+
+<p>Action must be taken immediately.</p>
+<p>Example: Entire website down, database unavailable, etc. This should</p>
+<p>trigger the SMS alerts and wake you up.</p>
+<p>@param string $message</p>
+<p>@param array  $context</p>
+<p>@return void</p>
+
+<p>Critical conditions.</p>
+<p>Example: Application component unavailable, unexpected exception.</p>
+<p>@param string $message</p>
+<p>@param array  $context</p>
+<p>@return void</p>
+
+<p>Runtime errors that do not require immediate action but should typically</p>
+<p>be logged and monitored.</p>
+<p>@param string $message</p>
+<p>@param array  $context</p>
+<p>@return void</p>
+
+<p>Exceptional occurrences that are not errors.</p>
+<p>Example: Use of deprecated APIs, poor use of an API, undesirable things</p>
+<p>that are not necessarily wrong.</p>
+<p>@param string $message</p>
+<p>@param array  $context</p>
+<p>@return void</p>
+
+<p>Normal but significant events.</p>
+<p>@param string $message</p>
+<p>@param array  $context</p>
+<p>@return void</p>
+
+<p>Interesting events.</p>
+<p>Example: User logs in, SQL logs.</p>
+<p>@param string $message</p>
+<p>@param array  $context</p>
+<p>@return void</p>
+
+<p>Detailed debug information.</p>
+<p>@param string $message</p>
+<p>@param array  $context</p>
+<p>@return void</p>
+
+<p>Logs with an arbitrary level.</p>
+<p>@param mixed  $level</p>
+<p>@param string $message</p>
+<p>@param array  $context</p>
+<p>@return void</p>
+<p>@throws \Psr\Log\InvalidArgumentException</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Pusher\vendor\psr\log\Psr\Log\LoggerTrait.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>emergency($message, array $context = array()</code></li>
+<li><code>alert($message, array $context = array()</code></li>
+<li><code>critical($message, array $context = array()</code></li>
+<li><code>error($message, array $context = array()</code></li>
+<li><code>warning($message, array $context = array()</code></li>
+<li><code>notice($message, array $context = array()</code></li>
+<li><code>info($message, array $context = array()</code></li>
+<li><code>debug($message, array $context = array()</code></li>
+<li><code>log($level, $message, array $context = array()</code></li>
+</ul>
+</body></html>

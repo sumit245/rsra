@@ -1,0 +1,90 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\HTTP\Response.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\HTTP\Response.php</h1>
+
+<ul>
+<li>Path: <code>system\HTTP\Response.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9208 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Representation of an outgoing, getServer-side response.</p>
+<p>Per the HTTP specification, this interface includes properties for</p>
+<p>each of the following:</p>
+<ul>
+<li>Protocol version</li>
+<li>Status code and reason phrase</li>
+<li>Headers</li>
+<li>Message body</li>
+</ul>
+<p>HTTP status codes</p>
+<p>@var array</p>
+
+<p>The current reason phrase for this response.</p>
+<p>If empty string, will use the default provided for the status code.</p>
+<p>@var string</p>
+
+<p>The current status code for this response.</p>
+<p>The status code is a 3-digit integer result code of the server's attempt</p>
+<p>to understand and satisfy the request.</p>
+<p>@var int</p>
+
+<p>If true, will not write output. Useful during testing.</p>
+<p>@var bool</p>
+<p>@internal Used for framework testing, should not be relied on otherwise</p>
+
+<p>Constructor</p>
+<p>@param App $config</p>
+<p>@todo Recommend removing reliance on config injection</p>
+
+<p>Turns "pretend" mode on or off to aid in testing.</p>
+<p>Note that this is not a part of the interface so</p>
+<p>should not be relied on outside of internal testing.</p>
+<p>@return $this</p>
+
+<p>Gets the response status code.</p>
+<p>The status code is a 3-digit integer result code of the getServer's attempt</p>
+<p>to understand and satisfy the request.</p>
+<p>@return int Status code.</p>
+
+<p>Gets the response response phrase associated with the status code.</p>
+<p>@see http://tools.ietf.org/html/rfc7231#section-6</p>
+<p>@see http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml</p>
+<p>@deprecated Use getReasonPhrase()</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Gets the response reason phrase associated with the status code.</p>
+<p>Because a reason phrase is not a required element in a response</p>
+<p>status line, the reason phrase value MAY be null. Implementations MAY</p>
+<p>choose to return the default RFC 7231 recommended reason phrase (or those</p>
+<p>listed in the IANA HTTP Status Code Registry) for the response's</p>
+<p>status code.</p>
+<p>@see http://tools.ietf.org/html/rfc7231#section-6</p>
+<p>@see http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml</p>
+<p>@return string Reason phrase; must return an empty string if none present.</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\HTTP\Response.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\HTTP\Response extends Message implements MessageInterface, ResponseInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($config)</code></li>
+<li><code>pretend(bool $pretend = true)</code></li>
+<li><code>getStatusCode()</code></li>
+<li><code>getReason()</code></li>
+<li><code>getReasonPhrase()</code></li>
+</ul>
+</body></html>

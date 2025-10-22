@@ -1,0 +1,90 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Controller.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Controller.php</h1>
+
+<ul>
+<li>Path: <code>system\Controller.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5027 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Class Controller</p>
+
+<p>Helpers that will be automatically loaded on class instantiation.</p>
+<p>@var array</p>
+
+<p>Instance of the main Request object.</p>
+<p>@var RequestInterface</p>
+
+<p>Instance of the main response object.</p>
+<p>@var ResponseInterface</p>
+
+<p>Instance of logger to use.</p>
+<p>@var LoggerInterface</p>
+
+<p>Should enforce HTTPS access for all methods in this controller.</p>
+<p>@var int Number of seconds to set HSTS header</p>
+
+<p>Once validation has been run, will hold the Validation instance.</p>
+<p>@var Validation</p>
+
+<p>Constructor.</p>
+<p>@throws HTTPException</p>
+
+<p>A convenience method to use when you need to ensure that a single</p>
+<p>method is reached only via HTTPS. If it isn't, then a redirect</p>
+<p>will happen back to this method and HSTS header will be sent</p>
+<p>to have modern browsers transform requests automatically.</p>
+<p>@param int $duration The number of seconds this link should be</p>
+<p>                     considered secure for. Only with HSTS header.</p>
+<p>                     Default value is 1 year.</p>
+<p>@throws HTTPException</p>
+
+<p>Provides a simple way to tie into the main CodeIgniter class and</p>
+<p>tell it how long to cache the current page for.</p>
+
+<p>Handles "auto-loading" helper files.</p>
+<p>@deprecated Use <code>helper</code> function instead of using this method.</p>
+<p>@codeCoverageIgnore</p>
+
+<p>A shortcut to performing validation on Request data.</p>
+<p>@param array|string $rules</p>
+<p>@param array        $messages An array of custom error messages</p>
+
+<p>A shortcut to performing validation on any input data.</p>
+<p>@param array        $data     The data to validate</p>
+<p>@param array|string $rules</p>
+<p>@param array        $messages An array of custom error messages</p>
+<p>@param string|null  $dbGroup  The database group to use</p>
+
+<p>@param array|string $rules</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Controller.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Controller</code></li>
+<li><code>CodeIgniter\instantiation</code></li>
+<li><code>CodeIgniter\and</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)</code></li>
+<li><code>forceHTTPS(int $duration = 31_536_000)</code></li>
+<li><code>cachePage(int $time)</code></li>
+<li><code>loadHelpers()</code></li>
+<li><code>validate($rules, array $messages = [])</code></li>
+<li><code>validateData(array $data, $rules, array $messages = [], ?string $dbGroup = null)</code></li>
+<li><code>setValidator($rules, array $messages)</code></li>
+</ul>
+</body></html>

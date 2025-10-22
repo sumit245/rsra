@@ -1,0 +1,88 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Helpers\inflector_helper.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Helpers\inflector_helper.php</h1>
+
+<ul>
+<li>Path: <code>system\Helpers\inflector_helper.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 10367 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Singular</p>
+<p>Takes a plural word and makes it singular</p>
+<p>@param string $string Input string</p>
+
+<p>Plural</p>
+<p>Takes a singular word and makes it plural</p>
+<p>@param string $string Input string</p>
+
+<p>Counted</p>
+<p>Takes a number and a word to return the plural or not</p>
+<p>E.g. 0 cats, 1 cat, 2 cats, ...</p>
+<p>@param int    $count  Number of items</p>
+<p>@param string $string Input string</p>
+
+<p>Camelize</p>
+<p>Takes multiple words separated by spaces or</p>
+<p>underscores and converts them to camel case.</p>
+<p>@param string $string Input string</p>
+
+<p>Pascalize</p>
+<p>Takes multiple words separated by spaces or</p>
+<p>underscores and converts them to Pascal case,</p>
+<p>which is camel case with an uppercase first letter.</p>
+<p>@param string $string Input string</p>
+
+<p>Underscore</p>
+<p>Takes multiple words separated by spaces and underscores them</p>
+<p>@param string $string Input string</p>
+
+<p>Humanize</p>
+<p>Takes multiple words separated by the separator,</p>
+<p>camelizes and changes them to spaces</p>
+<p>@param string $string    Input string</p>
+<p>@param string $separator Input separator</p>
+
+<p>Checks if the given word has a plural version.</p>
+<p>@param string $word Word to check</p>
+
+<p>Replaces underscores with dashes in the string.</p>
+<p>@param string $string Input string</p>
+
+<p>Returns the suffix that should be added to a</p>
+<p>number to denote the position in an ordered</p>
+<p>sequence such as 1st, 2nd, 3rd, 4th.</p>
+<p>@param int $integer The integer to determine the suffix</p>
+
+<p>Turns a number into an ordinal string used</p>
+<p>to denote the position in an ordered sequence</p>
+<p>such as 1st, 2nd, 3rd, 4th.</p>
+<p>@param int $integer The integer to ordinalize</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Helpers\inflector_helper.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>singular(string $string)</code></li>
+<li><code>plural(string $string)</code></li>
+<li><code>counted(int $count, string $string)</code></li>
+<li><code>camelize(string $string)</code></li>
+<li><code>pascalize(string $string)</code></li>
+<li><code>underscore(string $string)</code></li>
+<li><code>humanize(string $string, string $separator = '_')</code></li>
+<li><code>is_pluralizable(string $word)</code></li>
+<li><code>dasherize(string $string)</code></li>
+<li><code>ordinal(int $integer)</code></li>
+<li><code>ordinalize(int $integer)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,222 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\StringHelper.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\StringHelper.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\StringHelper.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 23885 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Constants</p>
+
+<p>Regular Expressions</p>
+
+<p>Control characters array.</p>
+<p>@var string[]</p>
+
+<p>SYLK Characters array.</p>
+<p>@var array</p>
+
+<p>Decimal separator.</p>
+<p>@var string</p>
+
+<p>Thousands separator.</p>
+<p>@var string</p>
+
+<p>Currency code.</p>
+<p>@var string</p>
+
+<p>Is iconv extension avalable?</p>
+<p>@var ?bool</p>
+
+<p>iconv options.</p>
+<p>@var string</p>
+
+<p>Build control characters array.</p>
+
+<p>Build SYLK characters array.</p>
+
+<p>Get whether iconv extension is available.</p>
+<p>@return bool</p>
+
+<p>Convert from OpenXML escaped control character to PHP control character.</p>
+<p>Excel 2007 team:</p>
+<p>----------------</p>
+<p>That's correct, control characters are stored directly in the shared-strings table.</p>
+<p>We do encode characters that cannot be represented in XML using the following escape sequence:</p>
+<p>_xHHHH_ where H represents a hexadecimal character in the character's value...</p>
+<p>So you could end up with something like _x0008_ in a string (either in a cell value (<v>)</p>
+<p>element or in the shared string <t> element.</p>
+<p>@param string $textValue Value to unescape</p>
+<p>@return string</p>
+
+<p>Convert from PHP control character to OpenXML escaped control character.</p>
+<p>Excel 2007 team:</p>
+<p>----------------</p>
+<p>That's correct, control characters are stored directly in the shared-strings table.</p>
+<p>We do encode characters that cannot be represented in XML using the following escape sequence:</p>
+<p>_xHHHH_ where H represents a hexadecimal character in the character's value...</p>
+<p>So you could end up with something like _x0008_ in a string (either in a cell value (<v>)</p>
+<p>element or in the shared string <t> element.</p>
+<p>@param string $textValue Value to escape</p>
+<p>@return string</p>
+
+<p>Try to sanitize UTF8, stripping invalid byte sequences. Not perfect. Does not surrogate characters.</p>
+<p>@param string $textValue</p>
+<p>@return string</p>
+
+<p>Check if a string contains UTF8 data.</p>
+<p>@param string $textValue</p>
+<p>@return bool</p>
+
+<p>Formats a numeric value as a string for output in various output writers forcing</p>
+<p>point as decimal separator in case locale is other than English.</p>
+<p>@param mixed $numericValue</p>
+<p>@return string</p>
+
+<p>Converts a UTF-8 string into BIFF8 Unicode string data (8-bit string length)</p>
+<p>Writes the string using uncompressed notation, no rich text, no Asian phonetics</p>
+<p>If mbstring extension is not available, ASCII is assumed, and compressed notation is used</p>
+<p>although this will give wrong results for non-ASCII strings</p>
+<p>see OpenOffice.org's Documentation of the Microsoft Excel File Format, sect. 2.5.3.</p>
+<p>@param string $textValue UTF-8 encoded string</p>
+<p>@param mixed[] $arrcRuns Details of rich text runs in $value</p>
+<p>@return string</p>
+
+<p>Converts a UTF-8 string into BIFF8 Unicode string data (16-bit string length)</p>
+<p>Writes the string using uncompressed notation, no rich text, no Asian phonetics</p>
+<p>If mbstring extension is not available, ASCII is assumed, and compressed notation is used</p>
+<p>although this will give wrong results for non-ASCII strings</p>
+<p>see OpenOffice.org's Documentation of the Microsoft Excel File Format, sect. 2.5.3.</p>
+<p>@param string $textValue UTF-8 encoded string</p>
+<p>@return string</p>
+
+<p>Convert string from one encoding to another.</p>
+<p>@param string $textValue</p>
+<p>@param string $to Encoding to convert to, e.g. 'UTF-8'</p>
+<p>@param string $from Encoding to convert from, e.g. 'UTF-16LE'</p>
+<p>@return string</p>
+
+<p>Get character count.</p>
+<p>@param string $textValue</p>
+<p>@param string $encoding Encoding</p>
+<p>@return int Character count</p>
+
+<p>Get a substring of a UTF-8 encoded string.</p>
+<p>@param string $textValue UTF-8 encoded string</p>
+<p>@param int $offset Start offset</p>
+<p>@param int $length Maximum number of characters in substring</p>
+<p>@return string</p>
+
+<p>Convert a UTF-8 encoded string to upper case.</p>
+<p>@param string $textValue UTF-8 encoded string</p>
+<p>@return string</p>
+
+<p>Convert a UTF-8 encoded string to lower case.</p>
+<p>@param string $textValue UTF-8 encoded string</p>
+<p>@return string</p>
+
+<p>Convert a UTF-8 encoded string to title/proper case</p>
+<p>(uppercase every first character in each word, lower case all other characters).</p>
+<p>@param string $textValue UTF-8 encoded string</p>
+<p>@return string</p>
+
+<p>Reverse the case of a string, so that all uppercase characters become lowercase</p>
+<p>and all lowercase characters become uppercase.</p>
+<p>@param string $textValue UTF-8 encoded string</p>
+<p>@return string</p>
+
+<p>Identify whether a string contains a fractional numeric value,</p>
+<p>and convert it to a numeric if it is.</p>
+<p>@param string $operand string value to test</p>
+<p>@return bool</p>
+
+<p>Get the decimal separator. If it has not yet been set explicitly, try to obtain number</p>
+<p>formatting information from locale.</p>
+<p>@return string</p>
+
+<p>Set the decimal separator. Only used by NumberFormat::toFormattedString()</p>
+<p>to format output by \PhpOffice\PhpSpreadsheet\Writer\Html and \PhpOffice\PhpSpreadsheet\Writer\Pdf.</p>
+<p>@param string $separator Character for decimal separator</p>
+
+<p>Get the thousands separator. If it has not yet been set explicitly, try to obtain number</p>
+<p>formatting information from locale.</p>
+<p>@return string</p>
+
+<p>Set the thousands separator. Only used by NumberFormat::toFormattedString()</p>
+<p>to format output by \PhpOffice\PhpSpreadsheet\Writer\Html and \PhpOffice\PhpSpreadsheet\Writer\Pdf.</p>
+<p>@param string $separator Character for thousands separator</p>
+
+<p>Get the currency code. If it has not yet been set explicitly, try to obtain the</p>
+<p>       symbol information from locale.</p>
+<p>@return string</p>
+
+<p>Set the currency code. Only used by NumberFormat::toFormattedString()</p>
+<p>       to format output by \PhpOffice\PhpSpreadsheet\Writer\Html and \PhpOffice\PhpSpreadsheet\Writer\Pdf.</p>
+<p>@param string $currencyCode Character for currency code</p>
+
+<p>Convert SYLK encoded string to UTF-8.</p>
+<p>@param string $textValue</p>
+<p>@return string UTF-8 encoded string</p>
+
+<p>Retrieve any leading numeric part of a string, or return the full string if no leading numeric</p>
+<p>(handles basic integer or float, but not exponent or non decimal).</p>
+<p>@param string $textValue</p>
+<p>@return mixed string or only the leading numeric part of the string</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>OpenXML</code></li>
+<li><code>PHP</code></li>
+<li><code>one</code></li>
+<li><code>Encoding</code></li>
+<li><code>locale</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\StringHelper.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Shared\StringHelper</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>buildControlCharacters()</code></li>
+<li><code>buildSYLKCharacters()</code></li>
+<li><code>getIsIconvEnabled()</code></li>
+<li><code>buildCharacterSets()</code></li>
+<li><code>controlCharacterOOXML2PHP($textValue)</code></li>
+<li><code>controlCharacterPHP2OOXML($textValue)</code></li>
+<li><code>sanitizeUTF8($textValue)</code></li>
+<li><code>isUTF8($textValue)</code></li>
+<li><code>formatNumber($numericValue)</code></li>
+<li><code>UTF8toBIFF8UnicodeShort($textValue, $arrcRuns = [])</code></li>
+<li><code>UTF8toBIFF8UnicodeLong($textValue)</code></li>
+<li><code>convertEncoding($textValue, $to, $from)</code></li>
+<li><code>countCharacters($textValue, $encoding = 'UTF-8')</code></li>
+<li><code>substring($textValue, $offset, $length = 0)</code></li>
+<li><code>strToUpper($textValue)</code></li>
+<li><code>strToLower($textValue)</code></li>
+<li><code>strToTitle($textValue)</code></li>
+<li><code>mbIsUpper($character)</code></li>
+<li><code>mbStrSplit($string)</code></li>
+<li><code>strCaseReverse($textValue)</code></li>
+<li><code>convertToNumberIfFraction(&$operand)</code></li>
+<li><code>convertToNumberIfFraction()</code></li>
+<li><code>getDecimalSeparator()</code></li>
+<li><code>setDecimalSeparator($separator)</code></li>
+<li><code>getThousandsSeparator()</code></li>
+<li><code>setThousandsSeparator($separator)</code></li>
+<li><code>getCurrencyCode()</code></li>
+<li><code>setCurrencyCode($currencyCode)</code></li>
+<li><code>SYLKtoUTF8($textValue)</code></li>
+<li><code>testStringAsNumeric($textValue)</code></li>
+</ul>
+</body></html>

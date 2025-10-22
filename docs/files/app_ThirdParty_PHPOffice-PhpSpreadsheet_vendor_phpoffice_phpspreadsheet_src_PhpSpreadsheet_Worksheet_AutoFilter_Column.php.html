@@ -1,0 +1,150 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\AutoFilter\Column.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\AutoFilter\Column.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\AutoFilter\Column.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9534 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Types of autofilter rules.</p>
+<p>@var string[]</p>
+
+<p>Join options for autofilter rules.</p>
+<p>@var string[]</p>
+
+<p>Autofilter.</p>
+<p>@var null|AutoFilter</p>
+
+<p>Autofilter Column Index.</p>
+<p>@var string</p>
+
+<p>Autofilter Column Filter Type.</p>
+<p>@var string</p>
+
+<p>Autofilter Multiple Rules And/Or.</p>
+<p>@var string</p>
+
+<p>Autofilter Column Rules.</p>
+<p>@var Column\Rule[]</p>
+
+<p>Autofilter Column Dynamic Attributes.</p>
+<p>@var mixed[]</p>
+
+<p>Create a new Column.</p>
+<p>@param string $column Column (e.g. A)</p>
+<p>@param AutoFilter $parent Autofilter for this column</p>
+
+<p>Get AutoFilter column index as string eg: 'A'.</p>
+<p>@return string</p>
+
+<p>Set AutoFilter column index as string eg: 'A'.</p>
+<p>@param string $column Column (e.g. A)</p>
+<p>@return $this</p>
+
+<p>Get this Column's AutoFilter Parent.</p>
+<p>@return null|AutoFilter</p>
+
+<p>Set this Column's AutoFilter Parent.</p>
+<p>@return $this</p>
+
+<p>Get AutoFilter Type.</p>
+<p>@return string</p>
+
+<p>Set AutoFilter Type.</p>
+<p>@param string $filterType</p>
+<p>@return $this</p>
+
+<p>Get AutoFilter Multiple Rules And/Or Join.</p>
+<p>@return string</p>
+
+<p>Set AutoFilter Multiple Rules And/Or.</p>
+<p>@param string $join And/Or</p>
+<p>@return $this</p>
+
+<p>Set AutoFilter Attributes.</p>
+<p>@param mixed[] $attributes</p>
+<p>@return $this</p>
+
+<p>Set An AutoFilter Attribute.</p>
+<p>@param string $name Attribute Name</p>
+<p>@param int|string $value Attribute Value</p>
+<p>@return $this</p>
+
+<p>Get AutoFilter Column Attributes.</p>
+<p>@return int[]|string[]</p>
+
+<p>Get specific AutoFilter Column Attribute.</p>
+<p>@param string $name Attribute Name</p>
+<p>@return null|int|string</p>
+
+<p>Get all AutoFilter Column Rules.</p>
+<p>@return Column\Rule[]</p>
+
+<p>Get a specified AutoFilter Column Rule.</p>
+<p>@param int $index Rule index in the ruleset array</p>
+<p>@return Column\Rule</p>
+
+<p>Create a new AutoFilter Column Rule in the ruleset.</p>
+<p>@return Column\Rule</p>
+
+<p>Add a new AutoFilter Column Rule to the ruleset.</p>
+<p>@return $this</p>
+
+<p>Delete a specified AutoFilter Column Rule</p>
+<p>If the number of rules is reduced to 1, then we reset And/Or logic to Or.</p>
+<p>@param int $index Rule index in the ruleset array</p>
+<p>@return $this</p>
+
+<p>Delete all AutoFilter Column Rules.</p>
+<p>@return $this</p>
+
+<p>Implement PHP __clone to create a deep clone, not just a shallow copy.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>criteria</code></li>
+<li><code>options</code></li>
+<li><code>And</code></li>
+<li><code>autofilter</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\AutoFilter\Column.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Worksheet\AutoFilter\Column</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($column, ?AutoFilter $parent = null)</code></li>
+<li><code>setEvaluatedFalse()</code></li>
+<li><code>getColumnIndex()</code></li>
+<li><code>setColumnIndex($column)</code></li>
+<li><code>getParent()</code></li>
+<li><code>setParent(?AutoFilter $parent = null)</code></li>
+<li><code>getFilterType()</code></li>
+<li><code>setFilterType($filterType)</code></li>
+<li><code>getJoin()</code></li>
+<li><code>setJoin($join)</code></li>
+<li><code>setAttributes($attributes)</code></li>
+<li><code>setAttribute($name, $value)</code></li>
+<li><code>getAttributes()</code></li>
+<li><code>getAttribute($name)</code></li>
+<li><code>ruleCount()</code></li>
+<li><code>getRules()</code></li>
+<li><code>getRule($index)</code></li>
+<li><code>createRule()</code></li>
+<li><code>addRule(Column\Rule $rule)</code></li>
+<li><code>deleteRule($index)</code></li>
+<li><code>clearRules()</code></li>
+<li><code>__clone()</code></li>
+</ul>
+</body></html>

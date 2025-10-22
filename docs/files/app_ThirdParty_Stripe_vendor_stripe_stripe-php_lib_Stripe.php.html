@@ -1,0 +1,151 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Stripe.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Stripe.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Stripe.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7244 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Class Stripe.</p>
+
+<p>@var string The Stripe API key to be used for requests.</p>
+
+<p>@var string The Stripe client_id to be used for Connect requests.</p>
+
+<p>@var string The base URL for the Stripe API.</p>
+
+<p>@var string The base URL for the OAuth API.</p>
+
+<p>@var string The base URL for the Stripe API uploads endpoint.</p>
+
+<p>@var null|string The version of the Stripe API to use for requests.</p>
+
+<p>@var null|string The account ID for connected accounts requests.</p>
+
+<p>@var string Path to the CA bundle used to verify SSL certificates</p>
+
+<p>@var bool Defaults to true.</p>
+
+<p>@var array The application's information (name, version, URL)</p>
+
+<p>@var null|Util\LoggerInterface the logger to which the library will</p>
+<p>  produce messages</p>
+
+<p>@var int Maximum number of request retries</p>
+
+<p>@var bool Whether client telemetry is enabled. Defaults to true.</p>
+
+<p>@var float Maximum delay between retries, in seconds</p>
+
+<p>@var float Maximum delay between retries, in seconds, that will be respected from the Stripe API</p>
+
+<p>@var float Initial delay between retries, in seconds</p>
+
+<p>@return string the API key used for requests</p>
+
+<p>@return string the client_id used for Connect requests</p>
+
+<p>@return Util\LoggerInterface the logger to which the library will</p>
+<p>  produce messages</p>
+
+<p>@param \Psr\Log\LoggerInterface|Util\LoggerInterface $logger the logger to which the library</p>
+<p>  will produce messages</p>
+
+<p>Sets the API key to be used for requests.</p>
+<p>@param string $apiKey</p>
+
+<p>Sets the client_id to be used for Connect requests.</p>
+<p>@param string $clientId</p>
+
+<p>@return string The API version used for requests. null if we're using the</p>
+<p>   latest version.</p>
+
+<p>@param string $apiVersion the API version to use for requests</p>
+
+<p>@return string</p>
+
+<p>@return string</p>
+
+<p>@param string $caBundlePath</p>
+
+<p>@return bool</p>
+
+<p>@param bool $verify</p>
+
+<p>@return null|string The Stripe account ID for connected account</p>
+<p>  requests</p>
+
+<p>@param string $accountId the Stripe account ID to set for connected</p>
+<p>  account requests</p>
+
+<p>@return null|array The application's information</p>
+
+<p>@param string $appName The application's name</p>
+<p>@param null|string $appVersion The application's version</p>
+<p>@param null|string $appUrl The application's URL</p>
+<p>@param null|string $appPartnerId The application's partner ID</p>
+
+<p>@return int Maximum number of request retries</p>
+
+<p>@param int $maxNetworkRetries Maximum number of request retries</p>
+
+<p>@return float Maximum delay between retries, in seconds</p>
+
+<p>@return float Maximum delay between retries, in seconds, that will be respected from the Stripe API</p>
+
+<p>@return float Initial delay between retries, in seconds</p>
+
+<p>@return bool Whether client telemetry is enabled</p>
+
+<p>@param bool $enableTelemetry Enables client telemetry.</p>
+<p>Client telemetry enables timing and request metrics to be sent back to Stripe as an HTTP Header</p>
+<p>with the current request. This enables Stripe to do latency and metrics analysis without adding extra</p>
+<p>overhead (such as extra network calls) on the client.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Stripe.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Stripe</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getApiKey()</code></li>
+<li><code>getClientId()</code></li>
+<li><code>getLogger()</code></li>
+<li><code>setLogger($logger)</code></li>
+<li><code>setApiKey($apiKey)</code></li>
+<li><code>setClientId($clientId)</code></li>
+<li><code>getApiVersion()</code></li>
+<li><code>setApiVersion($apiVersion)</code></li>
+<li><code>getDefaultCABundlePath()</code></li>
+<li><code>getCABundlePath()</code></li>
+<li><code>setCABundlePath($caBundlePath)</code></li>
+<li><code>getVerifySslCerts()</code></li>
+<li><code>setVerifySslCerts($verify)</code></li>
+<li><code>getAccountId()</code></li>
+<li><code>setAccountId($accountId)</code></li>
+<li><code>getAppInfo()</code></li>
+<li><code>setAppInfo($appName, $appVersion = null, $appUrl = null, $appPartnerId = null)</code></li>
+<li><code>getMaxNetworkRetries()</code></li>
+<li><code>setMaxNetworkRetries($maxNetworkRetries)</code></li>
+<li><code>getMaxNetworkRetryDelay()</code></li>
+<li><code>getMaxRetryAfter()</code></li>
+<li><code>getInitialNetworkRetryDelay()</code></li>
+<li><code>getEnableTelemetry()</code></li>
+<li><code>setEnableTelemetry($enableTelemetry)</code></li>
+</ul>
+</body></html>

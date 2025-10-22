@@ -1,0 +1,159 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\tcpdf\include\tcpdf_filters.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\tcpdf\include\tcpdf_filters.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\tcpdf\include\tcpdf_filters.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 14729 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@file</p>
+<p>This is a PHP class for decoding common PDF filters (PDF 32000-2008 - 7.4 Filters).<br></p>
+<p>@package com.tecnick.tcpdf</p>
+<p>@author Nicola Asuni</p>
+<p>@version 1.0.001</p>
+
+<p>@class TCPDF_FILTERS</p>
+<p>This is a PHP class for decoding common PDF filters (PDF 32000-2008 - 7.4 Filters).<br></p>
+<p>@package com.tecnick.tcpdf</p>
+<p>@brief This is a PHP class for decoding common PDF filters.</p>
+<p>@version 1.0.001</p>
+<p>@author Nicola Asuni - info@tecnick.com</p>
+
+<p>Define a list of available filter decoders.</p>
+<p>@private static</p>
+
+<p>Get a list of available decoding filters.</p>
+<p>@return array Array of available filter decoders.</p>
+<p>@since 1.0.000 (2011-05-23)</p>
+<p>@public static</p>
+
+<p>Decode data using the specified filter type.</p>
+<p>@param string $filter Filter name.</p>
+<p>@param string $data Data to decode.</p>
+<p>@return string Decoded data string.</p>
+<p>@since 1.0.000 (2011-05-23)</p>
+<p>@public static</p>
+
+<p>Standard</p>
+<p>Default decoding filter (leaves data unchanged).</p>
+<p>@param string $data Data to decode.</p>
+<p>@return string Decoded data string.</p>
+<p>@since 1.0.000 (2011-05-23)</p>
+<p>@public static</p>
+
+<p>ASCIIHexDecode</p>
+<p>Decodes data encoded in an ASCII hexadecimal representation, reproducing the original binary data.</p>
+<p>@param string $data Data to decode.</p>
+<p>@return string Decoded data string.</p>
+<p>@since 1.0.000 (2011-05-23)</p>
+<p>@public static</p>
+
+<p>ASCII85Decode</p>
+<p>Decodes data encoded in an ASCII base-85 representation, reproducing the original binary data.</p>
+<p>@param string $data Data to decode.</p>
+<p>@return string Decoded data string.</p>
+<p>@since 1.0.000 (2011-05-23)</p>
+<p>@public static</p>
+
+<p>LZWDecode</p>
+<p>Decompresses data encoded using the LZW (Lempel-Ziv-Welch) adaptive compression method, reproducing the original text or binary data.</p>
+<p>@param string $data Data to decode.</p>
+<p>@return string Decoded data string.</p>
+<p>@since 1.0.000 (2011-05-23)</p>
+<p>@public static</p>
+
+<p>FlateDecode</p>
+<p>Decompresses data encoded using the zlib/deflate compression method, reproducing the original text or binary data.</p>
+<p>@param string $data Data to decode.</p>
+<p>@return string Decoded data string.</p>
+<p>@since 1.0.000 (2011-05-23)</p>
+<p>@public static</p>
+
+<p>RunLengthDecode</p>
+<p>Decompresses data encoded using a byte-oriented run-length encoding algorithm.</p>
+<p>@param string $data Data to decode.</p>
+<p>@since 1.0.000 (2011-05-23)</p>
+<p>@public static</p>
+
+<p>CCITTFaxDecode (NOT IMPLEMETED - RETURN AN EXCEPTION)</p>
+<p>Decompresses data encoded using the CCITT facsimile standard, reproducing the original data (typically monochrome image data at 1 bit per pixel).</p>
+<p>@param string $data Data to decode.</p>
+<p>@return string Decoded data string.</p>
+<p>@since 1.0.000 (2011-05-23)</p>
+<p>@public static</p>
+
+<p>JBIG2Decode (NOT IMPLEMETED - RETURN AN EXCEPTION)</p>
+<p>Decompresses data encoded using the JBIG2 standard, reproducing the original monochrome (1 bit per pixel) image data (or an approximation of that data).</p>
+<p>@param string $data Data to decode.</p>
+<p>@return string Decoded data string.</p>
+<p>@since 1.0.000 (2011-05-23)</p>
+<p>@public static</p>
+
+<p>DCTDecode (NOT IMPLEMETED - RETURN AN EXCEPTION)</p>
+<p>Decompresses data encoded using a DCT (discrete cosine transform) technique based on the JPEG standard, reproducing image sample data that approximates the original data.</p>
+<p>@param string $data Data to decode.</p>
+<p>@return string Decoded data string.</p>
+<p>@since 1.0.000 (2011-05-23)</p>
+<p>@public static</p>
+
+<p>JPXDecode (NOT IMPLEMETED - RETURN AN EXCEPTION)</p>
+<p>Decompresses data encoded using the wavelet-based JPEG2000 standard, reproducing the original image data.</p>
+<p>@param string $data Data to decode.</p>
+<p>@return string Decoded data string.</p>
+<p>@since 1.0.000 (2011-05-23)</p>
+<p>@public static</p>
+
+<p>Crypt (NOT IMPLEMETED - RETURN AN EXCEPTION)</p>
+<p>Decrypts data encrypted by a security handler, reproducing the data as it was before encryption.</p>
+<p>@param string $data Data to decode.</p>
+<p>@return string Decoded data string.</p>
+<p>@since 1.0.000 (2011-05-23)</p>
+<p>@public static</p>
+
+<p>Throw an exception.</p>
+<p>@param string $msg The error message</p>
+<p>@since 1.0.000 (2011-05-23)</p>
+<p>@public static</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>string</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\tcpdf\include\tcpdf_filters.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>for</code></li>
+<li><code>for</code></li>
+<li><code>TCPDF_FILTERS</code></li>
+<li><code>for</code></li>
+<li><code>for</code></li>
+<li><code>TCPDF_FILTERS</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getAvailableFilters()</code></li>
+<li><code>decodeFilter($filter, $data)</code></li>
+<li><code>decodeFilterStandard($data)</code></li>
+<li><code>decodeFilterASCIIHexDecode($data)</code></li>
+<li><code>decodeFilterASCII85Decode($data)</code></li>
+<li><code>decodeFilterLZWDecode($data)</code></li>
+<li><code>decodeFilterFlateDecode($data)</code></li>
+<li><code>decodeFilterRunLengthDecode($data)</code></li>
+<li><code>decodeFilterCCITTFaxDecode($data)</code></li>
+<li><code>decodeFilterJBIG2Decode($data)</code></li>
+<li><code>decodeFilterDCTDecode($data)</code></li>
+<li><code>decodeFilterJPXDecode($data)</code></li>
+<li><code>decodeFilterCrypt($data)</code></li>
+<li><code>Error($msg)</code></li>
+</ul>
+</body></html>

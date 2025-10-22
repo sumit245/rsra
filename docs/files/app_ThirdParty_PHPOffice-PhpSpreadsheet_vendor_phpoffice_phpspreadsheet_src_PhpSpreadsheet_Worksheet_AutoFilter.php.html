@@ -1,0 +1,192 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\AutoFilter.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\AutoFilter.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\AutoFilter.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 40753 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Autofilter Worksheet.</p>
+<p>@var null|Worksheet</p>
+
+<p>Autofilter Range.</p>
+<p>@var string</p>
+
+<p>Autofilter Column Ruleset.</p>
+<p>@var AutoFilter\Column[]</p>
+
+<p>@var bool</p>
+
+<p>Create a new AutoFilter.</p>
+<p>@param AddressRange|array<int>|string $range</p>
+<p>           A simple string containing a Cell range like 'A1:E10' is permitted</p>
+<p>             or passing in an array of [$fromColumnIndex, $fromRow, $toColumnIndex, $toRow] (e.g. [3, 5, 6, 8]),</p>
+<p>             or an AddressRange object.</p>
+
+<p>Get AutoFilter Parent Worksheet.</p>
+<p>@return null|Worksheet</p>
+
+<p>Set AutoFilter Parent Worksheet.</p>
+<p>@return $this</p>
+
+<p>Get AutoFilter Range.</p>
+<p>@return string</p>
+
+<p>Set AutoFilter Cell Range.</p>
+<p>@param AddressRange|array<int>|string $range</p>
+<p>           A simple string containing a Cell range like 'A1:E10' is permitted</p>
+<p>             or passing in an array of [$fromColumnIndex, $fromRow, $toColumnIndex, $toRow] (e.g. [3, 5, 6, 8]),</p>
+<p>             or an AddressRange object.</p>
+
+<p>Get all AutoFilter Columns.</p>
+<p>@return AutoFilter\Column[]</p>
+
+<p>Validate that the specified column is in the AutoFilter range.</p>
+<p>@param string $column Column name (e.g. A)</p>
+<p>@return int The column offset within the autofilter range</p>
+
+<p>Get a specified AutoFilter Column Offset within the defined AutoFilter range.</p>
+<p>@param string $column Column name (e.g. A)</p>
+<p>@return int The offset of the specified column within the autofilter range</p>
+
+<p>Get a specified AutoFilter Column.</p>
+<p>@param string $column Column name (e.g. A)</p>
+<p>@return AutoFilter\Column</p>
+
+<p>Get a specified AutoFilter Column by it's offset.</p>
+<p>@param int $columnOffset Column offset within range (starting from 0)</p>
+<p>@return AutoFilter\Column</p>
+
+<p>Set AutoFilter.</p>
+<p>@param AutoFilter\Column|string $columnObjectOrString</p>
+<p>           A simple string containing a Column ID like 'A' is permitted</p>
+<p>@return $this</p>
+
+<p>Clear a specified AutoFilter Column.</p>
+<p>@param string $column Column name (e.g. A)</p>
+<p>@return $this</p>
+
+<p>Shift an AutoFilter Column Rule to a different column.</p>
+<p>Note: This method bypasses validation of the destination column to ensure it is within this AutoFilter range.</p>
+<p>       Nor does it verify whether any column rule already exists at $toColumn, but will simply override any existing value.</p>
+<p>       Use with caution.</p>
+<p>@param string $fromColumn Column name (e.g. A)</p>
+<p>@param string $toColumn Column name (e.g. B)</p>
+<p>@return $this</p>
+
+<p>Test if cell value is in the defined set of values.</p>
+<p>@param mixed $cellValue</p>
+<p>@param mixed[] $dataSet</p>
+<p>@return bool</p>
+
+<p>Test if cell value is in the defined set of Excel date values.</p>
+<p>@param mixed $cellValue</p>
+<p>@param mixed[] $dataSet</p>
+<p>@return bool</p>
+
+<p>Test if cell value is within a set of values defined by a ruleset.</p>
+<p>@param mixed $cellValue</p>
+<p>@param mixed[] $ruleSet</p>
+<p>@return bool</p>
+
+<p>@var array[]</p>
+
+<p>@var string</p>
+
+<p>@var string</p>
+
+<p>@var string</p>
+
+<p>Test if cell date value is matches a set of values defined by a set of months.</p>
+<p>@param mixed $cellValue</p>
+<p>@param mixed[] $monthSet</p>
+<p>@return bool</p>
+
+<p>Convert a dynamic rule daterange to a custom filter range expression for ease of calculation.</p>
+<p>@param string $dynamicRuleType</p>
+<p>@return mixed[]</p>
+
+<p>Apply the AutoFilter rules to the AutoFilter Range.</p>
+<p>@param string $columnID</p>
+<p>@param int $startRow</p>
+<p>@param int $endRow</p>
+<p>@param ?string $ruleType</p>
+<p>@param mixed $ruleValue</p>
+<p>@return mixed</p>
+
+<p>Apply the AutoFilter rules to the AutoFilter Range.</p>
+<p>@return $this</p>
+
+<p>Implement PHP __clone to create a deep clone, not just a shallow copy.</p>
+
+<p>toString method replicates previous behavior by returning the range if object is</p>
+<p>referenced as a property of its parent.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>0</code></li>
+<li><code>operator</code></li>
+<li><code>worksheet</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\AutoFilter.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Worksheet\AutoFilter</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getEvaluated()</code></li>
+<li><code>setEvaluated(bool $value)</code></li>
+<li><code>__construct($range = '', ?Worksheet $worksheet = null)</code></li>
+<li><code>getParent()</code></li>
+<li><code>setParent(?Worksheet $worksheet = null)</code></li>
+<li><code>getRange()</code></li>
+<li><code>setRange($range = '')</code></li>
+<li><code>setRangeToMaxRow()</code></li>
+<li><code>getColumns()</code></li>
+<li><code>testColumnInRange($column)</code></li>
+<li><code>getColumnOffset($column)</code></li>
+<li><code>getColumn($column)</code></li>
+<li><code>getColumnByOffset($columnOffset)</code></li>
+<li><code>setColumn($columnObjectOrString)</code></li>
+<li><code>clearColumn($column)</code></li>
+<li><code>shiftColumn($fromColumn, $toColumn)</code></li>
+<li><code>filterTestInSimpleDataSet($cellValue, $dataSet)</code></li>
+<li><code>filterTestInDateGroupSet($cellValue, $dataSet)</code></li>
+<li><code>filterTestInCustomDataSet($cellValue, $ruleSet)</code></li>
+<li><code>filterTestInPeriodDateSet($cellValue, $monthSet)</code></li>
+<li><code>makeDateObject(int $year, int $month, int $day, int $hour = 0, int $minute = 0, int $second = 0)</code></li>
+<li><code>dynamicLastMonth()</code></li>
+<li><code>firstDayOfQuarter()</code></li>
+<li><code>dynamicLastQuarter()</code></li>
+<li><code>dynamicLastWeek()</code></li>
+<li><code>dynamicLastYear()</code></li>
+<li><code>dynamicNextMonth()</code></li>
+<li><code>dynamicNextQuarter()</code></li>
+<li><code>dynamicNextWeek()</code></li>
+<li><code>dynamicNextYear()</code></li>
+<li><code>dynamicThisMonth()</code></li>
+<li><code>dynamicThisQuarter()</code></li>
+<li><code>dynamicThisWeek()</code></li>
+<li><code>dynamicThisYear()</code></li>
+<li><code>dynamicToday()</code></li>
+<li><code>dynamicTomorrow()</code></li>
+<li><code>dynamicYearToDate()</code></li>
+<li><code>dynamicYesterday()</code></li>
+<li><code>dynamicFilterDateRange($dynamicRuleType, AutoFilter\Column &$filterColumn)</code></li>
+<li><code>calculateTopTenValue($columnID, $startRow, $endRow, $ruleType, $ruleValue)</code></li>
+<li><code>showHideRows()</code></li>
+<li><code>__clone()</code></li>
+<li><code>__toString()</code></li>
+</ul>
+</body></html>

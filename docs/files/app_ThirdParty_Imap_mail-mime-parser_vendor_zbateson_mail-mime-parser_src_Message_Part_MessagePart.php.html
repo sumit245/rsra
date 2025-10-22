@@ -1,0 +1,270 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Part\MessagePart.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Part\MessagePart.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Part\MessagePart.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 17090 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Represents a single part of a message.</p>
+<p>A MessagePart object may have any number of child parts, or may be a child</p>
+<p>itself with its own parent or parents.</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var PartStreamFilterManager manages attached filters to $contentHandle</p>
+
+<p>@var StreamFactory for creating MessagePartStream objects</p>
+
+<p>@var ParentPart parent part</p>
+
+<p>@var StreamInterface a Psr7 stream containing this part's headers,</p>
+<p>     content and children</p>
+
+<p>@var StreamInterface a Psr7 stream containing this part's content</p>
+
+<p>@var string can be used to set an override for content's charset in cases</p>
+<p>     where a user knows the charset on the content is not what it claims</p>
+<p>     to be.</p>
+
+<p>@var boolean set to true when a user attaches a stream manually, it's</p>
+<p>     assumed to already be decoded or to have relevant transfer encoding</p>
+<p>     decorators attached already.</p>
+
+<p>Constructor</p>
+<p>@param PartStreamFilterManager $partStreamFilterManager</p>
+<p>@param StreamFactory $streamFactory</p>
+<p>@param StreamInterface $stream</p>
+<p>@param StreamInterface $contentStream</p>
+
+<p>Overridden to close streams.</p>
+
+<p>Called when operations change the content of the MessagePart.</p>
+<p>The function causes calls to getStream() to return a dynamic</p>
+<p>MessagePartStream instead of the read stream for this MessagePart and all</p>
+<p>parent MessageParts.</p>
+
+<p>Marks the part as changed, forcing the part to be rewritten when saved.</p>
+<p>Normal operations to a MessagePart automatically mark the part as</p>
+<p>changed and markAsChanged() doesn't need to be called in those cases.</p>
+<p>The function can be called to indicate an external change that requires</p>
+<p>rewriting this part, for instance changing a message from a non-mime</p>
+<p>message to a mime one, would require rewriting non-mime children to</p>
+<p>insure suitable headers are written.</p>
+<p>Internally, the function discards the part's stream, forcing a stream to</p>
+<p>be created when calling getStream().</p>
+
+<p>Returns true if there's a content stream associated with the part.</p>
+<p>@return boolean</p>
+
+<p>Returns true if this part's mime type is text/plain, text/html or has a</p>
+<p>text/* and has a defined 'charset' attribute.</p>
+<p>@return bool</p>
+
+<p>Returns the mime type of the content.</p>
+<p>@return string</p>
+
+<p>Returns the charset of the content, or null if not applicable/defined.</p>
+<p>@return string</p>
+
+<p>Returns the content's disposition.</p>
+<p>@return string</p>
+
+<p>Returns the content-transfer-encoding used for this part.</p>
+<p>@return string</p>
+
+<p>Returns a filename for the part if one is defined, or null otherwise.</p>
+<p>@return string</p>
+
+<p>Returns true if the current part is a mime part.</p>
+<p>@return bool</p>
+
+<p>Returns the Content ID of the part, or null if not defined.</p>
+<p>@return string|null</p>
+
+<p>Returns a resource handle containing this part, including any headers for</p>
+<p>a MimePart, its content, and all its children.</p>
+<p>@return resource the resource handle</p>
+
+<p>Returns a Psr7 StreamInterface containing this part, including any</p>
+<p>headers for a MimePart, its content, and all its children.</p>
+<p>@return StreamInterface the resource handle</p>
+
+<p>Overrides the default character set used for reading content from content</p>
+<p>streams in cases where a user knows the source charset is not what is</p>
+<p>specified.</p>
+<p>If set, the returned value from MessagePart::getCharset is ignored.</p>
+<p>Note that setting an override on a Message and calling getTextStream,</p>
+<p>getTextContent, getHtmlStream or getHtmlContent will not be applied to</p>
+<p>those sub-parts, unless the text/html part is the Message itself.</p>
+<p>Instead, Message:getTextPart() should be called, and setCharsetOverride</p>
+<p>called on the returned MessagePart.</p>
+<p>@param string $charsetOverride</p>
+<p>@param boolean $onlyIfNoCharset if true, $charsetOverride is used only if</p>
+<p>       getCharset returns null.</p>
+
+<p>Returns a resource handle for the content's stream, or null if the part</p>
+<p>doesn't have a content stream.</p>
+<p>The method wraps a call to {@see MessagePart::getContentStream()} and</p>
+<p>returns a resource handle for the returned Stream.</p>
+<p>Note: this method should *not* be used and has been deprecated. Instead,</p>
+<p>use Psr7 streams with getContentStream.  Multibyte chars will not be read</p>
+<p>correctly with fread.</p>
+<p>@param string $charset</p>
+<p>@deprecated since version 1.2.1</p>
+<p>@return resource|null</p>
+
+<p>Returns the StreamInterface for the part's content or null if the part</p>
+<p>doesn't have a content section.</p>
+<p>The library automatically handles decoding and charset conversion (to the</p>
+<p>target passed $charset) based on the part's transfer encoding as returned</p>
+<p>by {@see MessagePart::getContentTransferEncoding()} and the part's</p>
+<p>charset as returned by {@see MessagePart::getCharset()}.  The returned</p>
+<p>stream is ready to be read from directly.</p>
+<p>Note that the returned Stream is a shared object.  If called multiple</p>
+<p>time with the same $charset, and the value of the part's</p>
+<p>Content-Transfer-Encoding header not having changed, the stream will be</p>
+<p>rewound.  This would affect other existing variables referencing the</p>
+<p>stream, for example:</p>
+<p>```</p>
+<p>// assuming $part is a part containing the following</p>
+<p>// string for its content: '12345678'</p>
+<p>$stream = $part->getContentStream();</p>
+<p>$someChars = $part->read(4);</p>
+<p>$stream2 = $part->getContentStream();</p>
+<p>$moreChars = $part->read(4);</p>
+<p>echo ($someChars === $moreChars);    //1</p>
+<p>```</p>
+<p>In this case the Stream was rewound, and $stream's second call to read 4</p>
+<p>bytes reads the same first 4.</p>
+<p>@param string $charset</p>
+<p>@return StreamInterface</p>
+
+<p>Returns the raw data stream for the current part, if it exists, or null</p>
+<p>if there's no content associated with the stream.</p>
+<p>This is basically the same as calling</p>
+<p>{@see MessagePart::getContentStream()}, except no automatic charset</p>
+<p>conversion is done.  Note that for non-text streams, this doesn't have an</p>
+<p>effect, as charset conversion is not performed in that case, and is</p>
+<p>useful only when:</p>
+<ul>
+<li>The charset defined is not correct, and the conversion produces errors;</li>
+<p>  or</p>
+<li>You'd like to read the raw contents without conversion, for instance to</li>
+<p>  save it to file or allow a user to download it as-is (in a download</p>
+<p>  link for example).</p>
+<p>@param string $charset</p>
+<p>@return StreamInterface</p>
+</ul>
+<p>Returns a resource handle for the content's raw data stream, or null if</p>
+<p>the part doesn't have a content stream.</p>
+<p>The method wraps a call to {@see MessagePart::getBinaryContentStream()}</p>
+<p>and returns a resource handle for the returned Stream.</p>
+<p>@return resource|null</p>
+
+<p>Saves the binary content of the stream to the passed file, resource or</p>
+<p>stream.</p>
+<p>Note that charset conversion is not performed in this case, and the</p>
+<p>contents of the part are saved in their binary format as transmitted (but</p>
+<p>after any content-transfer decoding is performed).  {@see</p>
+<p>MessagePart::getBinaryContentStream()} for a more detailed description of</p>
+<p>the stream.</p>
+<p>If the passed parameter is a string, it's assumed to be a filename to</p>
+<p>write to.  The file is opened in 'w+' mode, and closed before returning.</p>
+<p>When passing a resource or Psr7 Stream, the resource is not closed, nor</p>
+<p>rewound.</p>
+<p>@param string|resource|Stream $filenameResourceOrStream</p>
+
+<p>Shortcut to reading stream content and assigning it to a string.  Returns</p>
+<p>null if the part doesn't have a content stream.</p>
+<p>The returned string is encoded to the passed $charset character encoding,</p>
+<p>defaulting to UTF-8.</p>
+<p>@see MessagePart::getContentStream()</p>
+<p>@param string $charset</p>
+<p>@return string</p>
+
+<p>Returns this part's parent.</p>
+<p>@return \ZBateson\MailMimeParser\Message\Part\MimePart</p>
+
+<p>Attaches the stream or resource handle for the part's content.  The</p>
+<p>stream is closed when another stream is attached, or the MimePart is</p>
+<p>destroyed.</p>
+<p>@param StreamInterface $stream</p>
+<p>@param string $streamCharset</p>
+
+<p>Detaches and closes the content stream.</p>
+
+<p>Sets the content of the part to the passed resource.</p>
+<p>@param string|resource|StreamInterface $resource</p>
+<p>@param string $charset</p>
+
+<p>Saves the message/part to the passed file, resource, or stream.</p>
+<p>If the passed parameter is a string, it's assumed to be a filename to</p>
+<p>write to.  The file is opened in 'w+' mode, and closed before returning.</p>
+<p>When passing a resource or Psr7 Stream, the resource is not closed, nor</p>
+<p>rewound.</p>
+<p>@param string|resource|StreamInterface $filenameResourceOrStream</p>
+
+<p>Returns the message/part as a string.</p>
+<p>Convenience method for calling getStream()->getContents().</p>
+<p>@return string</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+<li><code>content</code></li>
+<li><code>MessagePart</code></li>
+<li><code>directly</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Part\MessagePart.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Message\Part\MessagePart</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`__construct(PartStreamFilterManager $partStreamFilterManager,</li>
+<p>        StreamFactory $streamFactory,</p>
+<p>        StreamInterface $stream = null,</p>
+<p>        StreamInterface $contentStream = null)`</p>
+<li><code>__destruct()</code></li>
+<li><code>onChange()</code></li>
+<li><code>markAsChanged()</code></li>
+<li><code>hasContent()</code></li>
+<li><code>isTextPart()</code></li>
+<li><code>getContentType()</code></li>
+<li><code>getCharset()</code></li>
+<li><code>getContentDisposition()</code></li>
+<li><code>getContentTransferEncoding()</code></li>
+<li><code>getFilename()</code></li>
+<li><code>isMime()</code></li>
+<li><code>getContentId()</code></li>
+<li><code>getResourceHandle()</code></li>
+<li><code>getStream()</code></li>
+<li><code>setCharsetOverride($charsetOverride, $onlyIfNoCharset = false)</code></li>
+<li><code>getContentResourceHandle($charset = MailMimeParser::DEFAULT_CHARSET)</code></li>
+<li><code>getContentStream($charset = MailMimeParser::DEFAULT_CHARSET)</code></li>
+<li><code>getBinaryContentStream()</code></li>
+<li><code>getBinaryContentResourceHandle()</code></li>
+<li><code>saveContent($filenameResourceOrStream)</code></li>
+<li><code>getContent($charset = MailMimeParser::DEFAULT_CHARSET)</code></li>
+<li><code>getParent()</code></li>
+<li><code>attachContentStream(StreamInterface $stream, $streamCharset = MailMimeParser::DEFAULT_CHARSET)</code></li>
+<li><code>detachContentStream()</code></li>
+<li><code>setContent($resource, $charset = MailMimeParser::DEFAULT_CHARSET)</code></li>
+<li><code>save($filenameResourceOrStream)</code></li>
+<li><code>__toString()</code></li>
+</ul>
+</body></html>

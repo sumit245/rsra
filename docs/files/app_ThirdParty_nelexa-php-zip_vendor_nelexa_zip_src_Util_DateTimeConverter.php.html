@@ -1,0 +1,68 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Util\DateTimeConverter.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Util\DateTimeConverter.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Util\DateTimeConverter.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3600 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Convert unix timestamp values to DOS date/time values and vice versa.</p>
+<p>The DOS date/time format is a bitmask:</p>
+<p>24                16                 8                 0</p>
+<p>+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+</p>
+<table>
+<tr><td>Y</td><td>Y</td><td>Y</td><td>Y</td><td>Y</td><td>Y</td><td>Y</td><td>M</td><td></td><td>M</td><td>M</td><td>M</td><td>D</td><td>D</td><td>D</td><td>D</td><td>D</td><td></td><td>h</td><td>h</td><td>h</td><td>h</td><td>h</td><td>m</td><td>m</td><td>m</td><td></td><td>m</td><td>m</td><td>m</td><td>s</td><td>s</td><td>s</td><td>s</td><td>s</td></tr>
+</table>
+<p>+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+</p>
+<p>\___________/\________/\_________/ \________/\____________/\_________/</p>
+<p>year        month       day      hour       minute        second</p>
+<p>The year is stored as an offset from 1980.</p>
+<p>Seconds are stored in two-second increments.</p>
+<p>(So if the "second" value is 15, it actually represents 30 seconds.)</p>
+<p>@see https://docs.microsoft.com/ru-ru/windows/win32/api/winbase/nf-winbase-filetimetodosdatetime?redirectedfrom=MSDN</p>
+<p>@internal</p>
+
+<p>Smallest supported DOS date/time value in a ZIP file,</p>
+<p>which is January 1st, 1980 AD 00:00:00 local time.</p>
+<p>@var int</p>
+
+<p>Largest supported DOS date/time value in a ZIP file,</p>
+<p>which is December 31st, 2107 AD 23:59:58 local time.</p>
+<p>@var int</p>
+
+<p>Convert a 32 bit integer DOS date/time value to a UNIX timestamp value.</p>
+<p>@param int $dosTime Dos date/time</p>
+<p>@return int Unix timestamp</p>
+
+<p>Converts a UNIX timestamp value to a DOS date/time value.</p>
+<p>@param int $unixTimestamp the number of seconds since midnight, January 1st,</p>
+<p>                          1970 AD UTC</p>
+<p>@return int a DOS date/time value reflecting the local time zone and</p>
+<p>            rounded down to even seconds</p>
+<p>            and is in between DateTimeConverter::MIN_DOS_TIME and DateTimeConverter::MAX_DOS_TIME</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>1980</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Util\DateTimeConverter.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpZip\Util\DateTimeConverter</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>msDosToUnix(int $dosTime)</code></li>
+<li><code>unixToMsDos(int $unixTimestamp)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,55 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\google\auth\src\Subscriber\SimpleSubscriber.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\google\auth\src\Subscriber\SimpleSubscriber.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\google\auth\src\Subscriber\SimpleSubscriber.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2603 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>SimpleSubscriber is a Guzzle Subscriber that implements Google's Simple API</p>
+<p>access.</p>
+<p>Requests are accessed using the Simple API access developer key.</p>
+
+<p>@var array</p>
+
+<p>Create a new Simple plugin.</p>
+<p>The configuration array expects one option</p>
+<ul>
+<li>key: required, otherwise InvalidArgumentException is thrown</li>
+<p>@param array $config Configuration array</p>
+</ul>
+<p>@return array</p>
+
+<p>Updates the request query with the developer key if auth is set to simple.</p>
+<p>  use Google\Auth\Subscriber\SimpleSubscriber;</p>
+<p>  use GuzzleHttp\Client;</p>
+<p>  $my_key = 'is not the same as yours';</p>
+<p>  $subscriber = new SimpleSubscriber(['key' => $my_key]);</p>
+<p>  $client = new Client([</p>
+<p>     'base_url' => 'https://www.googleapis.com/discovery/v1/',</p>
+<p>     'defaults' => ['auth' => 'simple']</p>
+<p>  ]);</p>
+<p>  $client->getEmitter()->attach($subscriber);</p>
+<p>  $res = $client->get('drive/v2/rest');</p>
+<p>@param BeforeEvent $event</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\google\auth\src\Subscriber\SimpleSubscriber.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Google\Auth\Subscriber\SimpleSubscriber implements SubscriberInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(array $config)</code></li>
+<li><code>getEvents()</code></li>
+<li><code>onBefore(BeforeEvent $event)</code></li>
+</ul>
+</body></html>

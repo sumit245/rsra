@@ -1,0 +1,89 @@
+# Features & Modules
+
+Core application modules (from Controllers):
+
+- `About`: Feature controller handling about.
+- `Announcements`: Feature controller handling announcements.
+- `App_Controller`: Feature controller handling app controller.
+- `Attendance`: Time clock in/out and timecards.
+- `Checklist_groups`: Groupings of checklists for projects.
+- `Checklist_template`: Reusable checklist templates and items.
+- `Clients`: Manage client companies and contacts with CRM features.
+- `Client_groups`: Feature controller handling client groups.
+- `Collect_leads`: Feature controller handling collect leads.
+- `Company`: Feature controller handling company.
+- `Contract`: Feature controller handling contract.
+- `Contracts`: Contract templates, items, and contract lifecycle.
+- `Contract_templates`: Feature controller handling contract templates.
+- `Cron`: Feature controller handling cron.
+- `Custom_fields`: Feature controller handling custom fields.
+- `Dashboard`: Home dashboard with widgets and stats.
+- `Email_templates`: Feature controller handling email templates.
+- `Estimate`: Feature controller handling estimate.
+- `Estimates`: Prepare and manage estimates/quotes and convert them to invoices.
+- `Estimate_requests`: Feature controller handling estimate requests.
+- `Events`: Calendar events, reminders, and integrations.
+- `Expenses`: Expense tracking, categories, and summaries.
+- `Expense_categories`: Feature controller handling expense categories.
+- `External_tickets`: Feature controller handling external tickets.
+- `Forbidden`: Feature controller handling forbidden.
+- `Google_api`: Feature controller handling google api.
+- `Help`: Feature controller handling help.
+- `Invoices`: Create and manage invoices, payments, and recurring billing.
+- `Invoice_payments`: Feature controller handling invoice payments.
+- `Items`: Item/catalog management for orders and billing.
+- `Item_categories`: Feature controller handling item categories.
+- `Knowledge_base`: Help center articles and categories.
+- `Labels`: Label taxonomy used across modules.
+- `Leads`: Track potential clients, lead sources, statuses, and conversion.
+- `Lead_source`: Feature controller handling lead source.
+- `Lead_status`: Feature controller handling lead status.
+- `Leaves`: Leave/absence management with types and approvals.
+- `Leave_types`: Feature controller handling leave types.
+- `Left_menus`: Feature controller handling left menus.
+- `Messages`: Internal messaging between users/clients.
+- `Notes`: Feature controller handling notes.
+- `Notifications`: System notifications and preferences.
+- `Notification_processor`: Feature controller handling notification processor.
+- `Offer`: Feature controller handling offer.
+- `Orders`: Sales orders and related items/statuses.
+- `Order_status`: Feature controller handling order status.
+- `Pages`: CMS-like content pages.
+- `Payment_methods`: Payment gateway settings (Stripe, PayPal, Paytm).
+- `Paypal_ipn`: Feature controller handling paypal ipn.
+- `Paytm_redirect`: Feature controller handling paytm redirect.
+- `Pay_invoice`: Public invoice payment endpoints.
+- `Plugins`: Plugins manager for optional modules.
+- `Pre_loader`: Feature controller handling pre loader.
+- `Projects`: Manage projects, tasks, milestones, timesheets, files, and project settings.
+- `Proposals`: Proposals with templates and items.
+- `Proposal_templates`: Feature controller handling proposal templates.
+- `Request_estimate`: Feature controller handling request estimate.
+- `Roles`: Role-based permissions.
+- `Search`: Global search suggestions.
+- `Security_Controller`: Feature controller handling security controller.
+- `Settings`: Application settings and configuration.
+- `Signin`: Authentication (login).
+- `Signup`: Self-service account creation.
+- `Stripe_redirect`: Feature controller handling stripe redirect.
+- `Task_priority`: Feature controller handling task priority.
+- `Task_status`: Feature controller handling task status.
+- `Taxes`: Feature controller handling taxes.
+- `Team`: Teams and member management.
+- `Team_members`: User profiles and access.
+- `Tickets`: Customer support ticketing, comments, and templates.
+- `Ticket_types`: Feature controller handling ticket types.
+- `Timeline`: Activity timeline and posts/comments.
+- `Todo`: Feature controller handling todo.
+- `Updates`: Feature controller handling updates.
+- `Upload_pasted_image`: Feature controller handling upload pasted image.
+- `Webhooks_listener`: Feature controller handling webhooks listener.
+
+Installed plugins (folders under `plugins/`):
+
+- `plugins/Hr_payroll`
+- `plugins/Hr_profile`
+- `plugins/Purchase`
+- `plugins/RestApi`
+- `plugins/Warehouse`
+- `plugins/fleet-management-plugin-for-rise-crm`

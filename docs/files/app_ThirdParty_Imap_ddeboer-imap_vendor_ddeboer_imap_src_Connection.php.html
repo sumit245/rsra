@@ -1,0 +1,92 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\ddeboer-imap\vendor\ddeboer\imap\src\Connection.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\ddeboer-imap\vendor\ddeboer\imap\src\Connection.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\ddeboer-imap\vendor\ddeboer\imap\src\Connection.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5360 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>A connection to an IMAP server that is authenticated for a user.</p>
+
+<p>@var ImapResourceInterface</p>
+
+<p>@var string</p>
+
+<p>@var null|array</p>
+
+<p>@var null|array</p>
+
+<p>Constructor.</p>
+<p>@param ImapResourceInterface $resource</p>
+<p>@param string                $server</p>
+<p>@throws \InvalidArgumentException</p>
+
+<p>Get IMAP resource.</p>
+<p>@return ImapResourceInterface</p>
+
+<p>Delete all messages marked for deletion.</p>
+<p>@return bool</p>
+
+<p>Close connection.</p>
+<p>@param int $flag</p>
+<p>@return bool</p>
+
+<p>Get a list of mailboxes (also known as folders).</p>
+<p>@return MailboxInterface[]</p>
+
+<p>Check that a mailbox with the given name exists.</p>
+<p>@param string $name Mailbox name</p>
+<p>@return bool</p>
+
+<p>Get a mailbox by its name.</p>
+<p>@param string $name Mailbox name</p>
+<p>@throws MailboxDoesNotExistException If mailbox does not exist</p>
+<p>@return MailboxInterface</p>
+
+<p>Count number of messages not in any mailbox.</p>
+<p>@return int</p>
+
+<p>Check if the connection is still active.</p>
+<p>@throws InvalidResourceException If connection was closed</p>
+<p>@return bool</p>
+
+<p>Create mailbox.</p>
+<p>@param string $name</p>
+<p>@throws CreateMailboxException</p>
+<p>@return MailboxInterface</p>
+
+<p>Create mailbox.</p>
+<p>@param MailboxInterface $mailbox</p>
+<p>@throws DeleteMailboxException</p>
+
+<p>Get mailbox names.</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\ddeboer-imap\vendor\ddeboer\imap\src\Connection.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Ddeboer\Imap\Connection implements ConnectionInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(ImapResourceInterface $resource, string $server)</code></li>
+<li><code>getResource()</code></li>
+<li><code>expunge()</code></li>
+<li><code>close(int $flag = 0)</code></li>
+<li><code>getMailboxes()</code></li>
+<li><code>hasMailbox(string $name)</code></li>
+<li><code>getMailbox(string $name)</code></li>
+<li><code>count()</code></li>
+<li><code>ping()</code></li>
+<li><code>createMailbox(string $name)</code></li>
+<li><code>deleteMailbox(MailboxInterface $mailbox)</code></li>
+<li><code>initMailboxNames()</code></li>
+</ul>
+</body></html>

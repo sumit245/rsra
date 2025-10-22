@@ -1,0 +1,99 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\Controllers\Invoices.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\Controllers\Invoices.php</h1>
+
+<ul>
+<li>Path: <code>app\Controllers\Invoices.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 54451 bytes</li>
+</ul>
+<h2>References</h2>
+
+<p><strong>Models Used</strong></p>
+<ul>
+<li><code>Custom_fields_model</code></li>
+<li><code>Clients_model</code></li>
+<li><code>Invoices_model</code></li>
+<li><code>Estimates_model</code></li>
+<li><code>Orders_model</code></li>
+<li><code>Contracts_model</code></li>
+<li><code>Proposals_model</code></li>
+<li><code>Projects_model</code></li>
+<li><code>Taxes_model</code></li>
+<li><code>Invoice_items_model</code></li>
+<li><code>Estimate_items_model</code></li>
+<li><code>Contract_items_model</code></li>
+<li><code>Proposal_items_model</code></li>
+<li><code>Order_items_model</code></li>
+<li><code>Items_model</code></li>
+<li><code>Payment_methods_model</code></li>
+<li><code>Users_model</code></li>
+<li><code>Email_templates_model</code></li>
+<li><code>Verification_model</code></li>
+</ul>
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>estimate</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\Controllers\Invoices.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Invoices extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index($tab = "")</code></li>
+<li><code>yearly()</code></li>
+<li><code>recurring()</code></li>
+<li><code>custom()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>get_project_suggestion($client_id = 0)</code></li>
+<li><code>save()</code></li>
+<li><code>_copy_related_items_to_invoice($copy_items_from_estimate, $copy_items_from_proposal, $copy_items_from_order, $copy_items_from_contract, $invoice_id)</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>invoice_list_data_of_client($client_id)</code></li>
+<li><code>invoice_list_data_of_project($project_id, $client_id = 0)</code></li>
+<li><code>sub_invoices($recurring_invoice_id)</code></li>
+<li><code>sub_invoices_list_data($recurring_invoice_id)</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data, $custom_fields)</code></li>
+<li><code>_make_options_dropdown($invoice_id = 0)</code></li>
+<li><code>_get_invoice_status_label($data, $return_html = true)</code></li>
+<li><code>recurring_list_data()</code></li>
+<li><code>_make_recurring_row($data)</code></li>
+<li><code>view($invoice_id = 0)</code></li>
+<li><code>_get_invoice_total_view($invoice_id = 0)</code></li>
+<li><code>item_modal_form()</code></li>
+<li><code>save_item()</code></li>
+<li><code>delete_item()</code></li>
+<li><code>item_list_data($invoice_id = 0)</code></li>
+<li><code>_make_item_row($data)</code></li>
+<li><code>update_item_sort_values($id = 0)</code></li>
+<li><code>get_invoice_item_suggestion()</code></li>
+<li><code>get_invoice_item_info_suggestion()</code></li>
+<li><code>preview($invoice_id = 0, $show_close_preview = false)</code></li>
+<li><code>print_invoice($invoice_id = 0)</code></li>
+<li><code>download_pdf($invoice_id = 0, $mode = "download")</code></li>
+<li><code>_check_invoice_access_permission($invoice_data)</code></li>
+<li><code>send_invoice_modal_form($invoice_id)</code></li>
+<li><code>get_send_invoice_template($invoice_id = 0, $contact_id = 0, $return_type = "", $invoice_info = "", $contact_info = "")</code></li>
+<li><code>send_invoice()</code></li>
+<li><code>get_invoice_status_bar($invoice_id = 0)</code></li>
+<li><code>update_invoice_status($invoice_id = 0, $status = "")</code></li>
+<li><code>discount_modal_form()</code></li>
+<li><code>save_discount()</code></li>
+<li><code>load_statistics_of_selected_currency($currency = "", $currency_symbol = "")</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_invoices_file()</code></li>
+<li><code>file_preview($id = "", $key = "")</code></li>
+<li><code>load_invoice_overview_statistics_of_selected_currency($currency = "", $currency_symbol = "")</code></li>
+</ul>
+</body></html>

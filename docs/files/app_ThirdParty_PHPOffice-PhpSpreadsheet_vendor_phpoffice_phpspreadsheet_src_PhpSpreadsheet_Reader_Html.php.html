@@ -1,0 +1,165 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Html.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Html.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Html.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 35156 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Sample size to read to determine if it's HTML or not.</p>
+
+<p>Input encoding.</p>
+<p>@var string</p>
+
+<p>Sheet index to read.</p>
+<p>@var int</p>
+
+<p>Formats.</p>
+<p>@var array</p>
+
+<p>@var array</p>
+
+<p>Create a new HTML Reader instance.</p>
+
+<p>Validate that the current file is an HTML file.</p>
+
+<p>Loads Spreadsheet from file.</p>
+
+<p>Set input encoding.</p>
+<p>@param string $inputEncoding Input encoding, eg: 'ANSI'</p>
+<p>@return $this</p>
+<p>@codeCoverageIgnore</p>
+<p>@deprecated no use is made of this property</p>
+
+<p>Get input encoding.</p>
+<p>@return string</p>
+<p>@codeCoverageIgnore</p>
+<p>@deprecated no use is made of this property</p>
+
+<p>@var array</p>
+
+<p>@var int</p>
+
+<p>@var array</p>
+
+<p>Flush cell.</p>
+<p>@param string $column</p>
+<p>@param int|string $row</p>
+<p>@param mixed $cellContent</p>
+
+<p>Make sure mb_convert_encoding returns string.</p>
+<p>@param mixed $result</p>
+
+<p>Loads PhpSpreadsheet from file into PhpSpreadsheet instance.</p>
+<p>@param string $filename</p>
+<p>@return Spreadsheet</p>
+
+<p>Spreadsheet from content.</p>
+<p>@param string $content</p>
+
+<p>Loads PhpSpreadsheet from DOMDocument into PhpSpreadsheet instance.</p>
+
+<p>Get sheet index.</p>
+<p>@return int</p>
+
+<p>Set sheet index.</p>
+<p>@param int $sheetIndex Sheet index</p>
+<p>@return $this</p>
+
+<p>Apply inline css inline style.</p>
+<p>NOTES :</p>
+<p>Currently only intended for td & th element,</p>
+<p>and only takes 'background-color' and 'color'; property with HEX color</p>
+<p>TODO :</p>
+<ul>
+<li>Implement to other propertie, such as border</li>
+<p>@param int $row</p>
+<p>@param string $column</p>
+<p>@param array $attributeArray</p>
+</ul>
+<p>Check if has #, so we can get clean hex.</p>
+<p>@param mixed $value</p>
+<p>@return null|string</p>
+
+<p>@param string    $column</p>
+<p>@param int       $row</p>
+
+<p>Map html border style to PhpSpreadsheet border style.</p>
+<p>@param  string $style</p>
+<p>@return null|string</p>
+
+<p>@param string $styleValue</p>
+<p>@param string $type</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>file</code></li>
+<li><code>content</code></li>
+<li><code>DOMDocument</code></li>
+<li><code>dom</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Html.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Reader\Html extends BaseReader</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>canRead(string $filename)</code></li>
+<li><code>readBeginning()</code></li>
+<li><code>readEnding()</code></li>
+<li><code>startsWithTag(string $data)</code></li>
+<li><code>endsWithTag(string $data)</code></li>
+<li><code>containsTags(string $data)</code></li>
+<li><code>loadSpreadsheetFromFile(string $filename)</code></li>
+<li><code>setInputEncoding($inputEncoding)</code></li>
+<li><code>getInputEncoding()</code></li>
+<li><code>setTableStartColumn(string $column)</code></li>
+<li><code>getTableStartColumn()</code></li>
+<li><code>releaseTableStartColumn()</code></li>
+<li><code>flushCell(Worksheet $sheet, $column, $row, &$cellContent)</code></li>
+<li><code>processDomElementBody(Worksheet $sheet, int &$row, string &$column, string &$cellContent, DOMElement $child)</code></li>
+<li><code>processDomElementTitle(Worksheet $sheet, int &$row, string &$column, string &$cellContent, DOMElement $child, array &$attributeArray)</code></li>
+<li><code>processDomElementSpanEtc(Worksheet $sheet, int &$row, string &$column, string &$cellContent, DOMElement $child, array &$attributeArray)</code></li>
+<li><code>processDomElementHr(Worksheet $sheet, int &$row, string &$column, string &$cellContent, DOMElement $child, array &$attributeArray)</code></li>
+<li><code>processDomElementBr(Worksheet $sheet, int &$row, string &$column, string &$cellContent, DOMElement $child, array &$attributeArray)</code></li>
+<li><code>processDomElementA(Worksheet $sheet, int &$row, string &$column, string &$cellContent, DOMElement $child, array &$attributeArray)</code></li>
+<li><code>processDomElementH1Etc(Worksheet $sheet, int &$row, string &$column, string &$cellContent, DOMElement $child, array &$attributeArray)</code></li>
+<li><code>processDomElementLi(Worksheet $sheet, int &$row, string &$column, string &$cellContent, DOMElement $child, array &$attributeArray)</code></li>
+<li><code>processDomElementImg(Worksheet $sheet, int &$row, string &$column, string &$cellContent, DOMElement $child, array &$attributeArray)</code></li>
+<li><code>processDomElementTable(Worksheet $sheet, int &$row, string &$column, string &$cellContent, DOMElement $child, array &$attributeArray)</code></li>
+<li><code>processDomElementTr(Worksheet $sheet, int &$row, string &$column, string &$cellContent, DOMElement $child, array &$attributeArray)</code></li>
+<li><code>processDomElementThTdOther(Worksheet $sheet, int &$row, string &$column, string &$cellContent, DOMElement $child, array &$attributeArray)</code></li>
+<li><code>processDomElementBgcolor(Worksheet $sheet, int $row, string $column, array $attributeArray)</code></li>
+<li><code>processDomElementWidth(Worksheet $sheet, string $column, array $attributeArray)</code></li>
+<li><code>processDomElementHeight(Worksheet $sheet, int $row, array $attributeArray)</code></li>
+<li><code>processDomElementAlign(Worksheet $sheet, int $row, string $column, array $attributeArray)</code></li>
+<li><code>processDomElementVAlign(Worksheet $sheet, int $row, string $column, array $attributeArray)</code></li>
+<li><code>processDomElementDataFormat(Worksheet $sheet, int $row, string $column, array $attributeArray)</code></li>
+<li><code>processDomElementThTd(Worksheet $sheet, int &$row, string &$column, string &$cellContent, DOMElement $child, array &$attributeArray)</code></li>
+<li><code>processDomElement(DOMNode $element, Worksheet $sheet, int &$row, string &$column, string &$cellContent)</code></li>
+<li><code>ensureString($result)</code></li>
+<li><code>loadIntoExisting($filename, Spreadsheet $spreadsheet)</code></li>
+<li><code>loadFromString($content, ?Spreadsheet $spreadsheet = null)</code></li>
+<li><code>loadDocument(DOMDocument $document, Spreadsheet $spreadsheet)</code></li>
+<li><code>getSheetIndex()</code></li>
+<li><code>setSheetIndex($sheetIndex)</code></li>
+<li><code>applyInlineStyle(Worksheet &$sheet, $row, $column, $attributeArray)</code></li>
+<li><code>getStyleColor($value)</code></li>
+<li><code>insertImage(Worksheet $sheet, $column, $row, array $attributes)</code></li>
+<li><code>getBorderMappings()</code></li>
+<li><code>getBorderStyle($style)</code></li>
+<li><code>setBorderStyle(Style $cellStyle, $styleValue, $type)</code></li>
+</ul>
+</body></html>

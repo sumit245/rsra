@@ -1,0 +1,343 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Database.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Database.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Database.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 23998 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@deprecated 1.17.0</p>
+
+<p>DAVERAGE.</p>
+<p>Averages the values in a column of a list or database that match conditions you specify.</p>
+<p>Excel Function:</p>
+<p>       DAVERAGE(database,field,criteria)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Database\DAverage::evaluate()</p>
+<p>     Use the evaluate() method in the Database\DAverage class instead</p>
+<p>@param mixed[] $database The range of cells that makes up the list or database.</p>
+<p>                                       A database is a list of related data in which rows of related</p>
+<p>                                       information are records, and columns of data are fields. The</p>
+<p>                                       first row of the list contains labels for each column.</p>
+<p>@param int|string $field Indicates which column is used in the function. Enter the</p>
+<p>                                       column label enclosed between double quotation marks, such as</p>
+<p>                                       "Age" or "Yield," or a number (without quotation marks) that</p>
+<p>                                       represents the position of the column within the list: 1 for</p>
+<p>                                       the first column, 2 for the second column, and so on.</p>
+<p>@param mixed[] $criteria The range of cells that contains the conditions you specify.</p>
+<p>                                       You can use any range for the criteria argument, as long as it</p>
+<p>                                       includes at least one column label and at least one cell below</p>
+<p>                                       the column label in which you specify a condition for the</p>
+<p>                                       column.</p>
+<p>@return null|float|string</p>
+
+<p>DCOUNT.</p>
+<p>Counts the cells that contain numbers in a column of a list or database that match conditions</p>
+<p>that you specify.</p>
+<p>Excel Function:</p>
+<p>       DCOUNT(database,[field],criteria)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Database\DCount::evaluate()</p>
+<p>     Use the evaluate() method in the Database\DCount class instead</p>
+<p>@param mixed[] $database The range of cells that makes up the list or database.</p>
+<p>                                       A database is a list of related data in which rows of related</p>
+<p>                                       information are records, and columns of data are fields. The</p>
+<p>                                       first row of the list contains labels for each column.</p>
+<p>@param null|int|string $field Indicates which column is used in the function. Enter the</p>
+<p>                                       column label enclosed between double quotation marks, such as</p>
+<p>                                       "Age" or "Yield," or a number (without quotation marks) that</p>
+<p>                                       represents the position of the column within the list: 1 for</p>
+<p>                                       the first column, 2 for the second column, and so on.</p>
+<p>@param mixed[] $criteria The range of cells that contains the conditions you specify.</p>
+<p>                                       You can use any range for the criteria argument, as long as it</p>
+<p>                                       includes at least one column label and at least one cell below</p>
+<p>                                       the column label in which you specify a condition for the</p>
+<p>                                       column.</p>
+<p>@return int</p>
+<p>@TODO    The field argument is optional. If field is omitted, DCOUNT counts all records in the</p>
+<p>           database that match the criteria.</p>
+
+<p>DCOUNTA.</p>
+<p>Counts the nonblank cells in a column of a list or database that match conditions that you specify.</p>
+<p>Excel Function:</p>
+<p>       DCOUNTA(database,[field],criteria)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Database\DCountA::evaluate()</p>
+<p>     Use the evaluate() method in the Database\DCountA class instead</p>
+<p>@param mixed[] $database The range of cells that makes up the list or database.</p>
+<p>                                       A database is a list of related data in which rows of related</p>
+<p>                                       information are records, and columns of data are fields. The</p>
+<p>                                       first row of the list contains labels for each column.</p>
+<p>@param null|int|string $field Indicates which column is used in the function. Enter the</p>
+<p>                                       column label enclosed between double quotation marks, such as</p>
+<p>                                       "Age" or "Yield," or a number (without quotation marks) that</p>
+<p>                                       represents the position of the column within the list: 1 for</p>
+<p>                                       the first column, 2 for the second column, and so on.</p>
+<p>@param mixed[] $criteria The range of cells that contains the conditions you specify.</p>
+<p>                                       You can use any range for the criteria argument, as long as it</p>
+<p>                                       includes at least one column label and at least one cell below</p>
+<p>                                       the column label in which you specify a condition for the</p>
+<p>                                       column.</p>
+<p>@return int</p>
+
+<p>DGET.</p>
+<p>Extracts a single value from a column of a list or database that matches conditions that you</p>
+<p>specify.</p>
+<p>Excel Function:</p>
+<p>       DGET(database,field,criteria)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Database\DGet::evaluate()</p>
+<p>     Use the evaluate() method in the Database\DGet class instead</p>
+<p>@param mixed[] $database The range of cells that makes up the list or database.</p>
+<p>                                       A database is a list of related data in which rows of related</p>
+<p>                                       information are records, and columns of data are fields. The</p>
+<p>                                       first row of the list contains labels for each column.</p>
+<p>@param int|string $field Indicates which column is used in the function. Enter the</p>
+<p>                                       column label enclosed between double quotation marks, such as</p>
+<p>                                       "Age" or "Yield," or a number (without quotation marks) that</p>
+<p>                                       represents the position of the column within the list: 1 for</p>
+<p>                                       the first column, 2 for the second column, and so on.</p>
+<p>@param mixed[] $criteria The range of cells that contains the conditions you specify.</p>
+<p>                                       You can use any range for the criteria argument, as long as it</p>
+<p>                                       includes at least one column label and at least one cell below</p>
+<p>                                       the column label in which you specify a condition for the</p>
+<p>                                       column.</p>
+<p>@return mixed</p>
+
+<p>DMAX.</p>
+<p>Returns the largest number in a column of a list or database that matches conditions you that</p>
+<p>specify.</p>
+<p>Excel Function:</p>
+<p>       DMAX(database,field,criteria)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Database\DMax::evaluate()</p>
+<p>     Use the evaluate() method in the Database\DMax class instead</p>
+<p>@param mixed[] $database The range of cells that makes up the list or database.</p>
+<p>                                       A database is a list of related data in which rows of related</p>
+<p>                                       information are records, and columns of data are fields. The</p>
+<p>                                       first row of the list contains labels for each column.</p>
+<p>@param int|string $field Indicates which column is used in the function. Enter the</p>
+<p>                                       column label enclosed between double quotation marks, such as</p>
+<p>                                       "Age" or "Yield," or a number (without quotation marks) that</p>
+<p>                                       represents the position of the column within the list: 1 for</p>
+<p>                                       the first column, 2 for the second column, and so on.</p>
+<p>@param mixed[] $criteria The range of cells that contains the conditions you specify.</p>
+<p>                                       You can use any range for the criteria argument, as long as it</p>
+<p>                                       includes at least one column label and at least one cell below</p>
+<p>                                       the column label in which you specify a condition for the</p>
+<p>                                       column.</p>
+<p>@return float</p>
+
+<p>DMIN.</p>
+<p>Returns the smallest number in a column of a list or database that matches conditions you that</p>
+<p>specify.</p>
+<p>Excel Function:</p>
+<p>       DMIN(database,field,criteria)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Database\DMin::evaluate()</p>
+<p>     Use the evaluate() method in the Database\DMin class instead</p>
+<p>@param mixed[] $database The range of cells that makes up the list or database.</p>
+<p>                                       A database is a list of related data in which rows of related</p>
+<p>                                       information are records, and columns of data are fields. The</p>
+<p>                                       first row of the list contains labels for each column.</p>
+<p>@param int|string $field Indicates which column is used in the function. Enter the</p>
+<p>                                       column label enclosed between double quotation marks, such as</p>
+<p>                                       "Age" or "Yield," or a number (without quotation marks) that</p>
+<p>                                       represents the position of the column within the list: 1 for</p>
+<p>                                       the first column, 2 for the second column, and so on.</p>
+<p>@param mixed[] $criteria The range of cells that contains the conditions you specify.</p>
+<p>                                       You can use any range for the criteria argument, as long as it</p>
+<p>                                       includes at least one column label and at least one cell below</p>
+<p>                                       the column label in which you specify a condition for the</p>
+<p>                                       column.</p>
+<p>@return float</p>
+
+<p>DPRODUCT.</p>
+<p>Multiplies the values in a column of a list or database that match conditions that you specify.</p>
+<p>Excel Function:</p>
+<p>       DPRODUCT(database,field,criteria)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Database\DProduct::evaluate()</p>
+<p>     Use the evaluate() method in the Database\DProduct class instead</p>
+<p>@param mixed[] $database The range of cells that makes up the list or database.</p>
+<p>                                       A database is a list of related data in which rows of related</p>
+<p>                                       information are records, and columns of data are fields. The</p>
+<p>                                       first row of the list contains labels for each column.</p>
+<p>@param int|string $field Indicates which column is used in the function. Enter the</p>
+<p>                                       column label enclosed between double quotation marks, such as</p>
+<p>                                       "Age" or "Yield," or a number (without quotation marks) that</p>
+<p>                                       represents the position of the column within the list: 1 for</p>
+<p>                                       the first column, 2 for the second column, and so on.</p>
+<p>@param mixed[] $criteria The range of cells that contains the conditions you specify.</p>
+<p>                                       You can use any range for the criteria argument, as long as it</p>
+<p>                                       includes at least one column label and at least one cell below</p>
+<p>                                       the column label in which you specify a condition for the</p>
+<p>                                       column.</p>
+<p>@return float|string</p>
+
+<p>DSTDEV.</p>
+<p>Estimates the standard deviation of a population based on a sample by using the numbers in a</p>
+<p>column of a list or database that match conditions that you specify.</p>
+<p>Excel Function:</p>
+<p>       DSTDEV(database,field,criteria)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Database\DStDev::evaluate()</p>
+<p>     Use the evaluate() method in the Database\DStDev class instead</p>
+<p>@param mixed[] $database The range of cells that makes up the list or database.</p>
+<p>                                       A database is a list of related data in which rows of related</p>
+<p>                                       information are records, and columns of data are fields. The</p>
+<p>                                       first row of the list contains labels for each column.</p>
+<p>@param int|string $field Indicates which column is used in the function. Enter the</p>
+<p>                                       column label enclosed between double quotation marks, such as</p>
+<p>                                       "Age" or "Yield," or a number (without quotation marks) that</p>
+<p>                                       represents the position of the column within the list: 1 for</p>
+<p>                                       the first column, 2 for the second column, and so on.</p>
+<p>@param mixed[] $criteria The range of cells that contains the conditions you specify.</p>
+<p>                                       You can use any range for the criteria argument, as long as it</p>
+<p>                                       includes at least one column label and at least one cell below</p>
+<p>                                       the column label in which you specify a condition for the</p>
+<p>                                       column.</p>
+<p>@return float|string</p>
+
+<p>DSTDEVP.</p>
+<p>Calculates the standard deviation of a population based on the entire population by using the</p>
+<p>numbers in a column of a list or database that match conditions that you specify.</p>
+<p>Excel Function:</p>
+<p>       DSTDEVP(database,field,criteria)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Database\DStDevP::evaluate()</p>
+<p>     Use the evaluate() method in the Database\DStDevP class instead</p>
+<p>@param mixed[] $database The range of cells that makes up the list or database.</p>
+<p>                                       A database is a list of related data in which rows of related</p>
+<p>                                       information are records, and columns of data are fields. The</p>
+<p>                                       first row of the list contains labels for each column.</p>
+<p>@param int|string $field Indicates which column is used in the function. Enter the</p>
+<p>                                       column label enclosed between double quotation marks, such as</p>
+<p>                                       "Age" or "Yield," or a number (without quotation marks) that</p>
+<p>                                       represents the position of the column within the list: 1 for</p>
+<p>                                       the first column, 2 for the second column, and so on.</p>
+<p>@param mixed[] $criteria The range of cells that contains the conditions you specify.</p>
+<p>                                       You can use any range for the criteria argument, as long as it</p>
+<p>                                       includes at least one column label and at least one cell below</p>
+<p>                                       the column label in which you specify a condition for the</p>
+<p>                                       column.</p>
+<p>@return float|string</p>
+
+<p>DSUM.</p>
+<p>Adds the numbers in a column of a list or database that match conditions that you specify.</p>
+<p>Excel Function:</p>
+<p>       DSUM(database,field,criteria)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Database\DSum::evaluate()</p>
+<p>     Use the evaluate() method in the Database\DSum class instead</p>
+<p>@param mixed[] $database The range of cells that makes up the list or database.</p>
+<p>                                       A database is a list of related data in which rows of related</p>
+<p>                                       information are records, and columns of data are fields. The</p>
+<p>                                       first row of the list contains labels for each column.</p>
+<p>@param int|string $field Indicates which column is used in the function. Enter the</p>
+<p>                                       column label enclosed between double quotation marks, such as</p>
+<p>                                       "Age" or "Yield," or a number (without quotation marks) that</p>
+<p>                                       represents the position of the column within the list: 1 for</p>
+<p>                                       the first column, 2 for the second column, and so on.</p>
+<p>@param mixed[] $criteria The range of cells that contains the conditions you specify.</p>
+<p>                                       You can use any range for the criteria argument, as long as it</p>
+<p>                                       includes at least one column label and at least one cell below</p>
+<p>                                       the column label in which you specify a condition for the</p>
+<p>                                       column.</p>
+<p>@return float|string</p>
+
+<p>DVAR.</p>
+<p>Estimates the variance of a population based on a sample by using the numbers in a column</p>
+<p>of a list or database that match conditions that you specify.</p>
+<p>Excel Function:</p>
+<p>       DVAR(database,field,criteria)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Database\DVar::evaluate()</p>
+<p>     Use the evaluate() method in the Database\DVar class instead</p>
+<p>@param mixed[] $database The range of cells that makes up the list or database.</p>
+<p>                                       A database is a list of related data in which rows of related</p>
+<p>                                       information are records, and columns of data are fields. The</p>
+<p>                                       first row of the list contains labels for each column.</p>
+<p>@param int|string $field Indicates which column is used in the function. Enter the</p>
+<p>                                       column label enclosed between double quotation marks, such as</p>
+<p>                                       "Age" or "Yield," or a number (without quotation marks) that</p>
+<p>                                       represents the position of the column within the list: 1 for</p>
+<p>                                       the first column, 2 for the second column, and so on.</p>
+<p>@param mixed[] $criteria The range of cells that contains the conditions you specify.</p>
+<p>                                       You can use any range for the criteria argument, as long as it</p>
+<p>                                       includes at least one column label and at least one cell below</p>
+<p>                                       the column label in which you specify a condition for the</p>
+<p>                                       column.</p>
+<p>@return float|string (string if result is an error)</p>
+
+<p>DVARP.</p>
+<p>Calculates the variance of a population based on the entire population by using the numbers</p>
+<p>in a column of a list or database that match conditions that you specify.</p>
+<p>Excel Function:</p>
+<p>       DVARP(database,field,criteria)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Database\DVarP::evaluate()</p>
+<p>     Use the evaluate() method in the Database\DVarP class instead</p>
+<p>@param mixed[] $database The range of cells that makes up the list or database.</p>
+<p>                                       A database is a list of related data in which rows of related</p>
+<p>                                       information are records, and columns of data are fields. The</p>
+<p>                                       first row of the list contains labels for each column.</p>
+<p>@param int|string $field Indicates which column is used in the function. Enter the</p>
+<p>                                       column label enclosed between double quotation marks, such as</p>
+<p>                                       "Age" or "Yield," or a number (without quotation marks) that</p>
+<p>                                       represents the position of the column within the list: 1 for</p>
+<p>                                       the first column, 2 for the second column, and so on.</p>
+<p>@param mixed[] $criteria The range of cells that contains the conditions you specify.</p>
+<p>                                       You can use any range for the criteria argument, as long as it</p>
+<p>                                       includes at least one column label and at least one cell below</p>
+<p>                                       the column label in which you specify a condition for the</p>
+<p>                                       column.</p>
+<p>@return float|string (string if result is an error)</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Database.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\Database</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>DAVERAGE($database, $field, $criteria)</code></li>
+<li><code>DCOUNT($database, $field, $criteria)</code></li>
+<li><code>DCOUNTA($database, $field, $criteria)</code></li>
+<li><code>DGET($database, $field, $criteria)</code></li>
+<li><code>DMAX($database, $field, $criteria)</code></li>
+<li><code>DMIN($database, $field, $criteria)</code></li>
+<li><code>DPRODUCT($database, $field, $criteria)</code></li>
+<li><code>DSTDEV($database, $field, $criteria)</code></li>
+<li><code>DSTDEVP($database, $field, $criteria)</code></li>
+<li><code>DSUM($database, $field, $criteria)</code></li>
+<li><code>DVAR($database, $field, $criteria)</code></li>
+<li><code>DVARP($database, $field, $criteria)</code></li>
+</ul>
+</body></html>

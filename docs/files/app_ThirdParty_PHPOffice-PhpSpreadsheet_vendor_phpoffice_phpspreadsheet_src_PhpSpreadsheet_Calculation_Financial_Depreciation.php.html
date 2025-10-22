@@ -1,0 +1,93 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\Depreciation.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\Depreciation.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\Depreciation.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9593 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>DB.</p>
+<p>Returns the depreciation of an asset for a specified period using the</p>
+<p>fixed-declining balance method.</p>
+<p>This form of depreciation is used if you want to get a higher depreciation value</p>
+<p>at the beginning of the depreciation (as opposed to linear depreciation). The</p>
+<p>depreciation value is reduced with every depreciation period by the depreciation</p>
+<p>already deducted from the initial cost.</p>
+<p>Excel Function:</p>
+<p>       DB(cost,salvage,life,period[,month])</p>
+<p>@param mixed $cost Initial cost of the asset</p>
+<p>@param mixed $salvage Value at the end of the depreciation.</p>
+<p>                            (Sometimes called the salvage value of the asset)</p>
+<p>@param mixed $life Number of periods over which the asset is depreciated.</p>
+<p>                          (Sometimes called the useful life of the asset)</p>
+<p>@param mixed $period The period for which you want to calculate the</p>
+<p>                         depreciation. Period must use the same units as life.</p>
+<p>@param mixed $month Number of months in the first year. If month is omitted,</p>
+<p>                        it defaults to 12.</p>
+<p>@return float|string</p>
+
+<p>DDB.</p>
+<p>Returns the depreciation of an asset for a specified period using the</p>
+<p>double-declining balance method or some other method you specify.</p>
+<p>Excel Function:</p>
+<p>       DDB(cost,salvage,life,period[,factor])</p>
+<p>@param mixed $cost Initial cost of the asset</p>
+<p>@param mixed $salvage Value at the end of the depreciation.</p>
+<p>                               (Sometimes called the salvage value of the asset)</p>
+<p>@param mixed $life Number of periods over which the asset is depreciated.</p>
+<p>                               (Sometimes called the useful life of the asset)</p>
+<p>@param mixed $period The period for which you want to calculate the</p>
+<p>                               depreciation. Period must use the same units as life.</p>
+<p>@param mixed $factor The rate at which the balance declines.</p>
+<p>                               If factor is omitted, it is assumed to be 2 (the</p>
+<p>                               double-declining balance method).</p>
+<p>@return float|string</p>
+
+<p>SLN.</p>
+<p>Returns the straight-line depreciation of an asset for one period</p>
+<p>@param mixed $cost Initial cost of the asset</p>
+<p>@param mixed $salvage Value at the end of the depreciation</p>
+<p>@param mixed $life Number of periods over which the asset is depreciated</p>
+<p>@return float|string Result, or a string containing an error</p>
+
+<p>SYD.</p>
+<p>Returns the sum-of-years' digits depreciation of an asset for a specified period.</p>
+<p>@param mixed $cost Initial cost of the asset</p>
+<p>@param mixed $salvage Value at the end of the depreciation</p>
+<p>@param mixed $life Number of periods over which the asset is depreciated</p>
+<p>@param mixed $period Period</p>
+<p>@return float|string Result, or a string containing an error</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\Depreciation.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\Financial\Depreciation</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>DB($cost, $salvage, $life, $period, $month = 12)</code></li>
+<li><code>DDB($cost, $salvage, $life, $period, $factor = 2.0)</code></li>
+<li><code>SLN($cost, $salvage, $life)</code></li>
+<li><code>SYD($cost, $salvage, $life, $period)</code></li>
+<li><code>validateCost($cost, bool $negativeValueAllowed = false)</code></li>
+<li><code>validateSalvage($salvage, bool $negativeValueAllowed = false)</code></li>
+<li><code>validateLife($life, bool $negativeValueAllowed = false)</code></li>
+<li><code>validatePeriod($period, bool $negativeValueAllowed = false)</code></li>
+<li><code>validateMonth($month)</code></li>
+<li><code>validateFactor($factor)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,133 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\Fields\WinZipAesExtraField.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\Fields\WinZipAesExtraField.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\Fields\WinZipAesExtraField.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 10569 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>WinZip AES Extra Field.</p>
+<p>@see http://www.winzip.com/win/en/aes_tips.htm AES Coding Tips for Developers</p>
+
+<p>@var int Header id</p>
+
+<p>@var int Data size (currently 7, but subject to possible increase</p>
+<p>         in the future)</p>
+
+<p>@var int The vendor ID field should always be set to the two ASCII</p>
+<p>         characters "AE"</p>
+
+<p>@var int Entries of this type do include the standard ZIP CRC-32 value.</p>
+<p>         For use with {@see WinZipAesExtraField::setVendorVersion()}.</p>
+
+<p>@var int Entries of this type do not include the standard ZIP CRC-32 value.</p>
+<p>         For use with {@see WinZipAesExtraField::setVendorVersion().</p>
+
+<p>@var int integer mode value indicating AES encryption 128-bit strength</p>
+
+<p>@var int integer mode value indicating AES encryption 192-bit strength</p>
+
+<p>@var int integer mode value indicating AES encryption 256-bit strength</p>
+
+<p>@var int[]</p>
+
+<p>@var array<int, int></p>
+
+<p>@var array<int, int></p>
+
+<p>@var int Integer version number specific to the zip vendor</p>
+
+<p>@var int Integer mode value indicating AES encryption strength</p>
+
+<p>@var int The actual compression method used to compress the file</p>
+
+<p>@param int $vendorVersion     Integer version number specific to the zip vendor</p>
+<p>@param int $keyStrength       Integer mode value indicating AES encryption strength</p>
+<p>@param int $compressionMethod The actual compression method used to compress the file</p>
+<p>@throws ZipUnsupportMethodException</p>
+
+<p>@throws ZipUnsupportMethodException</p>
+<p>@return WinZipAesExtraField</p>
+
+<p>Returns the Header ID (type) of this Extra Field.</p>
+<p>The Header ID is an unsigned short integer (two bytes)</p>
+<p>which must be constant during the life cycle of this object.</p>
+
+<p>Populate data from this array as if it was in local file data.</p>
+<p>@param string    $buffer the buffer to read data from</p>
+<p>@param ?ZipEntry $entry</p>
+<p>@throws ZipException on error</p>
+<p>@return WinZipAesExtraField</p>
+
+<p>Populate data from this array as if it was in central directory data.</p>
+<p>@param string    $buffer the buffer to read data from</p>
+<p>@param ?ZipEntry $entry</p>
+<p>@throws ZipException</p>
+<p>@return WinZipAesExtraField</p>
+
+<p>The actual data to put into local file data - without Header-ID</p>
+<p>or length specifier.</p>
+<p>@return string the data</p>
+
+<p>The actual data to put into central directory - without Header-ID or</p>
+<p>length specifier.</p>
+<p>@return string the data</p>
+
+<p>Returns the vendor version.</p>
+<p>@see WinZipAesExtraField::VERSION_AE2</p>
+<p>@see WinZipAesExtraField::VERSION_AE1</p>
+
+<p>Sets the vendor version.</p>
+<p>@param int $vendorVersion the vendor version</p>
+<p>@see    WinZipAesExtraField::VERSION_AE2</p>
+<p>@see    WinZipAesExtraField::VERSION_AE1</p>
+
+<p>Returns vendor id.</p>
+
+<p>Set key strength.</p>
+
+<p>@throws ZipUnsupportMethodException</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>this</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\Fields\WinZipAesExtraField.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpZip\Model\Extra\Fields\WinZipAesExtraField implements ZipExtraField</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(int $vendorVersion, int $keyStrength, int $compressionMethod)</code></li>
+<li><code>create(ZipEntry $entry)</code></li>
+<li><code>getHeaderId()</code></li>
+<li><code>unpackLocalFileData(string $buffer, ?ZipEntry $entry = null)</code></li>
+<li><code>unpackCentralDirData(string $buffer, ?ZipEntry $entry = null)</code></li>
+<li><code>packLocalFileData()</code></li>
+<li><code>packCentralDirData()</code></li>
+<li><code>getVendorVersion()</code></li>
+<li><code>setVendorVersion(int $vendorVersion)</code></li>
+<li><code>getVendorId()</code></li>
+<li><code>getKeyStrength()</code></li>
+<li><code>setKeyStrength(int $keyStrength)</code></li>
+<li><code>getCompressionMethod()</code></li>
+<li><code>setCompressionMethod(int $compressionMethod)</code></li>
+<li><code>getEncryptionStrength()</code></li>
+<li><code>getEncryptionMethod()</code></li>
+<li><code>isV1()</code></li>
+<li><code>isV2()</code></li>
+<li><code>getSaltSize()</code></li>
+<li><code>__toString()</code></li>
+</ul>
+</body></html>

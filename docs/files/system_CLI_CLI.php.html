@@ -1,0 +1,262 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\CLI\CLI.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\CLI\CLI.php</h1>
+
+<ul>
+<li>Path: <code>system\CLI\CLI.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 31467 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Set of static methods useful for CLI request handling.</p>
+<p>Portions of this code were initially from the FuelPHP Framework,</p>
+<p>version 1.7.x, and used here under the MIT license they were</p>
+<p>originally made available under. Reference: http://fuelphp.com</p>
+<p>Some of the code in this class is Windows-specific, and not</p>
+<p>possible to test using travis-ci. It has been phpunit-annotated</p>
+<p>to prevent messing up code coverage.</p>
+<p>Some of the methods require keyboard input, and are not unit-testable</p>
+<p>as a result: input() and prompt().</p>
+<p>validate() is internal, and not testable if prompt() isn't.</p>
+<p>The wait() method is mostly testable, as long as you don't give it</p>
+<p>an argument of "0".</p>
+<p>These have been flagged to ignore for code coverage purposes.</p>
+
+<p>Is the readline library on the system?</p>
+<p>@var bool</p>
+
+<p>The message displayed at prompts.</p>
+<p>@var string</p>
+
+<p>Has the class already been initialized?</p>
+<p>@var bool</p>
+
+<p>Foreground color list</p>
+<p>@var array<string, string></p>
+
+<p>Background color list</p>
+<p>@var array<string, string></p>
+
+<p>List of array segments.</p>
+<p>@var array</p>
+
+<p>@var array</p>
+
+<p>Helps track internally whether the last</p>
+<p>output was a "write" or a "print" to</p>
+<p>keep the output clean and as expected.</p>
+<p>@var string|null</p>
+
+<p>Height of the CLI window</p>
+<p>@var int|null</p>
+
+<p>Width of the CLI window</p>
+<p>@var int|null</p>
+
+<p>Whether the current stream supports colored output.</p>
+<p>@var bool</p>
+
+<p>Static "constructor".</p>
+
+<p>Get input from the shell, using readline or the standard STDIN</p>
+<p>Named options must be in the following formats:</p>
+<p>php index.php user -v --v -name=John --name=John</p>
+<p>@param string $prefix</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Asks the user for input.</p>
+<p>Usage:</p>
+<p>// Takes any input</p>
+<p>$color = CLI::prompt('What is your favorite color?');</p>
+<p>// Takes any input, but offers default</p>
+<p>$color = CLI::prompt('What is your favourite color?', 'white');</p>
+<p>// Will validate options with the in_list rule and accept only if one of the list</p>
+<p>$color = CLI::prompt('What is your favourite color?', array('red','blue'));</p>
+<p>// Do not provide options but requires a valid email</p>
+<p>$email = CLI::prompt('What is your email?', null, 'required|valid_email');</p>
+<p>@param string       $field      Output "field" question</p>
+<p>@param array|string $options    String to a default value, array to a list of options (the first option will be the default value)</p>
+<p>@param array|string $validation Validation rules</p>
+<p>@return string The user input</p>
+<p>@codeCoverageIgnore</p>
+
+<p>prompt(), but based on the option's key</p>
+<p>@param array|string      $text       Output "field" text or an one or two value array where the first value is the text before listing the options</p>
+<p>                                     and the second value the text before asking to select one option. Provide empty string to omit</p>
+<p>@param array             $options    A list of options (array(key => description)), the first option will be the default value</p>
+<p>@param array|string|null $validation Validation rules</p>
+<p>@return string The selected key of $options</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Validate one prompt "field" at a time</p>
+<p>@param string       $field Prompt "field" output</p>
+<p>@param string       $value Input value</p>
+<p>@param array|string $rules Validation rules</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Outputs a string to the CLI without any surrounding newlines.</p>
+<p>Useful for showing repeating elements on a single line.</p>
+
+<p>Outputs a string to the cli on it's own line.</p>
+
+<p>Outputs an error to the CLI using STDERR instead of STDOUT</p>
+
+<p>Beeps a certain number of times.</p>
+<p>@param int $num The number of times to beep</p>
+
+<p>Waits a certain number of seconds, optionally showing a wait message and</p>
+<p>waiting for a key press.</p>
+<p>@param int  $seconds   Number of seconds</p>
+<p>@param bool $countdown Show a countdown or not</p>
+
+<p>if operating system === windows</p>
+
+<p>Enter a number of empty lines</p>
+
+<p>Clears the screen of output</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Returns the given text with the correct color codes for a foreground and</p>
+<p>optionally a background color.</p>
+<p>@param string $text       The text to color</p>
+<p>@param string $foreground The foreground color</p>
+<p>@param string $background The background color</p>
+<p>@param string $format     Other formatting to apply. Currently only 'underline' is understood</p>
+<p>@return string The color coded string</p>
+
+<p>Get the number of characters in string having encoded characters</p>
+<p>and ignores styles set by the color() function</p>
+
+<p>Checks whether the current stream resource supports or</p>
+<p>refers to a valid terminal type device.</p>
+<p>@param resource $resource</p>
+
+<p>Returns true if the stream resource supports colors.</p>
+<p>This is tricky on Windows, because Cygwin, Msys2 etc. emulate pseudo</p>
+<p>terminals via named pipes, so we can only check the environment.</p>
+<p>Reference: https://github.com/composer/xdebug-handler/blob/master/src/Process.php</p>
+<p>@param resource $resource</p>
+
+<p>Attempts to determine the width of the viewable CLI window.</p>
+
+<p>Attempts to determine the height of the viewable CLI window.</p>
+
+<p>Populates the CLI's dimensions.</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Displays a progress bar on the CLI. You must call it repeatedly</p>
+<p>to update it. Set $thisStep = false to erase the progress bar.</p>
+<p>@param bool|int $thisStep</p>
+
+<p>Takes a string and writes it to the command line, wrapping to a maximum</p>
+<p>width. If no maximum width is specified, will wrap to the window's max</p>
+<p>width.</p>
+<p>If an int is passed into $pad_left, then all strings after the first</p>
+<p>will padded with that many spaces to the left. Useful when printing</p>
+<p>short descriptions that need to start on an existing line.</p>
+
+<p>Parses the command line it was called from and collects all</p>
+<p>options and valid segments.</p>
+
+<p>Returns the command line string portions of the arguments, minus</p>
+<p>any options, as a string. This is used to pass along to the main</p>
+<p>CodeIgniter application.</p>
+
+<p>Returns an individual segment.</p>
+<p>This ignores any options that might have been dispersed between</p>
+<p>valid segments in the command:</p>
+<p> // segment(3) is 'three', not '-f' or 'anOption'</p>
+<p> > php spark one two -f anOption three</p>
+<p><strong>IMPORTANT:</strong> The index here is one-based instead of zero-based.</p>
+<p>@return mixed</p>
+
+<p>Returns the raw array of segments found.</p>
+
+<p>Gets a single command-line option. Returns TRUE if the option</p>
+<p>exists, but doesn't have a value, and is simply acting as a flag.</p>
+<p>@return mixed</p>
+
+<p>Returns the raw array of options found.</p>
+
+<p>Returns the options as a string, suitable for passing along on</p>
+<p>the CLI to other commands.</p>
+<p>@param bool $useLongOpts Use '--' for long options?</p>
+<p>@param bool $trim        Trim final string output?</p>
+
+<p>Returns a well formatted table</p>
+<p>@param array $tbody List of rows</p>
+<p>@param array $thead List of columns</p>
+
+<p>While the library is intended for use on CLI commands,</p>
+<p>commands can be called from controllers and elsewhere</p>
+<p>so we need a way to allow them to still work.</p>
+<p>For now, just echo the content, but look into a better</p>
+<p>solution down the road.</p>
+<p>@param resource $handle</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>a</code></li>
+<li><code>keyboard</code></li>
+<li><code>were</code></li>
+<li><code>and</code></li>
+<li><code>controllers</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\CLI\CLI.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\CLI\is</code></li>
+<li><code>CodeIgniter\CLI\CLI</code></li>
+<li><code>CodeIgniter\CLI\already</code></li>
+<li><code>CodeIgniter\CLI\is</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>init()</code></li>
+<li><code>input(?string $prefix = null)</code></li>
+<li><code>prompt(string $field, $options = null, $validation = null)</code></li>
+<li><code>promptByKey($text, array $options, $validation = null)</code></li>
+<li><code>validate(string $field, string $value, $rules)</code></li>
+<li><code>print(string $text = '', ?string $foreground = null, ?string $background = null)</code></li>
+<li><code>write(string $text = '', ?string $foreground = null, ?string $background = null)</code></li>
+<li><code>error(string $text, string $foreground = 'light_red', ?string $background = null)</code></li>
+<li><code>beep(int $num = 1)</code></li>
+<li><code>wait(int $seconds, bool $countdown = false)</code></li>
+<li><code>isWindows()</code></li>
+<li><code>newLine(int $num = 1)</code></li>
+<li><code>clearScreen()</code></li>
+<li><code>color(string $text, string $foreground, ?string $background = null, ?string $format = null)</code></li>
+<li><code>getColoredText(string $text, string $foreground, ?string $background, ?string $format)</code></li>
+<li><code>strlen(?string $string)</code></li>
+<li><code>streamSupports(string $function, $resource)</code></li>
+<li><code>hasColorSupport($resource)</code></li>
+<li><code>getWidth(int $default = 80)</code></li>
+<li><code>getHeight(int $default = 32)</code></li>
+<li><code>generateDimensions()</code></li>
+<li><code>showProgress($thisStep = 1, int $totalSteps = 10)</code></li>
+<li><code>wrap(?string $string = null, int $max = 0, int $padLeft = 0)</code></li>
+<li><code>parseCommandLine()</code></li>
+<li><code>getURI()</code></li>
+<li><code>getSegment(int $index)</code></li>
+<li><code>getSegments()</code></li>
+<li><code>getOption(string $name)</code></li>
+<li><code>getOptions()</code></li>
+<li><code>getOptionString(bool $useLongOpts = false, bool $trim = false)</code></li>
+<li><code>table(array $tbody, array $thead = [])</code></li>
+<li><code>fwrite($handle, string $string)</code></li>
+</ul>
+</body></html>

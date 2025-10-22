@@ -1,0 +1,66 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\FingersCrossedHandler.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\FingersCrossedHandler.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\FingersCrossedHandler.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5637 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Buffers all records until a certain level is reached</p>
+<p>The advantage of this approach is that you don't get any clutter in your log files.</p>
+<p>Only requests which actually trigger an error (or whatever your actionLevel is) will be</p>
+<p>in the logs, but they will contain all records, not only those above the level threshold.</p>
+<p>You can find the various activation strategies in the</p>
+<p>Monolog\Handler\FingersCrossed\ namespace.</p>
+<p>@author Jordi Boggiano <j.boggiano@seld.be></p>
+
+<p>@param callable|HandlerInterface       $handler            Handler or factory callable($record, $fingersCrossedHandler).</p>
+<p>@param int|ActivationStrategyInterface $activationStrategy Strategy which determines when this handler takes action</p>
+<p>@param int                             $bufferSize         How many entries should be buffered at most, beyond that the oldest items are removed from the buffer.</p>
+<p>@param Boolean                         $bubble             Whether the messages that are handled can bubble up the stack or not</p>
+<p>@param Boolean                         $stopBuffering      Whether the handler should stop buffering after being triggered (default true)</p>
+<p>@param int                             $passthruLevel      Minimum level to always flush to handler on close, even if strategy not triggered</p>
+
+<p>{@inheritdoc}</p>
+
+<p>Manually activate this logger regardless of the activation strategy</p>
+
+<p>{@inheritdoc}</p>
+
+<p>{@inheritdoc}</p>
+
+<p>Resets the state of the handler. Stops forwarding records to the wrapped handler.</p>
+
+<p>Clears the buffer without flushing any messages down to the wrapped handler.</p>
+<p>It also resets the handler to its initial buffering state.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\FingersCrossedHandler.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Monolog\Handler\FingersCrossedHandler extends AbstractHandler</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($handler, $activationStrategy = null, $bufferSize = 0, $bubble = true, $stopBuffering = true, $passthruLevel = null)</code></li>
+<li><code>isHandling(array $record)</code></li>
+<li><code>activate()</code></li>
+<li><code>handle(array $record)</code></li>
+<li><code>close()</code></li>
+<li><code>reset()</code></li>
+<li><code>clear()</code></li>
+</ul>
+</body></html>

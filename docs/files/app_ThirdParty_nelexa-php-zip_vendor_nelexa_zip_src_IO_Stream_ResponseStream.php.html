@@ -1,0 +1,105 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\IO\Stream\ResponseStream.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\IO\Stream\ResponseStream.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\IO\Stream\ResponseStream.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7085 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Implement PSR Message Stream.</p>
+
+<p>@var array</p>
+
+<p>@var resource|null</p>
+
+<p>@param resource $stream stream resource to wrap</p>
+<p>@throws \InvalidArgumentException if the stream is not a stream resource</p>
+
+<p>{@inheritDoc}</p>
+<p>@noinspection PhpMissingReturnTypeInspection</p>
+
+<p>Reads all data from the stream into a string, from the beginning to end.</p>
+<p>This method MUST attempt to seek to the beginning of the stream before</p>
+<p>reading data and read the stream until the end is reached.</p>
+<p>Warning: This could attempt to load a large amount of data into memory.</p>
+<p>This method MUST NOT raise an exception in order to conform with PHP's</p>
+<p>string casting operations.</p>
+<p>@see http://php.net/manual/en/language.oop5.magic.php#object.tostring</p>
+
+<p>Seek to the beginning of the stream.</p>
+<p>If the stream is not seekable, this method will raise an exception;</p>
+<p>otherwise, it will perform a seek(0).</p>
+<p>@throws \RuntimeException on failure</p>
+<p>@see http://www.php.net/manual/en/function.fseek.php</p>
+<p>@see seek()</p>
+
+<p>Get the size of the stream if known.</p>
+<p>@return int|null returns the size in bytes if known, or null if unknown</p>
+
+<p>Returns true if the stream is at the end of the stream.</p>
+
+<p>Returns whether or not the stream is seekable.</p>
+
+<p>{@inheritDoc}</p>
+
+<p>Returns whether or not the stream is writable.</p>
+
+<p>{@inheritDoc}</p>
+
+<p>Returns whether or not the stream is readable.</p>
+
+<p>{@inheritDoc}</p>
+
+<p>Returns the remaining contents in a string.</p>
+<p>@throws \RuntimeException if unable to read or an error occurs while</p>
+<p>                          reading</p>
+
+<p>Closes the stream when the destructed.</p>
+
+<p>Closes the stream and any underlying resources.</p>
+<p>@psalm-suppress InvalidPropertyAssignmentValue</p>
+
+<p>Separates any underlying resources from the stream.</p>
+<p>After the stream has been detached, the stream is in an unusable state.</p>
+<p>@return resource|null Underlying PHP stream, if any</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\IO\Stream\ResponseStream.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpZip\IO\Stream\ResponseStream implements StreamInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($stream)</code></li>
+<li><code>getMetadata($key = null)</code></li>
+<li><code>__toString()</code></li>
+<li><code>rewind()</code></li>
+<li><code>getSize()</code></li>
+<li><code>tell()</code></li>
+<li><code>eof()</code></li>
+<li><code>isSeekable()</code></li>
+<li><code>seek($offset, $whence = \SEEK_SET)</code></li>
+<li><code>isWritable()</code></li>
+<li><code>write($string)</code></li>
+<li><code>isReadable()</code></li>
+<li><code>read($length)</code></li>
+<li><code>getContents()</code></li>
+<li><code>__destruct()</code></li>
+<li><code>close()</code></li>
+<li><code>detach()</code></li>
+</ul>
+</body></html>

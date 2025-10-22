@@ -1,0 +1,469 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\google\auth\src\OAuth2.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\google\auth\src\OAuth2.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\google\auth\src\OAuth2.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 34286 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>OAuth2 supports authentication by OAuth2 2-legged flows.</p>
+<p>It primary supports</p>
+<ul>
+<li>service account authorization</li>
+<li>authorization where a user already has an access token</li>
+</ul>
+<p>TODO: determine known methods from the keys of JWT::methods.</p>
+
+<p>The well known grant types.</p>
+<p>@var array</p>
+
+<ul>
+<li>authorizationUri</li>
+<p>  The authorization server's HTTP endpoint capable of</p>
+<p>  authenticating the end-user and obtaining authorization.</p>
+<p>@var UriInterface</p>
+</ul>
+<ul>
+<li>tokenCredentialUri</li>
+<p>  The authorization server's HTTP endpoint capable of issuing</p>
+<p>  tokens and refreshing expired tokens.</p>
+<p>@var UriInterface</p>
+</ul>
+<p>The redirection URI used in the initial request.</p>
+<p>@var string</p>
+
+<p>A unique identifier issued to the client to identify itself to the</p>
+<p>authorization server.</p>
+<p>@var string</p>
+
+<p>A shared symmetric secret issued by the authorization server, which is</p>
+<p>used to authenticate the client.</p>
+<p>@var string</p>
+
+<p>The resource owner's username.</p>
+<p>@var string</p>
+
+<p>The resource owner's password.</p>
+<p>@var string</p>
+
+<p>The scope of the access request, expressed either as an Array or as a</p>
+<p>space-delimited string.</p>
+<p>@var string</p>
+
+<p>An arbitrary string designed to allow the client to maintain state.</p>
+<p>@var string</p>
+
+<p>The authorization code issued to this client.</p>
+<p>Only used by the authorization code access grant type.</p>
+<p>@var string</p>
+
+<p>The issuer ID when using assertion profile.</p>
+<p>@var string</p>
+
+<p>The target audience for assertions.</p>
+<p>@var string</p>
+
+<p>The target sub when issuing assertions.</p>
+<p>@var string</p>
+
+<p>The number of seconds assertions are valid for.</p>
+<p>@var int</p>
+
+<p>The signing key when using assertion profile.</p>
+<p>@var string</p>
+
+<p>The signing algorithm when using an assertion profile.</p>
+<p>@var string</p>
+
+<p>The refresh token associated with the access token to be refreshed.</p>
+<p>@var string</p>
+
+<p>The current access token.</p>
+<p>@var string</p>
+
+<p>The current ID token.</p>
+<p>@var string</p>
+
+<p>The lifetime in seconds of the current access token.</p>
+<p>@var int</p>
+
+<p>The expiration time of the access token as a number of seconds since the</p>
+<p>unix epoch.</p>
+<p>@var int</p>
+
+<p>The issue time of the access token as a number of seconds since the unix</p>
+<p>epoch.</p>
+<p>@var int</p>
+
+<p>The current grant type.</p>
+<p>@var string</p>
+
+<p>When using an extension grant type, this is the set of parameters used by</p>
+<p>that extension.</p>
+
+<p>When using the toJwt function, these claims will be added to the JWT</p>
+<p>payload.</p>
+
+<p>Create a new OAuthCredentials.</p>
+<p>The configuration array accepts various options</p>
+<ul>
+<li>authorizationUri</li>
+<p>  The authorization server's HTTP endpoint capable of</p>
+<p>  authenticating the end-user and obtaining authorization.</p>
+<li>tokenCredentialUri</li>
+<p>  The authorization server's HTTP endpoint capable of issuing</p>
+<p>  tokens and refreshing expired tokens.</p>
+<li>clientId</li>
+<p>  A unique identifier issued to the client to identify itself to the</p>
+<p>  authorization server.</p>
+<li>clientSecret</li>
+<p>  A shared symmetric secret issued by the authorization server,</p>
+<p>  which is used to authenticate the client.</p>
+<li>scope</li>
+<p>  The scope of the access request, expressed either as an Array</p>
+<p>  or as a space-delimited String.</p>
+<li>state</li>
+<p>  An arbitrary string designed to allow the client to maintain state.</p>
+<li>redirectUri</li>
+<p>  The redirection URI used in the initial request.</p>
+<li>username</li>
+<p>  The resource owner's username.</p>
+<li>password</li>
+<p>  The resource owner's password.</p>
+<li>issuer</li>
+<p>  Issuer ID when using assertion profile</p>
+<li>audience</li>
+<p>  Target audience for assertions</p>
+<li>expiry</li>
+<p>  Number of seconds assertions are valid for</p>
+<li>signingKey</li>
+<p>  Signing key when using assertion profile</p>
+<li>refreshToken</li>
+<p>  The refresh token associated with the access token</p>
+<p>  to be refreshed.</p>
+<li>accessToken</li>
+<p>  The current access token for this client.</p>
+<li>idToken</li>
+<p>  The current ID token for this client.</p>
+<li>extensionParams</li>
+<p>  When using an extension grant type, this is the set of parameters used</p>
+<p>  by that extension.</p>
+<p>@param array $config Configuration array</p>
+</ul>
+<p>Verifies the idToken if present.</p>
+<ul>
+<li>if none is present, return null</li>
+<li>if present, but invalid, raises DomainException.</li>
+<li>otherwise returns the payload in the idtoken as a PHP object.</li>
+<p>if $publicKey is null, the key is decoded without being verified.</p>
+<p>@param string $publicKey The public key to use to authenticate the token</p>
+<p>@param array $allowed_algs List of supported verification algorithms</p>
+<p>@return null|object</p>
+</ul>
+<p>Obtains the encoded jwt from the instance data.</p>
+<p>@param array $config array optional configuration parameters</p>
+<p>@return string</p>
+
+<p>Generates a request for token credentials.</p>
+<p>@return RequestInterface the authorization Url.</p>
+
+<p>Fetches the auth tokens based on the current state.</p>
+<p>@param callable $httpHandler callback which delivers psr7 request</p>
+<p>@return array the response</p>
+
+<p>Obtains a key that can used to cache the results of #fetchAuthToken.</p>
+<p>The key is derived from the scopes.</p>
+<p>@return string a key that may be used to cache the auth token.</p>
+
+<p>Parses the fetched tokens.</p>
+<p>@param ResponseInterface $resp the response.</p>
+<p>@return array the tokens parsed from the response body.</p>
+<p>@throws \Exception</p>
+
+<p>Updates an OAuth 2.0 client.</p>
+<p>@example</p>
+<p>  client.updateToken([</p>
+<p>    'refresh_token' => 'n4E9O119d',</p>
+<p>    'access_token' => 'FJQbwq9',</p>
+<p>    'expires_in' => 3600</p>
+<p>  ])</p>
+<p>@param array $config</p>
+<p> The configuration parameters related to the token.</p>
+<p> - refresh_token</p>
+<p>   The refresh token associated with the access token</p>
+<p>   to be refreshed.</p>
+<p> - access_token</p>
+<p>   The current access token for this client.</p>
+<p> - id_token</p>
+<p>   The current ID token for this client.</p>
+<p> - expires_in</p>
+<p>   The time in seconds until access token expiration.</p>
+<p> - expires_at</p>
+<p>   The time as an integer number of seconds since the Epoch</p>
+<p> - issued_at</p>
+<p>   The timestamp that the token was issued at.</p>
+
+<p>Builds the authorization Uri that the user should be redirected to.</p>
+<p>@param array $config configuration options that customize the return url</p>
+<p>@return UriInterface the authorization Url.</p>
+<p>@throws InvalidArgumentException</p>
+
+<p>Sets the authorization server's HTTP endpoint capable of authenticating</p>
+<p>the end-user and obtaining authorization.</p>
+<p>@param string $uri</p>
+
+<p>Gets the authorization server's HTTP endpoint capable of authenticating</p>
+<p>the end-user and obtaining authorization.</p>
+<p>@return UriInterface</p>
+
+<p>Gets the authorization server's HTTP endpoint capable of issuing tokens</p>
+<p>and refreshing expired tokens.</p>
+<p>@return string</p>
+
+<p>Sets the authorization server's HTTP endpoint capable of issuing tokens</p>
+<p>and refreshing expired tokens.</p>
+<p>@param string $uri</p>
+
+<p>Gets the redirection URI used in the initial request.</p>
+<p>@return string</p>
+
+<p>Sets the redirection URI used in the initial request.</p>
+<p>@param string $uri</p>
+
+<p>Gets the scope of the access requests as a space-delimited String.</p>
+<p>@return string</p>
+
+<p>Sets the scope of the access request, expressed either as an Array or as</p>
+<p>a space-delimited String.</p>
+<p>@param string|array $scope</p>
+<p>@throws InvalidArgumentException</p>
+
+<p>Gets the current grant type.</p>
+<p>@return string</p>
+
+<p>Sets the current grant type.</p>
+<p>@param $grantType</p>
+<p>@throws InvalidArgumentException</p>
+
+<p>Gets an arbitrary string designed to allow the client to maintain state.</p>
+<p>@return string</p>
+
+<p>Sets an arbitrary string designed to allow the client to maintain state.</p>
+<p>@param string $state</p>
+
+<p>Gets the authorization code issued to this client.</p>
+
+<p>Sets the authorization code issued to this client.</p>
+<p>@param string $code</p>
+
+<p>Gets the resource owner's username.</p>
+
+<p>Sets the resource owner's username.</p>
+<p>@param string $username</p>
+
+<p>Gets the resource owner's password.</p>
+
+<p>Sets the resource owner's password.</p>
+<p>@param $password</p>
+
+<p>Sets a unique identifier issued to the client to identify itself to the</p>
+<p>authorization server.</p>
+
+<p>Sets a unique identifier issued to the client to identify itself to the</p>
+<p>authorization server.</p>
+<p>@param $clientId</p>
+
+<p>Gets a shared symmetric secret issued by the authorization server, which</p>
+<p>is used to authenticate the client.</p>
+
+<p>Sets a shared symmetric secret issued by the authorization server, which</p>
+<p>is used to authenticate the client.</p>
+<p>@param $clientSecret</p>
+
+<p>Gets the Issuer ID when using assertion profile.</p>
+
+<p>Sets the Issuer ID when using assertion profile.</p>
+<p>@param string $issuer</p>
+
+<p>Gets the target sub when issuing assertions.</p>
+
+<p>Sets the target sub when issuing assertions.</p>
+<p>@param string $sub</p>
+
+<p>Gets the target audience when issuing assertions.</p>
+
+<p>Sets the target audience when issuing assertions.</p>
+<p>@param string $audience</p>
+
+<p>Gets the signing key when using an assertion profile.</p>
+
+<p>Sets the signing key when using an assertion profile.</p>
+<p>@param string $signingKey</p>
+
+<p>Gets the signing algorithm when using an assertion profile.</p>
+<p>@return string</p>
+
+<p>Sets the signing algorithm when using an assertion profile.</p>
+<p>@param string $signingAlgorithm</p>
+
+<p>Gets the set of parameters used by extension when using an extension</p>
+<p>grant type.</p>
+
+<p>Sets the set of parameters used by extension when using an extension</p>
+<p>grant type.</p>
+<p>@param $extensionParams</p>
+
+<p>Gets the number of seconds assertions are valid for.</p>
+
+<p>Sets the number of seconds assertions are valid for.</p>
+<p>@param int $expiry</p>
+
+<p>Gets the lifetime of the access token in seconds.</p>
+
+<p>Sets the lifetime of the access token in seconds.</p>
+<p>@param int $expiresIn</p>
+
+<p>Gets the time the current access token expires at.</p>
+<p>@return int</p>
+
+<p>Returns true if the acccess token has expired.</p>
+<p>@return bool</p>
+
+<p>Sets the time the current access token expires at.</p>
+<p>@param int $expiresAt</p>
+
+<p>Gets the time the current access token was issued at.</p>
+
+<p>Sets the time the current access token was issued at.</p>
+<p>@param int $issuedAt</p>
+
+<p>Gets the current access token.</p>
+
+<p>Sets the current access token.</p>
+<p>@param string $accessToken</p>
+
+<p>Gets the current ID token.</p>
+
+<p>Sets the current ID token.</p>
+<p>@param $idToken</p>
+
+<p>Gets the refresh token associated with the current access token.</p>
+
+<p>Sets the refresh token associated with the current access token.</p>
+<p>@param $refreshToken</p>
+
+<p>Sets additional claims to be included in the JWT token</p>
+<p>@param array $additionalClaims</p>
+
+<p>Gets the additional claims to be included in the JWT token.</p>
+<p>@return array</p>
+
+<p>The expiration of the last received token.</p>
+<p>@return array</p>
+
+<p>@todo handle uri as array</p>
+<p>@param string $uri</p>
+<p>@return null|UriInterface</p>
+
+<p>@param string $idToken</p>
+<p>@param string|array|null $publicKey</p>
+<p>@param array $allowedAlgs</p>
+<p>@return object</p>
+
+<p>Determines if the URI is absolute based on its scheme and host or path</p>
+<p>(RFC 3986).</p>
+<p>@param string $uri</p>
+<p>@return bool</p>
+
+<p>@param array $params</p>
+<p>@return array</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\google\auth\src\OAuth2.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Google\Auth\OAuth2 implements FetchAuthTokenInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(array $config)</code></li>
+<li><code>verifyIdToken($publicKey = null, $allowed_algs = array()</code></li>
+<li><code>toJwt(array $config = [])</code></li>
+<li><code>generateCredentialsRequest()</code></li>
+<li><code>fetchAuthToken(callable $httpHandler = null)</code></li>
+<li><code>getCacheKey()</code></li>
+<li><code>parseTokenResponse(ResponseInterface $resp)</code></li>
+<li><code>updateToken(array $config)</code></li>
+<li><code>buildFullAuthorizationUri(array $config = [])</code></li>
+<li><code>setAuthorizationUri($uri)</code></li>
+<li><code>getAuthorizationUri()</code></li>
+<li><code>getTokenCredentialUri()</code></li>
+<li><code>setTokenCredentialUri($uri)</code></li>
+<li><code>getRedirectUri()</code></li>
+<li><code>setRedirectUri($uri)</code></li>
+<li><code>getScope()</code></li>
+<li><code>setScope($scope)</code></li>
+<li><code>getGrantType()</code></li>
+<li><code>setGrantType($grantType)</code></li>
+<li><code>getState()</code></li>
+<li><code>setState($state)</code></li>
+<li><code>getCode()</code></li>
+<li><code>setCode($code)</code></li>
+<li><code>getUsername()</code></li>
+<li><code>setUsername($username)</code></li>
+<li><code>getPassword()</code></li>
+<li><code>setPassword($password)</code></li>
+<li><code>getClientId()</code></li>
+<li><code>setClientId($clientId)</code></li>
+<li><code>getClientSecret()</code></li>
+<li><code>setClientSecret($clientSecret)</code></li>
+<li><code>getIssuer()</code></li>
+<li><code>setIssuer($issuer)</code></li>
+<li><code>getSub()</code></li>
+<li><code>setSub($sub)</code></li>
+<li><code>getAudience()</code></li>
+<li><code>setAudience($audience)</code></li>
+<li><code>getSigningKey()</code></li>
+<li><code>setSigningKey($signingKey)</code></li>
+<li><code>getSigningAlgorithm()</code></li>
+<li><code>setSigningAlgorithm($signingAlgorithm)</code></li>
+<li><code>getExtensionParams()</code></li>
+<li><code>setExtensionParams($extensionParams)</code></li>
+<li><code>getExpiry()</code></li>
+<li><code>setExpiry($expiry)</code></li>
+<li><code>getExpiresIn()</code></li>
+<li><code>setExpiresIn($expiresIn)</code></li>
+<li><code>getExpiresAt()</code></li>
+<li><code>isExpired()</code></li>
+<li><code>setExpiresAt($expiresAt)</code></li>
+<li><code>getIssuedAt()</code></li>
+<li><code>setIssuedAt($issuedAt)</code></li>
+<li><code>getAccessToken()</code></li>
+<li><code>setAccessToken($accessToken)</code></li>
+<li><code>getIdToken()</code></li>
+<li><code>setIdToken($idToken)</code></li>
+<li><code>getRefreshToken()</code></li>
+<li><code>setRefreshToken($refreshToken)</code></li>
+<li><code>setAdditionalClaims(array $additionalClaims)</code></li>
+<li><code>getAdditionalClaims()</code></li>
+<li><code>getLastReceivedToken()</code></li>
+<li><code>coerceUri($uri)</code></li>
+<li><code>jwtDecode($idToken, $publicKey, $allowedAlgs)</code></li>
+<li><code>jwtEncode($assertion, $signingKey, $signingAlgorithm)</code></li>
+<li><code>isAbsoluteUri($uri)</code></li>
+<li><code>addClientCredentials(&$params)</code></li>
+</ul>
+</body></html>

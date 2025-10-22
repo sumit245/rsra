@@ -1,0 +1,622 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\tcpdf\include\tcpdf_static.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\tcpdf\include\tcpdf_static.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\tcpdf\include\tcpdf_static.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 110475 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@file</p>
+<p>This is a PHP class that contains static methods for the TCPDF class.<br></p>
+<p>@package com.tecnick.tcpdf</p>
+<p>@author Nicola Asuni</p>
+<p>@version 1.1.2</p>
+
+<p>@class TCPDF_STATIC</p>
+<p>Static methods used by the TCPDF class.</p>
+<p>@package com.tecnick.tcpdf</p>
+<p>@brief PHP class for generating PDF documents without requiring external extensions.</p>
+<p>@version 1.1.1</p>
+<p>@author Nicola Asuni - info@tecnick.com</p>
+
+<p>Current TCPDF version.</p>
+<p>@private static</p>
+
+<p>String alias for total number of pages.</p>
+<p>@public static</p>
+
+<p>String alias for page number.</p>
+<p>@public static</p>
+
+<p>String alias for total number of pages in a single group.</p>
+<p>@public static</p>
+
+<p>String alias for group page number.</p>
+<p>@public static</p>
+
+<p>String alias for right shift compensation used to correctly align page numbers on the right.</p>
+<p>@public static</p>
+
+<p>Encryption padding string.</p>
+<p>@public static</p>
+
+<p>ByteRange placemark used during digital signature process.</p>
+<p>@since 4.6.028 (2009-08-25)</p>
+<p>@public static</p>
+
+<p>Array page boxes names</p>
+<p>@public static</p>
+
+<p>Return the current TCPDF version.</p>
+<p>@return string TCPDF version string</p>
+<p>@since 5.9.012 (2010-11-10)</p>
+<p>@public static</p>
+
+<p>Return the current TCPDF producer.</p>
+<p>@return string TCPDF producer string</p>
+<p>@since 6.0.000 (2013-03-16)</p>
+<p>@public static</p>
+
+<p>Sets the current active configuration setting of magic_quotes_runtime (if the set_magic_quotes_runtime function exist)</p>
+<p>@param boolean $mqr FALSE for off, TRUE for on.</p>
+<p>@since 4.6.025 (2009-08-17)</p>
+<p>@public static</p>
+
+<p>Gets the current active configuration setting of magic_quotes_runtime (if the get_magic_quotes_runtime function exist)</p>
+<p>@return int Returns 0 if magic quotes runtime is off or get_magic_quotes_runtime doesn't exist, 1 otherwise.</p>
+<p>@since 4.6.025 (2009-08-17)</p>
+<p>@public static</p>
+
+<p>Check if the URL exist.</p>
+<p>@param string $url URL to check.</p>
+<p>@return boolean true if the URl exist, false otherwise.</p>
+<p>@since 5.9.204 (2013-01-28)</p>
+<p>@public static</p>
+
+<p>Removes SHY characters from text.</p>
+<p>Unicode Data:<ul></p>
+<p><li>Name : SOFT HYPHEN, commonly abbreviated as SHY</li></p>
+<p><li>HTML Entity (decimal): "&amp;#173;"</li></p>
+<p><li>HTML Entity (hex): "&amp;#xad;"</li></p>
+<p><li>HTML Entity (named): "&amp;shy;"</li></p>
+<p><li>How to type in Microsoft Windows: [Alt +00AD] or [Alt 0173]</li></p>
+<p><li>UTF-8 (hex): 0xC2 0xAD (c2ad)</li></p>
+<p><li>UTF-8 character: chr(194).chr(173)</li></p>
+<p></ul></p>
+<p>@param string $txt input string</p>
+<p>@param boolean $unicode True if we are in unicode mode, false otherwise.</p>
+<p>@return string without SHY characters.</p>
+<p>@since (4.5.019) 2009-02-28</p>
+<p>@public static</p>
+
+<p>Get the border mode accounting for multicell position (opens bottom side of multicell crossing pages)</p>
+<p>@param string|array|int $brd Indicates if borders must be drawn around the cell block. The value can be a number:<ul><li>0: no border (default)</li><li>1: frame</li></ul>or a string containing some or all of the following characters (in any order):<ul><li>L: left</li><li>T: top</li><li>R: right</li><li>B: bottom</li></ul> or an array of line styles for each border group: array('LTRB' => array('width' => 2, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(0, 0, 0)))</p>
+<p>@param string $position multicell position: 'start', 'middle', 'end'</p>
+<p>@param boolean $opencell True when the cell is left open at the page bottom, false otherwise.</p>
+<p>@return array border mode array</p>
+<p>@since 4.4.002 (2008-12-09)</p>
+<p>@public static</p>
+
+<p>Determine whether a string is empty.</p>
+<p>@param string $str string to be checked</p>
+<p>@return bool true if string is empty</p>
+<p>@since 4.5.044 (2009-04-16)</p>
+<p>@public static</p>
+
+<p>Returns a temporary filename for caching object on filesystem.</p>
+<p>@param string $type Type of file (name of the subdir on the tcpdf cache folder).</p>
+<p>@param string $file_id TCPDF file_id.</p>
+<p>@return string filename.</p>
+<p>@since 4.5.000 (2008-12-31)</p>
+<p>@public static</p>
+
+<p>Add "\" before "\", "(" and ")"</p>
+<p>@param string $s string to escape.</p>
+<p>@return string escaped string.</p>
+<p>@public static</p>
+
+<p>Escape some special characters (&lt; &gt; &amp;) for XML output.</p>
+<p>@param string $str Input string to convert.</p>
+<p>@return string converted string</p>
+<p>@since 5.9.121 (2011-09-28)</p>
+<p>@public static</p>
+
+<p>Creates a copy of a class object</p>
+<p>@param object $object class object to be cloned</p>
+<p>@return object cloned object</p>
+<p>@since 4.5.029 (2009-03-19)</p>
+<p>@public static</p>
+
+<p>Output input data and compress it if possible.</p>
+<p>@param string $data Data to output.</p>
+<p>@param int $length Data length in bytes.</p>
+<p>@since 5.9.086</p>
+<p>@public static</p>
+
+<p>Replace page number aliases with number.</p>
+<p>@param string $page Page content.</p>
+<p>@param array $replace Array of replacements (array keys are replacement strings, values are alias arrays).</p>
+<p>@param int $diff If passed, this will be set to the total char number difference between alias and replacements.</p>
+<p>@return array replaced page content and updated $diff parameter as array.</p>
+<p>@public static</p>
+
+<p>Returns timestamp in seconds from formatted date-time.</p>
+<p>@param string $date Formatted date-time.</p>
+<p>@return int seconds.</p>
+<p>@since 5.9.152 (2012-03-23)</p>
+<p>@public static</p>
+
+<p>Returns a formatted date-time.</p>
+<p>@param int $time Time in seconds.</p>
+<p>@return string escaped date string.</p>
+<p>@since 5.9.152 (2012-03-23)</p>
+<p>@public static</p>
+
+<p>Returns a string containing random data to be used as a seed for encryption methods.</p>
+<p>@param string $seed starting seed value</p>
+<p>@return string containing random data</p>
+<p>@author Nicola Asuni</p>
+<p>@since 5.9.006 (2010-10-19)</p>
+<p>@public static</p>
+
+<p>Encrypts a string using MD5 and returns it's value as a binary string.</p>
+<p>@param string $str input string</p>
+<p>@return string MD5 encrypted binary string</p>
+<p>@since 2.0.000 (2008-01-02)</p>
+<p>@public static</p>
+
+<p>Returns the input text encrypted using AES algorithm and the specified key.</p>
+<p>This method requires openssl or mcrypt. Text is padded to 16bytes blocks</p>
+<p>@param string $key encryption key</p>
+<p>@param string $text input text to be encrypted</p>
+<p>@return string encrypted text</p>
+<p>@author Nicola Asuni</p>
+<p>@since 5.0.005 (2010-05-11)</p>
+<p>@public static</p>
+
+<p>Returns the input text encrypted using AES algorithm and the specified key.</p>
+<p>This method requires openssl or mcrypt. Text is not padded</p>
+<p>@param string $key encryption key</p>
+<p>@param string $text input text to be encrypted</p>
+<p>@return string encrypted text</p>
+<p>@author Nicola Asuni</p>
+<p>@since TODO</p>
+<p>@public static</p>
+
+<p>Returns the input text encrypted using RC4 algorithm and the specified key.</p>
+<p>RC4 is the standard encryption algorithm used in PDF format</p>
+<p>@param string $key Encryption key.</p>
+<p>@param string $text Input text to be encrypted.</p>
+<p>@param string $last_enc_key Reference to last RC4 key encrypted.</p>
+<p>@param string $last_enc_key_c Reference to last RC4 computed key.</p>
+<p>@return string encrypted text</p>
+<p>@since 2.0.000 (2008-01-02)</p>
+<p>@author Klemen Vodopivec, Nicola Asuni</p>
+<p>@public static</p>
+
+<p>Return the permission code used on encryption (P value).</p>
+<p>@param array $permissions the set of permissions (specify the ones you want to block).</p>
+<p>@param int $mode encryption strength: 0 = RC4 40 bit; 1 = RC4 128 bit; 2 = AES 128 bit; 3 = AES 256 bit.</p>
+<p>@since 5.0.005 (2010-05-12)</p>
+<p>@author Nicola Asuni</p>
+<p>@public static</p>
+
+<p>Convert hexadecimal string to string</p>
+<p>@param string $bs byte-string to convert</p>
+<p>@return string</p>
+<p>@since 5.0.005 (2010-05-12)</p>
+<p>@author Nicola Asuni</p>
+<p>@public static</p>
+
+<p>Convert string to hexadecimal string (byte string)</p>
+<p>@param string $s string to convert</p>
+<p>@return string byte string</p>
+<p>@since 5.0.010 (2010-05-17)</p>
+<p>@author Nicola Asuni</p>
+<p>@public static</p>
+
+<p>Convert encryption P value to a string of bytes, low-order byte first.</p>
+<p>@param string $protection 32bit encryption permission value (P value)</p>
+<p>@return string</p>
+<p>@since 5.0.005 (2010-05-12)</p>
+<p>@author Nicola Asuni</p>
+<p>@public static</p>
+
+<p>Encode a name object.</p>
+<p>@param string $name Name object to encode.</p>
+<p>@return string Encoded name object.</p>
+<p>@author Nicola Asuni</p>
+<p>@since 5.9.097 (2011-06-23)</p>
+<p>@public static</p>
+
+<p>Convert JavaScript form fields properties array to Annotation Properties array.</p>
+<p>@param array $prop javascript field properties. Possible values are described on official Javascript for Acrobat API reference.</p>
+<p>@param array $spot_colors Reference to spot colors array.</p>
+<p>@param boolean $rtl True if in Right-To-Left text direction mode, false otherwise.</p>
+<p>@return array of annotation properties</p>
+<p>@author Nicola Asuni</p>
+<p>@since 4.8.000 (2009-09-06)</p>
+<p>@public static</p>
+
+<p>Format the page numbers.</p>
+<p>This method can be overridden for custom formats.</p>
+<p>@param int $num page number</p>
+<p>@return string</p>
+<p>@since 4.2.005 (2008-11-06)</p>
+<p>@public static</p>
+
+<p>Format the page numbers on the Table Of Content.</p>
+<p>This method can be overridden for custom formats.</p>
+<p>@param int $num page number</p>
+<p>@return string</p>
+<p>@since 4.5.001 (2009-01-04)</p>
+<p>@see addTOC(), addHTMLTOC()</p>
+<p>@public static</p>
+
+<p>Extracts the CSS properties from a CSS string.</p>
+<p>@param string $cssdata string containing CSS definitions.</p>
+<p>@return array An array where the keys are the CSS selectors and the values are the CSS properties.</p>
+<p>@author Nicola Asuni</p>
+<p>@since 5.1.000 (2010-05-25)</p>
+<p>@public static</p>
+
+<p>Cleanup HTML code (requires HTML Tidy library).</p>
+<p>@param string $html htmlcode to fix</p>
+<p>@param string $default_css CSS commands to add</p>
+<p>@param array|null $tagvs parameters for setHtmlVSpace method</p>
+<p>@param array|null $tidy_options options for tidy_parse_string function</p>
+<p>@param array $tagvspaces Array of vertical spaces for tags.</p>
+<p>@return string XHTML code cleaned up</p>
+<p>@author Nicola Asuni</p>
+<p>@since 5.9.017 (2010-11-16)</p>
+<p>@see setHtmlVSpace()</p>
+<p>@public static</p>
+
+<p>Returns true if the CSS selector is valid for the selected HTML tag</p>
+<p>@param array $dom array of HTML tags and properties</p>
+<p>@param int $key key of the current HTML tag</p>
+<p>@param string $selector CSS selector string</p>
+<p>@return true if the selector is valid, false otherwise</p>
+<p>@since 5.1.000 (2010-05-25)</p>
+<p>@public static</p>
+
+<p>Returns the styles array that apply for the selected HTML tag.</p>
+<p>@param array $dom array of HTML tags and properties</p>
+<p>@param int $key key of the current HTML tag</p>
+<p>@param array $css array of CSS properties</p>
+<p>@return array containing CSS properties</p>
+<p>@since 5.1.000 (2010-05-25)</p>
+<p>@public static</p>
+
+<p>Compact CSS data array into single string.</p>
+<p>@param array $css array of CSS properties</p>
+<p>@return string containing merged CSS properties</p>
+<p>@since 5.9.070 (2011-04-19)</p>
+<p>@public static</p>
+
+<p>Returns the Roman representation of an integer number</p>
+<p>@param int $number number to convert</p>
+<p>@return string roman representation of the specified number</p>
+<p>@since 4.4.004 (2008-12-10)</p>
+<p>@public static</p>
+
+<p>Find position of last occurrence of a substring in a string</p>
+<p>@param string $haystack The string to search in.</p>
+<p>@param string $needle substring to search.</p>
+<p>@param int $offset May be specified to begin searching an arbitrary number of characters into the string.</p>
+<p>@return int|false Returns the position where the needle exists. Returns FALSE if the needle was not found.</p>
+<p>@since 4.8.038 (2010-03-13)</p>
+<p>@public static</p>
+
+<p>Returns an array of hyphenation patterns.</p>
+<p>@param string $file TEX file containing hypenation patterns. TEX patterns can be downloaded from http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/</p>
+<p>@return array of hyphenation patterns</p>
+<p>@author Nicola Asuni</p>
+<p>@since 4.9.012 (2010-04-12)</p>
+<p>@public static</p>
+
+<p>Get the Path-Painting Operators.</p>
+<p>@param string $style Style of rendering. Possible values are:</p>
+<p><ul></p>
+<p>  <li>S or D: Stroke the path.</li></p>
+<p>  <li>s or d: Close and stroke the path.</li></p>
+<p>  <li>f or F: Fill the path, using the nonzero winding number rule to determine the region to fill.</li></p>
+<p>  <li>f* or F*: Fill the path, using the even-odd rule to determine the region to fill.</li></p>
+<p>  <li>B or FD or DF: Fill and then stroke the path, using the nonzero winding number rule to determine the region to fill.</li></p>
+<p>  <li>B* or F*D or DF*: Fill and then stroke the path, using the even-odd rule to determine the region to fill.</li></p>
+<p>  <li>b or fd or df: Close, fill, and then stroke the path, using the nonzero winding number rule to determine the region to fill.</li></p>
+<p>  <li>b or f*d or df*: Close, fill, and then stroke the path, using the even-odd rule to determine the region to fill.</li></p>
+<p>  <li>CNZ: Clipping mode using the even-odd rule to determine which regions lie inside the clipping path.</li></p>
+<p>  <li>CEO: Clipping mode using the nonzero winding number rule to determine which regions lie inside the clipping path</li></p>
+<p>  <li>n: End the path object without filling or stroking it.</li></p>
+<p></ul></p>
+<p>@param string $default default style</p>
+<p>@return string</p>
+<p>@author Nicola Asuni</p>
+<p>@since 5.0.000 (2010-04-30)</p>
+<p>@public static</p>
+
+<p>Get the product of two SVG tranformation matrices</p>
+<p>@param array $ta first SVG tranformation matrix</p>
+<p>@param array $tb second SVG tranformation matrix</p>
+<p>@return array transformation array</p>
+<p>@author Nicola Asuni</p>
+<p>@since 5.0.000 (2010-05-02)</p>
+<p>@public static</p>
+
+<p>Get the tranformation matrix from SVG transform attribute</p>
+<p>@param string $attribute transformation</p>
+<p>@return array of transformations</p>
+<p>@author Nicola Asuni</p>
+<p>@since 5.0.000 (2010-05-02)</p>
+<p>@public static</p>
+
+<p>Returns the angle in radiants between two vectors</p>
+<p>@param int $x1 X coordinate of first vector point</p>
+<p>@param int $y1 Y coordinate of first vector point</p>
+<p>@param int $x2 X coordinate of second vector point</p>
+<p>@param int $y2 Y coordinate of second vector point</p>
+<p>@author Nicola Asuni</p>
+<p>@since 5.0.000 (2010-05-04)</p>
+<p>@public static</p>
+
+<p>Split string by a regular expression.</p>
+<p>This is a wrapper for the preg_split function to avoid the bug: https://bugs.php.net/bug.php?id=45850</p>
+<p>@param string $pattern The regular expression pattern to search for without the modifiers, as a string.</p>
+<p>@param string $modifiers The modifiers part of the pattern,</p>
+<p>@param string $subject The input string.</p>
+<p>@param int $limit If specified, then only substrings up to limit are returned with the rest of the string being placed in the last substring. A limit of -1, 0 or NULL means "no limit" and, as is standard across PHP, you can use NULL to skip to the flags parameter.</p>
+<p>@param int $flags The flags as specified on the preg_split PHP function.</p>
+<p>@return array Returns an array containing substrings of subject split along boundaries matched by pattern.modifier</p>
+<p>@author Nicola Asuni</p>
+<p>@since 6.0.023</p>
+<p>@public static</p>
+
+<p>Wrapper to use fopen only with local files</p>
+<p>@param string $filename Name of the file to open</p>
+<p>@param string $mode</p>
+<p>@return resource|false Returns a file pointer resource on success, or FALSE on error.</p>
+<p>@public static</p>
+
+<p>Check if the URL exist.</p>
+<p>@param string $url URL to check.</p>
+<p>@return bool Returns TRUE if the URL exists; FALSE otherwise.</p>
+<p>@public static</p>
+<p>@since 6.2.25</p>
+
+<p>Encode query params in URL</p>
+<p>@param string $url</p>
+<p>@return string</p>
+<p>@since 6.3.3 (2019-11-01)</p>
+<p>@public static</p>
+
+<p>Wrapper for file_exists.</p>
+<p>Checks whether a file or directory exists.</p>
+<p>Only allows some protocols and local files.</p>
+<p>@param string $filename Path to the file or directory.</p>
+<p>@return bool Returns TRUE if the file or directory specified by filename exists; FALSE otherwise.</p>
+<p>@public static</p>
+
+<p>Reads entire file into a string.</p>
+<p>The file can be also an URL.</p>
+<p>@param string $file Name of the file or URL to read.</p>
+<p>@return string|false The function returns the read data or FALSE on failure.</p>
+<p>@author Nicola Asuni</p>
+<p>@since 6.0.025</p>
+<p>@public static</p>
+
+<p>Get ULONG from string (Big Endian 32-bit unsigned integer).</p>
+<p>@param string $str string from where to extract value</p>
+<p>@param int $offset point from where to read the data</p>
+<p>@return int 32 bit value</p>
+<p>@author Nicola Asuni</p>
+<p>@since 5.2.000 (2010-06-02)</p>
+<p>@public static</p>
+
+<p>Get USHORT from string (Big Endian 16-bit unsigned integer).</p>
+<p>@param string $str string from where to extract value</p>
+<p>@param int $offset point from where to read the data</p>
+<p>@return int 16 bit value</p>
+<p>@author Nicola Asuni</p>
+<p>@since 5.2.000 (2010-06-02)</p>
+<p>@public static</p>
+
+<p>Get SHORT from string (Big Endian 16-bit signed integer).</p>
+<p>@param string $str String from where to extract value.</p>
+<p>@param int $offset Point from where to read the data.</p>
+<p>@return int 16 bit value</p>
+<p>@author Nicola Asuni</p>
+<p>@since 5.2.000 (2010-06-02)</p>
+<p>@public static</p>
+
+<p>Get FWORD from string (Big Endian 16-bit signed integer).</p>
+<p>@param string $str String from where to extract value.</p>
+<p>@param int $offset Point from where to read the data.</p>
+<p>@return int 16 bit value</p>
+<p>@author Nicola Asuni</p>
+<p>@since 5.9.123 (2011-09-30)</p>
+<p>@public static</p>
+
+<p>Get UFWORD from string (Big Endian 16-bit unsigned integer).</p>
+<p>@param string $str string from where to extract value</p>
+<p>@param int $offset point from where to read the data</p>
+<p>@return int 16 bit value</p>
+<p>@author Nicola Asuni</p>
+<p>@since 5.9.123 (2011-09-30)</p>
+<p>@public static</p>
+
+<p>Get FIXED from string (32-bit signed fixed-point number (16.16).</p>
+<p>@param string $str string from where to extract value</p>
+<p>@param int $offset point from where to read the data</p>
+<p>@return int 16 bit value</p>
+<p>@author Nicola Asuni</p>
+<p>@since 5.9.123 (2011-09-30)</p>
+<p>@public static</p>
+
+<p>Get BYTE from string (8-bit unsigned integer).</p>
+<p>@param string $str String from where to extract value.</p>
+<p>@param int $offset Point from where to read the data.</p>
+<p>@return int 8 bit value</p>
+<p>@author Nicola Asuni</p>
+<p>@since 5.2.000 (2010-06-02)</p>
+<p>@public static</p>
+
+<p>Binary-safe and URL-safe file read.</p>
+<p>Reads up to length bytes from the file pointer referenced by handle. Reading stops as soon as one of the following conditions is met: length bytes have been read; EOF (end of file) is reached.</p>
+<p>@param resource $handle</p>
+<p>@param int $length</p>
+<p>@return string|false Returns the read string or FALSE in case of error.</p>
+<p>@author Nicola Asuni</p>
+<p>@since 4.5.027 (2009-03-16)</p>
+<p>@public static</p>
+
+<p>Read a 4-byte (32 bit) integer from file.</p>
+<p>@param resource $f file resource.</p>
+<p>@return int 4-byte integer</p>
+<p>@public static</p>
+
+<p>Array of page formats</p>
+<p>measures are calculated in this way: (inches * 72) or (millimeters * 72 / 25.4)</p>
+<p>@public static</p>
+
+<p>@var array<string,float[]></p>
+
+<p>Get page dimensions from format name.</p>
+<p>@param mixed $format The format name @see self::$page_format<ul></p>
+<p>@return array containing page width and height in points</p>
+<p>@since 5.0.010 (2010-05-17)</p>
+<p>@public static</p>
+
+<p>Set page boundaries.</p>
+<p>@param int $page page number</p>
+<p>@param string $type valid values are: <ul><li>'MediaBox' : the boundaries of the physical medium on which the page shall be displayed or printed;</li><li>'CropBox' : the visible region of default user space;</li><li>'BleedBox' : the region to which the contents of the page shall be clipped when output in a production environment;</li><li>'TrimBox' : the intended dimensions of the finished page after trimming;</li><li>'ArtBox' : the page's meaningful content (including potential white space).</li></ul></p>
+<p>@param float $llx lower-left x coordinate in user units.</p>
+<p>@param float $lly lower-left y coordinate in user units.</p>
+<p>@param float $urx upper-right x coordinate in user units.</p>
+<p>@param float $ury upper-right y coordinate in user units.</p>
+<p>@param boolean $points If true uses user units as unit of measure, otherwise uses PDF points.</p>
+<p>@param float $k Scale factor (number of points in user unit).</p>
+<p>@param array $pagedim Array of page dimensions.</p>
+<p>@return array pagedim array of page dimensions.</p>
+<p>@since 5.0.010 (2010-05-17)</p>
+<p>@public static</p>
+
+<p>Swap X and Y coordinates of page boxes (change page boxes orientation).</p>
+<p>@param int $page page number</p>
+<p>@param array $pagedim Array of page dimensions.</p>
+<p>@return array pagedim array of page dimensions.</p>
+<p>@since 5.0.010 (2010-05-17)</p>
+<p>@public static</p>
+
+<p>Get the canonical page layout mode.</p>
+<p>@param string $layout The page layout. Possible values are:<ul><li>SinglePage Display one page at a time</li><li>OneColumn Display the pages in one column</li><li>TwoColumnLeft Display the pages in two columns, with odd-numbered pages on the left</li><li>TwoColumnRight Display the pages in two columns, with odd-numbered pages on the right</li><li>TwoPageLeft (PDF 1.5) Display the pages two at a time, with odd-numbered pages on the left</li><li>TwoPageRight (PDF 1.5) Display the pages two at a time, with odd-numbered pages on the right</li></ul></p>
+<p>@return string Canonical page layout name.</p>
+<p>@public static</p>
+
+<p>Get the canonical page layout mode.</p>
+<p>@param string $mode A name object specifying how the document should be displayed when opened:<ul><li>UseNone Neither document outline nor thumbnail images visible</li><li>UseOutlines Document outline visible</li><li>UseThumbs Thumbnail images visible</li><li>FullScreen Full-screen mode, with no menu bar, window controls, or any other window visible</li><li>UseOC (PDF 1.5) Optional content group panel visible</li><li>UseAttachments (PDF 1.6) Attachments panel visible</li></ul></p>
+<p>@return string Canonical page mode name.</p>
+<p>@public static</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>text</code></li>
+<li><code>formatted</code></li>
+<li><code>the</code></li>
+<li><code>a</code></li>
+<li><code>is</code></li>
+<li><code>http</code></li>
+<li><code>SVG</code></li>
+<li><code>string</code></li>
+<li><code>where</code></li>
+<li><code>file</code></li>
+<li><code>format</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\tcpdf\include\tcpdf_static.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>that</code></li>
+<li><code>TCPDF_STATIC</code></li>
+<li><code>for</code></li>
+<li><code>TCPDF_STATIC</code></li>
+<li><code>object</code></li>
+<li><code>object</code></li>
+<li><code>or</code></li>
+<li><code>if</code></li>
+<li><code>or</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getTCPDFVersion()</code></li>
+<li><code>getTCPDFProducer()</code></li>
+<li><code>set_mqr($mqr)</code></li>
+<li><code>get_mqr()</code></li>
+<li><code>isValidURL($url)</code></li>
+<li><code>removeSHY($txt='', $unicode=true)</code></li>
+<li><code>getBorderMode($brd, $position='start', $opencell=true)</code></li>
+<li><code>empty_string($str)</code></li>
+<li><code>getObjFilename($type='tmp', $file_id='')</code></li>
+<li><code>_escape($s)</code></li>
+<li><code>_escapeXML($str)</code></li>
+<li><code>objclone($object)</code></li>
+<li><code>sendOutputData($data, $length)</code></li>
+<li><code>replacePageNumAliases($page, $replace, $diff=0)</code></li>
+<li><code>getTimestamp($date)</code></li>
+<li><code>getFormattedDate($time)</code></li>
+<li><code>getRandomSeed($seed='')</code></li>
+<li><code>_md5_16($str)</code></li>
+<li><code>_AES($key, $text)</code></li>
+<li><code>_AESnopad($key, $text)</code></li>
+<li><code>_RC4($key, $text, &$last_enc_key, &$last_enc_key_c)</code></li>
+<li><code>getUserPermissionCode($permissions, $mode=0)</code></li>
+<li><code>convertHexStringToString($bs)</code></li>
+<li><code>convertStringToHexString($s)</code></li>
+<li><code>getEncPermissionsString($protection)</code></li>
+<li><code>encodeNameObject($name)</code></li>
+<li><code>getAnnotOptFromJSProp($prop, &$spot_colors, $rtl=false)</code></li>
+<li><code>formatPageNumber($num)</code></li>
+<li><code>formatTOCPageNumber($num)</code></li>
+<li><code>extractCSSproperties($cssdata)</code></li>
+<li><code>fixHTMLCode($html, $default_css, $tagvs, $tidy_options, &$tagvspaces)</code></li>
+<li><code>isValidCSSSelectorForTag($dom, $key, $selector)</code></li>
+<li><code>getCSSdataArray($dom, $key, $css)</code></li>
+<li><code>getTagStyleFromCSSarray($css)</code></li>
+<li><code>intToRoman($number)</code></li>
+<li><code>revstrpos($haystack, $needle, $offset = 0)</code></li>
+<li><code>getHyphenPatternsFromTEX($file)</code></li>
+<li><code>getPathPaintOperator($style, $default='S')</code></li>
+<li><code>getTransformationMatrixProduct($ta, $tb)</code></li>
+<li><code>getSVGTransformMatrix($attribute)</code></li>
+<li><code>getVectorsAngle($x1, $y1, $x2, $y2)</code></li>
+<li><code>pregSplit($pattern, $modifiers, $subject, $limit=NULL, $flags=NULL)</code></li>
+<li><code>fopenLocal($filename, $mode)</code></li>
+<li><code>url_exists($url)</code></li>
+<li><code>encodeUrlQuery($url)</code></li>
+<li><code>file_exists($filename)</code></li>
+<li><code>fileGetContents($file)</code></li>
+<li><code>_getULONG($str, $offset)</code></li>
+<li><code>_getUSHORT($str, $offset)</code></li>
+<li><code>_getSHORT($str, $offset)</code></li>
+<li><code>_getFWORD($str, $offset)</code></li>
+<li><code>_getUFWORD($str, $offset)</code></li>
+<li><code>_getFIXED($str, $offset)</code></li>
+<li><code>_getBYTE($str, $offset)</code></li>
+<li><code>rfread($handle, $length)</code></li>
+<li><code>_freadint($f)</code></li>
+<li><code>getPageSizeFromFormat($format)</code></li>
+<li><code>setPageBoxes($page, $type, $llx, $lly, $urx, $ury, $points, $k, $pagedim=array()</code></li>
+<li><code>swapPageBoxCoordinates($page, $pagedim)</code></li>
+<li><code>getPageLayoutMode($layout='SinglePage')</code></li>
+<li><code>getPageMode($mode='UseNone')</code></li>
+</ul>
+</body></html>

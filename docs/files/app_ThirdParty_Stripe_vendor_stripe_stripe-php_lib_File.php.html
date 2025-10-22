@@ -1,0 +1,58 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\File.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\File.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\File.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3818 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This is an object representing a file hosted on Stripe's servers. The file may</p>
+<p>have been uploaded by yourself using the <a</p>
+<p>href="https://stripe.com/docs/api#create_file">create file</a> request (for</p>
+<p>example, when uploading dispute evidence) or it may have been created by Stripe</p>
+<p>(for example, the results of a <a href="#scheduled_queries">Sigma scheduled</p>
+<p>query</a>).</p>
+<p>Related guide: <a href="https://stripe.com/docs/file-upload">File Upload</p>
+<p>Guide</a>.</p>
+<p>@property string $id Unique identifier for the object.</p>
+<p>@property string $object String representing the object's type. Objects of the same type share the same value.</p>
+<p>@property int $created Time at which the object was created. Measured in seconds since the Unix epoch.</p>
+<p>@property null|int $expires_at The time at which the file expires and is no longer available in epoch seconds.</p>
+<p>@property null|string $filename A filename for the file, suitable for saving to a filesystem.</p>
+<p>@property null|\Stripe\Collection<\Stripe\FileLink> $links A list of <a href="https://stripe.com/docs/api#file_links">file links</a> that point at this file.</p>
+<p>@property string $purpose The <a href="https://stripe.com/docs/file-upload#uploading-a-file">purpose</a> of the uploaded file.</p>
+<p>@property int $size The size in bytes of the file object.</p>
+<p>@property null|string $title A user friendly title for the document.</p>
+<p>@property null|string $type The type of the file returned (e.g., <code>csv</code>, <code>pdf</code>, <code>jpg</code>, or <code>png</code>).</p>
+<p>@property null|string $url The URL from which the file can be downloaded using your live secret API key.</p>
+
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\File the created file</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+<li><code>which</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\File.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\File extends ApiResource</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>create($params = null, $opts = null)</code></li>
+</ul>
+</body></html>

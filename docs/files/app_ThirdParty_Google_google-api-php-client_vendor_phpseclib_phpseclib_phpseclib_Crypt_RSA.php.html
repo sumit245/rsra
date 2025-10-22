@@ -1,0 +1,773 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\RSA.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\RSA.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\RSA.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 106117 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Pure-PHP PKCS#1 (v2.1) compliant implementation of RSA.</p>
+<p>PHP version 5</p>
+<p>Here's an example of how to encrypt and decrypt text with this library:</p>
+<p><code></p>
+<p><?php</p>
+<p>   include 'vendor/autoload.php';</p>
+<p>   $rsa = new \phpseclib\Crypt\RSA();</p>
+<p>   extract($rsa->createKey());</p>
+<p>   $plaintext = 'terrafrost';</p>
+<p>   $rsa->loadKey($privatekey);</p>
+<p>   $ciphertext = $rsa->encrypt($plaintext);</p>
+<p>   $rsa->loadKey($publickey);</p>
+<p>   echo $rsa->decrypt($ciphertext);</p>
+<p>?></p>
+<p></code></p>
+<p>Here's an example of how to create signatures and verify signatures with this library:</p>
+<p><code></p>
+<p><?php</p>
+<p>   include 'vendor/autoload.php';</p>
+<p>   $rsa = new \phpseclib\Crypt\RSA();</p>
+<p>   extract($rsa->createKey());</p>
+<p>   $plaintext = 'terrafrost';</p>
+<p>   $rsa->loadKey($privatekey);</p>
+<p>   $signature = $rsa->sign($plaintext);</p>
+<p>   $rsa->loadKey($publickey);</p>
+<p>   echo $rsa->verify($plaintext, $signature) ? 'verified' : 'unverified';</p>
+<p>?></p>
+<p></code></p>
+<p>@category  Crypt</p>
+<p>@package   RSA</p>
+<p>@author    Jim Wigginton <terrafrost@php.net></p>
+<p>@copyright 2009 Jim Wigginton</p>
+<p>@license   http://www.opensource.org/licenses/mit-license.html  MIT License</p>
+<p>@link      http://phpseclib.sourceforge.net</p>
+
+<p>Pure-PHP PKCS#1 compliant implementation of RSA.</p>
+<p>@package RSA</p>
+<p>@author  Jim Wigginton <terrafrost@php.net></p>
+<p>@access  public</p>
+
+<p>#@+</p>
+<p>@access public</p>
+<p>@see self::encrypt()</p>
+<p>@see self::decrypt()</p>
+
+<p>Use {@link http://en.wikipedia.org/wiki/Optimal_Asymmetric_Encryption_Padding Optimal Asymmetric Encryption Padding}</p>
+<p>(OAEP) for encryption / decryption.</p>
+<p>Uses sha1 by default.</p>
+<p>@see self::setHash()</p>
+<p>@see self::setMGFHash()</p>
+
+<p>Use PKCS#1 padding.</p>
+<p>Although self::ENCRYPTION_OAEP offers more security, including PKCS#1 padding is necessary for purposes of backwards</p>
+<p>compatibility with protocols (like SSH-1) written before OAEP's introduction.</p>
+
+<p>Do not use any padding</p>
+<p>Although this method is not recommended it can none-the-less sometimes be useful if you're trying to decrypt some legacy</p>
+<p>stuff, if you're trying to diagnose why an encrypted message isn't decrypting, etc.</p>
+
+<p>#@-</p>
+
+<p>#@+</p>
+<p>@access public</p>
+<p>@see self::sign()</p>
+<p>@see self::verify()</p>
+<p>@see self::setHash()</p>
+
+<p>Use the Probabilistic Signature Scheme for signing</p>
+<p>Uses sha1 by default.</p>
+<p>@see self::setSaltLength()</p>
+<p>@see self::setMGFHash()</p>
+
+<p>Use the PKCS#1 scheme by default.</p>
+<p>Although self::SIGNATURE_PSS offers more security, including PKCS#1 signing is necessary for purposes of backwards</p>
+<p>compatibility with protocols (like SSH-2) written before PSS's introduction.</p>
+
+<p>#@-</p>
+
+<p>#@+</p>
+<p>@access private</p>
+<p>@see \phpseclib\Crypt\RSA::createKey()</p>
+
+<p>ASN1 Integer</p>
+
+<p>ASN1 Bit String</p>
+
+<p>ASN1 Octet String</p>
+
+<p>ASN1 Object Identifier</p>
+
+<p>ASN1 Sequence (with the constucted bit set)</p>
+
+<p>#@-</p>
+
+<p>#@+</p>
+<p>@access private</p>
+<p>@see \phpseclib\Crypt\RSA::__construct()</p>
+
+<p>To use the pure-PHP implementation</p>
+
+<p>To use the OpenSSL library</p>
+<p>(if enabled; otherwise, the internal implementation will be used)</p>
+
+<p>#@-</p>
+
+<p>#@+</p>
+<p>@access public</p>
+<p>@see \phpseclib\Crypt\RSA::createKey()</p>
+<p>@see \phpseclib\Crypt\RSA::setPrivateKeyFormat()</p>
+
+<p>PKCS#1 formatted private key</p>
+<p>Used by OpenSSH</p>
+
+<p>PuTTY formatted private key</p>
+
+<p>XML formatted private key</p>
+
+<p>PKCS#8 formatted private key</p>
+
+<p>#@-</p>
+
+<p>#@+</p>
+<p>@access public</p>
+<p>@see \phpseclib\Crypt\RSA::createKey()</p>
+<p>@see \phpseclib\Crypt\RSA::setPublicKeyFormat()</p>
+
+<p>Raw public key</p>
+<p>An array containing two \phpseclib\Math\BigInteger objects.</p>
+<p>The exponent can be indexed with any of the following:</p>
+<p>0, e, exponent, publicExponent</p>
+<p>The modulus can be indexed with any of the following:</p>
+<p>1, n, modulo, modulus</p>
+
+<p>PKCS#1 formatted public key (raw)</p>
+<p>Used by File/X509.php</p>
+<p>Has the following header:</p>
+<p>-----BEGIN RSA PUBLIC KEY-----</p>
+<p>Analogous to ssh-keygen's pem format (as specified by -m)</p>
+
+<p>XML formatted public key</p>
+
+<p>OpenSSH formatted public key</p>
+<p>Place in $HOME/.ssh/authorized_keys</p>
+
+<p>PKCS#1 formatted public key (encapsulated)</p>
+<p>Used by PHP's openssl_public_encrypt() and openssl's rsautl (when -pubin is set)</p>
+<p>Has the following header:</p>
+<p>-----BEGIN PUBLIC KEY-----</p>
+<p>Analogous to ssh-keygen's pkcs8 format (as specified by -m). Although PKCS8</p>
+<p>is specific to private keys it's basically creating a DER-encoded wrapper</p>
+<p>for keys. This just extends that same concept to public keys (much like ssh-keygen)</p>
+
+<p>#@-</p>
+
+<p>Precomputed Zero</p>
+<p>@var \phpseclib\Math\BigInteger</p>
+<p>@access private</p>
+
+<p>Precomputed One</p>
+<p>@var \phpseclib\Math\BigInteger</p>
+<p>@access private</p>
+
+<p>Private Key Format</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Public Key Format</p>
+<p>@var int</p>
+<p>@access public</p>
+
+<p>Modulus (ie. n)</p>
+<p>@var \phpseclib\Math\BigInteger</p>
+<p>@access private</p>
+
+<p>Modulus length</p>
+<p>@var \phpseclib\Math\BigInteger</p>
+<p>@access private</p>
+
+<p>Exponent (ie. e or d)</p>
+<p>@var \phpseclib\Math\BigInteger</p>
+<p>@access private</p>
+
+<p>Primes for Chinese Remainder Theorem (ie. p and q)</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Exponents for Chinese Remainder Theorem (ie. dP and dQ)</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Coefficients for Chinese Remainder Theorem (ie. qInv)</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Hash name</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Hash function</p>
+<p>@var \phpseclib\Crypt\Hash</p>
+<p>@access private</p>
+
+<p>Length of hash function output</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Length of salt</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Hash function for the Mask Generation Function</p>
+<p>@var \phpseclib\Crypt\Hash</p>
+<p>@access private</p>
+
+<p>Length of MGF hash function output</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Encryption mode</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Signature mode</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Public Exponent</p>
+<p>@var mixed</p>
+<p>@access private</p>
+
+<p>Password</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Components</p>
+<p>For use with parsing XML formatted keys.  PHP's XML Parser functions use utilized - instead of PHP's DOM functions -</p>
+<p>because PHP's XML Parser functions work on PHP4 whereas PHP's DOM functions - although surperior - don't.</p>
+<p>@see self::_start_element_handler()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Current String</p>
+<p>For use with parsing XML formatted keys.</p>
+<p>@see self::_character_handler()</p>
+<p>@see self::_stop_element_handler()</p>
+<p>@var mixed</p>
+<p>@access private</p>
+
+<p>OpenSSL configuration file name.</p>
+<p>Set to null to use system configuration file.</p>
+<p>@see self::createKey()</p>
+<p>@var mixed</p>
+<p>@Access public</p>
+
+<p>Public key comment field.</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>The constructor</p>
+<p>If you want to make use of the openssl extension, you'll need to set the mode manually, yourself.  The reason</p>
+<p>\phpseclib\Crypt\RSA doesn't do it is because OpenSSL doesn't fail gracefully.  openssl_pkey_new(), in particular, requires</p>
+<p>openssl.cnf be present somewhere and, unfortunately, the only real way to find out is too late.</p>
+<p>@return \phpseclib\Crypt\RSA</p>
+<p>@access public</p>
+
+<p>Create public / private key pair</p>
+<p>Returns an array with the following three elements:</p>
+<p> - 'privatekey': The private key.</p>
+<p> - 'publickey':  The public key.</p>
+<p> - 'partialkey': A partially computed key (if the execution time exceeded $timeout).</p>
+<p>                 Will need to be passed back to \phpseclib\Crypt\RSA::createKey() as the third parameter for further processing.</p>
+<p>@access public</p>
+<p>@param int $bits</p>
+<p>@param int $timeout</p>
+<p>@param array $p</p>
+
+<p>Convert a private key to the appropriate format.</p>
+<p>@access private</p>
+<p>@see self::setPrivateKeyFormat()</p>
+<p>@param string $RSAPrivateKey</p>
+<p>@return string</p>
+
+<p>Convert a public key to the appropriate format</p>
+<p>@access private</p>
+<p>@see self::setPublicKeyFormat()</p>
+<p>@param string $RSAPrivateKey</p>
+<p>@return string</p>
+
+<p>Break a public or private key down into its constituant components</p>
+<p>@access private</p>
+<p>@see self::_convertPublicKey()</p>
+<p>@see self::_convertPrivateKey()</p>
+<p>@param string $key</p>
+<p>@param int $type</p>
+<p>@return array</p>
+
+<p>Returns the key size</p>
+<p>More specifically, this returns the size of the modulo in bits.</p>
+<p>@access public</p>
+<p>@return int</p>
+
+<p>Start Element Handler</p>
+<p>Called by xml_set_element_handler()</p>
+<p>@access private</p>
+<p>@param resource $parser</p>
+<p>@param string $name</p>
+<p>@param array $attribs</p>
+
+<p>Stop Element Handler</p>
+<p>Called by xml_set_element_handler()</p>
+<p>@access private</p>
+<p>@param resource $parser</p>
+<p>@param string $name</p>
+
+<p>Data Handler</p>
+<p>Called by xml_set_character_data_handler()</p>
+<p>@access private</p>
+<p>@param resource $parser</p>
+<p>@param string $data</p>
+
+<p>Loads a public or private key</p>
+<p>Returns true on success and false on failure (ie. an incorrect password was provided or the key was malformed)</p>
+<p>@access public</p>
+<p>@param string $key</p>
+<p>@param int $type optional</p>
+
+<p>Sets the password</p>
+<p>Private keys can be encrypted with a password.  To unset the password, pass in the empty string or false.</p>
+<p>Or rather, pass in $password such that empty($password) && !is_string($password) is true.</p>
+<p>@see self::createKey()</p>
+<p>@see self::loadKey()</p>
+<p>@access public</p>
+<p>@param string $password</p>
+
+<p>Defines the public key</p>
+<p>Some private key formats define the public exponent and some don't.  Those that don't define it are problematic when</p>
+<p>used in certain contexts.  For example, in SSH-2, RSA authentication works by sending the public key along with a</p>
+<p>message signed by the private key to the server.  The SSH-2 server looks the public key up in an index of public keys</p>
+<p>and if it's present then proceeds to verify the signature.  Problem is, if your private key doesn't include the public</p>
+<p>exponent this won't work unless you manually add the public exponent. phpseclib tries to guess if the key being used</p>
+<p>is the public key but in the event that it guesses incorrectly you might still want to explicitly set the key as being</p>
+<p>public.</p>
+<p>Do note that when a new key is loaded the index will be cleared.</p>
+<p>Returns true on success, false on failure</p>
+<p>@see self::getPublicKey()</p>
+<p>@access public</p>
+<p>@param string $key optional</p>
+<p>@param int $type optional</p>
+<p>@return bool</p>
+
+<p>Defines the private key</p>
+<p>If phpseclib guessed a private key was a public key and loaded it as such it might be desirable to force</p>
+<p>phpseclib to treat the key as a private key. This function will do that.</p>
+<p>Do note that when a new key is loaded the index will be cleared.</p>
+<p>Returns true on success, false on failure</p>
+<p>@see self::getPublicKey()</p>
+<p>@access public</p>
+<p>@param string $key optional</p>
+<p>@param int $type optional</p>
+<p>@return bool</p>
+
+<p>Returns the public key</p>
+<p>The public key is only returned under two circumstances - if the private key had the public key embedded within it</p>
+<p>or if the public key was set via setPublicKey().  If the currently loaded key is supposed to be the public key this</p>
+<p>function won't return it since this library, for the most part, doesn't distinguish between public and private keys.</p>
+<p>@see self::getPublicKey()</p>
+<p>@access public</p>
+<p>@param string $key</p>
+<p>@param int $type optional</p>
+
+<p>Returns the public key's fingerprint</p>
+<p>The public key's fingerprint is returned, which is equivalent to running <code>ssh-keygen -lf rsa.pub</code>. If there is</p>
+<p>no public key currently loaded, false is returned.</p>
+<p>Example output (md5): "c1:b1:30:29:d7:b8:de:6c:97:77:10:d7:46:41:63:87" (as specified by RFC 4716)</p>
+<p>@access public</p>
+<p>@param string $algorithm The hashing algorithm to be used. Valid options are 'md5' and 'sha256'. False is returned</p>
+<p>for invalid values.</p>
+<p>@return mixed</p>
+
+<p>Returns the private key</p>
+<p>The private key is only returned if the currently loaded key contains the constituent prime numbers.</p>
+<p>@see self::getPublicKey()</p>
+<p>@access public</p>
+<p>@param string $key</p>
+<p>@param int $type optional</p>
+<p>@return mixed</p>
+
+<p>Returns a minimalistic private key</p>
+<p>Returns the private key without the prime number constituants.  Structurally identical to a public key that</p>
+<p>hasn't been set as the public key</p>
+<p>@see self::getPrivateKey()</p>
+<p>@access private</p>
+<p>@param string $key</p>
+<p>@param int $type optional</p>
+
+<p>__toString() magic method</p>
+<p>@access public</p>
+<p>@return string</p>
+
+<p>__clone() magic method</p>
+<p>@access public</p>
+<p>@return Crypt_RSA</p>
+
+<p>Generates the smallest and largest numbers requiring $bits bits</p>
+<p>@access private</p>
+<p>@param int $bits</p>
+<p>@return array</p>
+
+<p>DER-decode the length</p>
+<p>DER supports lengths up to (2<strong>8)</strong>127, however, we'll only support lengths up to (2<strong>8)</strong>4.  See</p>
+<p>{@link http://itu.int/ITU-T/studygroups/com17/languages/X.690-0207.pdf#p=13 X.690 paragraph 8.1.3} for more information.</p>
+<p>@access private</p>
+<p>@param string $string</p>
+<p>@return int</p>
+
+<p>DER-encode the length</p>
+<p>DER supports lengths up to (2<strong>8)</strong>127, however, we'll only support lengths up to (2<strong>8)</strong>4.  See</p>
+<p>{@link http://itu.int/ITU-T/studygroups/com17/languages/X.690-0207.pdf#p=13 X.690 paragraph 8.1.3} for more information.</p>
+<p>@access private</p>
+<p>@param int $length</p>
+<p>@return string</p>
+
+<p>String Shift</p>
+<p>Inspired by array_shift</p>
+<p>@param string $string</p>
+<p>@param int $index</p>
+<p>@return string</p>
+<p>@access private</p>
+
+<p>Determines the private key format</p>
+<p>@see self::createKey()</p>
+<p>@access public</p>
+<p>@param int $format</p>
+
+<p>Determines the public key format</p>
+<p>@see self::createKey()</p>
+<p>@access public</p>
+<p>@param int $format</p>
+
+<p>Determines which hashing function should be used</p>
+<p>Used with signature production / verification and (if the encryption mode is self::ENCRYPTION_OAEP) encryption and</p>
+<p>decryption.  If $hash isn't supported, sha1 is used.</p>
+<p>@access public</p>
+<p>@param string $hash</p>
+
+<p>Determines which hashing function should be used for the mask generation function</p>
+<p>The mask generation function is used by self::ENCRYPTION_OAEP and self::SIGNATURE_PSS and although it's</p>
+<p>best if Hash and MGFHash are set to the same thing this is not a requirement.</p>
+<p>@access public</p>
+<p>@param string $hash</p>
+
+<p>Determines the salt length</p>
+<p>To quote from {@link http://tools.ietf.org/html/rfc3447#page-38 RFC3447#page-38}:</p>
+<p>   Typical salt lengths in octets are hLen (the length of the output</p>
+<p>   of the hash function Hash) and 0.</p>
+<p>@access public</p>
+<p>@param int $format</p>
+
+<p>Integer-to-Octet-String primitive</p>
+<p>See {@link http://tools.ietf.org/html/rfc3447#section-4.1 RFC3447#section-4.1}.</p>
+<p>@access private</p>
+<p>@param \phpseclib\Math\BigInteger $x</p>
+<p>@param int $xLen</p>
+<p>@return string</p>
+
+<p>Octet-String-to-Integer primitive</p>
+<p>See {@link http://tools.ietf.org/html/rfc3447#section-4.2 RFC3447#section-4.2}.</p>
+<p>@access private</p>
+<p>@param string $x</p>
+<p>@return \phpseclib\Math\BigInteger</p>
+
+<p>Exponentiate with or without Chinese Remainder Theorem</p>
+<p>See {@link http://tools.ietf.org/html/rfc3447#section-5.1.1 RFC3447#section-5.1.2}.</p>
+<p>@access private</p>
+<p>@param \phpseclib\Math\BigInteger $x</p>
+<p>@return \phpseclib\Math\BigInteger</p>
+
+<p>Performs RSA Blinding</p>
+<p>Protects against timing attacks by employing RSA Blinding.</p>
+<p>Returns $x->modPow($this->exponents[$i], $this->primes[$i])</p>
+<p>@access private</p>
+<p>@param \phpseclib\Math\BigInteger $x</p>
+<p>@param \phpseclib\Math\BigInteger $r</p>
+<p>@param int $i</p>
+<p>@return \phpseclib\Math\BigInteger</p>
+
+<p>Performs blinded RSA equality testing</p>
+<p>Protects against a particular type of timing attack described.</p>
+<p>See {@link http://codahale.com/a-lesson-in-timing-attacks/ A Lesson In Timing Attacks (or, Don't use MessageDigest.isEquals)}</p>
+<p>Thanks for the heads up singpolyma!</p>
+<p>@access private</p>
+<p>@param string $x</p>
+<p>@param string $y</p>
+<p>@return bool</p>
+
+<p>RSAEP</p>
+<p>See {@link http://tools.ietf.org/html/rfc3447#section-5.1.1 RFC3447#section-5.1.1}.</p>
+<p>@access private</p>
+<p>@param \phpseclib\Math\BigInteger $m</p>
+<p>@return \phpseclib\Math\BigInteger</p>
+
+<p>RSADP</p>
+<p>See {@link http://tools.ietf.org/html/rfc3447#section-5.1.2 RFC3447#section-5.1.2}.</p>
+<p>@access private</p>
+<p>@param \phpseclib\Math\BigInteger $c</p>
+<p>@return \phpseclib\Math\BigInteger</p>
+
+<p>RSASP1</p>
+<p>See {@link http://tools.ietf.org/html/rfc3447#section-5.2.1 RFC3447#section-5.2.1}.</p>
+<p>@access private</p>
+<p>@param \phpseclib\Math\BigInteger $m</p>
+<p>@return \phpseclib\Math\BigInteger</p>
+
+<p>RSAVP1</p>
+<p>See {@link http://tools.ietf.org/html/rfc3447#section-5.2.2 RFC3447#section-5.2.2}.</p>
+<p>@access private</p>
+<p>@param \phpseclib\Math\BigInteger $s</p>
+<p>@return \phpseclib\Math\BigInteger</p>
+
+<p>MGF1</p>
+<p>See {@link http://tools.ietf.org/html/rfc3447#appendix-B.2.1 RFC3447#appendix-B.2.1}.</p>
+<p>@access private</p>
+<p>@param string $mgfSeed</p>
+<p>@param int $mgfLen</p>
+<p>@return string</p>
+
+<p>RSAES-OAEP-ENCRYPT</p>
+<p>See {@link http://tools.ietf.org/html/rfc3447#section-7.1.1 RFC3447#section-7.1.1} and</p>
+<p>{http://en.wikipedia.org/wiki/Optimal_Asymmetric_Encryption_Padding OAES}.</p>
+<p>@access private</p>
+<p>@param string $m</p>
+<p>@param string $l</p>
+<p>@return string</p>
+
+<p>RSAES-OAEP-DECRYPT</p>
+<p>See {@link http://tools.ietf.org/html/rfc3447#section-7.1.2 RFC3447#section-7.1.2}.  The fact that the error</p>
+<p>messages aren't distinguishable from one another hinders debugging, but, to quote from RFC3447#section-7.1.2:</p>
+<p>   Note.  Care must be taken to ensure that an opponent cannot</p>
+<p>   distinguish the different error conditions in Step 3.g, whether by</p>
+<p>   error message or timing, or, more generally, learn partial</p>
+<p>   information about the encoded message EM.  Otherwise an opponent may</p>
+<p>   be able to obtain useful information about the decryption of the</p>
+<p>   ciphertext C, leading to a chosen-ciphertext attack such as the one</p>
+<p>   observed by Manger [36].</p>
+<p>As for $l...  to quote from {@link http://tools.ietf.org/html/rfc3447#page-17 RFC3447#page-17}:</p>
+<p>   Both the encryption and the decryption operations of RSAES-OAEP take</p>
+<p>   the value of a label L as input.  In this version of PKCS #1, L is</p>
+<p>   the empty string; other uses of the label are outside the scope of</p>
+<p>   this document.</p>
+<p>@access private</p>
+<p>@param string $c</p>
+<p>@param string $l</p>
+<p>@return string</p>
+
+<p>Raw Encryption / Decryption</p>
+<p>Doesn't use padding and is not recommended.</p>
+<p>@access private</p>
+<p>@param string $m</p>
+<p>@return string</p>
+
+<p>RSAES-PKCS1-V1_5-ENCRYPT</p>
+<p>See {@link http://tools.ietf.org/html/rfc3447#section-7.2.1 RFC3447#section-7.2.1}.</p>
+<p>@access private</p>
+<p>@param string $m</p>
+<p>@return string</p>
+
+<p>RSAES-PKCS1-V1_5-DECRYPT</p>
+<p>See {@link http://tools.ietf.org/html/rfc3447#section-7.2.2 RFC3447#section-7.2.2}.</p>
+<p>For compatibility purposes, this function departs slightly from the description given in RFC3447.</p>
+<p>The reason being that RFC2313#section-8.1 (PKCS#1 v1.5) states that ciphertext's encrypted by the</p>
+<p>private key should have the second byte set to either 0 or 1 and that ciphertext's encrypted by the</p>
+<p>public key should have the second byte set to 2.  In RFC3447 (PKCS#1 v2.1), the second byte is supposed</p>
+<p>to be 2 regardless of which key is used.  For compatibility purposes, we'll just check to make sure the</p>
+<p>second byte is 2 or less.  If it is, we'll accept the decrypted string as valid.</p>
+<p>As a consequence of this, a private key encrypted ciphertext produced with \phpseclib\Crypt\RSA may not decrypt</p>
+<p>with a strictly PKCS#1 v1.5 compliant RSA implementation.  Public key encrypted ciphertext's should but</p>
+<p>not private key encrypted ciphertext's.</p>
+<p>@access private</p>
+<p>@param string $c</p>
+<p>@return string</p>
+
+<p>EMSA-PSS-ENCODE</p>
+<p>See {@link http://tools.ietf.org/html/rfc3447#section-9.1.1 RFC3447#section-9.1.1}.</p>
+<p>@access private</p>
+<p>@param string $m</p>
+<p>@param int $emBits</p>
+
+<p>EMSA-PSS-VERIFY</p>
+<p>See {@link http://tools.ietf.org/html/rfc3447#section-9.1.2 RFC3447#section-9.1.2}.</p>
+<p>@access private</p>
+<p>@param string $m</p>
+<p>@param string $em</p>
+<p>@param int $emBits</p>
+<p>@return string</p>
+
+<p>RSASSA-PSS-SIGN</p>
+<p>See {@link http://tools.ietf.org/html/rfc3447#section-8.1.1 RFC3447#section-8.1.1}.</p>
+<p>@access private</p>
+<p>@param string $m</p>
+<p>@return string</p>
+
+<p>RSASSA-PSS-VERIFY</p>
+<p>See {@link http://tools.ietf.org/html/rfc3447#section-8.1.2 RFC3447#section-8.1.2}.</p>
+<p>@access private</p>
+<p>@param string $m</p>
+<p>@param string $s</p>
+<p>@return string</p>
+
+<p>EMSA-PKCS1-V1_5-ENCODE</p>
+<p>See {@link http://tools.ietf.org/html/rfc3447#section-9.2 RFC3447#section-9.2}.</p>
+<p>@access private</p>
+<p>@param string $m</p>
+<p>@param int $emLen</p>
+<p>@return string</p>
+
+<p>RSASSA-PKCS1-V1_5-SIGN</p>
+<p>See {@link http://tools.ietf.org/html/rfc3447#section-8.2.1 RFC3447#section-8.2.1}.</p>
+<p>@access private</p>
+<p>@param string $m</p>
+<p>@return string</p>
+
+<p>RSASSA-PKCS1-V1_5-VERIFY</p>
+<p>See {@link http://tools.ietf.org/html/rfc3447#section-8.2.2 RFC3447#section-8.2.2}.</p>
+<p>@access private</p>
+<p>@param string $m</p>
+<p>@return string</p>
+
+<p>Set Encryption Mode</p>
+<p>Valid values include self::ENCRYPTION_OAEP and self::ENCRYPTION_PKCS1.</p>
+<p>@access public</p>
+<p>@param int $mode</p>
+
+<p>Set Signature Mode</p>
+<p>Valid values include self::SIGNATURE_PSS and self::SIGNATURE_PKCS1</p>
+<p>@access public</p>
+<p>@param int $mode</p>
+
+<p>Set public key comment.</p>
+<p>@access public</p>
+<p>@param string $comment</p>
+
+<p>Get public key comment.</p>
+<p>@access public</p>
+<p>@return string</p>
+
+<p>Encryption</p>
+<p>Both self::ENCRYPTION_OAEP and self::ENCRYPTION_PKCS1 both place limits on how long $plaintext can be.</p>
+<p>If $plaintext exceeds those limits it will be broken up so that it does and the resultant ciphertext's will</p>
+<p>be concatenated together.</p>
+<p>@see self::decrypt()</p>
+<p>@access public</p>
+<p>@param string $plaintext</p>
+<p>@return string</p>
+
+<p>Decryption</p>
+<p>@see self::encrypt()</p>
+<p>@access public</p>
+<p>@param string $plaintext</p>
+<p>@return string</p>
+
+<p>Create a signature</p>
+<p>@see self::verify()</p>
+<p>@access public</p>
+<p>@param string $message</p>
+<p>@return string</p>
+
+<p>Verifies a signature</p>
+<p>@see self::sign()</p>
+<p>@access public</p>
+<p>@param string $message</p>
+<p>@param string $signature</p>
+<p>@return bool</p>
+
+<p>Extract raw BER from Base64 encoding</p>
+<p>@access private</p>
+<p>@param string $str</p>
+<p>@return string</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+<li><code>the</code></li>
+<li><code>PuTTY</code></li>
+<li><code>one</code></li>
+<li><code>RFC3447</code></li>
+<li><code>Base64</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\RSA.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>phpseclib\Crypt\RSA</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>createKey($bits = 1024, $timeout = false, $partial = array()</code></li>
+<li><code>_convertPrivateKey($n, $e, $d, $primes, $exponents, $coefficients)</code></li>
+<li><code>_convertPublicKey($n, $e)</code></li>
+<li><code>_parseKey($key, $type)</code></li>
+<li><code>getSize()</code></li>
+<li><code>_start_element_handler($parser, $name, $attribs)</code></li>
+<li><code>_stop_element_handler($parser, $name)</code></li>
+<li><code>_data_handler($parser, $data)</code></li>
+<li><code>loadKey($key, $type = false)</code></li>
+<li><code>setPassword($password = false)</code></li>
+<li><code>setPublicKey($key = false, $type = false)</code></li>
+<li><code>setPrivateKey($key = false, $type = false)</code></li>
+<li><code>getPublicKey($type = self::PUBLIC_FORMAT_PKCS8)</code></li>
+<li><code>getPublicKeyFingerprint($algorithm = 'md5')</code></li>
+<li><code>getPrivateKey($type = self::PUBLIC_FORMAT_PKCS1)</code></li>
+<li><code>_getPrivatePublicKey($mode = self::PUBLIC_FORMAT_PKCS8)</code></li>
+<li><code>__toString()</code></li>
+<li><code>__clone()</code></li>
+<li><code>_generateMinMax($bits)</code></li>
+<li><code>_decodeLength(&$string)</code></li>
+<li><code>_encodeLength($length)</code></li>
+<li><code>_string_shift(&$string, $index = 1)</code></li>
+<li><code>setPrivateKeyFormat($format)</code></li>
+<li><code>setPublicKeyFormat($format)</code></li>
+<li><code>setHash($hash)</code></li>
+<li><code>setMGFHash($hash)</code></li>
+<li><code>setSaltLength($sLen)</code></li>
+<li><code>_i2osp($x, $xLen)</code></li>
+<li><code>_os2ip($x)</code></li>
+<li><code>_exponentiate($x)</code></li>
+<li><code>_blind($x, $r, $i)</code></li>
+<li><code>_equals($x, $y)</code></li>
+<li><code>_rsaep($m)</code></li>
+<li><code>_rsadp($c)</code></li>
+<li><code>_rsasp1($m)</code></li>
+<li><code>_rsavp1($s)</code></li>
+<li><code>_mgf1($mgfSeed, $maskLen)</code></li>
+<li><code>_rsaes_oaep_encrypt($m, $l = '')</code></li>
+<li><code>_rsaes_oaep_decrypt($c, $l = '')</code></li>
+<li><code>_raw_encrypt($m)</code></li>
+<li><code>_rsaes_pkcs1_v1_5_encrypt($m)</code></li>
+<li><code>_rsaes_pkcs1_v1_5_decrypt($c)</code></li>
+<li><code>_emsa_pss_encode($m, $emBits)</code></li>
+<li><code>_emsa_pss_verify($m, $em, $emBits)</code></li>
+<li><code>_rsassa_pss_sign($m)</code></li>
+<li><code>_rsassa_pss_verify($m, $s)</code></li>
+<li><code>_emsa_pkcs1_v1_5_encode($m, $emLen)</code></li>
+<li><code>_rsassa_pkcs1_v1_5_sign($m)</code></li>
+<li><code>_rsassa_pkcs1_v1_5_verify($m, $s)</code></li>
+<li><code>setEncryptionMode($mode)</code></li>
+<li><code>setSignatureMode($mode)</code></li>
+<li><code>setComment($comment)</code></li>
+<li><code>getComment()</code></li>
+<li><code>encrypt($plaintext)</code></li>
+<li><code>decrypt($ciphertext)</code></li>
+<li><code>sign($message)</code></li>
+<li><code>verify($message, $signature)</code></li>
+<li><code>_extractBER($str)</code></li>
+</ul>
+</body></html>

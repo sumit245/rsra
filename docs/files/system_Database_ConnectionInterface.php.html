@@ -1,0 +1,112 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Database\ConnectionInterface.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Database\ConnectionInterface.php</h1>
+
+<ul>
+<li>Path: <code>system\Database\ConnectionInterface.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3885 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Interface ConnectionInterface</p>
+
+<p>Initializes the database connection/settings.</p>
+<p>@return mixed</p>
+
+<p>Connect to the database.</p>
+<p>@return mixed</p>
+
+<p>Create a persistent database connection.</p>
+<p>@return mixed</p>
+
+<p>Keep or establish the connection if no queries have been sent for</p>
+<p>a length of time exceeding the server's idle timeout.</p>
+<p>@return mixed</p>
+
+<p>Returns the actual connection object. If both a 'read' and 'write'</p>
+<p>connection has been specified, you can pass either term in to</p>
+<p>get that connection. If you pass either alias in and only a single</p>
+<p>connection is present, it must return the sole connection.</p>
+<p>@return mixed</p>
+
+<p>Select a specific database table to use.</p>
+<p>@return mixed</p>
+
+<p>Returns the name of the current database being used.</p>
+
+<p>Returns the last error encountered by this connection.</p>
+<p>Must return this format: ['code' => string|int, 'message' => string]</p>
+<p>intval(code) === 0 means "no error".</p>
+<p>@return array<string, int|string></p>
+
+<p>The name of the platform in use (MySQLi, mssql, etc)</p>
+
+<p>Returns a string containing the version of the database being used.</p>
+
+<p>Orchestrates a query against the database. Queries must use</p>
+<p>Database\Statement objects to store the query and build it.</p>
+<p>This method works with the cache.</p>
+<p>Should automatically handle different connections for read/write</p>
+<p>queries if needed.</p>
+<p>@param mixed ...$binds</p>
+<p>@return BaseResult|bool|Query</p>
+
+<p>Performs a basic query against the database. No binding or caching</p>
+<p>is performed, nor are transactions handled. Simply takes a raw</p>
+<p>query string and returns the database-specific result id.</p>
+<p>@return mixed</p>
+
+<p>Returns an instance of the query builder for this connection.</p>
+<p>@param array|string $tableName Table name.</p>
+<p>@return BaseBuilder Builder.</p>
+
+<p>Returns the last query's statement object.</p>
+<p>@return mixed</p>
+
+<p>"Smart" Escaping</p>
+<p>Escapes data based on type.</p>
+<p>Sets boolean and null types.</p>
+<p>@param mixed $str</p>
+<p>@return mixed</p>
+
+<p>Allows for custom calls to the database engine that are not</p>
+<p>supported through our database layer.</p>
+<p>@param array ...$params</p>
+<p>@return mixed</p>
+
+<p>Determines if the statement is a write-type query or not.</p>
+<p>@param string $sql</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Database\ConnectionInterface.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>initialize()</code></li>
+<li><code>connect(bool $persistent = false)</code></li>
+<li><code>persistentConnect()</code></li>
+<li><code>reconnect()</code></li>
+<li><code>getConnection(?string $alias = null)</code></li>
+<li><code>setDatabase(string $databaseName)</code></li>
+<li><code>getDatabase()</code></li>
+<li><code>error()</code></li>
+<li><code>getPlatform()</code></li>
+<li><code>getVersion()</code></li>
+<li><code>query(string $sql, $binds = null)</code></li>
+<li><code>simpleQuery(string $sql)</code></li>
+<li><code>table($tableName)</code></li>
+<li><code>getLastQuery()</code></li>
+<li><code>escape($str)</code></li>
+<li><code>callFunction(string $functionName, ...$params)</code></li>
+<li><code>isWriteType($sql)</code></li>
+</ul>
+</body></html>

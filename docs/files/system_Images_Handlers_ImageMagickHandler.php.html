@@ -1,0 +1,134 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Images\Handlers\ImageMagickHandler.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Images\Handlers\ImageMagickHandler.php</h1>
+
+<ul>
+<li>Path: <code>system\Images\Handlers\ImageMagickHandler.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 14058 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Class ImageMagickHandler</p>
+<p>To make this library as compatible as possible with the broadest</p>
+<p>number of installations, we do not use the Imagick extension,</p>
+<p>but simply use the command line version.</p>
+<p>hmm - the width & height accessors at the end use the imagick extension.</p>
+<p>FIXME - This needs conversion & unit testing, to use the imagick extension</p>
+
+<p>Stores image resource in memory.</p>
+<p>@var string|null</p>
+
+<p>Constructor.</p>
+<p>@param Images $config</p>
+<p>@throws ImageException</p>
+
+<p>Handles the actual resizing of the image.</p>
+<p>@throws Exception</p>
+<p>@return ImageMagickHandler</p>
+
+<p>Crops the image.</p>
+<p>@throws Exception</p>
+<p>@return bool|\CodeIgniter\Images\Handlers\ImageMagickHandler</p>
+
+<p>Handles the rotation of an image resource.</p>
+<p>Doesn't save the image, but replaces the current resource.</p>
+<p>@throws Exception</p>
+<p>@return $this</p>
+
+<p>Flattens transparencies, default white background</p>
+<p>@throws Exception</p>
+<p>@return $this</p>
+
+<p>Flips an image along it's vertical or horizontal axis.</p>
+<p>@throws Exception</p>
+<p>@return $this</p>
+
+<p>Get driver version</p>
+
+<p>Handles all of the grunt work of resizing, etc.</p>
+<p>@throws Exception</p>
+<p>@return array Lines of output from shell command</p>
+
+<p>Saves any changes that have been made to file. If no new filename is</p>
+<p>provided, the existing image is overwritten, otherwise a copy of the</p>
+<p>file is made at $target.</p>
+<p>Example:</p>
+<p>   $image->resize(100, 200, true)</p>
+<p>         ->save();</p>
+
+<p>Get Image Resource</p>
+<p>This simply creates an image resource handle</p>
+<p>based on the type of image being processed.</p>
+<p>Since ImageMagick is used on the cli, we need to</p>
+<p>ensure we have a temporary file on the server</p>
+<p>that we can use.</p>
+<p>To ensure we can use all features, like transparency,</p>
+<p>during the process, we'll use a PNG as the temp file type.</p>
+<p>@throws Exception</p>
+<p>@return string</p>
+
+<p>Make the image resource object if needed</p>
+<p>@throws Exception</p>
+
+<p>Check if given image format is supported</p>
+<p>@throws ImageException</p>
+
+<p>Handler-specific method for overlaying text on an image.</p>
+<p>@throws Exception</p>
+
+<p>Return the width of an image.</p>
+<p>@return int</p>
+
+<p>Return the height of an image.</p>
+<p>@return int</p>
+
+<p>Reads the EXIF information from the image and modifies the orientation</p>
+<p>so that displays correctly in the browser. This is especially an issue</p>
+<p>with images taken by smartphones who always store the image up-right,</p>
+<p>but set the orientation flag to display it correctly.</p>
+<p>@param bool $silent If true, will ignore exceptions when PHP doesn't support EXIF.</p>
+<p>@return $this</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>shell</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Images\Handlers\ImageMagickHandler.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Images\Handlers\ImageMagickHandler extends BaseHandler</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($config = null)</code></li>
+<li><code>_resize(bool $maintainRatio = false)</code></li>
+<li><code>_crop()</code></li>
+<li><code>_rotate(int $angle)</code></li>
+<li><code>_flatten(int $red = 255, int $green = 255, int $blue = 255)</code></li>
+<li><code>_flip(string $direction)</code></li>
+<li><code>getVersion()</code></li>
+<li><code>process(string $action, int $quality = 100)</code></li>
+<li><code>save(?string $target = null, int $quality = 90)</code></li>
+<li><code>getResourcePath()</code></li>
+<li><code>ensureResource()</code></li>
+<li><code>supportedFormatCheck()</code></li>
+<li><code>_text(string $text, array $options = [])</code></li>
+<li><code>_getWidth()</code></li>
+<li><code>_getHeight()</code></li>
+<li><code>reorient(bool $silent = false)</code></li>
+</ul>
+</body></html>

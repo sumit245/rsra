@@ -1,0 +1,214 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Logical.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Logical.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Logical.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 11747 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@deprecated 1.17.0</p>
+
+<p>TRUE.</p>
+<p>Returns the boolean TRUE.</p>
+<p>Excel Function:</p>
+<p>       =TRUE()</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Logical\Boolean::TRUE()</p>
+<p>Use the TRUE() method in the Logical\Boolean class instead</p>
+<p>@return bool True</p>
+
+<p>FALSE.</p>
+<p>Returns the boolean FALSE.</p>
+<p>Excel Function:</p>
+<p>       =FALSE()</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Logical\Boolean::FALSE()</p>
+<p>Use the FALSE() method in the Logical\Boolean class instead</p>
+<p>@return bool False</p>
+
+<p>LOGICAL_AND.</p>
+<p>Returns boolean TRUE if all its arguments are TRUE; returns FALSE if one or more argument is FALSE.</p>
+<p>Excel Function:</p>
+<p>       =AND(logical1[,logical2[, ...]])</p>
+<p>       The arguments must evaluate to logical values such as TRUE or FALSE, or the arguments must be arrays</p>
+<p>           or references that contain logical values.</p>
+<p>       Boolean arguments are treated as True or False as appropriate</p>
+<p>       Integer or floating point arguments are treated as True, except for 0 or 0.0 which are False</p>
+<p>       If any argument value is a string, or a Null, the function returns a #VALUE! error, unless the string</p>
+<p>           holds the value TRUE or FALSE, in which case it is evaluated as the corresponding boolean value</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Logical\Operations::logicalAnd()</p>
+<p>Use the logicalAnd() method in the Logical\Operations class instead</p>
+<p>@param mixed ...$args Data values</p>
+<p>@return bool|string the logical AND of the arguments</p>
+
+<p>LOGICAL_OR.</p>
+<p>Returns boolean TRUE if any argument is TRUE; returns FALSE if all arguments are FALSE.</p>
+<p>Excel Function:</p>
+<p>       =OR(logical1[,logical2[, ...]])</p>
+<p>       The arguments must evaluate to logical values such as TRUE or FALSE, or the arguments must be arrays</p>
+<p>           or references that contain logical values.</p>
+<p>       Boolean arguments are treated as True or False as appropriate</p>
+<p>       Integer or floating point arguments are treated as True, except for 0 or 0.0 which are False</p>
+<p>       If any argument value is a string, or a Null, the function returns a #VALUE! error, unless the string</p>
+<p>           holds the value TRUE or FALSE, in which case it is evaluated as the corresponding boolean value</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Logical\Operations::logicalOr()</p>
+<p>Use the logicalOr() method in the Logical\Operations class instead</p>
+<p>@param mixed $args Data values</p>
+<p>@return bool|string the logical OR of the arguments</p>
+
+<p>LOGICAL_XOR.</p>
+<p>Returns the Exclusive Or logical operation for one or more supplied conditions.</p>
+<p>i.e. the Xor function returns TRUE if an odd number of the supplied conditions evaluate to TRUE,</p>
+<p>     and FALSE otherwise.</p>
+<p>Excel Function:</p>
+<p>       =XOR(logical1[,logical2[, ...]])</p>
+<p>       The arguments must evaluate to logical values such as TRUE or FALSE, or the arguments must be arrays</p>
+<p>           or references that contain logical values.</p>
+<p>       Boolean arguments are treated as True or False as appropriate</p>
+<p>       Integer or floating point arguments are treated as True, except for 0 or 0.0 which are False</p>
+<p>       If any argument value is a string, or a Null, the function returns a #VALUE! error, unless the string</p>
+<p>           holds the value TRUE or FALSE, in which case it is evaluated as the corresponding boolean value</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Logical\Operations::logicalXor()</p>
+<p>Use the logicalXor() method in the Logical\Operations class instead</p>
+<p>@param mixed $args Data values</p>
+<p>@return bool|string the logical XOR of the arguments</p>
+
+<p>NOT.</p>
+<p>Returns the boolean inverse of the argument.</p>
+<p>Excel Function:</p>
+<p>       =NOT(logical)</p>
+<p>       The argument must evaluate to a logical value such as TRUE or FALSE</p>
+<p>       Boolean arguments are treated as True or False as appropriate</p>
+<p>       Integer or floating point arguments are treated as True, except for 0 or 0.0 which are False</p>
+<p>       If any argument value is a string, or a Null, the function returns a #VALUE! error, unless the string</p>
+<p>           holds the value TRUE or FALSE, in which case it is evaluated as the corresponding boolean value</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Logical\Operations::NOT()</p>
+<p>Use the NOT() method in the Logical\Operations class instead</p>
+<p>@param mixed $logical A value or expression that can be evaluated to TRUE or FALSE</p>
+<p>@return array|bool|string the boolean inverse of the argument</p>
+
+<p>STATEMENT_IF.</p>
+<p>Returns one value if a condition you specify evaluates to TRUE and another value if it evaluates to FALSE.</p>
+<p>Excel Function:</p>
+<p>       =IF(condition[,returnIfTrue[,returnIfFalse]])</p>
+<p>       Condition is any value or expression that can be evaluated to TRUE or FALSE.</p>
+<p>           For example, A10=100 is a logical expression; if the value in cell A10 is equal to 100,</p>
+<p>           the expression evaluates to TRUE. Otherwise, the expression evaluates to FALSE.</p>
+<p>           This argument can use any comparison calculation operator.</p>
+<p>       ReturnIfTrue is the value that is returned if condition evaluates to TRUE.</p>
+<p>           For example, if this argument is the text string "Within budget" and the condition argument</p>
+<p>               evaluates to TRUE, then the IF function returns the text "Within budget"</p>
+<p>           If condition is TRUE and ReturnIfTrue is blank, this argument returns 0 (zero).</p>
+<p>              To display the word TRUE, use the logical value TRUE for this argument.</p>
+<p>           ReturnIfTrue can be another formula.</p>
+<p>       ReturnIfFalse is the value that is returned if condition evaluates to FALSE.</p>
+<p>           For example, if this argument is the text string "Over budget" and the condition argument</p>
+<p>               evaluates to FALSE, then the IF function returns the text "Over budget".</p>
+<p>           If condition is FALSE and ReturnIfFalse is omitted, then the logical value FALSE is returned.</p>
+<p>           If condition is FALSE and ReturnIfFalse is blank, then the value 0 (zero) is returned.</p>
+<p>           ReturnIfFalse can be another formula.</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Logical\Conditional::statementIf()</p>
+<p>Use the statementIf() method in the Logical\Conditional class instead</p>
+<p>@param mixed $condition Condition to evaluate</p>
+<p>@param mixed $returnIfTrue Value to return when condition is true</p>
+<p>@param mixed $returnIfFalse Optional value to return when condition is false</p>
+<p>@return mixed The value of returnIfTrue or returnIfFalse determined by condition</p>
+
+<p>STATEMENT_SWITCH.</p>
+<p>Returns corresponding with first match (any data type such as a string, numeric, date, etc).</p>
+<p>Excel Function:</p>
+<p>       =SWITCH (expression, value1, result1, value2, result2, ... value_n, result_n [, default])</p>
+<p>       Expression</p>
+<p>             The expression to compare to a list of values.</p>
+<p>       value1, value2, ... value_n</p>
+<p>             A list of values that are compared to expression.</p>
+<p>             The SWITCH function is looking for the first value that matches the expression.</p>
+<p>       result1, result2, ... result_n</p>
+<p>             A list of results. The SWITCH function returns the corresponding result when a value</p>
+<p>             matches expression.</p>
+<p>        default</p>
+<p>             Optional. It is the default to return if expression does not match any of the values</p>
+<p>             (value1, value2, ... value_n).</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Logical\Conditional::statementSwitch()</p>
+<p>Use the statementSwitch() method in the Logical\Conditional class instead</p>
+<p>@param mixed $arguments Statement arguments</p>
+<p>@return mixed The value of matched expression</p>
+
+<p>IFERROR.</p>
+<p>Excel Function:</p>
+<p>       =IFERROR(testValue,errorpart)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Logical\Conditional::IFERROR()</p>
+<p>Use the IFERROR() method in the Logical\Conditional class instead</p>
+<p>@param mixed $testValue Value to check, is also the value returned when no error</p>
+<p>@param mixed $errorpart Value to return when testValue is an error condition</p>
+<p>@return mixed The value of errorpart or testValue determined by error condition</p>
+
+<p>IFNA.</p>
+<p>Excel Function:</p>
+<p>       =IFNA(testValue,napart)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Logical\Conditional::IFNA()</p>
+<p>Use the IFNA() method in the Logical\Conditional class instead</p>
+<p>@param mixed $testValue Value to check, is also the value returned when not an NA</p>
+<p>@param mixed $napart Value to return when testValue is an NA condition</p>
+<p>@return mixed The value of errorpart or testValue determined by error condition</p>
+
+<p>IFS.</p>
+<p>Excel Function:</p>
+<p>        =IFS(testValue1;returnIfTrue1;testValue2;returnIfTrue2;...;testValue_n;returnIfTrue_n)</p>
+<p>        testValue1 ... testValue_n</p>
+<p>            Conditions to Evaluate</p>
+<p>        returnIfTrue1 ... returnIfTrue_n</p>
+<p>            Value returned if corresponding testValue (nth) was true</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Logical\Conditional::IFS()</p>
+<p>Use the IFS() method in the Logical\Conditional class instead</p>
+<p>@param mixed ...$arguments Statement arguments</p>
+<p>@return mixed|string The value of returnIfTrue_n, if testValue_n was true. #N/A if none of testValues was true</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Logical.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\Logical</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>true()</code></li>
+<li><code>false()</code></li>
+<li><code>logicalAnd(...$args)</code></li>
+<li><code>logicalOr(...$args)</code></li>
+<li><code>logicalXor(...$args)</code></li>
+<li><code>NOT($logical = false)</code></li>
+<li><code>statementIf($condition = true, $returnIfTrue = 0, $returnIfFalse = false)</code></li>
+<li><code>statementSwitch(...$arguments)</code></li>
+<li><code>IFERROR($testValue = '', $errorpart = '')</code></li>
+<li><code>IFNA($testValue = '', $napart = '')</code></li>
+<li><code>IFS(...$arguments)</code></li>
+</ul>
+</body></html>

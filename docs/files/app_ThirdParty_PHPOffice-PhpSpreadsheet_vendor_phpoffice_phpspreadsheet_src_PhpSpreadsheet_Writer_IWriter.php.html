@@ -1,0 +1,72 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\IWriter.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\IWriter.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\IWriter.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2786 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>IWriter constructor.</p>
+<p>@param Spreadsheet $spreadsheet The spreadsheet that we want to save using this Writer</p>
+
+<p>Write charts in workbook?</p>
+<p>       If this is true, then the Writer will write definitions for any charts that exist in the PhpSpreadsheet object.</p>
+<p>       If false (the default) it will ignore any charts defined in the PhpSpreadsheet object.</p>
+<p>@return bool</p>
+
+<p>Set write charts in workbook</p>
+<p>       Set to true, to advise the Writer to include any charts that exist in the PhpSpreadsheet object.</p>
+<p>       Set to false (the default) to ignore charts.</p>
+<p>@param bool $includeCharts</p>
+<p>@return IWriter</p>
+
+<p>Get Pre-Calculate Formulas flag</p>
+<p>    If this is true (the default), then the writer will recalculate all formulae in a workbook when saving,</p>
+<p>       so that the pre-calculated values are immediately available to MS Excel or other office spreadsheet</p>
+<p>       viewer when opening the file</p>
+<p>    If false, then formulae are not calculated on save. This is faster for saving in PhpSpreadsheet, but slower</p>
+<p>       when opening the resulting file in MS Excel, because Excel has to recalculate the formulae itself.</p>
+<p>@return bool</p>
+
+<p>Set Pre-Calculate Formulas</p>
+<p>       Set to true (the default) to advise the Writer to calculate all formulae on save</p>
+<p>       Set to false to prevent precalculation of formulae on save.</p>
+<p>@param bool $precalculateFormulas Pre-Calculate Formulas?</p>
+<p>@return IWriter</p>
+
+<p>Save PhpSpreadsheet to file.</p>
+<p>@param resource|string $filename Name of the file to save</p>
+
+<p>Get use disk caching where possible?</p>
+<p>@return bool</p>
+
+<p>Set use disk caching where possible?</p>
+<p>@param bool $useDiskCache</p>
+<p>@param string $cacheDirectory Disk caching directory</p>
+<p>@return IWriter</p>
+
+<p>Get disk caching directory.</p>
+<p>@return string</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\IWriter.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(Spreadsheet $spreadsheet)</code></li>
+<li><code>getIncludeCharts()</code></li>
+<li><code>setIncludeCharts($includeCharts)</code></li>
+<li><code>getPreCalculateFormulas()</code></li>
+<li><code>setPreCalculateFormulas($precalculateFormulas)</code></li>
+<li><code>save($filename, int $flags = 0)</code></li>
+<li><code>getUseDiskCaching()</code></li>
+<li><code>setUseDiskCaching($useDiskCache, $cacheDirectory = null)</code></li>
+<li><code>getDiskCachingDirectory()</code></li>
+</ul>
+</body></html>

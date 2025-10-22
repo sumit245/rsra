@@ -1,0 +1,310 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\Config\App.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\Config\App.php</h1>
+
+<ul>
+<li>Path: <code>app\Config\App.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 17871 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Base Site URL</p>
+<p>--------------------------------------------------------------------------</p>
+<p>URL to your CodeIgniter root. Typically this will be your base URL,</p>
+<p>WITH a trailing slash:</p>
+<p>   http://example.com/</p>
+<p>If this is not set then CodeIgniter will try guess the protocol, domain</p>
+<p>and path to your installation. However, you should always configure this</p>
+<p>explicitly and never rely on auto-guessing, especially in production</p>
+<p>environments.</p>
+<p>@var string</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Index File</p>
+<p>--------------------------------------------------------------------------</p>
+<p>Typically this will be your index.php file, unless you've renamed it to</p>
+<p>something else. If you are using mod_rewrite to remove the page set this</p>
+<p>variable so that it is blank.</p>
+<p>@var string</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>URI PROTOCOL</p>
+<p>--------------------------------------------------------------------------</p>
+<p>This item determines which getServer global should be used to retrieve the</p>
+<p>URI string.  The default setting of 'REQUEST_URI' works for most servers.</p>
+<p>If your links do not seem to work, try one of the other delicious flavors:</p>
+<p>'REQUEST_URI'    Uses $_SERVER['REQUEST_URI']</p>
+<p>'QUERY_STRING'   Uses $_SERVER['QUERY_STRING']</p>
+<p>'PATH_INFO'      Uses $_SERVER['PATH_INFO']</p>
+<p>WARNING: If you set this to 'PATH_INFO', URIs will always be URL-decoded!</p>
+<p>@var string</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Default Locale</p>
+<p>--------------------------------------------------------------------------</p>
+<p>The Locale roughly represents the language and location that your visitor</p>
+<p>is viewing the site from. It affects the language strings and other</p>
+<p>strings (like currency markers, numbers, etc), that your program</p>
+<p>should run under for this request.</p>
+<p>@var string</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Negotiate Locale</p>
+<p>--------------------------------------------------------------------------</p>
+<p>If true, the current Request object will automatically determine the</p>
+<p>language to use based on the value of the Accept-Language header.</p>
+<p>If false, no automatic detection will be performed.</p>
+<p>@var bool</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Supported Locales</p>
+<p>--------------------------------------------------------------------------</p>
+<p>If $negotiateLocale is true, this array lists the locales supported</p>
+<p>by the application in descending order of priority. If no match is</p>
+<p>found, the first locale will be used.</p>
+<p>@var string[]</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Application Timezone</p>
+<p>--------------------------------------------------------------------------</p>
+<p>The default timezone that will be used in your application to display</p>
+<p>dates with the date helper, and can be retrieved through app_timezone()</p>
+<p>@var string</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Default Character Set</p>
+<p>--------------------------------------------------------------------------</p>
+<p>This determines which character set is used by default in various methods</p>
+<p>that require a character set to be provided.</p>
+<p>@see http://php.net/htmlspecialchars for a list of supported charsets.</p>
+<p>@var string</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>URI PROTOCOL</p>
+<p>--------------------------------------------------------------------------</p>
+<p>If true, this will force every request made to this application to be</p>
+<p>made via a secure connection (HTTPS). If the incoming request is not</p>
+<p>secure, the user will be redirected to a secure version of the page</p>
+<p>and the HTTP Strict Transport Security header will be set.</p>
+<p>@var bool</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Session Driver</p>
+<p>--------------------------------------------------------------------------</p>
+<p>The session storage driver to use:</p>
+<ul>
+<li><code>CodeIgniter\Session\Handlers\FileHandler</code></li>
+<li><code>CodeIgniter\Session\Handlers\DatabaseHandler</code></li>
+<li><code>CodeIgniter\Session\Handlers\MemcachedHandler</code></li>
+<li><code>CodeIgniter\Session\Handlers\RedisHandler</code></li>
+<p>@var string</p>
+</ul>
+<p>--------------------------------------------------------------------------</p>
+<p>Session Cookie Name</p>
+<p>--------------------------------------------------------------------------</p>
+<p>The session cookie name, must contain only [0-9a-z_-] characters</p>
+<p>@var string</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Session Expiration</p>
+<p>--------------------------------------------------------------------------</p>
+<p>The number of SECONDS you want the session to last.</p>
+<p>Setting to 0 (zero) means expire when the browser is closed.</p>
+<p>@var int</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Session Save Path</p>
+<p>--------------------------------------------------------------------------</p>
+<p>The location to save sessions to and is driver dependent.</p>
+<p>For the 'files' driver, it's a path to a writable directory.</p>
+<p>WARNING: Only absolute paths are supported!</p>
+<p>For the 'database' driver, it's a table name.</p>
+<p>Please read up the manual for the format with other session drivers.</p>
+<p>IMPORTANT: You are REQUIRED to set a valid save path!</p>
+<p>@var string</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Session Match IP</p>
+<p>--------------------------------------------------------------------------</p>
+<p>Whether to match the user's IP address when reading the session data.</p>
+<p>WARNING: If you're using the database driver, don't forget to update</p>
+<p>         your session table's PRIMARY KEY when changing this setting.</p>
+<p>@var bool</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Session Time to Update</p>
+<p>--------------------------------------------------------------------------</p>
+<p>How many seconds between CI regenerating the session ID.</p>
+<p>@var int</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Session Regenerate Destroy</p>
+<p>--------------------------------------------------------------------------</p>
+<p>Whether to destroy session data associated with the old session ID</p>
+<p>when auto-regenerating the session ID. When set to FALSE, the data</p>
+<p>will be later deleted by the garbage collector.</p>
+<p>@var bool</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Cookie Prefix</p>
+<p>--------------------------------------------------------------------------</p>
+<p>Set a cookie name prefix if you need to avoid collisions.</p>
+<p>@var string</p>
+<p>@deprecated use Config\Cookie::$prefix property instead.</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Cookie Domain</p>
+<p>--------------------------------------------------------------------------</p>
+<p>Set to <code>.your-domain.com</code> for site-wide cookies.</p>
+<p>@var string</p>
+<p>@deprecated use Config\Cookie::$domain property instead.</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Cookie Path</p>
+<p>--------------------------------------------------------------------------</p>
+<p>Typically will be a forward slash.</p>
+<p>@var string</p>
+<p>@deprecated use Config\Cookie::$path property instead.</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Cookie Secure</p>
+<p>--------------------------------------------------------------------------</p>
+<p>Cookie will only be set if a secure HTTPS connection exists.</p>
+<p>@var bool</p>
+<p>@deprecated use Config\Cookie::$secure property instead.</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Cookie HttpOnly</p>
+<p>--------------------------------------------------------------------------</p>
+<p>Cookie will only be accessible via HTTP(S) (no JavaScript).</p>
+<p>@var bool</p>
+<p>@deprecated use Config\Cookie::$httponly property instead.</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Cookie SameSite</p>
+<p>--------------------------------------------------------------------------</p>
+<p>Configure cookie SameSite setting. Allowed values are:</p>
+<ul>
+<li>None</li>
+<li>Lax</li>
+<li>Strict</li>
+<li>''</li>
+<p>Alternatively, you can use the constant names:</p>
+<li><code>Cookie::SAMESITE_NONE</code></li>
+<li><code>Cookie::SAMESITE_LAX</code></li>
+<li><code>Cookie::SAMESITE_STRICT</code></li>
+<p>Defaults to <code>Lax</code> for compatibility with modern browsers. Setting <code>''</code></p>
+<p>(empty string) means default SameSite attribute set by browsers (<code>Lax</code>)</p>
+<p>will be set on cookies. If set to <code>None</code>, <code>$cookieSecure</code> must also be set.</p>
+<p>@var string|null</p>
+<p>@deprecated use Config\Cookie::$samesite property instead.</p>
+</ul>
+<p>--------------------------------------------------------------------------</p>
+<p>Reverse Proxy IPs</p>
+<p>--------------------------------------------------------------------------</p>
+<p>If your server is behind a reverse proxy, you must whitelist the proxy</p>
+<p>IP addresses from which CodeIgniter should trust headers such as</p>
+<p>HTTP_X_FORWARDED_FOR and HTTP_CLIENT_IP in order to properly identify</p>
+<p>the visitor's IP address.</p>
+<p>You can use both an array or a comma-separated list of proxy addresses,</p>
+<p>as well as specifying whole subnets. Here are a few examples:</p>
+<p>Comma-separated:	'10.0.1.200,192.168.5.0/24'</p>
+<p>Array: ['10.0.1.200', '192.168.5.0/24']</p>
+<p>@var string|string[]</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>CSRF Token Name</p>
+<p>--------------------------------------------------------------------------</p>
+<p>The token name.</p>
+<p>@deprecated Use <code>Config\Security</code> $tokenName property instead of using this property.</p>
+<p>@var string</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>CSRF Header Name</p>
+<p>--------------------------------------------------------------------------</p>
+<p>The header name.</p>
+<p>@deprecated Use <code>Config\Security</code> $headerName property instead of using this property.</p>
+<p>@var string</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>CSRF Cookie Name</p>
+<p>--------------------------------------------------------------------------</p>
+<p>The cookie name.</p>
+<p>@deprecated Use <code>Config\Security</code> $cookieName property instead of using this property.</p>
+<p>@var string</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>CSRF Expire</p>
+<p>--------------------------------------------------------------------------</p>
+<p>The number in seconds the token should expire.</p>
+<p>@deprecated Use <code>Config\Security</code> $expire property instead of using this property.</p>
+<p>@var int</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>CSRF Regenerate</p>
+<p>--------------------------------------------------------------------------</p>
+<p>Regenerate token on every submission?</p>
+<p>@deprecated Use <code>Config\Security</code> $regenerate property instead of using this property.</p>
+<p>@var bool</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>CSRF Redirect</p>
+<p>--------------------------------------------------------------------------</p>
+<p>Redirect to previous page with error on failure?</p>
+<p>@deprecated Use <code>Config\Security</code> $redirect property instead of using this property.</p>
+<p>@var bool</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>CSRF SameSite</p>
+<p>--------------------------------------------------------------------------</p>
+<p>Setting for CSRF SameSite cookie token. Allowed values are:</p>
+<ul>
+<li>None</li>
+<li>Lax</li>
+<li>Strict</li>
+<li>''</li>
+<p>Defaults to <code>Lax</code> as recommended in this link:</p>
+<p>@see https://portswigger.net/web-security/csrf/samesite-cookies</p>
+<p>@deprecated <code>Config\Cookie</code> $samesite property is used.</p>
+<p>@var string</p>
+</ul>
+<p>--------------------------------------------------------------------------</p>
+<p>Content Security Policy</p>
+<p>--------------------------------------------------------------------------</p>
+<p>Enables the Response's Content Secure Policy to restrict the sources that</p>
+<p>can be used for images, scripts, CSS files, audio, video, etc. If enabled,</p>
+<p>the Response object will populate default values for the policy from the</p>
+<p><code>ContentSecurityPolicy.php</code> file. Controllers can always add to those</p>
+<p>restrictions at run time.</p>
+<p>For a better understanding of CSP, see these documents:</p>
+<p>@see http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p>
+<p>@see http://www.w3.org/TR/CSP/</p>
+<p>@var bool</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>which</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\Config\App.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Config\App extends BaseConfig</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>set_base_url()</code></li>
+<li><code>set_supported_languages()</code></li>
+<li><code>set_cookie_domain()</code></li>
+</ul>
+</body></html>

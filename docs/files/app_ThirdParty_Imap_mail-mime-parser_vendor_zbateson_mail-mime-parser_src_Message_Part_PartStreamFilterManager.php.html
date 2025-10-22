@@ -1,0 +1,122 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Part\PartStreamFilterManager.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Part\PartStreamFilterManager.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Part\PartStreamFilterManager.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7856 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Manages attached stream filters for a MessagePart's content resource handle.</p>
+
+<p>The attached stream filters are:</p>
+<p> o Content-Transfer-Encoding filter to manage decoding from a supported</p>
+<p>   encoding: quoted-printable, base64 and x-uuencode.</p>
+<p> o Charset conversion filter to convert to UTF-8</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var StreamInterface the underlying content stream without filters</p>
+<p>     applied</p>
+
+<p>@var StreamInterface the content stream after attaching transfer encoding</p>
+<p>     streams to $stream.</p>
+
+<p>@var StreamInterface the content stream after attaching charset streams</p>
+<p>     to $binaryStream</p>
+
+<p>@var array map of the active encoding filter on the current handle.</p>
+
+<p>@var array map of the active charset filter on the current handle.</p>
+
+<p>@var StreamFactory used to apply psr7 stream decorators to the</p>
+<p>     attached StreamInterface based on encoding.</p>
+
+<p>Sets up filter names used for stream_filter_append</p>
+
+<p>@param StreamFactory $streamFactory</p>
+
+<p>Sets the URL used to open the content resource handle.</p>
+
+<p>The function also closes the currently attached handle if any.</p>
+
+<p>@param StreamInterface $stream</p>
+
+<p>Returns true if the attached stream filter used for decoding the content</p>
+<p>on the current handle is different from the one passed as an argument.</p>
+
+<p>@param string $transferEncoding</p>
+<p>@return boolean</p>
+
+<p>Returns true if the attached stream filter used for charset conversion on</p>
+<p>the current handle is different from the one needed based on the passed </p>
+<p>arguments.</p>
+
+<p>@param string $fromCharset</p>
+<p>@param string $toCharset</p>
+<p>@return boolean</p>
+
+<p>Attaches a decoding filter to the attached content handle, for the passed</p>
+<p>$transferEncoding.</p>
+
+<p>@param string $transferEncoding</p>
+
+<p>Attaches a charset conversion filter to the attached content handle, for</p>
+<p>the passed arguments.</p>
+
+<p>@param string $fromCharset the character set the content is encoded in</p>
+<p>@param string $toCharset the target encoding to return</p>
+
+<p>Resets just the charset stream, and rewinds the decodedStream.</p>
+
+<p>Resets cached encoding and charset streams, and rewinds the stream.</p>
+
+<p>Checks what transfer-encoding decoder stream and charset conversion</p>
+<p>stream are currently attached on the underlying stream, and resets them</p>
+<p>if the requested arguments differ from the currently assigned ones.</p>
+
+<p>@param string $transferEncoding</p>
+<p>@param string $fromCharset the character set the content is encoded in</p>
+<p>@param string $toCharset the target encoding to return</p>
+<p>@return StreamInterface</p>
+
+<p>Checks what transfer-encoding decoder stream is attached on the</p>
+<p>underlying stream, and resets it if the requested arguments differ.</p>
+<p>@param string $transferEncoding</p>
+<p>@return StreamInterface</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Part\PartStreamFilterManager.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Message\Part\PartStreamFilterManager</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(StreamFactory $streamFactory)</code></li>
+<li><code>setStream(StreamInterface $stream = null)</code></li>
+<li><code>isTransferEncodingFilterChanged($transferEncoding)</code></li>
+<li><code>isCharsetFilterChanged($fromCharset, $toCharset)</code></li>
+<li><code>attachTransferEncodingFilter($transferEncoding)</code></li>
+<li><code>attachCharsetFilter($fromCharset, $toCharset)</code></li>
+<li><code>resetCharsetStream()</code></li>
+<li><code>reset()</code></li>
+<li><code>getContentStream($transferEncoding, $fromCharset, $toCharset)</code></li>
+<li><code>getBinaryStream($transferEncoding)</code></li>
+</ul>
+</body></html>

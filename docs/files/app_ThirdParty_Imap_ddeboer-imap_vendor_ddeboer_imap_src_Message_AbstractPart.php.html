@@ -1,0 +1,192 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\ddeboer-imap\vendor\ddeboer\imap\src\Message\AbstractPart.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\ddeboer-imap\vendor\ddeboer\imap\src\Message\AbstractPart.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\ddeboer-imap\vendor\ddeboer\imap\src\Message\AbstractPart.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 12922 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>A message part.</p>
+
+<p>@var ImapResourceInterface</p>
+
+<p>@var bool</p>
+
+<p>@var array</p>
+
+<p>@var string</p>
+
+<p>@var int</p>
+
+<p>@var \stdClass</p>
+
+<p>@var Parameters</p>
+
+<p>@var null|string</p>
+
+<p>@var null|string</p>
+
+<p>@var null|string</p>
+
+<p>@var null|string</p>
+
+<p>@var null|string</p>
+
+<p>@var null|string</p>
+
+<p>@var null|string</p>
+
+<p>@var null|string</p>
+
+<p>@var int</p>
+
+<p>@var array</p>
+
+<p>@var array</p>
+
+<p>@var array</p>
+
+<p>Constructor.</p>
+<p>@param ImapResourceInterface $resource      IMAP resource</p>
+<p>@param int                   $messageNumber Message number</p>
+<p>@param string                $partNumber    Part number</p>
+<p>@param \stdClass             $structure     Part structure</p>
+
+<p>Get message number (from headers).</p>
+<p>@return int</p>
+
+<p>Ensure message exists.</p>
+<p>@param int $messageNumber</p>
+
+<p>@param \stdClass $structure Part structure</p>
+
+<p>Part structure.</p>
+<p>@return \stdClass</p>
+
+<p>Lazy load structure.</p>
+
+<p>Part parameters.</p>
+<p>@return Parameters</p>
+
+<p>Part charset.</p>
+<p>@return null|string</p>
+
+<p>Part type.</p>
+<p>@return null|string</p>
+
+<p>Part subtype.</p>
+<p>@return null|string</p>
+
+<p>Part encoding.</p>
+<p>@return null|string</p>
+
+<p>Part disposition.</p>
+<p>@return null|string</p>
+
+<p>Part bytes.</p>
+<p>@return null|int|string</p>
+
+<p>Part lines.</p>
+<p>@return null|string</p>
+
+<p>Get raw part content.</p>
+<p>@return string</p>
+
+<p>Get content part number.</p>
+<p>@return string</p>
+
+<p>Get part number.</p>
+<p>@return string</p>
+
+<p>Get decoded part content.</p>
+<p>@return string</p>
+
+<p>Get raw message content.</p>
+<p>@param string $partNumber</p>
+<p>@return string</p>
+
+<p>Get an array of all parts for this message.</p>
+<p>@return PartInterface[]</p>
+
+<p>Get current child part.</p>
+<p>@return mixed</p>
+
+<p>Get current child part.</p>
+<p>@return mixed</p>
+
+<p>Get current child part.</p>
+<p>@return bool</p>
+
+<p>Get current part key.</p>
+<p>@return int</p>
+
+<p>Move to next part.</p>
+<p>@return int</p>
+
+<p>Reset part key.</p>
+<p>@return int</p>
+
+<p>Check if current part is a valid one.</p>
+<p>@return bool</p>
+
+<p>Parse part structure.</p>
+
+<p>Check if the given part is an attachment.</p>
+<p>@param \stdClass $part</p>
+<p>@return bool</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>headers</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\ddeboer-imap\vendor\ddeboer\imap\src\Message\AbstractPart.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Ddeboer\Imap\Message\AbstractPart implements PartInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`__construct(ImapResourceInterface $resource,</li>
+<p>        int $messageNumber,</p>
+<p>        string $partNumber,</p>
+<p>        \stdClass $structure)`</p>
+<li><code>getNumber()</code></li>
+<li><code>assertMessageExists(int $messageNumber)</code></li>
+<li><code>setStructure(\stdClass $structure)</code></li>
+<li><code>getStructure()</code></li>
+<li><code>lazyLoadStructure()</code></li>
+<li><code>getParameters()</code></li>
+<li><code>getCharset()</code></li>
+<li><code>getType()</code></li>
+<li><code>getSubtype()</code></li>
+<li><code>getEncoding()</code></li>
+<li><code>getDisposition()</code></li>
+<li><code>getBytes()</code></li>
+<li><code>getLines()</code></li>
+<li><code>getContent()</code></li>
+<li><code>getContentPartNumber()</code></li>
+<li><code>getPartNumber()</code></li>
+<li><code>getDecodedContent()</code></li>
+<li><code>doGetContent(string $partNumber)</code></li>
+<li><code>getParts()</code></li>
+<li><code>current()</code></li>
+<li><code>getChildren()</code></li>
+<li><code>hasChildren()</code></li>
+<li><code>key()</code></li>
+<li><code>next()</code></li>
+<li><code>rewind()</code></li>
+<li><code>valid()</code></li>
+<li><code>lazyParseStructure()</code></li>
+<li><code>isAttachment(\stdClass $part)</code></li>
+</ul>
+</body></html>

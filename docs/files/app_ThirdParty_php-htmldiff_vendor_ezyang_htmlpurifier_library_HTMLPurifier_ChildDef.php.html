@@ -1,0 +1,53 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\ChildDef.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\ChildDef.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\ChildDef.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 1559 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Defines allowed child nodes and validates nodes against it.</p>
+
+<p>Type of child definition, usually right-most part of class name lowercase.</p>
+<p>Used occasionally in terms of context.</p>
+<p>@type string</p>
+
+<p>Indicates whether or not an empty array of children is okay.</p>
+<p>This is necessary for redundant checking when changes affecting</p>
+<p>a child node may cause a parent node to now be disallowed.</p>
+<p>@type bool</p>
+
+<p>Lookup array of all elements that this definition could possibly allow.</p>
+<p>@type array</p>
+
+<p>Get lookup of tag names that should not close this element automatically.</p>
+<p>All other elements will do so.</p>
+<p>@param HTMLPurifier_Config $config HTMLPurifier_Config object</p>
+<p>@return array</p>
+
+<p>Validates nodes according to definition and returns modification.</p>
+<p>@param HTMLPurifier_Node[] $children Array of HTMLPurifier_Node</p>
+<p>@param HTMLPurifier_Config $config HTMLPurifier_Config object</p>
+<p>@param HTMLPurifier_Context $context HTMLPurifier_Context object</p>
+<p>@return bool|array true to leave nodes as is, false to remove parent node, array of replacement children</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\ChildDef.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>HTMLPurifier_ChildDef</code></li>
+<li><code>name</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getAllowedElements($config)</code></li>
+<li><code>validateChildren($children, $config, $context)</code></li>
+</ul>
+</body></html>

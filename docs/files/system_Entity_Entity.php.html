@@ -1,0 +1,164 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Entity\Entity.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Entity\Entity.php</h1>
+
+<ul>
+<li>Path: <code>system\Entity\Entity.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 15321 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Entity encapsulation, for use with CodeIgniter\Model</p>
+
+<p>Maps names used in sets and gets against unique</p>
+<p>names within the class, allowing independence from</p>
+<p>database column names.</p>
+<p>Example:</p>
+<p> $datamap = [</p>
+<p>     'class_name' => 'db_name'</p>
+<p> ];</p>
+
+<p>Array of field names and the type of value to cast them as when</p>
+<p>they are accessed.</p>
+
+<p>Custom convert handlers</p>
+<p>@var array<string, string></p>
+
+<p>Default convert handlers</p>
+<p>@var array<string, string></p>
+
+<p>Holds the current values of all class vars.</p>
+<p>@var array</p>
+
+<p>Holds original copies of all class vars so we can determine</p>
+<p>what's actually been changed and not accidentally write</p>
+<p>nulls where we shouldn't.</p>
+<p>@var array</p>
+
+<p>Holds info whenever properties have to be casted</p>
+
+<p>Allows filling in Entity parameters during construction.</p>
+
+<p>Takes an array of key/value pairs and sets them as class</p>
+<p>properties, using any <code>setCamelCasedProperty()</code> methods</p>
+<p>that may or may not exist.</p>
+<p>@param array $data</p>
+<p>@return $this</p>
+
+<p>General method that will return all public and protected values</p>
+<p>of this entity as an array. All values are accessed through the</p>
+<p>__get() magic method so will have any casts, etc applied to them.</p>
+<p>@param bool $onlyChanged If true, only return values that have changed since object creation</p>
+<p>@param bool $cast        If true, properties will be casted.</p>
+<p>@param bool $recursive   If true, inner entities will be casted as array as well.</p>
+
+<p>Returns the raw values of the current attributes.</p>
+<p>@param bool $onlyChanged If true, only return values that have changed since object creation</p>
+<p>@param bool $recursive   If true, inner entities will be casted as array as well.</p>
+
+<p>Ensures our "original" values match the current values.</p>
+<p>@return $this</p>
+
+<p>Checks a property to see if it has changed since the entity</p>
+<p>was created. Or, without a parameter, checks if any</p>
+<p>properties have changed.</p>
+<p>@param string $key</p>
+
+<p>Set raw data array without any mutations</p>
+<p>@return $this</p>
+
+<p>Checks the datamap to see if this property name is being mapped,</p>
+<p>and returns the db column name, if any, or the original property name.</p>
+<p>@return mixed|string</p>
+
+<p>Converts the given string|timestamp|DateTime|Time instance</p>
+<p>into the "CodeIgniter\I18n\Time" object.</p>
+<p>@param mixed $value</p>
+<p>@throws Exception</p>
+<p>@return mixed|Time</p>
+
+<p>Provides the ability to cast an item as a specific data type.</p>
+<p>Add ? at the beginning of $type  (i.e. ?string) to get NULL</p>
+<p>instead of casting $value if $value === null</p>
+<p>@param mixed  $value     Attribute value</p>
+<p>@param string $attribute Attribute name</p>
+<p>@param string $method    Allowed to "get" and "set"</p>
+<p>@throws CastException</p>
+<p>@return mixed</p>
+
+<p>Support for json_encode()</p>
+<p>@return array</p>
+
+<p>Change the value of the private $_cast property</p>
+<p>@return bool|Entity</p>
+
+<p>Magic method to all protected/private class properties to be</p>
+<p>easily set, either through a direct access or a</p>
+<p><code>setCamelCasedProperty()</code> method.</p>
+<p>Examples:</p>
+<p> $this->my_property = $p;</p>
+<p> $this->setMyProperty() = $p;</p>
+<p>@param mixed|null $value</p>
+<p>@throws Exception</p>
+<p>@return $this</p>
+
+<p>Magic method to allow retrieval of protected and private class properties</p>
+<p>either by their name, or through a <code>getCamelCasedProperty()</code> method.</p>
+<p>Examples:</p>
+<p> $p = $this->my_property</p>
+<p> $p = $this->getMyProperty()</p>
+<p>@throws Exception</p>
+<p>@return mixed</p>
+
+<p>Returns true if a property exists names $key, or a getter method</p>
+<p>exists named like for __get().</p>
+
+<p>Unsets an attribute property.</p>
+
+<p>Whether this key is mapped db column name?</p>
+
+<p>Whether this key has mapped property?</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Entity\Entity.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Entity\Entity implements JsonSerializable</code></li>
+<li><code>CodeIgniter\Entity\vars</code></li>
+<li><code>CodeIgniter\Entity\vars</code></li>
+<li><code>CodeIgniter\Entity\properties</code></li>
+<li><code>CodeIgniter\Entity\properties</code></li>
+<li><code>CodeIgniter\Entity\properties</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(?array $data = null)</code></li>
+<li><code>fill(?array $data = null)</code></li>
+<li><code>toArray(bool $onlyChanged = false, bool $cast = true, bool $recursive = false)</code></li>
+<li><code>toRawArray(bool $onlyChanged = false, bool $recursive = false)</code></li>
+<li><code>syncOriginal()</code></li>
+<li><code>hasChanged(?string $key = null)</code></li>
+<li><code>setAttributes(array $data)</code></li>
+<li><code>mapProperty(string $key)</code></li>
+<li><code>mutateDate($value)</code></li>
+<li><code>castAs($value, string $attribute, string $method = 'get')</code></li>
+<li><code>jsonSerialize()</code></li>
+<li><code>cast(?bool $cast = null)</code></li>
+<li><code>__set(string $key, $value = null)</code></li>
+<li><code>__get(string $key)</code></li>
+<li><code>__isset(string $key)</code></li>
+<li><code>__unset(string $key)</code></li>
+<li><code>isMappedDbColumn(string $key)</code></li>
+<li><code>hasMappedProperty(string $key)</code></li>
+</ul>
+</body></html>

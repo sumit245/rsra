@@ -1,0 +1,153 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\RestApi\ThirdParty\Requests\Session.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\RestApi\ThirdParty\Requests\Session.php</h1>
+
+<ul>
+<li>Path: <code>plugins\RestApi\ThirdParty\Requests\Session.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7168 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Session handler for persistent requests and default parameters</p>
+<p>@package Requests</p>
+<p>@subpackage Session Handler</p>
+
+<p>Session handler for persistent requests and default parameters</p>
+<p>Allows various options to be set as default values, and merges both the</p>
+<p>options and URL properties together. A base URL can be set for all requests,</p>
+<p>with all subrequests resolved from this. Base options can be set (including</p>
+<p>a shared cookie jar), then overridden for individual requests.</p>
+<p>@package Requests</p>
+<p>@subpackage Session Handler</p>
+
+<p>Base URL for requests</p>
+<p>URLs will be made absolute using this as the base</p>
+<p>@var string|null</p>
+
+<p>Base headers for requests</p>
+<p>@var array</p>
+
+<p>Base data for requests</p>
+<p>If both the base data and the per-request data are arrays, the data will</p>
+<p>be merged before sending the request.</p>
+<p>@var array</p>
+
+<p>Base options for requests</p>
+<p>The base options are merged with the per-request data for each request.</p>
+<p>The only default option is a shared cookie jar between requests.</p>
+<p>Values here can also be set directly via properties on the Session</p>
+<p>object, e.g. <code>$session->useragent = 'X';</code></p>
+<p>@var array</p>
+
+<p>Create a new session</p>
+<p>@param string|null $url Base URL for requests</p>
+<p>@param array $headers Default headers for requests</p>
+<p>@param array $data Default data for requests</p>
+<p>@param array $options Default options for requests</p>
+
+<p>Get a property's value</p>
+<p>@param string $key Property key</p>
+<p>@return mixed|null Property value, null if none found</p>
+
+<p>Set a property's value</p>
+<p>@param string $key Property key</p>
+<p>@param mixed $value Property value</p>
+
+<p>Remove a property's value</p>
+<p>@param string $key Property key</p>
+
+<p>Remove a property's value</p>
+<p>@param string $key Property key</p>
+
+<p>#@+</p>
+<p>@see request()</p>
+<p>@param string $url</p>
+<p>@param array $headers</p>
+<p>@param array $options</p>
+<p>@return Requests_Response</p>
+
+<p>Send a GET request</p>
+
+<p>Send a HEAD request</p>
+
+<p>Send a DELETE request</p>
+
+<p>#@-</p>
+
+<p>#@+</p>
+<p>@see request()</p>
+<p>@param string $url</p>
+<p>@param array $headers</p>
+<p>@param array $data</p>
+<p>@param array $options</p>
+<p>@return Requests_Response</p>
+
+<p>Send a POST request</p>
+
+<p>Send a PUT request</p>
+
+<p>Send a PATCH request</p>
+<p>Note: Unlike {@see post} and {@see put}, <code>$headers</code> is required, as the</p>
+<p>specification recommends that should send an ETag</p>
+<p>@link https://tools.ietf.org/html/rfc5789</p>
+
+<p>#@-</p>
+
+<p>Main interface for HTTP requests</p>
+<p>This method initiates a request and sends it via a transport before</p>
+<p>parsing.</p>
+<p>@see Requests::request()</p>
+<p>@throws Requests_Exception On invalid URLs (<code>nonhttp</code>)</p>
+<p>@param string $url URL to request</p>
+<p>@param array $headers Extra headers to send with the request</p>
+<p>@param array|null $data Data to send either as a query string for GET/HEAD requests, or in the body for POST requests</p>
+<p>@param string $type HTTP request type (use Requests constants)</p>
+<p>@param array $options Options for the request (see {@see Requests::request})</p>
+<p>@return Requests_Response</p>
+
+<p>Send multiple HTTP requests simultaneously</p>
+<p>@see Requests::request_multiple()</p>
+<p>@param array $requests Requests data (see {@see Requests::request_multiple})</p>
+<p>@param array $options Global and default options (see {@see Requests::request})</p>
+<p>@return array Responses (either Requests_Response or a Requests_Exception object)</p>
+
+<p>Merge a request's data with the default data</p>
+<p>@param array $request Request data (same form as {@see request_multiple})</p>
+<p>@param boolean $merge_options Should we merge options as well?</p>
+<p>@return array Request data</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>this</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\RestApi\ThirdParty\Requests\Session.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Requests_Session</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($url = null, $headers = array()</code></li>
+<li><code>__get($key)</code></li>
+<li><code>__set($key, $value)</code></li>
+<li><code>__isset($key)</code></li>
+<li><code>__unset($key)</code></li>
+<li><code>get($url, $headers = array()</code></li>
+<li><code>head($url, $headers = array()</code></li>
+<li><code>delete($url, $headers = array()</code></li>
+<li><code>post($url, $headers = array()</code></li>
+<li><code>put($url, $headers = array()</code></li>
+<li><code>patch($url, $headers, $data = array()</code></li>
+<li><code>request($url, $headers = array()</code></li>
+<li><code>request_multiple($requests, $options = array()</code></li>
+<li><code>merge_request($request, $merge_options = true)</code></li>
+</ul>
+</body></html>

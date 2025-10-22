@@ -1,0 +1,146 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Cookie\SetCookie.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Cookie\SetCookie.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Cookie\SetCookie.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 10435 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Set-Cookie object</p>
+
+<p>@var array</p>
+
+<p>@var array Cookie data</p>
+
+<p>Create a new SetCookie object from a string</p>
+<p>@param string $cookie Set-Cookie header string</p>
+<p>@return self</p>
+
+<p>@param array $data Array of cookie data provided by a Cookie parser</p>
+
+<p>Get the cookie name</p>
+<p>@return string</p>
+
+<p>Set the cookie name</p>
+<p>@param string $name Cookie name</p>
+
+<p>Get the cookie value</p>
+<p>@return string</p>
+
+<p>Set the cookie value</p>
+<p>@param string $value Cookie value</p>
+
+<p>Get the domain</p>
+<p>@return string|null</p>
+
+<p>Set the domain of the cookie</p>
+<p>@param string $domain</p>
+
+<p>Get the path</p>
+<p>@return string</p>
+
+<p>Set the path of the cookie</p>
+<p>@param string $path Path of the cookie</p>
+
+<p>Maximum lifetime of the cookie in seconds</p>
+<p>@return int|null</p>
+
+<p>Set the max-age of the cookie</p>
+<p>@param int $maxAge Max age of the cookie in seconds</p>
+
+<p>The UNIX timestamp when the cookie Expires</p>
+<p>@return mixed</p>
+
+<p>Set the unix timestamp for which the cookie will expire</p>
+<p>@param int $timestamp Unix timestamp</p>
+
+<p>Get whether or not this is a secure cookie</p>
+<p>@return null|bool</p>
+
+<p>Set whether or not the cookie is secure</p>
+<p>@param bool $secure Set to true or false if secure</p>
+
+<p>Get whether or not this is a session cookie</p>
+<p>@return null|bool</p>
+
+<p>Set whether or not this is a session cookie</p>
+<p>@param bool $discard Set to true or false if this is a session cookie</p>
+
+<p>Get whether or not this is an HTTP only cookie</p>
+<p>@return bool</p>
+
+<p>Set whether or not this is an HTTP only cookie</p>
+<p>@param bool $httpOnly Set to true or false if this is HTTP only</p>
+
+<p>Check if the cookie matches a path value.</p>
+<p>A request-path path-matches a given cookie-path if at least one of</p>
+<p>the following conditions holds:</p>
+<ul>
+<li>The cookie-path and the request-path are identical.</li>
+<li>The cookie-path is a prefix of the request-path, and the last</li>
+<p>  character of the cookie-path is %x2F ("/").</p>
+<li>The cookie-path is a prefix of the request-path, and the first</li>
+<p>  character of the request-path that is not included in the cookie-</p>
+<p>  path is a %x2F ("/") character.</p>
+<p>@param string $requestPath Path to check against</p>
+<p>@return bool</p>
+</ul>
+<p>Check if the cookie matches a domain value</p>
+<p>@param string $domain Domain to check against</p>
+<p>@return bool</p>
+
+<p>Check if the cookie is expired</p>
+<p>@return bool</p>
+
+<p>Check if the cookie is valid according to RFC 6265</p>
+<p>@return bool|string Returns true if valid or an error message if invalid</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Cookie\SetCookie.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>GuzzleHttp\Cookie\SetCookie</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>fromString($cookie)</code></li>
+<li><code>__construct(array $data = [])</code></li>
+<li><code>__toString()</code></li>
+<li><code>toArray()</code></li>
+<li><code>getName()</code></li>
+<li><code>setName($name)</code></li>
+<li><code>getValue()</code></li>
+<li><code>setValue($value)</code></li>
+<li><code>getDomain()</code></li>
+<li><code>setDomain($domain)</code></li>
+<li><code>getPath()</code></li>
+<li><code>setPath($path)</code></li>
+<li><code>getMaxAge()</code></li>
+<li><code>setMaxAge($maxAge)</code></li>
+<li><code>getExpires()</code></li>
+<li><code>setExpires($timestamp)</code></li>
+<li><code>getSecure()</code></li>
+<li><code>setSecure($secure)</code></li>
+<li><code>getDiscard()</code></li>
+<li><code>setDiscard($discard)</code></li>
+<li><code>getHttpOnly()</code></li>
+<li><code>setHttpOnly($httpOnly)</code></li>
+<li><code>matchesPath($requestPath)</code></li>
+<li><code>matchesDomain($domain)</code></li>
+<li><code>isExpired()</code></li>
+<li><code>validate()</code></li>
+</ul>
+</body></html>

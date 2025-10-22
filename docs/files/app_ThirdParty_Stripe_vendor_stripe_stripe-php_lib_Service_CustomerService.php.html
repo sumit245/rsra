@@ -1,0 +1,292 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\CustomerService.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\CustomerService.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\CustomerService.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 17998 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Returns a list of your customers. The customers are returned sorted by creation</p>
+<p>date, with the most recent customers appearing first.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\Customer></p>
+
+<p>Returns a list of transactions that updated the customer’s <a</p>
+<p>href="/docs/billing/customer/balance">balances</a>.</p>
+<p>@param string $parentId</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\CustomerBalanceTransaction></p>
+
+<p>Returns a list of transactions that modified the customer’s <a</p>
+<p>href="/docs/payments/customer-balance">cash balance</a>.</p>
+<p>@param string $parentId</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\CustomerCashBalanceTransaction></p>
+
+<p>Returns a list of PaymentMethods for a given Customer.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\PaymentMethod></p>
+
+<p>List sources for a specified customer.</p>
+<p>@param string $parentId</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\BankAccount|\Stripe\Card|\Stripe\Source></p>
+
+<p>Returns a list of tax IDs for a customer.</p>
+<p>@param string $parentId</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\TaxId></p>
+
+<p>Creates a new customer object.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Customer</p>
+
+<p>Creates an immutable transaction that updates the customer’s credit <a</p>
+<p>href="/docs/billing/customer/balance">balance</a>.</p>
+<p>@param string $parentId</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\CustomerBalanceTransaction</p>
+
+<p>Retrieve funding instructions for a customer cash balance. If funding</p>
+<p>instructions do not yet exist for the customer, new funding instructions will be</p>
+<p>created. If funding instructions have already been created for a given customer,</p>
+<p>the same funding instructions will be retrieved. In other words, we will return</p>
+<p>the same funding instructions each time.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Customer</p>
+
+<p>When you create a new credit card, you must specify a customer or recipient on</p>
+<p>which to create it.</p>
+<p>If the card’s owner has no default card, then the new card will become the</p>
+<p>default. However, if the owner already has a default, then it will not change.</p>
+<p>To change the default, you should <a href="/docs/api#update_customer">update the</p>
+<p>customer</a> to have a new <code>default_source</code>.</p>
+<p>@param string $parentId</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\BankAccount|\Stripe\Card|\Stripe\Source</p>
+
+<p>Creates a new <code>TaxID</code> object for a customer.</p>
+<p>@param string $parentId</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\TaxId</p>
+
+<p>Permanently deletes a customer. It cannot be undone. Also immediately cancels</p>
+<p>any active subscriptions on the customer.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Customer</p>
+
+<p>Removes the currently applied discount on a customer.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Customer</p>
+
+<p>@param string $parentId</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\BankAccount|\Stripe\Card|\Stripe\Source</p>
+
+<p>Deletes an existing <code>TaxID</code> object.</p>
+<p>@param string $parentId</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\TaxId</p>
+
+<p>Retrieves a Customer object.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Customer</p>
+
+<p>Retrieves a specific customer balance transaction that updated the customer’s <a</p>
+<p>href="/docs/billing/customer/balance">balances</a>.</p>
+<p>@param string $parentId</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\CustomerBalanceTransaction</p>
+
+<p>Retrieves a customer’s cash balance.</p>
+<p>@param string $parentId</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\CashBalance</p>
+
+<p>Retrieves a specific cash balance transaction, which updated the customer’s <a</p>
+<p>href="/docs/payments/customer-balance">cash balance</a>.</p>
+<p>@param string $parentId</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\CustomerCashBalanceTransaction</p>
+
+<p>Retrieves a PaymentMethod object for a given Customer.</p>
+<p>@param string $parentId</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Customer</p>
+
+<p>Retrieve a specified source for a given customer.</p>
+<p>@param string $parentId</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\BankAccount|\Stripe\Card|\Stripe\Source</p>
+
+<p>Retrieves the <code>TaxID</code> object with the given identifier.</p>
+<p>@param string $parentId</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\TaxId</p>
+
+<p>Search for customers you’ve previously created using Stripe’s <a</p>
+<p>href="/docs/search#search-query-language">Search Query Language</a>. Don’t use</p>
+<p>search in read-after-write flows where strict consistency is necessary. Under</p>
+<p>normal operating conditions, data is searchable in less than a minute.</p>
+<p>Occasionally, propagation of new or updated data can be up to an hour behind</p>
+<p>during outages. Search functionality is not available to merchants in India.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\SearchResult<\Stripe\Customer></p>
+
+<p>Updates the specified customer by setting the values of the parameters passed.</p>
+<p>Any parameters not provided will be left unchanged. For example, if you pass the</p>
+<p><strong>source</strong> parameter, that becomes the customer’s active source</p>
+<p>(e.g., a card) to be used for all charges in the future. When you update a</p>
+<p>customer to a new valid card source by passing the <strong>source</strong></p>
+<p>parameter: for each of the customer’s current subscriptions, if the subscription</p>
+<p>bills automatically and is in the <code>past_due</code> state, then the latest</p>
+<p>open invoice for the subscription with automatic collection enabled will be</p>
+<p>retried. This retry will not count as an automatic retry, and will not affect</p>
+<p>the next regularly scheduled payment for the invoice. Changing the</p>
+<p><strong>default_source</strong> for a customer will not trigger this behavior.</p>
+<p>This request accepts mostly the same arguments as the customer creation call.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Customer</p>
+
+<p>Most credit balance transaction fields are immutable, but you may update its</p>
+<p><code>description</code> and <code>metadata</code>.</p>
+<p>@param string $parentId</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\CustomerBalanceTransaction</p>
+
+<p>Changes the settings on a customer’s cash balance.</p>
+<p>@param string $parentId</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\CashBalance</p>
+
+<p>@param string $parentId</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\BankAccount|\Stripe\Card|\Stripe\Source</p>
+
+<p>@param string $parentId</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\BankAccount|\Stripe\Card|\Stripe\Source</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\CustomerService.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Service\CustomerService extends \Stripe\Service\AbstractService</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>all($params = null, $opts = null)</code></li>
+<li><code>allBalanceTransactions($parentId, $params = null, $opts = null)</code></li>
+<li><code>allCashBalanceTransactions($parentId, $params = null, $opts = null)</code></li>
+<li><code>allPaymentMethods($id, $params = null, $opts = null)</code></li>
+<li><code>allSources($parentId, $params = null, $opts = null)</code></li>
+<li><code>allTaxIds($parentId, $params = null, $opts = null)</code></li>
+<li><code>create($params = null, $opts = null)</code></li>
+<li><code>createBalanceTransaction($parentId, $params = null, $opts = null)</code></li>
+<li><code>createFundingInstructions($id, $params = null, $opts = null)</code></li>
+<li><code>createSource($parentId, $params = null, $opts = null)</code></li>
+<li><code>createTaxId($parentId, $params = null, $opts = null)</code></li>
+<li><code>delete($id, $params = null, $opts = null)</code></li>
+<li><code>deleteDiscount($id, $params = null, $opts = null)</code></li>
+<li><code>deleteSource($parentId, $id, $params = null, $opts = null)</code></li>
+<li><code>deleteTaxId($parentId, $id, $params = null, $opts = null)</code></li>
+<li><code>retrieve($id, $params = null, $opts = null)</code></li>
+<li><code>retrieveBalanceTransaction($parentId, $id, $params = null, $opts = null)</code></li>
+<li><code>retrieveCashBalance($parentId, $params = null, $opts = null)</code></li>
+<li><code>retrieveCashBalanceTransaction($parentId, $id, $params = null, $opts = null)</code></li>
+<li><code>retrievePaymentMethod($parentId, $id, $params = null, $opts = null)</code></li>
+<li><code>retrieveSource($parentId, $id, $params = null, $opts = null)</code></li>
+<li><code>retrieveTaxId($parentId, $id, $params = null, $opts = null)</code></li>
+<li><code>search($params = null, $opts = null)</code></li>
+<li><code>update($id, $params = null, $opts = null)</code></li>
+<li><code>updateBalanceTransaction($parentId, $id, $params = null, $opts = null)</code></li>
+<li><code>updateCashBalance($parentId, $params = null, $opts = null)</code></li>
+<li><code>updateSource($parentId, $id, $params = null, $opts = null)</code></li>
+<li><code>verifySource($parentId, $id, $params = null, $opts = null)</code></li>
+</ul>
+</body></html>

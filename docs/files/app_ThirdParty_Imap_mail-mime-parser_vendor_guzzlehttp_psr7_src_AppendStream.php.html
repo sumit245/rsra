@@ -1,0 +1,80 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\guzzlehttp\psr7\src\AppendStream.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\guzzlehttp\psr7\src\AppendStream.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\guzzlehttp\psr7\src\AppendStream.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5727 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Reads from multiple streams, one after the other.</p>
+<p>This is a read-only stream decorator.</p>
+
+<p>@var StreamInterface[] Streams being decorated</p>
+
+<p>@param StreamInterface[] $streams Streams to decorate. Each stream must</p>
+<p>                                  be readable.</p>
+
+<p>Add a stream to the AppendStream</p>
+<p>@param StreamInterface $stream Stream to append. Must be readable.</p>
+<p>@throws \InvalidArgumentException if the stream is not readable</p>
+
+<p>Closes each attached stream.</p>
+<p>{@inheritdoc}</p>
+
+<p>Detaches each attached stream.</p>
+<p>Returns null as it's not clear which underlying stream resource to return.</p>
+<p>{@inheritdoc}</p>
+
+<p>Tries to calculate the size by adding the size of each stream.</p>
+<p>If any of the streams do not return a valid number, then the size of the</p>
+<p>append stream cannot be determined and null is returned.</p>
+<p>{@inheritdoc}</p>
+
+<p>Attempts to seek to the given position. Only supports SEEK_SET.</p>
+<p>{@inheritdoc}</p>
+
+<p>Reads from all of the appended streams until the length is met or EOF.</p>
+<p>{@inheritdoc}</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>multiple</code></li>
+<li><code>each</code></li>
+<li><code>all</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\guzzlehttp\psr7\src\AppendStream.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>GuzzleHttp\Psr7\AppendStream implements StreamInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(array $streams = [])</code></li>
+<li><code>__toString()</code></li>
+<li><code>addStream(StreamInterface $stream)</code></li>
+<li><code>getContents()</code></li>
+<li><code>close()</code></li>
+<li><code>detach()</code></li>
+<li><code>tell()</code></li>
+<li><code>getSize()</code></li>
+<li><code>eof()</code></li>
+<li><code>rewind()</code></li>
+<li><code>seek($offset, $whence = SEEK_SET)</code></li>
+<li><code>read($length)</code></li>
+<li><code>isReadable()</code></li>
+<li><code>isWritable()</code></li>
+<li><code>isSeekable()</code></li>
+<li><code>write($string)</code></li>
+<li><code>getMetadata($key = null)</code></li>
+</ul>
+</body></html>

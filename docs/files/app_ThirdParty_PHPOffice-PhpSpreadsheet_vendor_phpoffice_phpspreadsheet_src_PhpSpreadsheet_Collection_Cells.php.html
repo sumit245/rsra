@@ -1,0 +1,156 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Collection\Cells.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Collection\Cells.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Collection\Cells.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 12780 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@var CacheInterface</p>
+
+<p>Parent worksheet.</p>
+<p>@var null|Worksheet</p>
+
+<p>The currently active Cell.</p>
+<p>@var null|Cell</p>
+
+<p>Coordinate of the currently active Cell.</p>
+<p>@var null|string</p>
+
+<p>Flag indicating whether the currently active Cell requires saving.</p>
+<p>@var bool</p>
+
+<p>An index of existing cells. Booleans indexed by their coordinate.</p>
+<p>@var bool[]</p>
+
+<p>Prefix used to uniquely identify cache data for this worksheet.</p>
+<p>@var string</p>
+
+<p>Initialise this new cell collection.</p>
+<p>@param Worksheet $parent The worksheet for this cell collection</p>
+
+<p>Return the parent worksheet for this cell collection.</p>
+<p>@return null|Worksheet</p>
+
+<p>Whether the collection holds a cell for the given coordinate.</p>
+<p>@param string $cellCoordinate Coordinate of the cell to check</p>
+<p>@return bool</p>
+
+<p>Add or update a cell in the collection.</p>
+<p>@param Cell $cell Cell to update</p>
+<p>@return Cell</p>
+
+<p>Delete a cell in cache identified by coordinate.</p>
+<p>@param string $cellCoordinate Coordinate of the cell to delete</p>
+
+<p>Get a list of all cell coordinates currently held in the collection.</p>
+<p>@return string[]</p>
+
+<p>Get a sorted list of all cell coordinates currently held in the collection by row and column.</p>
+<p>@return string[]</p>
+
+<p>Get highest worksheet column and highest row that have cell records.</p>
+<p>@return array Highest column name and highest row number</p>
+
+<p>Return the cell coordinate of the currently active cell object.</p>
+<p>@return null|string</p>
+
+<p>Return the column coordinate of the currently active cell object.</p>
+<p>@return string</p>
+
+<p>Return the row coordinate of the currently active cell object.</p>
+<p>@return int</p>
+
+<p>Get highest worksheet column.</p>
+<p>@param null|int|string $row Return the highest column for the specified row,</p>
+<p>                   or the highest column of any row if no row number is passed</p>
+<p>@return string Highest column name</p>
+
+<p>Get highest worksheet row.</p>
+<p>@param null|string $column Return the highest row for the specified column,</p>
+<p>                      or the highest row of any column if no column letter is passed</p>
+<p>@return int Highest row number</p>
+
+<p>Generate a unique ID for cache referencing.</p>
+<p>@return string Unique Reference</p>
+
+<p>Clone the cell collection.</p>
+<p>@return self</p>
+
+<p>@var string $newKey</p>
+
+<p>Remove a row, deleting all cells in that row.</p>
+<p>@param string $row Row number to remove</p>
+
+<p>Remove a column, deleting all cells in that column.</p>
+<p>@param string $column Column ID to remove</p>
+
+<p>Store cell data in cache for the current cell object if it's "dirty",</p>
+<p>and the 'nullify' the current cell object.</p>
+
+<p>Add or update a cell identified by its coordinate into the collection.</p>
+<p>@param string $cellCoordinate Coordinate of the cell to update</p>
+<p>@param Cell $cell Cell to update</p>
+<p>@return Cell</p>
+
+<p>Get cell at a specific coordinate.</p>
+<p>@param string $cellCoordinate Coordinate of the cell</p>
+<p>@return null|Cell Cell that was found, or null if not found</p>
+
+<p>Clear the cell collection and disconnect from our parent.</p>
+
+<p>Destroy this cell collection.</p>
+
+<p>Returns all known cache keys.</p>
+<p>@return Generator|string[]</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+<li><code>cache</code></li>
+<li><code>our</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Collection\Cells.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Collection\Cells</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(Worksheet $parent, CacheInterface $cache)</code></li>
+<li><code>getParent()</code></li>
+<li><code>has($cellCoordinate)</code></li>
+<li><code>update(Cell $cell)</code></li>
+<li><code>delete($cellCoordinate)</code></li>
+<li><code>getCoordinates()</code></li>
+<li><code>getSortedCoordinates()</code></li>
+<li><code>getHighestRowAndColumn()</code></li>
+<li><code>getCurrentCoordinate()</code></li>
+<li><code>getCurrentColumn()</code></li>
+<li><code>getCurrentRow()</code></li>
+<li><code>getHighestColumn($row = null)</code></li>
+<li><code>getHighestRow($column = null)</code></li>
+<li><code>getUniqueID()</code></li>
+<li><code>cloneCellCollection(Worksheet $worksheet)</code></li>
+<li><code>removeRow($row)</code></li>
+<li><code>removeColumn($column)</code></li>
+<li><code>storeCurrentCell()</code></li>
+<li><code>destructIfNeeded(bool $stored, self $cells, string $message)</code></li>
+<li><code>add($cellCoordinate, Cell $cell)</code></li>
+<li><code>get($cellCoordinate)</code></li>
+<li><code>unsetWorksheetCells()</code></li>
+<li><code>__destruct()</code></li>
+<li><code>getAllCacheKeys()</code></li>
+</ul>
+</body></html>

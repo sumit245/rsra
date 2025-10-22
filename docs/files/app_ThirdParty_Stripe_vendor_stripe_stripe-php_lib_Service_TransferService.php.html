@@ -1,0 +1,118 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\TransferService.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\TransferService.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\TransferService.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5951 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Returns a list of existing transfers sent to connected accounts. The transfers</p>
+<p>are returned in sorted order, with the most recently created transfers appearing</p>
+<p>first.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\Transfer></p>
+
+<p>You can see a list of the reversals belonging to a specific transfer. Note that</p>
+<p>the 10 most recent reversals are always available by default on the transfer</p>
+<p>object. If you need more than those 10, you can use this API method and the</p>
+<p><code>limit</code> and <code>starting_after</code> parameters to page through</p>
+<p>additional reversals.</p>
+<p>@param string $parentId</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\TransferReversal></p>
+
+<p>To send funds from your Stripe account to a connected account, you create a new</p>
+<p>transfer object. Your <a href="#balance">Stripe balance</a> must be able to</p>
+<p>cover the transfer amount, or you’ll receive an “Insufficient Funds” error.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Transfer</p>
+
+<p>When you create a new reversal, you must specify a transfer to create it on.</p>
+<p>When reversing transfers, you can optionally reverse part of the transfer. You</p>
+<p>can do so as many times as you wish until the entire transfer has been reversed.</p>
+<p>Once entirely reversed, a transfer can’t be reversed again. This method will</p>
+<p>return an error when called on an already-reversed transfer, or when trying to</p>
+<p>reverse more money than is left on a transfer.</p>
+<p>@param string $parentId</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\TransferReversal</p>
+
+<p>Retrieves the details of an existing transfer. Supply the unique transfer ID</p>
+<p>from either a transfer creation request or the transfer list, and Stripe will</p>
+<p>return the corresponding transfer information.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Transfer</p>
+
+<p>By default, you can see the 10 most recent reversals stored directly on the</p>
+<p>transfer object, but you can also retrieve details about a specific reversal</p>
+<p>stored on the transfer.</p>
+<p>@param string $parentId</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\TransferReversal</p>
+
+<p>Updates the specified transfer by setting the values of the parameters passed.</p>
+<p>Any parameters not provided will be left unchanged.</p>
+<p>This request accepts only metadata as an argument.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Transfer</p>
+
+<p>Updates the specified reversal by setting the values of the parameters passed.</p>
+<p>Any parameters not provided will be left unchanged.</p>
+<p>This request only accepts metadata and description as arguments.</p>
+<p>@param string $parentId</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\TransferReversal</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+<li><code>your</code></li>
+<li><code>either</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\TransferService.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Service\TransferService extends \Stripe\Service\AbstractService</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>all($params = null, $opts = null)</code></li>
+<li><code>allReversals($parentId, $params = null, $opts = null)</code></li>
+<li><code>create($params = null, $opts = null)</code></li>
+<li><code>createReversal($parentId, $params = null, $opts = null)</code></li>
+<li><code>retrieve($id, $params = null, $opts = null)</code></li>
+<li><code>retrieveReversal($parentId, $id, $params = null, $opts = null)</code></li>
+<li><code>update($id, $params = null, $opts = null)</code></li>
+<li><code>updateReversal($parentId, $id, $params = null, $opts = null)</code></li>
+</ul>
+</body></html>

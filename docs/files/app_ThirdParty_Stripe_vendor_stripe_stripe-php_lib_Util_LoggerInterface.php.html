@@ -1,0 +1,40 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Util\LoggerInterface.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Util\LoggerInterface.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Util\LoggerInterface.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 1124 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Describes a logger instance.</p>
+<p>This is a subset of the interface of the same name in the PSR-3 logger</p>
+<p>interface. We guarantee to keep it compatible, but we'd redefined it here so</p>
+<p>that we don't have to pull in the extra dependencies for users who don't want</p>
+<p>it.</p>
+<p>See https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md</p>
+<p>for the full interface specification.</p>
+<p>The message MUST be a string or object implementing __toString().</p>
+<p>The message MAY contain placeholders in the form: {foo} where foo</p>
+<p>will be replaced by the context data in key "foo".</p>
+<p>The context array can contain arbitrary data, the only assumption that</p>
+<p>can be made by implementors is that if an Exception instance is given</p>
+<p>to produce a stack trace, it MUST be in a key named "exception".</p>
+
+<p>Runtime errors that do not require immediate action but should typically</p>
+<p>be logged and monitored.</p>
+<p>@param string $message</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Util\LoggerInterface.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>error($message, array $context = [])</code></li>
+</ul>
+</body></html>

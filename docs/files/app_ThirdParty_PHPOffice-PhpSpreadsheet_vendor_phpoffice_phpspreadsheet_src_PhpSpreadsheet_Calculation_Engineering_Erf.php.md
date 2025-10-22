@@ -1,0 +1,51 @@
+# app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Engineering\Erf.php
+
+- Path: `app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Engineering\Erf.php`
+- Type: PHP
+- Size: 3440 bytes
+
+## Summary (from docblocks)
+
+ERF.
+Returns the error function integrated between the lower and upper bound arguments.
+   Note: In Excel 2007 or earlier, if you input a negative value for the upper or lower bound arguments,
+           the function would return a #NUM! error. However, in Excel 2010, the function algorithm was
+           improved, so that it can now calculate the function for both positive and negative ranges.
+           PhpSpreadsheet follows Excel 2010 behaviour, and accepts negative arguments.
+   Excel Function:
+       ERF(lower[,upper])
+@param mixed $lower Lower bound float for integrating ERF
+                     Or can be an array of values
+@param mixed $upper Upper bound float for integrating ERF.
+                          If omitted, ERF integrates between zero and lower_limit
+                     Or can be an array of values
+@return array|float|string
+        If an array of numbers is passed as an argument, then the returned result will also be an array
+           with the same dimensions
+
+ERFPRECISE.
+Returns the error function integrated between the lower and upper bound arguments.
+   Excel Function:
+       ERF.PRECISE(limit)
+@param mixed $limit Float bound for integrating ERF, other bound is zero
+                     Or can be an array of values
+@return array|float|string
+        If an array of numbers is passed as an argument, then the returned result will also be an array
+           with the same dimensions
+
+## Symbols
+
+# Symbols
+
+**Files documented**: 1
+
+## `app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Engineering\Erf.php`
+
+**Classes**:
+- `PhpOffice\PhpSpreadsheet\Calculation\Engineering\Erf`
+
+**Functions/Methods**:
+- `ERF($lower, $upper = null)`
+- `ERFPRECISE($limit)`
+- `erfValue($value)`
+

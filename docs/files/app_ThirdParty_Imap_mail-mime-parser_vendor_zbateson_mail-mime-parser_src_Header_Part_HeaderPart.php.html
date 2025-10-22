@@ -1,0 +1,84 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Part\HeaderPart.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Part\HeaderPart.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Part\HeaderPart.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2813 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Abstract base class representing a single part of a parsed header.</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var string the value of the part</p>
+
+<p>@var MbWrapper $charsetConverter the charset converter used for</p>
+<p>     converting strings in HeaderPart::convertEncoding</p>
+
+<p>Sets up dependencies.</p>
+
+<p>@param MbWrapper $charsetConverter</p>
+
+<p>Returns the part's value.</p>
+
+<p>@return string the value of the part</p>
+
+<p>Returns the value of the part (which is a string).</p>
+
+<p>@return string the value</p>
+
+<p>Returns true if spaces before this part should be ignored.  True is only</p>
+<p>returned for MimeLiterals if the part begins with a mime-encoded string,</p>
+<p>Tokens if the Token's value is a single space, and for CommentParts.</p>
+
+<p>@return bool</p>
+
+<p>Returns true if spaces after this part should be ignored.  True is only</p>
+<p>returned for MimeLiterals if the part ends with a mime-encoded string</p>
+<p>Tokens if the Token's value is a single space, and for CommentParts.</p>
+
+<p>@return bool</p>
+
+<p>Ensures the encoding of the passed string is set to UTF-8.</p>
+
+<p>The method does nothing if the passed $from charset is UTF-8 already, or</p>
+<p>if $force is set to false and mb_check_encoding for $str returns true</p>
+<p>for 'UTF-8'.</p>
+
+<p>@param string $str</p>
+<p>@param string $from</p>
+<p>@param boolean $force</p>
+<p>@return string utf-8 string</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>charset</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Part\HeaderPart.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Header\Part\representing</code></li>
+<li><code>ZBateson\MailMimeParser\Header\Part\HeaderPart</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(MbWrapper $charsetConverter)</code></li>
+<li><code>getValue()</code></li>
+<li><code>__toString()</code></li>
+<li><code>ignoreSpacesBefore()</code></li>
+<li><code>ignoreSpacesAfter()</code></li>
+<li><code>convertEncoding($str, $from = 'ISO-8859-1', $force = false)</code></li>
+</ul>
+</body></html>

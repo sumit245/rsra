@@ -1,0 +1,177 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Test\TestResponse.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Test\TestResponse.php</h1>
+
+<ul>
+<li>Path: <code>system\Test\TestResponse.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 13833 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Test Response Class</p>
+<p>Consolidated response processing</p>
+<p>for test results.</p>
+<p>@no-final</p>
+<p>@internal</p>
+
+<p>The request.</p>
+<p>@var RequestInterface|null</p>
+
+<p>The response.</p>
+<p>@var ResponseInterface</p>
+
+<p>DOM for the body.</p>
+<p>@var DOMParser</p>
+
+<p>Stores or the Response and parses the body in the DOM.</p>
+
+<p>Sets the request.</p>
+<p>@return $this</p>
+
+<p>Sets the Response and updates the DOM.</p>
+<p>@return $this</p>
+
+<p>Request accessor.</p>
+<p>@return RequestInterface|null</p>
+
+<p>Response accessor.</p>
+<p>@return ResponseInterface</p>
+
+<p>Boils down the possible responses into a boolean valid/not-valid</p>
+<p>response type.</p>
+
+<p>Asserts that the status is a specific value.</p>
+<p>@throws Exception</p>
+
+<p>Asserts that the Response is considered OK.</p>
+<p>@throws Exception</p>
+
+<p>Asserts that the Response is considered OK.</p>
+<p>@throws Exception</p>
+
+<p>Returns whether or not the Response was a redirect or RedirectResponse</p>
+
+<p>Assert that the given response was a redirect.</p>
+<p>@throws Exception</p>
+
+<p>Assert that a given response was a redirect</p>
+<p>and it was redirect to a specific URI.</p>
+<p>@throws Exception</p>
+
+<p>Assert that the given response was not a redirect.</p>
+<p>@throws Exception</p>
+
+<p>Returns the URL set for redirection.</p>
+
+<p>Asserts that an SESSION key has been set and, optionally, test it's value.</p>
+<p>@param mixed $value</p>
+<p>@throws Exception</p>
+
+<p>Asserts the session is missing $key.</p>
+<p>@throws Exception</p>
+
+<p>Asserts that the Response contains a specific header.</p>
+<p>@param string|null $value</p>
+<p>@throws Exception</p>
+
+<p>Asserts the Response headers does not contain the specified header.</p>
+<p>@throws Exception</p>
+
+<p>Asserts that the response has the specified cookie.</p>
+<p>@param string|null $value</p>
+<p>@throws Exception</p>
+
+<p>Assert the Response does not have the specified cookie set.</p>
+
+<p>Asserts that a cookie exists and has an expired time.</p>
+<p>@throws Exception</p>
+
+<p>Returns the response's body as JSON</p>
+<p>@return false|mixed</p>
+
+<p>Test that the response contains a matching JSON fragment.</p>
+<p>@throws Exception</p>
+
+<p>Asserts that the JSON exactly matches the passed in data.</p>
+<p>If the value being passed in is a string, it must be a json_encoded string.</p>
+<p>@param array|string $test</p>
+<p>@throws Exception</p>
+
+<p>Returns the response' body as XML</p>
+<p>@return mixed|string</p>
+
+<p>Assert that the desired text can be found in the result body.</p>
+<p>@throws Exception</p>
+
+<p>Asserts that we do not see the specified text.</p>
+<p>@throws Exception</p>
+
+<p>Assert that we see an element selected via a CSS selector.</p>
+<p>@throws Exception</p>
+
+<p>Assert that we do not see an element selected via a CSS selector.</p>
+<p>@throws Exception</p>
+
+<p>Assert that we see a link with the matching text and/or class.</p>
+<p>@throws Exception</p>
+
+<p>Assert that we see an input with name/value.</p>
+<p>@throws Exception</p>
+
+<p>Forward any unrecognized method calls to our DOMParser instance.</p>
+<p>@param string $function Method name</p>
+<p>@param mixed  $params   Any method parameters</p>
+<p>@return mixed</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Test\TestResponse.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Test\TestResponse extends TestCase</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(ResponseInterface $response)</code></li>
+<li><code>setRequest(RequestInterface $request)</code></li>
+<li><code>setResponse(ResponseInterface $response)</code></li>
+<li><code>request()</code></li>
+<li><code>response()</code></li>
+<li><code>isOK()</code></li>
+<li><code>assertStatus(int $code)</code></li>
+<li><code>assertOK()</code></li>
+<li><code>assertNotOK()</code></li>
+<li><code>isRedirect()</code></li>
+<li><code>assertRedirect()</code></li>
+<li><code>assertRedirectTo(string $uri)</code></li>
+<li><code>assertNotRedirect()</code></li>
+<li><code>getRedirectUrl()</code></li>
+<li><code>assertSessionHas(string $key, $value = null)</code></li>
+<li><code>assertSessionMissing(string $key)</code></li>
+<li><code>assertHeader(string $key, $value = null)</code></li>
+<li><code>assertHeaderMissing(string $key)</code></li>
+<li><code>assertCookie(string $key, $value = null, string $prefix = '')</code></li>
+<li><code>assertCookieMissing(string $key)</code></li>
+<li><code>assertCookieExpired(string $key, string $prefix = '')</code></li>
+<li><code>getJSON()</code></li>
+<li><code>assertJSONFragment(array $fragment, bool $strict = false)</code></li>
+<li><code>assertJSONExact($test)</code></li>
+<li><code>getXML()</code></li>
+<li><code>assertSee(?string $search = null, ?string $element = null)</code></li>
+<li><code>assertDontSee(?string $search = null, ?string $element = null)</code></li>
+<li><code>assertSeeElement(string $search)</code></li>
+<li><code>assertDontSeeElement(string $search)</code></li>
+<li><code>assertSeeLink(string $text, ?string $details = null)</code></li>
+<li><code>assertSeeInField(string $field, ?string $value = null)</code></li>
+<li><code>__call($function, $params)</code></li>
+</ul>
+</body></html>

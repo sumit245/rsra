@@ -1,0 +1,370 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Html.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Html.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Html.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 62297 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Spreadsheet object.</p>
+<p>@var Spreadsheet</p>
+
+<p>Sheet index to write.</p>
+<p>@var null|int</p>
+
+<p>Images root.</p>
+<p>@var string</p>
+
+<p>embed images, or link to images.</p>
+<p>@var bool</p>
+
+<p>Use inline CSS?</p>
+<p>@var bool</p>
+
+<p>Use embedded CSS?</p>
+<p>@var bool</p>
+
+<p>Array of CSS styles.</p>
+<p>@var array</p>
+
+<p>Array of column widths in points.</p>
+<p>@var array</p>
+
+<p>Default font.</p>
+<p>@var Font</p>
+
+<p>Flag whether spans have been calculated.</p>
+<p>@var bool</p>
+
+<p>Excel cells that should not be written as HTML cells.</p>
+<p>@var array</p>
+
+<p>Excel cells that are upper-left corner in a cell merge.</p>
+<p>@var array</p>
+
+<p>Excel rows that should not be written as HTML rows.</p>
+<p>@var array</p>
+
+<p>Is the current writer creating PDF?</p>
+<p>@var bool</p>
+
+<p>Generate the Navigation block.</p>
+<p>@var bool</p>
+
+<p>Callback for editing generated html.</p>
+<p>@var null|callable</p>
+
+<p>Create a new HTML.</p>
+
+<p>Save Spreadsheet to file.</p>
+<p>@param resource|string $filename</p>
+
+<p>Save Spreadsheet as html to variable.</p>
+<p>@return string</p>
+
+<p>Set a callback to edit the entire HTML.</p>
+<p>The callback must accept the HTML as string as first parameter,</p>
+<p>and it must return the edited HTML as string.</p>
+
+<p>Map VAlign.</p>
+<p>@param string $vAlign Vertical alignment</p>
+<p>@return string</p>
+
+<p>Map HAlign.</p>
+<p>@param string $hAlign Horizontal alignment</p>
+<p>@return string</p>
+
+<p>Map border style.</p>
+<p>@param int $borderStyle Sheet index</p>
+<p>@return string</p>
+
+<p>Get sheet index.</p>
+
+<p>Set sheet index.</p>
+<p>@param int $sheetIndex Sheet index</p>
+<p>@return $this</p>
+
+<p>Get sheet index.</p>
+<p>@return bool</p>
+
+<p>Set sheet index.</p>
+<p>@param bool $generateSheetNavigationBlock Flag indicating whether the sheet navigation block should be generated or not</p>
+<p>@return $this</p>
+
+<p>Write all sheets (resets sheetIndex to NULL).</p>
+<p>@return $this</p>
+
+<p>Generate HTML header.</p>
+<p>@param bool $includeStyles Include styles?</p>
+<p>@return string</p>
+
+<p>Generate sheet data.</p>
+<p>@return string</p>
+
+<p>Generate sheet tabs.</p>
+<p>@return string</p>
+
+<p>Extend Row if chart is placed after nominal end of row.</p>
+<p>This code should be exercised by sample:</p>
+<p>Chart/32_Chart_read_write_PDF.php.</p>
+<p>However, that test is suppressed due to out-of-date</p>
+<p>Jpgraph code issuing warnings. So, don't measure</p>
+<p>code coverage for this function till that is fixed.</p>
+<p>@param int $row Row to check for charts</p>
+<p>@return array</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Convert Windows file name to file protocol URL.</p>
+<p>@param string $filename file name on local system</p>
+<p>@return string</p>
+
+<p>Generate image tag in cell.</p>
+<p>@param Worksheet $worksheet \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet</p>
+<p>@param string $coordinates Cell coordinates</p>
+<p>@return string</p>
+
+<p>@phpstan-ignore-next-line</p>
+
+<p>Generate chart tag in cell.</p>
+<p>This code should be exercised by sample:</p>
+<p>Chart/32_Chart_read_write_PDF.php.</p>
+<p>However, that test is suppressed due to out-of-date</p>
+<p>Jpgraph code issuing warnings. So, don't measure</p>
+<p>code coverage for this function till that is fixed.</p>
+<p>@codeCoverageIgnore</p>
+
+<p>@phpstan-ignore-next-line</p>
+
+<p>Generate CSS styles.</p>
+<p>@param bool $generateSurroundingHTML Generate surrounding HTML tags? (&lt;style&gt; and &lt;/style&gt;)</p>
+<p>@return string</p>
+
+<p>Build CSS styles.</p>
+<p>@param bool $generateSurroundingHTML Generate surrounding HTML style? (html { })</p>
+<p>@return array</p>
+
+<p>Create CSS style.</p>
+<p>@return array</p>
+
+<p>Create CSS style.</p>
+<p>@return array</p>
+
+<p>Create CSS style.</p>
+<p>@return array</p>
+
+<p>Create CSS style.</p>
+<p>@param Borders $borders Borders</p>
+<p>@return array</p>
+
+<p>Create CSS style.</p>
+<p>@param Border $border Border</p>
+<p>@return string</p>
+
+<p>Create CSS style (Fill).</p>
+<p>@param Fill $fill Fill</p>
+<p>@return array</p>
+
+<p>Generate HTML footer.</p>
+
+<p>Generate table header.</p>
+<p>@param Worksheet $worksheet The worksheet for the table we are writing</p>
+<p>@param bool $showid whether or not to add id to table tag</p>
+<p>@return string</p>
+
+<p>Generate table footer.</p>
+
+<p>Generate row start.</p>
+<p>@param int $sheetIndex Sheet index (0-based)</p>
+<p>@param int $row row number</p>
+<p>@return string</p>
+
+<p>Necessary redundant code for the sake of \PhpOffice\PhpSpreadsheet\Writer\Pdf **</p>
+<p>            // We must explicitly write the width of the <td> element because TCPDF</p>
+<p>            // does not recognize e.g. <col style="width:42pt"></p>
+<p>            if ($this->useInlineCss) {</p>
+<p>                $xcssClass = $cssClass;</p>
+<p>            } else {</p>
+<p>                $html .= ' class="' . $cssClass . '"';</p>
+<p>                $xcssClass = [];</p>
+<p>            }</p>
+<p>            $width = 0;</p>
+<p>            $i = $colNum - 1;</p>
+<p>            $e = $colNum + $colSpan - 1;</p>
+<p>            while ($i++ < $e) {</p>
+<p>                if (isset($this->columnWidths[$sheetIndex][$i])) {</p>
+<p>                    $width += $this->columnWidths[$sheetIndex][$i];</p>
+<p>                }</p>
+<p>            }</p>
+<p>            $xcssClass['width'] = $width . 'pt';</p>
+
+<p>            // We must also explicitly write the height of the <td> element because TCPDF</p>
+<p>            // does not recognize e.g. <tr style="height:50pt"></p>
+<p>            if (isset($this->cssStyles['table.sheet' . $sheetIndex . ' tr.row' . $row]['height'])) {</p>
+<p>                $height = $this->cssStyles['table.sheet' . $sheetIndex . ' tr.row' . $row]['height'];</p>
+<p>                $xcssClass['height'] = $height;</p>
+<p>            }</p>
+<p>            //<strong> end of redundant code </strong></p>
+
+<p>            if ($htmlx) {</p>
+<p>                $xcssClass['position'] = 'relative';</p>
+<p>            }</p>
+<p>            $html .= ' style="' . $this->assembleCSS($xcssClass) . '"';</p>
+<p>        }</p>
+<p>        $html = $this->generateRowSpans($html, $rowSpan, $colSpan);</p>
+
+<p>        $html .= '>';</p>
+<p>        $html .= $htmlx;</p>
+
+<p>        $html .= $this->writeComment($worksheet, $coordinate);</p>
+
+<p>        // Cell data</p>
+<p>        $html .= $cellData;</p>
+
+<p>        // Column end</p>
+<p>        $html .= '</' . $cellType . '>' . PHP_EOL;</p>
+<p>    }</p>
+
+<p>    /**</p>
+<p>Generate row.</p>
+<p>@param array $values Array containing cells in a row</p>
+<p>@param int $row Row number (0-based)</p>
+<p>@param string $cellType eg: 'td'</p>
+<p>@return string</p>
+
+<p>Takes array where of CSS properties / values and converts to CSS string.</p>
+<p>@return string</p>
+
+<p>Get images root.</p>
+<p>@return string</p>
+
+<p>Set images root.</p>
+<p>@param string $imagesRoot</p>
+<p>@return $this</p>
+
+<p>Get embed images.</p>
+<p>@return bool</p>
+
+<p>Set embed images.</p>
+<p>@param bool $embedImages</p>
+<p>@return $this</p>
+
+<p>Get use inline CSS?</p>
+<p>@return bool</p>
+
+<p>Set use inline CSS?</p>
+<p>@param bool $useInlineCss</p>
+<p>@return $this</p>
+
+<p>Get use embedded CSS?</p>
+<p>@return bool</p>
+<p>@codeCoverageIgnore</p>
+<p>@deprecated no longer used</p>
+
+<p>Set use embedded CSS?</p>
+<p>@param bool $useEmbeddedCSS</p>
+<p>@return $this</p>
+<p>@codeCoverageIgnore</p>
+<p>@deprecated no longer used</p>
+
+<p>Add color to formatted string as inline style.</p>
+<p>@param string $value Plain formatted value without color</p>
+<p>@param string $format Format code</p>
+<p>@return string</p>
+
+<p>Calculate information about HTML colspan and rowspan which is not always the same as Excel's.</p>
+
+<p>Write a comment in the same format as LibreOffice.</p>
+<p>@see https://github.com/LibreOffice/core/blob/9fc9bf3240f8c62ad7859947ab8a033ac1fe93fa/sc/source/filter/html/htmlexp.cxx#L1073-L1092</p>
+<p>@param string $coordinate</p>
+<p>@return string</p>
+
+<p>Generate @page declarations.</p>
+<p>@param bool $generateSurroundingHTML</p>
+<p>@return    string</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>last</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Html.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Writer\Html extends BaseWriter</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(Spreadsheet $spreadsheet)</code></li>
+<li><code>save($filename, int $flags = 0)</code></li>
+<li><code>generateHtmlAll()</code></li>
+<li><code>setEditHtmlCallback(?callable $callback)</code></li>
+<li><code>mapVAlign($vAlign)</code></li>
+<li><code>mapHAlign($hAlign)</code></li>
+<li><code>mapBorderStyle($borderStyle)</code></li>
+<li><code>getSheetIndex()</code></li>
+<li><code>setSheetIndex($sheetIndex)</code></li>
+<li><code>getGenerateSheetNavigationBlock()</code></li>
+<li><code>setGenerateSheetNavigationBlock($generateSheetNavigationBlock)</code></li>
+<li><code>writeAllSheets()</code></li>
+<li><code>generateMeta($val, $desc)</code></li>
+<li><code>generateHTMLHeader($includeStyles = false)</code></li>
+<li><code>generateSheetPrep()</code></li>
+<li><code>generateSheetStarts($sheet, $rowMin)</code></li>
+<li><code>generateSheetTags($row, $theadStart, $theadEnd, $tbodyStart)</code></li>
+<li><code>generateSheetData()</code></li>
+<li><code>generateNavigation()</code></li>
+<li><code>extendRowsForCharts(Worksheet $worksheet, int $row)</code></li>
+<li><code>extendRowsForChartsAndImages(Worksheet $worksheet, int $row)</code></li>
+<li><code>winFileToUrl($filename)</code></li>
+<li><code>writeImageInCell(Worksheet $worksheet, $coordinates)</code></li>
+<li><code>writeChartInCell(Worksheet $worksheet, string $coordinates)</code></li>
+<li><code>generateStyles($generateSurroundingHTML = true)</code></li>
+<li><code>buildCssRowHeights(Worksheet $sheet, array &$css, int $sheetIndex)</code></li>
+<li><code>buildCssPerSheet(Worksheet $sheet, array &$css)</code></li>
+<li><code>buildCSS($generateSurroundingHTML = true)</code></li>
+<li><code>createCSSStyle(Style $style)</code></li>
+<li><code>createCSSStyleAlignment(Alignment $alignment)</code></li>
+<li><code>createCSSStyleFont(Font $font)</code></li>
+<li><code>createCSSStyleBorders(Borders $borders)</code></li>
+<li><code>createCSSStyleBorder(Border $border)</code></li>
+<li><code>createCSSStyleFill(Fill $fill)</code></li>
+<li><code>generateHTMLFooter()</code></li>
+<li><code>generateTableTagInline(Worksheet $worksheet, $id)</code></li>
+<li><code>generateTableTag(Worksheet $worksheet, $id, &$html, $sheetIndex)</code></li>
+<li><code>generateTableHeader(Worksheet $worksheet, $showid = true)</code></li>
+<li><code>generateTableFooter()</code></li>
+<li><code>generateRowStart(Worksheet $worksheet, $sheetIndex, $row)</code></li>
+<li><code>generateRowCellCss(Worksheet $worksheet, $cellAddress, $row, $columnNumber)</code></li>
+<li><code>generateRowCellDataValueRich($cell, &$cellData)</code></li>
+<li><code>generateRowCellDataValue(Worksheet $worksheet, $cell, &$cellData)</code></li>
+<li><code>generateRowCellData(Worksheet $worksheet, $cell, &$cssClass, $cellType)</code></li>
+<li><code>generateRowIncludeCharts(Worksheet $worksheet, $coordinate)</code></li>
+<li><code>generateRowSpans($html, $rowSpan, $colSpan)</code></li>
+<li><code>generateRowWriteCell(&$html, Worksheet $worksheet, $coordinate, $cellType, $cellData, $colSpan, $rowSpan, $cssClass, $colNum, $sheetIndex, $row)</code></li>
+<li><code>generateRow(Worksheet $worksheet, array $values, $row, $cellType)</code></li>
+<li><code>assembleCSS(array $values = [])</code></li>
+<li><code>getImagesRoot()</code></li>
+<li><code>setImagesRoot($imagesRoot)</code></li>
+<li><code>getEmbedImages()</code></li>
+<li><code>setEmbedImages($embedImages)</code></li>
+<li><code>getUseInlineCss()</code></li>
+<li><code>setUseInlineCss($useInlineCss)</code></li>
+<li><code>getUseEmbeddedCSS()</code></li>
+<li><code>setUseEmbeddedCSS($useEmbeddedCSS)</code></li>
+<li><code>formatColor($value, $format)</code></li>
+<li><code>calculateSpans()</code></li>
+<li><code>calculateSpansOmitRows($sheet, $sheetIndex, $candidateSpannedRow)</code></li>
+<li><code>writeComment(Worksheet $worksheet, $coordinate)</code></li>
+<li><code>getOrientation()</code></li>
+<li><code>generatePageDeclarations($generateSurroundingHTML)</code></li>
+</ul>
+</body></html>

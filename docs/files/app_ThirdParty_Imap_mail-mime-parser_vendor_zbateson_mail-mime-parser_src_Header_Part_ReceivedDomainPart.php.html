@@ -1,0 +1,82 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Part\ReceivedDomainPart.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Part\ReceivedDomainPart.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Part\ReceivedDomainPart.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2906 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Holds extra information about a parsed Received header part, for FROM and BY</p>
+<p>parts, namely: ehlo name, hostname, and address.</p>
+<p>The parsed parts would be mapped as follows:</p>
+<p>FROM ehlo name (hostname [address]), for example: FROM computer (domain.com</p>
+<p>[1.2.3.4]) would contain "computer" for getEhloName(), domain.com for</p>
+<p>getHostname and 1.2.3.4 for getAddress().</p>
+<p>This doesn't change if the ehlo name is an address, it is still returned in</p>
+<p>getEhloName(), and not in getAddress().  Additionally square brackets are not</p>
+<p>stripped from getEhloName() if its an address.  For example: "FROM [1.2.3.4]"</p>
+<p>would return "[1.2.3.4]" in a call to getEhloName().</p>
+<p>For further information on how the header's parsed, check the documentation</p>
+<p>for {@see \ZBateson\MailMimeParser\Header\Consumer\Received\DomainConsumer}.</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var string The name used to identify the server in the EHLO line.</p>
+
+<p>@var string The hostname.</p>
+
+<p>@var string The address.</p>
+
+<p>@param MbWrapper $charsetConverter</p>
+<p>@param string $name</p>
+<p>@param string $value</p>
+<p>@param string $ehloName</p>
+<p>@param string $hostname</p>
+<p>@param string $address</p>
+
+<p>Returns the name used to identify the server in the first part of the</p>
+<p>extended-domain line.  Note that this is not necessarily the name used in</p>
+<p>the EHLO line to an SMTP server, since implementations differ so much,</p>
+<p>not much can be guaranteed except the position it was parsed in.</p>
+<p>@return string</p>
+
+<p>Returns the hostname of the server, or whatever string in the hostname</p>
+<p>position when parsing (but never an address).</p>
+<p>@return string</p>
+
+<p>Returns the address of the server, or whatever string that looks like an</p>
+<p>address in the address position when parsing (but never a hostname).</p>
+<p>@return string</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>and</code></li>
+<li><code>ehlo</code></li>
+<li><code>computer</code></li>
+<li><code>getEhloName</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Part\ReceivedDomainPart.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Header\Part\ReceivedDomainPart extends ReceivedPart</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(MbWrapper $charsetConverter, $name, $value, $ehloName = null, $hostname = null, $address = null)</code></li>
+<li><code>getEhloName()</code></li>
+<li><code>getHostname()</code></li>
+<li><code>getAddress()</code></li>
+</ul>
+</body></html>

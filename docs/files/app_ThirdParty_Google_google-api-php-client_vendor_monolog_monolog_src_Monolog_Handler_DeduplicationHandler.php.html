@@ -1,0 +1,59 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\DeduplicationHandler.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\DeduplicationHandler.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\DeduplicationHandler.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5479 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Simple handler wrapper that deduplicates log records across multiple requests</p>
+<p>It also includes the BufferHandler functionality and will buffer</p>
+<p>all messages until the end of the request or flush() is called.</p>
+<p>This works by storing all log records' messages above $deduplicationLevel</p>
+<p>to the file specified by $deduplicationStore. When further logs come in at the end of the</p>
+<p>request (or when flush() is called), all those above $deduplicationLevel are checked</p>
+<p>against the existing stored logs. If they match and the timestamps in the stored log is</p>
+<p>not older than $time seconds, the new log record is discarded. If no log record is new, the</p>
+<p>whole data set is discarded.</p>
+<p>This is mainly useful in combination with Mail handlers or things like Slack or HipChat handlers</p>
+<p>that send messages to people, to avoid spamming with the same message over and over in case of</p>
+<p>a major component failure like a database server being down which makes all requests fail in the</p>
+<p>same way.</p>
+<p>@author Jordi Boggiano <j.boggiano@seld.be></p>
+
+<p>@var string</p>
+
+<p>@var int</p>
+
+<p>@var int</p>
+
+<p>@var bool</p>
+
+<p>@param HandlerInterface $handler            Handler.</p>
+<p>@param string           $deduplicationStore The file/path where the deduplication log should be kept</p>
+<p>@param int              $deduplicationLevel The minimum logging level for log records to be looked at for deduplication purposes</p>
+<p>@param int              $time               The period (in seconds) during which duplicate entries should be suppressed after a given log is sent through</p>
+<p>@param Boolean          $bubble             Whether the messages that are handled can bubble up the stack or not</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\DeduplicationHandler.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Monolog\Handler\DeduplicationHandler extends BufferHandler</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(HandlerInterface $handler, $deduplicationStore = null, $deduplicationLevel = Logger::ERROR, $time = 60, $bubble = true)</code></li>
+<li><code>flush()</code></li>
+<li><code>isDuplicate(array $record)</code></li>
+<li><code>collectLogs()</code></li>
+<li><code>appendRecord(array $record)</code></li>
+</ul>
+</body></html>

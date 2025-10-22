@@ -1,0 +1,58 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\DateTimeExcel\YearFrac.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\DateTimeExcel\YearFrac.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\DateTimeExcel\YearFrac.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5832 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>YEARFRAC.</p>
+<p>Calculates the fraction of the year represented by the number of whole days between two dates</p>
+<p>(the start_date and the end_date).</p>
+<p>Use the YEARFRAC worksheet function to identify the proportion of a whole year's benefits or</p>
+<p>obligations to assign to a specific term.</p>
+<p>Excel Function:</p>
+<p>       YEARFRAC(startDate,endDate[,method])</p>
+<p>See https://lists.oasis-open.org/archives/office-formula/200806/msg00039.html</p>
+<p>    for description of algorithm used in Excel</p>
+<p>@param mixed $startDate Excel date serial value (float), PHP date timestamp (integer),</p>
+<p>                                   PHP DateTime object, or a standard date string</p>
+<p>                        Or can be an array of values</p>
+<p>@param mixed $endDate Excel date serial value (float), PHP date timestamp (integer),</p>
+<p>                                   PHP DateTime object, or a standard date string</p>
+<p>                        Or can be an array of methods</p>
+<p>@param array|int $method Method used for the calculation</p>
+<p>                                       0 or omitted    US (NASD) 30/360</p>
+<p>                                       1                Actual/actual</p>
+<p>                                       2                Actual/360</p>
+<p>                                       3                Actual/365</p>
+<p>                                       4                European 30/360</p>
+<p>                        Or can be an array of methods</p>
+<p>@return array|float|string fraction of the year, or a string containing an error</p>
+<p>        If an array of values is passed for the $startDate or $endDays,arguments, then the returned result</p>
+<p>           will also be an array with matching dimensions</p>
+
+<p>Excel 1900 calendar treats date argument of null as 1900-01-00. Really.</p>
+<p>@param mixed $startDate</p>
+<p>@param mixed $endDate</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\DateTimeExcel\YearFrac.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\DateTimeExcel\YearFrac</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>fraction($startDate, $endDate, $method = 0)</code></li>
+<li><code>excelBug(float $sDate, $startDate, $endDate, int $method)</code></li>
+<li><code>method1(float $startDate, float $endDate)</code></li>
+</ul>
+</body></html>

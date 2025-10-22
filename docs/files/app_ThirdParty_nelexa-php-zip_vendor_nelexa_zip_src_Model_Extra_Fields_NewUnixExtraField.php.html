@@ -1,0 +1,107 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\Fields\NewUnixExtraField.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\Fields\NewUnixExtraField.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\Fields\NewUnixExtraField.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 6075 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Info-ZIP New Unix Extra Field:</p>
+<p>====================================.</p>
+<p>Currently stores Unix UIDs/GIDs up to 32 bits.</p>
+<p>(Last Revision 20080509)</p>
+<p>Value         Size        Description</p>
+<p>-----         ----        -----------</p>
+<p>(UnixN) 0x7875        Short       tag for this extra block type ("ux")</p>
+<p>TSize         Short       total data size for this block</p>
+<p>Version       1 byte      version of this extra field, currently 1</p>
+<p>UIDSize       1 byte      Size of UID field</p>
+<p>UID           Variable    UID for this entry</p>
+<p>GIDSize       1 byte      Size of GID field</p>
+<p>GID           Variable    GID for this entry</p>
+<p>Currently Version is set to the number 1.  If there is a need</p>
+<p>to change this field, the version will be incremented.  Changes</p>
+<p>may not be backward compatible so this extra field should not be</p>
+<p>used if the version is not recognized.</p>
+<p>UIDSize is the size of the UID field in bytes.  This size should</p>
+<p>match the size of the UID field on the target OS.</p>
+<p>UID is the UID for this entry in standard little endian format.</p>
+<p>GIDSize is the size of the GID field in bytes.  This size should</p>
+<p>match the size of the GID field on the target OS.</p>
+<p>GID is the GID for this entry in standard little endian format.</p>
+<p>If both the old 16-bit Unix extra field (tag 0x7855, Info-ZIP Unix)</p>
+<p>and this extra field are present, the values in this extra field</p>
+<p>supercede the values in that extra field.</p>
+
+<p>@var int header id</p>
+
+<p>ID of the first non-root user created on a unix system.</p>
+
+<p>@var int version of this extra field, currently 1</p>
+
+<p>@var int User id</p>
+
+<p>@var int Group id</p>
+
+<p>Returns the Header ID (type) of this Extra Field.</p>
+<p>The Header ID is an unsigned short integer (two bytes)</p>
+<p>which must be constant during the life cycle of this object.</p>
+
+<p>Populate data from this array as if it was in local file data.</p>
+<p>@param string        $buffer the buffer to read data from</p>
+<p>@param ZipEntry|null $entry  optional zip entry</p>
+<p>@throws ZipException</p>
+<p>@return NewUnixExtraField</p>
+
+<p>Populate data from this array as if it was in central directory data.</p>
+<p>@param string        $buffer the buffer to read data from</p>
+<p>@param ZipEntry|null $entry  optional zip entry</p>
+<p>@throws ZipException</p>
+<p>@return NewUnixExtraField</p>
+
+<p>The actual data to put into local file data - without Header-ID</p>
+<p>or length specifier.</p>
+<p>@return string the data</p>
+
+<p>The actual data to put into central directory - without Header-ID or</p>
+<p>length specifier.</p>
+<p>@return string the data</p>
+
+<p>@throws ZipException</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>this</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\Fields\NewUnixExtraField.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpZip\Model\Extra\Fields\NewUnixExtraField implements ZipExtraField</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(int $version = 1, int $uid = self::USER_GID_PID, int $gid = self::USER_GID_PID)</code></li>
+<li><code>getHeaderId()</code></li>
+<li><code>unpackLocalFileData(string $buffer, ?ZipEntry $entry = null)</code></li>
+<li><code>unpackCentralDirData(string $buffer, ?ZipEntry $entry = null)</code></li>
+<li><code>packLocalFileData()</code></li>
+<li><code>packCentralDirData()</code></li>
+<li><code>readSizeIntegerLE(string $data, int $size)</code></li>
+<li><code>getUid()</code></li>
+<li><code>setUid(int $uid)</code></li>
+<li><code>getGid()</code></li>
+<li><code>setGid(int $gid)</code></li>
+<li><code>getVersion()</code></li>
+<li><code>__toString()</code></li>
+</ul>
+</body></html>

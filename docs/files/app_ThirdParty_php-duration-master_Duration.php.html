@@ -1,0 +1,75 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\php-duration-master\Duration.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\php-duration-master\Duration.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\php-duration-master\Duration.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9402 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Duration constructor.</p>
+<p>@param int|float|string|null $duration</p>
+
+<p>Attempt to parse one of the forms of duration.</p>
+<p>@param  int|float|string|null $duration A string or number, representing a duration</p>
+<p>@return self|bool returns the Duration object if successful, otherwise false</p>
+
+<p>Returns the duration as an amount of seconds.</p>
+<p>For example, one hour and 42 minutes would be "6120"</p>
+<p>@param  int|float|string $duration A string or number, representing a duration</p>
+<p>@param  int|bool $precision Number of decimal digits to round to. If set to false, the number is not rounded.</p>
+<p>@return int|float</p>
+
+<p>Returns the duration as an amount of minutes.</p>
+<p>For example, one hour and 42 minutes would be "102" minutes</p>
+<p>@param  int|float|string $duration A string or number, representing a duration</p>
+<p>@param  int|bool $precision Number of decimal digits to round to. If set to false, the number is not rounded.</p>
+<p>@return int|float</p>
+
+<p>Returns the duration as a colon formatted string</p>
+<p>For example, one hour and 42 minutes would be "1:43"</p>
+<p>With $zeroFill to true :</p>
+<p>  - 42 minutes would be "0:42:00"</p>
+<p>  - 28 seconds would be "0:00:28"</p>
+<p>@param  int|float|string|null $duration A string or number, representing a duration</p>
+<p>@param  bool $zeroFill A boolean, to force zero-fill result or not (see example)</p>
+<p>@return string</p>
+
+<p>Returns the duration as a human-readable string.</p>
+<p>For example, one hour and 42 minutes would be "1h 42m"</p>
+<p>@param  int|float|string $duration A string or number, representing a duration</p>
+<p>@return string</p>
+
+<p>Resets the Duration object by clearing the output and values.</p>
+<p>@access private</p>
+<p>@return void</p>
+
+<p>Returns the output of the Duration object and resets.</p>
+<p>@access private</p>
+<p>@return string</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\php-duration-master\Duration.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Khill\Duration\Duration</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($duration = null, $hoursPerDay = 24)</code></li>
+<li><code>parse($duration)</code></li>
+<li><code>toSeconds($duration = null, $precision = false)</code></li>
+<li><code>toMinutes($duration = null, $precision = false)</code></li>
+<li><code>formatted($duration = null, $zeroFill = false)</code></li>
+<li><code>humanize($duration = null)</code></li>
+<li><code>numberBreakdown($number, $returnUnsigned = false)</code></li>
+<li><code>reset()</code></li>
+<li><code>output()</code></li>
+</ul>
+</body></html>

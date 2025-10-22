@@ -1,0 +1,91 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\ddeboer-imap\vendor\ddeboer\imap\src\MessageInterface.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\ddeboer-imap\vendor\ddeboer\imap\src\MessageInterface.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\ddeboer-imap\vendor\ddeboer\imap\src\MessageInterface.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2330 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>An IMAP message (e-mail).</p>
+
+<p>Get raw part content.</p>
+<p>@return string</p>
+
+<p>Get message recent flag value (from headers).</p>
+<p>@return null|string</p>
+
+<p>Get message unseen flag value (from headers).</p>
+<p>@return bool</p>
+
+<p>Get message flagged flag value (from headers).</p>
+<p>@return bool</p>
+
+<p>Get message answered flag value (from headers).</p>
+<p>@return bool</p>
+
+<p>Get message deleted flag value (from headers).</p>
+<p>@return bool</p>
+
+<p>Get message draft flag value (from headers).</p>
+<p>@return bool</p>
+
+<p>Has the message been marked as read?</p>
+<p>@return bool</p>
+
+<p>Mark message as seen.</p>
+<p>@return bool</p>
+<p>@deprecated since version 1.1, to be removed in 2.0</p>
+
+<p>Mark message as seen.</p>
+<p>@return bool</p>
+
+<p>Move message to another mailbox.</p>
+<p>@param MailboxInterface $mailbox</p>
+
+<p>Move message to another mailbox.</p>
+<p>@param MailboxInterface $mailbox</p>
+
+<p>Delete message.</p>
+
+<p>Set Flag Message.</p>
+<p>@param string $flag \Seen, \Answered, \Flagged, \Deleted, and \Draft</p>
+<p>@return bool</p>
+
+<p>Clear Flag Message.</p>
+<p>@param string $flag \Seen, \Answered, \Flagged, \Deleted, and \Draft</p>
+<p>@return bool</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>headers</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\ddeboer-imap\vendor\ddeboer\imap\src\MessageInterface.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getContent()</code></li>
+<li><code>isRecent()</code></li>
+<li><code>isUnseen()</code></li>
+<li><code>isFlagged()</code></li>
+<li><code>isAnswered()</code></li>
+<li><code>isDeleted()</code></li>
+<li><code>isDraft()</code></li>
+<li><code>isSeen()</code></li>
+<li><code>maskAsSeen()</code></li>
+<li><code>markAsSeen()</code></li>
+<li><code>copy(MailboxInterface $mailbox)</code></li>
+<li><code>move(MailboxInterface $mailbox)</code></li>
+<li><code>delete()</code></li>
+<li><code>setFlag(string $flag)</code></li>
+<li><code>clearFlag(string $flag)</code></li>
+</ul>
+</body></html>

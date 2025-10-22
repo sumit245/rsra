@@ -1,0 +1,118 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\JAMA\EigenvalueDecomposition.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\JAMA\EigenvalueDecomposition.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\JAMA\EigenvalueDecomposition.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 32630 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Class to obtain eigenvalues and eigenvectors of a real matrix.</p>
+<p>   If A is symmetric, then A = V*D*V' where the eigenvalue matrix D</p>
+<p>   is diagonal and the eigenvector matrix V is orthogonal (i.e.</p>
+<p>   A = V.times(D.times(V.transpose())) and V.times(V.transpose())</p>
+<p>   equals the identity matrix).</p>
+<p>   If A is not symmetric, then the eigenvalue matrix D is block diagonal</p>
+<p>   with the real eigenvalues in 1-by-1 blocks and any complex eigenvalues,</p>
+<p>   lambda + i*mu, in 2-by-2 blocks, [lambda, mu; -mu, lambda].  The</p>
+<p>   columns of V represent the eigenvectors in the sense that A*V = V*D,</p>
+<p>   i.e. A.times(V) equals V.times(D).  The matrix V may be badly</p>
+<p>   conditioned, or even singular, so the validity of the equation</p>
+<p>   A = V*D*inverse(V) depends upon V.cond().</p>
+<p>@author  Paul Meagher</p>
+<p>@version 1.1</p>
+
+<p>Row and column dimension (square matrix).</p>
+<p>@var int</p>
+
+<p>Arrays for internal storage of eigenvalues.</p>
+<p>@var array</p>
+
+<p>Array for internal storage of eigenvectors.</p>
+<p>@var array</p>
+
+<p>Array for internal storage of nonsymmetric Hessenberg form.</p>
+<p>@var array</p>
+
+<p>Working storage for nonsymmetric algorithm.</p>
+<p>@var array</p>
+
+<p>Used for complex scalar division.</p>
+<p>@var float</p>
+
+<p>@var array</p>
+
+<p>Symmetric Householder reduction to tridiagonal form.</p>
+
+<p>Symmetric tridiagonal QL algorithm.</p>
+<p>   This is derived from the Algol procedures tql2, by</p>
+<p>   Bowdler, Martin, Reinsch, and Wilkinson, Handbook for</p>
+<p>   Auto. Comp., Vol.ii-Linear Algebra, and the corresponding</p>
+<p>Fortran subroutine in EISPACK.</p>
+
+<p>Nonsymmetric reduction to Hessenberg form.</p>
+<p>   This is derived from the Algol procedures orthes and ortran,</p>
+<p>   by Martin and Wilkinson, Handbook for Auto. Comp.,</p>
+<p>   Vol.ii-Linear Algebra, and the corresponding</p>
+<p>Fortran subroutines in EISPACK.</p>
+
+<p>Performs complex division.</p>
+<p>@param mixed $xr</p>
+<p>@param mixed $xi</p>
+<p>@param mixed $yr</p>
+<p>@param mixed $yi</p>
+
+<p>Nonsymmetric reduction from Hessenberg to real Schur form.</p>
+<p>   Code is derived from the Algol procedure hqr2,</p>
+<p>   by Martin and Wilkinson, Handbook for Auto. Comp.,</p>
+<p>   Vol.ii-Linear Algebra, and the corresponding</p>
+<p>Fortran subroutine in EISPACK.</p>
+
+<p>Constructor: Check for symmetry, then construct the eigenvalue decomposition.</p>
+<p>@param Matrix $Arg A Square matrix</p>
+
+<p>Return the eigenvector matrix.</p>
+<p>@return Matrix V</p>
+
+<p>Return the real parts of the eigenvalues.</p>
+<p>@return array real(diag(D))</p>
+
+<p>Return the imaginary parts of the eigenvalues.</p>
+<p>@return array imag(diag(D))</p>
+
+<p>Return the block diagonal eigenvalue matrix.</p>
+<p>@return Matrix D</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>Hessenberg</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\JAMA\EigenvalueDecomposition.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Shared\JAMA\EigenvalueDecomposition</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>tred2()</code></li>
+<li><code>tql2()</code></li>
+<li><code>orthes()</code></li>
+<li><code>cdiv($xr, $xi, $yr, $yi)</code></li>
+<li><code>hqr2()</code></li>
+<li><code>__construct(Matrix $Arg)</code></li>
+<li><code>getV()</code></li>
+<li><code>getRealEigenvalues()</code></li>
+<li><code>getImagEigenvalues()</code></li>
+<li><code>getD()</code></li>
+</ul>
+</body></html>

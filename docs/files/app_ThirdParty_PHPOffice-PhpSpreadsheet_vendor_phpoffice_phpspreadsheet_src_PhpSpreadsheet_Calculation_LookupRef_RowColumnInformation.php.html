@@ -1,0 +1,75 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\LookupRef\RowColumnInformation.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\LookupRef\RowColumnInformation.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\LookupRef\RowColumnInformation.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7344 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Test if cellAddress is null or whitespace string.</p>
+<p>@param null|array|string $cellAddress A reference to a range of cells</p>
+
+<p>COLUMN.</p>
+<p>Returns the column number of the given cell reference</p>
+<p>    If the cell reference is a range of cells, COLUMN returns the column numbers of each column</p>
+<p>       in the reference as a horizontal array.</p>
+<p>    If cell reference is omitted, and the function is being called through the calculation engine,</p>
+<p>       then it is assumed to be the reference of the cell in which the COLUMN function appears;</p>
+<p>       otherwise this function returns 1.</p>
+<p>Excel Function:</p>
+<p>       =COLUMN([cellAddress])</p>
+<p>@param null|array|string $cellAddress A reference to a range of cells for which you want the column numbers</p>
+<p>@return int|int[]</p>
+
+<p>COLUMNS.</p>
+<p>Returns the number of columns in an array or reference.</p>
+<p>Excel Function:</p>
+<p>       =COLUMNS(cellAddress)</p>
+<p>@param null|array|string $cellAddress An array or array formula, or a reference to a range of cells</p>
+<p>                                         for which you want the number of columns</p>
+<p>@return int|string The number of columns in cellAddress, or a string if arguments are invalid</p>
+
+<p>ROW.</p>
+<p>Returns the row number of the given cell reference</p>
+<p>    If the cell reference is a range of cells, ROW returns the row numbers of each row in the reference</p>
+<p>       as a vertical array.</p>
+<p>    If cell reference is omitted, and the function is being called through the calculation engine,</p>
+<p>       then it is assumed to be the reference of the cell in which the ROW function appears;</p>
+<p>       otherwise this function returns 1.</p>
+<p>Excel Function:</p>
+<p>       =ROW([cellAddress])</p>
+<p>@param null|array|string $cellAddress A reference to a range of cells for which you want the row numbers</p>
+<p>@return int|mixed[]|string</p>
+
+<p>ROWS.</p>
+<p>Returns the number of rows in an array or reference.</p>
+<p>Excel Function:</p>
+<p>       =ROWS(cellAddress)</p>
+<p>@param null|array|string $cellAddress An array or array formula, or a reference to a range of cells</p>
+<p>                                         for which you want the number of rows</p>
+<p>@return int|string The number of rows in cellAddress, or a string if arguments are invalid</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\LookupRef\RowColumnInformation.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\LookupRef\RowColumnInformation</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>cellAddressNullOrWhitespace($cellAddress)</code></li>
+<li><code>cellColumn(?Cell $cell)</code></li>
+<li><code>COLUMN($cellAddress = null, ?Cell $cell = null)</code></li>
+<li><code>COLUMNS($cellAddress = null)</code></li>
+<li><code>cellRow(?Cell $cell)</code></li>
+<li><code>ROW($cellAddress = null, ?Cell $cell = null)</code></li>
+<li><code>ROWS($cellAddress = null)</code></li>
+</ul>
+</body></html>

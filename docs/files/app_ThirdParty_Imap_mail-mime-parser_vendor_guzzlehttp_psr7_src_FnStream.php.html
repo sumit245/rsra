@@ -1,0 +1,71 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\guzzlehttp\psr7\src\FnStream.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\guzzlehttp\psr7\src\FnStream.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\guzzlehttp\psr7\src\FnStream.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3930 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Compose stream implementations based on a hash of functions.</p>
+<p>Allows for easy testing and extension of a provided stream without needing</p>
+<p>to create a concrete class for a simple extension point.</p>
+
+<p>@var array</p>
+
+<p>@var array Methods that must be implemented in the given array</p>
+
+<p>@param array $methods Hash of method name to a callable.</p>
+
+<p>Lazily determine which methods are not implemented.</p>
+<p>@throws \BadMethodCallException</p>
+
+<p>The close method is called on the underlying stream only if possible.</p>
+
+<p>An unserialize would allow the __destruct to run when the unserialized value goes out of scope.</p>
+<p>@throws \LogicException</p>
+
+<p>Adds custom functionality to an underlying stream by intercepting</p>
+<p>specific method calls.</p>
+<p>@param StreamInterface $stream  Stream to decorate</p>
+<p>@param array           $methods Hash of method name to a closure</p>
+<p>@return FnStream</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\guzzlehttp\psr7\src\FnStream.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>GuzzleHttp\Psr7\for</code></li>
+<li><code>GuzzleHttp\Psr7\FnStream implements StreamInterface</code></li>
+<li><code>GuzzleHttp\Psr7\foreach</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(array $methods)</code></li>
+<li><code>__get($name)</code></li>
+<li><code>__destruct()</code></li>
+<li><code>__wakeup()</code></li>
+<li><code>decorate(StreamInterface $stream, array $methods)</code></li>
+<li><code>__toString()</code></li>
+<li><code>close()</code></li>
+<li><code>detach()</code></li>
+<li><code>getSize()</code></li>
+<li><code>tell()</code></li>
+<li><code>eof()</code></li>
+<li><code>isSeekable()</code></li>
+<li><code>rewind()</code></li>
+<li><code>seek($offset, $whence = SEEK_SET)</code></li>
+<li><code>isWritable()</code></li>
+<li><code>write($string)</code></li>
+<li><code>isReadable()</code></li>
+<li><code>read($length)</code></li>
+<li><code>getContents()</code></li>
+<li><code>getMetadata($key = null)</code></li>
+</ul>
+</body></html>

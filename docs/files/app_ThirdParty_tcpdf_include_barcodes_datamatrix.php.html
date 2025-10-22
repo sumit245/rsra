@@ -1,0 +1,253 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\tcpdf\include\barcodes\datamatrix.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\tcpdf\include\barcodes\datamatrix.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\tcpdf\include\barcodes\datamatrix.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 42698 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@file</p>
+<p>Class to create DataMatrix ECC 200 barcode arrays for TCPDF class.</p>
+<p>DataMatrix (ISO/IEC 16022:2006) is a 2-dimensional bar code.</p>
+<p>@package com.tecnick.tcpdf</p>
+<p>@author Nicola Asuni</p>
+<p>@version 1.0.008</p>
+
+<p>Indicate that definitions for this class are set</p>
+
+<p>ASCII encoding: ASCII character 0 to 127 (1 byte per CW)</p>
+
+<p>C40 encoding: Upper-case alphanumeric (3/2 bytes per CW)</p>
+
+<p>TEXT encoding: Lower-case alphanumeric (3/2 bytes per CW)</p>
+
+<p>X12 encoding: ANSI X12 (3/2 byte per CW)</p>
+
+<p>EDIFACT encoding: ASCII character 32 to 94 (4/3 bytes per CW)</p>
+
+<p>BASE 256 encoding: ASCII character 0 to 255 (1 byte per CW)</p>
+
+<p>ASCII extended encoding: ASCII character 128 to 255 (1/2 byte per CW)</p>
+
+<p>ASCII number encoding: ASCII digits (2 bytes per CW)</p>
+
+<p>@class Datamatrix</p>
+<p>Class to create DataMatrix ECC 200 barcode arrays for TCPDF class.</p>
+<p>DataMatrix (ISO/IEC 16022:2006) is a 2-dimensional bar code.</p>
+<p>@package com.tecnick.tcpdf</p>
+<p>@author Nicola Asuni</p>
+<p>@version 1.0.004</p>
+
+<p>Barcode array to be returned which is readable by TCPDF.</p>
+<p>@protected</p>
+
+<p>Store last used encoding for data codewords.</p>
+<p>@protected</p>
+
+<p>Table of Data Matrix ECC 200 Symbol Attributes:<ul></p>
+<p><li>total matrix rows (including finder pattern)</li></p>
+<p><li>total matrix cols (including finder pattern)</li></p>
+<p><li>total matrix rows (without finder pattern)</li></p>
+<p><li>total matrix cols (without finder pattern)</li></p>
+<p><li>region data rows (with finder pattern)</li></p>
+<p><li>region data col (with finder pattern)</li></p>
+<p><li>region data rows (without finder pattern)</li></p>
+<p><li>region data col (without finder pattern)</li></p>
+<p><li>horizontal regions</li></p>
+<p><li>vertical regions</li></p>
+<p><li>regions</li></p>
+<p><li>data codewords</li></p>
+<p><li>error codewords</li></p>
+<p><li>blocks</li></p>
+<p><li>data codewords per block</li></p>
+<p><li>error codewords per block</li></p>
+<p></ul></p>
+<p>@protected</p>
+
+<p>Map encodation modes whit character sets.</p>
+<p>@protected</p>
+
+<p>Basic set of characters for each encodation mode.</p>
+<p>@protected</p>
+
+<p>This is the class constructor.</p>
+<p>Creates a datamatrix object</p>
+<p>@param string $code Code to represent using Datamatrix.</p>
+<p>@public</p>
+
+<p>Returns a barcode array which is readable by TCPDF</p>
+<p>@return array barcode array readable by TCPDF;</p>
+<p>@public</p>
+
+<p>Product of two numbers in a Power-of-Two Galois Field</p>
+<p>@param int $a first number to multiply.</p>
+<p>@param int $b second number to multiply.</p>
+<p>@param array $log Log table.</p>
+<p>@param array $alog Anti-Log table.</p>
+<p>@param int $gf Number of Factors of the Reed-Solomon polynomial.</p>
+<p>@return int product</p>
+<p>@protected</p>
+
+<p>Add error correction codewords to data codewords array (ANNEX E).</p>
+<p>@param array $wd Array of datacodewords.</p>
+<p>@param int $nb Number of blocks.</p>
+<p>@param int $nd Number of data codewords per block.</p>
+<p>@param int $nc Number of correction codewords per block.</p>
+<p>@param int $gf numner of fields on log/antilog table (power of 2).</p>
+<p>@param int $pp The value of its prime modulus polynomial (301 for ECC200).</p>
+<p>@return array data codewords + error codewords</p>
+<p>@protected</p>
+
+<p>Return the 253-state codeword</p>
+<p>@param int $cwpad Pad codeword.</p>
+<p>@param int $cwpos Number of data codewords from the beginning of encoded data.</p>
+<p>@return int pad codeword</p>
+<p>@protected</p>
+
+<p>Return the 255-state codeword</p>
+<p>@param int $cwpad Pad codeword.</p>
+<p>@param int $cwpos Number of data codewords from the beginning of encoded data.</p>
+<p>@return int pad codeword</p>
+<p>@protected</p>
+
+<p>Returns true if the char belongs to the selected mode</p>
+<p>@param int $chr Character (byte) to check.</p>
+<p>@param int $mode Current encoding mode.</p>
+<p>@return boolean true if the char is of the selected mode.</p>
+<p>@protected</p>
+
+<p>The look-ahead test scans the data to be encoded to find the best mode (Annex P - steps from J to S).</p>
+<p>@param string $data data to encode</p>
+<p>@param int $pos current position</p>
+<p>@param int $mode current encoding mode</p>
+<p>@return int encoding mode</p>
+<p>@protected</p>
+
+<p>Get the switching codeword to a new encoding mode (latch codeword)</p>
+<p>@param int $mode New encoding mode.</p>
+<p>@return int Switch codeword.</p>
+<p>@protected</p>
+
+<p>Choose the minimum matrix size and return the max number of data codewords.</p>
+<p>@param int $numcw Number of current codewords.</p>
+<p>@return int number of data codewords in matrix</p>
+<p>@protected</p>
+
+<p>Get high level encoding using the minimum symbol data characters for ECC 200</p>
+<p>@param string $data data to encode</p>
+<p>@return array of codewords</p>
+<p>@protected</p>
+
+<p>Places "chr+bit" with appropriate wrapping within array[].</p>
+<p>(Annex F - ECC 200 symbol character placement)</p>
+<p>@param array $marr Array of symbols.</p>
+<p>@param int $nrow Number of rows.</p>
+<p>@param int $ncol Number of columns.</p>
+<p>@param int $row Row number.</p>
+<p>@param int $col Column number.</p>
+<p>@param int $chr Char byte.</p>
+<p>@param int $bit Bit.</p>
+<p>@return array</p>
+<p>@protected</p>
+
+<p>Places the 8 bits of a utah-shaped symbol character.</p>
+<p>(Annex F - ECC 200 symbol character placement)</p>
+<p>@param array $marr Array of symbols.</p>
+<p>@param int $nrow Number of rows.</p>
+<p>@param int $ncol Number of columns.</p>
+<p>@param int $row Row number.</p>
+<p>@param int $col Column number.</p>
+<p>@param int $chr Char byte.</p>
+<p>@return array</p>
+<p>@protected</p>
+
+<p>Places the 8 bits of the first special corner case.</p>
+<p>(Annex F - ECC 200 symbol character placement)</p>
+<p>@param array $marr Array of symbols.</p>
+<p>@param int $nrow Number of rows.</p>
+<p>@param int $ncol Number of columns.</p>
+<p>@param int $chr Char byte.</p>
+<p>@return array</p>
+<p>@protected</p>
+
+<p>Places the 8 bits of the second special corner case.</p>
+<p>(Annex F - ECC 200 symbol character placement)</p>
+<p>@param array $marr Array of symbols.</p>
+<p>@param int $nrow Number of rows.</p>
+<p>@param int $ncol Number of columns.</p>
+<p>@param int $chr Char byte.</p>
+<p>@return array</p>
+<p>@protected</p>
+
+<p>Places the 8 bits of the third special corner case.</p>
+<p>(Annex F - ECC 200 symbol character placement)</p>
+<p>@param array $marr Array of symbols.</p>
+<p>@param int $nrow Number of rows.</p>
+<p>@param int $ncol Number of columns.</p>
+<p>@param int $chr Char byte.</p>
+<p>@return array</p>
+<p>@protected</p>
+
+<p>Places the 8 bits of the fourth special corner case.</p>
+<p>(Annex F - ECC 200 symbol character placement)</p>
+<p>@param array $marr Array of symbols.</p>
+<p>@param int $nrow Number of rows.</p>
+<p>@param int $ncol Number of columns.</p>
+<p>@param int $chr Char byte.</p>
+<p>@return array</p>
+<p>@protected</p>
+
+<p>Build a placement map.</p>
+<p>(Annex F - ECC 200 symbol character placement)</p>
+<p>@param int $nrow Number of rows.</p>
+<p>@param int $ncol Number of columns.</p>
+<p>@return array</p>
+<p>@protected</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>J</code></li>
+<li><code>EDIFACT</code></li>
+<li><code>B256</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\tcpdf\include\barcodes\datamatrix.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>are</code></li>
+<li><code>Datamatrix</code></li>
+<li><code>Datamatrix</code></li>
+<li><code>constructor</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($code)</code></li>
+<li><code>getBarcodeArray()</code></li>
+<li><code>getGFProduct($a, $b, $log, $alog, $gf)</code></li>
+<li><code>getErrorCorrection($wd, $nb, $nd, $nc, $gf=256, $pp=301)</code></li>
+<li><code>get253StateCodeword($cwpad, $cwpos)</code></li>
+<li><code>get255StateCodeword($cwpad, $cwpos)</code></li>
+<li><code>isCharMode($chr, $mode)</code></li>
+<li><code>lookAheadTest($data, $pos, $mode)</code></li>
+<li><code>getSwitchEncodingCodeword($mode)</code></li>
+<li><code>getMaxDataCodewords($numcw)</code></li>
+<li><code>getHighLevelEncoding($data)</code></li>
+<li><code>placeModule($marr, $nrow, $ncol, $row, $col, $chr, $bit)</code></li>
+<li><code>placeUtah($marr, $nrow, $ncol, $row, $col, $chr)</code></li>
+<li><code>placeCornerA($marr, $nrow, $ncol, $chr)</code></li>
+<li><code>placeCornerB($marr, $nrow, $ncol, $chr)</code></li>
+<li><code>placeCornerC($marr, $nrow, $ncol, $chr)</code></li>
+<li><code>placeCornerD($marr, $nrow, $ncol, $chr)</code></li>
+<li><code>getPlacementMap($nrow, $ncol)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,105 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Zipper.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Zipper.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Zipper.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4442 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>A zipper is a purely-functional data structure which contains</p>
+<p>a focus that can be efficiently manipulated.  It is known as</p>
+<p>a "one-hole context".  This mutable variant implements a zipper</p>
+<p>for a list as a pair of two arrays, laid out as follows:</p>
+<p>     Base list: 1 2 3 4 [ ] 6 7 8 9</p>
+<p>     Front list: 1 2 3 4</p>
+<p>     Back list: 9 8 7 6</p>
+<p>User is expected to keep track of the "current element" and properly</p>
+<p>fill it back in as necessary.  (ToDo: Maybe it's more user friendly</p>
+<p>to implicitly track the current element?)</p>
+<p>Nota bene: the current class gets confused if you try to store NULLs</p>
+<p>in the list.</p>
+
+<p>Creates a zipper from an array, with a hole in the</p>
+<p>0-index position.</p>
+<p>@param Array to zipper-ify.</p>
+<p>@return Tuple of zipper and element of first position.</p>
+
+<p>Convert zipper back into a normal array, optionally filling in</p>
+<p>the hole with a value. (Usually you should supply a $t, unless you</p>
+<p>are at the end of the array.)</p>
+
+<p>Move hole to the next element.</p>
+<p>@param $t Element to fill hole with</p>
+<p>@return Original contents of new hole.</p>
+
+<p>Iterated hole advancement.</p>
+<p>@param $t Element to fill hole with</p>
+<p>@param $i How many forward to advance hole</p>
+<p>@return Original contents of new hole, i away</p>
+
+<p>Move hole to the previous element</p>
+<p>@param $t Element to fill hole with</p>
+<p>@return Original contents of new hole.</p>
+
+<p>Delete contents of current hole, shifting hole to</p>
+<p>next element.</p>
+<p>@return Original contents of new hole.</p>
+
+<p>Returns true if we are at the end of the list.</p>
+<p>@return bool</p>
+
+<p>Insert element before hole.</p>
+<p>@param Element to insert</p>
+
+<p>Insert element after hole.</p>
+<p>@param Element to insert</p>
+
+<p>Splice in multiple elements at hole.  Functional specification</p>
+<p>in terms of array_splice:</p>
+<p>     $arr1 = $arr;</p>
+<p>     $old1 = array_splice($arr1, $i, $delete, $replacement);</p>
+<p>     list($z, $t) = HTMLPurifier_Zipper::fromArray($arr);</p>
+<p>     $t = $z->advance($t, $i);</p>
+<p>     list($old2, $t) = $z->splice($t, $delete, $replacement);</p>
+<p>     $arr2 = $z->toArray($t);</p>
+<p>     assert($old1 === $old2);</p>
+<p>     assert($arr1 === $arr2);</p>
+<p>NB: the absolute index location after this operation is</p>
+<p>*unchanged!*</p>
+<p>@param Current contents of hole.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>an</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Zipper.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>gets</code></li>
+<li><code>HTMLPurifier_Zipper</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($front, $back)</code></li>
+<li><code>fromArray($array)</code></li>
+<li><code>toArray($t = NULL)</code></li>
+<li><code>next($t)</code></li>
+<li><code>advance($t, $n)</code></li>
+<li><code>prev($t)</code></li>
+<li><code>delete()</code></li>
+<li><code>done()</code></li>
+<li><code>insertBefore($t)</code></li>
+<li><code>insertAfter($t)</code></li>
+<li><code>splice($t, $delete, $replacement)</code></li>
+</ul>
+</body></html>

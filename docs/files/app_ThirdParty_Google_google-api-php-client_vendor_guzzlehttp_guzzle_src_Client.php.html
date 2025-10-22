@@ -1,0 +1,98 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Client.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Client.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Client.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 16574 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@method ResponseInterface get(string|UriInterface $uri, array $options = [])</p>
+<p>@method ResponseInterface head(string|UriInterface $uri, array $options = [])</p>
+<p>@method ResponseInterface put(string|UriInterface $uri, array $options = [])</p>
+<p>@method ResponseInterface post(string|UriInterface $uri, array $options = [])</p>
+<p>@method ResponseInterface patch(string|UriInterface $uri, array $options = [])</p>
+<p>@method ResponseInterface delete(string|UriInterface $uri, array $options = [])</p>
+<p>@method Promise\PromiseInterface getAsync(string|UriInterface $uri, array $options = [])</p>
+<p>@method Promise\PromiseInterface headAsync(string|UriInterface $uri, array $options = [])</p>
+<p>@method Promise\PromiseInterface putAsync(string|UriInterface $uri, array $options = [])</p>
+<p>@method Promise\PromiseInterface postAsync(string|UriInterface $uri, array $options = [])</p>
+<p>@method Promise\PromiseInterface patchAsync(string|UriInterface $uri, array $options = [])</p>
+<p>@method Promise\PromiseInterface deleteAsync(string|UriInterface $uri, array $options = [])</p>
+
+<p>@var array Default request options</p>
+
+<p>Clients accept an array of constructor parameters.</p>
+<p>Here's an example of creating a client using a base_uri and an array of</p>
+<p>default request options to apply to each request:</p>
+<p>    $client = new Client([</p>
+<p>        'base_uri'        => 'http://www.foo.com/1.0/',</p>
+<p>        'timeout'         => 0,</p>
+<p>        'allow_redirects' => false,</p>
+<p>        'proxy'           => '192.168.16.1:10'</p>
+<p>    ]);</p>
+<p>Client configuration settings include the following options:</p>
+<ul>
+<li>handler: (callable) Function that transfers HTTP requests over the</li>
+<p>  wire. The function is called with a Psr7\Http\Message\RequestInterface</p>
+<p>  and array of transfer options, and must return a</p>
+<p>  GuzzleHttp\Promise\PromiseInterface that is fulfilled with a</p>
+<p>  Psr7\Http\Message\ResponseInterface on success. "handler" is a</p>
+<p>  constructor only option that cannot be overridden in per/request</p>
+<p>  options. If no handler is provided, a default handler will be created</p>
+<p>  that enables all of the request options below by attaching all of the</p>
+<p>  default middleware to the handler.</p>
+<li>base_uri: (string|UriInterface) Base URI of the client that is merged</li>
+<p>  into relative URIs. Can be a string or instance of UriInterface.</p>
+<li>**: any request option</li>
+<p>@param array $config Client configuration settings.</p>
+<p>@see \GuzzleHttp\RequestOptions for a list of available request options.</p>
+</ul>
+<p>Configures the default options for a client.</p>
+<p>@param array $config</p>
+
+<p>Merges default options into the array.</p>
+<p>@param array $options Options to modify by reference</p>
+<p>@return array</p>
+
+<p>Transfers the given request and applies request options.</p>
+<p>The URI of the request is not modified and the request options are used</p>
+<p>as-is without merging in default options.</p>
+<p>@param RequestInterface $request</p>
+<p>@param array            $options</p>
+<p>@return Promise\PromiseInterface</p>
+
+<p>Applies the array of request options to a request.</p>
+<p>@param RequestInterface $request</p>
+<p>@param array            $options</p>
+<p>@return RequestInterface</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Client.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>GuzzleHttp\Client implements ClientInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(array $config = [])</code></li>
+<li><code>__call($method, $args)</code></li>
+<li><code>sendAsync(RequestInterface $request, array $options = [])</code></li>
+<li><code>send(RequestInterface $request, array $options = [])</code></li>
+<li><code>requestAsync($method, $uri = '', array $options = [])</code></li>
+<li><code>request($method, $uri = '', array $options = [])</code></li>
+<li><code>getConfig($option = null)</code></li>
+<li><code>buildUri($uri, array $config)</code></li>
+<li><code>configureDefaults(array $config)</code></li>
+<li><code>prepareDefaults($options)</code></li>
+<li><code>transfer(RequestInterface $request, array $options)</code></li>
+<li><code>applyOptions(RequestInterface $request, array &$options)</code></li>
+<li><code>invalidBody()</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,50 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\SKU.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\SKU.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\SKU.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2786 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Stores representations of <a</p>
+<p>href="http://en.wikipedia.org/wiki/Stock_keeping_unit">stock keeping units</a>.</p>
+<p>SKUs describe specific product variations, taking into account any combination</p>
+<p>of: attributes, currency, and cost. For example, a product may be a T-shirt,</p>
+<p>whereas a specific SKU represents the <code>size: large</code>, <code>color:</p>
+<p>red</code> version of that shirt.</p>
+<p>Can also be used to manage inventory.</p>
+<p>@property string $id Unique identifier for the object.</p>
+<p>@property string $object String representing the object's type. Objects of the same type share the same value.</p>
+<p>@property bool $active Whether the SKU is available for purchase.</p>
+<p>@property \Stripe\StripeObject $attributes A dictionary of attributes and values for the attributes defined by the product. If, for example, a product's attributes are <code>[&quot;size&quot;, &quot;gender&quot;]</code>, a valid SKU has the following dictionary of attributes: <code>{&quot;size&quot;: &quot;Medium&quot;, &quot;gender&quot;: &quot;Unisex&quot;}</code>.</p>
+<p>@property int $created Time at which the object was created. Measured in seconds since the Unix epoch.</p>
+<p>@property string $currency Three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO currency code</a>, in lowercase. Must be a <a href="https://stripe.com/docs/currencies">supported currency</a>.</p>
+<p>@property null|string $image The URL of an image for this SKU, meant to be displayable to the customer.</p>
+<p>@property \Stripe\StripeObject $inventory</p>
+<p>@property bool $livemode Has the value <code>true</code> if the object exists in live mode or the value <code>false</code> if the object exists in test mode.</p>
+<p>@property \Stripe\StripeObject $metadata Set of <a href="https://stripe.com/docs/api/metadata">key-value pairs</a> that you can attach to an object. This can be useful for storing additional information about the object in a structured format.</p>
+<p>@property null|\Stripe\StripeObject $package_dimensions The dimensions of this SKU for shipping purposes.</p>
+<p>@property int $price The cost of the item as a positive integer in the smallest currency unit (that is, 100 cents to charge $1.00, or 100 to charge ¥100, Japanese Yen being a zero-decimal currency).</p>
+<p>@property string|\Stripe\Product $product The ID of the product this SKU is associated with. The product must be currently active.</p>
+<p>@property int $updated Time at which the object was last updated. Measured in seconds since the Unix epoch.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\SKU.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\SKU extends ApiResource</code></li>
+</ul>
+</body></html>

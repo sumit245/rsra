@@ -1,0 +1,145 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\HeaderContainer.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\HeaderContainer.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\HeaderContainer.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 8684 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Maintains a collection of headers for a part.</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var HeaderFactory the HeaderFactory object used for created headers</p>
+
+<p>@var string[][] Each element in the array is an array with its first</p>
+<p>element set to the header's name, and the second its value.</p>
+
+<p>@var \ZBateson\MailMimeParser\Header\AbstractHeader[] Each element is an</p>
+<p>     AbstractHeader representing the header at the same index in the</p>
+<p>     $headers array.  If an AbstractHeader has not been constructed for</p>
+<p>     the header at that index, the element would be set to null.</p>
+
+<p>@var array Maps header names by their "normalized" (lower-cased,</p>
+<p>     non-alphanumeric characters stripped) name to an array of indexes in</p>
+<p>     the $headers array.  For example:</p>
+<p>     $headerMap['contenttype] = [ 1, 4 ]</p>
+<p>     would indicate that the headers in $headers[1] and $headers[4] are</p>
+<p>     both headers with the name 'Content-Type' or 'contENTtype'.</p>
+
+<p>@var int the next index to use for $headers and $headerObjects.</p>
+
+<p>Constructor</p>
+<p>@param HeaderFactory $headerFactory</p>
+
+<p>Returns true if the passed header exists in this collection.</p>
+<p>@param string $name</p>
+<p>@param int $offset</p>
+<p>@return boolean</p>
+
+<p>Returns an array of header indexes with names that more closely match</p>
+<p>the passed $name if available: for instance if there are two headers in</p>
+<p>an email, "Content-Type" and "ContentType", and the query is for a header</p>
+<p>with the name "Content-Type", only headers that match exactly</p>
+<p>"Content-Type" would be returned.</p>
+<p>@param string $name</p>
+<p>@return int[]</p>
+
+<p>Returns the AbstractHeader object for the header with the given $name and</p>
+<p>at the optional offset (defaulting to the first header in the collection</p>
+<p>where more than one header with the same name exists).</p>
+<p>Note that mime headers aren't case sensitive.</p>
+<p>@param string $name</p>
+<p>@param int $offset</p>
+<p>@return \ZBateson\MailMimeParser\Header\AbstractHeader</p>
+
+<p>Returns all headers with the passed name.</p>
+<p>@param string $name</p>
+<p>@return \ZBateson\MailMimeParser\Header\AbstractHeader[]</p>
+
+<p>Returns the header in the headers array at the passed 0-based integer</p>
+<p>index.</p>
+<p>@param int $index</p>
+<p>@return \ZBateson\MailMimeParser\Header\AbstractHeader</p>
+
+<p>Removes the header from the collection with the passed name.  Defaults to</p>
+<p>removing the first instance of the header for a collection that contains</p>
+<p>more than one with the same passed name.</p>
+<p>@param string $name</p>
+<p>@param int $offset</p>
+<p>@return boolean</p>
+
+<p>Removes all headers that match the passed name.</p>
+<p>@param string $name</p>
+<p>@return boolean</p>
+
+<p>Adds the header to the collection.</p>
+<p>@param string $name</p>
+<p>@param string $value</p>
+
+<p>If a header exists with the passed name, and at the passed offset if more</p>
+<p>than one exists, its value is updated.</p>
+<p>If a header with the passed name doesn't exist at the passed offset, it</p>
+<p>is created at the next available offset (offset is ignored when adding).</p>
+<p>@param string $name</p>
+<p>@param string $value</p>
+<p>@param int $offset</p>
+
+<p>Returns an array of AbstractHeader objects representing all headers in</p>
+<p>this collection.</p>
+<p>@return AbstractHeader</p>
+
+<p>Returns an array of headers in this collection.  Each returned element in</p>
+<p>the array is an array with the first element set to the name, and the</p>
+<p>second its value:</p>
+<p>[</p>
+<p>    [ 'Header-Name', 'Header Value' ],</p>
+<p>    [ 'Second-Header-Name', 'Second-Header-Value' ],</p>
+<p>    // etc...</p>
+<p>]</p>
+<p>@return string[][]</p>
+
+<p>Returns an iterator to the headers in this collection.  Each returned</p>
+<p>element is an array with its first element set to the header's name, and</p>
+<p>the second to its value:</p>
+<p>[ 'Header-Name', 'Header Value' ]</p>
+<p>@return ArrayIterator</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\HeaderContainer.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Header\HeaderContainer implements IteratorAggregate</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(HeaderFactory $headerFactory)</code></li>
+<li><code>exists($name, $offset = 0)</code></li>
+<li><code>getAllWithOriginalHeaderNameIfSet($name)</code></li>
+<li><code>get($name, $offset = 0)</code></li>
+<li><code>getAll($name)</code></li>
+<li><code>getByIndex($index)</code></li>
+<li><code>remove($name, $offset = 0)</code></li>
+<li><code>removeAll($name)</code></li>
+<li><code>add($name, $value)</code></li>
+<li><code>set($name, $value, $offset = 0)</code></li>
+<li><code>getHeaderObjects()</code></li>
+<li><code>getHeaders()</code></li>
+<li><code>getIterator()</code></li>
+</ul>
+</body></html>

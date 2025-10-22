@@ -1,0 +1,123 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\symfony\polyfill-mbstring\Mbstring.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\symfony\polyfill-mbstring\Mbstring.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\symfony\polyfill-mbstring\Mbstring.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 29167 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Partial mbstring implementation in PHP, iconv based, UTF-8 centric.</p>
+<p>Implemented:</p>
+<ul>
+<li>mb_chr                  - Returns a specific character from its Unicode code point</li>
+<li>mb_convert_encoding     - Convert character encoding</li>
+<li>mb_convert_variables    - Convert character code in variable(s)</li>
+<li>mb_decode_mimeheader    - Decode string in MIME header field</li>
+<li>mb_encode_mimeheader    - Encode string for MIME header XXX NATIVE IMPLEMENTATION IS REALLY BUGGED</li>
+<li>mb_decode_numericentity - Decode HTML numeric string reference to character</li>
+<li>mb_encode_numericentity - Encode character to HTML numeric string reference</li>
+<li>mb_convert_case         - Perform case folding on a string</li>
+<li>mb_detect_encoding      - Detect character encoding</li>
+<li>mb_get_info             - Get internal settings of mbstring</li>
+<li>mb_http_input           - Detect HTTP input character encoding</li>
+<li>mb_http_output          - Set/Get HTTP output character encoding</li>
+<li>mb_internal_encoding    - Set/Get internal character encoding</li>
+<li>mb_list_encodings       - Returns an array of all supported encodings</li>
+<li>mb_ord                  - Returns the Unicode code point of a character</li>
+<li>mb_output_handler       - Callback function converts character encoding in output buffer</li>
+<li>mb_scrub                - Replaces ill-formed byte sequences with substitute characters</li>
+<li>mb_strlen               - Get string length</li>
+<li>mb_strpos               - Find position of first occurrence of string in a string</li>
+<li>mb_strrpos              - Find position of last occurrence of a string in a string</li>
+<li>mb_str_split            - Convert a string to an array</li>
+<li>mb_strtolower           - Make a string lowercase</li>
+<li>mb_strtoupper           - Make a string uppercase</li>
+<li>mb_substitute_character - Set/Get substitution character</li>
+<li>mb_substr               - Get part of string</li>
+<li>mb_stripos              - Finds position of first occurrence of a string within another, case insensitive</li>
+<li>mb_stristr              - Finds first occurrence of a string within another, case insensitive</li>
+<li>mb_strrchr              - Finds the last occurrence of a character in a string within another</li>
+<li>mb_strrichr             - Finds the last occurrence of a character in a string within another, case insensitive</li>
+<li>mb_strripos             - Finds position of last occurrence of a string within another, case insensitive</li>
+<li>mb_strstr               - Finds first occurrence of a string within another</li>
+<li>mb_strwidth             - Return width of string</li>
+<li>mb_substr_count         - Count the number of substring occurrences</li>
+<p>Not implemented:</p>
+<li>mb_convert_kana         - Convert "kana" one from another ("zen-kaku", "han-kaku" and more)</li>
+<li>mb_ereg_*               - Regular expression with multibyte support</li>
+<li>mb_parse_str            - Parse GET/POST/COOKIE data and set global variable</li>
+<li>mb_preferred_mime_name  - Get MIME charset string</li>
+<li>mb_regex_encoding       - Returns current encoding for multibyte regex as string</li>
+<li>mb_regex_set_options    - Set/Get the default options for mbregex functions</li>
+<li>mb_send_mail            - Send encoded mail</li>
+<li>mb_split                - Split multibyte string using regular expression</li>
+<li>mb_strcut               - Get part of string</li>
+<li>mb_strimwidth           - Get truncated string with specified width</li>
+<p>@author Nicolas Grekas <p@tchwork.com></p>
+<p>@internal</p>
+</ul>
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>its</code></li>
+<li><code>another</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\symfony\polyfill-mbstring\Mbstring.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Symfony\Polyfill\Mbstring\Mbstring</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>mb_convert_encoding($s, $toEncoding, $fromEncoding = null)</code></li>
+<li><code>mb_convert_variables($toEncoding, $fromEncoding, &...$vars)</code></li>
+<li><code>mb_decode_mimeheader($s)</code></li>
+<li><code>mb_encode_mimeheader($s, $charset = null, $transferEncoding = null, $linefeed = null, $indent = null)</code></li>
+<li><code>mb_decode_numericentity($s, $convmap, $encoding = null)</code></li>
+<li><code>mb_encode_numericentity($s, $convmap, $encoding = null, $is_hex = false)</code></li>
+<li><code>mb_convert_case($s, $mode, $encoding = null)</code></li>
+<li><code>mb_internal_encoding($encoding = null)</code></li>
+<li><code>mb_language($lang = null)</code></li>
+<li><code>mb_list_encodings()</code></li>
+<li><code>mb_encoding_aliases($encoding)</code></li>
+<li><code>mb_check_encoding($var = null, $encoding = null)</code></li>
+<li><code>mb_detect_encoding($str, $encodingList = null, $strict = false)</code></li>
+<li><code>mb_detect_order($encodingList = null)</code></li>
+<li><code>mb_strlen($s, $encoding = null)</code></li>
+<li><code>mb_strpos($haystack, $needle, $offset = 0, $encoding = null)</code></li>
+<li><code>mb_strrpos($haystack, $needle, $offset = 0, $encoding = null)</code></li>
+<li><code>mb_str_split($string, $split_length = 1, $encoding = null)</code></li>
+<li><code>mb_strtolower($s, $encoding = null)</code></li>
+<li><code>mb_strtoupper($s, $encoding = null)</code></li>
+<li><code>mb_substitute_character($c = null)</code></li>
+<li><code>mb_substr($s, $start, $length = null, $encoding = null)</code></li>
+<li><code>mb_stripos($haystack, $needle, $offset = 0, $encoding = null)</code></li>
+<li><code>mb_stristr($haystack, $needle, $part = false, $encoding = null)</code></li>
+<li><code>mb_strrchr($haystack, $needle, $part = false, $encoding = null)</code></li>
+<li><code>mb_strrichr($haystack, $needle, $part = false, $encoding = null)</code></li>
+<li><code>mb_strripos($haystack, $needle, $offset = 0, $encoding = null)</code></li>
+<li><code>mb_strstr($haystack, $needle, $part = false, $encoding = null)</code></li>
+<li><code>mb_get_info($type = 'all')</code></li>
+<li><code>mb_http_input($type = '')</code></li>
+<li><code>mb_http_output($encoding = null)</code></li>
+<li><code>mb_strwidth($s, $encoding = null)</code></li>
+<li><code>mb_substr_count($haystack, $needle, $encoding = null)</code></li>
+<li><code>mb_output_handler($contents, $status)</code></li>
+<li><code>mb_chr($code, $encoding = null)</code></li>
+<li><code>mb_ord($s, $encoding = null)</code></li>
+<li><code>getSubpart($pos, $part, $haystack, $encoding)</code></li>
+<li><code>html_encoding_callback(array $m)</code></li>
+<li><code>title_case(array $s)</code></li>
+<li><code>getData($file)</code></li>
+<li><code>getEncoding($encoding)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,211 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\Warehouse\Helpers\warehouse_general_helper.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\Warehouse\Helpers\warehouse_general_helper.php</h1>
+
+<ul>
+<li>Path: <code>plugins\Warehouse\Helpers\warehouse_general_helper.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 36917 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>get the defined config value by a key</p>
+<p>@param string $key</p>
+<p>@return config value</p>
+
+<p>warehouse get source url</p>
+<p>@param  string $warehouse_file </p>
+<p>@return [type]</p>
+
+<p>ajax on total items</p>
+<p>@return [type]</p>
+
+<p>get inventory by warehouse variation</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>get warehouse name</p>
+<p>@param  boolean $id </p>
+<p>@return [type]</p>
+
+<p>get list inventory by ids</p>
+<p>@param  [type] $ids </p>
+<p>@return [type]</p>
+
+<p>get list serial number by ids</p>
+<p>@param  [type] $ids </p>
+<p>@return [type]</p>
+
+<p>get list by parent ids</p>
+<p>@param  [type] $ids </p>
+<p>@return [type]</p>
+
+<p>wh check approval setting</p>
+<p>@param  integer $type </p>
+<p>@return [type]</p>
+
+<p>wh_get_unit_name</p>
+<p>@param  boolean $id </p>
+<p>@return [type]</p>
+
+<p>wh convert item taxes</p>
+<p>@param  [type] $tax      </p>
+<p>@param  [type] $tax_rate </p>
+<p>@param  [type] $tax_name </p>
+<p>@return [type]</p>
+
+<p>get commodity name</p>
+<p>@param  integer $id</p>
+<p>@return array or row</p>
+
+<p>get status inventory</p>
+<p>@param  integer $commodity, integer $inventory</p>
+<p>@return boolean</p>
+
+<p>get goods receipt code</p>
+<p>@param  integer $id</p>
+<p>@return array or row</p>
+
+<p>warehouse process digital signature image</p>
+<p>@param  string $partBase64</p>
+<p>@param  string $path</p>
+<p>@param  string $image_name</p>
+<p>@return boolean</p>
+
+<p>get goods delivery code</p>
+<p>@param  integer $id</p>
+<p>@return array or row</p>
+
+<p>get internal delivery code</p>
+<p>@param  boolean $id </p>
+<p>@return [type]</p>
+
+<p>wh get item variatiom</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>wh get warehouse address</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>render delivery status html</p>
+<p>@param  string $status </p>
+<p>@return [type]</p>
+
+<p>packing list status</p>
+<p>@param  string $status </p>
+<p>@return [type]</p>
+
+<p>packing list status</p>
+<p>@param  string $status </p>
+<p>@return [type]</p>
+
+<p>wh get delivery code</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>wh render taxes html</p>
+<p>@param  [type] $item_tax </p>
+<p>@param  [type] $width    </p>
+<p>@return [type]</p>
+
+<p>wh get sales order code</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>wh get purchase order code</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>wh get order return code</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>get tax rate</p>
+<p>@param  boolean $id </p>
+<p>@return [type]</p>
+
+<p>get color type</p>
+<p>@param  integer $id, string $index_name</p>
+<p>@return array, object</p>
+
+<p>get style name</p>
+<p>@param  integer $id</p>
+<p>@return array or row</p>
+
+<p>get model name</p>
+<p>@param  integer $id</p>
+<p>@return array or row</p>
+
+<p>get size name</p>
+<p>@param  integer $id</p>
+<p>@return array or row</p>
+
+<p>get group name</p>
+<p>@param  integer $id</p>
+<p>@return array or row</p>
+
+<p>get item description</p>
+<p>@param  boolean $id </p>
+<p>@return [type]</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\Warehouse\Helpers\warehouse_general_helper.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>get_warehouse_setting($key = "")</code></li>
+<li><code>warehouse_get_source_url($warehouse_file = "")</code></li>
+<li><code>ajax_on_total_items()</code></li>
+<li><code>has_permission($permission, $staffid = '', $can = '')</code></li>
+<li><code>prefixed_table_fields_wildcard($table, $alias, $field)</code></li>
+<li><code>get_unit_type($id = false)</code></li>
+<li><code>get_inventory_by_warehouse_variation($id)</code></li>
+<li><code>get_warehouse_name($id = false)</code></li>
+<li><code>get_list_inventory_by_ids($ids)</code></li>
+<li><code>get_list_serial_number_by_ids($ids)</code></li>
+<li><code>get_list_items_by_parent_ids($ids)</code></li>
+<li><code>wh_check_approval_setting($type)</code></li>
+<li><code>wh_get_unit_name($id = false)</code></li>
+<li><code>wh_convert_item_taxes($tax, $tax_rate, $tax_name)</code></li>
+<li><code>get_commodity_name($id = false)</code></li>
+<li><code>get_status_inventory($commodity, $inventory)</code></li>
+<li><code>get_goods_receipt_code($id = false)</code></li>
+<li><code>warehouse_process_digital_signature_image($partBase64, $path, $image_name)</code></li>
+<li><code>unique_filename($dir, $filename)</code></li>
+<li><code>wh_log_notification($event, $options = array()</code></li>
+<li><code>prepare_goods_receipt_pdf($goods_receipt, $mode = "download")</code></li>
+<li><code>get_goods_delivery_code($id = false)</code></li>
+<li><code>get_internal_delivery_code($id = false)</code></li>
+<li><code>wh_get_item_variatiom($id)</code></li>
+<li><code>prepare_internal_delivery_pdf($internal_delivery, $mode = "download")</code></li>
+<li><code>wh_get_warehouse_address($id)</code></li>
+<li><code>wh_app_generate_hash()</code></li>
+<li><code>render_delivery_status_html($id, $type, $status_value = '', $ChangeStatus = true)</code></li>
+<li><code>get_delivery_status_by_id($id, $type)</code></li>
+<li><code>delivery_list_status($status='')</code></li>
+<li><code>packing_list_status($status='')</code></li>
+<li><code>prepare_goods_delivery_pdf($goods_delivery, $mode = "download")</code></li>
+<li><code>wh_get_delivery_code($id)</code></li>
+<li><code>wh_render_taxes_html($item_tax, $width)</code></li>
+<li><code>prepare_packing_list_pdf($packing_list, $mode = "download")</code></li>
+<li><code>wh_get_sales_order_code($id)</code></li>
+<li><code>wh_get_purchase_order_code($id)</code></li>
+<li><code>wh_get_order_return_code($id)</code></li>
+<li><code>prepare_order_return_pdf($order_return, $mode = "download")</code></li>
+<li><code>get_tax_rate($id = false)</code></li>
+<li><code>prepare_barcode_pdf($barcode_data, $mode = "download")</code></li>
+<li><code>get_color_type($id = false)</code></li>
+<li><code>get_style_name($id = false)</code></li>
+<li><code>get_model_name($id = false)</code></li>
+<li><code>get_size_name($id = false)</code></li>
+<li><code>get_wh_group_name($id = false)</code></li>
+<li><code>_l($key)</code></li>
+<li><code>prepare_warranty_period_pdf($warranty_period_data, $mode = "download")</code></li>
+<li><code>wh_get_company_name($userid, $prevent_empty_company = false)</code></li>
+<li><code>get_item_description($id = false)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,116 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\psr\cache\src\CacheItemPoolInterface.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\psr\cache\src\CacheItemPoolInterface.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\psr\cache\src\CacheItemPoolInterface.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4389 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>CacheItemPoolInterface generates CacheItemInterface objects.</p>
+<p>The primary purpose of Cache\CacheItemPoolInterface is to accept a key from</p>
+<p>the Calling Library and return the associated Cache\CacheItemInterface object.</p>
+<p>It is also the primary point of interaction with the entire cache collection.</p>
+<p>All configuration and initialization of the Pool is left up to an</p>
+<p>Implementing Library.</p>
+
+<p>Returns a Cache Item representing the specified key.</p>
+<p>This method must always return a CacheItemInterface object, even in case of</p>
+<p>a cache miss. It MUST NOT return null.</p>
+<p>@param string $key</p>
+<p>  The key for which to return the corresponding Cache Item.</p>
+<p>@throws InvalidArgumentException</p>
+<p>  If the $key string is not a legal value a \Psr\Cache\InvalidArgumentException</p>
+<p>  MUST be thrown.</p>
+<p>@return CacheItemInterface</p>
+<p>  The corresponding Cache Item.</p>
+
+<p>Returns a traversable set of cache items.</p>
+<p>@param string[] $keys</p>
+<p>  An indexed array of keys of items to retrieve.</p>
+<p>@throws InvalidArgumentException</p>
+<p>  If any of the keys in $keys are not a legal value a \Psr\Cache\InvalidArgumentException</p>
+<p>  MUST be thrown.</p>
+<p>@return array|\Traversable</p>
+<p>  A traversable collection of Cache Items keyed by the cache keys of</p>
+<p>  each item. A Cache item will be returned for each key, even if that</p>
+<p>  key is not found. However, if no keys are specified then an empty</p>
+<p>  traversable MUST be returned instead.</p>
+
+<p>Confirms if the cache contains specified cache item.</p>
+<p>Note: This method MAY avoid retrieving the cached value for performance reasons.</p>
+<p>This could result in a race condition with CacheItemInterface::get(). To avoid</p>
+<p>such situation use CacheItemInterface::isHit() instead.</p>
+<p>@param string $key</p>
+<p>  The key for which to check existence.</p>
+<p>@throws InvalidArgumentException</p>
+<p>  If the $key string is not a legal value a \Psr\Cache\InvalidArgumentException</p>
+<p>  MUST be thrown.</p>
+<p>@return bool</p>
+<p>  True if item exists in the cache, false otherwise.</p>
+
+<p>Deletes all items in the pool.</p>
+<p>@return bool</p>
+<p>  True if the pool was successfully cleared. False if there was an error.</p>
+
+<p>Removes the item from the pool.</p>
+<p>@param string $key</p>
+<p>  The key to delete.</p>
+<p>@throws InvalidArgumentException</p>
+<p>  If the $key string is not a legal value a \Psr\Cache\InvalidArgumentException</p>
+<p>  MUST be thrown.</p>
+<p>@return bool</p>
+<p>  True if the item was successfully removed. False if there was an error.</p>
+
+<p>Removes multiple items from the pool.</p>
+<p>@param string[] $keys</p>
+<p>  An array of keys that should be removed from the pool.</p>
+<p>@throws InvalidArgumentException</p>
+<p>  If any of the keys in $keys are not a legal value a \Psr\Cache\InvalidArgumentException</p>
+<p>  MUST be thrown.</p>
+<p>@return bool</p>
+<p>  True if the items were successfully removed. False if there was an error.</p>
+
+<p>Persists a cache item immediately.</p>
+<p>@param CacheItemInterface $item</p>
+<p>  The cache item to save.</p>
+<p>@return bool</p>
+<p>  True if the item was successfully persisted. False if there was an error.</p>
+
+<p>Sets a cache item to be persisted later.</p>
+<p>@param CacheItemInterface $item</p>
+<p>  The cache item to save.</p>
+<p>@return bool</p>
+<p>  False if the item could not be queued or if a commit was attempted and failed. True otherwise.</p>
+
+<p>Persists any deferred cache items.</p>
+<p>@return bool</p>
+<p>  True if all not-yet-saved items were successfully saved or there were none. False otherwise.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\psr\cache\src\CacheItemPoolInterface.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getItem($key)</code></li>
+<li><code>getItems(array $keys = array()</code></li>
+<li><code>hasItem($key)</code></li>
+<li><code>clear()</code></li>
+<li><code>deleteItem($key)</code></li>
+<li><code>deleteItems(array $keys)</code></li>
+<li><code>save(CacheItemInterface $item)</code></li>
+<li><code>saveDeferred(CacheItemInterface $item)</code></li>
+<li><code>commit()</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,72 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Event.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Event.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Event.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 18062 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Events are our way of letting you know when something interesting happens in</p>
+<p>your account. When an interesting event occurs, we create a new</p>
+<p><code>Event</code> object. For example, when a charge succeeds, we create a</p>
+<p><code>charge.succeeded</code> event; and when an invoice payment attempt fails,</p>
+<p>we create an <code>invoice.payment_failed</code> event. Note that many API</p>
+<p>requests may cause multiple events to be created. For example, if you create a</p>
+<p>new subscription for a customer, you will receive both a</p>
+<p><code>customer.subscription.created</code> event and a</p>
+<p><code>charge.succeeded</code> event.</p>
+<p>Events occur when the state of another API resource changes. The state of that</p>
+<p>resource at the time of the change is embedded in the event's data field. For</p>
+<p>example, a <code>charge.succeeded</code> event will contain a charge, and an</p>
+<p><code>invoice.payment_failed</code> event will contain an invoice.</p>
+<p>As with other API resources, you can use endpoints to retrieve an <a</p>
+<p>href="https://stripe.com/docs/api#retrieve_event">individual event</a> or a <a</p>
+<p>href="https://stripe.com/docs/api#list_events">list of events</a> from the API.</p>
+<p>We also have a separate <a</p>
+<p>href="http://en.wikipedia.org/wiki/Webhook">webhooks</a> system for sending the</p>
+<p><code>Event</code> objects directly to an endpoint on your server. Webhooks are</p>
+<p>managed in your <a href="https://dashboard.stripe.com/account/webhooks">account</p>
+<p>settings</a>, and our <a href="https://stripe.com/docs/webhooks">Using</p>
+<p>Webhooks</a> guide will help you get set up.</p>
+<p>When using <a href="https://stripe.com/docs/connect">Connect</a>, you can also</p>
+<p>receive notifications of events that occur in connected accounts. For these</p>
+<p>events, there will be an additional <code>account</code> attribute in the</p>
+<p>received <code>Event</code> object.</p>
+<p><strong>NOTE:</strong> Right now, access to events through the <a</p>
+<p>href="https://stripe.com/docs/api#retrieve_event">Retrieve Event API</a> is</p>
+<p>guaranteed only for 30 days.</p>
+<p>This class includes constants for the possible string representations of</p>
+<p>event types. See https://stripe.com/docs/api#event_types for more details.</p>
+<p>@property string $id Unique identifier for the object.</p>
+<p>@property string $object String representing the object's type. Objects of the same type share the same value.</p>
+<p>@property string $account The connected account that originated the event.</p>
+<p>@property null|string $api_version The Stripe API version used to render <code>data</code>. <em>Note: This property is populated only for events on or after October 31, 2014</em>.</p>
+<p>@property int $created Time at which the object was created. Measured in seconds since the Unix epoch.</p>
+<p>@property \Stripe\StripeObject $data</p>
+<p>@property bool $livemode Has the value <code>true</code> if the object exists in live mode or the value <code>false</code> if the object exists in test mode.</p>
+<p>@property int $pending_webhooks Number of webhooks that have yet to be successfully delivered (i.e., to return a 20x response) to the URLs you've specified.</p>
+<p>@property null|\Stripe\StripeObject $request Information on the API request that instigated the event.</p>
+<p>@property string $type Description of the event (e.g., <code>invoice.created</code> or <code>charge.refunded</code>).</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Event.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\includes</code></li>
+<li><code>Stripe\Event extends ApiResource</code></li>
+</ul>
+</body></html>

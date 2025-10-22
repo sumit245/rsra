@@ -1,0 +1,287 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\CodeIgniter.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\CodeIgniter.php</h1>
+
+<ul>
+<li>Path: <code>system\CodeIgniter.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 33306 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>This class is the core of the framework, and will analyse the</p>
+<p>request, route it to a controller, and send back the response.</p>
+<p>Of course, there are variations to that flow, but this is the brains.</p>
+
+<p>The current version of CodeIgniter Framework</p>
+
+<p>App startup time.</p>
+<p>@var mixed</p>
+
+<p>Total app execution time</p>
+<p>@var float</p>
+
+<p>Main application configuration</p>
+<p>@var App</p>
+
+<p>Timer instance.</p>
+<p>@var Timer</p>
+
+<p>Current request.</p>
+<p>@var CLIRequest|IncomingRequest|Request|null</p>
+
+<p>Current response.</p>
+<p>@var ResponseInterface</p>
+
+<p>Router to use.</p>
+<p>@var Router</p>
+
+<p>Controller to use.</p>
+<p>@var Closure|string</p>
+
+<p>Controller method to invoke.</p>
+<p>@var string</p>
+
+<p>Output handler to use.</p>
+<p>@var string</p>
+
+<p>Cache expiration time</p>
+<p>@var int</p>
+
+<p>Request path to use.</p>
+<p>@var string</p>
+
+<p>Should the Response instance "pretend"</p>
+<p>to keep from setting headers/cookies/etc</p>
+<p>@var bool</p>
+
+<p>Context</p>
+<p> web:     Invoked by HTTP request</p>
+<p> php-cli: Invoked by CLI via <code>php public/index.php</code></p>
+<p> spark:   Invoked by CLI via the <code>spark</code> command</p>
+<p>@phpstan-var 'php-cli'|'spark'|'web'</p>
+
+<p>Constructor.</p>
+
+<p>Handles some basic app and environment setup.</p>
+
+<p>Checks system for missing required PHP extensions.</p>
+<p>@throws FrameworkException</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Initializes Kint</p>
+
+<p>@var \Config\Kint $config</p>
+
+<p>Launch the application!</p>
+<p>This is "the loop" if you will. The main entry point into the script</p>
+<p>that gets the required class instances, fires off the filters,</p>
+<p>tries to route the response, loads the controller and generally</p>
+<p>makes all of the pieces work together.</p>
+<p>@throws Exception</p>
+<p>@throws RedirectException</p>
+<p>@return bool|mixed|RequestInterface|ResponseInterface|void</p>
+
+<p>Set our Response instance to "pretend" mode so that things like</p>
+<p>cookies and headers are not actually sent, allowing PHP 7.2+ to</p>
+<p>not complain when ini_set() function is used.</p>
+<p>@return $this</p>
+
+<p>Invoked via spark command?</p>
+
+<p>Invoked via php-cli command?</p>
+
+<p>Web access?</p>
+
+<p>Handles the main request logic and fires the controller.</p>
+<p>@throws PageNotFoundException</p>
+<p>@throws RedirectException</p>
+<p>@return mixed|RequestInterface|ResponseInterface</p>
+
+<p>You can load different configurations depending on your</p>
+<p>current environment. Setting the environment also influences</p>
+<p>things like logging and error reporting.</p>
+<p>This can be set to anything, but default usage is:</p>
+<p>    development</p>
+<p>    testing</p>
+<p>    production</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Load any custom boot files based upon the current environment.</p>
+<p>If no boot file exists, we shouldn't continue because something</p>
+<p>is wrong. At the very least, they should have error reporting setup.</p>
+
+<p>Start the Benchmark</p>
+<p>The timer is used to display total script execution both in the</p>
+<p>debug toolbar, and potentially on the displayed page.</p>
+
+<p>Sets a Request object to be used for this request.</p>
+<p>Used when running certain tests.</p>
+<p>@return $this</p>
+
+<p>Get our Request object, (either IncomingRequest or CLIRequest)</p>
+<p>and set the server protocol based on the information provided</p>
+<p>by the server.</p>
+
+<p>Get our Response object, and set some default values, including</p>
+<p>the HTTP protocol version and a default successful response.</p>
+
+<p>Force Secure Site Access? If the config value 'forceGlobalSecureRequests'</p>
+<p>is true, will enforce that all requests to this site are made through</p>
+<p>HTTPS. Will redirect the user to the current page with HTTPS, as well</p>
+<p>as set the HTTP Strict Transport Security header for those browsers</p>
+<p>that support it.</p>
+<p>@param int $duration How long the Strict Transport Security</p>
+<p>                     should be enforced for this URL.</p>
+
+<p>Determines if a response has been cached for the given URI.</p>
+<p>@throws Exception</p>
+<p>@return bool|ResponseInterface</p>
+
+<p>Tells the app that the final output should be cached.</p>
+
+<p>Caches the full response from the current request. Used for</p>
+<p>full-page caching for very high performance.</p>
+<p>@return mixed</p>
+
+<p>Returns an array with our basic performance stats collected.</p>
+
+<p>Generates the cache name to use for our full-page caching.</p>
+
+<p>Replaces the elapsed_time tag.</p>
+
+<p>Try to Route It - As it sounds like, works with the router to</p>
+<p>match a route against the current URI. If the route is a</p>
+<p>"redirect route", will also handle the redirect.</p>
+<p>@param RouteCollectionInterface|null $routes An collection interface to use in place</p>
+<p>                                             of the config file.</p>
+<p>@throws RedirectException</p>
+<p>@return string|string[]|null Route filters, that is, the filters specified in the routes file</p>
+
+<p>Determines the path to use for us to try to route to, based</p>
+<p>on user input (setPath), or the CLI/IncomingRequest path.</p>
+<p>@return string</p>
+
+<p>Allows the request path to be set from outside the class,</p>
+<p>instead of relying on CLIRequest or IncomingRequest for the path.</p>
+<p>This is primarily used by the Console.</p>
+<p>@return $this</p>
+
+<p>Now that everything has been setup, this method attempts to run the</p>
+<p>controller method and make the script go. If it's not able to, will</p>
+<p>show the appropriate Page Not Found error.</p>
+<p>@return ResponseInterface|string|void</p>
+
+<p>Instantiates the controller class.</p>
+<p>@return Controller</p>
+
+<p>Runs the controller, allowing for _remap methods to function.</p>
+<p>CI4 supports three types of requests:</p>
+<p> 1. Web: URI segments become parameters, sent to Controllers via Routes,</p>
+<p>     output controlled by Headers to browser</p>
+<p> 2. Spark: accessed by CLI via the spark command, arguments are Command arguments,</p>
+<p>     sent to Commands by CommandRunner, output controlled by CLI class</p>
+<p> 3. PHP CLI: accessed by CLI via php public/index.php, arguments become URI segments,</p>
+<p>     sent to Controllers via Routes, output varies</p>
+<p>@param mixed $class</p>
+<p>@return false|ResponseInterface|string|void</p>
+
+<p>@var CLIRequest $request</p>
+
+<p>Displays a 404 Page Not Found error. If set, will try to</p>
+<p>call the 404Override controller/method that was set in routing config.</p>
+
+<p>Gathers the script output from the buffer, replaces some execution</p>
+<p>time tag in the output and displays the debug toolbar, if required.</p>
+<p>@param ResponseInterface|string|null $returned</p>
+
+<p>If we have a session object to use, store the current URI</p>
+<p>as the previous URI. This is called just prior to sending the</p>
+<p>response to the client, and will make it available next request.</p>
+<p>This helps provider safer, more reliable previous_url() detection.</p>
+<p>@param string|URI $uri</p>
+
+<p>Modifies the Request Object to use a different method if a POST</p>
+<p>variable called _method is found.</p>
+
+<p>Sends the output of this request back to the client.</p>
+<p>This is what they've been waiting for!</p>
+
+<p>Exits the application, setting the exit code for CLI-based applications</p>
+<p>that might be watching.</p>
+<p>Made into a separate method so that it can be mocked during testing</p>
+<p>without actually stopping script execution.</p>
+<p>@param int $code</p>
+
+<p>Sets the app context.</p>
+<p>@phpstan-param 'php-cli'|'spark'|'web' $context</p>
+<p>@return $this</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>setting</code></li>
+<li><code>4</code></li>
+<li><code>the</code></li>
+<li><code>outside</code></li>
+<li><code>it</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\CodeIgniter.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\is</code></li>
+<li><code>CodeIgniter\CodeIgniter</code></li>
+<li><code>CodeIgniter\instances</code></li>
+<li><code>CodeIgniter\if</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(App $config)</code></li>
+<li><code>initialize()</code></li>
+<li><code>resolvePlatformExtensions()</code></li>
+<li><code>initializeKint()</code></li>
+<li><code>run(?RouteCollectionInterface $routes = null, bool $returnResponse = false)</code></li>
+<li><code>useSafeOutput(bool $safe = true)</code></li>
+<li><code>isSparked()</code></li>
+<li><code>isPhpCli()</code></li>
+<li><code>isWeb()</code></li>
+<li><code>handleRequest(?RouteCollectionInterface $routes, Cache $cacheConfig, bool $returnResponse = false)</code></li>
+<li><code>detectEnvironment()</code></li>
+<li><code>bootstrapEnvironment()</code></li>
+<li><code>startBenchmark()</code></li>
+<li><code>setRequest(Request $request)</code></li>
+<li><code>getRequestObject()</code></li>
+<li><code>getResponseObject()</code></li>
+<li><code>forceSecureAccess($duration = 31_536_000)</code></li>
+<li><code>displayCache(Cache $config)</code></li>
+<li><code>cache(int $time)</code></li>
+<li><code>cachePage(Cache $config)</code></li>
+<li><code>getPerformanceStats()</code></li>
+<li><code>generateCacheName(Cache $config)</code></li>
+<li><code>displayPerformanceMetrics(string $output)</code></li>
+<li><code>tryToRouteIt(?RouteCollectionInterface $routes = null)</code></li>
+<li><code>determinePath()</code></li>
+<li><code>setPath(string $path)</code></li>
+<li><code>startController()</code></li>
+<li><code>createController()</code></li>
+<li><code>runController($class)</code></li>
+<li><code>display404errors(PageNotFoundException $e)</code></li>
+<li><code>gatherOutput(?Cache $cacheConfig = null, $returned = null)</code></li>
+<li><code>storePreviousURL($uri)</code></li>
+<li><code>spoofRequestMethod()</code></li>
+<li><code>sendResponse()</code></li>
+<li><code>callExit($code)</code></li>
+<li><code>setContext(string $context)</code></li>
+</ul>
+</body></html>

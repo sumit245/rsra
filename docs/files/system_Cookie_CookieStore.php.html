@@ -1,0 +1,110 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Cookie\CookieStore.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Cookie\CookieStore.php</h1>
+
+<ul>
+<li>Path: <code>system\Cookie\CookieStore.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 6341 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>The CookieStore object represents an immutable collection of <code>Cookie</code> value objects.</p>
+<p>@implements IteratorAggregate<string, Cookie></p>
+
+<p>The cookie collection.</p>
+<p>@var array<string, Cookie></p>
+
+<p>Creates a CookieStore from an array of <code>Set-Cookie</code> headers.</p>
+<p>@param string[] $headers</p>
+<p>@throws CookieException</p>
+<p>@return static</p>
+
+<p>@var Cookie[] $cookies</p>
+
+<p>@param Cookie[] $cookies</p>
+<p>@throws CookieException</p>
+
+<p>Checks if a <code>Cookie</code> object identified by name and</p>
+<p>prefix is present in the collection.</p>
+
+<p>Retrieves an instance of <code>Cookie</code> identified by a name and prefix.</p>
+<p>This throws an exception if not found.</p>
+<p>@throws CookieException</p>
+
+<p>Store a new cookie and return a new collection. The original collection</p>
+<p>is left unchanged.</p>
+<p>@return static</p>
+
+<p>Removes a cookie from a collection and returns an updated collection.</p>
+<p>The original collection is left unchanged.</p>
+<p>Removing a cookie from the store <strong>DOES NOT</strong> delete it from the browser.</p>
+<p>If you intend to delete a cookie *from the browser*, you must put an empty</p>
+<p>value cookie with the same name to the store.</p>
+<p>@return static</p>
+
+<p>Dispatches all cookies in store.</p>
+<p>@deprecated Response should dispatch cookies.</p>
+
+<p>Returns all cookie instances in store.</p>
+<p>@return array<string, Cookie></p>
+
+<p>Clears the cookie collection.</p>
+
+<p>Gets the Cookie count in this collection.</p>
+
+<p>Gets the iterator for the cookie collection.</p>
+<p>@return Traversable<string, Cookie></p>
+
+<p>Validates all cookies passed to be instances of Cookie.</p>
+<p>@throws CookieException</p>
+
+<p>Extracted call to <code>setrawcookie()</code> in order to run unit tests on it.</p>
+<p>@codeCoverageIgnore</p>
+<p>@deprecated</p>
+
+<p>Extracted call to <code>setcookie()</code> in order to run unit tests on it.</p>
+<p>@codeCoverageIgnore</p>
+<p>@deprecated</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>an</code></li>
+<li><code>a</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Cookie\CookieStore.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Cookie\CookieStore implements Countable, IteratorAggregate</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>fromCookieHeaders(array $headers, bool $raw = false)</code></li>
+<li><code>__construct(array $cookies)</code></li>
+<li><code>has(string $name, string $prefix = '', ?string $value = null)</code></li>
+<li><code>get(string $name, string $prefix = '')</code></li>
+<li><code>put(Cookie $cookie)</code></li>
+<li><code>remove(string $name, string $prefix = '')</code></li>
+<li><code>dispatch()</code></li>
+<li><code>display()</code></li>
+<li><code>clear()</code></li>
+<li><code>count()</code></li>
+<li><code>getIterator()</code></li>
+<li><code>validateCookies(array $cookies)</code></li>
+<li><code>setRawCookie(string $name, string $value, array $options)</code></li>
+<li><code>setCookie(string $name, string $value, array $options)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,143 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Net\SCP.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Net\SCP.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Net\SCP.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9073 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Pure-PHP implementation of SCP.</p>
+<p>PHP version 5</p>
+<p>The API for this library is modeled after the API from PHP's {@link http://php.net/book.ftp FTP extension}.</p>
+<p>Here's a short example of how to use this library:</p>
+<p><code></p>
+<p><?php</p>
+<p>   include 'vendor/autoload.php';</p>
+<p>   $ssh = new \phpseclib\Net\SSH2('www.domain.tld');</p>
+<p>   if (!$ssh->login('username', 'password')) {</p>
+<p>       exit('bad login');</p>
+<p>   }</p>
+<p>   $scp = new \phpseclib\Net\SCP($ssh);</p>
+<p>   $scp->put('abcd', str_repeat('x', 1024*1024));</p>
+<p>?></p>
+<p></code></p>
+<p>@category  Net</p>
+<p>@package   SCP</p>
+<p>@author    Jim Wigginton <terrafrost@php.net></p>
+<p>@copyright 2010 Jim Wigginton</p>
+<p>@license   http://www.opensource.org/licenses/mit-license.html  MIT License</p>
+<p>@link      http://phpseclib.sourceforge.net</p>
+
+<p>Pure-PHP implementations of SCP.</p>
+<p>@package SCP</p>
+<p>@author  Jim Wigginton <terrafrost@php.net></p>
+<p>@access  public</p>
+
+<p>#@+</p>
+<p>@access public</p>
+<p>@see \phpseclib\Net\SCP::put()</p>
+
+<p>Reads data from a local file.</p>
+
+<p>Reads data from a string.</p>
+
+<p>#@-</p>
+
+<p>#@+</p>
+<p>@access private</p>
+<p>@see \phpseclib\Net\SCP::_send()</p>
+<p>@see \phpseclib\Net\SCP::_receive()</p>
+
+<p>SSH1 is being used.</p>
+
+<p>SSH2 is being used.</p>
+
+<p>#@-</p>
+
+<p>SSH Object</p>
+<p>@var object</p>
+<p>@access private</p>
+
+<p>Packet Size</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Mode</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Default Constructor.</p>
+<p>Connects to an SSH server</p>
+<p>@param \phpseclib\Net\SSH1|\phpseclib\Net\SSH2 $ssh</p>
+<p>@return \phpseclib\Net\SCP</p>
+<p>@access public</p>
+
+<p>Uploads a file to the SCP server.</p>
+<p>By default, \phpseclib\Net\SCP::put() does not read from the local filesystem.  $data is dumped directly into $remote_file.</p>
+<p>So, for example, if you set $data to 'filename.ext' and then do \phpseclib\Net\SCP::get(), you will get a file, twelve bytes</p>
+<p>long, containing 'filename.ext' as its contents.</p>
+<p>Setting $mode to self::SOURCE_LOCAL_FILE will change the above behavior.  With self::SOURCE_LOCAL_FILE, $remote_file will</p>
+<p>contain as many bytes as filename.ext does on your local filesystem.  If your filename.ext is 1MB then that is how</p>
+<p>large $remote_file will be, as well.</p>
+<p>Currently, only binary mode is supported.  As such, if the line endings need to be adjusted, you will need to take</p>
+<p>care of that, yourself.</p>
+<p>@param string $remote_file</p>
+<p>@param string $data</p>
+<p>@param int $mode</p>
+<p>@param callable $callback</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Downloads a file from the SCP server.</p>
+<p>Returns a string containing the contents of $remote_file if $local_file is left undefined or a boolean false if</p>
+<p>the operation was unsuccessful.  If $local_file is defined, returns true or false depending on the success of the</p>
+<p>operation</p>
+<p>@param string $remote_file</p>
+<p>@param string $local_file</p>
+<p>@return mixed</p>
+<p>@access public</p>
+
+<p>Sends a packet to an SSH server</p>
+<p>@param string $data</p>
+<p>@access private</p>
+
+<p>Receives a packet from an SSH server</p>
+<p>@return string</p>
+<p>@access private</p>
+
+<p>Closes the connection to an SSH server</p>
+<p>@access private</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>PHP</code></li>
+<li><code>a</code></li>
+<li><code>the</code></li>
+<li><code>return</code></li>
+<li><code>an</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Net\SCP.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>phpseclib\Net\SCP</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($ssh)</code></li>
+<li><code>put($remote_file, $data, $mode = self::SOURCE_STRING, $callback = null)</code></li>
+<li><code>get($remote_file, $local_file = false)</code></li>
+<li><code>_send($data)</code></li>
+<li><code>_receive()</code></li>
+<li><code>_close()</code></li>
+</ul>
+</body></html>

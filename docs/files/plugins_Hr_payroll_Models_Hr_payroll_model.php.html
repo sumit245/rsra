@@ -1,0 +1,640 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\Hr_payroll\Models\Hr_payroll_model.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\Hr_payroll\Models\Hr_payroll_model.php</h1>
+
+<ul>
+<li>Path: <code>plugins\Hr_payroll\Models\Hr_payroll_model.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 199831 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>prefixed table fields wildcard</p>
+<p>@param  [type] $table </p>
+<p>@param  [type] $alias </p>
+<p>@param  [type] $field </p>
+<p>@return [type]</p>
+
+<p>hr payroll run query</p>
+<p>@param  [type] $query_string </p>
+<p>@return [type]</p>
+
+<p>count items</p>
+<p>@return [type]</p>
+
+<p>Function that will parse table data from the tables folder for amin area</p>
+<p>@param  string $table  table filename</p>
+<p>@param  array  $params additional params</p>
+<p>@return void</p>
+
+<p>check format date Y-m-d</p>
+<p>@param  [type] $date </p>
+<p>@return boolean</p>
+
+<p>get income tax rate</p>
+<p>@param  boolean $id </p>
+<p>@return [type]</p>
+
+<p>update income tax rates</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>get income tax rebates</p>
+<p>@param  boolean $id </p>
+<p>@return [type]</p>
+
+<p>update income tax rebates</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>get earnings list</p>
+<p>@param  boolean $id </p>
+<p>@return [type]</p>
+
+<p>update earnings list</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>get salary deductions list</p>
+<p>@param  boolean $id </p>
+<p>@return [type]</p>
+
+<p>update earnings list</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>get insurance list</p>
+<p>@param  boolean $id </p>
+<p>@return [type]</p>
+
+<p>update insurance list</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>get company contributions list</p>
+<p>@param  boolean $id </p>
+<p>@return [type]</p>
+
+<p>update company contributions list</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>update data integration</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>delete hr payroll permission</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>setting get attendance data</p>
+<p>@return [type]</p>
+
+<p>get timesheet type for setting</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>hr records get earnings list</p>
+<p>@param  boolean $id </p>
+<p>@return [type]</p>
+<p>get data: salary type, allowance type from HR records module when use feature "data integration" in settings menu.</p>
+
+<p>hr records update earnings list</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>get hrp employees header</p>
+<p>@param  [type] $rel_type </p>
+<p>@return [type]</p>
+
+<p>get hrp employees value</p>
+<p>@param  [type] $rel_type </p>
+<p>@return [type]</p>
+
+<p>get employees data</p>
+<p>@return [type]</p>
+
+<p>get employees data</p>
+<p>@param  [type] $month    </p>
+<p>@param  [type] $rel_type </p>
+<p>@return [type]</p>
+
+<p>employees data json encode decode</p>
+<p>@param  [type] $type   </p>
+<p>@param  [type] $data   </p>
+<p>@param  [type] $header </p>
+<p>@return [type]</p>
+
+<p>get format employees data</p>
+<p>@param  [type] $rel_type </p>
+<p>@return [type]   </p>
+<p>Description: Each staff will have a maximun 2 Contract: probationary, formal</p>
+
+<p>FunctionNam</p>
+<p>@param [type]  $prefix_str          </p>
+<p>@param [type]  $number              </p>
+<p>@param integer $number_of_characters</p>
+
+<p>get list staff contract</p>
+<p>@return [type]</p>
+<p>get staff contract, detail by staff all, Each employee will take the last 2 contracts from the search month (if the employee has 2 contracts in 1 month) and status = valid</p>
+
+<p>employees synchronization</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>employees update</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>get hrp attendance</p>
+<p>@param  [type] $rel_type </p>
+<p>@return [type]</p>
+
+<p>get day in month</p>
+<p>@param  [type] $month </p>
+<p>@return [type]</p>
+
+<p>add update attendance</p>
+<p>@param [type] $data</p>
+
+<p>synchronization attendance</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>hrp get timesheets data</p>
+<p>@param  [type] $month </p>
+<p>@return [type]</p>
+
+<p>timesheet get shifts</p>
+<p>@param  [type] $month </p>
+<p>@return [type]</p>
+
+<p>import attendance data</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>attendance calculation</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>import employees data</p>
+<p>@param  [type] $es_detail </p>
+<p>@return [type]</p>
+
+<p>get format deduction data</p>
+<p>@return [type]</p>
+
+<p>get deductions data</p>
+<p>@param  [type] $month    </p>
+<p>@param  [type] $rel_type </p>
+<p>@return [type]</p>
+
+<p>deductions data json encode decode</p>
+<p>@param  [type] $type   </p>
+<p>@param  [type] $data   </p>
+<p>@param  string $header </p>
+<p>@return [type]</p>
+
+<p>deductions update</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>get format commission data</p>
+<p>@return [type]</p>
+
+<p>get commissions data</p>
+<p>@param  [type]</p>
+<p>@return [type]</p>
+
+<p>commissions update</p>
+<p>@param  [type]</p>
+<p>@return [type]</p>
+
+<p>import commissions data</p>
+<p>@param  [type] $es_detail </p>
+<p>@return [type]</p>
+
+<p>commissions synchronization</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>get list staff commissions</p>
+<p>@param  [type] $month </p>
+<p>@return [type]</p>
+
+<p>get income tax data</p>
+<p>@param  [type] $month </p>
+<p>@return [type]</p>
+
+<p>get total income tax in year</p>
+<p>@param  [type] $month </p>
+<p>@return [type]</p>
+
+<p>get format income tax data</p>
+<p>@return [type]</p>
+
+<p>get format insurances data</p>
+<p>@return [type]</p>
+
+<p>get insurances data</p>
+<p>@param  [type] $month </p>
+<p>@return [type]</p>
+
+<p>insurances data json encode decode</p>
+<p>@param  [type] $type   </p>
+<p>@param  [type] $data   </p>
+<p>@param  string $header </p>
+<p>@return [type]</p>
+
+<p>insurances update</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>get hrp payroll columns</p>
+<p>@param  boolean $id </p>
+<p>@return [type]</p>
+
+<p>get list payroll column method</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>get list payroll column function name</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>add payroll column</p>
+<p>@param [type] $data</p>
+
+<p>update insurance type</p>
+<p>@param  array $data </p>
+<p>@param  integer $id   </p>
+<p>@return boolean</p>
+
+<p>delete insurance type</p>
+<p>@param  integer $id </p>
+<p>@return boolean</p>
+
+<p>count payroll column</p>
+<p>@return [type]</p>
+
+<p>get hrp payslip templates</p>
+<p>@param  boolean $id </p>
+<p>@return [type]</p>
+
+<p>get hrp payslip</p>
+<p>@param  boolean $id </p>
+<p>@return [type]</p>
+
+<p>get payslip template selected html</p>
+<p>@param  [type] $payslip_template_id </p>
+<p>@return [type]</p>
+
+<p>get payslip column html</p>
+<p>@param  [type] $payslip_columns </p>
+<p>@return [type]</p>
+
+<p>add payslip template</p>
+<p>@param [type] $data</p>
+
+<p>update payslip template</p>
+<p>@param  [type] $data </p>
+<p>@param  [type] $id   </p>
+<p>@return [type]</p>
+
+<p>delete payslip template</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>delete payslip</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>delete_payslip_detail</p>
+<p>@param  [type] $payslip_id </p>
+<p>@return [type]</p>
+
+<p>update payslip templates detail</p>
+<p>@param  [type] $data </p>
+<p>@param  [type] $id   </p>
+<p>@return [type]</p>
+
+<p>add payslip templates detail first</p>
+<p>@param [type] $id</p>
+
+<p>[general_cell_data description]</p>
+<p>@param  [type] $cell_name [description]</p>
+<p>@return [type]            [description]</p>
+<p>     Cell data format</p>
+<p> {</p>
+<p>      "m":"Hr_code",</p>
+<p>      "ct":{"fa":"General","t":"g"},</p>
+<p>      "v":"Hr_code"</p>
+<p>  }</p>
+
+<p>general cell data</p>
+<p>@param  [type] $row   </p>
+<p>@param  [type] $col   </p>
+<p>@param  [type] $value </p>
+<p>@return [type]</p>
+<p>{"r":2,"c":0,"v":{"m":"Hr_code","ct":{"fa":"General","t":"g"},"v":"Hr_code"}}</p>
+
+<p>payslip template data fixed</p>
+<p>@param  string $value </p>
+<p>@return [type]</p>
+
+<p>update payslip templates detail first</p>
+<p>@param  [type] $id </p>
+<p>@return [type]  </p>
+<p>Update payslip template data when update column on Main management, ex: delete column</p>
+
+<p>check update payslip template detail</p>
+<p>@param  [type] $data </p>
+<p>@param  [type] $id   </p>
+<p>@return [type]</p>
+
+<p>get staff info</p>
+<p>@param  [type] $staffid </p>
+<p>@return [type]</p>
+
+<p>get staff departments</p>
+<p>@param  boolean $userid  </p>
+<p>@param  boolean $onlyids </p>
+<p>@return [type]</p>
+
+<p>get all staff departments</p>
+<p>@return [type]</p>
+
+<p>get bonus</p>
+<p>@param  [integer] $staffid </p>
+<p>@param  [] $month   </p>
+<p>@return object</p>
+
+<p>get bonus kpi</p>
+<p>@param  [type] $month </p>
+<p>@return [type]</p>
+
+<p>get staff timekeeping applicable object</p>
+<p>@return [type]</p>
+
+<p>add bonus kpi</p>
+<p>@param [type] $data array</p>
+
+<p>getStaff</p>
+<p>@param  string $id    </p>
+<p>@param  array  $where </p>
+<p>@return [type]</p>
+
+<p>get department by list id</p>
+<p>@param  string $list_id </p>
+<p>@return [type]</p>
+
+<p>payslip template get staffid</p>
+<p>@param  [type] $departemnt_ids </p>
+<p>@param  [type] $role_ids       </p>
+<p>@param  [type] $staff_ids      </p>
+<p>@return [type]</p>
+
+<p>add payslip</p>
+<p>@param [type] $data</p>
+
+<p>add payslip file</p>
+<p>@param [type] $data</p>
+
+<p>update payslip</p>
+<p>@param  [type] $data </p>
+<p>@param  [type] $id   </p>
+<p>@return [type]</p>
+
+<p>payslip_close</p>
+<p>@param  [type] $data  </p>
+<p>@param  [type] $month </p>
+<p>@return [type]</p>
+
+<p>update payslip status</p>
+<p>@param  [type] $id     </p>
+<p>@param  [type] $status </p>
+<p>@return [type]</p>
+
+<p>render personal income tax</p>
+<p>@param  [type] $PARAMETERS </p>
+<p>@return [type]</p>
+
+<p>get payslip detail</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>get income summary report</p>
+<p>@param  [type] $sql_where </p>
+<p>@return [type]</p>
+
+<p>get insurance summary report</p>
+<p>@param  string $sql_where </p>
+<p>@return [type]</p>
+
+<p>get staff in deparment</p>
+<p>@param  [type] $department_id </p>
+<p>@return [type]</p>
+
+<p>payslip chart</p>
+<p>@return [type]</p>
+
+<p>render income tax formular</p>
+<p>@param  [type] $taxable_salary </p>
+<p>@return [type]</p>
+
+<p>get department payslip chart</p>
+<p>@param  string $month </p>
+<p>@return [type]</p>
+
+<p>array cell data</p>
+<p>@param  [type] $payroll_templates </p>
+<p>@return [type]</p>
+
+<p>payslip template checked</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>payslip checked</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>payslip download</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>employees copy</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>get tasks timer by_month</p>
+<p>@param  [type] $month </p>
+<p>@return [type]</p>
+
+<p>payslip of staff</p>
+<p>@param  [type] $payslip_id </p>
+<p>@return [type]</p>
+
+<p>remove employees not under management on payslip</p>
+<p>@param  [type] $payslip_data </p>
+<p>@return [type]</p>
+
+<p>employee export pdf</p>
+<p>@param  [type] $export_employee </p>
+<p>@return [type]</p>
+
+<p>get payslip detail by payslip_id</p>
+<p>@param  [type] $payslip_id </p>
+<p>@return [type]</p>
+
+<p>getdepartment name</p>
+<p>@param  [type] $staffid </p>
+<p>@return [type]</p>
+
+<h2>References</h2>
+
+<p><strong>Models Used</strong></p>
+<ul>
+<li><code>staff_model</code></li>
+</ul>
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>HR</code></li>
+<li><code>setting</code></li>
+<li><code>staff</code></li>
+<li><code>system</code></li>
+<li><code>row</code></li>
+<li><code>job</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\Hr_payroll\Models\Hr_payroll_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Hr_payroll\Models\Hr_payroll_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>prefixed_table_fields_wildcard($table, $alias, $field)</code></li>
+<li><code>hr_payroll_run_query($query_string)</code></li>
+<li><code>count_all_items($where = '')</code></li>
+<li><code>get_table_data($table, $dataPost, $params = [])</code></li>
+<li><code>check_format_date($date)</code></li>
+<li><code>get_income_tax_rate($id = false)</code></li>
+<li><code>update_income_tax_rates($data)</code></li>
+<li><code>get_income_tax_rebates($id = false)</code></li>
+<li><code>update_income_tax_rebates($data)</code></li>
+<li><code>get_earnings_list($id = false)</code></li>
+<li><code>update_earnings_list($data)</code></li>
+<li><code>get_salary_deductions_list($id = false)</code></li>
+<li><code>update_salary_deductions_list($data)</code></li>
+<li><code>get_insurance_list($id = false)</code></li>
+<li><code>update_insurance_list($data)</code></li>
+<li><code>get_company_contributions_list($id = false)</code></li>
+<li><code>update_company_contributions_list($data)</code></li>
+<li><code>update_data_integration($data)</code></li>
+<li><code>delete_hr_payroll_permission($id)</code></li>
+<li><code>setting_get_attendance_type()</code></li>
+<li><code>get_timesheet_type_for_setting($data)</code></li>
+<li><code>hr_records_get_earnings_list($id = false)</code></li>
+<li><code>earnings_list_synchronization($data)</code></li>
+<li><code>get_hrp_employees_header($rel_type)</code></li>
+<li><code>get_hrp_employees_value($rel_type)</code></li>
+<li><code>get_employees_data1()</code></li>
+<li><code>get_employees_data($month, $rel_type ='', $where='')</code></li>
+<li><code>employees_data_json_encode_decode($type, $data, $header ='')</code></li>
+<li><code>get_format_employees_data($rel_type)</code></li>
+<li><code>hrp_format_code($prefix_str, $number, $number_of_characters = 5)</code></li>
+<li><code>get_list_staff_contract($month)</code></li>
+<li><code>employees_synchronization($data)</code></li>
+<li><code>employees_update($data)</code></li>
+<li><code>get_hrp_attendance($month, $where='')</code></li>
+<li><code>get_day_header_in_month($month, $rel_type='')</code></li>
+<li><code>add_update_attendance($data)</code></li>
+<li><code>synchronization_attendance($data)</code></li>
+<li><code>hrp_get_timesheets_data($month, $rel_type)</code></li>
+<li><code>timesheet_get_shifts($month)</code></li>
+<li><code>import_attendance_data($es_detail)</code></li>
+<li><code>attendance_calculation($data)</code></li>
+<li><code>import_employees_data($es_detail)</code></li>
+<li><code>get_format_deduction_data()</code></li>
+<li><code>get_deductions_data($month, $where ='')</code></li>
+<li><code>deductions_data_json_encode_decode($type, $data, $header ='')</code></li>
+<li><code>deductions_update($data)</code></li>
+<li><code>get_format_commission_data()</code></li>
+<li><code>get_commissions_data($month, $where ='')</code></li>
+<li><code>commissions_update($data)</code></li>
+<li><code>import_commissions_data($es_detail)</code></li>
+<li><code>commissions_synchronization($data)</code></li>
+<li><code>get_list_staff_commissions($month)</code></li>
+<li><code>get_income_tax_data($month)</code></li>
+<li><code>get_total_income_tax_in_year($month)</code></li>
+<li><code>get_format_income_tax_data()</code></li>
+<li><code>get_format_insurance_data()</code></li>
+<li><code>get_insurances_data($month, $where ='')</code></li>
+<li><code>insurances_data_json_encode_decode($type, $data, $header ='')</code></li>
+<li><code>insurances_update($data)</code></li>
+<li><code>get_hrp_payroll_columns($id = false)</code></li>
+<li><code>get_list_payroll_column_method($data)</code></li>
+<li><code>get_list_payroll_column_function_name($data)</code></li>
+<li><code>add_payroll_column($data)</code></li>
+<li><code>update_payroll_column($data, $id)</code></li>
+<li><code>delete_payroll_column($id)</code></li>
+<li><code>count_payroll_column()</code></li>
+<li><code>get_hrp_payslip_templates($id = false)</code></li>
+<li><code>get_hrp_payslip($id = false)</code></li>
+<li><code>get_payslip_template_selected_html($payslip_template_id)</code></li>
+<li><code>get_payslip_column_html($payslip_columns)</code></li>
+<li><code>add_payslip_template($data)</code></li>
+<li><code>update_payslip_template($data, $id)</code></li>
+<li><code>delete_payslip_template($id)</code></li>
+<li><code>delete_payslip($id)</code></li>
+<li><code>delete_payslip_detail($payslip_id)</code></li>
+<li><code>update_payslip_templates_detail($data, $id)</code></li>
+<li><code>add_payslip_templates_detail_first($id, $update= false, $old_column_formular=[])</code></li>
+<li><code>general_template_cell_data($cell_name)</code></li>
+<li><code>general_cell_data($row, $col, $value, $t, $f, $luckysheet_header_format, $luckysheet_row_format, $luckysheet_company_format='false', $number_format ='')</code></li>
+<li><code>payslip_template_data_fixed($visible_row =[], $visible_column = [], $columnlen =[], $rowlen=[])</code></li>
+<li><code>update_payslip_templates_detail_first($old_column_formular, $id)</code></li>
+<li><code>check_update_payslip_template_detail($data, $id)</code></li>
+<li><code>get_staff_info($staffid)</code></li>
+<li><code>get_staff_departments($userid = false, $onlyids = false)</code></li>
+<li><code>get_all_staff_departments()</code></li>
+<li><code>get_bonus_by_month($staffid, $month)</code></li>
+<li><code>get_bonus_kpi($month, $where='')</code></li>
+<li><code>get_staff_timekeeping_applicable_object($where = [])</code></li>
+<li><code>add_bonus_kpi($data)</code></li>
+<li><code>getStaff($id = '', $where = [])</code></li>
+<li><code>get_department_by_list_id($list_id = '')</code></li>
+<li><code>payslip_template_get_staffid($department_ids, $role_ids, $staff_ids, $except_staff='')</code></li>
+<li><code>add_payslip($data)</code></li>
+<li><code>add_payslip_file($insert_id, $data, $payslip_name)</code></li>
+<li><code>update_payslip($data, $id)</code></li>
+<li><code>payslip_close($data)</code></li>
+<li><code>update_payslip_status($id, $status)</code></li>
+<li><code>render_personal_income_tax($PARAMETERS)</code></li>
+<li><code>get_payslip_detail($id = false)</code></li>
+<li><code>get_income_summary_report($sql_where='')</code></li>
+<li><code>get_insurance_summary_report($sql_where='')</code></li>
+<li><code>get_staff_in_deparment($department_id)</code></li>
+<li><code>payslip_chart($filter_by_year = '', $staff_id='')</code></li>
+<li><code>render_income_tax_formular($taxable_salary)</code></li>
+<li><code>get_department_payslip_chart($from_date, $to_date)</code></li>
+<li><code>array_cell_data($payroll_templates)</code></li>
+<li><code>payslip_template_checked($data)</code></li>
+<li><code>payslip_checked($payslip_month, $payslip_template_id, $closing= false)</code></li>
+<li><code>payslip_download($data)</code></li>
+<li><code>employees_copy($data)</code></li>
+<li><code>get_tasks_timer_by_month($month, $staff_id, $str_id_sql1, $hr_profile_status, $str_user_id_sql1)</code></li>
+<li><code>payslip_of_staff($payslip_id)</code></li>
+<li><code>remove_employees_not_under_management_on_payslip($payslip_data)</code></li>
+<li><code>employee_export_pdf($export_employee)</code></li>
+<li><code>get_payslip_detail_by_payslip_id($payslip_id)</code></li>
+<li><code>getdepartment_name($staffid)</code></li>
+</ul>
+</body></html>

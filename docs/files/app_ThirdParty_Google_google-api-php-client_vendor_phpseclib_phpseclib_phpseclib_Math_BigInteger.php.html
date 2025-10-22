@@ -1,0 +1,927 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Math\BigInteger.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Math\BigInteger.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Math\BigInteger.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 125332 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Pure-PHP arbitrary precision integer arithmetic library.</p>
+<p>Supports base-2, base-10, base-16, and base-256 numbers.  Uses the GMP or BCMath extensions, if available,</p>
+<p>and an internal implementation, otherwise.</p>
+<p>PHP version 5</p>
+<p>{@internal (all DocBlock comments regarding implementation - such as the one that follows - refer to the</p>
+<p>{@link self::MODE_INTERNAL self::MODE_INTERNAL} mode)</p>
+<p>BigInteger uses base-2**26 to perform operations such as multiplication and division and</p>
+<p>base-2<strong>52 (ie. two base 2</strong>26 digits) to perform addition and subtraction.  Because the largest possible</p>
+<p>value when multiplying two base-2<strong>26 numbers together is a base-2</strong>52 number, double precision floating</p>
+<p>point numbers - numbers that should be supported on most hardware and whose significand is 53 bits - are</p>
+<p>used.  As a consequence, bitwise operators such as >> and << cannot be used, nor can the modulo operator %,</p>
+<p>which only supports integers.  Although this fact will slow this library down, the fact that such a high</p>
+<p>base is being used should more than compensate.</p>
+<p>Numbers are stored in {@link http://en.wikipedia.org/wiki/Endianness little endian} format.  ie.</p>
+<p>(new \phpseclib\Math\BigInteger(pow(2, 26)))->value = array(0, 1)</p>
+<p>Useful resources are as follows:</p>
+<p> - {@link http://www.cacr.math.uwaterloo.ca/hac/about/chap14.pdf Handbook of Applied Cryptography (HAC)}</p>
+<p> - {@link http://math.libtomcrypt.com/files/tommath.pdf Multi-Precision Math (MPM)}</p>
+<p> - Java's BigInteger classes.  See /j2se/src/share/classes/java/math in jdk-1_5_0-src-jrl.zip</p>
+<p>Here's an example of how to use this library:</p>
+<p><code></p>
+<p><?php</p>
+<p>   $a = new \phpseclib\Math\BigInteger(2);</p>
+<p>   $b = new \phpseclib\Math\BigInteger(3);</p>
+<p>   $c = $a->add($b);</p>
+<p>   echo $c->toString(); // outputs 5</p>
+<p>?></p>
+<p></code></p>
+<p>@category  Math</p>
+<p>@package   BigInteger</p>
+<p>@author    Jim Wigginton <terrafrost@php.net></p>
+<p>@copyright 2006 Jim Wigginton</p>
+<p>@license   http://www.opensource.org/licenses/mit-license.html  MIT License</p>
+<p>@link      http://pear.php.net/package/Math_BigInteger</p>
+
+<p>Pure-PHP arbitrary precision integer arithmetic library. Supports base-2, base-10, base-16, and base-256</p>
+<p>numbers.</p>
+<p>@package BigInteger</p>
+<p>@author  Jim Wigginton <terrafrost@php.net></p>
+<p>@access  public</p>
+
+<p>#@+</p>
+<p>Reduction constants</p>
+<p>@access private</p>
+<p>@see BigInteger::_reduce()</p>
+
+<p>@see BigInteger::_montgomery()</p>
+<p>@see BigInteger::_prepMontgomery()</p>
+
+<p>@see BigInteger::_barrett()</p>
+
+<p>@see BigInteger::_mod2()</p>
+
+<p>@see BigInteger::_remainder()</p>
+
+<p>@see BigInteger::__clone()</p>
+
+<p>#@-</p>
+
+<p>#@+</p>
+<p>Array constants</p>
+<p>Rather than create a thousands and thousands of new BigInteger objects in repeated function calls to add() and</p>
+<p>multiply() or whatever, we'll just work directly on arrays, taking them in as parameters and returning them.</p>
+<p>@access private</p>
+
+<p>$result[self::VALUE] contains the value.</p>
+
+<p>$result[self::SIGN] contains the sign.</p>
+
+<p>#@-</p>
+
+<p>#@+</p>
+<p>@access private</p>
+<p>@see BigInteger::_montgomery()</p>
+<p>@see BigInteger::_barrett()</p>
+
+<p>Cache constants</p>
+<p>$cache[self::VARIABLE] tells us whether or not the cached data is still valid.</p>
+
+<p>$cache[self::DATA] contains the cached data.</p>
+
+<p>#@-</p>
+
+<p>#@+</p>
+<p>Mode constants.</p>
+<p>@access private</p>
+<p>@see BigInteger::__construct()</p>
+
+<p>To use the pure-PHP implementation</p>
+
+<p>To use the BCMath library</p>
+<p>(if enabled; otherwise, the internal implementation will be used)</p>
+
+<p>To use the GMP library</p>
+<p>(if present; otherwise, either the BCMath or the internal implementation will be used)</p>
+
+<p>#@-</p>
+
+<p>Karatsuba Cutoff</p>
+<p>At what point do we switch between Karatsuba multiplication and schoolbook long multiplication?</p>
+<p>@access private</p>
+
+<p>#@+</p>
+<p>Static properties used by the pure-PHP implementation.</p>
+<p>@see __construct()</p>
+
+<p>$max10 in greatest $max10Len satisfying</p>
+<p>$max10 = 10<strong>$max10Len <= 2</strong>$base.</p>
+
+<p>$max10Len in greatest $max10Len satisfying</p>
+<p>$max10 = 10<strong>$max10Len <= 2</strong>$base.</p>
+
+<p>#@-</p>
+
+<p>Holds the BigInteger's value.</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Holds the BigInteger's magnitude.</p>
+<p>@var bool</p>
+<p>@access private</p>
+
+<p>Precision</p>
+<p>@see self::setPrecision()</p>
+<p>@access private</p>
+
+<p>Precision Bitmask</p>
+<p>@see self::setPrecision()</p>
+<p>@access private</p>
+
+<p>Mode independent value used for serialization.</p>
+<p>If the bcmath or gmp extensions are installed $this->value will be a non-serializable resource, hence the need for</p>
+<p>a variable that'll be serializable regardless of whether or not extensions are being used.  Unlike $this->value,</p>
+<p>however, $this->hex is only calculated when $this->__sleep() is called.</p>
+<p>@see self::__sleep()</p>
+<p>@see self::__wakeup()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Converts base-2, base-10, base-16, and binary strings (base-256) to BigIntegers.</p>
+<p>If the second parameter - $base - is negative, then it will be assumed that the number's are encoded using</p>
+<p>two's compliment.  The sole exception to this is -10, which is treated the same as 10 is.</p>
+<p>Here's an example:</p>
+<p><code></p>
+<p><?php</p>
+<p>   $a = new \phpseclib\Math\BigInteger('0x32', 16); // 50 in base-16</p>
+<p>   echo $a->toString(); // outputs 50</p>
+<p>?></p>
+<p></code></p>
+<p>@param $x base-10 number or base-$base number if $base set.</p>
+<p>@param int $base</p>
+<p>@return \phpseclib\Math\BigInteger</p>
+<p>@access public</p>
+
+<p>Converts a BigInteger to a byte string (eg. base-256).</p>
+<p>Negative numbers are saved as positive numbers, unless $twos_compliment is set to true, at which point, they're</p>
+<p>saved as two's compliment.</p>
+<p>Here's an example:</p>
+<p><code></p>
+<p><?php</p>
+<p>   $a = new \phpseclib\Math\BigInteger('65');</p>
+<p>   echo $a->toBytes(); // outputs chr(65)</p>
+<p>?></p>
+<p></code></p>
+<p>@param bool $twos_compliment</p>
+<p>@return string</p>
+<p>@access public</p>
+<p>@internal Converts a base-2<strong>26 number to base-2</strong>8</p>
+
+<p>Converts a BigInteger to a hex string (eg. base-16)).</p>
+<p>Negative numbers are saved as positive numbers, unless $twos_compliment is set to true, at which point, they're</p>
+<p>saved as two's compliment.</p>
+<p>Here's an example:</p>
+<p><code></p>
+<p><?php</p>
+<p>   $a = new \phpseclib\Math\BigInteger('65');</p>
+<p>   echo $a->toHex(); // outputs '41'</p>
+<p>?></p>
+<p></code></p>
+<p>@param bool $twos_compliment</p>
+<p>@return string</p>
+<p>@access public</p>
+<p>@internal Converts a base-2<strong>26 number to base-2</strong>8</p>
+
+<p>Converts a BigInteger to a bit string (eg. base-2).</p>
+<p>Negative numbers are saved as positive numbers, unless $twos_compliment is set to true, at which point, they're</p>
+<p>saved as two's compliment.</p>
+<p>Here's an example:</p>
+<p><code></p>
+<p><?php</p>
+<p>   $a = new \phpseclib\Math\BigInteger('65');</p>
+<p>   echo $a->toBits(); // outputs '1000001'</p>
+<p>?></p>
+<p></code></p>
+<p>@param bool $twos_compliment</p>
+<p>@return string</p>
+<p>@access public</p>
+<p>@internal Converts a base-2<strong>26 number to base-2</strong>2</p>
+
+<p>Converts a BigInteger to a base-10 number.</p>
+<p>Here's an example:</p>
+<p><code></p>
+<p><?php</p>
+<p>   $a = new \phpseclib\Math\BigInteger('50');</p>
+<p>   echo $a->toString(); // outputs 50</p>
+<p>?></p>
+<p></code></p>
+<p>@return string</p>
+<p>@access public</p>
+<p>@internal Converts a base-2<strong>26 number to base-10</strong>7 (which is pretty much base-10)</p>
+
+<p>Copy an object</p>
+<p>PHP5 passes objects by reference while PHP4 passes by value.  As such, we need a function to guarantee</p>
+<p>that all objects are passed by value, when appropriate.  More information can be found here:</p>
+<p>{@link http://php.net/language.oop5.basic#51624}</p>
+<p>@access public</p>
+<p>@see self::__clone()</p>
+<p>@return \phpseclib\Math\BigInteger</p>
+
+<p>__toString() magic method</p>
+<p>Will be called, automatically, if you're supporting just PHP5.  If you're supporting PHP4, you'll need to call</p>
+<p>toString().</p>
+<p>@access public</p>
+<p>@internal Implemented per a suggestion by Techie-Michael - thanks!</p>
+
+<p>__clone() magic method</p>
+<p>Although you can call BigInteger::__toString() directly in PHP5, you cannot call BigInteger::__clone() directly</p>
+<p>in PHP5.  You can in PHP4 since it's not a magic method, but in PHP5, you have to call it by using the PHP5</p>
+<p>only syntax of $y = clone $x.  As such, if you're trying to write an application that works on both PHP4 and</p>
+<p>PHP5, call BigInteger::copy(), instead.</p>
+<p>@access public</p>
+<p>@see self::copy()</p>
+<p>@return \phpseclib\Math\BigInteger</p>
+
+<p>__sleep() magic method</p>
+<p>Will be called, automatically, when serialize() is called on a BigInteger object.</p>
+<p>@see self::__wakeup()</p>
+<p>@access public</p>
+
+<p>__wakeup() magic method</p>
+<p>Will be called, automatically, when unserialize() is called on a BigInteger object.</p>
+<p>@see self::__sleep()</p>
+<p>@access public</p>
+
+<p>__debugInfo() magic method</p>
+<p>Will be called, automatically, when print_r() or var_dump() are called</p>
+<p>@access public</p>
+
+<p>Adds two BigIntegers.</p>
+<p>Here's an example:</p>
+<p><code></p>
+<p><?php</p>
+<p>   $a = new \phpseclib\Math\BigInteger('10');</p>
+<p>   $b = new \phpseclib\Math\BigInteger('20');</p>
+<p>   $c = $a->add($b);</p>
+<p>   echo $c->toString(); // outputs 30</p>
+<p>?></p>
+<p></code></p>
+<p>@param \phpseclib\Math\BigInteger $y</p>
+<p>@return \phpseclib\Math\BigInteger</p>
+<p>@access public</p>
+<p>@internal Performs base-2**52 addition</p>
+
+<p>Performs addition.</p>
+<p>@param array $x_value</p>
+<p>@param bool $x_negative</p>
+<p>@param array $y_value</p>
+<p>@param bool $y_negative</p>
+<p>@return array</p>
+<p>@access private</p>
+
+<p>Subtracts two BigIntegers.</p>
+<p>Here's an example:</p>
+<p><code></p>
+<p><?php</p>
+<p>   $a = new \phpseclib\Math\BigInteger('10');</p>
+<p>   $b = new \phpseclib\Math\BigInteger('20');</p>
+<p>   $c = $a->subtract($b);</p>
+<p>   echo $c->toString(); // outputs -10</p>
+<p>?></p>
+<p></code></p>
+<p>@param \phpseclib\Math\BigInteger $y</p>
+<p>@return \phpseclib\Math\BigInteger</p>
+<p>@access public</p>
+<p>@internal Performs base-2**52 subtraction</p>
+
+<p>Performs subtraction.</p>
+<p>@param array $x_value</p>
+<p>@param bool $x_negative</p>
+<p>@param array $y_value</p>
+<p>@param bool $y_negative</p>
+<p>@return array</p>
+<p>@access private</p>
+
+<p>Multiplies two BigIntegers</p>
+<p>Here's an example:</p>
+<p><code></p>
+<p><?php</p>
+<p>   $a = new \phpseclib\Math\BigInteger('10');</p>
+<p>   $b = new \phpseclib\Math\BigInteger('20');</p>
+<p>   $c = $a->multiply($b);</p>
+<p>   echo $c->toString(); // outputs 200</p>
+<p>?></p>
+<p></code></p>
+<p>@param \phpseclib\Math\BigInteger $x</p>
+<p>@return \phpseclib\Math\BigInteger</p>
+<p>@access public</p>
+
+<p>Performs multiplication.</p>
+<p>@param array $x_value</p>
+<p>@param bool $x_negative</p>
+<p>@param array $y_value</p>
+<p>@param bool $y_negative</p>
+<p>@return array</p>
+<p>@access private</p>
+
+<p>Performs long multiplication on two BigIntegers</p>
+<p>Modeled after 'multiply' in MutableBigInteger.java.</p>
+<p>@param array $x_value</p>
+<p>@param array $y_value</p>
+<p>@return array</p>
+<p>@access private</p>
+
+<p>Performs Karatsuba multiplication on two BigIntegers</p>
+<p>See {@link http://en.wikipedia.org/wiki/Karatsuba_algorithm Karatsuba algorithm} and</p>
+<p>{@link http://math.libtomcrypt.com/files/tommath.pdf#page=120 MPM 5.2.3}.</p>
+<p>@param array $x_value</p>
+<p>@param array $y_value</p>
+<p>@return array</p>
+<p>@access private</p>
+
+<p>Performs squaring</p>
+<p>@param array $x</p>
+<p>@return array</p>
+<p>@access private</p>
+
+<p>Performs traditional squaring on two BigIntegers</p>
+<p>Squaring can be done faster than multiplying a number by itself can be.  See</p>
+<p>{@link http://www.cacr.math.uwaterloo.ca/hac/about/chap14.pdf#page=7 HAC 14.2.4} /</p>
+<p>{@link http://math.libtomcrypt.com/files/tommath.pdf#page=141 MPM 5.3} for more information.</p>
+<p>@param array $value</p>
+<p>@return array</p>
+<p>@access private</p>
+
+<p>Performs Karatsuba "squaring" on two BigIntegers</p>
+<p>See {@link http://en.wikipedia.org/wiki/Karatsuba_algorithm Karatsuba algorithm} and</p>
+<p>{@link http://math.libtomcrypt.com/files/tommath.pdf#page=151 MPM 5.3.4}.</p>
+<p>@param array $value</p>
+<p>@return array</p>
+<p>@access private</p>
+
+<p>Divides two BigIntegers.</p>
+<p>Returns an array whose first element contains the quotient and whose second element contains the</p>
+<p>"common residue".  If the remainder would be positive, the "common residue" and the remainder are the</p>
+<p>same.  If the remainder would be negative, the "common residue" is equal to the sum of the remainder</p>
+<p>and the divisor (basically, the "common residue" is the first positive modulo).</p>
+<p>Here's an example:</p>
+<p><code></p>
+<p><?php</p>
+<p>   $a = new \phpseclib\Math\BigInteger('10');</p>
+<p>   $b = new \phpseclib\Math\BigInteger('20');</p>
+<p>   list($quotient, $remainder) = $a->divide($b);</p>
+<p>   echo $quotient->toString(); // outputs 0</p>
+<p>   echo "\r\n";</p>
+<p>   echo $remainder->toString(); // outputs 10</p>
+<p>?></p>
+<p></code></p>
+<p>@param \phpseclib\Math\BigInteger $y</p>
+<p>@return array</p>
+<p>@access public</p>
+<p>@internal This function is based off of {@link http://www.cacr.math.uwaterloo.ca/hac/about/chap14.pdf#page=9 HAC 14.20}.</p>
+
+<p>Divides a BigInteger by a regular integer</p>
+<p>abc / x = a00 / x + b0 / x + c / x</p>
+<p>@param array $dividend</p>
+<p>@param array $divisor</p>
+<p>@return array</p>
+<p>@access private</p>
+
+<p>Performs modular exponentiation.</p>
+<p>Here's an example:</p>
+<p><code></p>
+<p><?php</p>
+<p>   $a = new \phpseclib\Math\BigInteger('10');</p>
+<p>   $b = new \phpseclib\Math\BigInteger('20');</p>
+<p>   $c = new \phpseclib\Math\BigInteger('30');</p>
+<p>   $c = $a->modPow($b, $c);</p>
+<p>   echo $c->toString(); // outputs 10</p>
+<p>?></p>
+<p></code></p>
+<p>@param \phpseclib\Math\BigInteger $e</p>
+<p>@param \phpseclib\Math\BigInteger $n</p>
+<p>@return \phpseclib\Math\BigInteger</p>
+<p>@access public</p>
+<p>@internal The most naive approach to modular exponentiation has very unreasonable requirements, and</p>
+<p>   and although the approach involving repeated squaring does vastly better, it, too, is impractical</p>
+<p>   for our purposes.  The reason being that division - by far the most complicated and time-consuming</p>
+<p>   of the basic operations (eg. +,-,*,/) - occurs multiple times within it.</p>
+<p>   Modular reductions resolve this issue.  Although an individual modular reduction takes more time</p>
+<p>   then an individual division, when performed in succession (with the same modulo), they're a lot faster.</p>
+<p>   The two most commonly used modular reductions are Barrett and Montgomery reduction.  Montgomery reduction,</p>
+<p>   although faster, only works when the gcd of the modulo and of the base being used is 1.  In RSA, when the</p>
+<p>   base is a power of two, the modulo - a product of two primes - is always going to have a gcd of 1 (because</p>
+<p>   the product of two odd numbers is odd), but what about when RSA isn't used?</p>
+<p>   In contrast, Barrett reduction has no such constraint.  As such, some bigint implementations perform a</p>
+<p>   Barrett reduction after every operation in the modpow function.  Others perform Barrett reductions when the</p>
+<p>   modulo is even and Montgomery reductions when the modulo is odd.  BigInteger.java's modPow method, however,</p>
+<p>   uses a trick involving the Chinese Remainder Theorem to factor the even modulo into two numbers - one odd and</p>
+<p>   the other, a power of two - and recombine them, later.  This is the method that this modPow function uses.</p>
+<p>   {@link http://islab.oregonstate.edu/papers/j34monex.pdf Montgomery Reduction with Even Modulus} elaborates.</p>
+
+<p>Performs modular exponentiation.</p>
+<p>Alias for modPow().</p>
+<p>@param \phpseclib\Math\BigInteger $e</p>
+<p>@param \phpseclib\Math\BigInteger $n</p>
+<p>@return \phpseclib\Math\BigInteger</p>
+<p>@access public</p>
+
+<p>Sliding Window k-ary Modular Exponentiation</p>
+<p>Based on {@link http://www.cacr.math.uwaterloo.ca/hac/about/chap14.pdf#page=27 HAC 14.85} /</p>
+<p>{@link http://math.libtomcrypt.com/files/tommath.pdf#page=210 MPM 7.7}.  In a departure from those algorithims,</p>
+<p>however, this function performs a modular reduction after every multiplication and squaring operation.</p>
+<p>As such, this function has the same preconditions that the reductions being used do.</p>
+<p>@param \phpseclib\Math\BigInteger $e</p>
+<p>@param \phpseclib\Math\BigInteger $n</p>
+<p>@param int $mode</p>
+<p>@return \phpseclib\Math\BigInteger</p>
+<p>@access private</p>
+
+<p>Modular reduction</p>
+<p>For most $modes this will return the remainder.</p>
+<p>@see self::_slidingWindow()</p>
+<p>@access private</p>
+<p>@param array $x</p>
+<p>@param array $n</p>
+<p>@param int $mode</p>
+<p>@return array</p>
+
+<p>Modular reduction preperation</p>
+<p>@see self::_slidingWindow()</p>
+<p>@access private</p>
+<p>@param array $x</p>
+<p>@param array $n</p>
+<p>@param int $mode</p>
+<p>@return array</p>
+
+<p>Modular multiply</p>
+<p>@see self::_slidingWindow()</p>
+<p>@access private</p>
+<p>@param array $x</p>
+<p>@param array $y</p>
+<p>@param array $n</p>
+<p>@param int $mode</p>
+<p>@return array</p>
+
+<p>Modular square</p>
+<p>@see self::_slidingWindow()</p>
+<p>@access private</p>
+<p>@param array $x</p>
+<p>@param array $n</p>
+<p>@param int $mode</p>
+<p>@return array</p>
+
+<p>Modulos for Powers of Two</p>
+<p>Calculates $x%$n, where $n = 2**$e, for some $e.  Since this is basically the same as doing $x & ($n-1),</p>
+<p>we'll just use this function as a wrapper for doing that.</p>
+<p>@see self::_slidingWindow()</p>
+<p>@access private</p>
+<p>@param \phpseclib\Math\BigInteger</p>
+<p>@return \phpseclib\Math\BigInteger</p>
+
+<p>Barrett Modular Reduction</p>
+<p>See {@link http://www.cacr.math.uwaterloo.ca/hac/about/chap14.pdf#page=14 HAC 14.3.3} /</p>
+<p>{@link http://math.libtomcrypt.com/files/tommath.pdf#page=165 MPM 6.2.5} for more information.  Modified slightly,</p>
+<p>so as not to require negative numbers (initially, this script didn't support negative numbers).</p>
+<p>Employs "folding", as described at</p>
+<p>{@link http://www.cosic.esat.kuleuven.be/publications/thesis-149.pdf#page=66 thesis-149.pdf#page=66}.  To quote from</p>
+<p>it, "the idea [behind folding] is to find a value x' such that x (mod m) = x' (mod m), with x' being smaller than x."</p>
+<p>Unfortunately, the "Barrett Reduction with Folding" algorithm described in thesis-149.pdf is not, as written, all that</p>
+<p>usable on account of (1) its not using reasonable radix points as discussed in</p>
+<p>{@link http://math.libtomcrypt.com/files/tommath.pdf#page=162 MPM 6.2.2} and (2) the fact that, even with reasonable</p>
+<p>radix points, it only works when there are an even number of digits in the denominator.  The reason for (2) is that</p>
+<p>(x >> 1) + (x >> 1) != x / 2 + x / 2.  If x is even, they're the same, but if x is odd, they're not.  See the in-line</p>
+<p>comments for details.</p>
+<p>@see self::_slidingWindow()</p>
+<p>@access private</p>
+<p>@param array $n</p>
+<p>@param array $m</p>
+<p>@return array</p>
+
+<p>(Regular) Barrett Modular Reduction</p>
+<p>For numbers with more than four digits BigInteger::_barrett() is faster.  The difference between that and this</p>
+<p>is that this function does not fold the denominator into a smaller form.</p>
+<p>@see self::_slidingWindow()</p>
+<p>@access private</p>
+<p>@param array $x</p>
+<p>@param array $n</p>
+<p>@return array</p>
+
+<p>Performs long multiplication up to $stop digits</p>
+<p>If you're going to be doing array_slice($product->value, 0, $stop), some cycles can be saved.</p>
+<p>@see self::_regularBarrett()</p>
+<p>@param array $x_value</p>
+<p>@param bool $x_negative</p>
+<p>@param array $y_value</p>
+<p>@param bool $y_negative</p>
+<p>@param int $stop</p>
+<p>@return array</p>
+<p>@access private</p>
+
+<p>Montgomery Modular Reduction</p>
+<p>($x->_prepMontgomery($n))->_montgomery($n) yields $x % $n.</p>
+<p>{@link http://math.libtomcrypt.com/files/tommath.pdf#page=170 MPM 6.3} provides insights on how this can be</p>
+<p>improved upon (basically, by using the comba method).  gcd($n, 2) must be equal to one for this function</p>
+<p>to work correctly.</p>
+<p>@see self::_prepMontgomery()</p>
+<p>@see self::_slidingWindow()</p>
+<p>@access private</p>
+<p>@param array $x</p>
+<p>@param array $n</p>
+<p>@return array</p>
+
+<p>Montgomery Multiply</p>
+<p>Interleaves the montgomery reduction and long multiplication algorithms together as described in</p>
+<p>{@link http://www.cacr.math.uwaterloo.ca/hac/about/chap14.pdf#page=13 HAC 14.36}</p>
+<p>@see self::_prepMontgomery()</p>
+<p>@see self::_montgomery()</p>
+<p>@access private</p>
+<p>@param array $x</p>
+<p>@param array $y</p>
+<p>@param array $m</p>
+<p>@return array</p>
+
+<p>Prepare a number for use in Montgomery Modular Reductions</p>
+<p>@see self::_montgomery()</p>
+<p>@see self::_slidingWindow()</p>
+<p>@access private</p>
+<p>@param array $x</p>
+<p>@param array $n</p>
+<p>@return array</p>
+
+<p>Modular Inverse of a number mod 2**26 (eg. 67108864)</p>
+<p>Based off of the bnpInvDigit function implemented and justified in the following URL:</p>
+<p>{@link http://www-cs-students.stanford.edu/~tjw/jsbn/jsbn.js}</p>
+<p>The following URL provides more info:</p>
+<p>{@link http://groups.google.com/group/sci.crypt/msg/7a137205c1be7d85}</p>
+<p>As for why we do all the bitmasking...  strange things can happen when converting from floats to ints. For</p>
+<p>instance, on some computers, var_dump((int) -4294967297) yields int(-1) and on others, it yields</p>
+<p>int(-2147483648).  To avoid problems stemming from this, we use bitmasks to guarantee that ints aren't</p>
+<p>auto-converted to floats.  The outermost bitmask is present because without it, there's no guarantee that</p>
+<p>the "residue" returned would be the so-called "common residue".  We use fmod, in the last step, because the</p>
+<p>maximum possible $x is 26 bits and the maximum $result is 16 bits.  Thus, we have to be able to handle up to</p>
+<p>40 bits, which only 64-bit floating points will support.</p>
+<p>Thanks to Pedro Gimeno Fortea for input!</p>
+<p>@see self::_montgomery()</p>
+<p>@access private</p>
+<p>@param array $x</p>
+<p>@return int</p>
+
+<p>Calculates modular inverses.</p>
+<p>Say you have (30 mod 17 * x mod 17) mod 17 == 1.  x can be found using modular inverses.</p>
+<p>Here's an example:</p>
+<p><code></p>
+<p><?php</p>
+<p>   $a = new \phpseclib\Math\BigInteger(30);</p>
+<p>   $b = new \phpseclib\Math\BigInteger(17);</p>
+<p>   $c = $a->modInverse($b);</p>
+<p>   echo $c->toString(); // outputs 4</p>
+<p>   echo "\r\n";</p>
+<p>   $d = $a->multiply($c);</p>
+<p>   list(, $d) = $d->divide($b);</p>
+<p>   echo $d; // outputs 1 (as per the definition of modular inverse)</p>
+<p>?></p>
+<p></code></p>
+<p>@param \phpseclib\Math\BigInteger $n</p>
+<p>@return \phpseclib\Math\BigInteger|false</p>
+<p>@access public</p>
+<p>@internal See {@link http://www.cacr.math.uwaterloo.ca/hac/about/chap14.pdf#page=21 HAC 14.64} for more information.</p>
+
+<p>Calculates the greatest common divisor and Bezout's identity.</p>
+<p>Say you have 693 and 609.  The GCD is 21.  Bezout's identity states that there exist integers x and y such that</p>
+<p>693*x + 609*y == 21.  In point of fact, there are actually an infinite number of x and y combinations and which</p>
+<p>combination is returned is dependent upon which mode is in use.  See</p>
+<p>{@link http://en.wikipedia.org/wiki/B%C3%A9zout%27s_identity Bezout's identity - Wikipedia} for more information.</p>
+<p>Here's an example:</p>
+<p><code></p>
+<p><?php</p>
+<p>   $a = new \phpseclib\Math\BigInteger(693);</p>
+<p>   $b = new \phpseclib\Math\BigInteger(609);</p>
+<p>   extract($a->extendedGCD($b));</p>
+<p>   echo $gcd->toString() . "\r\n"; // outputs 21</p>
+<p>   echo $a->toString() * $x->toString() + $b->toString() * $y->toString(); // outputs 21</p>
+<p>?></p>
+<p></code></p>
+<p>@param \phpseclib\Math\BigInteger $n</p>
+<p>@return \phpseclib\Math\BigInteger</p>
+<p>@access public</p>
+<p>@internal Calculates the GCD using the binary xGCD algorithim described in</p>
+<p>   {@link http://www.cacr.math.uwaterloo.ca/hac/about/chap14.pdf#page=19 HAC 14.61}.  As the text above 14.61 notes,</p>
+<p>   the more traditional algorithim requires "relatively costly multiple-precision divisions".</p>
+
+<p>Calculates the greatest common divisor</p>
+<p>Say you have 693 and 609.  The GCD is 21.</p>
+<p>Here's an example:</p>
+<p><code></p>
+<p><?php</p>
+<p>   $a = new \phpseclib\Math\BigInteger(693);</p>
+<p>   $b = new \phpseclib\Math\BigInteger(609);</p>
+<p>   $gcd = a->extendedGCD($b);</p>
+<p>   echo $gcd->toString() . "\r\n"; // outputs 21</p>
+<p>?></p>
+<p></code></p>
+<p>@param \phpseclib\Math\BigInteger $n</p>
+<p>@return \phpseclib\Math\BigInteger</p>
+<p>@access public</p>
+
+<p>Absolute value.</p>
+<p>@return \phpseclib\Math\BigInteger</p>
+<p>@access public</p>
+
+<p>Compares two numbers.</p>
+<p>Although one might think !$x->compare($y) means $x != $y, it, in fact, means the opposite.  The reason for this is</p>
+<p>demonstrated thusly:</p>
+<p>$x  > $y: $x->compare($y)  > 0</p>
+<p>$x  < $y: $x->compare($y)  < 0</p>
+<p>$x == $y: $x->compare($y) == 0</p>
+<p>Note how the same comparison operator is used.  If you want to test for equality, use $x->equals($y).</p>
+<p>@param \phpseclib\Math\BigInteger $y</p>
+<p>@return int < 0 if $this is less than $y; > 0 if $this is greater than $y, and 0 if they are equal.</p>
+<p>@access public</p>
+<p>@see self::equals()</p>
+<p>@internal Could return $this->subtract($x), but that's not as fast as what we do do.</p>
+
+<p>Compares two numbers.</p>
+<p>@param array $x_value</p>
+<p>@param bool $x_negative</p>
+<p>@param array $y_value</p>
+<p>@param bool $y_negative</p>
+<p>@return int</p>
+<p>@see self::compare()</p>
+<p>@access private</p>
+
+<p>Tests the equality of two numbers.</p>
+<p>If you need to see if one number is greater than or less than another number, use BigInteger::compare()</p>
+<p>@param \phpseclib\Math\BigInteger $x</p>
+<p>@return bool</p>
+<p>@access public</p>
+<p>@see self::compare()</p>
+
+<p>Set Precision</p>
+<p>Some bitwise operations give different results depending on the precision being used.  Examples include left</p>
+<p>shift, not, and rotates.</p>
+<p>@param int $bits</p>
+<p>@access public</p>
+
+<p>Logical And</p>
+<p>@param \phpseclib\Math\BigInteger $x</p>
+<p>@access public</p>
+<p>@internal Implemented per a request by Lluis Pamies i Juarez <lluis _a_ pamies.cat></p>
+<p>@return \phpseclib\Math\BigInteger</p>
+
+<p>Logical Or</p>
+<p>@param \phpseclib\Math\BigInteger $x</p>
+<p>@access public</p>
+<p>@internal Implemented per a request by Lluis Pamies i Juarez <lluis _a_ pamies.cat></p>
+<p>@return \phpseclib\Math\BigInteger</p>
+
+<p>Logical Exclusive-Or</p>
+<p>@param \phpseclib\Math\BigInteger $x</p>
+<p>@access public</p>
+<p>@internal Implemented per a request by Lluis Pamies i Juarez <lluis _a_ pamies.cat></p>
+<p>@return \phpseclib\Math\BigInteger</p>
+
+<p>Logical Not</p>
+<p>@access public</p>
+<p>@internal Implemented per a request by Lluis Pamies i Juarez <lluis _a_ pamies.cat></p>
+<p>@return \phpseclib\Math\BigInteger</p>
+
+<p>Logical Right Shift</p>
+<p>Shifts BigInteger's by $shift bits, effectively dividing by 2**$shift.</p>
+<p>@param int $shift</p>
+<p>@return \phpseclib\Math\BigInteger</p>
+<p>@access public</p>
+<p>@internal The only version that yields any speed increases is the internal version.</p>
+
+<p>Logical Left Shift</p>
+<p>Shifts BigInteger's by $shift bits, effectively multiplying by 2**$shift.</p>
+<p>@param int $shift</p>
+<p>@return \phpseclib\Math\BigInteger</p>
+<p>@access public</p>
+<p>@internal The only version that yields any speed increases is the internal version.</p>
+
+<p>Logical Left Rotate</p>
+<p>Instead of the top x bits being dropped they're appended to the shifted bit string.</p>
+<p>@param int $shift</p>
+<p>@return \phpseclib\Math\BigInteger</p>
+<p>@access public</p>
+
+<p>Logical Right Rotate</p>
+<p>Instead of the bottom x bits being dropped they're prepended to the shifted bit string.</p>
+<p>@param int $shift</p>
+<p>@return \phpseclib\Math\BigInteger</p>
+<p>@access public</p>
+
+<p>Generates a random BigInteger</p>
+<p>Byte length is equal to $length. Uses \phpseclib\Crypt\Random if it's loaded and mt_rand if it's not.</p>
+<p>@param int $length</p>
+<p>@return \phpseclib\Math\BigInteger</p>
+<p>@access private</p>
+
+<p>Generate a random number</p>
+<p>Returns a random number between $min and $max where $min and $max</p>
+<p>can be defined using one of the two methods:</p>
+<p>$min->random($max)</p>
+<p>$max->random($min)</p>
+<p>@param \phpseclib\Math\BigInteger $arg1</p>
+<p>@param \phpseclib\Math\BigInteger $arg2</p>
+<p>@return \phpseclib\Math\BigInteger</p>
+<p>@access public</p>
+<p>@internal The API for creating random numbers used to be $a->random($min, $max), where $a was a BigInteger object.</p>
+<p>          That method is still supported for BC purposes.</p>
+
+<p>Generate a random prime number.</p>
+<p>If there's not a prime within the given range, false will be returned.</p>
+<p>If more than $timeout seconds have elapsed, give up and return false.</p>
+<p>@param \phpseclib\Math\BigInteger $arg1</p>
+<p>@param \phpseclib\Math\BigInteger $arg2</p>
+<p>@param int $timeout</p>
+<p>@return Math_BigInteger|false</p>
+<p>@access public</p>
+<p>@internal See {@link http://www.cacr.math.uwaterloo.ca/hac/about/chap4.pdf#page=15 HAC 4.44}.</p>
+
+<p>Make the current number odd</p>
+<p>If the current number is odd it'll be unchanged.  If it's even, one will be added to it.</p>
+<p>@see self::randomPrime()</p>
+<p>@access private</p>
+
+<p>Checks a numer to see if it's prime</p>
+<p>Assuming the $t parameter is not set, this function has an error rate of 2**-80.  The main motivation for the</p>
+<p>$t parameter is distributability.  BigInteger::randomPrime() can be distributed across multiple pageloads</p>
+<p>on a website instead of just one.</p>
+<p>@param \phpseclib\Math\BigInteger $t</p>
+<p>@return bool</p>
+<p>@access public</p>
+<p>@internal Uses the</p>
+<p>    {@link http://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test Miller-Rabin primality test}.  See</p>
+<p>    {@link http://www.cacr.math.uwaterloo.ca/hac/about/chap4.pdf#page=8 HAC 4.24}.</p>
+
+<p>Logical Left Shift</p>
+<p>Shifts BigInteger's by $shift bits.</p>
+<p>@param int $shift</p>
+<p>@access private</p>
+
+<p>Logical Right Shift</p>
+<p>Shifts BigInteger's by $shift bits.</p>
+<p>@param int $shift</p>
+<p>@access private</p>
+
+<p>Normalize</p>
+<p>Removes leading zeros and truncates (if necessary) to maintain the appropriate precision</p>
+<p>@param \phpseclib\Math\BigInteger</p>
+<p>@return \phpseclib\Math\BigInteger</p>
+<p>@see self::_trim()</p>
+<p>@access private</p>
+
+<p>Trim</p>
+<p>Removes leading zeros</p>
+<p>@param array $value</p>
+<p>@return \phpseclib\Math\BigInteger</p>
+<p>@access private</p>
+
+<p>Array Repeat</p>
+<p>@param $input Array</p>
+<p>@param $multiplier mixed</p>
+<p>@return array</p>
+<p>@access private</p>
+
+<p>Logical Left Shift</p>
+<p>Shifts binary strings $shift bits, essentially multiplying by 2**$shift.</p>
+<p>@param $x String</p>
+<p>@param $shift Integer</p>
+<p>@return string</p>
+<p>@access private</p>
+
+<p>Logical Right Shift</p>
+<p>Shifts binary strings $shift bits, essentially dividing by 2**$shift and returning the remainder.</p>
+<p>@param $x String</p>
+<p>@param $shift Integer</p>
+<p>@return string</p>
+<p>@access private</p>
+
+<p>Converts 32-bit integers to bytes.</p>
+<p>@param int $x</p>
+<p>@return string</p>
+<p>@access private</p>
+
+<p>Converts bytes to 32-bit integers</p>
+<p>@param string $x</p>
+<p>@return int</p>
+<p>@access private</p>
+
+<p>DER-encode an integer</p>
+<p>The ability to DER-encode integers is needed to create RSA public keys for use with OpenSSL</p>
+<p>@see self::modPow()</p>
+<p>@access private</p>
+<p>@param int $length</p>
+<p>@return string</p>
+
+<p>Single digit division</p>
+<p>Even if int64 is being used the division operator will return a float64 value</p>
+<p>if the dividend is not evenly divisible by the divisor. Since a float64 doesn't</p>
+<p>have the precision of int64 this is a problem so, when int64 is being used,</p>
+<p>we'll guarantee that the dividend is divisible by first subtracting the remainder.</p>
+<p>@access private</p>
+<p>@param int $x</p>
+<p>@param int $y</p>
+<p>@return int</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>using</code></li>
+<li><code>those</code></li>
+<li><code>BigInteger</code></li>
+<li><code>MPM</code></li>
+<li><code>a</code></li>
+<li><code>another</code></li>
+<li><code>floats</code></li>
+<li><code>this</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Math\BigInteger.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>phpseclib\Math\BigInteger</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($x = 0, $base = 10)</code></li>
+<li><code>toBytes($twos_compliment = false)</code></li>
+<li><code>toHex($twos_compliment = false)</code></li>
+<li><code>toBits($twos_compliment = false)</code></li>
+<li><code>toString()</code></li>
+<li><code>copy()</code></li>
+<li><code>__toString()</code></li>
+<li><code>__clone()</code></li>
+<li><code>__sleep()</code></li>
+<li><code>__wakeup()</code></li>
+<li><code>__debugInfo()</code></li>
+<li><code>add($y)</code></li>
+<li><code>_add($x_value, $x_negative, $y_value, $y_negative)</code></li>
+<li><code>subtract($y)</code></li>
+<li><code>_subtract($x_value, $x_negative, $y_value, $y_negative)</code></li>
+<li><code>multiply($x)</code></li>
+<li><code>_multiply($x_value, $x_negative, $y_value, $y_negative)</code></li>
+<li><code>_regularMultiply($x_value, $y_value)</code></li>
+<li><code>_karatsuba($x_value, $y_value)</code></li>
+<li><code>_square($x = false)</code></li>
+<li><code>_baseSquare($value)</code></li>
+<li><code>_karatsubaSquare($value)</code></li>
+<li><code>divide($y)</code></li>
+<li><code>_divide_digit($dividend, $divisor)</code></li>
+<li><code>modPow($e, $n)</code></li>
+<li><code>powMod($e, $n)</code></li>
+<li><code>_slidingWindow($e, $n, $mode)</code></li>
+<li><code>_reduce($x, $n, $mode)</code></li>
+<li><code>_prepareReduce($x, $n, $mode)</code></li>
+<li><code>_multiplyReduce($x, $y, $n, $mode)</code></li>
+<li><code>_squareReduce($x, $n, $mode)</code></li>
+<li><code>_mod2($n)</code></li>
+<li><code>_barrett($n, $m)</code></li>
+<li><code>_regularBarrett($x, $n)</code></li>
+<li><code>_multiplyLower($x_value, $x_negative, $y_value, $y_negative, $stop)</code></li>
+<li><code>_montgomery($x, $n)</code></li>
+<li><code>_montgomeryMultiply($x, $y, $m)</code></li>
+<li><code>_prepMontgomery($x, $n)</code></li>
+<li><code>_modInverse67108864($x)</code></li>
+<li><code>modInverse($n)</code></li>
+<li><code>extendedGCD($n)</code></li>
+<li><code>gcd($n)</code></li>
+<li><code>abs()</code></li>
+<li><code>compare($y)</code></li>
+<li><code>_compare($x_value, $x_negative, $y_value, $y_negative)</code></li>
+<li><code>equals($x)</code></li>
+<li><code>setPrecision($bits)</code></li>
+<li><code>bitwise_and($x)</code></li>
+<li><code>bitwise_or($x)</code></li>
+<li><code>bitwise_xor($x)</code></li>
+<li><code>bitwise_not()</code></li>
+<li><code>bitwise_rightShift($shift)</code></li>
+<li><code>bitwise_leftShift($shift)</code></li>
+<li><code>bitwise_leftRotate($shift)</code></li>
+<li><code>bitwise_rightRotate($shift)</code></li>
+<li><code>_random_number_helper($size)</code></li>
+<li><code>random($arg1, $arg2 = false)</code></li>
+<li><code>randomPrime($arg1, $arg2 = false, $timeout = false)</code></li>
+<li><code>_make_odd()</code></li>
+<li><code>isPrime($t = false)</code></li>
+<li><code>_lshift($shift)</code></li>
+<li><code>_rshift($shift)</code></li>
+<li><code>_normalize($result)</code></li>
+<li><code>_trim($value)</code></li>
+<li><code>_array_repeat($input, $multiplier)</code></li>
+<li><code>_base256_lshift(&$x, $shift)</code></li>
+<li><code>_base256_rshift(&$x, $shift)</code></li>
+<li><code>_int2bytes($x)</code></li>
+<li><code>_bytes2int($x)</code></li>
+<li><code>_encodeASN1Length($length)</code></li>
+<li><code>_safe_divide($x, $y)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,110 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Images\Handlers\GDHandler.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Images\Handlers\GDHandler.php</h1>
+
+<ul>
+<li>Path: <code>system\Images\Handlers\GDHandler.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 15346 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Image handler for GD package</p>
+
+<p>Constructor.</p>
+<p>@param Images|null $config</p>
+<p>@throws ImageException</p>
+
+<p>Handles the rotation of an image resource.</p>
+<p>Doesn't save the image, but replaces the current resource.</p>
+
+<p>Flattens transparencies</p>
+<p>@return $this</p>
+
+<p>Flips an image along it's vertical or horizontal axis.</p>
+<p>@return $this</p>
+
+<p>Get GD version</p>
+<p>@return mixed</p>
+
+<p>Resizes the image.</p>
+<p>@return GDHandler</p>
+
+<p>Crops the image.</p>
+<p>@return GDHandler</p>
+
+<p>Handles all of the grunt work of resizing, etc.</p>
+<p>@return $this</p>
+
+<p>Saves any changes that have been made to file. If no new filename is</p>
+<p>provided, the existing image is overwritten, otherwise a copy of the</p>
+<p>file is made at $target.</p>
+<p>Example:</p>
+<p>   $image->resize(100, 200, true)</p>
+<p>         ->save();</p>
+
+<p>Create Image Resource</p>
+<p>This simply creates an image resource handle</p>
+<p>based on the type of image being processed</p>
+<p>@return bool|resource</p>
+
+<p>Make the image resource object if needed</p>
+
+<p>Check if image type is supported and return image resource</p>
+<p>@param string $path      Image path</p>
+<p>@param int    $imageType Image type</p>
+<p>@throws ImageException</p>
+<p>@return bool|resource</p>
+
+<p>Add text overlay to an image.</p>
+
+<p>Handler-specific method for overlaying text on an image.</p>
+<p>@param bool $isShadow Whether we are drawing the dropshadow or actual text</p>
+
+<p>Return image width.</p>
+<p>@return int</p>
+
+<p>Return image height.</p>
+<p>@return int</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>text</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Images\Handlers\GDHandler.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Images\Handlers\GDHandler extends BaseHandler</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($config = null)</code></li>
+<li><code>_rotate(int $angle)</code></li>
+<li><code>_flatten(int $red = 255, int $green = 255, int $blue = 255)</code></li>
+<li><code>_flip(string $direction)</code></li>
+<li><code>getVersion()</code></li>
+<li><code>_resize(bool $maintainRatio = false)</code></li>
+<li><code>_crop()</code></li>
+<li><code>process(string $action)</code></li>
+<li><code>save(?string $target = null, int $quality = 90)</code></li>
+<li><code>createImage(string $path = '', string $imageType = '')</code></li>
+<li><code>ensureResource()</code></li>
+<li><code>getImageResource(string $path, int $imageType)</code></li>
+<li><code>_text(string $text, array $options = [])</code></li>
+<li><code>textOverlay(string $text, array $options = [], bool $isShadow = false)</code></li>
+<li><code>_getWidth()</code></li>
+<li><code>_getHeight()</code></li>
+</ul>
+</body></html>

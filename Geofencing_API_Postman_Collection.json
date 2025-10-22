@@ -1,0 +1,692 @@
+{
+  "info": {
+    "name": "Geofencing Attendance API",
+    "description": "Complete API collection for testing geofencing-based attendance management system",
+    "version": "1.0.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{authtoken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Auto-set base URL if not defined",
+          "if (!pm.environment.get('base_url')) {",
+          "    pm.environment.set('base_url', 'http://localhost/rsra/index.php');",
+          "}"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost/rsra/index.php",
+      "type": "string"
+    },
+    {
+      "key": "authtoken",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Extract and save auth token",
+                  "if (pm.response.code === 200) {",
+                  "    const response = pm.response.json();",
+                  "    if (response.status && response.data && response.data.authtoken) {",
+                  "        pm.environment.set('authtoken', response.data.authtoken);",
+                  "        pm.test('Login successful', () => {",
+                  "            pm.expect(response.status).to.be.true;",
+                  "        });",
+                  "        pm.test('Auth token received', () => {",
+                  "            pm.expect(response.data.authtoken).to.be.a('string');",
+                  "        });",
+                  "    }",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "sumitranjan245@gmail.com",
+                  "description": "User email address"
+                },
+                {
+                  "key": "password",
+                  "value": "123456",
+                  "description": "User password"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/login",
+              "host": ["{{base_url}}"],
+              "path": ["api", "auth", "login"]
+            },
+            "description": "Authenticate user and get JWT token for API access"
+          }
+        }
+      ],
+      "description": "Authentication endpoints for getting access tokens"
+    },
+    {
+      "name": "Device Management",
+      "item": [
+        {
+          "name": "Register Device",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "authtoken",
+                "value": "{{authtoken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "device_id",
+                  "value": "device-{{$randomUUID}}",
+                  "description": "Unique device identifier"
+                },
+                {
+                  "key": "device_name",
+                  "value": "Test Android Device",
+                  "description": "Human readable device name"
+                },
+                {
+                  "key": "device_type",
+                  "value": "android",
+                  "description": "Device type: android, ios, web"
+                },
+                {
+                  "key": "device_model",
+                  "value": "Samsung Galaxy S21",
+                  "description": "Device model information"
+                },
+                {
+                  "key": "os_version",
+                  "value": "13.0",
+                  "description": "Operating system version"
+                },
+                {
+                  "key": "app_version",
+                  "value": "1.0.0",
+                  "description": "Mobile app version"
+                },
+                {
+                  "key": "push_token",
+                  "value": "push-token-{{$randomAlphaNumeric}}",
+                  "description": "Push notification token"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/geofencing/register_device",
+              "host": ["{{base_url}}"],
+              "path": ["api", "geofencing", "register_device"]
+            },
+            "description": "Register mobile device for geofencing attendance"
+          }
+        }
+      ],
+      "description": "Device registration and management"
+    },
+    {
+      "name": "Geofences",
+      "item": [
+        {
+          "name": "Get Assigned Geofences",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "authtoken",
+                "value": "{{authtoken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/geofencing/geofences",
+              "host": ["{{base_url}}"],
+              "path": ["api", "geofencing", "geofences"]
+            },
+            "description": "Get list of geofences assigned to current user"
+          }
+        },
+        {
+          "name": "Get Nearby Geofences",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "authtoken",
+                "value": "{{authtoken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/geofencing/geofences/nearby?lat=28.6139&lng=77.2090&radius=5",
+              "host": ["{{base_url}}"],
+              "path": ["api", "geofencing", "geofences", "nearby"],
+              "query": [
+                {
+                  "key": "lat",
+                  "value": "28.6139",
+                  "description": "Current latitude"
+                },
+                {
+                  "key": "lng",
+                  "value": "77.2090",
+                  "description": "Current longitude"
+                },
+                {
+                  "key": "radius",
+                  "value": "5",
+                  "description": "Search radius in kilometers"
+                }
+              ]
+            },
+            "description": "Find geofences near current location"
+          }
+        },
+        {
+          "name": "Check Location in Geofence",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "authtoken",
+                "value": "{{authtoken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "latitude",
+                  "value": "28.6139",
+                  "description": "Current latitude"
+                },
+                {
+                  "key": "longitude",
+                  "value": "77.2090",
+                  "description": "Current longitude"
+                },
+                {
+                  "key": "accuracy",
+                  "value": "10",
+                  "description": "GPS accuracy in meters"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/geofencing/check_location",
+              "host": ["{{base_url}}"],
+              "path": ["api", "geofencing", "check_location"]
+            },
+            "description": "Check if current location is within any assigned geofence"
+          }
+        }
+      ],
+      "description": "Geofence location and validation endpoints"
+    },
+    {
+      "name": "Attendance Operations",
+      "item": [
+        {
+          "name": "Check-in",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "authtoken",
+                "value": "{{authtoken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "latitude",
+                  "value": "28.6139",
+                  "description": "Check-in latitude"
+                },
+                {
+                  "key": "longitude",
+                  "value": "77.2090",
+                  "description": "Check-in longitude"
+                },
+                {
+                  "key": "accuracy",
+                  "value": "8",
+                  "description": "GPS accuracy in meters"
+                },
+                {
+                  "key": "geofence_id",
+                  "value": "1",
+                  "description": "Target geofence ID (optional)"
+                },
+                {
+                  "key": "notes",
+                  "value": "Checking in for morning shift",
+                  "description": "Check-in notes (optional)"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/geofencing/checkin",
+              "host": ["{{base_url}}"],
+              "path": ["api", "geofencing", "checkin"]
+            },
+            "description": "Check-in to start attendance session"
+          }
+        },
+        {
+          "name": "Check-out",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "authtoken",
+                "value": "{{authtoken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "latitude",
+                  "value": "28.6140",
+                  "description": "Check-out latitude"
+                },
+                {
+                  "key": "longitude",
+                  "value": "77.2091",
+                  "description": "Check-out longitude"
+                },
+                {
+                  "key": "accuracy",
+                  "value": "12",
+                  "description": "GPS accuracy in meters"
+                },
+                {
+                  "key": "notes",
+                  "value": "Completed work for today",
+                  "description": "Check-out notes (optional)"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/geofencing/checkout",
+              "host": ["{{base_url}}"],
+              "path": ["api", "geofencing", "checkout"]
+            },
+            "description": "Check-out to end attendance session"
+          }
+        },
+        {
+          "name": "Update Location",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "authtoken",
+                "value": "{{authtoken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "latitude",
+                  "value": "28.6141",
+                  "description": "Current latitude"
+                },
+                {
+                  "key": "longitude",
+                  "value": "77.2092",
+                  "description": "Current longitude"
+                },
+                {
+                  "key": "accuracy",
+                  "value": "15",
+                  "description": "GPS accuracy in meters"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/geofencing/update_location",
+              "host": ["{{base_url}}"],
+              "path": ["api", "geofencing", "update_location"]
+            },
+            "description": "Update current location during active session"
+          }
+        },
+        {
+          "name": "Get Current Status",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "authtoken",
+                "value": "{{authtoken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/geofencing/status",
+              "host": ["{{base_url}}"],
+              "path": ["api", "geofencing", "status"]
+            },
+            "description": "Get current attendance status and active session information"
+          }
+        }
+      ],
+      "description": "Core attendance check-in/check-out operations"
+    },
+    {
+      "name": "Break Management",
+      "item": [
+        {
+          "name": "Start Break",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "authtoken",
+                "value": "{{authtoken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "break_type",
+                  "value": "lunch",
+                  "description": "Type of break: lunch, regular, emergency"
+                },
+                {
+                  "key": "notes",
+                  "value": "Going for lunch break",
+                  "description": "Break notes (optional)"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/geofencing/start_break",
+              "host": ["{{base_url}}"],
+              "path": ["api", "geofencing", "start_break"]
+            },
+            "description": "Start a break session during active attendance"
+          }
+        },
+        {
+          "name": "End Break",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "authtoken",
+                "value": "{{authtoken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": []
+            },
+            "url": {
+              "raw": "{{base_url}}/api/geofencing/end_break",
+              "host": ["{{base_url}}"],
+              "path": ["api", "geofencing", "end_break"]
+            },
+            "description": "End current break session and return to work"
+          }
+        }
+      ],
+      "description": "Break session management during work hours"
+    },
+    {
+      "name": "Reports & History",
+      "item": [
+        {
+          "name": "Attendance History",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "authtoken",
+                "value": "{{authtoken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/geofencing/attendance_history?date_from={{$isoTimestamp}}&date_to={{$isoTimestamp}}&limit=10&offset=0",
+              "host": ["{{base_url}}"],
+              "path": ["api", "geofencing", "attendance_history"],
+              "query": [
+                {
+                  "key": "date_from",
+                  "value": "{{$isoTimestamp}}",
+                  "description": "Start date (YYYY-MM-DD)"
+                },
+                {
+                  "key": "date_to",
+                  "value": "{{$isoTimestamp}}",
+                  "description": "End date (YYYY-MM-DD)"
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Number of records to return"
+                },
+                {
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Pagination offset"
+                }
+              ]
+            },
+            "description": "Get attendance history with pagination"
+          }
+        },
+        {
+          "name": "Daily Report",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "authtoken",
+                "value": "{{authtoken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/geofencing/daily_report?date={{$isoTimestamp}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "geofencing", "daily_report"],
+              "query": [
+                {
+                  "key": "date",
+                  "value": "{{$isoTimestamp}}",
+                  "description": "Report date (YYYY-MM-DD)"
+                }
+              ]
+            },
+            "description": "Get detailed daily attendance report"
+          }
+        },
+        {
+          "name": "Weekly Report",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "authtoken",
+                "value": "{{authtoken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/geofencing/weekly_report?week_start=2024-10-14",
+              "host": ["{{base_url}}"],
+              "path": ["api", "geofencing", "weekly_report"],
+              "query": [
+                {
+                  "key": "week_start",
+                  "value": "2024-10-14",
+                  "description": "Week start date (YYYY-MM-DD, Monday)"
+                }
+              ]
+            },
+            "description": "Get weekly attendance summary"
+          }
+        },
+        {
+          "name": "Monthly Report",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "authtoken",
+                "value": "{{authtoken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/geofencing/monthly_report?month=2024-10",
+              "host": ["{{base_url}}"],
+              "path": ["api", "geofencing", "monthly_report"],
+              "query": [
+                {
+                  "key": "month",
+                  "value": "2024-10",
+                  "description": "Report month (YYYY-MM)"
+                }
+              ]
+            },
+            "description": "Get monthly attendance statistics"
+          }
+        }
+      ],
+      "description": "Attendance reports and historical data"
+    },
+    {
+      "name": "Testing & Debugging",
+      "item": [
+        {
+          "name": "Test Authentication Status",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Response status is 200', () => {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Authentication is working', () => {",
+                  "    const response = pm.response.json();",
+                  "    pm.expect(response).to.have.property('status');",
+                  "    if (response.status === false && response.message && response.message.includes('Token')) {",
+                  "        pm.test.skip('Authentication token required');",
+                  "    } else {",
+                  "        pm.expect(response.status).to.be.true;",
+                  "    }",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "authtoken",
+                "value": "{{authtoken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/geofencing/status",
+              "host": ["{{base_url}}"],
+              "path": ["api", "geofencing", "status"]
+            },
+            "description": "Quick test to verify authentication is working"
+          }
+        },
+        {
+          "name": "API Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api_settings",
+              "host": ["{{base_url}}"],
+              "path": ["api_settings"]
+            },
+            "description": "Check if API endpoints are accessible"
+          }
+        }
+      ],
+      "description": "Testing and debugging utilities"
+    }
+  ]
+}

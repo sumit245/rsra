@@ -1,0 +1,92 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Test\Mock\MockConnection.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Test\Mock\MockConnection.php</h1>
+
+<ul>
+<li>Path: <code>system\Test\Mock\MockConnection.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5305 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Orchestrates a query against the database. Queries must use</p>
+<p>Database\Statement objects to store the query and build it.</p>
+<p>This method works with the cache.</p>
+<p>Should automatically handle different connections for read/write</p>
+<p>queries if needed.</p>
+<p>@param mixed ...$binds</p>
+<p>@return BaseResult|bool|Query</p>
+<p>@todo BC set $queryClass default as null in 4.1</p>
+
+<p>Connect to the database.</p>
+<p>@return mixed</p>
+
+<p>Keep or establish the connection if no queries have been sent for</p>
+<p>a length of time exceeding the server's idle timeout.</p>
+
+<p>Select a specific database table to use.</p>
+<p>@return mixed</p>
+
+<p>Returns a string containing the version of the database being used.</p>
+
+<p>Executes the query against the database.</p>
+<p>@return mixed</p>
+
+<p>Returns the total number of rows affected by this query.</p>
+
+<p>Returns the last error code and message.</p>
+<p>Must return an array with keys 'code' and 'message':</p>
+<p> return ['code' => null, 'message' => null);</p>
+
+<p>Insert ID</p>
+
+<p>Generates the SQL for listing tables in a platform-dependent manner.</p>
+
+<p>Generates a platform-specific query string so that the column names can be fetched.</p>
+
+<p>Close the connection.</p>
+
+<p>Begin Transaction</p>
+
+<p>Commit Transaction</p>
+
+<p>Rollback Transaction</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Test\Mock\MockConnection.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Test\Mock\MockConnection extends BaseConnection</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>shouldReturn(string $method, $return)</code></li>
+<li><code>query(string $sql, $binds = null, bool $setEscapeFlags = true, string $queryClass = '')</code></li>
+<li><code>connect(bool $persistent = false)</code></li>
+<li><code>reconnect()</code></li>
+<li><code>setDatabase(string $databaseName)</code></li>
+<li><code>getVersion()</code></li>
+<li><code>execute(string $sql)</code></li>
+<li><code>affectedRows()</code></li>
+<li><code>error()</code></li>
+<li><code>insertID()</code></li>
+<li><code>_listTables(bool $constrainByPrefix = false)</code></li>
+<li><code>_listColumns(string $table = '')</code></li>
+<li><code>_fieldData(string $table)</code></li>
+<li><code>_indexData(string $table)</code></li>
+<li><code>_foreignKeyData(string $table)</code></li>
+<li><code>_close()</code></li>
+<li><code>_transBegin()</code></li>
+<li><code>_transCommit()</code></li>
+<li><code>_transRollback()</code></li>
+</ul>
+</body></html>

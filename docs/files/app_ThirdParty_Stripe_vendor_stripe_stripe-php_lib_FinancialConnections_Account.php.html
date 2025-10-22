@@ -1,0 +1,71 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\FinancialConnections\Account.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\FinancialConnections\Account.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\FinancialConnections\Account.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5058 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>A Financial Connections Account represents an account that exists outside of</p>
+<p>Stripe, to which you have been granted some degree of access.</p>
+<p>@property string $id Unique identifier for the object.</p>
+<p>@property string $object String representing the object's type. Objects of the same type share the same value.</p>
+<p>@property null|\Stripe\StripeObject $account_holder The account holder that this account belongs to.</p>
+<p>@property null|\Stripe\StripeObject $balance The most recent information about the account's balance.</p>
+<p>@property null|\Stripe\StripeObject $balance_refresh The state of the most recent attempt to refresh the account balance.</p>
+<p>@property string $category The type of the account. Account category is further divided in <code>subcategory</code>.</p>
+<p>@property int $created Time at which the object was created. Measured in seconds since the Unix epoch.</p>
+<p>@property null|string $display_name A human-readable name that has been assigned to this account, either by the account holder or by the institution.</p>
+<p>@property string $institution_name The name of the institution that holds this account.</p>
+<p>@property null|string $last4 The last 4 digits of the account number. If present, this will be 4 numeric characters.</p>
+<p>@property bool $livemode Has the value <code>true</code> if the object exists in live mode or the value <code>false</code> if the object exists in test mode.</p>
+<p>@property null|string|\Stripe\FinancialConnections\AccountOwnership $ownership The most recent information about the account's owners.</p>
+<p>@property null|\Stripe\StripeObject $ownership_refresh The state of the most recent attempt to refresh the account owners.</p>
+<p>@property null|string[] $permissions The list of permissions granted by this account.</p>
+<p>@property string $status The status of the link to the account.</p>
+<p>@property string $subcategory <p>If <code>category</code> is <code>cash</code>, one of:</p><p>- <code>checking</code> - <code>savings</code> - <code>other</code></p><p>If <code>category</code> is <code>credit</code>, one of:</p><p>- <code>mortgage</code> - <code>line_of_credit</code> - <code>credit_card</code> - <code>other</code></p><p>If <code>category</code> is <code>investment</code> or <code>other</code>, this will be <code>other</code>.</p></p>
+<p>@property string[] $supported_payment_method_types The <a href="https://stripe.com/docs/api/payment_methods/object#payment_method_object-type">PaymentMethod type</a>(s) that can be created from this account.</p>
+
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\FinancialConnections\Account the disconnected account</p>
+
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\FinancialConnections\AccountOwner> list of BankConnectionsResourceOwners</p>
+
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\FinancialConnections\Account the refreshed account</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+<li><code>this</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\FinancialConnections\Account.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\FinancialConnections\Account extends \Stripe\ApiResource</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>disconnect($params = null, $opts = null)</code></li>
+<li><code>allOwners($id, $params = null, $opts = null)</code></li>
+<li><code>refreshAccount($params = null, $opts = null)</code></li>
+</ul>
+</body></html>

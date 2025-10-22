@@ -1,0 +1,270 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\Core\BLAKE2b.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\Core\BLAKE2b.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\Core\BLAKE2b.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 23892 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Class ParagonIE_Sodium_Core_BLAKE2b</p>
+<p>Based on the work of Devi Mandiri in devi/salt.</p>
+
+<p>@var SplFixedArray</p>
+
+<p>@var array<int, array<int, int>></p>
+
+<p>Turn two 32-bit integers into a fixed array representing a 64-bit integer.</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param int $high</p>
+<p>@param int $low</p>
+<p>@return SplFixedArray</p>
+<p>@psalm-suppress MixedAssignment</p>
+
+<p>Convert an arbitrary number into an SplFixedArray of two 32-bit integers</p>
+<p>that represents a 64-bit integer.</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param int $num</p>
+<p>@return SplFixedArray</p>
+
+<p>Adds two 64-bit integers together, returning their sum as a SplFixedArray</p>
+<p>containing two 32-bit integers (representing a 64-bit integer).</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param SplFixedArray $x</p>
+<p>@param SplFixedArray $y</p>
+<p>@return SplFixedArray</p>
+<p>@psalm-suppress MixedArgument</p>
+<p>@psalm-suppress MixedAssignment</p>
+<p>@psalm-suppress MixedOperand</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param SplFixedArray $x</p>
+<p>@param SplFixedArray $y</p>
+<p>@param SplFixedArray $z</p>
+<p>@return SplFixedArray</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param SplFixedArray $x</p>
+<p>@param SplFixedArray $y</p>
+<p>@return SplFixedArray</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param SplFixedArray $x</p>
+<p>@param int $c</p>
+<p>@return SplFixedArray</p>
+<p>@psalm-suppress MixedAssignment</p>
+
+<p>@var int $tmp</p>
+
+<p>@var int $h0</p>
+
+<p>@var int $l0</p>
+
+<p>@var int $h0</p>
+
+<p>@var int $h1</p>
+
+<p>@var int $l1</p>
+
+<p>@var int $l1</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param SplFixedArray $x</p>
+<p>@return int</p>
+<p>@psalm-suppress MixedOperand</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param SplFixedArray $x</p>
+<p>@param int $i</p>
+<p>@return SplFixedArray</p>
+<p>@psalm-suppress MixedArgument</p>
+<p>@psalm-suppress MixedArrayOffset</p>
+
+<p>@var int $l</p>
+
+<p>@var int $h</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param SplFixedArray $x</p>
+<p>@param int $i</p>
+<p>@param SplFixedArray $u</p>
+<p>@return void</p>
+<p>@psalm-suppress MixedAssignment</p>
+
+<p>@var int $uIdx</p>
+
+<p>@psalm-suppress MixedOperand</p>
+
+<p>This just sets the $iv static variable.</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@return void</p>
+
+<p>Returns a fresh BLAKE2 context.</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@return SplFixedArray</p>
+<p>@psalm-suppress MixedAssignment</p>
+<p>@psalm-suppress MixedArrayAccess</p>
+<p>@psalm-suppress MixedArrayAssignment</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param SplFixedArray $ctx</p>
+<p>@param SplFixedArray $buf</p>
+<p>@return void</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+<p>@psalm-suppress MixedAssignment</p>
+<p>@psalm-suppress MixedArrayAccess</p>
+<p>@psalm-suppress MixedArrayAssignment</p>
+<p>@psalm-suppress MixedArrayOffset</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param int $r</p>
+<p>@param int $i</p>
+<p>@param int $a</p>
+<p>@param int $b</p>
+<p>@param int $c</p>
+<p>@param int $d</p>
+<p>@param SplFixedArray $v</p>
+<p>@param SplFixedArray $m</p>
+<p>@return SplFixedArray</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+<p>@psalm-suppress MixedArrayOffset</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param SplFixedArray $ctx</p>
+<p>@param int $inc</p>
+<p>@return void</p>
+<p>@throws SodiumException</p>
+<p>@psalm-suppress MixedArgument</p>
+<p>@psalm-suppress MixedArrayAccess</p>
+<p>@psalm-suppress MixedArrayAssignment</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param SplFixedArray $ctx</p>
+<p>@param SplFixedArray $p</p>
+<p>@param int $plen</p>
+<p>@return void</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+<p>@psalm-suppress MixedAssignment</p>
+<p>@psalm-suppress MixedArrayAccess</p>
+<p>@psalm-suppress MixedArrayAssignment</p>
+<p>@psalm-suppress MixedArrayOffset</p>
+<p>@psalm-suppress MixedOperand</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param SplFixedArray $ctx</p>
+<p>@param SplFixedArray $out</p>
+<p>@return SplFixedArray</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+<p>@psalm-suppress MixedAssignment</p>
+<p>@psalm-suppress MixedArrayAccess</p>
+<p>@psalm-suppress MixedArrayAssignment</p>
+<p>@psalm-suppress MixedArrayOffset</p>
+<p>@psalm-suppress MixedOperand</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param SplFixedArray|null $key</p>
+<p>@param int $outlen</p>
+<p>@param SplFixedArray|null $salt</p>
+<p>@param SplFixedArray|null $personal</p>
+<p>@return SplFixedArray</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+<p>@psalm-suppress MixedAssignment</p>
+<p>@psalm-suppress MixedArrayAccess</p>
+<p>@psalm-suppress MixedArrayAssignment</p>
+<p>@psalm-suppress MixedArrayOffset</p>
+
+<p>Convert a string into an SplFixedArray of integers</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param string $str</p>
+<p>@return SplFixedArray</p>
+
+<p>Convert an SplFixedArray of integers into a string</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param SplFixedArray $a</p>
+<p>@return string</p>
+<p>@throws TypeError</p>
+
+<p>@var array<int, int|string> $arr</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param SplFixedArray $ctx</p>
+<p>@return string</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+<p>@psalm-suppress MixedAssignment</p>
+<p>@psalm-suppress MixedArrayAccess</p>
+<p>@psalm-suppress MixedArrayAssignment</p>
+<p>@psalm-suppress MixedArrayOffset</p>
+<p>@psalm-suppress MixedMethodCall</p>
+
+<p>@var array<int, array<int, int>> $ctxA</p>
+
+<p>@var int $ctx4</p>
+
+<p>Creates an SplFixedArray containing other SplFixedArray elements, from</p>
+<p>a string (compatible with \Sodium\crypto_generichash_{init, update, final})</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param string $string</p>
+<p>@return SplFixedArray</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArrayAssignment</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>another</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\Core\BLAKE2b.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ParagonIE_Sodium_Core_BLAKE2b extends ParagonIE_Sodium_Core_Util</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>new64($high, $low)</code></li>
+<li><code>to64($num)</code></li>
+<li><code>add64($x, $y)</code></li>
+<li><code>add364($x, $y, $z)</code></li>
+<li><code>xor64(SplFixedArray $x, SplFixedArray $y)</code></li>
+<li><code>rotr64($x, $c)</code></li>
+<li><code>flatten64($x)</code></li>
+<li><code>load64(SplFixedArray $x, $i)</code></li>
+<li><code>store64(SplFixedArray $x, $i, SplFixedArray $u)</code></li>
+<li><code>pseudoConstructor()</code></li>
+<li><code>context()</code></li>
+<li><code>compress(SplFixedArray $ctx, SplFixedArray $buf)</code></li>
+<li><code>G($r, $i, $a, $b, $c, $d, SplFixedArray $v, SplFixedArray $m)</code></li>
+<li><code>increment_counter($ctx, $inc)</code></li>
+<li><code>update(SplFixedArray $ctx, SplFixedArray $p, $plen)</code></li>
+<li><code>finish(SplFixedArray $ctx, SplFixedArray $out)</code></li>
+<li>`init($key = null,</li>
+<p>        $outlen = 64,</p>
+<p>        $salt = null,</p>
+<p>        $personal = null)`</p>
+<li><code>stringToSplFixedArray($str = '')</code></li>
+<li><code>SplFixedArrayToString(SplFixedArray $a)</code></li>
+<li><code>contextToString(SplFixedArray $ctx)</code></li>
+<li><code>stringToContext($string)</code></li>
+</ul>
+</body></html>

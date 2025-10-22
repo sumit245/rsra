@@ -1,0 +1,129 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Validation\FormatRules.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Validation\FormatRules.php</h1>
+
+<ul>
+<li>Path: <code>system\Validation\FormatRules.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 8798 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Format validation Rules.</p>
+
+<p>Alpha</p>
+
+<p>Alpha with spaces.</p>
+<p>@param string|null $value Value.</p>
+<p>@return bool True if alpha with spaces, else false.</p>
+
+<p>Alphanumeric with underscores and dashes</p>
+<p>@see https://regex101.com/r/XfVY3d/1</p>
+
+<p>Alphanumeric, spaces, and a limited set of punctuation characters.</p>
+<p>Accepted punctuation characters are: ~ tilde, ! exclamation,</p>
+<h1>number, $ dollar, % percent, & ampersand, * asterisk, - dash,</h1>
+<p>_ underscore, + plus, = equals, | vertical bar, : colon, . period</p>
+<p>~ ! # $ % & * - _ + = | : .</p>
+<p>@param string|null $str</p>
+<p>@return bool</p>
+<p>@see https://regex101.com/r/6N8dDY/1</p>
+
+<p>Alphanumeric</p>
+
+<p>Alphanumeric w/ spaces</p>
+
+<p>Any type of string</p>
+<p>Note: we specifically do NOT type hint $str here so that</p>
+<p>it doesn't convert numbers into strings.</p>
+<p>@param string|null $str</p>
+
+<p>Decimal number</p>
+
+<p>String of hexidecimal characters</p>
+
+<p>Integer</p>
+
+<p>Is a Natural number  (0,1,2,3, etc.)</p>
+
+<p>Is a Natural number, but not a zero  (1,2,3, etc.)</p>
+
+<p>Numeric</p>
+
+<p>Compares value against a regular expression pattern.</p>
+
+<p>Validates that the string is a valid timezone as per the</p>
+<p>timezone_identifiers_list function.</p>
+<p>@see http://php.net/manual/en/datetimezone.listidentifiers.php</p>
+<p>@param string $str</p>
+
+<p>Valid Base64</p>
+<p>Tests a string for characters outside of the Base64 alphabet</p>
+<p>as defined by RFC 2045 http://www.faqs.org/rfcs/rfc2045</p>
+<p>@param string $str</p>
+
+<p>Valid JSON</p>
+<p>@param string $str</p>
+
+<p>Checks for a correctly formatted email address</p>
+<p>@param string $str</p>
+
+<p>Validate a comma-separated list of email addresses.</p>
+<p>Example:</p>
+<p>    valid_emails[one@example.com,two@example.com]</p>
+<p>@param string $str</p>
+
+<p>Validate an IP address (human readable format or binary string - inet_pton)</p>
+<p>@param string|null $which IP protocol: 'ipv4' or 'ipv6'</p>
+
+<p>Checks a string to ensure it is (loosely) a URL.</p>
+<p>Warning: this rule will pass basic strings like</p>
+<p>"banana"; use valid_url_strict for a stricter rule.</p>
+
+<p>Checks a URL to ensure it's formed correctly.</p>
+<p>@param string|null $validSchemes comma separated list of allowed schemes</p>
+
+<p>Checks for a valid date and matches a given date format</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Validation\FormatRules.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Validation\FormatRules</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>alpha(?string $str = null)</code></li>
+<li><code>alpha_space(?string $value = null)</code></li>
+<li><code>alpha_dash(?string $str = null)</code></li>
+<li><code>alpha_numeric_punct($str)</code></li>
+<li><code>alpha_numeric(?string $str = null)</code></li>
+<li><code>alpha_numeric_space(?string $str = null)</code></li>
+<li><code>string($str = null)</code></li>
+<li><code>decimal(?string $str = null)</code></li>
+<li><code>hex(?string $str = null)</code></li>
+<li><code>integer(?string $str = null)</code></li>
+<li><code>is_natural(?string $str = null)</code></li>
+<li><code>is_natural_no_zero(?string $str = null)</code></li>
+<li><code>numeric(?string $str = null)</code></li>
+<li><code>regex_match(?string $str, string $pattern)</code></li>
+<li><code>timezone(?string $str = null)</code></li>
+<li><code>valid_base64(?string $str = null)</code></li>
+<li><code>valid_json(?string $str = null)</code></li>
+<li><code>valid_email(?string $str = null)</code></li>
+<li><code>valid_emails(?string $str = null)</code></li>
+<li><code>valid_ip(?string $ip = null, ?string $which = null)</code></li>
+<li><code>valid_url(?string $str = null)</code></li>
+<li><code>valid_url_strict(?string $str = null, ?string $validSchemes = null)</code></li>
+<li><code>valid_date(?string $str = null, ?string $format = null)</code></li>
+</ul>
+</body></html>

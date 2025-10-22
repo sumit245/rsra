@@ -1,0 +1,53 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Util\CaseInsensitiveArray.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Util\CaseInsensitiveArray.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Util\CaseInsensitiveArray.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2256 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>CaseInsensitiveArray is an array-like class that ignores case for keys.</p>
+<p>It is used to store HTTP headers. Per RFC 2616, section 4.2:</p>
+<p>Each header field consists of a name followed by a colon (":") and the field value. Field names</p>
+<p>are case-insensitive.</p>
+<p>In the context of stripe-php, this is useful because the API will return headers with different</p>
+<p>case depending on whether HTTP/2 is used or not (with HTTP/2, headers are always in lowercase).</p>
+
+<p>@return int</p>
+
+<p>@return \ArrayIterator</p>
+
+<p>@return void</p>
+
+<p>@return bool</p>
+
+<p>@return void</p>
+
+<p>@return mixed</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Util\CaseInsensitiveArray.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Util\that</code></li>
+<li><code>Stripe\Util\CaseInsensitiveArray implements \ArrayAccess, \Countable, \IteratorAggregate</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($initial_array = [])</code></li>
+<li><code>count()</code></li>
+<li><code>getIterator()</code></li>
+<li><code>offsetSet($offset, $value)</code></li>
+<li><code>offsetExists($offset)</code></li>
+<li><code>offsetUnset($offset)</code></li>
+<li><code>offsetGet($offset)</code></li>
+<li><code>maybeLowercase($v)</code></li>
+</ul>
+</body></html>

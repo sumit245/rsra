@@ -1,0 +1,74 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\ChromePHPHandler.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\ChromePHPHandler.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\ChromePHPHandler.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5623 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Handler sending logs to the ChromePHP extension (http://www.chromephp.com/)</p>
+<p>This also works out of the box with Firefox 43+</p>
+<p>@author Christophe Coevoet <stof@notk.org></p>
+
+<p>Version of the extension</p>
+
+<p>Header name</p>
+
+<p>Regular expression to detect supported browsers (matches any Chrome, or Firefox 43+)</p>
+
+<p>Tracks whether we sent too much data</p>
+<p>Chrome limits the headers to 256KB, so when we sent 240KB we stop sending</p>
+<p>@var Boolean</p>
+
+<p>@param int     $level  The minimum logging level at which this handler will be triggered</p>
+<p>@param Boolean $bubble Whether the messages that are handled can bubble up the stack or not</p>
+
+<p>{@inheritdoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>Creates & sends header for a record</p>
+<p>@see sendHeader()</p>
+<p>@see send()</p>
+<p>@param array $record</p>
+
+<p>Sends the log header</p>
+<p>@see sendHeader()</p>
+
+<p>Send header string to the client</p>
+<p>@param string $header</p>
+<p>@param string $content</p>
+
+<p>Verifies if the headers are accepted by the current user agent</p>
+<p>@return Boolean</p>
+
+<p>BC getter for the sendHeaders property that has been made static</p>
+
+<p>BC setter for the sendHeaders property that has been made static</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\ChromePHPHandler.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Monolog\Handler\ChromePHPHandler extends AbstractProcessingHandler</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($level = Logger::DEBUG, $bubble = true)</code></li>
+<li><code>handleBatch(array $records)</code></li>
+<li><code>getDefaultFormatter()</code></li>
+<li><code>write(array $record)</code></li>
+<li><code>send()</code></li>
+<li><code>sendHeader($header, $content)</code></li>
+<li><code>headersAccepted()</code></li>
+<li><code>__get($property)</code></li>
+<li><code>__set($property, $value)</code></li>
+</ul>
+</body></html>

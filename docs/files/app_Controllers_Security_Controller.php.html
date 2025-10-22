@@ -1,0 +1,98 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\Controllers\Security_Controller.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\Controllers\Security_Controller.php</h1>
+
+<ul>
+<li>Path: <code>app\Controllers\Security_Controller.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 36859 bytes</li>
+</ul>
+<h2>References</h2>
+
+<p><strong>Models Used</strong></p>
+<ul>
+<li><code>Users_model</code></li>
+<li><code>Projects_model</code></li>
+<li><code>Project_members_model</code></li>
+<li><code>Invoices_model</code></li>
+<li><code>Invoice_payments_model</code></li>
+<li><code>Client_groups_model</code></li>
+<li><code>Clients_model</code></li>
+<li><code>Labels_model</code></li>
+<li><code>Messages_model</code></li>
+<li><code>Custom_fields_model</code></li>
+<li><code>Roles_model</code></li>
+</ul>
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>helper</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\Controllers\Security_Controller.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Security_Controller extends App_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($redirect = true)</code></li>
+<li><code>init_permission_checker($module)</code></li>
+<li><code>get_access_info($group)</code></li>
+<li><code>access_only_team_members()</code></li>
+<li><code>access_only_admin()</code></li>
+<li><code>access_only_admin_or_settings_admin()</code></li>
+<li><code>access_only_allowed_members()</code></li>
+<li><code>access_only_allowed_members_or_client_contact($client_id)</code></li>
+<li><code>access_only_allowed_members_or_contact_personally($user_id)</code></li>
+<li><code>access_only_team_members_or_client_contact($client_id)</code></li>
+<li><code>access_only_clients()</code></li>
+<li><code>check_module_availability($module_name)</code></li>
+<li><code>can_create_projects()</code></li>
+<li><code>can_view_team_members_list()</code></li>
+<li><code>access_only_team_members_or_client()</code></li>
+<li><code>init_project_permission_checker($project_id = 0)</code></li>
+<li><code>can_create_tasks($in_project = true)</code></li>
+<li><code>can_manage_all_projects()</code></li>
+<li><code>_get_currencies_dropdown()</code></li>
+<li><code>get_hidden_topbar_menus_dropdown()</code></li>
+<li><code>_get_projects_dropdown_for_income_and_expenses($type = "all")</code></li>
+<li><code>_get_groups_dropdown_select2_data($show_header = false)</code></li>
+<li><code>get_clients_and_leads_dropdown($return_json = false)</code></li>
+<li><code>show_assigned_tasks_only_user_id()</code></li>
+<li><code>get_calendar_filter_dropdown($type = "default")</code></li>
+<li><code>check_access_to_store()</code></li>
+<li><code>check_access_to_this_order_item($order_item_info)</code></li>
+<li><code>make_labels_dropdown($type = "", $label_ids = "", $is_filter = false, $custom_filter_title = "")</code></li>
+<li><code>can_edit_projects($project_id = 0)</code></li>
+<li><code>get_user_options_for_query($only_type = "")</code></li>
+<li><code>check_access_on_messages_for_this_user()</code></li>
+<li><code>can_view_invoices($client_id = 0)</code></li>
+<li><code>can_edit_invoices()</code></li>
+<li><code>can_access_expenses()</code></li>
+<li><code>validate_sending_message($to_user_id)</code></li>
+<li><code>show_own_clients_only_user_id()</code></li>
+<li><code>check_profile_image_dimension($image_file_name = "")</code></li>
+<li><code>show_assigned_tickets_only_user_id()</code></li>
+<li><code>get_team_members_dropdown($is_filter = false)</code></li>
+<li><code>_get_projects_dropdown()</code></li>
+<li><code>check_access_to_this_item($item_info)</code></li>
+<li><code>get_conversion_rate_with_currency_symbol()</code></li>
+<li><code>can_access_this_client($client_id = 0)</code></li>
+<li><code>can_access_this_lead($lead_id = 0)</code></li>
+<li><code>show_own_leads_only_user_id()</code></li>
+<li><code>prepare_custom_field_filter_values($related_to, $is_admin = 0, $user_type = "")</code></li>
+<li><code>_get_roles_dropdown()</code></li>
+<li><code>is_own_id($user_id)</code></li>
+<li><code>has_role_manage_permission()</code></li>
+<li><code>is_admin_role($role)</code></li>
+<li><code>get_allowed_user_ids()</code></li>
+<li><code>_check_valid_date($string = "")</code></li>
+<li><code>has_all_projects_restricted_role()</code></li>
+<li><code>_get_companies_dropdown()</code></li>
+<li><code>can_edit_tasks()</code></li>
+</ul>
+</body></html>

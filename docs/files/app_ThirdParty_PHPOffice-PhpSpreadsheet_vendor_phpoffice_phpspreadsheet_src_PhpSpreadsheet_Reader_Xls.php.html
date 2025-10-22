@@ -1,0 +1,748 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Xls.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Xls.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Xls.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 293452 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Summary Information stream data.</p>
+<p>@var string</p>
+
+<p>Extended Summary Information stream data.</p>
+<p>@var string</p>
+
+<p>Workbook stream data. (Includes workbook globals substream as well as sheet substreams).</p>
+<p>@var string</p>
+
+<p>Size in bytes of $this->data.</p>
+<p>@var int</p>
+
+<p>Current position in stream.</p>
+<p>@var int</p>
+
+<p>Workbook to be returned by the reader.</p>
+<p>@var Spreadsheet</p>
+
+<p>Worksheet that is currently being built by the reader.</p>
+<p>@var Worksheet</p>
+
+<p>BIFF version.</p>
+<p>@var int</p>
+
+<p>Codepage set in the Excel file being read. Only important for BIFF5 (Excel 5.0 - Excel 95)</p>
+<p>For BIFF8 (Excel 97 - Excel 2003) this will always have the value 'UTF-16LE'.</p>
+<p>@var string</p>
+
+<p>Shared formats.</p>
+<p>@var array</p>
+
+<p>Shared fonts.</p>
+<p>@var Font[]</p>
+
+<p>Color palette.</p>
+<p>@var array</p>
+
+<p>Worksheets.</p>
+<p>@var array</p>
+
+<p>External books.</p>
+<p>@var array</p>
+
+<p>REF structures. Only applies to BIFF8.</p>
+<p>@var array</p>
+
+<p>External names.</p>
+<p>@var array</p>
+
+<p>Defined names.</p>
+<p>@var array</p>
+
+<p>Shared strings. Only applies to BIFF8.</p>
+<p>@var array</p>
+
+<p>Panes are frozen? (in sheet currently being read). See WINDOW2 record.</p>
+<p>@var bool</p>
+
+<p>Fit printout to number of pages? (in sheet currently being read). See SHEETPR record.</p>
+<p>@var bool</p>
+
+<p>Objects. One OBJ record contributes with one entry.</p>
+<p>@var array</p>
+
+<p>Text Objects. One TXO record corresponds with one entry.</p>
+<p>@var array</p>
+
+<p>Cell Annotations (BIFF8).</p>
+<p>@var array</p>
+
+<p>The combined MSODRAWINGGROUP data.</p>
+<p>@var string</p>
+
+<p>The combined MSODRAWING data (per sheet).</p>
+<p>@var string</p>
+
+<p>Keep track of XF index.</p>
+<p>@var int</p>
+
+<p>Mapping of XF index (that is a cell XF) to final index in cellXf collection.</p>
+<p>@var array</p>
+
+<p>Mapping of XF index (that is a style XF) to final index in cellStyleXf collection.</p>
+<p>@var array</p>
+
+<p>The shared formulas in a sheet. One SHAREDFMLA record contributes with one value.</p>
+<p>@var array</p>
+
+<p>The shared formula parts in a sheet. One FORMULA record contributes with one value if it</p>
+<p>refers to a shared formula.</p>
+<p>@var array</p>
+
+<p>The type of encryption in use.</p>
+<p>@var int</p>
+
+<p>The position in the stream after which contents are encrypted.</p>
+<p>@var int</p>
+
+<p>The current RC4 decryption object.</p>
+<p>@var Xls\RC4</p>
+
+<p>The position in the stream that the RC4 decryption object was left at.</p>
+<p>@var int</p>
+
+<p>The current MD5 context state.</p>
+<p>@var string</p>
+
+<p>@var int</p>
+
+<p>@var string</p>
+
+<p>Create a new Xls Reader instance.</p>
+
+<p>Can the current IReader read the file?</p>
+
+<p>Reads names of the worksheets from a file, without parsing the whole file to a PhpSpreadsheet object.</p>
+<p>@param string $filename</p>
+<p>@return array</p>
+
+<p>Return worksheet info (Name, Last Column Letter, Last Column Index, Total Rows, Total Columns).</p>
+<p>@param string $filename</p>
+<p>@return array</p>
+
+<p>Loads PhpSpreadsheet from file.</p>
+
+<p>Read record data from stream, decrypting as required.</p>
+<p>@param string $data Data stream to read from</p>
+<p>@param int $pos Position to start reading from</p>
+<p>@param int $len Record data length</p>
+<p>@return string Record data</p>
+
+<p>Use OLE reader to extract the relevant data streams from the OLE file.</p>
+<p>@param string $filename</p>
+
+<p>Read summary information.</p>
+
+<p>Read additional document summary information.</p>
+
+<p>Reads a general type of BIFF record. Does nothing except for moving stream pointer forward to next record.</p>
+
+<p>The NOTE record specifies a comment associated with a particular cell. In Excel 95 (BIFF7) and earlier versions,</p>
+<p>       this record stores a note (cell note). This feature was significantly enhanced in Excel 97.</p>
+
+<p>The TEXT Object record contains the text associated with a cell annotation.</p>
+
+<p>Read BOF.</p>
+
+<p>FILEPASS.</p>
+<p>This record is part of the File Protection Block. It</p>
+<p>contains information about the read/write password of the</p>
+<p>file. All record contents following this record will be</p>
+<p>encrypted.</p>
+<p>--    "OpenOffice.org's Documentation of the Microsoft</p>
+<p>        Excel File Format"</p>
+<p>The decryption functions and objects used from here on in</p>
+<p>are based on the source of Spreadsheet-ParseExcel:</p>
+<p>https://metacpan.org/release/Spreadsheet-ParseExcel</p>
+
+<p>Make an RC4 decryptor for the given block.</p>
+<p>@param int $block Block for which to create decrypto</p>
+<p>@param string $valContext MD5 context state</p>
+<p>@return Xls\RC4</p>
+
+<p>Verify RC4 file password.</p>
+<p>@param string $password Password to check</p>
+<p>@param string $docid Document id</p>
+<p>@param string $salt_data Salt data</p>
+<p>@param string $hashedsalt_data Hashed salt data</p>
+<p>@param string $valContext Set to the MD5 context of the value</p>
+<p>@return bool Success</p>
+
+<p>CODEPAGE.</p>
+<p>This record stores the text encoding used to write byte</p>
+<p>strings, stored as MS Windows code page identifier.</p>
+<p>--    "OpenOffice.org's Documentation of the Microsoft</p>
+<p>        Excel File Format"</p>
+
+<p>DATEMODE.</p>
+<p>This record specifies the base date for displaying date</p>
+<p>values. All dates are stored as count of days past this</p>
+<p>base date. In BIFF2-BIFF4 this record is part of the</p>
+<p>Calculation Settings Block. In BIFF5-BIFF8 it is</p>
+<p>stored in the Workbook Globals Substream.</p>
+<p>--    "OpenOffice.org's Documentation of the Microsoft</p>
+<p>        Excel File Format"</p>
+
+<p>Read a FONT record.</p>
+
+<p>FORMAT.</p>
+<p>This record contains information about a number format.</p>
+<p>All FORMAT records occur together in a sequential list.</p>
+<p>In BIFF2-BIFF4 other records referencing a FORMAT record</p>
+<p>contain a zero-based index into this list. From BIFF5 on</p>
+<p>the FORMAT record contains the index itself that will be</p>
+<p>used by other records.</p>
+<p>--    "OpenOffice.org's Documentation of the Microsoft</p>
+<p>        Excel File Format"</p>
+
+<p>XF - Extended Format.</p>
+<p>This record contains formatting information for cells, rows, columns or styles.</p>
+<p>According to https://support.microsoft.com/en-us/help/147732 there are always at least 15 cell style XF</p>
+<p>and 1 cell XF.</p>
+<p>Inspection of Excel files generated by MS Office Excel shows that XF records 0-14 are cell style XF</p>
+<p>and XF record 15 is a cell XF</p>
+<p>We only read the first cell style XF and skip the remaining cell style XF records</p>
+<p>We read all cell XF records.</p>
+<p>--    "OpenOffice.org's Documentation of the Microsoft</p>
+<p>        Excel File Format"</p>
+
+<p>Read STYLE record.</p>
+
+<p>Read PALETTE record.</p>
+
+<p>SHEET.</p>
+<p>This record is  located in the  Workbook Globals</p>
+<p>Substream  and represents a sheet inside the workbook.</p>
+<p>One SHEET record is written for each sheet. It stores the</p>
+<p>sheet name and a stream offset to the BOF record of the</p>
+<p>respective Sheet Substream within the Workbook Stream.</p>
+<p>--    "OpenOffice.org's Documentation of the Microsoft</p>
+<p>        Excel File Format"</p>
+
+<p>Read EXTERNALBOOK record.</p>
+
+<p>Read EXTERNNAME record.</p>
+
+<p>Read EXTERNSHEET record.</p>
+
+<p>DEFINEDNAME.</p>
+<p>This record is part of a Link Table. It contains the name</p>
+<p>and the token array of an internal defined name. Token</p>
+<p>arrays of defined names contain tokens with aberrant</p>
+<p>token classes.</p>
+<p>--    "OpenOffice.org's Documentation of the Microsoft</p>
+<p>        Excel File Format"</p>
+
+<p>Read MSODRAWINGGROUP record.</p>
+
+<p>SST - Shared String Table.</p>
+<p>This record contains a list of all strings used anywhere</p>
+<p>in the workbook. Each string occurs only once. The</p>
+<p>workbook uses indexes into the list to reference the</p>
+<p>strings.</p>
+<p>--    "OpenOffice.org's Documentation of the Microsoft</p>
+<p>        Excel File Format"</p>
+
+<p>Read PRINTGRIDLINES record.</p>
+
+<p>Read DEFAULTROWHEIGHT record.</p>
+
+<p>Read SHEETPR record.</p>
+
+<p>Read HORIZONTALPAGEBREAKS record.</p>
+
+<p>Read VERTICALPAGEBREAKS record.</p>
+
+<p>Read HEADER record.</p>
+
+<p>Read FOOTER record.</p>
+
+<p>Read HCENTER record.</p>
+
+<p>Read VCENTER record.</p>
+
+<p>Read LEFTMARGIN record.</p>
+
+<p>Read RIGHTMARGIN record.</p>
+
+<p>Read TOPMARGIN record.</p>
+
+<p>Read BOTTOMMARGIN record.</p>
+
+<p>Read PAGESETUP record.</p>
+
+<p>PROTECT - Sheet protection (BIFF2 through BIFF8)</p>
+<p>  if this record is omitted, then it also means no sheet protection.</p>
+
+<p>SCENPROTECT.</p>
+
+<p>OBJECTPROTECT.</p>
+
+<p>PASSWORD - Sheet protection (hashed) password (BIFF2 through BIFF8).</p>
+
+<p>Read DEFCOLWIDTH record.</p>
+
+<p>Read COLINFO record.</p>
+
+<p>ROW.</p>
+<p>This record contains the properties of a single row in a</p>
+<p>sheet. Rows and cells in a sheet are divided into blocks</p>
+<p>of 32 rows.</p>
+<p>--    "OpenOffice.org's Documentation of the Microsoft</p>
+<p>        Excel File Format"</p>
+
+<p>Read RK record</p>
+<p>This record represents a cell that contains an RK value</p>
+<p>(encoded integer or floating-point value). If a</p>
+<p>floating-point value cannot be encoded to an RK value,</p>
+<p>a NUMBER record will be written. This record replaces the</p>
+<p>record INTEGER written in BIFF2.</p>
+<p>--    "OpenOffice.org's Documentation of the Microsoft</p>
+<p>        Excel File Format"</p>
+
+<p>Read LABELSST record</p>
+<p>This record represents a cell that contains a string. It</p>
+<p>replaces the LABEL record and RSTRING record used in</p>
+<p>BIFF2-BIFF5.</p>
+<p>--    "OpenOffice.org's Documentation of the Microsoft</p>
+<p>        Excel File Format"</p>
+
+<p>Read MULRK record</p>
+<p>This record represents a cell range containing RK value</p>
+<p>cells. All cells are located in the same row.</p>
+<p>--    "OpenOffice.org's Documentation of the Microsoft</p>
+<p>        Excel File Format"</p>
+
+<p>Read NUMBER record</p>
+<p>This record represents a cell that contains a</p>
+<p>floating-point value.</p>
+<p>--    "OpenOffice.org's Documentation of the Microsoft</p>
+<p>        Excel File Format"</p>
+
+<p>Read FORMULA record + perhaps a following STRING record if formula result is a string</p>
+<p>This record contains the token array and the result of a</p>
+<p>formula cell.</p>
+<p>--    "OpenOffice.org's Documentation of the Microsoft</p>
+<p>        Excel File Format"</p>
+
+<p>Read a SHAREDFMLA record. This function just stores the binary shared formula in the reader,</p>
+<p>which usually contains relative references.</p>
+<p>These will be used to construct the formula in each shared formula part after the sheet is read.</p>
+
+<p>Read a STRING record from current stream position and advance the stream pointer to next record</p>
+<p>This record is used for storing result from FORMULA record when it is a string, and</p>
+<p>it occurs directly after the FORMULA record.</p>
+<p>@return string The string contents as UTF-8</p>
+
+<p>Read BOOLERR record</p>
+<p>This record represents a Boolean value or error value</p>
+<p>cell.</p>
+<p>--    "OpenOffice.org's Documentation of the Microsoft</p>
+<p>        Excel File Format"</p>
+
+<p>Read MULBLANK record</p>
+<p>This record represents a cell range of empty cells. All</p>
+<p>cells are located in the same row.</p>
+<p>--    "OpenOffice.org's Documentation of the Microsoft</p>
+<p>        Excel File Format"</p>
+
+<p>Read LABEL record</p>
+<p>This record represents a cell that contains a string. In</p>
+<p>BIFF8 it is usually replaced by the LABELSST record.</p>
+<p>Excel still uses this record, if it copies unformatted</p>
+<p>text cells to the clipboard.</p>
+<p>--    "OpenOffice.org's Documentation of the Microsoft</p>
+<p>        Excel File Format"</p>
+
+<p>Read BLANK record.</p>
+
+<p>Read MSODRAWING record.</p>
+
+<p>Read OBJ record.</p>
+
+<p>Read WINDOW2 record.</p>
+
+<p>Read PLV Record(Created by Excel2007 or upper).</p>
+
+<p>Read SCL record.</p>
+
+<p>Read PANE record.</p>
+
+<p>Read SELECTION record. There is one such record for each pane in the sheet.</p>
+
+<p>MERGEDCELLS.</p>
+<p>This record contains the addresses of merged cell ranges</p>
+<p>in the current sheet.</p>
+<p>--    "OpenOffice.org's Documentation of the Microsoft</p>
+<p>        Excel File Format"</p>
+
+<p>Read HYPERLINK record.</p>
+
+<p>Read DATAVALIDATIONS record.</p>
+
+<p>Read DATAVALIDATION record.</p>
+
+<p>Read SHEETLAYOUT record. Stores sheet tab color information.</p>
+
+<p>Read SHEETPROTECTION record (FEATHEADR).</p>
+
+<p>Read RANGEPROTECTION record</p>
+<p>Reading of this record is based on Microsoft Office Excel 97-2000 Binary File Format Specification,</p>
+<p>where it is referred to as FEAT record.</p>
+
+<p>Read a free CONTINUE record. Free CONTINUE record may be a camouflaged MSODRAWING record</p>
+<p>When MSODRAWING data on a sheet exceeds 8224 bytes, CONTINUE records are used instead. Undocumented.</p>
+<p>In this case, we must treat the CONTINUE record as a MSODRAWING record.</p>
+
+<p>Reads a record from current position in data stream and continues reading data as long as CONTINUE</p>
+<p>records are found. Splices the record data pieces and returns the combined string as if record data</p>
+<p>is in one piece.</p>
+<p>Moves to next current position in data stream to start of next record different from a CONtINUE record.</p>
+<p>@return array</p>
+
+<p>Convert formula structure into human readable Excel formula like 'A3+A5*5'.</p>
+<p>@param string $formulaStructure The complete binary data for the formula</p>
+<p>@param string $baseCell Base cell, only needed when formula contains tRefN tokens, e.g. with shared formulas</p>
+<p>@return string Human readable formula</p>
+
+<p>Take formula data and additional data for formula and return human readable formula.</p>
+<p>@param string $formulaData The binary data for the formula itself</p>
+<p>@param string $additionalData Additional binary data going with the formula</p>
+<p>@param string $baseCell Base cell, only needed when formula contains tRefN tokens, e.g. with shared formulas</p>
+<p>@return string Human readable formula</p>
+
+<p>Take array of tokens together with additional data for formula and return human readable formula.</p>
+<p>@param array $tokens</p>
+<p>@param string $additionalData Additional binary data going with the formula</p>
+<p>@return string Human readable formula</p>
+
+<p>Fetch next token from binary formula data.</p>
+<p>@param string $formulaData Formula data</p>
+<p>@param string $baseCell Base cell, only needed when formula contains tRefN tokens, e.g. with shared formulas</p>
+<p>@return array</p>
+
+<p>Reads a cell address in BIFF8 e.g. 'A2' or '$A$2'</p>
+<p>section 3.3.4.</p>
+<p>@param string $cellAddressStructure</p>
+<p>@return string</p>
+
+<p>Reads a cell address in BIFF8 for shared formulas. Uses positive and negative values for row and column</p>
+<p>to indicate offsets from a base cell</p>
+<p>section 3.3.4.</p>
+<p>@param string $cellAddressStructure</p>
+<p>@param string $baseCell Base cell, only needed when formula contains tRefN tokens, e.g. with shared formulas</p>
+<p>@return string</p>
+
+<p>Reads a cell range address in BIFF5 e.g. 'A2:B6' or 'A1'</p>
+<p>always fixed range</p>
+<p>section 2.5.14.</p>
+<p>@param string $subData</p>
+<p>@return string</p>
+
+<p>Reads a cell range address in BIFF8 e.g. 'A2:B6' or 'A1'</p>
+<p>always fixed range</p>
+<p>section 2.5.14.</p>
+<p>@param string $subData</p>
+<p>@return string</p>
+
+<p>Reads a cell range address in BIFF8 e.g. 'A2:B6' or '$A$2:$B$6'</p>
+<p>there are flags indicating whether column/row index is relative</p>
+<p>section 3.3.4.</p>
+<p>@param string $subData</p>
+<p>@return string</p>
+
+<p>Reads a cell range address in BIFF8 for shared formulas. Uses positive and negative values for row and column</p>
+<p>to indicate offsets from a base cell</p>
+<p>section 3.3.4.</p>
+<p>@param string $subData</p>
+<p>@param string $baseCell Base cell</p>
+<p>@return string Cell range address</p>
+
+<p>Read BIFF8 cell range address list</p>
+<p>section 2.5.15.</p>
+<p>@param string $subData</p>
+<p>@return array</p>
+
+<p>Read BIFF5 cell range address list</p>
+<p>section 2.5.15.</p>
+<p>@param string $subData</p>
+<p>@return array</p>
+
+<p>Get a sheet range like Sheet1:Sheet3 from REF index</p>
+<p>Note: If there is only one sheet in the range, one gets e.g Sheet1</p>
+<p>It can also happen that the REF structure uses the -1 (FFFF) code to indicate deleted sheets,</p>
+<p>in which case an Exception is thrown.</p>
+<p>@param int $index</p>
+<p>@return false|string</p>
+
+<p>read BIFF8 constant value array from array data</p>
+<p>returns e.g. ['value' => '{1,2;3,4}', 'size' => 40]</p>
+<p>section 2.5.8.</p>
+<p>@param string $arrayData</p>
+<p>@return array</p>
+
+<p>read BIFF8 constant value which may be 'Empty Value', 'Number', 'String Value', 'Boolean Value', 'Error Value'</p>
+<p>section 2.5.7</p>
+<p>returns e.g. ['value' => '5', 'size' => 9].</p>
+<p>@param string $valueData</p>
+<p>@return array</p>
+
+<p>Extract RGB color</p>
+<p>OpenOffice.org's Documentation of the Microsoft Excel File Format, section 2.5.4.</p>
+<p>@param string $rgb Encoded RGB value (4 bytes)</p>
+<p>@return array</p>
+
+<p>Read byte string (8-bit string length)</p>
+<p>OpenOffice documentation: 2.5.2.</p>
+<p>@param string $subData</p>
+<p>@return array</p>
+
+<p>Read byte string (16-bit string length)</p>
+<p>OpenOffice documentation: 2.5.2.</p>
+<p>@param string $subData</p>
+<p>@return array</p>
+
+<p>Extracts an Excel Unicode short string (8-bit string length)</p>
+<p>OpenOffice documentation: 2.5.3</p>
+<p>function will automatically find out where the Unicode string ends.</p>
+<p>@param string $subData</p>
+<p>@return array</p>
+
+<p>Extracts an Excel Unicode long string (16-bit string length)</p>
+<p>OpenOffice documentation: 2.5.3</p>
+<p>this function is under construction, needs to support rich text, and Asian phonetic settings.</p>
+<p>@param string $subData</p>
+<p>@return array</p>
+
+<p>Read Unicode string with no string length field, but with known character count</p>
+<p>this function is under construction, needs to support rich text, and Asian phonetic settings</p>
+<p>OpenOffice.org's Documentation of the Microsoft Excel File Format, section 2.5.3.</p>
+<p>@param string $subData</p>
+<p>@param int $characterCount</p>
+<p>@return array</p>
+
+<p>Convert UTF-8 string to string surounded by double quotes. Used for explicit string tokens in formulas.</p>
+<p>Example:  hello"world  -->  "hello""world".</p>
+<p>@param string $value UTF-8 encoded string</p>
+<p>@return string</p>
+
+<p>Reads first 8 bytes of a string and return IEEE 754 float.</p>
+<p>@param string $data Binary string that is at least 8 bytes long</p>
+<p>@return float</p>
+
+<p>@param int $rknum</p>
+<p>@return float</p>
+
+<p>Get UTF-8 string from (compressed or uncompressed) UTF-16 string.</p>
+<p>@param string $string</p>
+<p>@param bool $compressed</p>
+<p>@return string</p>
+
+<p>Convert UTF-16 string in compressed notation to uncompressed form. Only used for BIFF8.</p>
+<p>@param string $string</p>
+<p>@return string</p>
+
+<p>Convert string to UTF-8. Only used for BIFF5.</p>
+<p>@param string $string</p>
+<p>@return string</p>
+
+<p>Read 16-bit unsigned integer.</p>
+<p>@param string $data</p>
+<p>@param int $pos</p>
+<p>@return int</p>
+
+<p>Read 16-bit signed integer.</p>
+<p>@param string $data</p>
+<p>@param int $pos</p>
+<p>@return int</p>
+
+<p>Read 32-bit signed integer.</p>
+<p>@param string $data</p>
+<p>@param int $pos</p>
+<p>@return int</p>
+
+<p>Phpstan 1.4.4 complains that this property is never read.</p>
+<p>So, we might be able to get rid of it altogether.</p>
+<p>For now, however, this function makes it readable,</p>
+<p>which satisfies Phpstan.</p>
+<p>@codeCoverageIgnore</p>
+
+<p>@return null|float|int|string</p>
+
+<p>@param null|float|int|string $formula1</p>
+<p>@param null|float|int|string $formula2</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>Excel_Spreadsheet_Reader</code></li>
+<li><code>a</code></li>
+<li><code>file</code></li>
+<li><code>stream</code></li>
+<li><code>the</code></li>
+<li><code>beginning</code></li>
+<li><code>here</code></li>
+<li><code>BIFF5</code></li>
+<li><code>top</code></li>
+<li><code>bottom</code></li>
+<li><code>current</code></li>
+<li><code>FORMULA</code></li>
+<li><code>left</code></li>
+<li><code>right</code></li>
+<li><code>binary</code></li>
+<li><code>REF</code></li>
+<li><code>array</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Xls.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Reader\Xls extends BaseReader</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Reader\id</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Reader\id</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>canRead(string $filename)</code></li>
+<li><code>setCodepage(string $codepage)</code></li>
+<li><code>listWorksheetNames($filename)</code></li>
+<li><code>listWorksheetInfo($filename)</code></li>
+<li><code>loadSpreadsheetFromFile(string $filename)</code></li>
+<li><code>readRecordData($data, $pos, $len)</code></li>
+<li><code>loadOLE($filename)</code></li>
+<li><code>readSummaryInformation()</code></li>
+<li><code>readDocumentSummaryInformation()</code></li>
+<li><code>readDefault()</code></li>
+<li><code>readNote()</code></li>
+<li><code>readTextObject()</code></li>
+<li><code>readBof()</code></li>
+<li><code>readFilepass()</code></li>
+<li><code>makeKey($block, $valContext)</code></li>
+<li><code>verifyPassword($password, $docid, $salt_data, $hashedsalt_data, &$valContext)</code></li>
+<li><code>readCodepage()</code></li>
+<li><code>readDateMode()</code></li>
+<li><code>readFont()</code></li>
+<li><code>readFormat()</code></li>
+<li><code>readXf()</code></li>
+<li><code>readXfExt()</code></li>
+<li><code>readStyle()</code></li>
+<li><code>readPalette()</code></li>
+<li><code>readSheet()</code></li>
+<li><code>readExternalBook()</code></li>
+<li><code>readExternName()</code></li>
+<li><code>readExternSheet()</code></li>
+<li><code>readDefinedName()</code></li>
+<li><code>readMsoDrawingGroup()</code></li>
+<li><code>readSst()</code></li>
+<li><code>readPrintGridlines()</code></li>
+<li><code>readDefaultRowHeight()</code></li>
+<li><code>readSheetPr()</code></li>
+<li><code>readHorizontalPageBreaks()</code></li>
+<li><code>readVerticalPageBreaks()</code></li>
+<li><code>readHeader()</code></li>
+<li><code>readFooter()</code></li>
+<li><code>readHcenter()</code></li>
+<li><code>readVcenter()</code></li>
+<li><code>readLeftMargin()</code></li>
+<li><code>readRightMargin()</code></li>
+<li><code>readTopMargin()</code></li>
+<li><code>readBottomMargin()</code></li>
+<li><code>readPageSetup()</code></li>
+<li><code>readProtect()</code></li>
+<li><code>readScenProtect()</code></li>
+<li><code>readObjectProtect()</code></li>
+<li><code>readPassword()</code></li>
+<li><code>readDefColWidth()</code></li>
+<li><code>readColInfo()</code></li>
+<li><code>readRow()</code></li>
+<li><code>readRk()</code></li>
+<li><code>readLabelSst()</code></li>
+<li><code>readMulRk()</code></li>
+<li><code>readNumber()</code></li>
+<li><code>readFormula()</code></li>
+<li><code>readSharedFmla()</code></li>
+<li><code>readString()</code></li>
+<li><code>readBoolErr()</code></li>
+<li><code>readMulBlank()</code></li>
+<li><code>readLabel()</code></li>
+<li><code>readBlank()</code></li>
+<li><code>readMsoDrawing()</code></li>
+<li><code>readObj()</code></li>
+<li><code>readWindow2()</code></li>
+<li><code>readPageLayoutView()</code></li>
+<li><code>readScl()</code></li>
+<li><code>readPane()</code></li>
+<li><code>readSelection()</code></li>
+<li><code>includeCellRangeFiltered($cellRangeAddress)</code></li>
+<li><code>readMergedCells()</code></li>
+<li><code>readHyperLink()</code></li>
+<li><code>readDataValidations()</code></li>
+<li><code>readDataValidation()</code></li>
+<li><code>readSheetLayout()</code></li>
+<li><code>readSheetProtection()</code></li>
+<li><code>readRangeProtection()</code></li>
+<li><code>readContinue()</code></li>
+<li><code>getSplicedRecordData()</code></li>
+<li><code>getFormulaFromStructure($formulaStructure, $baseCell = 'A1')</code></li>
+<li><code>getFormulaFromData($formulaData, $additionalData = '', $baseCell = 'A1')</code></li>
+<li><code>createFormulaFromTokens($tokens, $additionalData)</code></li>
+<li><code>getNextToken($formulaData, $baseCell = 'A1')</code></li>
+<li><code>switch(self::getUInt2d($formulaData, 1)</code></li>
+<li><code>readBIFF8CellAddress($cellAddressStructure)</code></li>
+<li><code>readBIFF8CellAddressB($cellAddressStructure, $baseCell = 'A1')</code></li>
+<li><code>readBIFF5CellRangeAddressFixed($subData)</code></li>
+<li><code>readBIFF8CellRangeAddressFixed($subData)</code></li>
+<li><code>readBIFF8CellRangeAddress($subData)</code></li>
+<li><code>readBIFF8CellRangeAddressB($subData, $baseCell = 'A1')</code></li>
+<li><code>readBIFF8CellRangeAddressList($subData)</code></li>
+<li><code>readBIFF5CellRangeAddressList($subData)</code></li>
+<li><code>readSheetRangeByRefIndex($index)</code></li>
+<li><code>readBIFF8ConstantArray($arrayData)</code></li>
+<li><code>readBIFF8Constant($valueData)</code></li>
+<li><code>readRGB($rgb)</code></li>
+<li><code>readByteStringShort($subData)</code></li>
+<li><code>readByteStringLong($subData)</code></li>
+<li><code>readUnicodeStringShort($subData)</code></li>
+<li><code>readUnicodeStringLong($subData)</code></li>
+<li><code>readUnicodeString($subData, $characterCount)</code></li>
+<li><code>UTF8toExcelDoubleQuoted($value)</code></li>
+<li><code>extractNumber($data)</code></li>
+<li><code>getIEEE754($rknum)</code></li>
+<li><code>encodeUTF16($string, $compressed = false)</code></li>
+<li><code>uncompressByteString($string)</code></li>
+<li><code>decodeCodepage($string)</code></li>
+<li><code>getUInt2d($data, $pos)</code></li>
+<li><code>getInt2d($data, $pos)</code></li>
+<li><code>getInt4d($data, $pos)</code></li>
+<li><code>parseRichText($is)</code></li>
+<li><code>getMapCellStyleXfIndex()</code></li>
+<li><code>readCFHeader()</code></li>
+<li><code>readCFRule(array $cellRangeAddresses)</code></li>
+<li><code>getCFStyleOptions(int $options, Style $style)</code></li>
+<li><code>getCFFontStyle(string $options, Style $style)</code></li>
+<li><code>getCFAlignmentStyle(string $options, Style $style)</code></li>
+<li><code>getCFBorderStyle(string $options, Style $style)</code></li>
+<li><code>getCFFillStyle(string $options, Style $style)</code></li>
+<li><code>getCFProtectionStyle(string $options, Style $style)</code></li>
+<li><code>readCFFormula(string $recordData, int $offset, int $size)</code></li>
+<li><code>setCFRules(array $cellRanges, string $type, string $operator, $formula1, $formula2, Style $style)</code></li>
+</ul>
+</body></html>

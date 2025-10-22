@@ -1,0 +1,165 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Helpers\form_helper.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Helpers\form_helper.php</h1>
+
+<ul>
+<li>Path: <code>system\Helpers\form_helper.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 21599 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Form Declaration</p>
+<p>Creates the opening portion of the form.</p>
+<p>@param string       $action     the URI segments of the form destination</p>
+<p>@param array|string $attributes a key/value pair of attributes, or string representation</p>
+<p>@param array        $hidden     a key/value pair hidden data</p>
+
+<p>Form Declaration - Multipart type</p>
+<p>Creates the opening portion of the form, but with "multipart/form-data".</p>
+<p>@param string       $action     The URI segments of the form destination</p>
+<p>@param array|string $attributes A key/value pair of attributes, or the same as a string</p>
+<p>@param array        $hidden     A key/value pair hidden data</p>
+
+<p>Hidden Input Field</p>
+<p>Generates hidden fields. You can pass a simple key/value string or</p>
+<p>an associative array with multiple values.</p>
+<p>@param array|string $name  Field name or associative array to create multiple fields</p>
+<p>@param array|string $value Field value</p>
+
+<p>Text Input Field. If 'type' is passed in the $type field, it will be</p>
+<p>used as the input type, for making 'email', 'phone', etc input fields.</p>
+<p>@param mixed $data</p>
+<p>@param mixed $extra</p>
+
+<p>Password Field</p>
+<p>Identical to the input function but adds the "password" type</p>
+<p>@param mixed $data</p>
+<p>@param mixed $extra</p>
+
+<p>Upload Field</p>
+<p>Identical to the input function but adds the "file" type</p>
+<p>@param mixed $data</p>
+<p>@param mixed $extra</p>
+
+<p>Textarea field</p>
+<p>@param mixed $data</p>
+<p>@param mixed $extra</p>
+
+<p>Multi-select menu</p>
+<p>@param mixed $name</p>
+<p>@param mixed $extra</p>
+
+<p>Drop-down Menu</p>
+<p>@param mixed $data</p>
+<p>@param mixed $options</p>
+<p>@param mixed $selected</p>
+<p>@param mixed $extra</p>
+
+<p>Checkbox Field</p>
+<p>@param mixed $data</p>
+<p>@param mixed $extra</p>
+
+<p>Radio Button</p>
+<p>@param mixed $data</p>
+<p>@param mixed $extra</p>
+
+<p>Submit Button</p>
+<p>@param mixed $data</p>
+<p>@param mixed $extra</p>
+
+<p>Reset Button</p>
+<p>@param mixed $data</p>
+<p>@param mixed $extra</p>
+
+<p>Form Button</p>
+<p>@param mixed $data</p>
+<p>@param mixed $extra</p>
+
+<p>Form Label Tag</p>
+<p>@param string $labelText  The text to appear onscreen</p>
+<p>@param string $id         The id the label applies to</p>
+<p>@param array  $attributes Additional attributes</p>
+
+<p>Datalist</p>
+<p>The <datalist> element specifies a list of pre-defined options for an <input> element.</p>
+<p>Users will see a drop-down list of pre-defined options as they input data.</p>
+<p>The list attribute of the <input> element, must refer to the id attribute of the <datalist> element.</p>
+
+<p>Fieldset Tag</p>
+<p>Used to produce <fieldset><legend>text</legend>.  To close fieldset</p>
+<p>use form_fieldset_close()</p>
+<p>@param string $legendText The legend text</p>
+<p>@param array  $attributes Additional attributes</p>
+
+<p>Fieldset Close Tag</p>
+
+<p>Form Close Tag</p>
+
+<p>Form Value</p>
+<p>Grabs a value from the POST array for the specified field so you can</p>
+<p>re-populate an input field or textarea</p>
+<p>@param string          $field      Field name</p>
+<p>@param string|string[] $default    Default value</p>
+<p>@param bool            $htmlEscape Whether to escape HTML special characters or not</p>
+<p>@return string|string[]</p>
+
+<p>Set Select</p>
+<p>Let's you set the selected value of a <select> menu via data in the POST array.</p>
+
+<p>Set Checkbox</p>
+<p>Let's you set the selected value of a checkbox via the value in the POST array.</p>
+
+<p>Set Radio</p>
+<p>Let's you set the selected value of a radio field via info in the POST array.</p>
+
+<p>Parse the form attributes</p>
+<p>Helper function used by some of the form helpers</p>
+<p>@param array|string $attributes List of attributes</p>
+<p>@param array        $default    Default values</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Helpers\form_helper.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>form_open(string $action = '', $attributes = [], array $hidden = [])</code></li>
+<li><code>form_open_multipart(string $action = '', $attributes = [], array $hidden = [])</code></li>
+<li><code>form_hidden($name, $value = '', bool $recursing = false)</code></li>
+<li><code>form_input($data = '', string $value = '', $extra = '', string $type = 'text')</code></li>
+<li><code>form_password($data = '', string $value = '', $extra = '')</code></li>
+<li><code>form_upload($data = '', string $value = '', $extra = '')</code></li>
+<li><code>form_textarea($data = '', string $value = '', $extra = '')</code></li>
+<li><code>form_multiselect($name = '', array $options = [], array $selected = [], $extra = '')</code></li>
+<li><code>form_dropdown($data = '', $options = [], $selected = [], $extra = '')</code></li>
+<li><code>form_checkbox($data = '', string $value = '', bool $checked = false, $extra = '')</code></li>
+<li><code>form_radio($data = '', string $value = '', bool $checked = false, $extra = '')</code></li>
+<li><code>form_submit($data = '', string $value = '', $extra = '')</code></li>
+<li><code>form_reset($data = '', string $value = '', $extra = '')</code></li>
+<li><code>form_button($data = '', string $content = '', $extra = '')</code></li>
+<li><code>form_label(string $labelText = '', string $id = '', array $attributes = [])</code></li>
+<li><code>form_datalist(string $name, string $value, array $options)</code></li>
+<li><code>form_fieldset(string $legendText = '', array $attributes = [])</code></li>
+<li><code>form_fieldset_close(string $extra = '')</code></li>
+<li><code>form_close(string $extra = '')</code></li>
+<li><code>set_value(string $field, $default = '', bool $htmlEscape = true)</code></li>
+<li><code>set_select(string $field, string $value = '', bool $default = false)</code></li>
+<li><code>set_checkbox(string $field, string $value = '', bool $default = false)</code></li>
+<li><code>set_radio(string $field, string $value = '', bool $default = false)</code></li>
+<li><code>parse_form_attributes($attributes, array $default)</code></li>
+</ul>
+</body></html>

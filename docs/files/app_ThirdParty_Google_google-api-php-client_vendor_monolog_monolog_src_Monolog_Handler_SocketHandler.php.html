@@ -1,0 +1,116 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\SocketHandler.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\SocketHandler.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\SocketHandler.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 8884 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Stores to any socket - uses fsockopen() or pfsockopen().</p>
+<p>@author Pablo de Leon Belloc <pablolb@gmail.com></p>
+<p>@see    http://php.net/manual/en/function.fsockopen.php</p>
+
+<p>@param string  $connectionString Socket connection string</p>
+<p>@param int     $level            The minimum logging level at which this handler will be triggered</p>
+<p>@param Boolean $bubble           Whether the messages that are handled can bubble up the stack or not</p>
+
+<p>Connect (if necessary) and write to the socket</p>
+<p>@param array $record</p>
+<p>@throws \UnexpectedValueException</p>
+<p>@throws \RuntimeException</p>
+
+<p>We will not close a PersistentSocket instance so it can be reused in other requests.</p>
+
+<p>Close socket, if open</p>
+
+<p>Set socket connection to nbe persistent. It only has effect before the connection is initiated.</p>
+<p>@param bool $persistent</p>
+
+<p>Set connection timeout.  Only has effect before we connect.</p>
+<p>@param float $seconds</p>
+<p>@see http://php.net/manual/en/function.fsockopen.php</p>
+
+<p>Set write timeout. Only has effect before we connect.</p>
+<p>@param float $seconds</p>
+<p>@see http://php.net/manual/en/function.stream-set-timeout.php</p>
+
+<p>Set writing timeout. Only has effect during connection in the writing cycle.</p>
+<p>@param float $seconds 0 for no timeout</p>
+
+<p>Get current connection string</p>
+<p>@return string</p>
+
+<p>Get persistent setting</p>
+<p>@return bool</p>
+
+<p>Get current connection timeout setting</p>
+<p>@return float</p>
+
+<p>Get current in-transfer timeout</p>
+<p>@return float</p>
+
+<p>Get current local writing timeout</p>
+<p>@return float</p>
+
+<p>Check to see if the socket is currently available.</p>
+<p>UDP might appear to be connected but might fail when writing.  See http://php.net/fsockopen for details.</p>
+<p>@return bool</p>
+
+<p>Wrapper to allow mocking</p>
+
+<p>Wrapper to allow mocking</p>
+
+<p>Wrapper to allow mocking</p>
+<p>@see http://php.net/manual/en/function.stream-set-timeout.php</p>
+
+<p>Wrapper to allow mocking</p>
+
+<p>Wrapper to allow mocking</p>
+
+<p>@return resource|null</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\SocketHandler.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Monolog\Handler\SocketHandler extends AbstractProcessingHandler</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($connectionString, $level = Logger::DEBUG, $bubble = true)</code></li>
+<li><code>write(array $record)</code></li>
+<li><code>close()</code></li>
+<li><code>closeSocket()</code></li>
+<li><code>setPersistent($persistent)</code></li>
+<li><code>setConnectionTimeout($seconds)</code></li>
+<li><code>setTimeout($seconds)</code></li>
+<li><code>setWritingTimeout($seconds)</code></li>
+<li><code>getConnectionString()</code></li>
+<li><code>isPersistent()</code></li>
+<li><code>getConnectionTimeout()</code></li>
+<li><code>getTimeout()</code></li>
+<li><code>getWritingTimeout()</code></li>
+<li><code>isConnected()</code></li>
+<li><code>pfsockopen()</code></li>
+<li><code>fsockopen()</code></li>
+<li><code>streamSetTimeout()</code></li>
+<li><code>fwrite($data)</code></li>
+<li><code>streamGetMetadata()</code></li>
+<li><code>validateTimeout($value)</code></li>
+<li><code>connectIfNotConnected()</code></li>
+<li><code>generateDataStream($record)</code></li>
+<li><code>getResource()</code></li>
+<li><code>connect()</code></li>
+<li><code>createSocketResource()</code></li>
+<li><code>setSocketTimeout()</code></li>
+<li><code>writeToSocket($data)</code></li>
+<li><code>writingIsTimedOut($sent)</code></li>
+</ul>
+</body></html>

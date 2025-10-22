@@ -1,0 +1,157 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\Date.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\Date.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\Date.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 19030 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>constants</p>
+
+<p>Names of the months of the year, indexed by shortname</p>
+<p>Planned usage for locale settings.</p>
+<p>@var string[]</p>
+
+<p>@var string[]</p>
+
+<p>Base calendar year to use for calculations</p>
+<p>Value is either CALENDAR_WINDOWS_1900 (1900) or CALENDAR_MAC_1904 (1904).</p>
+<p>@var int</p>
+
+<p>Default timezone to use for DateTime objects.</p>
+<p>@var null|DateTimeZone</p>
+
+<p>Set the Excel calendar (Windows 1900 or Mac 1904).</p>
+<p>@param int $baseYear Excel base date (1900 or 1904)</p>
+<p>@return bool Success or failure</p>
+
+<p>Return the Excel calendar (Windows 1900 or Mac 1904).</p>
+<p>@return int Excel base date (1900 or 1904)</p>
+
+<p>Set the Default timezone to use for dates.</p>
+<p>@param null|DateTimeZone|string $timeZone The timezone to set for all Excel datetimestamp to PHP DateTime Object conversions</p>
+<p>@return bool Success or failure</p>
+
+<p>Return the Default timezone, or UTC if default not set.</p>
+
+<p>Return the Default timezone, or local timezone if default is not set.</p>
+
+<p>Return the Default timezone even if null.</p>
+
+<p>Validate a timezone.</p>
+<p>@param null|DateTimeZone|string $timeZone The timezone to validate, either as a timezone string or object</p>
+<p>@return ?DateTimeZone The timezone as a timezone object</p>
+
+<p>@param mixed $value</p>
+<p>@return float|int</p>
+
+<p>Convert a MS serialized datetime value from Excel to a PHP Date/Time object.</p>
+<p>@param float|int $excelTimestamp MS Excel serialized date/time value</p>
+<p>@param null|DateTimeZone|string $timeZone The timezone to assume for the Excel timestamp,</p>
+<p>                                                                       if you don't want to treat it as a UTC value</p>
+<p>                                                                   Use the default (UTC) unless you absolutely need a conversion</p>
+<p>@return DateTime PHP date/time object</p>
+
+<p>Convert a MS serialized datetime value from Excel to a unix timestamp.</p>
+<p>The use of Unix timestamps, and therefore this function, is discouraged.</p>
+<p>They are not Y2038-safe on a 32-bit system, and have no timezone info.</p>
+<p>@param float|int $excelTimestamp MS Excel serialized date/time value</p>
+<p>@param null|DateTimeZone|string $timeZone The timezone to assume for the Excel timestamp,</p>
+<p>                                                                       if you don't want to treat it as a UTC value</p>
+<p>                                                                   Use the default (UTC) unless you absolutely need a conversion</p>
+<p>@return int Unix timetamp for this date/time</p>
+
+<p>Convert a date from PHP to an MS Excel serialized date/time value.</p>
+<p>@param mixed $dateValue PHP DateTime object or a string - Unix timestamp is also permitted, but discouraged;</p>
+<p>   not Y2038-safe on a 32-bit system, and no timezone info</p>
+<p>@return false|float Excel date/time value</p>
+<p>                                 or boolean FALSE on failure</p>
+
+<p>Convert a PHP DateTime object to an MS Excel serialized date/time value.</p>
+<p>@param DateTimeInterface $dateValue PHP DateTime object</p>
+<p>@return float MS Excel serialized date/time value</p>
+
+<p>Convert a Unix timestamp to an MS Excel serialized date/time value.</p>
+<p>The use of Unix timestamps, and therefore this function, is discouraged.</p>
+<p>They are not Y2038-safe on a 32-bit system, and have no timezone info.</p>
+<p>@param int $unixTimestamp Unix Timestamp</p>
+<p>@return false|float MS Excel serialized date/time value</p>
+
+<p>formattedPHPToExcel.</p>
+<p>@param int $year</p>
+<p>@param int $month</p>
+<p>@param int $day</p>
+<p>@param int $hours</p>
+<p>@param int $minutes</p>
+<p>@param int $seconds</p>
+<p>@return float Excel date/time value</p>
+
+<p>Is a given cell a date/time?</p>
+<p>@return bool</p>
+
+<p>Is a given number format a date/time?</p>
+<p>@return bool</p>
+
+<p>Is a given number format code a date/time?</p>
+<p>@param string $excelFormatCode</p>
+<p>@return bool</p>
+
+<p>Convert a date/time string to Excel time.</p>
+<p>@param string $dateValue Examples: '2009-12-31', '2009-12-31 15:59', '2009-12-31 15:59:10'</p>
+<p>@return false|float Excel date/time serial value</p>
+
+<p>Converts a month name (either a long or a short name) to a month number.</p>
+<p>@param string $monthName Month name or abbreviation</p>
+<p>@return int|string Month number (1 - 12), or the original string argument if it isn't a valid month name</p>
+
+<p>Strips an ordinal from a numeric value.</p>
+<p>@param string $day Day number with an ordinal</p>
+<p>@return int|string The integer value with any ordinal stripped, or the original string argument if it isn't a valid numeric</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>Excel</code></li>
+<li><code>PHP</code></li>
+<li><code>a</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\Date.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Shared\Date</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>setExcelCalendar($baseYear)</code></li>
+<li><code>getExcelCalendar()</code></li>
+<li><code>setDefaultTimezone($timeZone)</code></li>
+<li><code>getDefaultTimezone()</code></li>
+<li><code>getDefaultOrLocalTimezone()</code></li>
+<li><code>getDefaultTimezoneOrNull()</code></li>
+<li><code>validateTimeZone($timeZone)</code></li>
+<li><code>convertIsoDate($value)</code></li>
+<li><code>excelToDateTimeObject($excelTimestamp, $timeZone = null)</code></li>
+<li><code>excelToTimestamp($excelTimestamp, $timeZone = null)</code></li>
+<li><code>PHPToExcel($dateValue)</code></li>
+<li><code>dateTimeToExcel(DateTimeInterface $dateValue)</code></li>
+<li><code>timestampToExcel($unixTimestamp)</code></li>
+<li><code>formattedPHPToExcel($year, $month, $day, $hours = 0, $minutes = 0, $seconds = 0)</code></li>
+<li><code>isDateTime(Cell $cell)</code></li>
+<li><code>isDateTimeFormat(NumberFormat $excelFormatCode)</code></li>
+<li><code>isDateTimeFormatCode($excelFormatCode)</code></li>
+<li><code>stringToExcel($dateValue)</code></li>
+<li><code>monthStringToNumber($monthName)</code></li>
+<li><code>dayStringToNumber($day)</code></li>
+<li><code>dateTimeFromTimestamp(string $date, ?DateTimeZone $timeZone = null)</code></li>
+<li><code>formattedDateTimeFromTimestamp(string $date, string $format, ?DateTimeZone $timeZone = null)</code></li>
+</ul>
+</body></html>

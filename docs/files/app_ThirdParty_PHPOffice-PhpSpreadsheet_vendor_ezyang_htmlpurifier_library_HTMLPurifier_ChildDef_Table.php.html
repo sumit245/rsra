@@ -1,0 +1,58 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\ChildDef\Table.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\ChildDef\Table.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\ChildDef\Table.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7168 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Definition for tables.  The general idea is to extract out all of the</p>
+<p>essential bits, and then reconstruct it later.</p>
+<p>This is a bit confusing, because the DTDs and the W3C</p>
+<p>validators seem to disagree on the appropriate definition. The</p>
+<p>DTD claims:</p>
+<p>     (CAPTION?, (COL*|COLGROUP*), THEAD?, TFOOT?, TBODY+)</p>
+<p>But actually, the HTML4 spec then has this to say:</p>
+<p>     The TBODY start tag is always required except when the table</p>
+<p>     contains only one table body and no table head or foot sections.</p>
+<p>     The TBODY end tag may always be safely omitted.</p>
+<p>So the DTD is kind of wrong.  The validator is, unfortunately, kind</p>
+<p>of on crack.</p>
+<p>The definition changed again in XHTML1.1; and in my opinion, this</p>
+<p>formulation makes the most sense.</p>
+<p>     caption?, ( col* | colgroup* ), (( thead?, tfoot?, tbody+ ) | ( tr+ ))</p>
+<p>Essentially, we have two modes: thead/tfoot/tbody mode, and tr mode.</p>
+<p>If we encounter a thead, tfoot or tbody, we are placed in the former</p>
+<p>mode, and we *must* wrap any stray tr segments with a tbody. But if</p>
+<p>we don't run into any of them, just have tr tags is OK.</p>
+
+<p>@type bool</p>
+
+<p>@type string</p>
+
+<p>@type array</p>
+
+<p>@param array $children</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@param HTMLPurifier_Context $context</p>
+<p>@return array</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\ChildDef\Table.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>HTMLPurifier_ChildDef_Table extends HTMLPurifier_ChildDef</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>validateChildren($children, $config, $context)</code></li>
+</ul>
+</body></html>

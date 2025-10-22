@@ -1,0 +1,57 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\RetryMiddleware.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\RetryMiddleware.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\RetryMiddleware.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3240 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Middleware that retries requests based on the boolean result of</p>
+<p>invoking the provided "decider" function.</p>
+
+<p>@var callable</p>
+
+<p>@var callable</p>
+
+<p>@param callable $decider     Function that accepts the number of retries,</p>
+<p>                             a request, [response], and [exception] and</p>
+<p>                             returns true if the request is to be</p>
+<p>                             retried.</p>
+<p>@param callable $nextHandler Next handler to invoke.</p>
+<p>@param callable $delay       Function that accepts the number of retries</p>
+<p>                             and [response] and returns the number of</p>
+<p>                             milliseconds to delay.</p>
+
+<p>Default exponential backoff delay function.</p>
+<p>@param $retries</p>
+<p>@return int</p>
+
+<p>@param RequestInterface $request</p>
+<p>@param array            $options</p>
+<p>@return PromiseInterface</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\RetryMiddleware.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>GuzzleHttp\RetryMiddleware</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`__construct(callable $decider,</li>
+<p>        callable $nextHandler,</p>
+<p>        callable $delay = null)`</p>
+<li><code>exponentialDelay($retries)</code></li>
+<li><code>__invoke(RequestInterface $request, array $options)</code></li>
+<li><code>onFulfilled(RequestInterface $req, array $options)</code></li>
+<li><code>onRejected(RequestInterface $req, array $options)</code></li>
+<li><code>doRetry(RequestInterface $request, array $options, ResponseInterface $response = null)</code></li>
+</ul>
+</body></html>

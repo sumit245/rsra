@@ -1,0 +1,292 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Model.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Model.php</h1>
+
+<ul>
+<li>Path: <code>system\Model.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 27582 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>The Model class extends BaseModel and provides additional</p>
+<p>convenient features that makes working with a SQL database</p>
+<p>table less painful.</p>
+<p>It will:</p>
+<p>     - automatically connect to database</p>
+<p>     - allow intermingling calls to the builder</p>
+<p>     - removes the need to use Result object directly in most cases</p>
+<p>@property BaseConnection $db</p>
+<p>@method $this havingIn(?string $key = null, $values = null, ?bool $escape = null)</p>
+<p>@method $this havingLike($field, string $match = '', string $side = 'both', ?bool $escape = null, bool $insensitiveSearch = false)</p>
+<p>@method $this havingNotIn(?string $key = null, $values = null, ?bool $escape = null)</p>
+<p>@method $this join(string $table, string $cond, string $type = '', ?bool $escape = null)</p>
+<p>@method $this like($field, string $match = '', string $side = 'both', ?bool $escape = null, bool $insensitiveSearch = false)</p>
+<p>@method $this limit(?int $value = null, ?int $offset = 0)</p>
+<p>@method $this notHavingLike($field, string $match = '', string $side = 'both', ?bool $escape = null, bool $insensitiveSearch = false)</p>
+<p>@method $this notLike($field, string $match = '', string $side = 'both', ?bool $escape = null, bool $insensitiveSearch = false)</p>
+<p>@method $this offset(int $offset)</p>
+<p>@method $this orderBy(string $orderBy, string $direction = '', ?bool $escape = null)</p>
+<p>@method $this orHaving($key, $value = null, ?bool $escape = null)</p>
+<p>@method $this orHavingIn(?string $key = null, $values = null, ?bool $escape = null)</p>
+<p>@method $this orHavingLike($field, string $match = '', string $side = 'both', ?bool $escape = null, bool $insensitiveSearch = false)</p>
+<p>@method $this orHavingNotIn(?string $key = null, $values = null, ?bool $escape = null)</p>
+<p>@method $this orLike($field, string $match = '', string $side = 'both', ?bool $escape = null, bool $insensitiveSearch = false)</p>
+<p>@method $this orNotHavingLike($field, string $match = '', string $side = 'both', ?bool $escape = null, bool $insensitiveSearch = false)</p>
+<p>@method $this orNotLike($field, string $match = '', string $side = 'both', ?bool $escape = null, bool $insensitiveSearch = false)</p>
+<p>@method $this orWhere($key, $value = null, ?bool $escape = null)</p>
+<p>@method $this orWhereIn(?string $key = null, $values = null, ?bool $escape = null)</p>
+<p>@method $this orWhereNotIn(?string $key = null, $values = null, ?bool $escape = null)</p>
+<p>@method $this select($select = '*', ?bool $escape = null)</p>
+<p>@method $this selectAvg(string $select = '', string $alias = '')</p>
+<p>@method $this selectCount(string $select = '', string $alias = '')</p>
+<p>@method $this selectMax(string $select = '', string $alias = '')</p>
+<p>@method $this selectMin(string $select = '', string $alias = '')</p>
+<p>@method $this selectSum(string $select = '', string $alias = '')</p>
+<p>@method $this where($key, $value = null, ?bool $escape = null)</p>
+<p>@method $this whereIn(?string $key = null, $values = null, ?bool $escape = null)</p>
+<p>@method $this whereNotIn(?string $key = null, $values = null, ?bool $escape = null)</p>
+
+<p>Name of database table</p>
+<p>@var string</p>
+
+<p>The table's primary key.</p>
+<p>@var string</p>
+
+<p>Whether primary key uses auto increment.</p>
+<p>@var bool</p>
+
+<p>Query Builder object</p>
+<p>@var BaseBuilder|null</p>
+
+<p>Holds information passed in via 'set'</p>
+<p>so that we can capture it (not the builder)</p>
+<p>and ensure it gets validated first.</p>
+<p>@var array</p>
+
+<p>Escape array that maps usage of escape</p>
+<p>flag for every parameter.</p>
+<p>@var array</p>
+
+<p>Builder method names that should not be used in the Model.</p>
+<p>@var string[] method name</p>
+
+<p>@var BaseConnection|null $db</p>
+
+<p>Specify the table associated with a model</p>
+<p>@param string $table Table</p>
+<p>@return $this</p>
+
+<p>Fetches the row of database from $this->table with a primary key</p>
+<p>matching $id. This methods works only with dbCalls</p>
+<p>This methods works only with dbCalls</p>
+<p>@param bool                  $singleton Single or multiple results</p>
+<p>@param array|int|string|null $id        One primary key or an array of primary keys</p>
+<p>@return array|object|null The resulting row of data, or null.</p>
+
+<p>Fetches the column of database from $this->table</p>
+<p>This methods works only with dbCalls</p>
+<p>@param string $columnName Column Name</p>
+<p>@return array|null The resulting row of data, or null if no data found.</p>
+
+<p>Works with the current Query Builder instance to return</p>
+<p>all results, while optionally limiting them.</p>
+<p>This methods works only with dbCalls</p>
+<p>@param int $limit  Limit</p>
+<p>@param int $offset Offset</p>
+<p>@return array</p>
+
+<p>Returns the first row of the result set. Will take any previous</p>
+<p>Query Builder calls into account when determining the result set.</p>
+<p>This methods works only with dbCalls</p>
+<p>@return array|object|null</p>
+
+<p>Inserts data into the current table.</p>
+<p>This methods works only with dbCalls</p>
+<p>@param array $data Data</p>
+<p>@return bool|Query</p>
+
+<p>Compiles batch insert strings and runs the queries, validating each row prior.</p>
+<p>This methods works only with dbCalls</p>
+<p>@param array|null $set       An associative array of insert values</p>
+<p>@param bool|null  $escape    Whether to escape values</p>
+<p>@param int        $batchSize The size of the batch to run</p>
+<p>@param bool       $testing   True means only number of records is returned, false will execute the query</p>
+<p>@return bool|int Number of rows inserted or FALSE on failure</p>
+
+<p>Updates a single record in $this->table.</p>
+<p>This methods works only with dbCalls</p>
+<p>@param array|int|string|null $id</p>
+<p>@param array|null            $data</p>
+
+<p>Compiles an update string and runs the query</p>
+<p>This methods works only with dbCalls</p>
+<p>@param array|null  $set       An associative array of update values</p>
+<p>@param string|null $index     The where key</p>
+<p>@param int         $batchSize The size of the batch to run</p>
+<p>@param bool        $returnSQL True means SQL is returned, false will execute the query</p>
+<p>@throws DatabaseException</p>
+<p>@return mixed Number of rows affected or FALSE on failure</p>
+
+<p>Deletes a single record from $this->table where $id matches</p>
+<p>the table's primaryKey</p>
+<p>This methods works only with dbCalls</p>
+<p>@param array|int|string|null $id    The rows primary key(s)</p>
+<p>@param bool                  $purge Allows overriding the soft deletes setting.</p>
+<p>@throws DatabaseException</p>
+<p>@return bool|string</p>
+
+<p>Permanently deletes all rows that have been marked as deleted</p>
+<p>through soft deletes (deleted = 1)</p>
+<p>This methods works only with dbCalls</p>
+<p>@return bool|mixed</p>
+
+<p>Works with the find* methods to return only the rows that</p>
+<p>have been deleted.</p>
+<p>This methods works only with dbCalls</p>
+
+<p>Compiles a replace into string and runs the query</p>
+<p>This methods works only with dbCalls</p>
+<p>@param array|null $data      Data</p>
+<p>@param bool       $returnSQL Set to true to return Query String</p>
+<p>@return mixed</p>
+
+<p>Grabs the last error(s) that occurred from the Database connection.</p>
+<p>The return array should be in the following format:</p>
+<p> ['source' => 'message']</p>
+<p>This methods works only with dbCalls</p>
+<p>@return array<string,string></p>
+
+<p>Returns the id value for the data array or object</p>
+<p>@param array|object $data Data</p>
+<p>@return array|int|string|null</p>
+<p>@deprecated Use getIdValue() instead. Will be removed in version 5.0.</p>
+
+<p>Returns the id value for the data array or object</p>
+<p>@param array|object $data Data</p>
+<p>@return array|int|string|null</p>
+
+<p>Loops over records in batches, allowing you to operate on them.</p>
+<p>Works with $this->builder to get the Compiled select to</p>
+<p>determine the rows to operate on.</p>
+<p>This methods works only with dbCalls</p>
+<p>@throws DataException</p>
+
+<p>Override countAllResults to account for soft deleted accounts.</p>
+<p>@return mixed</p>
+
+<p>Provides a shared instance of the Query Builder.</p>
+<p>@throws ModelException</p>
+<p>@return BaseBuilder</p>
+
+<p>Captures the builder's set() method so that we can validate the</p>
+<p>data here. This allows it to be used with any of the other</p>
+<p>builder methods and still get validated data, like replace.</p>
+<p>@param mixed     $key    Field name, or an array of field/value pairs</p>
+<p>@param mixed     $value  Field value, if $key is a single field</p>
+<p>@param bool|null $escape Whether to escape values</p>
+<p>@return $this</p>
+
+<p>This method is called on save to determine if entry have to be updated</p>
+<p>If this method return false insert operation will be executed</p>
+<p>@param array|object $data Data</p>
+
+<p>Inserts data into the database. If an object is provided,</p>
+<p>it will attempt to convert it to an array.</p>
+<p>@param array|object|null $data</p>
+<p>@param bool              $returnID Whether insert ID should be returned or not.</p>
+<p>@throws ReflectionException</p>
+<p>@return BaseResult|false|int|object|string</p>
+
+<p>Updates a single record in the database. If an object is provided,</p>
+<p>it will attempt to convert it into an array.</p>
+<p>@param array|int|string|null $id</p>
+<p>@param array|object|null     $data</p>
+<p>@throws ReflectionException</p>
+
+<p>Takes a class an returns an array of it's public and protected</p>
+<p>properties as an array with raw values.</p>
+<p>@param object|string $data</p>
+<p>@param bool          $recursive If true, inner entities will be casted as array as well</p>
+<p>@throws ReflectionException</p>
+<p>@return array|null Array</p>
+
+<p>Provides/instantiates the builder/db connection and model's table/primary key names and return type.</p>
+<p>@param string $name Name</p>
+<p>@return mixed</p>
+
+<p>Checks for the existence of properties across this model, builder, and db connection.</p>
+<p>@param string $name Name</p>
+
+<p>Provides direct access to method in the builder (if available)</p>
+<p>and the database connection.</p>
+<p>@return mixed</p>
+
+<p>Checks the Builder method name that should not be used in the Model.</p>
+
+<p>Takes a class an returns an array of it's public and protected</p>
+<p>properties as an array suitable for use in creates and updates.</p>
+<p>@param object|string $data</p>
+<p>@param string|null   $primaryKey</p>
+<p>@throws ReflectionException</p>
+<p>@codeCoverageIgnore</p>
+<p>@deprecated since 4.1</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\extends</code></li>
+<li><code>CodeIgniter\Model extends BaseModel</code></li>
+<li><code>CodeIgniter\an</code></li>
+<li><code>CodeIgniter\an</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(?ConnectionInterface $db = null, ?ValidationInterface $validation = null)</code></li>
+<li><code>setTable(string $table)</code></li>
+<li><code>doFind(bool $singleton, $id = null)</code></li>
+<li><code>doFindColumn(string $columnName)</code></li>
+<li><code>doFindAll(int $limit = 0, int $offset = 0)</code></li>
+<li><code>doFirst()</code></li>
+<li><code>doInsert(array $data)</code></li>
+<li><code>doInsertBatch(?array $set = null, ?bool $escape = null, int $batchSize = 100, bool $testing = false)</code></li>
+<li><code>doUpdate($id = null, $data = null)</code></li>
+<li><code>doUpdateBatch(?array $set = null, ?string $index = null, int $batchSize = 100, bool $returnSQL = false)</code></li>
+<li><code>doDelete($id = null, bool $purge = false)</code></li>
+<li><code>doPurgeDeleted()</code></li>
+<li><code>doOnlyDeleted()</code></li>
+<li><code>doReplace(?array $data = null, bool $returnSQL = false)</code></li>
+<li><code>doErrors()</code></li>
+<li><code>idValue($data)</code></li>
+<li><code>getIdValue($data)</code></li>
+<li><code>chunk(int $size, Closure $userFunc)</code></li>
+<li><code>countAllResults(bool $reset = true, bool $test = false)</code></li>
+<li><code>builder(?string $table = null)</code></li>
+<li><code>set($key, $value = '', ?bool $escape = null)</code></li>
+<li><code>shouldUpdate($data)</code></li>
+<li><code>insert($data = null, bool $returnID = true)</code></li>
+<li><code>update($id = null, $data = null)</code></li>
+<li><code>objectToRawArray($data, bool $onlyChanged = true, bool $recursive = false)</code></li>
+<li><code>__get(string $name)</code></li>
+<li><code>__isset(string $name)</code></li>
+<li><code>__call(string $name, array $params)</code></li>
+<li><code>checkBuilderMethod(string $name)</code></li>
+<li><code>classToArray($data, $primaryKey = null, string $dateFormat = 'datetime', bool $onlyChanged = true)</code></li>
+</ul>
+</body></html>

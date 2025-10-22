@@ -1,0 +1,237 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\HeaderFooter.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\HeaderFooter.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\HeaderFooter.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 11435 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p><code></p>
+<p>Header/Footer Formatting Syntax taken from Office Open XML Part 4 - Markup Language Reference, page 1970:.</p>
+<p>There are a number of formatting codes that can be written inline with the actual header / footer text, which</p>
+<p>affect the formatting in the header or footer.</p>
+<p>Example: This example shows the text "Center Bold Header" on the first line (center section), and the date on</p>
+<p>the second line (center section).</p>
+<p>        &CCenter &"-,Bold"Bold&"-,Regular"Header_x000A_&D</p>
+<p>General Rules:</p>
+<p>There is no required order in which these codes must appear.</p>
+<p>The first occurrence of the following codes turns the formatting ON, the second occurrence turns it OFF again:</p>
+<ul>
+<li>strikethrough</li>
+<li>superscript</li>
+<li>subscript</li>
+<p>Superscript and subscript cannot both be ON at same time. Whichever comes first wins and the other is ignored,</p>
+<p>while the first is ON.</p>
+<p>&L - code for "left section" (there are three header / footer locations, "left", "center", and "right"). When</p>
+<p>two or more occurrences of this section marker exist, the contents from all markers are concatenated, in the</p>
+<p>order of appearance, and placed into the left section.</p>
+<p>&P - code for "current page #"</p>
+<p>&N - code for "total pages"</p>
+<p>&font size - code for "text font size", where font size is a font size in points.</p>
+<p>&K - code for "text font color"</p>
+<p>RGB Color is specified as RRGGBB</p>
+<p>Theme Color is specifed as TTSNN where TT is the theme color Id, S is either "+" or "-" of the tint/shade</p>
+<p>value, NN is the tint/shade value.</p>
+<p>&S - code for "text strikethrough" on / off</p>
+<p>&X - code for "text super script" on / off</p>
+<p>&Y - code for "text subscript" on / off</p>
+<p>&C - code for "center section". When two or more occurrences of this section marker exist, the contents</p>
+<p>from all markers are concatenated, in the order of appearance, and placed into the center section.</p>
+<p>&D - code for "date"</p>
+<p>&T - code for "time"</p>
+<p>&G - code for "picture as background"</p>
+<p>&U - code for "text single underline"</p>
+<p>&E - code for "double underline"</p>
+<p>&R - code for "right section". When two or more occurrences of this section marker exist, the contents</p>
+<p>from all markers are concatenated, in the order of appearance, and placed into the right section.</p>
+<p>&Z - code for "this workbook's file path"</p>
+<p>&F - code for "this workbook's file name"</p>
+<p>&A - code for "sheet tab name"</p>
+<p>&+ - code for add to page #.</p>
+<p>&- - code for subtract from page #.</p>
+<p>&"font name,font type" - code for "text font name" and "text font type", where font name and font type</p>
+<p>are strings specifying the name and type of the font, separated by a comma. When a hyphen appears in font</p>
+<p>name, it means "none specified". Both of font name and font type can be localized values.</p>
+<p>&"-,Bold" - code for "bold font style"</p>
+<p>&B - also means "bold font style".</p>
+<p>&"-,Regular" - code for "regular font style"</p>
+<p>&"-,Italic" - code for "italic font style"</p>
+<p>&I - also means "italic font style"</p>
+<p>&"-,Bold Italic" code for "bold italic font style"</p>
+<p>&O - code for "outline style"</p>
+<p>&H - code for "shadow style"</p>
+<p></code></p>
+</ul>
+<p>OddHeader.</p>
+<p>@var string</p>
+
+<p>OddFooter.</p>
+<p>@var string</p>
+
+<p>EvenHeader.</p>
+<p>@var string</p>
+
+<p>EvenFooter.</p>
+<p>@var string</p>
+
+<p>FirstHeader.</p>
+<p>@var string</p>
+
+<p>FirstFooter.</p>
+<p>@var string</p>
+
+<p>Different header for Odd/Even, defaults to false.</p>
+<p>@var bool</p>
+
+<p>Different header for first page, defaults to false.</p>
+<p>@var bool</p>
+
+<p>Scale with document, defaults to true.</p>
+<p>@var bool</p>
+
+<p>Align with margins, defaults to true.</p>
+<p>@var bool</p>
+
+<p>Header/footer images.</p>
+<p>@var HeaderFooterDrawing[]</p>
+
+<p>Create a new HeaderFooter.</p>
+
+<p>Get OddHeader.</p>
+<p>@return string</p>
+
+<p>Set OddHeader.</p>
+<p>@param string $oddHeader</p>
+<p>@return $this</p>
+
+<p>Get OddFooter.</p>
+<p>@return string</p>
+
+<p>Set OddFooter.</p>
+<p>@param string $oddFooter</p>
+<p>@return $this</p>
+
+<p>Get EvenHeader.</p>
+<p>@return string</p>
+
+<p>Set EvenHeader.</p>
+<p>@param string $eventHeader</p>
+<p>@return $this</p>
+
+<p>Get EvenFooter.</p>
+<p>@return string</p>
+
+<p>Set EvenFooter.</p>
+<p>@param string $evenFooter</p>
+<p>@return $this</p>
+
+<p>Get FirstHeader.</p>
+<p>@return string</p>
+
+<p>Set FirstHeader.</p>
+<p>@param string $firstHeader</p>
+<p>@return $this</p>
+
+<p>Get FirstFooter.</p>
+<p>@return string</p>
+
+<p>Set FirstFooter.</p>
+<p>@param string $firstFooter</p>
+<p>@return $this</p>
+
+<p>Get DifferentOddEven.</p>
+<p>@return bool</p>
+
+<p>Set DifferentOddEven.</p>
+<p>@param bool $differentOddEvent</p>
+<p>@return $this</p>
+
+<p>Get DifferentFirst.</p>
+<p>@return bool</p>
+
+<p>Set DifferentFirst.</p>
+<p>@param bool $differentFirst</p>
+<p>@return $this</p>
+
+<p>Get ScaleWithDocument.</p>
+<p>@return bool</p>
+
+<p>Set ScaleWithDocument.</p>
+<p>@param bool $scaleWithDocument</p>
+<p>@return $this</p>
+
+<p>Get AlignWithMargins.</p>
+<p>@return bool</p>
+
+<p>Set AlignWithMargins.</p>
+<p>@param bool $alignWithMargins</p>
+<p>@return $this</p>
+
+<p>Add header/footer image.</p>
+<p>@param string $location</p>
+<p>@return $this</p>
+
+<p>Remove header/footer image.</p>
+<p>@param string $location</p>
+<p>@return $this</p>
+
+<p>Set header/footer images.</p>
+<p>@param HeaderFooterDrawing[] $images</p>
+<p>@return $this</p>
+
+<p>Get header/footer images.</p>
+<p>@return HeaderFooterDrawing[]</p>
+
+<p>Implement PHP __clone to create a deep clone, not just a shallow copy.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>Office</code></li>
+<li><code>all</code></li>
+<li><code>page</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\HeaderFooter.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Worksheet\HeaderFooter</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>getOddHeader()</code></li>
+<li><code>setOddHeader($oddHeader)</code></li>
+<li><code>getOddFooter()</code></li>
+<li><code>setOddFooter($oddFooter)</code></li>
+<li><code>getEvenHeader()</code></li>
+<li><code>setEvenHeader($eventHeader)</code></li>
+<li><code>getEvenFooter()</code></li>
+<li><code>setEvenFooter($evenFooter)</code></li>
+<li><code>getFirstHeader()</code></li>
+<li><code>setFirstHeader($firstHeader)</code></li>
+<li><code>getFirstFooter()</code></li>
+<li><code>setFirstFooter($firstFooter)</code></li>
+<li><code>getDifferentOddEven()</code></li>
+<li><code>setDifferentOddEven($differentOddEvent)</code></li>
+<li><code>getDifferentFirst()</code></li>
+<li><code>setDifferentFirst($differentFirst)</code></li>
+<li><code>getScaleWithDocument()</code></li>
+<li><code>setScaleWithDocument($scaleWithDocument)</code></li>
+<li><code>getAlignWithMargins()</code></li>
+<li><code>setAlignWithMargins($alignWithMargins)</code></li>
+<li><code>addImage(HeaderFooterDrawing $image, $location = self::IMAGE_HEADER_LEFT)</code></li>
+<li><code>removeImage($location = self::IMAGE_HEADER_LEFT)</code></li>
+<li><code>setImages(array $images)</code></li>
+<li><code>getImages()</code></li>
+<li><code>__clone()</code></li>
+</ul>
+</body></html>

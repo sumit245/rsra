@@ -1,0 +1,71 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\guzzlehttp\psr7\src\LimitStream.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\guzzlehttp\psr7\src\LimitStream.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\guzzlehttp\psr7\src\LimitStream.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4211 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Decorator used to return only a subset of a stream</p>
+
+<p>@var int Offset to start reading from</p>
+
+<p>@var int Limit the number of bytes that can be read</p>
+
+<p>@param StreamInterface $stream Stream to wrap</p>
+<p>@param int             $limit  Total number of bytes to allow to be read</p>
+<p>                               from the stream. Pass -1 for no limit.</p>
+<p>@param int             $offset Position to seek to before reading (only</p>
+<p>                               works on seekable streams).</p>
+
+<p>Returns the size of the limited subset of data</p>
+<p>{@inheritdoc}</p>
+
+<p>Allow for a bounded seek on the read limited stream</p>
+<p>{@inheritdoc}</p>
+
+<p>Give a relative tell()</p>
+<p>{@inheritdoc}</p>
+
+<p>Set the offset to start limiting from</p>
+<p>@param int $offset Offset to seek to and begin byte limiting from</p>
+<p>@throws \RuntimeException if the stream cannot be seeked.</p>
+
+<p>Set the limit of bytes that the decorator allows to be read from the</p>
+<p>stream.</p>
+<p>@param int $limit Number of bytes to allow to be read from the stream.</p>
+<p>                  Use -1 for no limit.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\guzzlehttp\psr7\src\LimitStream.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>GuzzleHttp\Psr7\LimitStream implements StreamInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`__construct(StreamInterface $stream,</li>
+<p>        $limit = -1,</p>
+<p>        $offset = 0)`</p>
+<li><code>eof()</code></li>
+<li><code>getSize()</code></li>
+<li><code>seek($offset, $whence = SEEK_SET)</code></li>
+<li><code>tell()</code></li>
+<li><code>setOffset($offset)</code></li>
+<li><code>setLimit($limit)</code></li>
+<li><code>read($length)</code></li>
+</ul>
+</body></html>

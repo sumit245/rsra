@@ -1,0 +1,115 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\stream-decorators\src\SeekingLimitStream.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\stream-decorators\src\SeekingLimitStream.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\stream-decorators\src\SeekingLimitStream.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5916 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\StreamDecorators project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Maintains an internal 'read' position, and seeks to it before reading, then</p>
+<p>seeks back to the original position of the underlying stream after reading if</p>
+<p>the attached stream supports seeking.</p>
+<p>Although based on LimitStream, it's not inherited from it since $offset and</p>
+<p>$limit are set to private on LimitStream, and most other functions are re-</p>
+<p>implemented anyway.  This also decouples the implementation from upstream</p>
+<p>changes.</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var int Offset to start reading from</p>
+
+<p>@var int Limit the number of bytes that can be read</p>
+
+<p>@var int Number of bytes written, and importantly, if non-zero, writes a</p>
+<p>     final $lineEnding on close (and so maintained instead of using</p>
+<p>     tell() directly)</p>
+
+<p>@param StreamInterface $stream Stream to wrap</p>
+<p>@param int             $limit  Total number of bytes to allow to be read</p>
+<p>                               from the stream. Pass -1 for no limit.</p>
+<p>@param int             $offset Position to seek to before reading (only</p>
+<p>                               works on seekable streams).</p>
+
+<p>Returns the current relative read position of this stream subset.</p>
+
+<p>@return int</p>
+
+<p>Returns the size of the limited subset of data, or null if the wrapped</p>
+<p>stream returns null for getSize.</p>
+<p>@return int|null</p>
+
+<p>Returns true if the current read position is at the end of the limited</p>
+<p>stream</p>
+
+<p>@return boolean</p>
+
+<p>Ensures the seek position specified is within the stream's bounds, and</p>
+<p>sets the internal position pointer (doesn't actually seek).</p>
+
+<p>@param int $pos</p>
+
+<p>Seeks to the passed position within the confines of the limited stream's</p>
+<p>bounds.</p>
+<p>For SeekingLimitStream, no actual seek is performed on the underlying</p>
+<p>wrapped stream.  Instead, an internal pointer is set, and the stream is</p>
+<p>'seeked' on read operations</p>
+<p>@param int $offset</p>
+<p>@param int $whence</p>
+
+<p>Sets the offset to start reading from the wrapped stream.</p>
+<p>@param int $offset</p>
+<p>@throws \RuntimeException if the stream cannot be seeked.</p>
+
+<p>Sets the length of the stream to the passed $limit.</p>
+<p>@param int $limit</p>
+
+<p>Seeks to the current position and reads up to $length bytes, or less if</p>
+<p>it would result in reading past $this->limit</p>
+<p>@param int $length</p>
+<p>@return string</p>
+
+<p>Reads from the underlying stream after seeking to the position within the</p>
+<p>bounds set for this limited stream.  After reading, the wrapped stream is</p>
+<p>'seeked' back to its position prior to the call to read().</p>
+<p>@param int $length</p>
+<p>@return string</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>it</code></li>
+<li><code>upstream</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\stream-decorators\src\SeekingLimitStream.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\StreamDecorators\SeekingLimitStream implements StreamInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`__construct(StreamInterface $stream,</li>
+<p>        $limit = -1,</p>
+<p>        $offset = 0)`</p>
+<li><code>tell()</code></li>
+<li><code>getSize()</code></li>
+<li><code>eof()</code></li>
+<li><code>doSeek($pos)</code></li>
+<li><code>seek($offset, $whence = SEEK_SET)</code></li>
+<li><code>setOffset($offset)</code></li>
+<li><code>setLimit($limit)</code></li>
+<li><code>seekAndRead($length)</code></li>
+<li><code>read($length)</code></li>
+</ul>
+</body></html>

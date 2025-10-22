@@ -1,0 +1,146 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\MessageParser.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\MessageParser.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\MessageParser.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9967 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Parses a mail mime message into its component parts.  To invoke, call</p>
+<p>MailMimeParser::parse.</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var PartFactoryService service instance used to create MimePartFactory</p>
+<p>     objects.</p>
+
+<p>@var PartBuilderFactory used to create PartBuilders</p>
+
+<p>@var int maintains the character length of the last line separator,</p>
+<p>     typically 2 for CRLF, to keep track of the correct 'end' position</p>
+<p>     for a part because the CRLF before a boundary is considered part of</p>
+<p>     the boundary.</p>
+
+<p>Sets up the parser with its dependencies.</p>
+
+<p>@param PartFactoryService $pfs</p>
+<p>@param PartBuilderFactory $pbf</p>
+
+<p>Parses the passed stream into a ZBateson\MailMimeParser\Message object</p>
+<p>and returns it.</p>
+
+<p>@param StreamInterface $stream the stream to parse the message from</p>
+<p>@return \ZBateson\MailMimeParser\Message</p>
+
+<p>Ensures the header isn't empty and contains a colon separator character,</p>
+<p>then splits it and calls $partBuilder->addHeader.</p>
+
+<p>@param string $header</p>
+<p>@param PartBuilder $partBuilder</p>
+
+<p>Reads a line of up to 4096 characters.  If the line is larger than that,</p>
+<p>the remaining characters in the line are read and discarded, and only the</p>
+<p>first 4096 characters are returned.</p>
+<p>@param resource $handle</p>
+<p>@return string</p>
+
+<p>Reads a line of 2048 characters.  If the line is larger than that, the</p>
+<p>remaining characters in the line are read and</p>
+<p>discarded, and only the first part is returned.</p>
+<p>This method is identical to readLine, except it calculates the number of</p>
+<p>characters that make up the line's new line characters (e.g. 2 for "\r\n"</p>
+<p>or 1 for "\n").</p>
+<p>@param resource $handle</p>
+<p>@param int $lineSeparatorLength</p>
+<p>@return string</p>
+
+<p>Reads header lines up to an empty line, adding them to the passed</p>
+<p>$partBuilder.</p>
+
+<p>@param resource $handle the resource handle to read from</p>
+<p>@param PartBuilder $partBuilder the current part to add headers to</p>
+
+<p>Reads lines from the passed $handle, calling</p>
+<p>$partBuilder->setEndBoundaryFound with the passed line until it returns</p>
+<p>true or the stream is at EOF.</p>
+
+<p>setEndBoundaryFound returns true if the passed line matches a boundary</p>
+<p>for the $partBuilder itself or any of its parents.</p>
+
+<p>Once a boundary is found, setStreamPartAndContentEndPos is called with</p>
+<p>the passed $handle's read pos before the boundary and its line separator</p>
+<p>were read.</p>
+
+<p>@param resource $handle</p>
+<p>@param PartBuilder $partBuilder</p>
+
+<p>Reads content for a non-mime message.  If there are uuencoded attachment</p>
+<p>parts in the message (denoted by 'begin' lines), those parts are read and</p>
+<p>added to the passed $partBuilder as children.</p>
+
+<p>@param resource $handle</p>
+<p>@param PartBuilder $partBuilder</p>
+<p>@return string</p>
+
+<p>Reads content for a single part of a MIME message.</p>
+
+<p>If the part being read is in turn a multipart part, readPart is called on</p>
+<p>it recursively to read its headers and content.</p>
+
+<p>The start/end positions of the part's content are set on the passed</p>
+<p>$partBuilder, which in turn sets the end position of the part and its</p>
+<p>parents.</p>
+
+<p>@param resource $handle</p>
+<p>@param PartBuilder $partBuilder</p>
+
+<p>Reads a part and any of its children, into the passed $partBuilder,</p>
+<p>either by calling readUUEncodedOrPlainTextMessage or readPartContent</p>
+<p>after reading headers.</p>
+
+<p>@param resource $handle</p>
+<p>@param PartBuilder $partBuilder</p>
+
+<p>Reads the message from the passed stream and returns a PartBuilder</p>
+<p>representing it.</p>
+
+<p>@param StreamInterface $stream</p>
+<p>@return PartBuilder</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\MessageParser.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Message\MessageParser</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`__construct(PartFactoryService $pfs,</li>
+<p>        PartBuilderFactory $pbf)`</p>
+<li><code>parse(StreamInterface $stream)</code></li>
+<li><code>addRawHeaderToPart($header, PartBuilder $partBuilder)</code></li>
+<li><code>readLine($handle)</code></li>
+<li><code>readBoundaryLine($handle, &$lineSeparatorLength = 0)</code></li>
+<li><code>readHeaders($handle, PartBuilder $partBuilder)</code></li>
+<li><code>findContentBoundary($handle, PartBuilder $partBuilder)</code></li>
+<li><code>readUUEncodedOrPlainTextMessage($handle, PartBuilder $partBuilder)</code></li>
+<li><code>readPartContent($handle, PartBuilder $partBuilder)</code></li>
+<li><code>readPart($handle, PartBuilder $partBuilder)</code></li>
+<li><code>read(StreamInterface $stream)</code></li>
+</ul>
+</body></html>

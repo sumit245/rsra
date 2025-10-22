@@ -1,0 +1,153 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Csv.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Csv.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Csv.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9430 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>PhpSpreadsheet object.</p>
+<p>@var Spreadsheet</p>
+
+<p>Delimiter.</p>
+<p>@var string</p>
+
+<p>Enclosure.</p>
+<p>@var string</p>
+
+<p>Line ending.</p>
+<p>@var string</p>
+
+<p>Sheet index to write.</p>
+<p>@var int</p>
+
+<p>Whether to write a BOM (for UTF8).</p>
+<p>@var bool</p>
+
+<p>Whether to write a Separator line as the first line of the file</p>
+<p>    sep=x.</p>
+<p>@var bool</p>
+
+<p>Whether to write a fully Excel compatible CSV file.</p>
+<p>@var bool</p>
+
+<p>Output encoding.</p>
+<p>@var string</p>
+
+<p>Create a new CSV.</p>
+<p>@param Spreadsheet $spreadsheet Spreadsheet object</p>
+
+<p>Save PhpSpreadsheet to file.</p>
+<p>@param resource|string $filename</p>
+
+<p>Get delimiter.</p>
+<p>@return string</p>
+
+<p>Set delimiter.</p>
+<p>@param string $delimiter Delimiter, defaults to ','</p>
+<p>@return $this</p>
+
+<p>Get enclosure.</p>
+<p>@return string</p>
+
+<p>Set enclosure.</p>
+<p>@param string $enclosure Enclosure, defaults to "</p>
+<p>@return $this</p>
+
+<p>Get line ending.</p>
+<p>@return string</p>
+
+<p>Set line ending.</p>
+<p>@param string $lineEnding Line ending, defaults to OS line ending (PHP_EOL)</p>
+<p>@return $this</p>
+
+<p>Get whether BOM should be used.</p>
+<p>@return bool</p>
+
+<p>Set whether BOM should be used.</p>
+<p>@param bool $useBOM Use UTF-8 byte-order mark? Defaults to false</p>
+<p>@return $this</p>
+
+<p>Get whether a separator line should be included.</p>
+<p>@return bool</p>
+
+<p>Set whether a separator line should be included as the first line of the file.</p>
+<p>@param bool $includeSeparatorLine Use separator line? Defaults to false</p>
+<p>@return $this</p>
+
+<p>Get whether the file should be saved with full Excel Compatibility.</p>
+<p>@return bool</p>
+
+<p>Set whether the file should be saved with full Excel Compatibility.</p>
+<p>@param bool $excelCompatibility Set the file to be written as a fully Excel compatible csv file</p>
+<p>                               Note that this overrides other settings such as useBOM, enclosure and delimiter</p>
+<p>@return $this</p>
+
+<p>Get sheet index.</p>
+<p>@return int</p>
+
+<p>Set sheet index.</p>
+<p>@param int $sheetIndex Sheet index</p>
+<p>@return $this</p>
+
+<p>Get output encoding.</p>
+<p>@return string</p>
+
+<p>Set output encoding.</p>
+<p>@param string $outputEnconding Output encoding</p>
+<p>@return $this</p>
+
+<p>@var bool</p>
+
+<p>Convert boolean to TRUE/FALSE; otherwise return element cast to string.</p>
+<p>@param mixed $element</p>
+
+<p>Write line to CSV file.</p>
+<p>@param resource $fileHandle PHP filehandle</p>
+<p>@param array $values Array containing values in a row</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Csv.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Writer\Csv extends BaseWriter</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(Spreadsheet $spreadsheet)</code></li>
+<li><code>save($filename, int $flags = 0)</code></li>
+<li><code>getDelimiter()</code></li>
+<li><code>setDelimiter($delimiter)</code></li>
+<li><code>getEnclosure()</code></li>
+<li><code>setEnclosure($enclosure = '"')</code></li>
+<li><code>getLineEnding()</code></li>
+<li><code>setLineEnding($lineEnding)</code></li>
+<li><code>getUseBOM()</code></li>
+<li><code>setUseBOM($useBOM)</code></li>
+<li><code>getIncludeSeparatorLine()</code></li>
+<li><code>setIncludeSeparatorLine($includeSeparatorLine)</code></li>
+<li><code>getExcelCompatibility()</code></li>
+<li><code>setExcelCompatibility($excelCompatibility)</code></li>
+<li><code>getSheetIndex()</code></li>
+<li><code>setSheetIndex($sheetIndex)</code></li>
+<li><code>getOutputEncoding()</code></li>
+<li><code>setOutputEncoding($outputEnconding)</code></li>
+<li><code>setEnclosureRequired(bool $value)</code></li>
+<li><code>getEnclosureRequired()</code></li>
+<li><code>elementToString($element)</code></li>
+<li><code>writeLine($fileHandle, array $values)</code></li>
+</ul>
+</body></html>

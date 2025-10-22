@@ -1,0 +1,122 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\Securities\Price.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\Securities\Price.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\Securities\Price.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 13138 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>PRICE.</p>
+<p>Returns the price per $100 face value of a security that pays periodic interest.</p>
+<p>@param mixed $settlement The security's settlement date.</p>
+<p>                             The security settlement date is the date after the issue date when the security</p>
+<p>                             is traded to the buyer.</p>
+<p>@param mixed $maturity The security's maturity date.</p>
+<p>                               The maturity date is the date when the security expires.</p>
+<p>@param mixed $rate the security's annual coupon rate</p>
+<p>@param mixed $yield the security's annual yield</p>
+<p>@param mixed $redemption The number of coupon payments per year.</p>
+<p>                             For annual payments, frequency = 1;</p>
+<p>                             for semiannual, frequency = 2;</p>
+<p>                             for quarterly, frequency = 4.</p>
+<p>@param mixed $frequency</p>
+<p>@param mixed $basis The type of day count to use.</p>
+<p>                        0 or omitted    US (NASD) 30/360</p>
+<p>                        1               Actual/actual</p>
+<p>                        2               Actual/360</p>
+<p>                        3               Actual/365</p>
+<p>                        4               European 30/360</p>
+<p>@return float|string Result, or a string containing an error</p>
+
+<p>PRICEDISC.</p>
+<p>Returns the price per $100 face value of a discounted security.</p>
+<p>@param mixed $settlement The security's settlement date.</p>
+<p>                             The security settlement date is the date after the issue date when the security</p>
+<p>                             is traded to the buyer.</p>
+<p>@param mixed $maturity The security's maturity date.</p>
+<p>                               The maturity date is the date when the security expires.</p>
+<p>@param mixed $discount The security's discount rate</p>
+<p>@param mixed $redemption The security's redemption value per $100 face value</p>
+<p>@param mixed $basis The type of day count to use.</p>
+<p>                        0 or omitted    US (NASD) 30/360</p>
+<p>                        1               Actual/actual</p>
+<p>                        2               Actual/360</p>
+<p>                        3               Actual/365</p>
+<p>                        4               European 30/360</p>
+<p>@return float|string Result, or a string containing an error</p>
+
+<p>PRICEMAT.</p>
+<p>Returns the price per $100 face value of a security that pays interest at maturity.</p>
+<p>@param mixed $settlement The security's settlement date.</p>
+<p>                             The security's settlement date is the date after the issue date when the</p>
+<p>                             security is traded to the buyer.</p>
+<p>@param mixed $maturity The security's maturity date.</p>
+<p>                               The maturity date is the date when the security expires.</p>
+<p>@param mixed $issue The security's issue date</p>
+<p>@param mixed $rate The security's interest rate at date of issue</p>
+<p>@param mixed $yield The security's annual yield</p>
+<p>@param mixed $basis The type of day count to use.</p>
+<p>                        0 or omitted    US (NASD) 30/360</p>
+<p>                        1               Actual/actual</p>
+<p>                        2               Actual/360</p>
+<p>                        3               Actual/365</p>
+<p>                        4               European 30/360</p>
+<p>@return float|string Result, or a string containing an error</p>
+
+<p>RECEIVED.</p>
+<p>Returns the amount received at maturity for a fully invested Security.</p>
+<p>@param mixed $settlement The security's settlement date.</p>
+<p>                             The security settlement date is the date after the issue date when the security</p>
+<p>                                 is traded to the buyer.</p>
+<p>@param mixed $maturity The security's maturity date.</p>
+<p>                           The maturity date is the date when the security expires.</p>
+<p>@param mixed $investment The amount invested in the security</p>
+<p>@param mixed $discount The security's discount rate</p>
+<p>@param mixed $basis The type of day count to use.</p>
+<p>                        0 or omitted    US (NASD) 30/360</p>
+<p>                        1               Actual/actual</p>
+<p>                        2               Actual/360</p>
+<p>                        3               Actual/365</p>
+<p>                        4               European 30/360</p>
+<p>@return float|string Result, or a string containing an error</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\Securities\Price.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\Financial\Securities\Price</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`price($settlement,</li>
+<p>        $maturity,</p>
+<p>        $rate,</p>
+<p>        $yield,</p>
+<p>        $redemption,</p>
+<p>        $frequency,</p>
+<p>        $basis = FinancialConstants::BASIS_DAYS_PER_YEAR_NASD)`</p>
+<li>`priceDiscounted($settlement,</li>
+<p>        $maturity,</p>
+<p>        $discount,</p>
+<p>        $redemption,</p>
+<p>        $basis = FinancialConstants::BASIS_DAYS_PER_YEAR_NASD)`</p>
+<li>`priceAtMaturity($settlement,</li>
+<p>        $maturity,</p>
+<p>        $issue,</p>
+<p>        $rate,</p>
+<p>        $yield,</p>
+<p>        $basis = FinancialConstants::BASIS_DAYS_PER_YEAR_NASD)`</p>
+<li>`received($settlement,</li>
+<p>        $maturity,</p>
+<p>        $investment,</p>
+<p>        $discount,</p>
+<p>        $basis = FinancialConstants::BASIS_DAYS_PER_YEAR_NASD)`</p>
+</ul>
+</body></html>

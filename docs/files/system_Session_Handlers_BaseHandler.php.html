@@ -1,0 +1,93 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Session\Handlers\BaseHandler.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Session\Handlers\BaseHandler.php</h1>
+
+<ul>
+<li>Path: <code>system\Session\Handlers\BaseHandler.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4274 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Base class for session handling</p>
+
+<p>The Data fingerprint.</p>
+<p>@var string</p>
+
+<p>Lock placeholder.</p>
+<p>@var mixed</p>
+
+<p>Cookie prefix</p>
+<p>The Config\Cookie::$prefix setting is completely ignored.</p>
+<p>See https://codeigniter4.github.io/CodeIgniter4/libraries/sessions.html#session-preferences</p>
+<p>@var string</p>
+
+<p>Cookie domain</p>
+<p>@var string</p>
+
+<p>Cookie path</p>
+<p>@var string</p>
+
+<p>Cookie secure?</p>
+<p>@var bool</p>
+
+<p>Cookie name to use</p>
+<p>@var string</p>
+
+<p>Match IP addresses for cookies?</p>
+<p>@var bool</p>
+
+<p>Current session ID</p>
+<p>@var string|null</p>
+
+<p>The 'save path' for the session</p>
+<p>varies between</p>
+<p>@var array|string</p>
+
+<p>User's IP address.</p>
+<p>@var string</p>
+
+<p>@var CookieConfig|null $cookie</p>
+
+<p>Internal method to force removal of a cookie by the client</p>
+<p>when session_destroy() is called.</p>
+
+<p>A dummy method allowing drivers with no locking functionality</p>
+<p>(databases other than PostgreSQL and MySQL) to act as if they</p>
+<p>do acquire a lock.</p>
+
+<p>Releases the lock, if any.</p>
+
+<p>Drivers other than the 'files' one don't (need to) use the</p>
+<p>session.save_path INI setting, but that leads to confusing</p>
+<p>error messages emitted by PHP when open() or write() fail,</p>
+<p>as the message contains session.save_path ...</p>
+<p>To work around the problem, the drivers will call this method</p>
+<p>so that the INI is set just in time for the error message to</p>
+<p>be properly generated.</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Session\Handlers\BaseHandler.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Session\Handlers\for</code></li>
+<li><code>CodeIgniter\Session\Handlers\BaseHandler implements SessionHandlerInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(AppConfig $config, string $ipAddress)</code></li>
+<li><code>destroyCookie()</code></li>
+<li><code>lockSession(string $sessionID)</code></li>
+<li><code>releaseLock()</code></li>
+<li><code>fail()</code></li>
+</ul>
+</body></html>

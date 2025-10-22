@@ -1,0 +1,160 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\Hr_payroll\Helpers\hr_payroll_general_helper.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\Hr_payroll\Helpers\hr_payroll_general_helper.php</h1>
+
+<ul>
+<li>Path: <code>plugins\Hr_payroll\Helpers\hr_payroll_general_helper.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 21699 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Check whether column exists in a table</p>
+<p>Custom function because Codeigniter is caching the tables and this is causing issues in migrations</p>
+<p>@param  string $column column name to check</p>
+<p>@param  string $table table name to check</p>
+<p>@return boolean</p>
+
+<p>get hr payroll option</p>
+<p>@param  [type] $name </p>
+<p>@return [type]</p>
+
+<p>row hr payroll options exist</p>
+<p>@param  [type] $name </p>
+<p>@return [type]</p>
+
+<p>hr payroll payroll column exist</p>
+<p>@param  [type] $name </p>
+<p>@return [type]</p>
+
+<p>hr profile reformat currency asset</p>
+<p>@param  string $value </p>
+<p>@return string</p>
+
+<p>hr payroll get status modules</p>
+<p>@param  [type] $module_name </p>
+<p>@return [type]</p>
+
+<p>hr payroll alphabeticala</p>
+<p>@return [type]</p>
+
+<p>hr payroll get departments name</p>
+<p>@param  [type] $staffid </p>
+<p>@return [type]</p>
+
+<p>hrp attendance type</p>
+<p>@return [type]</p>
+
+<p>hrp get timesheets status</p>
+<p>@return [type]</p>
+
+<p>hrp get hr profile status</p>
+<p>@return [type]</p>
+
+<p>hrp get commission status</p>
+<p>@return [type]</p>
+
+<p>list hr payroll permisstion</p>
+<p>@return [type]</p>
+
+<p>hr payroll get staff id hr permissions</p>
+<p>@return [type]</p>
+
+<p>hr payroll get staff id dont permissions</p>
+<p>@return [type]</p>
+
+<p>date to column name</p>
+<p>@return [type]</p>
+
+<p>payroll system column</p>
+<p>@return [type]</p>
+
+<p>payroll system columns dont format</p>
+<p>@return [type]</p>
+
+<p>luckysheet header format</p>
+<p>@return [type]</p>
+
+<p>luckysheet row format</p>
+<p>@return [type]</p>
+
+<p>hrp file force contents</p>
+<p>@param  [type]  $filename </p>
+<p>@param  [type]  $data     </p>
+<p>@param  integer $flags    </p>
+<p>@return [type]</p>
+
+<p>hrp reformat currency</p>
+<p>@param  [type] $value </p>
+<p>@return [type]</p>
+
+<p>hrp payslip number to anphabe</p>
+<p>@return [type]</p>
+
+<p>hrp payslip replace string</p>
+<p>@param  [type] $file </p>
+<p>@return [type]</p>
+
+<p>get payslip template name</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>get staffid by permission</p>
+<p>@return [type]</p>
+
+<p>get array staffid by permission</p>
+<p>@param  string $newquerystring </p>
+<p>@return [type]</p>
+
+<p>hrp payslip json data decode</p>
+<p>@param  string $json_data </p>
+<p>@return [type]</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>setting</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\Hr_payroll\Helpers\hr_payroll_general_helper.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>get_hr_payroll_option($name)</code></li>
+<li><code>row_hr_payroll_options_exist($name)</code></li>
+<li><code>hr_payroll_payroll_column_exist($key)</code></li>
+<li><code>hr_payroll_reformat_currency($value)</code></li>
+<li><code>hr_payroll_get_status_modules($module_name)</code></li>
+<li><code>hr_payroll_alphabeticala()</code></li>
+<li><code>hr_payroll_get_departments_name($staffid)</code></li>
+<li><code>hrp_attendance_type()</code></li>
+<li><code>hrp_get_timesheets_status()</code></li>
+<li><code>hrp_get_hr_profile_status()</code></li>
+<li><code>hrp_get_commission_status()</code></li>
+<li><code>list_hr_payroll_permisstion()</code></li>
+<li><code>hr_payroll_get_staff_id_hr_permissions()</code></li>
+<li><code>hr_payroll_get_staff_id_dont_permissions()</code></li>
+<li><code>date_to_column_name()</code></li>
+<li><code>payroll_system_columns()</code></li>
+<li><code>payroll_system_columns_dont_format()</code></li>
+<li><code>luckysheet_header_format()</code></li>
+<li><code>luckysheet_row_format()</code></li>
+<li><code>hrp_file_force_contents($filename, $data, $flags = 0)</code></li>
+<li><code>hrp_reformat_currency($value)</code></li>
+<li><code>hrp_payslip_number_to_anphabe()</code></li>
+<li><code>hrp_payslip_replace_string($file)</code></li>
+<li><code>get_payslip_template_name($id)</code></li>
+<li><code>get_staffid_by_permission($newquerystring='')</code></li>
+<li><code>get_array_staffid_by_permission()</code></li>
+<li><code>hrp_payslip_json_data_decode($json_data='')</code></li>
+<li><code>cal_to_jd($calendar, $m, $d, $y)</code></li>
+<li><code>jddayofweek($julianday, $mode)</code></li>
+<li><code>cal_days_in_month($calendar, $month, $year)</code></li>
+<li><code>has_permission($permission, $staffid = '', $can = '')</code></li>
+<li><code>hrp_has_permission($staff_permission, $staffid = '')</code></li>
+</ul>
+</body></html>

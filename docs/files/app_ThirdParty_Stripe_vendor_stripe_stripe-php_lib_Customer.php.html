@@ -1,0 +1,220 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Customer.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Customer.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Customer.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 18196 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This object represents a customer of your business. It lets you create recurring</p>
+<p>charges and track payments that belong to the same customer.</p>
+<p>Related guide: <a</p>
+<p>href="https://stripe.com/docs/payments/save-during-payment">Save a card during</p>
+<p>payment</a>.</p>
+<p>@property string $id Unique identifier for the object.</p>
+<p>@property string $object String representing the object's type. Objects of the same type share the same value.</p>
+<p>@property null|\Stripe\StripeObject $address The customer's address.</p>
+<p>@property int $balance Current balance, if any, being stored on the customer. If negative, the customer has credit to apply to their next invoice. If positive, the customer has an amount owed that will be added to their next invoice. The balance does not refer to any unpaid invoices; it solely takes into account amounts that have yet to be successfully applied to any invoice. This balance is only taken into account as invoices are finalized.</p>
+<p>@property null|\Stripe\CashBalance $cash_balance The current funds being held by Stripe on behalf of the customer. These funds can be applied towards payment intents with source &quot;cash_balance&quot;.The settings[reconciliation_mode] field describes whether these funds are applied to such payment intents manually or automatically.</p>
+<p>@property int $created Time at which the object was created. Measured in seconds since the Unix epoch.</p>
+<p>@property null|string $currency Three-letter <a href="https://stripe.com/docs/currencies">ISO code for the currency</a> the customer can be charged in for recurring billing purposes.</p>
+<p>@property null|string|\Stripe\Account|\Stripe\BankAccount|\Stripe\Card|\Stripe\Source $default_source <p>ID of the default payment source for the customer.</p><p>If you are using payment methods created via the PaymentMethods API, see the <a href="https://stripe.com/docs/api/customers/object#customer_object-invoice_settings-default_payment_method">invoice_settings.default_payment_method</a> field instead.</p></p>
+<p>@property null|bool $delinquent <p>When the customer's latest invoice is billed by charging automatically, <code>delinquent</code> is <code>true</code> if the invoice's latest charge failed. When the customer's latest invoice is billed by sending an invoice, <code>delinquent</code> is <code>true</code> if the invoice isn't paid by its due date.</p><p>If an invoice is marked uncollectible by <a href="https://stripe.com/docs/billing/automatic-collection">dunning</a>, <code>delinquent</code> doesn't get reset to <code>false</code>.</p></p>
+<p>@property null|string $description An arbitrary string attached to the object. Often useful for displaying to users.</p>
+<p>@property null|\Stripe\Discount $discount Describes the current discount active on the customer, if there is one.</p>
+<p>@property null|string $email The customer's email address.</p>
+<p>@property \Stripe\StripeObject $invoice_credit_balance The current multi-currency balances, if any, being stored on the customer.If positive in a currency, the customer has a credit to apply to their next invoice denominated in that currency.If negative, the customer has an amount owed that will be added to their next invoice denominated in that currency. These balances do not refer to any unpaid invoices.They solely track amounts that have yet to be successfully applied to any invoice. A balance in a particular currency is only applied to any invoice as an invoice in that currency is finalized.</p>
+<p>@property null|string $invoice_prefix The prefix for the customer used to generate unique invoice numbers.</p>
+<p>@property \Stripe\StripeObject $invoice_settings</p>
+<p>@property bool $livemode Has the value <code>true</code> if the object exists in live mode or the value <code>false</code> if the object exists in test mode.</p>
+<p>@property \Stripe\StripeObject $metadata Set of <a href="https://stripe.com/docs/api/metadata">key-value pairs</a> that you can attach to an object. This can be useful for storing additional information about the object in a structured format.</p>
+<p>@property null|string $name The customer's full name or business name.</p>
+<p>@property int $next_invoice_sequence The suffix of the customer's next invoice number, e.g., 0001.</p>
+<p>@property null|string $phone The customer's phone number.</p>
+<p>@property null|string[] $preferred_locales The customer's preferred locales (languages), ordered by preference.</p>
+<p>@property null|\Stripe\StripeObject $shipping Mailing and shipping address for the customer. Appears on invoices emailed to this customer.</p>
+<p>@property \Stripe\Collection<\Stripe\Account|\Stripe\BankAccount|\Stripe\Card|\Stripe\Source> $sources The customer's payment sources, if any.</p>
+<p>@property \Stripe\Collection<\Stripe\Subscription> $subscriptions The customer's current subscriptions, if any.</p>
+<p>@property \Stripe\StripeObject $tax</p>
+<p>@property null|string $tax_exempt Describes the customer's tax exemption status. One of <code>none</code>, <code>exempt</code>, or <code>reverse</code>. When set to <code>reverse</code>, invoice and receipt PDFs include the text <strong>&quot;Reverse charge&quot;</strong>.</p>
+<p>@property \Stripe\Collection<\Stripe\TaxId> $tax_ids The customer's tax IDs.</p>
+<p>@property null|string|\Stripe\TestHelpers\TestClock $test_clock ID of the test clock this customer belongs to.</p>
+
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@return \Stripe\Customer the updated customer</p>
+
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\PaymentMethod> list of PaymentMethods</p>
+
+<p>@param string $payment_method</p>
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Customer the retrieved customer</p>
+
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\SearchResult<Customer> the customer search results</p>
+
+<p>@param string $id the ID of the customer to which the cash balance belongs</p>
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@param mixed $cashBalanceId</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\CashBalance</p>
+
+<p>@param string $id the ID of the customer to which the cash balance belongs</p>
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@param mixed $cashBalanceId</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\CashBalance</p>
+
+<p>@param string $id the ID of the customer on which to retrieve the customer balance transactions</p>
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\CustomerBalanceTransaction> the list of customer balance transactions</p>
+
+<p>@param string $id the ID of the customer on which to create the customer balance transaction</p>
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\CustomerBalanceTransaction</p>
+
+<p>@param string $id the ID of the customer to which the customer balance transaction belongs</p>
+<p>@param string $balanceTransactionId the ID of the customer balance transaction to retrieve</p>
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\CustomerBalanceTransaction</p>
+
+<p>@param string $id the ID of the customer to which the customer balance transaction belongs</p>
+<p>@param string $balanceTransactionId the ID of the customer balance transaction to update</p>
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\CustomerBalanceTransaction</p>
+
+<p>@param string $id the ID of the customer on which to retrieve the customer cash balance transactions</p>
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\CustomerCashBalanceTransaction> the list of customer cash balance transactions</p>
+
+<p>@param string $id the ID of the customer to which the customer cash balance transaction belongs</p>
+<p>@param string $cashBalanceTransactionId the ID of the customer cash balance transaction to retrieve</p>
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\CustomerCashBalanceTransaction</p>
+
+<p>@param string $id the ID of the customer on which to retrieve the payment sources</p>
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\BankAccount|\Stripe\Card|\Stripe\Source> the list of payment sources (BankAccount, Card or Source)</p>
+
+<p>@param string $id the ID of the customer on which to create the payment source</p>
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\BankAccount|\Stripe\Card|\Stripe\Source</p>
+
+<p>@param string $id the ID of the customer to which the payment source belongs</p>
+<p>@param string $sourceId the ID of the payment source to delete</p>
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\BankAccount|\Stripe\Card|\Stripe\Source</p>
+
+<p>@param string $id the ID of the customer to which the payment source belongs</p>
+<p>@param string $sourceId the ID of the payment source to retrieve</p>
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\BankAccount|\Stripe\Card|\Stripe\Source</p>
+
+<p>@param string $id the ID of the customer to which the payment source belongs</p>
+<p>@param string $sourceId the ID of the payment source to update</p>
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\BankAccount|\Stripe\Card|\Stripe\Source</p>
+
+<p>@param string $id the ID of the customer on which to retrieve the tax ids</p>
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\TaxId> the list of tax ids</p>
+
+<p>@param string $id the ID of the customer on which to create the tax id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\TaxId</p>
+
+<p>@param string $id the ID of the customer to which the tax id belongs</p>
+<p>@param string $taxIdId the ID of the tax id to delete</p>
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\TaxId</p>
+
+<p>@param string $id the ID of the customer to which the tax id belongs</p>
+<p>@param string $taxIdId the ID of the tax id to retrieve</p>
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\TaxId</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Customer.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Customer extends ApiResource</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getSavedNestedResources()</code></li>
+<li><code>deleteDiscount($params = null, $opts = null)</code></li>
+<li><code>allPaymentMethods($id, $params = null, $opts = null)</code></li>
+<li><code>retrievePaymentMethod($payment_method, $params = null, $opts = null)</code></li>
+<li><code>search($params = null, $opts = null)</code></li>
+<li><code>retrieveCashBalance($id, $cashBalanceId, $params = null, $opts = null)</code></li>
+<li><code>updateCashBalance($id, $cashBalanceId, $params = null, $opts = null)</code></li>
+<li><code>allBalanceTransactions($id, $params = null, $opts = null)</code></li>
+<li><code>createBalanceTransaction($id, $params = null, $opts = null)</code></li>
+<li><code>retrieveBalanceTransaction($id, $balanceTransactionId, $params = null, $opts = null)</code></li>
+<li><code>updateBalanceTransaction($id, $balanceTransactionId, $params = null, $opts = null)</code></li>
+<li><code>allCashBalanceTransactions($id, $params = null, $opts = null)</code></li>
+<li><code>retrieveCashBalanceTransaction($id, $cashBalanceTransactionId, $params = null, $opts = null)</code></li>
+<li><code>allSources($id, $params = null, $opts = null)</code></li>
+<li><code>createSource($id, $params = null, $opts = null)</code></li>
+<li><code>deleteSource($id, $sourceId, $params = null, $opts = null)</code></li>
+<li><code>retrieveSource($id, $sourceId, $params = null, $opts = null)</code></li>
+<li><code>updateSource($id, $sourceId, $params = null, $opts = null)</code></li>
+<li><code>allTaxIds($id, $params = null, $opts = null)</code></li>
+<li><code>createTaxId($id, $params = null, $opts = null)</code></li>
+<li><code>deleteTaxId($id, $taxIdId, $params = null, $opts = null)</code></li>
+<li><code>retrieveTaxId($id, $taxIdId, $params = null, $opts = null)</code></li>
+</ul>
+</body></html>

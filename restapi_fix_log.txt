@@ -1,0 +1,1 @@
+2025-10-17 22:50:14 - RestApi permanently activated via direct database fix

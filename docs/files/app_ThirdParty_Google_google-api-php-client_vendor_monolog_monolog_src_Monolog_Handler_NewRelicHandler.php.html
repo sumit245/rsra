@@ -1,0 +1,90 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\NewRelicHandler.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\NewRelicHandler.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\NewRelicHandler.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 6015 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Class to record a log on a NewRelic application.</p>
+<p>Enabling New Relic High Security mode may prevent capture of useful information.</p>
+<p>@see https://docs.newrelic.com/docs/agents/php-agent</p>
+<p>@see https://docs.newrelic.com/docs/accounts-partnerships/accounts/security/high-security</p>
+
+<p>Name of the New Relic application that will receive logs from this handler.</p>
+<p>@var string</p>
+
+<p>Name of the current transaction</p>
+<p>@var string</p>
+
+<p>Some context and extra data is passed into the handler as arrays of values. Do we send them as is</p>
+<p>(useful if we are using the API), or explode them for display on the NewRelic RPM website?</p>
+<p>@var bool</p>
+
+<p>{@inheritDoc}</p>
+<p>@param string $appName</p>
+<p>@param bool   $explodeArrays</p>
+<p>@param string $transactionName</p>
+
+<p>{@inheritDoc}</p>
+
+<p>Checks whether the NewRelic extension is enabled in the system.</p>
+<p>@return bool</p>
+
+<p>Returns the appname where this log should be sent. Each log can override the default appname, set in this</p>
+<p>handler's constructor, by providing the appname in it's context.</p>
+<p>@param  array       $context</p>
+<p>@return null|string</p>
+
+<p>Returns the name of the current transaction. Each log can override the default transaction name, set in this</p>
+<p>handler's constructor, by providing the transaction_name in it's context</p>
+<p>@param array $context</p>
+<p>@return null|string</p>
+
+<p>Sets the NewRelic application that should receive this log.</p>
+<p>@param string $appName</p>
+
+<p>Overwrites the name of the current transaction</p>
+<p>@param string $transactionName</p>
+
+<p>@param string $key</p>
+<p>@param mixed  $value</p>
+
+<p>{@inheritDoc}</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>this</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\NewRelicHandler.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Monolog\Handler\NewRelicHandler extends AbstractProcessingHandler</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`__construct($level = Logger::ERROR,</li>
+<p>        $bubble = true,</p>
+<p>        $appName = null,</p>
+<p>        $explodeArrays = false,</p>
+<p>        $transactionName = null)`</p>
+<li><code>write(array $record)</code></li>
+<li><code>isNewRelicEnabled()</code></li>
+<li><code>getAppName(array $context)</code></li>
+<li><code>getTransactionName(array $context)</code></li>
+<li><code>setNewRelicAppName($appName)</code></li>
+<li><code>setNewRelicTransactionName($transactionName)</code></li>
+<li><code>setNewRelicParameter($key, $value)</code></li>
+<li><code>getDefaultFormatter()</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,238 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\scssphp\vendor\scssphp\scssphp\src\Node\Number.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\scssphp\vendor\scssphp\scssphp\src\Node\Number.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\scssphp\vendor\scssphp\scssphp\src\Node\Number.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 21303 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>SCSSPHP</p>
+<p>@copyright 2012-2020 Leaf Corcoran</p>
+<p>@license http://opensource.org/licenses/MIT MIT</p>
+<p>@link http://scssphp.github.io/scssphp</p>
+
+<p>Dimension + optional units</p>
+<p>{@internal</p>
+<p>    This is a work-in-progress.</p>
+<p>    The \ArrayAccess interface is temporary until the migration is complete.</p>
+<p>}}</p>
+<p>@author Anthon Pang <anthon.pang@gmail.com></p>
+<p>@template-implements \ArrayAccess<int, mixed></p>
+
+<p>@var int</p>
+<p>@deprecated use {Number::PRECISION} instead to read the precision. Configuring it is not supported anymore.</p>
+
+<p>@see http://www.w3.org/TR/2012/WD-css3-values-20120308/</p>
+<p>@var array</p>
+<p>@phpstan-var array<string, array<string, float|int>></p>
+
+<p>@var int|float</p>
+
+<p>@var string[]</p>
+<p>@phpstan-var list<string></p>
+
+<p>@var string[]</p>
+<p>@phpstan-var list<string></p>
+
+<p>Initialize number</p>
+<p>@param int|float       $dimension</p>
+<p>@param string[]|string $numeratorUnits</p>
+<p>@param string[]        $denominatorUnits</p>
+<p>@phpstan-param list<string>|string $numeratorUnits</p>
+<p>@phpstan-param list<string>        $denominatorUnits</p>
+
+<p>@return float|int</p>
+
+<p>@return string[]</p>
+
+<p>@return string[]</p>
+
+<p>@return bool</p>
+
+<p>@return mixed</p>
+
+<p>@return void</p>
+
+<p>@return void</p>
+
+<p>Returns true if the number is unitless</p>
+<p>@return bool</p>
+
+<p>Checks whether the number has exactly this unit</p>
+<p>@param string $unit</p>
+<p>@return bool</p>
+
+<p>Returns unit(s) as the product of numerator units divided by the product of denominator units</p>
+<p>@return string</p>
+
+<p>@param float|int $min</p>
+<p>@param float|int $max</p>
+<p>@param string|null $name</p>
+<p>@return float|int</p>
+<p>@throws SassScriptException</p>
+
+<p>@param string|null $varName</p>
+<p>@return void</p>
+
+<p>@param string      $unit</p>
+<p>@param string|null $varName</p>
+<p>@return void</p>
+
+<p>@param Number $other</p>
+<p>@return void</p>
+
+<p>Returns a copy of this number, converted to the units represented by $newNumeratorUnits and $newDenominatorUnits.</p>
+<p>This does not throw an error if this number is unitless and</p>
+<p>$newNumeratorUnits/$newDenominatorUnits are not empty, or vice versa. Instead,</p>
+<p>it treats all unitless numbers as convertible to and from all units without</p>
+<p>changing the value.</p>
+<p>@param string[] $newNumeratorUnits</p>
+<p>@param string[] $newDenominatorUnits</p>
+<p>@return Number</p>
+<p>@phpstan-param list<string> $newNumeratorUnits</p>
+<p>@phpstan-param list<string> $newDenominatorUnits</p>
+<p>@throws SassScriptException if this number's units are not compatible with $newNumeratorUnits and $newDenominatorUnits</p>
+
+<p>@param Number $other</p>
+<p>@return bool</p>
+
+<p>@param Number $other</p>
+<p>@return bool</p>
+
+<p>@param Number $other</p>
+<p>@return bool</p>
+
+<p>@param Number $other</p>
+<p>@return bool</p>
+
+<p>@param Number $other</p>
+<p>@return bool</p>
+
+<p>@param Number $other</p>
+<p>@return Number</p>
+
+<p>@param Number $other</p>
+<p>@return Number</p>
+
+<p>@return Number</p>
+
+<p>@param Number $other</p>
+<p>@return Number</p>
+
+<p>@param Number $other</p>
+<p>@return Number</p>
+
+<p>@param Number $other</p>
+<p>@return Number</p>
+
+<p>@param Number $other</p>
+<p>@return bool</p>
+
+<p>Output number</p>
+<p>@param \ScssPhp\ScssPhp\Compiler $compiler</p>
+<p>@return string</p>
+
+<p>{@inheritdoc}</p>
+
+<p>@param Number   $other</p>
+<p>@param callable $operation</p>
+<p>@return Number</p>
+<p>@phpstan-param callable(int|float, int|float): (int|float) $operation</p>
+
+<p>@param Number $other</p>
+<p>@param callable $operation</p>
+<p>@return mixed</p>
+<p>@phpstan-template T</p>
+<p>@phpstan-param callable(int|float, int|float): T $operation</p>
+<p>@phpstan-return T</p>
+
+<p>@param string[] $numeratorUnits</p>
+<p>@param string[] $denominatorUnits</p>
+<p>@return int|float</p>
+<p>@phpstan-param list<string> $numeratorUnits</p>
+<p>@phpstan-param list<string> $denominatorUnits</p>
+<p>@throws SassScriptException if this number's units are not compatible with $numeratorUnits and $denominatorUnits</p>
+
+<p>@param int|float $value</p>
+<p>@param string[] $numerators1</p>
+<p>@param string[] $denominators1</p>
+<p>@param string[] $numerators2</p>
+<p>@param string[] $denominators2</p>
+<p>@return Number</p>
+<p>@phpstan-param list<string> $numerators1</p>
+<p>@phpstan-param list<string> $denominators1</p>
+<p>@phpstan-param list<string> $numerators2</p>
+<p>@phpstan-param list<string> $denominators2</p>
+
+<p>Returns the number of [unit1]s per [unit2].</p>
+<p>Equivalently, <code>1unit1 * conversionFactor(unit1, unit2) = 1unit2</code>.</p>
+<p>@param string $unit1</p>
+<p>@param string $unit2</p>
+<p>@return float|int|null</p>
+
+<p>Returns unit(s) as the product of numerator units divided by the product of denominator units</p>
+<p>@param string[] $numerators</p>
+<p>@param string[] $denominators</p>
+<p>@phpstan-param list<string> $numerators</p>
+<p>@phpstan-param list<string> $denominators</p>
+<p>@return string</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>all</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\scssphp\vendor\scssphp\scssphp\src\Node\Number.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ScssPhp\ScssPhp\Node\Number extends Node implements \ArrayAccess</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($dimension, $numeratorUnits, array $denominatorUnits = [])</code></li>
+<li><code>getDimension()</code></li>
+<li><code>getNumeratorUnits()</code></li>
+<li><code>getDenominatorUnits()</code></li>
+<li><code>offsetExists($offset)</code></li>
+<li><code>offsetGet($offset)</code></li>
+<li><code>offsetSet($offset, $value)</code></li>
+<li><code>offsetUnset($offset)</code></li>
+<li><code>unitless()</code></li>
+<li><code>hasUnit($unit)</code></li>
+<li><code>unitStr()</code></li>
+<li><code>valueInRange($min, $max, $name = null)</code></li>
+<li><code>assertNoUnits($varName = null)</code></li>
+<li><code>assertUnit($unit, $varName = null)</code></li>
+<li><code>assertSameUnitOrUnitless(Number $other)</code></li>
+<li><code>coerce(array $newNumeratorUnits, array $newDenominatorUnits)</code></li>
+<li><code>isComparableTo(Number $other)</code></li>
+<li><code>lessThan(Number $other)</code></li>
+<li><code>lessThanOrEqual(Number $other)</code></li>
+<li><code>greaterThan(Number $other)</code></li>
+<li><code>greaterThanOrEqual(Number $other)</code></li>
+<li><code>plus(Number $other)</code></li>
+<li><code>minus(Number $other)</code></li>
+<li><code>unaryMinus()</code></li>
+<li><code>modulo(Number $other)</code></li>
+<li><code>times(Number $other)</code></li>
+<li><code>dividedBy(Number $other)</code></li>
+<li><code>equals(Number $other)</code></li>
+<li><code>output(Compiler $compiler = null)</code></li>
+<li><code>__toString()</code></li>
+<li><code>coerceNumber(Number $other, $operation)</code></li>
+<li><code>coerceUnits(Number $other, $operation)</code></li>
+<li><code>valueInUnits(array $numeratorUnits, array $denominatorUnits)</code></li>
+<li><code>multiplyUnits($value, array $numerators1, array $denominators1, array $numerators2, array $denominators2)</code></li>
+<li><code>getConversionFactor($unit1, $unit2)</code></li>
+<li><code>getUnitString(array $numerators, array $denominators)</code></li>
+</ul>
+</body></html>

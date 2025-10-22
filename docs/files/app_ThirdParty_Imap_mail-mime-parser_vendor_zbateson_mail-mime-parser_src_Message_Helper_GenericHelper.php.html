@@ -1,0 +1,95 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Helper\GenericHelper.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Helper\GenericHelper.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Helper\GenericHelper.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5586 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Provides common Message helper routines for Message manipulation.</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var string[] List of content headers grabbed from</p>
+<p>     https://tools.ietf.org/html/rfc4021#section-2.2</p>
+
+<p>Copies the passed $header from $from, to $to or sets the header to</p>
+<p>$default if it doesn't exist in $from.</p>
+<p>@param ParentHeaderPart $from</p>
+<p>@param ParentHeaderPart $to</p>
+<p>@param string $header</p>
+<p>@param string $default</p>
+
+<p>Removes Content-* headers (permanent ones as defined in </p>
+<p>https://tools.ietf.org/html/rfc4021#section-2.2) from the passed part,</p>
+<p>then detaches its content stream.</p>
+
+<p>@param ParentHeaderPart $part</p>
+
+<p>Copies Content-* headers (permanent ones as defined in </p>
+<p>https://tools.ietf.org/html/rfc4021#section-2.2)</p>
+<p>from the $from header into the $to header. If the Content-Type header</p>
+<p>isn't defined in $from, defaults to text/plain with utf-8 and</p>
+<p>quoted-printable.</p>
+<p>@param ParentHeaderPart $from</p>
+<p>@param ParentHeaderPart $to</p>
+<p>@param bool $move</p>
+
+<p>Creates a new content part from the passed part, allowing the part to be</p>
+<p>used for something else (e.g. changing a non-mime message to a multipart</p>
+<p>mime message).</p>
+<p>@param ParentHeaderPart $part</p>
+<p>@return MimePart the newly-created MimePart</p>
+
+<p>Copies type headers (Content-Type, Content-Disposition,</p>
+<p>Content-Transfer-Encoding) from the $from MimePart to $to.  Attaches the</p>
+<p>content resource handle of $from to $to, and loops over child parts,</p>
+<p>removing them from $from and adding them to $to.</p>
+<p>@param ParentHeaderPart $from</p>
+<p>@param ParentHeaderPart $to</p>
+
+<p>Replaces the $part ParentHeaderPart with $replacement.</p>
+<p>Essentially removes $part from its parent, and adds $replacement in its</p>
+<p>same position.  If $part is this Message, then $part can't be removed and</p>
+<p>replaced, and instead $replacement's type headers are copied to $message,</p>
+<p>and any children below $replacement are added directly below $message.</p>
+<p>@param Message $message</p>
+<p>@param ParentHeaderPart $part</p>
+<p>@param ParentHeaderPart $replacement</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>header</code></li>
+<li><code>MimePart</code></li>
+<li><code>to</code></li>
+<li><code>and</code></li>
+<li><code>its</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Helper\GenericHelper.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Message\Helper\GenericHelper extends AbstractHelper</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>copyHeader(ParentHeaderPart $from, ParentHeaderPart $to, $header, $default = null)</code></li>
+<li><code>removeContentHeadersAndContent(ParentHeaderPart $part)</code></li>
+<li><code>copyContentHeadersAndContent(ParentHeaderPart $from, ParentHeaderPart $to, $move = false)</code></li>
+<li><code>createNewContentPartFrom(ParentHeaderPart $part)</code></li>
+<li><code>movePartContentAndChildren(ParentHeaderPart $from, ParentHeaderPart $to)</code></li>
+<li><code>replacePart(Message $message, ParentHeaderPart $part, ParentHeaderPart $replacement)</code></li>
+</ul>
+</body></html>

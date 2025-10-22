@@ -1,0 +1,246 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Chart\Chart.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Chart\Chart.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Chart\Chart.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 12736 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Chart Name.</p>
+<p>@var string</p>
+
+<p>Worksheet.</p>
+<p>@var Worksheet</p>
+
+<p>Chart Title.</p>
+<p>@var Title</p>
+
+<p>Chart Legend.</p>
+<p>@var Legend</p>
+
+<p>X-Axis Label.</p>
+<p>@var Title</p>
+
+<p>Y-Axis Label.</p>
+<p>@var Title</p>
+
+<p>Chart Plot Area.</p>
+<p>@var PlotArea</p>
+
+<p>Plot Visible Only.</p>
+<p>@var bool</p>
+
+<p>Display Blanks as.</p>
+<p>@var string</p>
+
+<p>Chart Asix Y as.</p>
+<p>@var Axis</p>
+
+<p>Chart Asix X as.</p>
+<p>@var Axis</p>
+
+<p>Chart Major Gridlines as.</p>
+<p>@var GridLines</p>
+
+<p>Chart Minor Gridlines as.</p>
+<p>@var GridLines</p>
+
+<p>Top-Left Cell Position.</p>
+<p>@var string</p>
+
+<p>Top-Left X-Offset.</p>
+<p>@var int</p>
+
+<p>Top-Left Y-Offset.</p>
+<p>@var int</p>
+
+<p>Bottom-Right Cell Position.</p>
+<p>@var string</p>
+
+<p>Bottom-Right X-Offset.</p>
+<p>@var int</p>
+
+<p>Bottom-Right Y-Offset.</p>
+<p>@var int</p>
+
+<p>Create a new Chart.</p>
+<p>@param mixed $name</p>
+<p>@param mixed $plotVisibleOnly</p>
+<p>@param string $displayBlanksAs</p>
+
+<p>Get Name.</p>
+<p>@return string</p>
+
+<p>Get Worksheet.</p>
+<p>@return Worksheet</p>
+
+<p>Set Worksheet.</p>
+<p>@return $this</p>
+
+<p>Get Title.</p>
+<p>@return Title</p>
+
+<p>Set Title.</p>
+<p>@return $this</p>
+
+<p>Get Legend.</p>
+<p>@return Legend</p>
+
+<p>Set Legend.</p>
+<p>@return $this</p>
+
+<p>Get X-Axis Label.</p>
+<p>@return Title</p>
+
+<p>Set X-Axis Label.</p>
+<p>@return $this</p>
+
+<p>Get Y-Axis Label.</p>
+<p>@return Title</p>
+
+<p>Set Y-Axis Label.</p>
+<p>@return $this</p>
+
+<p>Get Plot Area.</p>
+<p>@return PlotArea</p>
+
+<p>Get Plot Visible Only.</p>
+<p>@return bool</p>
+
+<p>Set Plot Visible Only.</p>
+<p>@param bool $plotVisibleOnly</p>
+<p>@return $this</p>
+
+<p>Get Display Blanks as.</p>
+<p>@return string</p>
+
+<p>Set Display Blanks as.</p>
+<p>@param string $displayBlanksAs</p>
+<p>@return $this</p>
+
+<p>Get yAxis.</p>
+<p>@return Axis</p>
+
+<p>Get xAxis.</p>
+<p>@return Axis</p>
+
+<p>Get Major Gridlines.</p>
+<p>@return GridLines</p>
+
+<p>Get Minor Gridlines.</p>
+<p>@return GridLines</p>
+
+<p>Set the Top Left position for the chart.</p>
+<p>@param string $cell</p>
+<p>@param int $xOffset</p>
+<p>@param int $yOffset</p>
+<p>@return $this</p>
+
+<p>Get the top left position of the chart.</p>
+<p>@return array{cell: string, xOffset: int, yOffset: int} an associative array containing the cell address, X-Offset and Y-Offset from the top left of that cell</p>
+
+<p>Get the cell address where the top left of the chart is fixed.</p>
+<p>@return string</p>
+
+<p>Set the Top Left cell position for the chart.</p>
+<p>@param string $cell</p>
+<p>@return $this</p>
+
+<p>Set the offset position within the Top Left cell for the chart.</p>
+<p>@param int $xOffset</p>
+<p>@param int $yOffset</p>
+<p>@return $this</p>
+
+<p>Get the offset position within the Top Left cell for the chart.</p>
+<p>@return int[]</p>
+
+<p>Set the Bottom Right position of the chart.</p>
+<p>@param string $cell</p>
+<p>@param int $xOffset</p>
+<p>@param int $yOffset</p>
+<p>@return $this</p>
+
+<p>Get the bottom right position of the chart.</p>
+<p>@return array an associative array containing the cell address, X-Offset and Y-Offset from the top left of that cell</p>
+
+<p>Get the cell address where the bottom right of the chart is fixed.</p>
+<p>@return string</p>
+
+<p>Set the offset position within the Bottom Right cell for the chart.</p>
+<p>@param int $xOffset</p>
+<p>@param int $yOffset</p>
+<p>@return $this</p>
+
+<p>Get the offset position within the Bottom Right cell for the chart.</p>
+<p>@return int[]</p>
+
+<p>Render the chart to given file (or stream).</p>
+<p>@param string $outputDestination Name of the file render to</p>
+<p>@return bool true on success</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Chart\Chart.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Chart\Chart</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($name, ?Title $title = null, ?Legend $legend = null, ?PlotArea $plotArea = null, $plotVisibleOnly = true, $displayBlanksAs = DataSeries::EMPTY_AS_GAP, ?Title $xAxisLabel = null, ?Title $yAxisLabel = null, ?Axis $xAxis = null, ?Axis $yAxis = null, ?GridLines $majorGridlines = null, ?GridLines $minorGridlines = null)</code></li>
+<li><code>getName()</code></li>
+<li><code>getWorksheet()</code></li>
+<li><code>setWorksheet(?Worksheet $worksheet = null)</code></li>
+<li><code>getTitle()</code></li>
+<li><code>setTitle(Title $title)</code></li>
+<li><code>getLegend()</code></li>
+<li><code>setLegend(Legend $legend)</code></li>
+<li><code>getXAxisLabel()</code></li>
+<li><code>setXAxisLabel(Title $label)</code></li>
+<li><code>getYAxisLabel()</code></li>
+<li><code>setYAxisLabel(Title $label)</code></li>
+<li><code>getPlotArea()</code></li>
+<li><code>getPlotVisibleOnly()</code></li>
+<li><code>setPlotVisibleOnly($plotVisibleOnly)</code></li>
+<li><code>getDisplayBlanksAs()</code></li>
+<li><code>setDisplayBlanksAs($displayBlanksAs)</code></li>
+<li><code>getChartAxisY()</code></li>
+<li><code>getChartAxisX()</code></li>
+<li><code>getMajorGridlines()</code></li>
+<li><code>getMinorGridlines()</code></li>
+<li><code>setTopLeftPosition($cell, $xOffset = null, $yOffset = null)</code></li>
+<li><code>getTopLeftPosition()</code></li>
+<li><code>getTopLeftCell()</code></li>
+<li><code>setTopLeftCell($cell)</code></li>
+<li><code>setTopLeftOffset($xOffset, $yOffset)</code></li>
+<li><code>getTopLeftOffset()</code></li>
+<li><code>setTopLeftXOffset($xOffset)</code></li>
+<li><code>getTopLeftXOffset()</code></li>
+<li><code>setTopLeftYOffset($yOffset)</code></li>
+<li><code>getTopLeftYOffset()</code></li>
+<li><code>setBottomRightPosition($cell, $xOffset = null, $yOffset = null)</code></li>
+<li><code>getBottomRightPosition()</code></li>
+<li><code>setBottomRightCell($cell)</code></li>
+<li><code>getBottomRightCell()</code></li>
+<li><code>setBottomRightOffset($xOffset, $yOffset)</code></li>
+<li><code>getBottomRightOffset()</code></li>
+<li><code>setBottomRightXOffset($xOffset)</code></li>
+<li><code>getBottomRightXOffset()</code></li>
+<li><code>setBottomRightYOffset($yOffset)</code></li>
+<li><code>getBottomRightYOffset()</code></li>
+<li><code>refresh()</code></li>
+<li><code>render($outputDestination = null)</code></li>
+</ul>
+</body></html>

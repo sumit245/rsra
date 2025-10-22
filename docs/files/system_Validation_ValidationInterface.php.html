@@ -1,0 +1,81 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Validation\ValidationInterface.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Validation\ValidationInterface.php</h1>
+
+<ul>
+<li>Path: <code>system\Validation\ValidationInterface.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2510 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Expected behavior of a validator</p>
+
+<p>Runs the validation process, returning true/false determining whether</p>
+<p>or not validation was successful.</p>
+<p>@param array  $data  The array of data to validate.</p>
+<p>@param string $group The pre-defined group of rules to apply.</p>
+
+<p>Check; runs the validation process, returning true or false</p>
+<p>determining whether or not validation was successful.</p>
+<p>@param mixed    $value  Value to validation.</p>
+<p>@param string   $rule   Rule.</p>
+<p>@param string[] $errors Errors.</p>
+<p>@return bool True if valid, else false.</p>
+
+<p>Takes a Request object and grabs the input data to use from its</p>
+<p>array values.</p>
+
+<p>Stores the rules that should be used to validate the items.</p>
+
+<p>Checks to see if the rule for key $field has been set or not.</p>
+
+<p>Returns the error for a specified $field (or empty string if not set).</p>
+
+<p>Returns the array of errors that were encountered during</p>
+<p>a run() call. The array should be in the following format:</p>
+<p>   [</p>
+<p>       'field1' => 'error message',</p>
+<p>       'field2' => 'error message',</p>
+<p>   ]</p>
+<p>@return array<string,string></p>
+
+<p>Sets the error for a specific field. Used by custom validation methods.</p>
+
+<p>Resets the class to a blank slate. Should be called whenever</p>
+<p>you need to process more than one array.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>its</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Validation\ValidationInterface.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Validation\to</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>run(?array $data = null, ?string $group = null)</code></li>
+<li><code>check($value, string $rule, array $errors = [])</code></li>
+<li><code>withRequest(RequestInterface $request)</code></li>
+<li><code>setRules(array $rules, array $messages = [])</code></li>
+<li><code>hasRule(string $field)</code></li>
+<li><code>getError(string $field)</code></li>
+<li><code>getErrors()</code></li>
+<li><code>setError(string $alias, string $error)</code></li>
+<li><code>reset()</code></li>
+</ul>
+</body></html>

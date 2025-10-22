@@ -1,0 +1,48 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\Config\Mimes.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\Config\Mimes.php</h1>
+
+<ul>
+<li>Path: <code>app\Config\Mimes.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 15570 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Mimes</p>
+<p>This file contains an array of mime types.  It is used by the</p>
+<p>Upload class to help identify allowed file types.</p>
+<p>When more than one variation for an extension exist (like jpg, jpeg, etc)</p>
+<p>the most common one should be first in the array to aid the guess*</p>
+<p>methods. The same applies when more than one mime-type exists for a</p>
+<p>single extension.</p>
+<p>When working with mime types, please make sure you have the ´fileinfo´</p>
+<p>extension enabled to reliably detect the media types.</p>
+
+<p>Map of extensions to mime types.</p>
+<p>@var array</p>
+
+<p>Attempts to determine the best mime type for the given file extension.</p>
+<p>@return string|null The mime type found, or none if unable to determine.</p>
+
+<p>Attempts to determine the best file extension for a given mime type.</p>
+<p>@param string|null $proposedExtension - default extension (in case there is more than one with the same mime type)</p>
+<p>@return string|null The extension determined, or null if unable to match.</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\Config\Mimes.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Config\to</code></li>
+<li><code>Config\Mimes</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>guessTypeFromExtension(string $extension)</code></li>
+<li><code>guessExtensionFromType(string $type, ?string $proposedExtension = null)</code></li>
+</ul>
+</body></html>

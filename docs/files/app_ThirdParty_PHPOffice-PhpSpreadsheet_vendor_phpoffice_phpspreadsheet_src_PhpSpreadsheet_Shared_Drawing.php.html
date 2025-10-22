@@ -1,0 +1,90 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\Drawing.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\Drawing.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\Drawing.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 8015 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Convert pixels to EMU.</p>
+<p>@param int $pixelValue Value in pixels</p>
+<p>@return int Value in EMU</p>
+
+<p>Convert EMU to pixels.</p>
+<p>@param int|SimpleXMLElement $emuValue Value in EMU</p>
+<p>@return int Value in pixels</p>
+
+<p>Convert pixels to column width. Exact algorithm not known.</p>
+<p>By inspection of a real Excel file using Calibri 11, one finds 1000px ~ 142.85546875</p>
+<p>This gives a conversion factor of 7. Also, we assume that pixels and font size are proportional.</p>
+<p>@param int $pixelValue Value in pixels</p>
+<p>@return float|int Value in cell dimension</p>
+
+<p>Convert column width from (intrinsic) Excel units to pixels.</p>
+<p>@param float $cellWidth Value in cell dimension</p>
+<p>@param \PhpOffice\PhpSpreadsheet\Style\Font $defaultFont Default font of the workbook</p>
+<p>@return int Value in pixels</p>
+
+<p>Convert pixels to points.</p>
+<p>@param int $pixelValue Value in pixels</p>
+<p>@return float Value in points</p>
+
+<p>Convert points to pixels.</p>
+<p>@param int $pointValue Value in points</p>
+<p>@return int Value in pixels</p>
+
+<p>Convert degrees to angle.</p>
+<p>@param int $degrees Degrees</p>
+<p>@return int Angle</p>
+
+<p>Convert angle to degrees.</p>
+<p>@param int|SimpleXMLElement $angle Angle</p>
+<p>@return int Degrees</p>
+
+<p>Create a new image from file. By alexander at alexauto dot nl.</p>
+<p>@see http://www.php.net/manual/en/function.imagecreatefromwbmp.php#86214</p>
+<p>@param string $bmpFilename Path to Windows DIB (BMP) image</p>
+<p>@return GdImage|resource</p>
+
+<p>@phpstan-ignore-next-line</p>
+
+<p>@phpstan-ignore-next-line</p>
+
+<p>@phpstan-ignore-next-line</p>
+
+<p>@phpstan-ignore-next-line</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>Calibri</code></li>
+<li><code>file</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\Drawing.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Shared\Drawing</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>pixelsToEMU($pixelValue)</code></li>
+<li><code>EMUToPixels($emuValue)</code></li>
+<li><code>pixelsToCellDimension($pixelValue, \PhpOffice\PhpSpreadsheet\Style\Font $defaultFont)</code></li>
+<li><code>cellDimensionToPixels($cellWidth, \PhpOffice\PhpSpreadsheet\Style\Font $defaultFont)</code></li>
+<li><code>pixelsToPoints($pixelValue)</code></li>
+<li><code>pointsToPixels($pointValue)</code></li>
+<li><code>degreesToAngle($degrees)</code></li>
+<li><code>angleToDegrees($angle)</code></li>
+<li><code>imagecreatefrombmp($bmpFilename)</code></li>
+</ul>
+</body></html>

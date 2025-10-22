@@ -1,0 +1,213 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\AbstractConsumer.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\AbstractConsumer.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\AbstractConsumer.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 11571 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Abstract base class for all header token consumers.</p>
+
+<p>Defines the base parser that loops over tokens, consuming them and creating</p>
+<p>header parts.</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var \ZBateson\MailMimeParser\Header\Consumer\ConsumerService used to</p>
+<p>     get consumer instances for sub-consumers</p>
+
+<p>@var \ZBateson\MailMimeParser\Header\Part\HeaderPartFactory used to construct</p>
+<p>HeaderPart objects</p>
+
+<p>Initializes the instance.</p>
+
+<p>@param ConsumerService $consumerService</p>
+<p>@param HeaderPartFactory $partFactory</p>
+
+<p>Returns the singleton instance for the class.</p>
+
+<p>@param ConsumerService $consumerService</p>
+<p>@param HeaderPartFactory $partFactory</p>
+
+<p>Invokes parsing of a header's value into header parts.</p>
+
+<p>@param string $value the raw header value</p>
+<p>@return \ZBateson\MailMimeParser\Header\Part\HeaderPart[] the array of parsed</p>
+<p>        parts</p>
+
+<p>Called during construction to set up the list of sub-consumers that will</p>
+<p>take control from this consumer should a token match a sub-consumer's</p>
+<p>start token.</p>
+
+<p>@return AbstractConsumer[] the array of consumers</p>
+
+<p>Returns this consumer and all unique sub consumers.</p>
+
+<p>Loops into the sub-consumers (and their sub-consumers, etc...) finding</p>
+<p>all unique consumers, and returns them in an array.</p>
+
+<p>@return \ZBateson\MailMimeParser\Header\AbstractConsumer[]</p>
+
+<p>Called by __invoke to parse the raw header value into header parts.</p>
+
+<p>Calls splitTokens to split the value into token part strings, then calls</p>
+<p>parseParts to parse the returned array.</p>
+
+<p>@param string $value</p>
+<p>@return \ZBateson\MailMimeParser\Header\Part\HeaderPart[] the array of parsed</p>
+<p>        parts</p>
+
+<p>Returns an array of regular expression separators specific to this</p>
+<p>consumer.  The returned patterns are used to split the header value into</p>
+<p>tokens for the consumer to parse into parts.</p>
+
+<p>Each array element makes part of a generated regular expression that is</p>
+<p>used in a call to preg_split().  RegEx patterns can be used, and care</p>
+<p>should be taken to escape special characters.</p>
+
+<p>@return string[] the array of patterns</p>
+
+<p>Returns a list of regular expression markers for this consumer and all</p>
+<p>sub-consumers by calling 'getTokenSeparators'..</p>
+
+<p>@return string[] an array of regular expression markers</p>
+
+<p>Returns a regex pattern used to split the input header string.  The</p>
+<p>default implementation calls getAllTokenSeparators and implodes the</p>
+<p>returned array with the regex OR '|' character as its glue.</p>
+
+<p>@return string the regex pattern</p>
+
+<p>Returns an array of split tokens from the input string.</p>
+
+<p>The method calls preg_split using getTokenSplitPattern.  The split</p>
+<p>array will not contain any empty parts and will contain the markers.</p>
+
+<p>@param string $rawValue the raw string</p>
+<p>@return array the array of tokens</p>
+
+<p>Returns true if the passed string token marks the beginning marker for</p>
+<p>the current consumer.</p>
+
+<p>@param string $token the current token</p>
+<p>@return bool</p>
+
+<p>Returns true if the passed string token marks the end marker for the</p>
+<p>current consumer.</p>
+
+<p>@param string $token the current token</p>
+<p>@return bool</p>
+
+<p>Constructs and returns a \ZBateson\MailMimeParser\Header\Part\HeaderPart</p>
+<p>for the passed string token.  If the token should be ignored, the</p>
+<p>function must return null.</p>
+
+<p>The default created part uses the instance's partFactory->newInstance</p>
+<p>method.</p>
+
+<p>@param string $token the token</p>
+<p>@param bool $isLiteral set to true if the token represents a literal -</p>
+<p>       e.g. an escaped token</p>
+<p>@return \ZBateson\MailMimeParser\Header\Part\HeaderPart|null the</p>
+<p>        constructed header part or null if the token should be ignored</p>
+
+<p>Iterates through this consumer's sub-consumers checking if the current</p>
+<p>token triggers a sub-consumer's start token and passes control onto that</p>
+<p>sub-consumer's parseTokenIntoParts.  If no sub-consumer is responsible</p>
+<p>for the current token, calls getPartForToken and returns it in an array.</p>
+
+<p>@param Iterator $tokens</p>
+<p>@return \ZBateson\MailMimeParser\Header\Part\HeaderPart[]|array</p>
+
+<p>Returns an array of \ZBateson\MailMimeParser\Header\Part\HeaderPart for</p>
+<p>the current token on the iterator.</p>
+
+<p>If the current token is a start token from a sub-consumer, the sub-</p>
+<p>consumer's parseTokensIntoParts method is called.</p>
+
+<p>@param Iterator $tokens</p>
+<p>@return \ZBateson\MailMimeParser\Header\Part\HeaderPart[]|array</p>
+
+<p>Determines if the iterator should be advanced to the next token after</p>
+<p>reading tokens or finding a start token.</p>
+
+<p>The default implementation will advance for a start token, but not</p>
+<p>advance on the end token of the current consumer, allowing the end token</p>
+<p>to be passed up to a higher-level consumer.</p>
+
+<p>@param Iterator $tokens</p>
+<p>@param bool $isStartToken</p>
+
+<p>Iterates over the passed token Iterator and returns an array of parsed</p>
+<p>\ZBateson\MailMimeParser\Header\Part\HeaderPart objects.</p>
+
+<p>The method checks each token to see if the token matches a sub-consumer's</p>
+<p>start token, or if it matches the current consumer's end token to stop</p>
+<p>processing.</p>
+
+<p>If a sub-consumer's start token is matched, the sub-consumer is invoked</p>
+<p>and its returned parts are merged to the current consumer's header parts.</p>
+
+<p>After all tokens are read and an array of Header\Parts are constructed,</p>
+<p>the array is passed to AbstractConsumer::processParts for any final</p>
+<p>processing.</p>
+
+<p>@param Iterator $tokens an iterator over a string of tokens</p>
+<p>@return \ZBateson\MailMimeParser\Header\Part\HeaderPart[] an array of</p>
+<p>        parsed parts</p>
+
+<p>Performs any final processing on the array of parsed parts before</p>
+<p>returning it to the consumer client.</p>
+
+<p>The default implementation simply returns the passed array after</p>
+<p>filtering out null/empty parts.</p>
+
+<p>@param \ZBateson\MailMimeParser\Header\Part\HeaderPart[] $parts</p>
+<p>@return \ZBateson\MailMimeParser\Header\Part\HeaderPart[]</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>this</code></li>
+<li><code>the</code></li>
+<li><code>a</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\AbstractConsumer.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Header\Consumer\for</code></li>
+<li><code>ZBateson\MailMimeParser\Header\Consumer\AbstractConsumer</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(ConsumerService $consumerService, HeaderPartFactory $partFactory)</code></li>
+<li><code>getInstance(ConsumerService $consumerService, HeaderPartFactory $partFactory)</code></li>
+<li><code>__invoke($value)</code></li>
+<li><code>getSubConsumers()</code></li>
+<li><code>getAllConsumers()</code></li>
+<li><code>parseRawValue($value)</code></li>
+<li><code>getTokenSeparators()</code></li>
+<li><code>getAllTokenSeparators()</code></li>
+<li><code>getTokenSplitPattern()</code></li>
+<li><code>splitRawValue($rawValue)</code></li>
+<li><code>isStartToken($token)</code></li>
+<li><code>isEndToken($token)</code></li>
+<li><code>getPartForToken($token, $isLiteral)</code></li>
+<li><code>getConsumerTokenParts(Iterator $tokens)</code></li>
+<li><code>getTokenParts(Iterator $tokens)</code></li>
+<li><code>advanceToNextToken(Iterator $tokens, $isStartToken)</code></li>
+<li><code>parseTokensIntoParts(Iterator $tokens)</code></li>
+<li><code>processParts(array $parts)</code></li>
+</ul>
+</body></html>

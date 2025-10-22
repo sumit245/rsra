@@ -1,0 +1,93 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Database\BaseUtils.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Database\BaseUtils.php</h1>
+
+<ul>
+<li>Path: <code>system\Database\BaseUtils.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 8249 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Class BaseUtils</p>
+
+<p>Database object</p>
+<p>@var object</p>
+
+<p>List databases statement</p>
+<p>@var bool|string</p>
+
+<p>OPTIMIZE TABLE statement</p>
+<p>@var bool|string</p>
+
+<p>REPAIR TABLE statement</p>
+<p>@var bool|string</p>
+
+<p>Class constructor</p>
+
+<p>List databases</p>
+<p>@throws DatabaseException</p>
+<p>@return array|bool</p>
+
+<p>Determine if a particular database exists</p>
+
+<p>Optimize Table</p>
+<p>@throws DatabaseException</p>
+<p>@return bool</p>
+
+<p>Optimize Database</p>
+<p>@throws DatabaseException</p>
+<p>@return mixed</p>
+
+<p>Repair Table</p>
+<p>@throws DatabaseException</p>
+<p>@return mixed</p>
+
+<p>Generate CSV from a query result object</p>
+<p>@return string</p>
+
+<p>Generate XML data from a query result object</p>
+
+<p>Database Backup</p>
+<p>@param array|string $params</p>
+<p>@throws DatabaseException</p>
+<p>@return mixed</p>
+
+<p>Platform dependent version of the backup function.</p>
+<p>@return mixed</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Database\BaseUtils.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Database\BaseUtils</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(ConnectionInterface $db)</code></li>
+<li><code>listDatabases()</code></li>
+<li><code>databaseExists(string $databaseName)</code></li>
+<li><code>optimizeTable(string $tableName)</code></li>
+<li><code>optimizeDatabase()</code></li>
+<li><code>repairTable(string $tableName)</code></li>
+<li><code>getCSVFromResult(ResultInterface $query, string $delim = ',', string $newline = "\n", string $enclosure = '"')</code></li>
+<li><code>getXMLFromResult(ResultInterface $query, array $params = [])</code></li>
+<li><code>backup($params = [])</code></li>
+<li><code>_backup(?array $prefs = null)</code></li>
+</ul>
+</body></html>

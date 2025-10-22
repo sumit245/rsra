@@ -1,0 +1,135 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Xlsx.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Xlsx.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Xlsx.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 116992 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>ReferenceHelper instance.</p>
+<p>@var ReferenceHelper</p>
+
+<p>@var ZipArchive</p>
+
+<p>@var Styles</p>
+
+<p>Create a new Xlsx Reader instance.</p>
+
+<p>Can the current IReader read the file?</p>
+
+<p>@param mixed $value</p>
+
+<p>@param mixed $value</p>
+
+<p>Reads names of the worksheets from a file, without parsing the whole file to a Spreadsheet object.</p>
+<p>@param string $filename</p>
+<p>@return array</p>
+
+<p>Return worksheet info (Name, Last Column Letter, Last Column Index, Total Rows, Total Columns).</p>
+<p>@param string $filename</p>
+<p>@return array</p>
+
+<p>@var SimpleXMLElement $eleSheet</p>
+
+<p>@param string $fileName</p>
+
+<p>@param string $fileName</p>
+<p>@return string</p>
+
+<p>Loads Spreadsheet from file.</p>
+
+<p>@var SimpleXMLElement $eleSheet</p>
+
+<p>@var SimpleXMLElement $blip</p>
+
+<p>@var SimpleXMLElement $xfrm</p>
+
+<p>@var SimpleXMLElement $outerShdw</p>
+
+<p>@var SimpleXMLElement $hlinkClick</p>
+
+<p>@var SimpleXMLElement $chartRef</p>
+
+<p>@scrutinizer ignore-call</p>
+
+<p>@var SimpleXMLElement $chartRef</p>
+
+<p>@return RichText</p>
+
+<p>@var SimpleXMLElement $run</p>
+
+<p>@param array $hyperlinks</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+<li><code>the</code></li>
+<li><code>file</code></li>
+<li><code>old</code></li>
+<li><code>1</code></li>
+<li><code>it</code></li>
+<li><code>twoCellAnchors</code></li>
+<li><code>Google</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Xlsx.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Reader\Xlsx extends BaseReader</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>canRead(string $filename)</code></li>
+<li><code>testSimpleXml($value)</code></li>
+<li><code>getAttributes(?SimpleXMLElement $value, string $ns = '')</code></li>
+<li><code>xpathNoFalse(SimpleXmlElement $sxml, string $path)</code></li>
+<li><code>falseToArray($value)</code></li>
+<li><code>loadZip(string $filename, string $ns = '')</code></li>
+<li><code>loadZipNonamespace(string $filename, string $ns)</code></li>
+<li><code>listWorksheetNames($filename)</code></li>
+<li><code>listWorksheetInfo($filename)</code></li>
+<li><code>castToBoolean($c)</code></li>
+<li><code>castToError($c)</code></li>
+<li><code>castToString($c)</code></li>
+<li><code>castToFormula($c, $r, &$cellDataType, &$value, &$calculatedValue, &$sharedFormulas, $castBaseType)</code></li>
+<li><code>fileExistsInArchive(ZipArchive $archive, $fileName = '')</code></li>
+<li><code>getFromZipArchive(ZipArchive $archive, $fileName = '')</code></li>
+<li><code>loadSpreadsheetFromFile(string $filename)</code></li>
+<li><code>parseRichText(?SimpleXMLElement $is)</code></li>
+<li><code>readRibbon(Spreadsheet $excel, string $customUITarget, ZipArchive $zip)</code></li>
+<li><code>getArrayItem($array, $key = 0)</code></li>
+<li><code>dirAdd($base, $add)</code></li>
+<li><code>toCSSArray($style)</code></li>
+<li><code>stripWhiteSpaceFromStyleString($string)</code></li>
+<li><code>boolean($value)</code></li>
+<li><code>readHyperLinkDrawing(\PhpOffice\PhpSpreadsheet\Worksheet\Drawing $objDrawing, SimpleXMLElement $cellAnchor, $hyperlinks)</code></li>
+<li><code>readProtection(Spreadsheet $excel, SimpleXMLElement $xmlWorkbook)</code></li>
+<li><code>getLockValue(SimpleXmlElement $protection, string $key)</code></li>
+<li><code>readFormControlProperties(Spreadsheet $excel, $dir, $fileWorksheet, $docSheet, array &$unparsedLoadedData)</code></li>
+<li><code>readPrinterSettings(Spreadsheet $excel, $dir, $fileWorksheet, $docSheet, array &$unparsedLoadedData)</code></li>
+<li><code>getWorkbookBaseName()</code></li>
+<li><code>readSheetProtection(Worksheet $docSheet, SimpleXMLElement $xmlSheet)</code></li>
+<li>`readAutoFilterTables(SimpleXMLElement $xmlSheet,</li>
+<p>        Worksheet $docSheet,</p>
+<p>        string $dir,</p>
+<p>        string $fileWorksheet,</p>
+<p>        ZipArchive $zip)`</p>
+<li>`readAutoFilterTablesInTablesFile(SimpleXMLElement $xmlSheet,</li>
+<p>        string $dir,</p>
+<p>        string $fileWorksheet,</p>
+<p>        ZipArchive $zip,</p>
+<p>        Worksheet $docSheet)`</p>
+<li><code>extractStyles(?SimpleXMLElement $sxml, string $node1, string $node2)</code></li>
+<li><code>extractPalette(?SimpleXMLElement $sxml)</code></li>
+</ul>
+</body></html>

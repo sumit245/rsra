@@ -1,0 +1,69 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\MessageFormatter.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\MessageFormatter.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\MessageFormatter.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7175 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Formats log messages using variable substitutions for requests, responses,</p>
+<p>and other transactional data.</p>
+<p>The following variable substitutions are supported:</p>
+<ul>
+<li>{request}:        Full HTTP request message</li>
+<li>{response}:       Full HTTP response message</li>
+<li>{ts}:             ISO 8601 date in GMT</li>
+<li>{date_iso_8601}   ISO 8601 date in GMT</li>
+<li>{date_common_log} Apache common log date using the configured timezone.</li>
+<li>{host}:           Host of the request</li>
+<li>{method}:         Method of the request</li>
+<li>{uri}:            URI of the request</li>
+<li>{version}:        Protocol version</li>
+<li>{target}:         Request target of the request (path + query + fragment)</li>
+<li>{hostname}:       Hostname of the machine that sent the request</li>
+<li>{code}:           Status code of the response (if available)</li>
+<li>{phrase}:         Reason phrase of the response  (if available)</li>
+<li>{error}:          Any error messages (if available)</li>
+<li>{req_header_*}:   Replace <code>*</code> with the lowercased name of a request header to add to the message</li>
+<li>{res_header_*}:   Replace <code>*</code> with the lowercased name of a response header to add to the message</li>
+<li>{req_headers}:    Request headers</li>
+<li>{res_headers}:    Response headers</li>
+<li>{req_body}:       Request body</li>
+<li>{res_body}:       Response body</li>
+</ul>
+<p>Apache Common Log Format.</p>
+<p>@link http://httpd.apache.org/docs/2.4/logs.html#common</p>
+<p>@var string</p>
+
+<p>@var string Template used to format log messages</p>
+
+<p>@param string $template Log message template</p>
+
+<p>Returns a formatted message string.</p>
+<p>@param RequestInterface  $request  Request that was sent</p>
+<p>@param ResponseInterface $response Response that was received</p>
+<p>@param \Exception        $error    Exception that was received</p>
+<p>@return string</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\MessageFormatter.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>GuzzleHttp\MessageFormatter</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($template = self::CLF)</code></li>
+<li>`format(RequestInterface $request,</li>
+<p>        ResponseInterface $response = null,</p>
+<p>        \Exception $error = null)`</p>
+<li><code>headers(MessageInterface $message)</code></li>
+</ul>
+</body></html>

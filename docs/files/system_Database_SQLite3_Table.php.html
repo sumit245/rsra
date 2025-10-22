@@ -1,0 +1,124 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Database\SQLite3\Table.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Database\SQLite3\Table.php</h1>
+
+<ul>
+<li>Path: <code>system\Database\SQLite3\Table.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9041 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Class Table</p>
+<p>Provides missing features for altering tables that are common</p>
+<p>in other supported databases, but are missing from SQLite.</p>
+<p>These are needed in order to support migrations during testing</p>
+<p>when another database is used as the primary engine, but</p>
+<p>SQLite in memory databases are used for faster test execution.</p>
+
+<p>All of the fields this table represents.</p>
+<p>@var array</p>
+<p>@phpstan-var array<string, array<string, bool|int|string|null>></p>
+
+<p>All of the unique/primary keys in the table.</p>
+<p>@var array</p>
+
+<p>All of the foreign keys in the table.</p>
+<p>@var array</p>
+
+<p>The name of the table we're working with.</p>
+<p>@var string</p>
+
+<p>The name of the table, with database prefix</p>
+<p>@var string</p>
+
+<p>Database connection.</p>
+<p>@var Connection</p>
+
+<p>Handle to our forge.</p>
+<p>@var Forge</p>
+
+<p>Table constructor.</p>
+
+<p>Reads an existing database table and</p>
+<p>collects all of the information needed to</p>
+<p>recreate this table.</p>
+<p>@return Table</p>
+
+<p>Called after <code>fromTable</code> and any actions, like <code>dropColumn</code>, etc,</p>
+<p>to finalize the action. It creates a temp table, creates the new</p>
+<p>table with modifications, and copies the data over to the new table.</p>
+<p>Resets the connection dataCache to be sure changes are collected.</p>
+
+<p>Drops columns from the table.</p>
+<p>@param array|string $columns</p>
+<p>@return Table</p>
+
+<p>Modifies a field, including changing data type,</p>
+<p>renaming, etc.</p>
+<p>@return Table</p>
+
+<p>Drops a foreign key from this table so that</p>
+<p>it won't be recreated in the future.</p>
+<p>@return Table</p>
+
+<p>Creates the new table based on our current fields.</p>
+<p>@return mixed</p>
+
+<p>Copies data from our old table to the new one,</p>
+<p>taking care map data correctly based on any columns</p>
+<p>that have been renamed.</p>
+
+<p>Converts fields retrieved from the database to</p>
+<p>the format needed for creating fields with Forge.</p>
+<p>@param array|bool $fields</p>
+<p>@return mixed</p>
+<p>@phpstan-return ($fields is array ? array : mixed)</p>
+
+<p>Converts keys retrieved from the database to</p>
+<p>the format needed to create later.</p>
+<p>@param mixed $keys</p>
+<p>@return mixed</p>
+
+<p>Attempts to drop all indexes and constraints</p>
+<p>from the database for this table.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>SQLite</code></li>
+<li><code>the</code></li>
+<li><code>this</code></li>
+<li><code>our</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Database\SQLite3\Table.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Database\SQLite3\Table</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(Connection $db, Forge $forge)</code></li>
+<li><code>fromTable(string $table)</code></li>
+<li><code>run()</code></li>
+<li><code>dropColumn($columns)</code></li>
+<li><code>modifyColumn(array $field)</code></li>
+<li><code>dropForeignKey(string $column)</code></li>
+<li><code>createTable()</code></li>
+<li><code>copyData()</code></li>
+<li><code>formatFields($fields)</code></li>
+<li><code>formatKeys($keys)</code></li>
+<li><code>dropIndexes()</code></li>
+</ul>
+</body></html>

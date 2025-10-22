@@ -1,0 +1,278 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\Purchase\Helpers\purchase_convert_field_helper.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\Purchase\Helpers\purchase_convert_field_helper.php</h1>
+
+<ul>
+<li>Path: <code>plugins\Purchase\Helpers\purchase_convert_field_helper.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 32828 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Function that renders input for admin area based on passed arguments</p>
+<p>@param  string $name             input name</p>
+<p>@param  string $label            label name</p>
+<p>@param  string $value            default value</p>
+<p>@param  string $type             input type eq text,number</p>
+<p>@param  array  $input_attrs      attributes on <input</p>
+<p>@param  array  $form_group_attr  <div class="form-group"> html attributes</p>
+<p>@param  string $form_group_class additional form group class</p>
+<p>@param  string $input_class      additional class on input</p>
+<p>@return string</p>
+
+<p>{ render textarea1 }</p>
+<p>@param      string  $name              The name</p>
+<p>@param      string  $label             The label</p>
+<p>@param      string  $value             The value</p>
+<p>@param      array   $textarea_attrs    The textarea attributes</p>
+<p>@param      array   $form_group_attr   The form group attribute</p>
+<p>@param      string  $form_group_class  The form group class</p>
+<p>@param      string  $textarea_class    The textarea class</p>
+<p>@param      bool    $placeholder       The placeholder</p>
+<p>@return     string  (  )</p>
+
+<p>{ render select  }</p>
+<p>@param      string  $name               The name</p>
+<p>@param      <type>  $options            The options</p>
+<p>@param      array   $option_attrs       The option attributes</p>
+<p>@param      string  $label              The label</p>
+<p>@param      string  $selected           The selected</p>
+<p>@param      array   $select_attrs       The select attributes</p>
+<p>@param      array   $form_group_attr    The form group attribute</p>
+<p>@param      string  $form_group_class   The form group class</p>
+<p>@param      string  $select_class       The select class</p>
+<p>@param      bool    $include_blank      The include blank</p>
+<p>@param      bool    $data_required      The data required</p>
+<p>@param      string  $data_required_msg  The data required message</p>
+<p>@return     string</p>
+
+<p>{ render color picker1 }</p>
+<p>@param      string  $name         The name</p>
+<p>@param      string  $label        The label</p>
+<p>@param      string  $value        The value</p>
+<p>@param      array   $input_attrs  The input attributes</p>
+<p>@return     string</p>
+
+<p>{ render_date_input }</p>
+<p>@param      string  $name               The name</p>
+<p>@param      string  $label              The label</p>
+<p>@param      string  $value              The value</p>
+<p>@param      array   $input_attrs        The input attributes</p>
+<p>@param      array   $form_group_attr    The form group attribute</p>
+<p>@param      string  $form_group_class   The form group class</p>
+<p>@param      string  $input_class        The input class</p>
+<p>@param      bool    $data_required      The data required</p>
+<p>@param      string  $data_required_msg  The data required message</p>
+<p>@param      bool    $placeholder        The placeholder</p>
+<p>@return     string  ( description_of_the_return_value )</p>
+
+<p>Gets the tax by name.</p>
+<p>@param        $name   The name</p>
+<p>@return       The tax by name.</p>
+
+<p>{ valueExistsByKey }</p>
+<p>@param      array   $array  The array</p>
+<p>@param        $key    The key</p>
+<p>@param        $val    The value</p>
+<p>@return     bool    ( description_of_the_return_value )</p>
+
+<p>Gets the current date format 1.</p>
+<p>@param      bool    $php    The php</p>
+<p>@return       The current date format 1.</p>
+
+<p>{ to sql date }</p>
+<p>@param      string  $date      The date</p>
+<p>@param      bool    $datetime  The datetime</p>
+<p>@return       date formated</p>
+
+<p>{ function_description }</p>
+<p>@param        $module  The module</p>
+<p>@param        $concat  The concatenate</p>
+<p>@return       ( description_of_the_return_value )</p>
+
+<p>{ module dir path }</p>
+
+<p>{ module dir path  }</p>
+<p>@param      string  $module  The module</p>
+<p>@param      string  $concat  The concatenate</p>
+<p>@return     string  ( description_of_the_return_value )</p>
+
+<p>String ends with</p>
+<p>@param  string $haystack</p>
+<p>@param  string $needle</p>
+<p>@return boolean</p>
+
+<p>String ends with</p>
+<p>@param  string $haystack</p>
+<p>@param  string $needle</p>
+<p>@return boolean</p>
+
+<p>{ strbefore1 }</p>
+<p>@param        $string     The string</p>
+<p>@param       $substring  The substring</p>
+<p>@return       ( description_of_the_return_value )</p>
+
+<p>{ strafter }</p>
+<p>@param        $string     The string</p>
+<p>@param        $substring  The substring</p>
+<p>@return     string</p>
+
+<p>{ _escape_str }</p>
+<p>@param        $str    The string</p>
+<p>@return</p>
+
+<p>_l</p>
+<p>@param  string $lang</p>
+<p>@return [type]</p>
+
+<p>db prefix</p>
+<p>@return [type]</p>
+
+<p>{ db prefix }</p>
+<p>@return       prefix</p>
+
+<p>Determines whether the specified staffid is admin.</p>
+<p>@param      string  $staffid  The staffid</p>
+<p>@return     bool    True if the specified staffid is admin, False otherwise.</p>
+
+<p>Count total rows on table based on params</p>
+<p>@param  string $table Table from where to count</p>
+<p>@param  array  $where</p>
+<p>@return mixed  Total rows</p>
+
+<p>{ ajax_on_total_items }</p>
+<p>@return     int</p>
+
+<p>Gets the staff user identifier.</p>
+<p>@return       The staff user identifier.</p>
+
+<p>Function that will check the date before formatting and replace the date places</p>
+<p>This function is custom developed because for some date formats converting to y-m-d format is not possible</p>
+<p>@param  string $date        the date to check</p>
+<p>@param  string $from_format from format</p>
+<p>@return string</p>
+
+<p>Generate md5 hash</p>
+<p>@return string</p>
+
+<p>{ update setting }</p>
+<p>@param      <type>  $name   The name</p>
+<p>@param      string  $value  The value</p>
+<p>@return     bool</p>
+
+<p>Gets the staff full name 1.</p>
+<p>@param      string  $userid  The userid</p>
+<p>@return     bool    The staff full name 1.</p>
+
+<p>Gets the staff user identifier 1.</p>
+<p>@return       The staff user identifier 1.</p>
+
+<p>Get Mime by Extension</p>
+<p>Translates a file extension into a mime type based on config/mimes.php.</p>
+<p>Returns FALSE if it can't determine the type, or open the mime config file</p>
+<p>Note: this is NOT an accurate way of determining file mime types, and is here strictly as a convenience</p>
+<p>It should NOT be trusted, and should certainly NOT be used for security</p>
+<p>@param string $filename File name</p>
+<p>@return string</p>
+
+<p>{ _maybe_create_upload_path }</p>
+<p>@param       $path   The path</p>
+
+<p>Get mime class by mime - admin system function</p>
+<p>@param  string $mime file mime type</p>
+<p>@return string</p>
+
+<p>Used in to eq preview images where the files are protected with .htaccess</p>
+<p>@param  string  $path    full path</p>
+<p>@param  boolean $preview</p>
+<p>@return string</p>
+
+<p>Parse markdown preview</p>
+<p>@param  string $path full markdown file path</p>
+<p>@return mixed</p>
+
+<p>Is file image</p>
+<p>@param  string  $path file path</p>
+<p>@return boolean</p>
+
+<p>List files in a specific folder</p>
+<p>@param  string $dir directory to list files</p>
+<p>@return array</p>
+
+<p>Delete directory</p>
+<p>@param  string $dirPath dir</p>
+<p>@return boolean</p>
+
+<p>Used in:</p>
+<p>Search contact tickets</p>
+<p>Project dropdown quick switch</p>
+<p>Calendar tooltips</p>
+<p>@param  [type] $userid [description]</p>
+<p>@return [type]         [description]</p>
+
+<p>{ format date }</p>
+<p>@param       $date   The date</p>
+<p>@return     date</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>default</code></li>
+<li><code>where</code></li>
+<li><code>format</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\Purchase\Helpers\purchase_convert_field_helper.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>on</code></li>
+<li><code>by</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>render_input($name, $label = '', $value = '', $type = 'text', array $input_attrs = [], array $form_group_attr = [], $form_group_class = '', $input_class = '', $data_required = false, $data_required_msg = '', $placeholder = false)</code></li>
+<li><code>render_textarea1($name, $label = '', $value = '', $textarea_attrs = [], $form_group_attr = [], $form_group_class = '', $textarea_class = '', $placeholder = false)</code></li>
+<li><code>render_select1($name, $options, $option_attrs = [], $label = '', $selected = '', $select_attrs = [], $form_group_attr = [], $form_group_class = '', $select_class = '', $include_blank = true, $data_required = false, $data_required_msg = '')</code></li>
+<li><code>render_color_picker1($name, $label = '', $value = '', $input_attrs = [])</code></li>
+<li><code>render_date_input($name, $label = '', $value = '', array $input_attrs = [], array $form_group_attr = [], $form_group_class = '', $input_class = '', $data_required = false, $data_required_msg = '', $placeholder = false)</code></li>
+<li><code>get_tax_by_name($name)</code></li>
+<li><code>valueExistsByKey($array, $key, $val)</code></li>
+<li><code>get_current_date_format1($php = false)</code></li>
+<li><code>to_sql_date1($date, $datetime = false)</code></li>
+<li><code>module_views_path($module, $concat = '')</code></li>
+<li><code>module_dir_path($module, $concat = '')</code></li>
+<li><code>endsWith($haystack, $needle)</code></li>
+<li><code>escape_str($str, $like = false)</code></li>
+<li><code>startsWith1($haystack, $needle)</code></li>
+<li><code>strbefore1($string, $substring)</code></li>
+<li><code>strafter($string, $substring)</code></li>
+<li><code>_escape_str($str)</code></li>
+<li><code>_l($lang = "")</code></li>
+<li><code>db_prefix()</code></li>
+<li><code>is_admin($staffid = '')</code></li>
+<li><code>get_status_modules_pur($module_name)</code></li>
+<li><code>total_rows($table, $where = [])</code></li>
+<li><code>ajax_on_total_items()</code></li>
+<li><code>get_staff_user_id()</code></li>
+<li><code>_simplify_date_fix($date, $from_format)</code></li>
+<li><code>app_generate_hash()</code></li>
+<li><code>update_setting($name, $value = '')</code></li>
+<li><code>get_staff_full_name($userid = '')</code></li>
+<li><code>get_staff_user_id1()</code></li>
+<li><code>get_mime_by_extension($filename)</code></li>
+<li><code>_maybe_create_upload_path($path)</code></li>
+<li><code>get_mime_class($mime)</code></li>
+<li><code>protected_file_url_by_path($path, $preview = false)</code></li>
+<li><code>markdown_parse_preview($path)</code></li>
+<li><code>is_image($path)</code></li>
+<li><code>list_files($dir)</code></li>
+<li><code>delete_dir($dirPath)</code></li>
+<li><code>get_company_name($userid, $prevent_empty_company = false)</code></li>
+<li><code>_d($date)</code></li>
+</ul>
+</body></html>

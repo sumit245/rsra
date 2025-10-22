@@ -1,0 +1,130 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\ElementDef.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\ElementDef.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\ElementDef.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7523 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Structure that stores an HTML element definition. Used by</p>
+<p>HTMLPurifier_HTMLDefinition and HTMLPurifier_HTMLModule.</p>
+<p>@note This class is inspected by HTMLPurifier_Printer_HTMLDefinition.</p>
+<p>      Please update that class too.</p>
+<p>@warning If you add new properties to this class, you MUST update</p>
+<p>         the mergeIn() method.</p>
+
+<p>Does the definition work by itself, or is it created solely</p>
+<p>for the purpose of merging into another definition?</p>
+<p>@type bool</p>
+
+<p>Associative array of attribute name to HTMLPurifier_AttrDef.</p>
+<p>@type array</p>
+<p>@note Before being processed by HTMLPurifier_AttrCollections</p>
+<p>      when modules are finalized during</p>
+<p>      HTMLPurifier_HTMLDefinition->setup(), this array may also</p>
+<p>      contain an array at index 0 that indicates which attribute</p>
+<p>      collections to load into the full array. It may also</p>
+<p>      contain string indentifiers in lieu of HTMLPurifier_AttrDef,</p>
+<p>      see HTMLPurifier_AttrTypes on how they are expanded during</p>
+<p>      HTMLPurifier_HTMLDefinition->setup() processing.</p>
+
+<p>List of tags HTMLPurifier_AttrTransform to be done before validation.</p>
+<p>@type array</p>
+
+<p>List of tags HTMLPurifier_AttrTransform to be done after validation.</p>
+<p>@type array</p>
+
+<p>HTMLPurifier_ChildDef of this tag.</p>
+<p>@type HTMLPurifier_ChildDef</p>
+
+<p>Abstract string representation of internal ChildDef rules.</p>
+<p>@see HTMLPurifier_ContentSets for how this is parsed and then transformed</p>
+<p>into an HTMLPurifier_ChildDef.</p>
+<p>@warning This is a temporary variable that is not available after</p>
+<p>     being processed by HTMLDefinition</p>
+<p>@type string</p>
+
+<p>Value of $child->type, used to determine which ChildDef to use,</p>
+<p>used in combination with $content_model.</p>
+<p>@warning This must be lowercase</p>
+<p>@warning This is a temporary variable that is not available after</p>
+<p>     being processed by HTMLDefinition</p>
+<p>@type string</p>
+
+<p>Does the element have a content model (#PCDATA | Inline)*? This</p>
+<p>is important for chameleon ins and del processing in</p>
+<p>HTMLPurifier_ChildDef_Chameleon. Dynamically set: modules don't</p>
+<p>have to worry about this one.</p>
+<p>@type bool</p>
+
+<p>List of the names of required attributes this element has.</p>
+<p>Dynamically populated by HTMLPurifier_HTMLDefinition::getElement()</p>
+<p>@type array</p>
+
+<p>Lookup table of tags excluded from all descendants of this tag.</p>
+<p>@type array</p>
+<p>@note SGML permits exclusions for all descendants, but this is</p>
+<p>      not possible with DTDs or XML Schemas. W3C has elected to</p>
+<p>      use complicated compositions of content_models to simulate</p>
+<p>      exclusion for children, but we go the simpler, SGML-style</p>
+<p>      route of flat-out exclusions, which correctly apply to</p>
+<p>      all descendants and not just children. Note that the XHTML</p>
+<p>      Modularization Abstract Modules are blithely unaware of such</p>
+<p>      distinctions.</p>
+
+<p>This tag is explicitly auto-closed by the following tags.</p>
+<p>@type array</p>
+
+<p>If a foreign element is found in this element, test if it is</p>
+<p>allowed by this sub-element; if it is, instead of closing the</p>
+<p>current element, place it inside this element.</p>
+<p>@type string</p>
+
+<p>Whether or not this is a formatting element affected by the</p>
+<p>"Active Formatting Elements" algorithm.</p>
+<p>@type bool</p>
+
+<p>Low-level factory constructor for creating new standalone element defs</p>
+
+<p>Merges the values of another element definition into this one.</p>
+<p>Values from the new element def take precedence if a value is</p>
+<p>not mergeable.</p>
+<p>@param HTMLPurifier_ElementDef $def</p>
+
+<p>Merges one array into another, removes values which equal false</p>
+<p>@param $a1 Array by reference that is merged into</p>
+<p>@param $a2 Array that merges into $a1</p>
+
+<h2>References</h2>
+
+<p><strong>Models Used</strong></p>
+<ul>
+<li><code>content_model</code></li>
+</ul>
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>all</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\ElementDef.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>is</code></li>
+<li><code>too</code></li>
+<li><code>HTMLPurifier_ElementDef</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>create($content_model, $content_model_type, $attr)</code></li>
+<li><code>mergeIn($def)</code></li>
+<li><code>_mergeAssocArray(&$a1, $a2)</code></li>
+</ul>
+</body></html>

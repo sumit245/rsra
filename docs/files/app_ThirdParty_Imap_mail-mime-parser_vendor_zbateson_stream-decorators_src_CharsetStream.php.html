@@ -1,0 +1,100 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\stream-decorators\src\CharsetStream.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\stream-decorators\src\CharsetStream.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\stream-decorators\src\CharsetStream.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4961 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\StreamDecorator project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>GuzzleHttp\Psr7 stream decoder extension for charset conversion.</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var MbWrapper the charset converter</p>
+
+<p>@var string charset of the source stream</p>
+
+<p>@var string charset of strings passed in write operations, and returned</p>
+<p>     in read operations.</p>
+
+<p>@var int current read/write position</p>
+
+<p>@var int number of $stringCharset characters in $buffer</p>
+
+<p>@var string a buffer of characters read in the original $streamCharset</p>
+<p>     encoding</p>
+
+<p>@param StreamInterface $stream Stream to decorate</p>
+<p>@param string $streamCharset The underlying stream's charset</p>
+<p>@param string $stringCharset The charset to encode strings to (or</p>
+<p>       expected for write)</p>
+
+<p>Overridden to return the position in the target encoding.</p>
+<p>@return int</p>
+
+<p>Returns null, getSize isn't supported</p>
+<p>@return null</p>
+
+<p>Not supported.</p>
+<p>@param int $offset</p>
+<p>@param int $whence</p>
+<p>@throws RuntimeException</p>
+
+<p>Overridden to return false</p>
+<p>@return boolean</p>
+
+<p>Reads a minimum of $length characters from the underlying stream in its</p>
+<p>encoding into $this->buffer.</p>
+<p>Aligning to 4 bytes seemed to solve an issue reading from UTF-16LE</p>
+<p>streams and pass testReadUtf16LeToEof, although the buffered string</p>
+<p>should've solved that on its own.</p>
+<p>@param int $length</p>
+
+<p>Returns true if the end of stream has been reached.</p>
+<p>@return boolean</p>
+
+<p>Reads up to $length decoded chars from the underlying stream and returns</p>
+<p>them after converting to the target string charset.</p>
+<p>@param int $length</p>
+<p>@return string</p>
+
+<p>Writes the passed string to the underlying stream after converting it to</p>
+<p>the target stream encoding.</p>
+<p>@param string $string</p>
+<p>@return int the number of bytes written</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>UTF</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\stream-decorators\src\CharsetStream.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\StreamDecorators\CharsetStream implements StreamInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(StreamInterface $stream, $streamCharset = 'ISO-8859-1', $stringCharset = 'UTF-8')</code></li>
+<li><code>tell()</code></li>
+<li><code>getSize()</code></li>
+<li><code>seek($offset, $whence = SEEK_SET)</code></li>
+<li><code>isSeekable()</code></li>
+<li><code>readRawCharsIntoBuffer($length)</code></li>
+<li><code>eof()</code></li>
+<li><code>read($length)</code></li>
+<li><code>write($string)</code></li>
+</ul>
+</body></html>

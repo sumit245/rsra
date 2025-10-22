@@ -1,0 +1,61 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\guzzlehttp\psr7\src\MessageTrait.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\guzzlehttp\psr7\src\MessageTrait.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\guzzlehttp\psr7\src\MessageTrait.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5917 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Trait implementing functionality common to requests and responses.</p>
+
+<p>@var array Map of all registered headers, as original name => array of values</p>
+
+<p>@var array Map of lowercase header name => original name at registration</p>
+
+<p>@var string</p>
+
+<p>@var StreamInterface</p>
+
+<p>Trims whitespace from the header values.</p>
+<p>Spaces and tabs ought to be excluded by parsers when extracting the field value from a header field.</p>
+<p>header-field = field-name ":" OWS field-value OWS</p>
+<p>OWS          = *( SP / HTAB )</p>
+<p>@param string[] $values Header values</p>
+<p>@return string[] Trimmed header values</p>
+<p>@see https://tools.ietf.org/html/rfc7230#section-3.2.4</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>a</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\guzzlehttp\psr7\src\MessageTrait.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getProtocolVersion()</code></li>
+<li><code>withProtocolVersion($version)</code></li>
+<li><code>getHeaders()</code></li>
+<li><code>hasHeader($header)</code></li>
+<li><code>getHeader($header)</code></li>
+<li><code>getHeaderLine($header)</code></li>
+<li><code>withHeader($header, $value)</code></li>
+<li><code>withAddedHeader($header, $value)</code></li>
+<li><code>withoutHeader($header)</code></li>
+<li><code>getBody()</code></li>
+<li><code>withBody(StreamInterface $body)</code></li>
+<li><code>setHeaders(array $headers)</code></li>
+<li><code>normalizeHeaderValue($value)</code></li>
+<li><code>trimHeaderValues(array $values)</code></li>
+<li><code>assertHeader($header)</code></li>
+</ul>
+</body></html>

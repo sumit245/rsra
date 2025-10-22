@@ -1,0 +1,110 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Quote.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Quote.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Quote.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9013 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>A Quote is a way to model prices that you'd like to provide to a customer. Once</p>
+<p>accepted, it will automatically create an invoice, subscription or subscription</p>
+<p>schedule.</p>
+<p>@property string $id Unique identifier for the object.</p>
+<p>@property string $object String representing the object's type. Objects of the same type share the same value.</p>
+<p>@property int $amount_subtotal Total before any discounts or taxes are applied.</p>
+<p>@property int $amount_total Total after discounts and taxes are applied.</p>
+<p>@property null|string|\Stripe\StripeObject $application ID of the Connect Application that created the quote.</p>
+<p>@property null|int $application_fee_amount The amount of the application fee (if any) that will be requested to be applied to the payment and transferred to the application owner's Stripe account. Only applicable if there are no line items with recurring prices on the quote.</p>
+<p>@property null|float $application_fee_percent A non-negative decimal between 0 and 100, with at most two decimal places. This represents the percentage of the subscription invoice subtotal that will be transferred to the application owner's Stripe account. Only applicable if there are line items with recurring prices on the quote.</p>
+<p>@property \Stripe\StripeObject $automatic_tax</p>
+<p>@property string $collection_method Either <code>charge_automatically</code>, or <code>send_invoice</code>. When charging automatically, Stripe will attempt to pay invoices at the end of the subscription cycle or on finalization using the default payment method attached to the subscription or customer. When sending an invoice, Stripe will email your customer an invoice with payment instructions. Defaults to <code>charge_automatically</code>.</p>
+<p>@property \Stripe\StripeObject $computed</p>
+<p>@property int $created Time at which the object was created. Measured in seconds since the Unix epoch.</p>
+<p>@property null|string $currency Three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO currency code</a>, in lowercase. Must be a <a href="https://stripe.com/docs/currencies">supported currency</a>.</p>
+<p>@property null|string|\Stripe\Customer $customer The customer which this quote belongs to. A customer is required before finalizing the quote. Once specified, it cannot be changed.</p>
+<p>@property (string|\Stripe\TaxRate)[] $default_tax_rates The tax rates applied to this quote.</p>
+<p>@property null|string $description A description that will be displayed on the quote PDF.</p>
+<p>@property (string|\Stripe\Discount)[] $discounts The discounts applied to this quote.</p>
+<p>@property int $expires_at The date on which the quote will be canceled if in <code>open</code> or <code>draft</code> status. Measured in seconds since the Unix epoch.</p>
+<p>@property null|string $footer A footer that will be displayed on the quote PDF.</p>
+<p>@property null|\Stripe\StripeObject $from_quote Details of the quote that was cloned. See the <a href="https://stripe.com/docs/quotes/clone">cloning documentation</a> for more details.</p>
+<p>@property null|string $header A header that will be displayed on the quote PDF.</p>
+<p>@property null|string|\Stripe\Invoice $invoice The invoice that was created from this quote.</p>
+<p>@property null|\Stripe\StripeObject $invoice_settings All invoices will be billed using the specified settings.</p>
+<p>@property \Stripe\Collection<\Stripe\LineItem> $line_items A list of items the customer is being quoted for.</p>
+<p>@property bool $livemode Has the value <code>true</code> if the object exists in live mode or the value <code>false</code> if the object exists in test mode.</p>
+<p>@property \Stripe\StripeObject $metadata Set of <a href="https://stripe.com/docs/api/metadata">key-value pairs</a> that you can attach to an object. This can be useful for storing additional information about the object in a structured format.</p>
+<p>@property null|string $number A unique number that identifies this particular quote. This number is assigned once the quote is <a href="https://stripe.com/docs/quotes/overview#finalize">finalized</a>.</p>
+<p>@property null|string|\Stripe\Account $on_behalf_of The account on behalf of which to charge. See the <a href="https://support.stripe.com/questions/sending-invoices-on-behalf-of-connected-accounts">Connect documentation</a> for details.</p>
+<p>@property string $status The status of the quote.</p>
+<p>@property \Stripe\StripeObject $status_transitions</p>
+<p>@property null|string|\Stripe\Subscription $subscription The subscription that was created or updated from this quote.</p>
+<p>@property \Stripe\StripeObject $subscription_data</p>
+<p>@property null|string|\Stripe\SubscriptionSchedule $subscription_schedule The subscription schedule that was created or updated from this quote.</p>
+<p>@property null|string|\Stripe\TestHelpers\TestClock $test_clock ID of the test clock this quote belongs to.</p>
+<p>@property \Stripe\StripeObject $total_details</p>
+<p>@property null|\Stripe\StripeObject $transfer_data The account (if any) the payments will be attributed to for tax reporting, and where funds from each payment will be transferred to for each of the invoices.</p>
+
+<p>@param callable $readBodyChunkCallable</p>
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Quote the accepted quote</p>
+
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Quote the canceled quote</p>
+
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Quote the finalized quote</p>
+
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\LineItem> list of LineItems</p>
+
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\LineItem> list of LineItems</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+<li><code>this</code></li>
+<li><code>each</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Quote.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Quote extends ApiResource</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>pdf($readBodyChunkCallable, $params = null, $opts = null)</code></li>
+<li><code>accept($params = null, $opts = null)</code></li>
+<li><code>cancel($params = null, $opts = null)</code></li>
+<li><code>finalizeQuote($params = null, $opts = null)</code></li>
+<li><code>allComputedUpfrontLineItems($id, $params = null, $opts = null)</code></li>
+<li><code>allLineItems($id, $params = null, $opts = null)</code></li>
+</ul>
+</body></html>

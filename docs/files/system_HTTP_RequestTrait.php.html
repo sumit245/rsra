@@ -1,0 +1,88 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\HTTP\RequestTrait.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\HTTP\RequestTrait.php</h1>
+
+<ul>
+<li>Path: <code>system\HTTP\RequestTrait.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 10557 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Request Trait</p>
+<p>Additional methods to make a PSR-7 Request class</p>
+<p>compliant with the framework's own RequestInterface.</p>
+<p>@see https://github.com/php-fig/http-message/blob/master/src/RequestInterface.php</p>
+
+<p>IP address of the current user.</p>
+<p>@var string</p>
+<p>@deprecated Will become private in a future release</p>
+
+<p>Stores values we've retrieved from</p>
+<p>PHP globals.</p>
+<p>@var array</p>
+
+<p>Gets the user's IP address.</p>
+<p>@return string IP address</p>
+
+<p>@deprecated $this->proxyIPs property will be removed in the future</p>
+
+<p>Fetch an item from the $_SERVER array.</p>
+<p>@param array|string|null $index  Index for item to be fetched from $_SERVER</p>
+<p>@param int|null          $filter A filter name to be applied</p>
+<p>@param null              $flags</p>
+<p>@return mixed</p>
+
+<p>Fetch an item from the $_ENV array.</p>
+<p>@param null $index  Index for item to be fetched from $_ENV</p>
+<p>@param null $filter A filter name to be applied</p>
+<p>@param null $flags</p>
+<p>@return mixed</p>
+
+<p>Allows manually setting the value of PHP global, like $_GET, $_POST, etc.</p>
+<p>@param mixed $value</p>
+<p>@return $this</p>
+
+<p>Fetches one or more items from a global, like cookies, get, post, etc.</p>
+<p>Can optionally filter the input when you retrieve it by passing in</p>
+<p>a filter.</p>
+<p>If $type is an array, it must conform to the input allowed by the</p>
+<p>filter_input_array method.</p>
+<p>http://php.net/manual/en/filter.filters.sanitize.php</p>
+<p>@param string            $method Input filter constant</p>
+<p>@param array|string|null $index</p>
+<p>@param int|null          $filter Filter constant</p>
+<p>@param array|int|null    $flags  Options</p>
+<p>@return mixed</p>
+
+<p>Saves a copy of the current state of one of several PHP globals</p>
+<p>so we can retrieve them later.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>a</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\HTTP\RequestTrait.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getIPAddress()</code></li>
+<li><code>getServer($index = null, $filter = null, $flags = null)</code></li>
+<li><code>getEnv($index = null, $filter = null, $flags = null)</code></li>
+<li><code>setGlobal(string $method, $value)</code></li>
+<li><code>fetchGlobal(string $method, $index = null, ?int $filter = null, $flags = null)</code></li>
+<li><code>populateGlobals(string $method)</code></li>
+</ul>
+</body></html>

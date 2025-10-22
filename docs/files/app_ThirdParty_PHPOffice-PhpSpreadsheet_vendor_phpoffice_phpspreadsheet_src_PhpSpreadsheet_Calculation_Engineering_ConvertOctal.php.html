@@ -1,0 +1,104 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Engineering\ConvertOctal.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Engineering\ConvertOctal.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Engineering\ConvertOctal.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7565 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>toBinary.</p>
+<p>Return an octal value as binary.</p>
+<p>Excel Function:</p>
+<p>       OCT2BIN(x[,places])</p>
+<p>@param array|string $value The octal number you want to convert. Number may not</p>
+<p>                         contain more than 10 characters. The most significant</p>
+<p>                         bit of number is the sign bit. The remaining 29 bits</p>
+<p>                         are magnitude bits. Negative numbers are represented</p>
+<p>                         using two's-complement notation.</p>
+<p>                     If number is negative, OCT2BIN ignores places and returns</p>
+<p>                         a 10-character binary number.</p>
+<p>                     If number is negative, it cannot be less than 7777777000,</p>
+<p>                         and if number is positive, it cannot be greater than 777.</p>
+<p>                     If number is not a valid octal number, OCT2BIN returns</p>
+<p>                         the #NUM! error value.</p>
+<p>                     If OCT2BIN requires more than places characters, it</p>
+<p>                         returns the #NUM! error value.</p>
+<p>                     Or can be an array of values</p>
+<p>@param array|int $places The number of characters to use. If places is omitted,</p>
+<p>                         OCT2BIN uses the minimum number of characters necessary.</p>
+<p>                         Places is useful for padding the return value with</p>
+<p>                         leading 0s (zeros).</p>
+<p>                     If places is not an integer, it is truncated.</p>
+<p>                     If places is nonnumeric, OCT2BIN returns the #VALUE!</p>
+<p>                         error value.</p>
+<p>                     If places is negative, OCT2BIN returns the #NUM! error</p>
+<p>                         value.</p>
+<p>                     Or can be an array of values</p>
+<p>@return array|string Result, or an error</p>
+<p>        If an array of numbers is passed as an argument, then the returned result will also be an array</p>
+<p>           with the same dimensions</p>
+
+<p>toDecimal.</p>
+<p>Return an octal value as decimal.</p>
+<p>Excel Function:</p>
+<p>       OCT2DEC(x)</p>
+<p>@param array|string $value The octal number you want to convert. Number may not contain</p>
+<p>                         more than 10 octal characters (30 bits). The most significant</p>
+<p>                         bit of number is the sign bit. The remaining 29 bits are</p>
+<p>                         magnitude bits. Negative numbers are represented using</p>
+<p>                         two's-complement notation.</p>
+<p>                     If number is not a valid octal number, OCT2DEC returns the</p>
+<p>                         #NUM! error value.</p>
+<p>                     Or can be an array of values</p>
+<p>@return array|string Result, or an error</p>
+<p>        If an array of numbers is passed as an argument, then the returned result will also be an array</p>
+<p>           with the same dimensions</p>
+
+<p>toHex.</p>
+<p>Return an octal value as hex.</p>
+<p>Excel Function:</p>
+<p>       OCT2HEX(x[,places])</p>
+<p>@param array|string $value The octal number you want to convert. Number may not contain</p>
+<p>                         more than 10 octal characters (30 bits). The most significant</p>
+<p>                         bit of number is the sign bit. The remaining 29 bits are</p>
+<p>                         magnitude bits. Negative numbers are represented using</p>
+<p>                         two's-complement notation.</p>
+<p>                     If number is negative, OCT2HEX ignores places and returns a</p>
+<p>                         10-character hexadecimal number.</p>
+<p>                     If number is not a valid octal number, OCT2HEX returns the</p>
+<p>                         #NUM! error value.</p>
+<p>                     If OCT2HEX requires more than places characters, it returns</p>
+<p>                         the #NUM! error value.</p>
+<p>                     Or can be an array of values</p>
+<p>@param array|int $places The number of characters to use. If places is omitted, OCT2HEX</p>
+<p>                         uses the minimum number of characters necessary. Places is useful</p>
+<p>                         for padding the return value with leading 0s (zeros).</p>
+<p>                     If places is not an integer, it is truncated.</p>
+<p>                     If places is nonnumeric, OCT2HEX returns the #VALUE! error value.</p>
+<p>                     If places is negative, OCT2HEX returns the #NUM! error value.</p>
+<p>                     Or can be an array of values</p>
+<p>@return array|string Result, or an error</p>
+<p>        If an array of numbers is passed as an argument, then the returned result will also be an array</p>
+<p>           with the same dimensions</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Engineering\ConvertOctal.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\Engineering\ConvertOctal extends ConvertBase</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>toBinary($value, $places = null)</code></li>
+<li><code>toDecimal($value)</code></li>
+<li><code>toHex($value, $places = null)</code></li>
+<li><code>validateOctal(string $value)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,56 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\PercentEncoder.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\PercentEncoder.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\PercentEncoder.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3565 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Class that handles operations involving percent-encoding in URIs.</p>
+<p>@warning</p>
+<p>     Be careful when reusing instances of PercentEncoder. The object</p>
+<p>     you use for normalize() SHOULD NOT be used for encode(), or</p>
+<p>     vice-versa.</p>
+
+<p>Reserved characters to preserve when using encode().</p>
+<p>@type array</p>
+
+<p>String of characters that should be preserved while using encode().</p>
+<p>@param bool $preserve</p>
+
+<p>Our replacement for urlencode, it encodes all non-reserved characters,</p>
+<p>as well as any extra characters that were instructed to be preserved.</p>
+<p>@note</p>
+<p>     Assumes that the string has already been normalized, making any</p>
+<p>     and all percent escape sequences valid. Percents will not be</p>
+<p>     re-escaped, regardless of their status in $preserve</p>
+<p>@param string $string String to be encoded</p>
+<p>@return string Encoded string.</p>
+
+<p>Fix up percent-encoding by decoding unreserved characters and normalizing.</p>
+<p>@warning This function is affected by $preserve, even though the</p>
+<p>         usual desired behavior is for this not to preserve those</p>
+<p>         characters. Be careful when reusing instances of PercentEncoder!</p>
+<p>@param string $string String to normalize</p>
+<p>@return string</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\PercentEncoder.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>HTMLPurifier_PercentEncoder</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($preserve = false)</code></li>
+<li><code>encode($string)</code></li>
+<li><code>normalize($string)</code></li>
+</ul>
+</body></html>

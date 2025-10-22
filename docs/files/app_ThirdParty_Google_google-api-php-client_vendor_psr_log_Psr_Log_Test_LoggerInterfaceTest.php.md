@@ -1,0 +1,50 @@
+# app\ThirdParty\Google\google-api-php-client\vendor\psr\log\Psr\Log\Test\LoggerInterfaceTest.php
+
+- Path: `app\ThirdParty\Google\google-api-php-client\vendor\psr\log\Psr\Log\Test\LoggerInterfaceTest.php`
+- Type: PHP
+- Size: 4597 bytes
+
+## Summary (from docblocks)
+
+Provides a base test class for ensuring compliance with the LoggerInterface.
+Implementors can extend the class and implement abstract methods to run this
+as part of their test suite.
+
+@return LoggerInterface
+
+This must return the log messages in order.
+The simple formatting of the messages is: "<LOG LEVEL> <MESSAGE>".
+Example ->error('Foo') would yield "error Foo".
+@return string[]
+
+@dataProvider provideLevelsAndMessages
+
+@expectedException \Psr\Log\InvalidArgumentException
+
+## Symbols
+
+# Symbols
+
+**Files documented**: 1
+
+## `app\ThirdParty\Google\google-api-php-client\vendor\psr\log\Psr\Log\Test\LoggerInterfaceTest.php`
+
+**Classes**:
+- `Psr\Log\Test\for`
+- `Psr\Log\Test\and`
+- `Psr\Log\Test\LoggerInterfaceTest extends \PHPUnit_Framework_TestCase`
+- `Psr\Log\Test\DummyTest`
+
+**Functions/Methods**:
+- `getLogger()`
+- `getLogs()`
+- `testImplements()`
+- `testLogsAtAllLevels($level, $message)`
+- `provideLevelsAndMessages()`
+- `testThrowsOnInvalidLevel()`
+- `testContextReplacement()`
+- `testObjectCastToString()`
+- `testContextCanContainAnything()`
+- `testContextExceptionKeyCanBeExceptionOrOtherValues()`
+- `__toString()`
+

@@ -1,0 +1,2214 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Controllers</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>Controllers</h1>
+
+<p><strong>Files documented</strong>: 76</p>
+
+<h2><code>app\Controllers\About.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\About extends App_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index($slug = "")</code></li>
+</ul>
+<h2><code>app\Controllers\Announcements.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Announcements extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>form($id = 0)</code></li>
+<li><code>_get_client_groups_dropdown_select2_data()</code></li>
+<li><code>view($id = "")</code></li>
+<li><code>_prepare_access_options($options = array()</code></li>
+<li><code>mark_as_read($id)</code></li>
+<li><code>save()</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_announcement_file()</code></li>
+<li><code>download_announcement_files($id = 0)</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data)</code></li>
+</ul>
+<h2><code>app\Controllers\App_Controller.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\App_Controller extends Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)</code></li>
+<li><code>get_models_array()</code></li>
+<li><code>validate_submitted_data($fields = array()</code></li>
+<li><code>download_app_files($directory_path, $serialized_file_data)</code></li>
+<li><code>_get_currency_dropdown_select2_data()</code></li>
+</ul>
+<h2><code>app\Controllers\Attendance.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Attendance extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>check_allowed_ip()</code></li>
+<li><code>access_only_allowed_members($user_id = 0)</code></li>
+<li><code>index($tab = "")</code></li>
+<li><code>modal_form()</code></li>
+<li><code>note_modal_form($user_id = 0)</code></li>
+<li><code>save()</code></li>
+<li><code>save_note()</code></li>
+<li><code>log_time($user_id = 0)</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>attendance_info()</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data)</code></li>
+<li><code>custom()</code></li>
+<li><code>members_clocked_in()</code></li>
+<li><code>_get_members_dropdown_list_for_filter()</code></li>
+<li><code>_get_members_query_options($type = "")</code></li>
+<li><code>summary()</code></li>
+<li><code>summary_list_data()</code></li>
+<li><code>summary_details()</code></li>
+<li><code>summary_details_list_data()</code></li>
+<li><code>clocked_in_members_list_data()</code></li>
+<li><code>clock_in_out()</code></li>
+<li><code>clock_in_out_list_data()</code></li>
+<li><code>_clock_in_out_row_data($user_id)</code></li>
+<li><code>_make_clock_in_out_row($data)</code></li>
+</ul>
+<h2><code>app\Controllers\Checklist_groups.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Checklist_groups extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save()</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data)</code></li>
+<li><code>checklists_list()</code></li>
+<li><code>get_checklist_group_suggestion()</code></li>
+</ul>
+<h2><code>app\Controllers\Checklist_template.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Checklist_template extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save()</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data)</code></li>
+<li><code>get_checklist_template_suggestion()</code></li>
+</ul>
+<h2><code>app\Controllers\Clients.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Clients extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index($tab = "")</code></li>
+<li><code>can_edit_clients()</code></li>
+<li><code>can_view_files()</code></li>
+<li><code>can_add_files()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save()</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data, $custom_fields)</code></li>
+<li><code>view($client_id = 0, $tab = "")</code></li>
+<li><code>add_remove_star($client_id, $type = "add")</code></li>
+<li><code>show_my_starred_clients()</code></li>
+<li><code>projects($client_id)</code></li>
+<li><code>payments($client_id)</code></li>
+<li><code>tickets($client_id)</code></li>
+<li><code>invoices($client_id)</code></li>
+<li><code>estimates($client_id)</code></li>
+<li><code>orders($client_id)</code></li>
+<li><code>estimate_requests($client_id)</code></li>
+<li><code>notes($client_id)</code></li>
+<li><code>events($client_id)</code></li>
+<li><code>files($client_id, $view_type = "")</code></li>
+<li><code>file_modal_form()</code></li>
+<li><code>save_file()</code></li>
+<li><code>files_list_data($client_id = 0)</code></li>
+<li><code>_make_file_row($data)</code></li>
+<li><code>view_file($file_id = 0)</code></li>
+<li><code>download_file($id)</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_file()</code></li>
+<li><code>delete_file()</code></li>
+<li><code>contact_profile($contact_id = 0, $tab = "")</code></li>
+<li><code>account_settings($contact_id)</code></li>
+<li><code>my_preferences()</code></li>
+<li><code>save_my_preferences()</code></li>
+<li><code>save_personal_language($language)</code></li>
+<li><code>contacts($client_id = 0)</code></li>
+<li><code>add_new_contact_modal_form()</code></li>
+<li><code>contact_general_info_tab($contact_id = 0)</code></li>
+<li><code>company_info_tab($client_id = 0)</code></li>
+<li><code>contact_social_links_tab($contact_id = 0)</code></li>
+<li><code>save_contact()</code></li>
+<li><code>save_contact_social_links($contact_id = 0)</code></li>
+<li><code>save_account_settings($user_id)</code></li>
+<li><code>save_profile_image($user_id = 0)</code></li>
+<li><code>delete_contact()</code></li>
+<li><code>contacts_list_data($client_id = 0)</code></li>
+<li><code>_contact_row_data($id)</code></li>
+<li><code>_make_contact_row($data, $custom_fields, $hide_primary_contact_label = false)</code></li>
+<li><code>invitation_modal()</code></li>
+<li><code>send_invitation()</code></li>
+<li><code>users()</code></li>
+<li><code>keyboard_shortcut_modal_form()</code></li>
+<li><code>upload_excel_file()</code></li>
+<li><code>import_clients_modal_form()</code></li>
+<li><code>_prepare_client_data($data_row, $allowed_headers)</code></li>
+<li><code>_get_existing_custom_field_id($title = "")</code></li>
+<li><code>_prepare_headers_for_submit($headers_row, $headers)</code></li>
+<li><code>save_client_from_excel_file()</code></li>
+<li><code>_save_custom_fields_of_client($client_id, $custom_field_values_array)</code></li>
+<li><code>_get_client_group_ids($client_groups_data)</code></li>
+<li><code>_get_allowed_headers()</code></li>
+<li><code>_store_headers_position($headers_row = array()</code></li>
+<li><code>validate_import_clients_file()</code></li>
+<li><code>validate_import_clients_file_data($check_on_submit = false)</code></li>
+<li><code>_row_data_validation_and_get_error_message($key, $data, $has_contact_first_name, $headers = array()</code></li>
+<li><code>download_sample_excel_file()</code></li>
+<li><code>gdpr()</code></li>
+<li><code>export_my_data()</code></li>
+<li><code>_make_export_data($user_info)</code></li>
+<li><code>request_my_account_removal()</code></li>
+<li><code>expenses($client_id)</code></li>
+<li><code>contracts($client_id)</code></li>
+<li><code>clients_list()</code></li>
+<li><code>make_access_permissions_view_data()</code></li>
+<li><code>proposals($client_id)</code></li>
+<li><code>switch_account($user_id)</code></li>
+</ul>
+<h2><code>app\Controllers\Client_groups.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Client_groups extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save()</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data)</code></li>
+</ul>
+<h2><code>app\Controllers\Collect_leads.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Collect_leads extends App_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index($lead_source_id = 0)</code></li>
+<li><code>is_valid_recaptcha($recaptcha_post_data)</code></li>
+<li><code>save()</code></li>
+<li><code>lead_html_form_code_modal_form()</code></li>
+<li><code>embedded_code_modal_form()</code></li>
+</ul>
+<h2><code>app\Controllers\Company.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Company extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save()</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data)</code></li>
+</ul>
+<h2><code>app\Controllers\Contract.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Contract extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>preview($contract_id = 0, $public_key = "")</code></li>
+<li><code>update_contract_status($contract_id, $public_key, $status)</code></li>
+<li><code>print_contract($contract_id = 0, $public_key = "")</code></li>
+<li><code>accept_contract_modal_form($contract_id = 0, $public_key = "")</code></li>
+<li><code>accept_contract()</code></li>
+<li><code>file_preview($id = "", $key = "", $public_key = "")</code></li>
+</ul>
+<h2><code>app\Controllers\Contracts.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Contracts extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>yearly()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>get_contract_clients_and_leads_dropdown()</code></li>
+<li><code>save_view()</code></li>
+<li><code>save()</code></li>
+<li><code>update_contract_status($contract_id, $status)</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>contract_list_data_of_client($client_id)</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data, $custom_fields)</code></li>
+<li><code>_get_contract_status_label($contract_info, $return_html = true)</code></li>
+<li><code>view($contract_id = 0)</code></li>
+<li><code>_get_contract_total_view($contract_id = 0)</code></li>
+<li><code>discount_modal_form()</code></li>
+<li><code>save_discount()</code></li>
+<li><code>item_modal_form()</code></li>
+<li><code>save_item()</code></li>
+<li><code>delete_item()</code></li>
+<li><code>item_list_data($contract_id = 0)</code></li>
+<li><code>_make_item_row($data)</code></li>
+<li><code>get_contract_item_suggestion()</code></li>
+<li><code>get_contract_item_info_suggestion()</code></li>
+<li><code>preview($contract_id = 0, $show_close_preview = false, $is_editor_preview = false)</code></li>
+<li><code>_check_contract_access_permission($contract_data)</code></li>
+<li><code>get_contract_status_bar($contract_id = 0)</code></li>
+<li><code>send_contract_modal_form($contract_id)</code></li>
+<li><code>send_contract()</code></li>
+<li><code>update_item_sort_values($id = 0)</code></li>
+<li><code>editor($contract_id = 0)</code></li>
+<li><code>get_project_suggestion($client_id = 0)</code></li>
+<li><code>contract_list_data_of_project($project_id)</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_contracts_file()</code></li>
+</ul>
+<h2><code>app\Controllers\Contract_templates.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Contract_templates extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save_template()</code></li>
+<li><code>form($id = "")</code></li>
+<li><code>save()</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data($view_type = "")</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data, $view_type = "")</code></li>
+<li><code>insert_template_modal_form()</code></li>
+<li><code>get_template_data($id = 0)</code></li>
+</ul>
+<h2><code>app\Controllers\Cron.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Cron extends App_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+</ul>
+<h2><code>app\Controllers\Custom_fields.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Custom_fields extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>view($tab = "client")</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save()</code></li>
+<li><code>list_data($related_to)</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_field_row($data)</code></li>
+<li><code>update_field_sort_values($id = 0)</code></li>
+<li><code>delete()</code></li>
+<li><code>leads()</code></li>
+<li><code>client_contacts()</code></li>
+<li><code>lead_contacts()</code></li>
+<li><code>projects()</code></li>
+<li><code>tasks()</code></li>
+<li><code>team_members()</code></li>
+<li><code>tickets()</code></li>
+<li><code>invoices()</code></li>
+<li><code>events()</code></li>
+<li><code>expenses()</code></li>
+<li><code>estimates()</code></li>
+<li><code>orders()</code></li>
+<li><code>timesheets()</code></li>
+<li><code>contracts()</code></li>
+<li><code>proposals()</code></li>
+<li><code>project_files()</code></li>
+</ul>
+<h2><code>app\Controllers\Dashboard.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Dashboard extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>_check_widgets_permissions()</code></li>
+<li><code>_check_widgets_for_staffs()</code></li>
+<li><code>_check_widgets_for_clients()</code></li>
+<li><code>save_sticky_note()</code></li>
+<li><code>modal_form($id = 0)</code></li>
+<li><code>custom_widget_modal_form($id = 0)</code></li>
+<li><code>save_custom_widget()</code></li>
+<li><code>show_my_dashboards()</code></li>
+<li><code>view($id = 0)</code></li>
+<li><code>_convert_widgets_array_to_formated_obj($row_widgets = array()</code></li>
+<li><code>_get_admin_and_team_dashboard_widgets()</code></li>
+<li><code>_get_first_row_of_admin_and_team_dashboard($widgets)</code></li>
+<li><code>_get_second_and_third_row_of_admin_and_team_dashboard_widget_columns($widgets)</code></li>
+<li><code>_get_second_row_of_admin_and_team_dashboard($all_columns)</code></li>
+<li><code>_get_third_row_of_admin_and_team_dashboard($all_columns)</code></li>
+<li><code>_get_fourth_row_of_admin_and_team_dashboard($widgets)</code></li>
+<li><code>_get_fifth_row_of_admin_and_team_dashboard($widgets)</code></li>
+<li><code>_get_admin_and_team_dashboard_data()</code></li>
+<li><code>view_custom_widget()</code></li>
+<li><code>view_default_widget()</code></li>
+<li><code>_get_my_dashboard($id = 0, $is_staff_dashboard = false)</code></li>
+<li><code>is_staff_dashboard($id)</code></li>
+<li><code>_get_my_custom_widget($id = 0)</code></li>
+<li><code>edit_dashboard($id = 0)</code></li>
+<li><code>save()</code></li>
+<li><code>delete()</code></li>
+<li><code>delete_custom_widgets()</code></li>
+<li><code>_remove_widgets($widgets = array()</code></li>
+<li><code>_get_default_widgets()</code></li>
+<li><code>_make_widgets($dashboard_id = 0)</code></li>
+<li><code>_make_widgets_row($widgets_array = array()</code></li>
+<li><code>_widgets_row_data($widget_array)</code></li>
+<li><code>_make_editable_rows($elements)</code></li>
+<li><code>make_dashboard($elements)</code></li>
+<li><code>_make_dashboard_widgets($widget = "")</code></li>
+<li><code>_get_widgets_for_staffs($widget, $widgets_array)</code></li>
+<li><code>_get_widgets_for_client($widget, $widgets_array)</code></li>
+<li><code>_get_plugin_widgets($widget = "")</code></li>
+<li><code>_get_column_class_value($key, $columns, $column_ratio)</code></li>
+<li><code>save_dashboard_sort()</code></li>
+<li><code>client_default_dashboard()</code></li>
+<li><code>edit_client_default_dashboard()</code></li>
+<li><code>save_client_default_dashboard()</code></li>
+<li><code>restore_to_default_client_dashboard()</code></li>
+<li><code>mark_as_default()</code></li>
+</ul>
+<h2><code>app\Controllers\Email_templates.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Email_templates extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>_templates()</code></li>
+<li><code>index()</code></li>
+<li><code>save()</code></li>
+<li><code>restore_to_default()</code></li>
+<li><code>form($template_name = "", $template_language = "")</code></li>
+<li><code>add_template_modal_form()</code></li>
+<li><code>save_template()</code></li>
+<li><code>different_language_form($id = 0)</code></li>
+</ul>
+<h2><code>app\Controllers\Estimate.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Estimate extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>preview($estimate_id = 0, $public_key = "")</code></li>
+<li><code>update_estimate_status($estimate_id, $public_key, $status)</code></li>
+<li><code>accept_estimate_modal_form($estimate_id = 0, $public_key = "")</code></li>
+<li><code>accept_estimate()</code></li>
+</ul>
+<h2><code>app\Controllers\Estimates.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Estimates extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>show_own_estimates_only_user_id()</code></li>
+<li><code>can_access_this_estimate($estimate_id = 0)</code></li>
+<li><code>can_access_this_estimate_item($estimate_item_id = 0)</code></li>
+<li><code>yearly()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save()</code></li>
+<li><code>_copy_related_items_to_estimate($copy_items_from_proposal, $copy_items_from_contract, $copy_items_from_order, $estimate_id)</code></li>
+<li><code>update_estimate_status($estimate_id, $status, $is_modal = false)</code></li>
+<li><code>_create_project_from_estimate($estimate_id)</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>estimate_list_data_of_client($client_id)</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data, $custom_fields)</code></li>
+<li><code>_get_estimate_status_label($estimate_info, $return_html = true)</code></li>
+<li><code>view($estimate_id = 0)</code></li>
+<li><code>_get_estimate_total_view($estimate_id = 0)</code></li>
+<li><code>discount_modal_form()</code></li>
+<li><code>save_discount()</code></li>
+<li><code>item_modal_form()</code></li>
+<li><code>save_item()</code></li>
+<li><code>delete_item()</code></li>
+<li><code>item_list_data($estimate_id = 0)</code></li>
+<li><code>_make_item_row($data)</code></li>
+<li><code>get_estimate_item_suggestion()</code></li>
+<li><code>get_estimate_item_info_suggestion()</code></li>
+<li><code>preview($estimate_id = 0, $show_close_preview = false)</code></li>
+<li><code>download_pdf($estimate_id = 0, $mode = "download")</code></li>
+<li><code>_check_estimate_access_permission($estimate_data)</code></li>
+<li><code>get_estimate_status_bar($estimate_id = 0)</code></li>
+<li><code>send_estimate_modal_form($estimate_id)</code></li>
+<li><code>send_estimate()</code></li>
+<li><code>update_item_sort_values($id = 0)</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_estimate_file()</code></li>
+<li><code>save_comment()</code></li>
+<li><code>delete_comment($id = 0)</code></li>
+<li><code>download_comment_files($id)</code></li>
+<li><code>comment_modal_form()</code></li>
+<li><code>load_statistics_of_selected_currency($currency = "")</code></li>
+<li><code>print_estimate($estimate_id = 0)</code></li>
+</ul>
+<h2><code>app\Controllers\Estimate_requests.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Estimate_requests extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>view_estimate_request($id = 0)</code></li>
+<li><code>download_estimate_request_files($id = 0)</code></li>
+<li><code>estimate_request_list_data()</code></li>
+<li><code>estimate_requests_for_client($client_id)</code></li>
+<li><code>estimate_requests_list_data_of_client($client_id)</code></li>
+<li><code>_make_estimate_request_row($data)</code></li>
+<li><code>_estimate_request_row_data($id)</code></li>
+<li><code>delete_estimate_request()</code></li>
+<li><code>_get_estimate_status_label($status = "")</code></li>
+<li><code>estimate_request_filed_list_data($id = 0)</code></li>
+<li><code>_make_estimate_request_field_row($data)</code></li>
+<li><code>estimate_forms()</code></li>
+<li><code>estimate_request_modal_form()</code></li>
+<li><code>save_estimate_request_form()</code></li>
+<li><code>delete_estimate_request_form()</code></li>
+<li><code>estimate_forms_list_data()</code></li>
+<li><code>_form_row_data($id)</code></li>
+<li><code>_make_form_row($data)</code></li>
+<li><code>edit_estimate_form($id = 0)</code></li>
+<li><code>edit_estimate_request_modal_form()</code></li>
+<li><code>update_estimate_request()</code></li>
+<li><code>change_estimate_request_status($id, $status)</code></li>
+<li><code>preview_estimate_form($id = 0)</code></li>
+<li><code>estimate_form_field_modal_form($estimate_form_id = 0)</code></li>
+<li><code>save_estimate_form_field()</code></li>
+<li><code>estimate_form_filed_list_data($id = 0)</code></li>
+<li><code>_form_filed_row_data($id)</code></li>
+<li><code>_make_form_field_row($data)</code></li>
+<li><code>update_form_field_sort_values($id = 0)</code></li>
+<li><code>estimate_form_field_delete()</code></li>
+<li><code>request_an_estimate_modal_form()</code></li>
+<li><code>submit_estimate_request_form($id = 0)</code></li>
+<li><code>save_estimate_request()</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_file()</code></li>
+<li><code>embedded_code_modal_form()</code></li>
+</ul>
+<h2><code>app\Controllers\Events.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Events extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index($encrypted_event_id = "")</code></li>
+<li><code>can_share_events()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save()</code></li>
+<li><code>delete()</code></li>
+<li><code>calendar_events($filter_values = "", $event_label_id = 0, $client_id = 0)</code></li>
+<li><code>_make_calendar_event($data)</code></li>
+<li><code>_make_leave_event($data)</code></li>
+<li><code>_make_project_event($data, $start_date_event = false)</code></li>
+<li><code>_make_task_event($data, $start_date_event = false)</code></li>
+<li><code>view()</code></li>
+<li><code>_make_view_data($encrypted_event_id, $cycle = "0")</code></li>
+<li><code>_get_confirmed_and_rejected_users_list($confirmed_by_array, $rejected_by_array)</code></li>
+<li><code>save_event_status()</code></li>
+<li><code>get_all_contacts_of_client($client_id)</code></li>
+<li><code>google_calendar_settings_modal_form()</code></li>
+<li><code>save_google_calendar_settings()</code></li>
+<li><code>show_event_in_google_calendar($google_event_id = "")</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_events_file()</code></li>
+<li><code>file_preview($id = "", $key = "")</code></li>
+<li><code>reminders()</code></li>
+<li><code>reminders_list_data($type = "", $task_id = 0, $project_id = 0, $client_id = 0, $lead_id = 0, $ticket_id = 0)</code></li>
+<li><code>_make_reminder_row($data = array()</code></li>
+<li><code>can_access_this_reminder($reminder_info)</code></li>
+<li><code>can_create_reminders()</code></li>
+<li><code>save_reminder_status($id = 0, $status = "")</code></li>
+<li><code>snooze_reminder()</code></li>
+<li><code>reminder_view()</code></li>
+<li><code>get_reminders_for_current_user()</code></li>
+<li><code>count_missed_reminders()</code></li>
+</ul>
+<h2><code>app\Controllers\Expenses.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Expenses extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>_get_categories_dropdown()</code></li>
+<li><code>_get_team_members_dropdown()</code></li>
+<li><code>yearly()</code></li>
+<li><code>summary()</code></li>
+<li><code>custom()</code></li>
+<li><code>recurring()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save()</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data($recurring = false)</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data, $custom_fields)</code></li>
+<li><code>file_preview($id = "", $key = "")</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_expense_file()</code></li>
+<li><code>yearly_chart()</code></li>
+<li><code>yearly_chart_data()</code></li>
+<li><code>income_vs_expenses()</code></li>
+<li><code>income_vs_expenses_chart_data()</code></li>
+<li><code>income_vs_expenses_summary()</code></li>
+<li><code>income_vs_expenses_summary_list_data()</code></li>
+<li><code>_row_data_of_summary($month_index, $payments, $expenses)</code></li>
+<li><code>expense_list_data_of_client($client_id)</code></li>
+<li><code>can_access_clients()</code></li>
+<li><code>expense_details()</code></li>
+<li><code>summary_list_data()</code></li>
+<li><code>download_files($id)</code></li>
+<li><code>import_expenses_modal_form()</code></li>
+<li><code>download_sample_excel_file()</code></li>
+<li><code>upload_excel_file()</code></li>
+<li><code>validate_import_expenses_file()</code></li>
+<li><code>_prepare_expense_data($data_row, $allowed_headers)</code></li>
+<li><code>_get_existing_custom_field_id($title = "")</code></li>
+<li><code>_prepare_headers_for_submit($headers_row, $headers)</code></li>
+<li><code>save_expense_from_excel_file()</code></li>
+<li><code>_save_custom_fields_of_expense($expense_id, $custom_field_values_array)</code></li>
+<li><code>_get_category_id($category = "")</code></li>
+<li><code>_get_project_id($project = "")</code></li>
+<li><code>_get_user_id($user = "")</code></li>
+<li><code>_get_client_id($client = "")</code></li>
+<li><code>_get_tax_id($tax = "")</code></li>
+<li><code>_get_allowed_headers()</code></li>
+<li><code>_store_headers_position($headers_row = array()</code></li>
+<li><code>validate_import_expenses_file_data($check_on_submit = false)</code></li>
+<li><code>_row_data_validation_and_get_error_message($key, $data, $headers = array()</code></li>
+</ul>
+<h2><code>app\Controllers\Expense_categories.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Expense_categories extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save()</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data)</code></li>
+</ul>
+<h2><code>app\Controllers\External_tickets.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\External_tickets extends App_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>is_valid_recaptcha($recaptcha_post_data)</code></li>
+<li><code>save()</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_file()</code></li>
+<li><code>embedded_code_modal_form()</code></li>
+</ul>
+<h2><code>app\Controllers\Forbidden.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Forbidden extends App_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+</ul>
+<h2><code>app\Controllers\Google_api.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Google_api extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>authorize()</code></li>
+<li><code>save_access_token()</code></li>
+<li><code>authorize_calendar()</code></li>
+<li><code>save_access_token_of_calendar()</code></li>
+</ul>
+<h2><code>app\Controllers\Help.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Help extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>view($id = 0)</code></li>
+<li><code>get_article_suggestion()</code></li>
+<li><code>category($id)</code></li>
+<li><code>help_articles()</code></li>
+<li><code>knowledge_base_articles()</code></li>
+<li><code>help_categories()</code></li>
+<li><code>knowledge_base_categories()</code></li>
+<li><code>category_modal_form($type)</code></li>
+<li><code>save_category()</code></li>
+<li><code>delete_category()</code></li>
+<li><code>categories_list_data($type)</code></li>
+<li><code>_category_row_data($id)</code></li>
+<li><code>_make_category_row($data)</code></li>
+<li><code>article_form($type, $id = 0)</code></li>
+<li><code>save_article()</code></li>
+<li><code>delete_article()</code></li>
+<li><code>articles_list_data($type)</code></li>
+<li><code>_article_row_data($id)</code></li>
+<li><code>_make_article_row($data)</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_file()</code></li>
+<li><code>download_files($id = 0)</code></li>
+</ul>
+<h2><code>app\Controllers\Invoices.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Invoices extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index($tab = "")</code></li>
+<li><code>yearly()</code></li>
+<li><code>recurring()</code></li>
+<li><code>custom()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>get_project_suggestion($client_id = 0)</code></li>
+<li><code>save()</code></li>
+<li><code>_copy_related_items_to_invoice($copy_items_from_estimate, $copy_items_from_proposal, $copy_items_from_order, $copy_items_from_contract, $invoice_id)</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>invoice_list_data_of_client($client_id)</code></li>
+<li><code>invoice_list_data_of_project($project_id, $client_id = 0)</code></li>
+<li><code>sub_invoices($recurring_invoice_id)</code></li>
+<li><code>sub_invoices_list_data($recurring_invoice_id)</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data, $custom_fields)</code></li>
+<li><code>_make_options_dropdown($invoice_id = 0)</code></li>
+<li><code>_get_invoice_status_label($data, $return_html = true)</code></li>
+<li><code>recurring_list_data()</code></li>
+<li><code>_make_recurring_row($data)</code></li>
+<li><code>view($invoice_id = 0)</code></li>
+<li><code>_get_invoice_total_view($invoice_id = 0)</code></li>
+<li><code>item_modal_form()</code></li>
+<li><code>save_item()</code></li>
+<li><code>delete_item()</code></li>
+<li><code>item_list_data($invoice_id = 0)</code></li>
+<li><code>_make_item_row($data)</code></li>
+<li><code>update_item_sort_values($id = 0)</code></li>
+<li><code>get_invoice_item_suggestion()</code></li>
+<li><code>get_invoice_item_info_suggestion()</code></li>
+<li><code>preview($invoice_id = 0, $show_close_preview = false)</code></li>
+<li><code>print_invoice($invoice_id = 0)</code></li>
+<li><code>download_pdf($invoice_id = 0, $mode = "download")</code></li>
+<li><code>_check_invoice_access_permission($invoice_data)</code></li>
+<li><code>send_invoice_modal_form($invoice_id)</code></li>
+<li><code>get_send_invoice_template($invoice_id = 0, $contact_id = 0, $return_type = "", $invoice_info = "", $contact_info = "")</code></li>
+<li><code>send_invoice()</code></li>
+<li><code>get_invoice_status_bar($invoice_id = 0)</code></li>
+<li><code>update_invoice_status($invoice_id = 0, $status = "")</code></li>
+<li><code>discount_modal_form()</code></li>
+<li><code>save_discount()</code></li>
+<li><code>load_statistics_of_selected_currency($currency = "", $currency_symbol = "")</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_invoices_file()</code></li>
+<li><code>file_preview($id = "", $key = "")</code></li>
+<li><code>load_invoice_overview_statistics_of_selected_currency($currency = "", $currency_symbol = "")</code></li>
+</ul>
+<h2><code>app\Controllers\Invoice_payments.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Invoice_payments extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>get_payment_method_dropdown()</code></li>
+<li><code>yearly()</code></li>
+<li><code>custom()</code></li>
+<li><code>payment_modal_form()</code></li>
+<li><code>save_payment()</code></li>
+<li><code>delete_payment()</code></li>
+<li><code>payment_list_data($invoice_id = 0)</code></li>
+<li><code>payment_list_data_of_client($client_id = 0)</code></li>
+<li><code>payment_list_data_of_project($project_id = 0)</code></li>
+<li><code>_make_payment_row($data)</code></li>
+<li><code>_get_invoice_total_view($invoice_id = 0)</code></li>
+<li><code>yearly_chart()</code></li>
+<li><code>yearly_chart_data()</code></li>
+<li><code>get_paytm_checksum_hash()</code></li>
+<li><code>get_stripe_checkout_session()</code></li>
+<li><code>payments_summary()</code></li>
+<li><code>yearly_payment_summary_list_data()</code></li>
+<li><code>clients_payment_summary()</code></li>
+<li><code>clients_payment_summary_list_data()</code></li>
+<li><code>can_access_clients()</code></li>
+</ul>
+<h2><code>app\Controllers\Items.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Items extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>validate_access_to_items()</code></li>
+<li><code>index()</code></li>
+<li><code>_get_categories_dropdown()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save()</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>_make_item_row($data)</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_items_file()</code></li>
+<li><code>view()</code></li>
+<li><code>save_files_sort()</code></li>
+<li><code>grid_view($offset = 0, $limit = 20, $category_id = 0, $search = "")</code></li>
+<li><code>add_item_to_cart()</code></li>
+<li><code>count_cart_items()</code></li>
+<li><code>load_cart_items()</code></li>
+<li><code>delete_cart_item()</code></li>
+<li><code>change_cart_item_quantity($type = "")</code></li>
+<li><code>_get_cart_total_view()</code></li>
+<li><code>import_items_modal_form()</code></li>
+<li><code>download_sample_excel_file()</code></li>
+<li><code>upload_excel_file()</code></li>
+<li><code>validate_import_items_file()</code></li>
+<li><code>save_item_from_excel_file()</code></li>
+<li><code>_get_item_category_id($category = "")</code></li>
+<li><code>_get_allowed_headers()</code></li>
+<li><code>_store_headers_position($headers_row = array()</code></li>
+<li><code>validate_import_items_file_data($check_on_submit = false)</code></li>
+<li><code>_row_data_validation_and_get_error_message($key, $data)</code></li>
+<li><code>_prepare_item_data($data_row, $allowed_headers)</code></li>
+</ul>
+<h2><code>app\Controllers\Item_categories.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Item_categories extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save()</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data)</code></li>
+</ul>
+<h2><code>app\Controllers\Knowledge_base.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Knowledge_base extends App_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>category($id)</code></li>
+<li><code>view($id = 0)</code></li>
+<li><code>get_article_suggestion()</code></li>
+<li><code>download_files($id = 0)</code></li>
+<li><code>article_helpful_status($article_id, $status)</code></li>
+</ul>
+<h2><code>app\Controllers\Labels.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Labels extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>can_access_labels_of_this_context($context = "", $label_id = 0)</code></li>
+<li><code>modal_form()</code></li>
+<li><code>_make_existing_labels_data($type)</code></li>
+<li><code>_get_labels_row_data($data)</code></li>
+<li><code>save()</code></li>
+<li><code>delete()</code></li>
+</ul>
+<h2><code>app\Controllers\Leads.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Leads extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>make_lead_modal_form_data($lead_id = 0)</code></li>
+<li><code>_get_owners_dropdown($view_type = "")</code></li>
+<li><code>save()</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data, $custom_fields)</code></li>
+<li><code>view($client_id = 0, $tab = "")</code></li>
+<li><code>estimates($client_id)</code></li>
+<li><code>estimate_requests($client_id)</code></li>
+<li><code>notes($client_id)</code></li>
+<li><code>events($client_id)</code></li>
+<li><code>files($client_id)</code></li>
+<li><code>file_modal_form()</code></li>
+<li><code>save_file()</code></li>
+<li><code>files_list_data($client_id = 0)</code></li>
+<li><code>_make_file_row($data)</code></li>
+<li><code>view_file($file_id = 0)</code></li>
+<li><code>download_file($id)</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_file()</code></li>
+<li><code>delete_file()</code></li>
+<li><code>contact_profile($contact_id = 0, $tab = "")</code></li>
+<li><code>contacts($client_id)</code></li>
+<li><code>add_new_contact_modal_form()</code></li>
+<li><code>contact_general_info_tab($contact_id = 0)</code></li>
+<li><code>company_info_tab($client_id = 0)</code></li>
+<li><code>contact_social_links_tab($contact_id = 0)</code></li>
+<li><code>save_contact()</code></li>
+<li><code>save_contact_social_links($contact_id = 0)</code></li>
+<li><code>save_profile_image($user_id = 0)</code></li>
+<li><code>delete_contact()</code></li>
+<li><code>contacts_list_data($client_id = 0)</code></li>
+<li><code>_contact_row_data($id)</code></li>
+<li><code>_make_contact_row($data, $custom_fields)</code></li>
+<li><code>save_lead_status($id = 0)</code></li>
+<li><code>all_leads_kanban()</code></li>
+<li><code>all_leads_kanban_data()</code></li>
+<li><code>save_lead_sort_and_status()</code></li>
+<li><code>make_client_modal_form($lead_id = 0)</code></li>
+<li><code>save_as_client()</code></li>
+<li><code>upload_excel_file()</code></li>
+<li><code>import_leads_modal_form()</code></li>
+<li><code>_prepare_lead_data($data_row, $allowed_headers)</code></li>
+<li><code>_get_existing_custom_field_id($title = "")</code></li>
+<li><code>_prepare_headers_for_submit($headers_row, $headers)</code></li>
+<li><code>save_lead_from_excel_file()</code></li>
+<li><code>_save_custom_fields_of_lead($lead_id, $custom_field_values_array)</code></li>
+<li><code>_get_allowed_headers()</code></li>
+<li><code>_store_headers_position($headers_row = array()</code></li>
+<li><code>validate_import_leads_file()</code></li>
+<li><code>validate_import_leads_file_data($check_on_submit = false)</code></li>
+<li><code>_row_data_validation_and_get_error_message($key, $data, $has_contact_first_name, $headers = array()</code></li>
+<li><code>download_sample_excel_file()</code></li>
+<li><code>proposals($client_id)</code></li>
+<li><code>contracts($client_id)</code></li>
+</ul>
+<h2><code>app\Controllers\Lead_source.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Lead_source extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save()</code></li>
+<li><code>update_field_sort_values($id = 0)</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data)</code></li>
+</ul>
+<h2><code>app\Controllers\Lead_status.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Lead_status extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save()</code></li>
+<li><code>update_field_sort_values($id = 0)</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data)</code></li>
+</ul>
+<h2><code>app\Controllers\Leaves.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Leaves extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>access_only_allowed_members($user_id = 0)</code></li>
+<li><code>can_delete_leave_application()</code></li>
+<li><code>index($tab = "")</code></li>
+<li><code>assign_leave_modal_form($applicant_id = 0)</code></li>
+<li><code>apply_leave_modal_form()</code></li>
+<li><code>assign_leave()</code></li>
+<li><code>apply_leave()</code></li>
+<li><code>_prepare_leave_form_data()</code></li>
+<li><code>pending_approval()</code></li>
+<li><code>all_applications()</code></li>
+<li><code>summary()</code></li>
+<li><code>pending_approval_list_data()</code></li>
+<li><code>all_application_list_data()</code></li>
+<li><code>summary_list_data()</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data)</code></li>
+<li><code>_make_row_for_summary($data)</code></li>
+<li><code>_prepare_leave_info($data)</code></li>
+<li><code>application_details()</code></li>
+<li><code>update_status()</code></li>
+<li><code>delete()</code></li>
+<li><code>leave_info()</code></li>
+<li><code>_get_members_dropdown_list_for_filter()</code></li>
+<li><code>_get_leave_types_dropdown_list_for_filter()</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_leaves_file()</code></li>
+<li><code>file_preview($id = "", $key = "")</code></li>
+<li><code>import_leaves_modal_form()</code></li>
+<li><code>download_sample_excel_file()</code></li>
+<li><code>upload_excel_file()</code></li>
+<li><code>validate_import_leaves_file()</code></li>
+<li><code>save_leave_from_excel_file()</code></li>
+<li><code>_get_applicant_id($applicant = "")</code></li>
+<li><code>_get_leave_type_id($leave_type = "")</code></li>
+<li><code>_get_allowed_headers()</code></li>
+<li><code>_store_headers_position($headers_row = array()</code></li>
+<li><code>validate_import_leaves_file_data($check_on_submit = false)</code></li>
+<li><code>_row_data_validation_and_get_error_message($key, $data)</code></li>
+<li><code>_prepare_leave_data($data_row, $allowed_headers)</code></li>
+</ul>
+<h2><code>app\Controllers\Leave_types.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Leave_types extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save()</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data)</code></li>
+</ul>
+<h2><code>app\Controllers\Left_menus.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Left_menus extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>check_left_menu_permission($type = "")</code></li>
+<li><code>index($type = "default")</code></li>
+<li><code>save()</code></li>
+<li><code>_prepare_user_custom_redirect_to_url()</code></li>
+<li><code>add_menu_item_modal_form()</code></li>
+<li><code>prepare_custom_menu_item_data()</code></li>
+<li><code>restore($type = "")</code></li>
+</ul>
+<h2><code>app\Controllers\Messages.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Messages extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>is_my_message($message_info)</code></li>
+<li><code>check_message_user_permission()</code></li>
+<li><code>check_validate_sending_message($to_user_id)</code></li>
+<li><code>index()</code></li>
+<li><code>modal_form($user_id = 0)</code></li>
+<li><code>inbox($auto_select_index = "")</code></li>
+<li><code>sent_items($auto_select_index = "")</code></li>
+<li><code>list_data($mode = "inbox")</code></li>
+<li><code>view($message_id = 0, $mode = "", $reply = 0)</code></li>
+<li><code>_make_row($data, $mode = "", $return_only_message = false, $online_status = false)</code></li>
+<li><code>send_message()</code></li>
+<li><code>reply($is_chat = 0)</code></li>
+<li><code>view_messages()</code></li>
+<li><code>_load_more_messages($message_id, $last_message_id, $top_message_id)</code></li>
+<li><code>count_notifications()</code></li>
+<li><code>get_notifications()</code></li>
+<li><code>update_notification_checking_status()</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_message_file()</code></li>
+<li><code>download_message_files($message_id = "")</code></li>
+<li><code>delete_my_messages($id = 0)</code></li>
+<li><code>chat_list()</code></li>
+<li><code>users_list($type)</code></li>
+<li><code>view_chat()</code></li>
+<li><code>_load_messages($message_id, $last_message_id, $top_message_id, $another_user_id = "")</code></li>
+<li><code>get_active_chat()</code></li>
+<li><code>get_chatlist_of_user()</code></li>
+<li><code>send_typing_indicator_to_pusher()</code></li>
+</ul>
+<h2><code>app\Controllers\Notes.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Notes extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>validate_access_to_note($note_info, $edit_mode = false)</code></li>
+<li><code>index()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save()</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data($type = "", $id = 0)</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data)</code></li>
+<li><code>view()</code></li>
+<li><code>file_preview($id = "", $key = "")</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_notes_file()</code></li>
+</ul>
+<h2><code>app\Controllers\Notifications.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Notifications extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>load_more($offset = 0)</code></li>
+<li><code>count_notifications()</code></li>
+<li><code>get_notifications()</code></li>
+<li><code>update_notification_checking_status()</code></li>
+<li><code>set_notification_status_as_read($notification_id = 0)</code></li>
+<li><code>_prepare_notification_list($offset = 0)</code></li>
+</ul>
+<h2><code>app\Controllers\Notification_processor.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Notification_processor extends App_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>create_notification($data = array()</code></li>
+<li><code>get_reminder_tasks($event)</code></li>
+<li><code>_clasified_task_modification(&$event, &$options, $activity_log_id = 0)</code></li>
+<li><code>_save_reminder_date(&$event, &$options)</code></li>
+</ul>
+<h2><code>app\Controllers\Offer.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Offer extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>preview($proposal_id = 0, $public_key = "")</code></li>
+<li><code>update_proposal_status($proposal_id, $public_key, $status)</code></li>
+<li><code>print_proposal($proposal_id = 0, $public_key = "")</code></li>
+<li><code>accept_proposal_modal_form($proposal_id = 0, $public_key = "")</code></li>
+<li><code>accept_proposal()</code></li>
+</ul>
+<h2><code>app\Controllers\Orders.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Orders extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>process_order()</code></li>
+<li><code>item_list_data_of_login_user()</code></li>
+<li><code>_make_item_row($data)</code></li>
+<li><code>item_modal_form()</code></li>
+<li><code>save_item()</code></li>
+<li><code>update_item_sort_values($id = 0)</code></li>
+<li><code>delete_item()</code></li>
+<li><code>_get_order_total_view($order_id = 0)</code></li>
+<li><code>place_order()</code></li>
+<li><code>list_data()</code></li>
+<li><code>_make_row($data, $custom_fields)</code></li>
+<li><code>yearly()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>_get_clients_dropdown()</code></li>
+<li><code>save()</code></li>
+<li><code>delete()</code></li>
+<li><code>view($order_id = 0)</code></li>
+<li><code>check_access_to_this_order($order_data)</code></li>
+<li><code>download_pdf($order_id = 0, $mode = "download")</code></li>
+<li><code>preview($order_id = 0, $show_close_preview = false)</code></li>
+<li><code>get_order_item_suggestion()</code></li>
+<li><code>get_order_item_info_suggestion()</code></li>
+<li><code>save_order_status($id = 0)</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>discount_modal_form()</code></li>
+<li><code>save_discount()</code></li>
+<li><code>item_list_data($order_id = 0)</code></li>
+<li><code>order_list_data_of_client($client_id)</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_orders_file()</code></li>
+<li><code>file_preview($id = "", $key = "")</code></li>
+</ul>
+<h2><code>app\Controllers\Order_status.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Order_status extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save()</code></li>
+<li><code>update_field_sort_values($id = 0)</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data)</code></li>
+</ul>
+<h2><code>app\Controllers\Pages.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Pages extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save()</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data)</code></li>
+</ul>
+<h2><code>app\Controllers\Payment_methods.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Payment_methods extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save()</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data)</code></li>
+<li><code>update_payment_method_sort_values($id = 0)</code></li>
+</ul>
+<h2><code>app\Controllers\Paypal_ipn.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Paypal_ipn extends App_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+</ul>
+<h2><code>app\Controllers\Paytm_redirect.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Paytm_redirect extends App_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index($payment_verification_code = "")</code></li>
+<li><code>redirect_to_invoice($invoice_id = 0, $verification_code = "")</code></li>
+</ul>
+<h2><code>app\Controllers\Pay_invoice.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Pay_invoice extends App_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index($verification_code = "")</code></li>
+<li><code>_check_access_of_invoice($view_data)</code></li>
+<li><code>get_stripe_checkout_session()</code></li>
+<li><code>_log($text = "")</code></li>
+<li><code>get_paytm_checksum_hash()</code></li>
+</ul>
+<h2><code>app\Controllers\Plugins.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Plugins extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_plugin_file()</code></li>
+<li><code>save()</code></li>
+<li><code>get_plugins_array($include_directories = false)</code></li>
+<li><code>this_plugin_exists($plugin_name = "")</code></li>
+<li><code>save_status_of_plugin($plugin_name = "", $status = "", $echo_json = false)</code></li>
+<li><code>install_plugin($plugin_name = "")</code></li>
+<li><code>delete($plugin_name = "")</code></li>
+<li><code>list_data()</code></li>
+<li><code>_make_row($plugin, $status)</code></li>
+<li><code>prepare_plugin_description($plugin_info)</code></li>
+<li><code>updates($plugin_name = "")</code></li>
+</ul>
+<h2><code>app\Controllers\Pre_loader.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Pre_loader extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+</ul>
+<h2><code>app\Controllers\Projects.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Projects extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>can_delete_projects($project_id = 0)</code></li>
+<li><code>can_add_remove_project_members()</code></li>
+<li><code>can_view_tasks($project_id = "", $task_id = "")</code></li>
+<li><code>can_delete_tasks()</code></li>
+<li><code>can_comment_on_tasks()</code></li>
+<li><code>can_view_milestones()</code></li>
+<li><code>can_create_milestones()</code></li>
+<li><code>can_edit_milestones()</code></li>
+<li><code>can_delete_milestones()</code></li>
+<li><code>can_delete_files($uploaded_by = 0)</code></li>
+<li><code>can_view_files()</code></li>
+<li><code>can_add_files()</code></li>
+<li><code>can_comment_on_files()</code></li>
+<li><code>can_view_gantt()</code></li>
+<li><code>init_project_settings($project_id)</code></li>
+<li><code>can_view_timesheet($project_id = 0, $show_all_personal_timesheets = false)</code></li>
+<li><code>index()</code></li>
+<li><code>all_projects($status = "")</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save()</code></li>
+<li><code>clone_project_modal_form()</code></li>
+<li><code>save_cloned_project()</code></li>
+<li><code>_prepare_new_task_data_on_cloning_project($new_project_id, $milestones_array, $task, $copy_same_assignee_and_collaborators, $copy_tasks_start_date_and_deadline, $move_all_tasks_to_to_do, $change_the_tasks_start_date_and_deadline_based_on_project_start_date, $old_project_info, $project_start_date)</code></li>
+<li><code>_save_custom_fields_on_cloning_project($task, $new_taks_id)</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>projects_list_data_of_team_member($team_member_id = 0)</code></li>
+<li><code>projects_list_data_of_client($client_id = 0)</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data, $custom_fields)</code></li>
+<li><code>view($project_id = 0, $tab = "")</code></li>
+<li><code>can_edit_timesheet_settings($project_id)</code></li>
+<li><code>can_edit_slack_settings()</code></li>
+<li><code>_get_project_info_data($project_id)</code></li>
+<li><code>show_my_starred_projects()</code></li>
+<li><code>overview($project_id)</code></li>
+<li><code>can_access_clients()</code></li>
+<li><code>add_remove_star($project_id, $type = "add")</code></li>
+<li><code>overview_for_client($project_id)</code></li>
+<li><code>project_member_modal_form()</code></li>
+<li><code>save_project_member()</code></li>
+<li><code>delete_project_member()</code></li>
+<li><code>project_member_list_data($project_id = 0, $user_type = "")</code></li>
+<li><code>_project_member_row_data($id)</code></li>
+<li><code>_make_project_member_row($data, $can_send_message_to_client = false)</code></li>
+<li><code>stop_timer_modal_form($project_id)</code></li>
+<li><code>_get_timesheet_tasks_dropdown($project_id, $return_json = false)</code></li>
+<li><code>timer($project_id, $timer_status = "start")</code></li>
+<li><code>timesheets($project_id)</code></li>
+<li><code>_get_project_members_dropdown_list_for_filter($project_id)</code></li>
+<li><code>timelog_modal_form()</code></li>
+<li><code>_prepare_all_related_data_for_timelog($project_id = 0)</code></li>
+<li><code>get_all_related_data_of_selected_project_for_timelog($project_id = "")</code></li>
+<li><code>save_timelog()</code></li>
+<li><code>delete_timelog()</code></li>
+<li><code>check_timelog_update_permission($log_id = null, $project_id = null, $user_id = null)</code></li>
+<li><code>timesheet_list_data()</code></li>
+<li><code>_timesheet_row_data($id)</code></li>
+<li><code>_make_timesheet_row($data, $custom_fields)</code></li>
+<li><code>timesheet_summary($project_id)</code></li>
+<li><code>timesheet_summary_list_data()</code></li>
+<li><code>_get_all_projects_dropdown_list()</code></li>
+<li><code>_get_all_projects_dropdown_list_for_timesheets_filter()</code></li>
+<li><code>_get_members_to_manage_timesheet()</code></li>
+<li><code>_prepare_members_dropdown_for_timesheet_filter($members)</code></li>
+<li><code>all_timesheets()</code></li>
+<li><code>all_timesheet_summary()</code></li>
+<li><code>milestones($project_id)</code></li>
+<li><code>milestone_modal_form()</code></li>
+<li><code>save_milestone()</code></li>
+<li><code>delete_milestone()</code></li>
+<li><code>milestones_list_data($project_id = 0)</code></li>
+<li><code>_milestone_row_data($id)</code></li>
+<li><code>_make_milestone_row($data)</code></li>
+<li><code>tasks($project_id)</code></li>
+<li><code>get_removed_task_status_ids($project_id = 0)</code></li>
+<li><code>tasks_kanban($project_id)</code></li>
+<li><code>get_milestones_for_filter()</code></li>
+<li><code>_get_milestones_dropdown_list($project_id = 0)</code></li>
+<li><code>_get_priorities_dropdown_list($priority_id = 0)</code></li>
+<li><code>_get_project_members_dropdown_list($project_id = 0)</code></li>
+<li><code>all_tasks($tab = "", $status_id = 0, $priority_id = 0)</code></li>
+<li><code>all_tasks_kanban()</code></li>
+<li><code>can_edit_task_of_the_project($project_id = 0)</code></li>
+<li><code>all_tasks_kanban_data()</code></li>
+<li><code>project_tasks_kanban_data($project_id = 0)</code></li>
+<li><code>set_task_comments_as_read($task_id = 0)</code></li>
+<li><code>task_view($task_id = 0)</code></li>
+<li><code>_get_project_deadline_for_task($project_id)</code></li>
+<li><code>_initialize_all_related_data_of_project($project_id = 0, $collaborators = "", $task_labels = "")</code></li>
+<li><code>task_modal_form()</code></li>
+<li><code>get_all_related_data_of_project($project_id, $collaborators = "", $task_labels = "")</code></li>
+<li><code>get_all_related_data_of_selected_project($project_id)</code></li>
+<li><code>save_task()</code></li>
+<li><code>check_sub_tasks_statuses($status_id = 0, $parent_task_id = 0)</code></li>
+<li><code>save_sub_task()</code></li>
+<li><code>_make_sub_task_row($data, $return_type = "row")</code></li>
+<li><code>save_task_status($id = 0)</code></li>
+<li><code>update_task_info($id = 0, $data_field = "")</code></li>
+<li><code>save_task_sort_and_status()</code></li>
+<li><code>delete_task()</code></li>
+<li><code>tasks_list_data($project_id = 0)</code></li>
+<li><code>my_tasks_list_data($is_widget = 0)</code></li>
+<li><code>_task_row_data($id)</code></li>
+<li><code>_make_task_row($data, $custom_fields)</code></li>
+<li><code>_get_collaborators($collaborator_list, $clickable = true)</code></li>
+<li><code>comments($project_id)</code></li>
+<li><code>customer_feedback($project_id)</code></li>
+<li><code>save_comment()</code></li>
+<li><code>delete_comment($id = 0)</code></li>
+<li><code>view_comment_replies($comment_id)</code></li>
+<li><code>comment_reply_form($comment_id, $type = "project", $type_id = 0)</code></li>
+<li><code>files($project_id)</code></li>
+<li><code>view_file($file_id = 0)</code></li>
+<li><code>file_modal_form()</code></li>
+<li><code>save_file()</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_project_file()</code></li>
+<li><code>delete_file()</code></li>
+<li><code>download_file($id)</code></li>
+<li><code>download_multiple_files($files_ids = "")</code></li>
+<li><code>batch_update_modal_form($task_ids = "")</code></li>
+<li><code>save_batch_update()</code></li>
+<li><code>download_comment_files($id)</code></li>
+<li><code>files_list_data($project_id = 0)</code></li>
+<li><code>_make_file_row($data, $custom_fields)</code></li>
+<li><code>notes($project_id)</code></li>
+<li><code>history($offset = 0, $log_for = "", $log_for_id = "", $log_type = "", $log_type_id = "")</code></li>
+<li><code>members($project_id = 0)</code></li>
+<li><code>payments($project_id)</code></li>
+<li><code>invoices($project_id, $client_id = 0)</code></li>
+<li><code>expenses($project_id)</code></li>
+<li><code>change_status($project_id, $status)</code></li>
+<li><code>gantt($project_id = 0)</code></li>
+<li><code>gantt_data($project_id = 0, $group_by = "milestones", $milestone_id = 0, $user_id = 0, $status = "")</code></li>
+<li><code>invalid_date_of_gantt($start_date, $end_date)</code></li>
+<li><code>settings_modal_form()</code></li>
+<li><code>save_settings()</code></li>
+<li><code>save_checklist_item()</code></li>
+<li><code>_make_checklist_item_row($data = array()</code></li>
+<li><code>save_checklist_item_status($id = 0)</code></li>
+<li><code>save_checklist_items_sort()</code></li>
+<li><code>delete_checklist_item($id)</code></li>
+<li><code>get_member_suggestion_to_mention()</code></li>
+<li><code>get_projects_of_selected_client_for_filter()</code></li>
+<li><code>_get_clients_dropdown()</code></li>
+<li><code>timesheet_chart($project_id = 0)</code></li>
+<li><code>all_gantt()</code></li>
+<li><code>timesheet_chart_data($project_id = 0)</code></li>
+<li><code>save_dependency_tasks()</code></li>
+<li><code>_get_all_dependency_for_this_task($task_id)</code></li>
+<li><code>get_existing_dependency_tasks($task_id = 0)</code></li>
+<li><code>_get_all_dependency_for_this_task_specific($task_ids = "", $task_id = 0, $type = "")</code></li>
+<li><code>_make_dependency_tasks_view_data($task_ids = "", $task_id = 0, $type = "")</code></li>
+<li><code>_make_dependency_tasks_row_data($task_info, $task_id, $type)</code></li>
+<li><code>delete_dependency_task($dependency_task_id, $task_id, $type)</code></li>
+<li><code>like_comment($comment_id = 0)</code></li>
+<li><code>save_gantt_task_date()</code></li>
+<li><code>show_my_open_timers()</code></li>
+<li><code>task_timesheet($task_id, $project_id)</code></li>
+<li><code>contracts($project_id)</code></li>
+<li><code>pin_comment($comment_id = 0)</code></li>
+<li><code>tickets($project_id)</code></li>
+<li><code>file_category($project_id = 0)</code></li>
+<li><code>file_category_list_data($project_id = 0)</code></li>
+<li><code>_file_category_row_data($id, $project_id = 0)</code></li>
+<li><code>_make_file_category_row($data, $project_id = 0)</code></li>
+<li><code>file_category_modal_form()</code></li>
+<li><code>save_file_category()</code></li>
+<li><code>delete_file_category()</code></li>
+<li><code>delete_multiple_files($files_ids = "")</code></li>
+<li><code>import_tasks_modal_form()</code></li>
+<li><code>upload_excel_file()</code></li>
+<li><code>download_sample_excel_file()</code></li>
+<li><code>validate_import_tasks_file()</code></li>
+<li><code>_prepare_task_data($data_row, $allowed_headers)</code></li>
+<li><code>_get_existing_custom_field_id($title = "")</code></li>
+<li><code>_prepare_headers_for_submit($headers_row, $headers)</code></li>
+<li><code>save_task_from_excel_file()</code></li>
+<li><code>_save_custom_fields_of_task($task_id, $custom_field_values_array)</code></li>
+<li><code>_get_project_id($project = "")</code></li>
+<li><code>_get_milestone_id($milestone = "")</code></li>
+<li><code>_get_assigned_to_id($assigned_to = "")</code></li>
+<li><code>_check_task_points($points = "")</code></li>
+<li><code>_get_collaborators_ids($collaborators_data)</code></li>
+<li><code>_get_status_id($status = "")</code></li>
+<li><code>_get_label_ids($labels = "")</code></li>
+<li><code>_get_allowed_headers()</code></li>
+<li><code>_store_headers_position($headers_row = array()</code></li>
+<li><code>validate_import_tasks_file_data($check_on_submit = false)</code></li>
+<li><code>_row_data_validation_and_get_error_message($key, $data, $headers = array()</code></li>
+</ul>
+<h2><code>app\Controllers\Proposals.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Proposals extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>yearly()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>get_proposal_clients_and_leads_dropdown()</code></li>
+<li><code>save_view()</code></li>
+<li><code>save()</code></li>
+<li><code>update_proposal_status($proposal_id, $status)</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>proposal_list_data_of_client($client_id)</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data, $custom_fields)</code></li>
+<li><code>_get_proposal_status_label($proposal_info, $return_html = true)</code></li>
+<li><code>view($proposal_id = 0)</code></li>
+<li><code>_get_proposal_total_view($proposal_id = 0)</code></li>
+<li><code>discount_modal_form()</code></li>
+<li><code>save_discount()</code></li>
+<li><code>item_modal_form()</code></li>
+<li><code>save_item()</code></li>
+<li><code>delete_item()</code></li>
+<li><code>item_list_data($proposal_id = 0)</code></li>
+<li><code>_make_item_row($data)</code></li>
+<li><code>get_proposal_item_suggestion()</code></li>
+<li><code>get_proposal_item_info_suggestion()</code></li>
+<li><code>preview($proposal_id = 0, $show_close_preview = false, $is_editor_preview = false)</code></li>
+<li><code>_check_proposal_access_permission($proposal_data)</code></li>
+<li><code>get_proposal_status_bar($proposal_id = 0)</code></li>
+<li><code>send_proposal_modal_form($proposal_id)</code></li>
+<li><code>send_proposal()</code></li>
+<li><code>update_item_sort_values($id = 0)</code></li>
+<li><code>editor($proposal_id = 0)</code></li>
+</ul>
+<h2><code>app\Controllers\Proposal_templates.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Proposal_templates extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save_template()</code></li>
+<li><code>form($id = "")</code></li>
+<li><code>save()</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data($view_type = "")</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data, $view_type = "")</code></li>
+<li><code>insert_template_modal_form()</code></li>
+<li><code>get_template_data($id = 0)</code></li>
+</ul>
+<h2><code>app\Controllers\Request_estimate.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Request_estimate extends App_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>form($id = 0, $embedded = 0)</code></li>
+<li><code>is_valid_recaptcha($recaptcha_post_data)</code></li>
+<li><code>save_estimate_request()</code></li>
+<li><code>estimate_form_filed_list_data($id = 0)</code></li>
+<li><code>_make_form_field_row($data)</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_file()</code></li>
+</ul>
+<h2><code>app\Controllers\Roles.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Roles extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>permissions($role_id)</code></li>
+<li><code>save()</code></li>
+<li><code>save_permissions()</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data)</code></li>
+<li><code>user_roles()</code></li>
+<li><code>user_role_list_data()</code></li>
+<li><code>_user_role_row_data($id)</code></li>
+<li><code>_make_user_role_row($data)</code></li>
+<li><code>user_role_modal_form()</code></li>
+<li><code>save_user_role()</code></li>
+</ul>
+<h2><code>app\Controllers\Search.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Search extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>can_access_clients()</code></li>
+<li><code>search_modal_form()</code></li>
+<li><code>get_search_suggestion()</code></li>
+</ul>
+<h2><code>app\Controllers\Security_Controller.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Security_Controller extends App_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($redirect = true)</code></li>
+<li><code>init_permission_checker($module)</code></li>
+<li><code>get_access_info($group)</code></li>
+<li><code>access_only_team_members()</code></li>
+<li><code>access_only_admin()</code></li>
+<li><code>access_only_admin_or_settings_admin()</code></li>
+<li><code>access_only_allowed_members()</code></li>
+<li><code>access_only_allowed_members_or_client_contact($client_id)</code></li>
+<li><code>access_only_allowed_members_or_contact_personally($user_id)</code></li>
+<li><code>access_only_team_members_or_client_contact($client_id)</code></li>
+<li><code>access_only_clients()</code></li>
+<li><code>check_module_availability($module_name)</code></li>
+<li><code>can_create_projects()</code></li>
+<li><code>can_view_team_members_list()</code></li>
+<li><code>access_only_team_members_or_client()</code></li>
+<li><code>init_project_permission_checker($project_id = 0)</code></li>
+<li><code>can_create_tasks($in_project = true)</code></li>
+<li><code>can_manage_all_projects()</code></li>
+<li><code>_get_currencies_dropdown()</code></li>
+<li><code>get_hidden_topbar_menus_dropdown()</code></li>
+<li><code>_get_projects_dropdown_for_income_and_expenses($type = "all")</code></li>
+<li><code>_get_groups_dropdown_select2_data($show_header = false)</code></li>
+<li><code>get_clients_and_leads_dropdown($return_json = false)</code></li>
+<li><code>show_assigned_tasks_only_user_id()</code></li>
+<li><code>get_calendar_filter_dropdown($type = "default")</code></li>
+<li><code>check_access_to_store()</code></li>
+<li><code>check_access_to_this_order_item($order_item_info)</code></li>
+<li><code>make_labels_dropdown($type = "", $label_ids = "", $is_filter = false, $custom_filter_title = "")</code></li>
+<li><code>can_edit_projects($project_id = 0)</code></li>
+<li><code>get_user_options_for_query($only_type = "")</code></li>
+<li><code>check_access_on_messages_for_this_user()</code></li>
+<li><code>can_view_invoices($client_id = 0)</code></li>
+<li><code>can_edit_invoices()</code></li>
+<li><code>can_access_expenses()</code></li>
+<li><code>validate_sending_message($to_user_id)</code></li>
+<li><code>show_own_clients_only_user_id()</code></li>
+<li><code>check_profile_image_dimension($image_file_name = "")</code></li>
+<li><code>show_assigned_tickets_only_user_id()</code></li>
+<li><code>get_team_members_dropdown($is_filter = false)</code></li>
+<li><code>_get_projects_dropdown()</code></li>
+<li><code>check_access_to_this_item($item_info)</code></li>
+<li><code>get_conversion_rate_with_currency_symbol()</code></li>
+<li><code>can_access_this_client($client_id = 0)</code></li>
+<li><code>can_access_this_lead($lead_id = 0)</code></li>
+<li><code>show_own_leads_only_user_id()</code></li>
+<li><code>prepare_custom_field_filter_values($related_to, $is_admin = 0, $user_type = "")</code></li>
+<li><code>_get_roles_dropdown()</code></li>
+<li><code>is_own_id($user_id)</code></li>
+<li><code>has_role_manage_permission()</code></li>
+<li><code>is_admin_role($role)</code></li>
+<li><code>get_allowed_user_ids()</code></li>
+<li><code>_check_valid_date($string = "")</code></li>
+<li><code>has_all_projects_restricted_role()</code></li>
+<li><code>_get_companies_dropdown()</code></li>
+<li><code>can_edit_tasks()</code></li>
+</ul>
+<h2><code>app\Controllers\Settings.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Settings extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>general()</code></li>
+<li><code>save_general_settings()</code></li>
+<li><code>email()</code></li>
+<li><code>save_email_settings()</code></li>
+<li><code>ip_restriction()</code></li>
+<li><code>save_ip_settings()</code></li>
+<li><code>db_backup()</code></li>
+<li><code>client_permissions()</code></li>
+<li><code>save_client_settings()</code></li>
+<li><code>invoices()</code></li>
+<li><code>save_invoice_settings()</code></li>
+<li><code>events()</code></li>
+<li><code>save_event_settings()</code></li>
+<li><code>notifications()</code></li>
+<li><code>notification_modal_form()</code></li>
+<li><code>notification_settings_list_data()</code></li>
+<li><code>_notification_list_data($id)</code></li>
+<li><code>_make_notification_settings_row($data)</code></li>
+<li><code>save_notification_settings()</code></li>
+<li><code>modules()</code></li>
+<li><code>save_module_settings()</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_file()</code></li>
+<li><code>cron_job()</code></li>
+<li><code>integration($tab = "")</code></li>
+<li><code>re_captcha()</code></li>
+<li><code>save_re_captcha_settings()</code></li>
+<li><code>bitbucket()</code></li>
+<li><code>save_bitbucket_settings()</code></li>
+<li><code>tickets()</code></li>
+<li><code>save_ticket_settings()</code></li>
+<li><code>tasks()</code></li>
+<li><code>imap_settings()</code></li>
+<li><code>push_notification()</code></li>
+<li><code>save_task_settings()</code></li>
+<li><code>save_imap_settings()</code></li>
+<li><code>save_push_notification_settings()</code></li>
+<li><code>google_drive()</code></li>
+<li><code>save_google_drive_settings()</code></li>
+<li><code>authorize_imap()</code></li>
+<li><code>estimates()</code></li>
+<li><code>save_estimate_settings()</code></li>
+<li><code>test_push_notification()</code></li>
+<li><code>timesheets()</code></li>
+<li><code>save_timesheets_settings()</code></li>
+<li><code>gdpr()</code></li>
+<li><code>save_gdpr_settings()</code></li>
+<li><code>footer()</code></li>
+<li><code>_make_footer_menu_item_data($menu_name, $url, $type = "")</code></li>
+<li><code>save_footer_settings()</code></li>
+<li><code>footer_item_edit_modal_form()</code></li>
+<li><code>save_footer_menu()</code></li>
+<li><code>get_client_hidden_fields_dropdown()</code></li>
+<li><code>estimate_request_settings()</code></li>
+<li><code>save_estimate_request_settings()</code></li>
+<li><code>orders()</code></li>
+<li><code>save_order_settings()</code></li>
+<li><code>projects()</code></li>
+<li><code>save_projects_settings()</code></li>
+<li><code>slack()</code></li>
+<li><code>save_slack_settings()</code></li>
+<li><code>client_projects()</code></li>
+<li><code>save_client_project_settings()</code></li>
+<li><code>github()</code></li>
+<li><code>save_github_settings()</code></li>
+<li><code>test_slack_notification()</code></li>
+<li><code>contracts()</code></li>
+<li><code>save_contract_settings()</code></li>
+<li><code>leads()</code></li>
+<li><code>save_lead_settings()</code></li>
+<li><code>proposals()</code></li>
+<li><code>save_proposal_settings()</code></li>
+<li><code>localization()</code></li>
+<li><code>save_localization_settings()</code></li>
+<li><code>prepare_conversion_rates($conversion_rate_currencies, $conversion_rates)</code></li>
+</ul>
+<h2><code>app\Controllers\Signin.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Signin extends App_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>has_recaptcha_error()</code></li>
+<li><code>is_valid_recaptcha($recaptcha_post_data)</code></li>
+<li><code>authenticate()</code></li>
+<li><code>sign_out()</code></li>
+<li><code>send_reset_password_mail()</code></li>
+<li><code>request_reset_password()</code></li>
+<li><code>new_password($key)</code></li>
+<li><code>do_reset_password()</code></li>
+<li><code>is_valid_reset_password_key($verification_code = "")</code></li>
+</ul>
+<h2><code>app\Controllers\Signup.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Signup extends App_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>accept_invitation($signup_key = "")</code></li>
+<li><code>is_valid_recaptcha($recaptcha_post_data)</code></li>
+<li><code>create_account()</code></li>
+<li><code>send_verification_mail()</code></li>
+<li><code>continue_signup($key = "")</code></li>
+<li><code>is_valid_email_verification_key($verification_code = "")</code></li>
+<li><code>is_valid_invitation_key($verification_code = "")</code></li>
+</ul>
+<h2><code>app\Controllers\Stripe_redirect.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Stripe_redirect extends App_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index($payment_verification_code = "")</code></li>
+</ul>
+<h2><code>app\Controllers\Task_priority.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Task_priority extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save()</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data)</code></li>
+</ul>
+<h2><code>app\Controllers\Task_status.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Task_status extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save()</code></li>
+<li><code>update_field_sort_values($id = 0)</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data)</code></li>
+</ul>
+<h2><code>app\Controllers\Taxes.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Taxes extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save()</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data)</code></li>
+</ul>
+<h2><code>app\Controllers\Team.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Team extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save()</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data)</code></li>
+<li><code>members_list()</code></li>
+</ul>
+<h2><code>app\Controllers\Team_members.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Team_members extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>can_view_team_members_contact_info()</code></li>
+<li><code>can_view_team_members_social_links()</code></li>
+<li><code>update_only_allowed_members($user_id)</code></li>
+<li><code>can_update_team_members_info($user_id)</code></li>
+<li><code>can_access_user_settings($user_id)</code></li>
+<li><code>index()</code></li>
+<li><code>access_only_admin_or_member_creator()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>add_team_member()</code></li>
+<li><code>invitation_modal()</code></li>
+<li><code>send_invitation()</code></li>
+<li><code>list_data()</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data, $custom_fields)</code></li>
+<li><code>delete()</code></li>
+<li><code>view($id = 0, $tab = "")</code></li>
+<li><code>job_info($user_id)</code></li>
+<li><code>has_job_info_manage_permission()</code></li>
+<li><code>save_job_info()</code></li>
+<li><code>general_info($user_id)</code></li>
+<li><code>save_general_info($user_id)</code></li>
+<li><code>social_links($user_id)</code></li>
+<li><code>save_social_links($user_id)</code></li>
+<li><code>account_settings($user_id)</code></li>
+<li><code>my_preferences()</code></li>
+<li><code>save_my_preferences()</code></li>
+<li><code>save_personal_language($language)</code></li>
+<li><code>save_account_settings($user_id)</code></li>
+<li><code>save_profile_image($user_id = 0)</code></li>
+<li><code>projects_info($user_id)</code></li>
+<li><code>attendance_info($user_id)</code></li>
+<li><code>weekly_attendance()</code></li>
+<li><code>custom_range_attendance()</code></li>
+<li><code>attendance_summary($user_id)</code></li>
+<li><code>leave_info($applicant_id)</code></li>
+<li><code>yearly_leaves()</code></li>
+<li><code>expense_info($user_id)</code></li>
+<li><code>files($user_id)</code></li>
+<li><code>file_modal_form()</code></li>
+<li><code>save_file()</code></li>
+<li><code>files_list_data($user_id = 0)</code></li>
+<li><code>_make_file_row($data)</code></li>
+<li><code>view_file($file_id = 0)</code></li>
+<li><code>download_file($id)</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_file()</code></li>
+<li><code>delete_file()</code></li>
+<li><code>keyboard_shortcut_modal_form()</code></li>
+<li><code>get_recently_meaning_dropdown()</code></li>
+<li><code>recently_meaning_modal_form()</code></li>
+<li><code>save_recently_meaning()</code></li>
+</ul>
+<h2><code>app\Controllers\Tickets.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Tickets extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>can_delete_tickets()</code></li>
+<li><code>index($status = "", $ticket_type_id = 0)</code></li>
+<li><code>modal_form()</code></li>
+<li><code>get_project_suggestion($client_id = 0)</code></li>
+<li><code>save()</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_ticket_file()</code></li>
+<li><code>list_data($is_widget = 0)</code></li>
+<li><code>ticket_list_data_of_client($client_id, $is_widget = 0)</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data, $custom_fields)</code></li>
+<li><code>view($ticket_id = 0)</code></li>
+<li><code>delete()</code></li>
+<li><code>save_comment()</code></li>
+<li><code>save_ticket_status($ticket_id = 0, $status = "closed")</code></li>
+<li><code>download_comment_files($id)</code></li>
+<li><code>_check_permission_of_selected_ticket($ticket_id = 0)</code></li>
+<li><code>assign_to_me($ticket_id = 0)</code></li>
+<li><code>ticket_templates()</code></li>
+<li><code>can_view_ticket_template($id = 0)</code></li>
+<li><code>can_edit_ticket_template($id = 0)</code></li>
+<li><code>ticket_template_modal_form()</code></li>
+<li><code>save_ticket_template()</code></li>
+<li><code>delete_ticket_template()</code></li>
+<li><code>ticket_template_list_data($view_type = "", $ticket_type_id = 0)</code></li>
+<li><code>_row_data_for_ticket_templates($id)</code></li>
+<li><code>_make_row_for_ticket_templates($data, $view_type = "")</code></li>
+<li><code>ticket_template_view($id)</code></li>
+<li><code>insert_template_modal_form()</code></li>
+<li><code>add_client_modal_form($ticket_id = 0)</code></li>
+<li><code>link_to_client()</code></li>
+<li><code>settings_modal_form()</code></li>
+<li><code>save_settings()</code></li>
+<li><code>get_client_contact_suggestion($client_id = 0)</code></li>
+<li><code>_get_ticket_types_dropdown_list_for_filter($ticket_type_id = 0)</code></li>
+<li><code>ticket_list_data_of_project($project_id)</code></li>
+<li><code>batch_update_modal_form($ticket_ids = "")</code></li>
+<li><code>save_batch_update()</code></li>
+</ul>
+<h2><code>app\Controllers\Ticket_types.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Ticket_types extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index($tab = "")</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save()</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data)</code></li>
+</ul>
+<h2><code>app\Controllers\Timeline.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Timeline extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>check_access_on_timeline_for_this_user()</code></li>
+<li><code>check_timeline_user_permission()</code></li>
+<li><code>can_access_this_post($post_id = 0)</code></li>
+<li><code>index()</code></li>
+<li><code>save()</code></li>
+<li><code>delete($id = 0)</code></li>
+<li><code>view_post_replies($post_id)</code></li>
+<li><code>post_reply_form($post_id)</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_post_file()</code></li>
+<li><code>download_files($id)</code></li>
+<li><code>load_more_posts($offset = 0)</code></li>
+<li><code>post($post_id)</code></li>
+</ul>
+<h2><code>app\Controllers\Todo.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Todo extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>validate_access($todo_info)</code></li>
+<li><code>index()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save()</code></li>
+<li><code>save_status()</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data)</code></li>
+<li><code>view()</code></li>
+</ul>
+<h2><code>app\Controllers\Updates.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Updates extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>_curl_get_contents($url)</code></li>
+<li><code>_get_release_contents($url, $download = false)</code></li>
+<li><code>_get_support_info()</code></li>
+<li><code>_get_updates_info()</code></li>
+<li><code>_get_version_and_salt($version_key = "")</code></li>
+<li><code>download_updates($version = "", $salt = "")</code></li>
+<li><code>do_update($version = "")</code></li>
+<li><code>systeminfo()</code></li>
+</ul>
+<h2><code>app\Controllers\Upload_pasted_image.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Upload_pasted_image extends App_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>save()</code></li>
+</ul>
+<h2><code>app\Controllers\Webhooks_listener.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Webhooks_listener extends App_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>bitbucket($key)</code></li>
+<li><code>_is_valid_payloads_of_bitbucket($payloads, $key)</code></li>
+<li><code>_get_final_commits_of_bitbucket($payloads)</code></li>
+<li><code>github($key)</code></li>
+<li><code>_is_valid_payloads_of_github($payloads, $key)</code></li>
+<li><code>_get_final_commits_of_github($payloads)</code></li>
+</ul>
+</body></html>

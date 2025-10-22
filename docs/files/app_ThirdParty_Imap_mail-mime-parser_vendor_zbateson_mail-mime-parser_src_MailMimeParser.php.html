@@ -1,0 +1,62 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\MailMimeParser.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\MailMimeParser.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\MailMimeParser.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2251 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Parses a MIME message into a \ZBateson\MailMimeParser\Message object.</p>
+<p>To invoke, call parse on a MailMimeParser object.</p>
+
+<p>$handle = fopen('path/to/file.txt');</p>
+<p>$parser = new MailMimeParser();</p>
+<p>$parser->parse($handle);</p>
+<p>fclose($handle);</p>
+
+<p>@author Zaahid Bateson</p>
+
+<p>@var string the default charset used to encode strings (or string content</p>
+<p>     like streams) returned by MailMimeParser (for e.g. the string</p>
+<p>     returned by calling $message->getTextContent()).</p>
+
+<p>@var \ZBateson\MailMimeParser\Container dependency injection container</p>
+
+<p>Sets up the parser.</p>
+<p>@param Container $di pass a Container object to use it for</p>
+<p>       initialization.</p>
+
+<p>Parses the passed stream handle into a ZBateson\MailMimeParser\Message</p>
+<p>object and returns it.</p>
+
+<p>Internally, the message is first copied to a temp stream (with php://temp</p>
+<p>which may keep it in memory or write it to disk) and its stream is used.</p>
+<p>That way if the message is too large to hold in memory it can be written</p>
+<p>to a temporary file if need be.</p>
+
+<p>@param resource|string $handleOrString the resource handle to the input</p>
+<p>       stream of the mime message, or a string containing a mime message</p>
+<p>@return \ZBateson\MailMimeParser\Message</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\MailMimeParser.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\MailMimeParser</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(Container $di = null)</code></li>
+<li><code>parse($handleOrString)</code></li>
+</ul>
+</body></html>

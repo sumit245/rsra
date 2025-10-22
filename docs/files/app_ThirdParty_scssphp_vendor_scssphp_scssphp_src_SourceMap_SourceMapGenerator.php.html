@@ -1,0 +1,116 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\scssphp\vendor\scssphp\scssphp\src\SourceMap\SourceMapGenerator.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\scssphp\vendor\scssphp\scssphp\src\SourceMap\SourceMapGenerator.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\scssphp\vendor\scssphp\scssphp\src\SourceMap\SourceMapGenerator.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 11964 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>SCSSPHP</p>
+<p>@copyright 2012-2020 Leaf Corcoran</p>
+<p>@license http://opensource.org/licenses/MIT MIT</p>
+<p>@link http://scssphp.github.io/scssphp</p>
+
+<p>Source Map Generator</p>
+<p>{@internal Derivative of oyejorge/less.php's lib/SourceMap/Generator.php, relicensed with permission. }}</p>
+<p>@author Josh Schmidt <oyejorge@gmail.com></p>
+<p>@author Nicolas FRANÇOIS <nicolas.francois@frog-labs.com></p>
+<p>@internal</p>
+
+<p>What version of source map does the generator generate?</p>
+
+<p>Array of default options</p>
+<p>@var array</p>
+<p>@phpstan-var array{sourceRoot: string, sourceMapFilename: string|null, sourceMapURL: string|null, sourceMapWriteTo: string|null, outputSourceFiles: bool, sourceMapRootpath: string, sourceMapBasepath: string}</p>
+
+<p>The base64 VLQ encoder</p>
+<p>@var \ScssPhp\ScssPhp\SourceMap\Base64VLQ</p>
+
+<p>Array of mappings</p>
+<p>@var array</p>
+<p>@phpstan-var list<array{generated_line: int, generated_column: int, original_line: int, original_column: int, source_file: string}></p>
+
+<p>Array of contents map</p>
+<p>@var array</p>
+
+<p>File to content map</p>
+<p>@var array<string, string></p>
+
+<p>@var array<string, int></p>
+
+<p>@var array</p>
+<p>@phpstan-var array{sourceRoot: string, sourceMapFilename: string|null, sourceMapURL: string|null, sourceMapWriteTo: string|null, outputSourceFiles: bool, sourceMapRootpath: string, sourceMapBasepath: string}</p>
+
+<p>@phpstan-param array{sourceRoot?: string, sourceMapFilename?: string|null, sourceMapURL?: string|null, sourceMapWriteTo?: string|null, outputSourceFiles?: bool, sourceMapRootpath?: string, sourceMapBasepath?: string} $options</p>
+
+<p>Adds a mapping</p>
+<p>@param int    $generatedLine   The line number in generated file</p>
+<p>@param int    $generatedColumn The column number in generated file</p>
+<p>@param int    $originalLine    The line number in original file</p>
+<p>@param int    $originalColumn  The column number in original file</p>
+<p>@param string $sourceFile      The original source file</p>
+<p>@return void</p>
+
+<p>Saves the source map to a file</p>
+<p>@param string $content The content to write</p>
+<p>@return string|null</p>
+<p>@throws \ScssPhp\ScssPhp\Exception\CompilerException If the file could not be saved</p>
+<p>@deprecated</p>
+
+<p>Generates the JSON source map</p>
+<p>@param string $prefix A prefix added in the output file, which needs to shift mappings</p>
+<p>@return string</p>
+<p>@see https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit#</p>
+
+<p>Returns the sources contents</p>
+<p>@return string[]|null</p>
+
+<p>Generates the mappings string</p>
+<p>@param string $prefix A prefix added in the output file, which needs to shift mappings</p>
+<p>@return string</p>
+
+<p>Finds the index for the filename</p>
+<p>@param string $filename</p>
+<p>@return int|false</p>
+
+<p>Normalize filename</p>
+<p>@param string $filename</p>
+<p>@return string</p>
+
+<p>Fix windows paths</p>
+<p>@param string $path</p>
+<p>@param bool   $addEndSlash</p>
+<p>@return string</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\scssphp\vendor\scssphp\scssphp\src\SourceMap\SourceMapGenerator.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ScssPhp\ScssPhp\SourceMap\SourceMapGenerator</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(array $options = [])</code></li>
+<li><code>addMapping($generatedLine, $generatedColumn, $originalLine, $originalColumn, $sourceFile)</code></li>
+<li><code>saveMap($content)</code></li>
+<li><code>generateJson($prefix = '')</code></li>
+<li><code>getSourcesContent()</code></li>
+<li><code>generateMappings($prefix = '')</code></li>
+<li><code>findFileIndex($filename)</code></li>
+<li><code>normalizeFilename($filename)</code></li>
+<li><code>fixWindowsPath($path, $addEndSlash = false)</code></li>
+</ul>
+</body></html>

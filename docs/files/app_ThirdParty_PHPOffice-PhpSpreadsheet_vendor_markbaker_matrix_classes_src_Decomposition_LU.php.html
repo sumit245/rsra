@@ -1,0 +1,59 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\markbaker\matrix\classes\src\Decomposition\LU.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\markbaker\matrix\classes\src\Decomposition\LU.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\markbaker\matrix\classes\src\Decomposition\LU.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 6969 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Get lower triangular factor.</p>
+<p>@return Matrix Lower triangular factor</p>
+
+<p>Get upper triangular factor.</p>
+<p>@return Matrix Upper triangular factor</p>
+
+<p>Return pivot permutation vector.</p>
+<p>@return Matrix Pivot matrix</p>
+
+<p>Return pivot permutation vector.</p>
+<p>@return array Pivot vector</p>
+
+<p>Is the matrix nonsingular?</p>
+<p>@return bool true if U, and hence A, is nonsingular</p>
+
+<p>Solve A*X = B.</p>
+<p>@param Matrix $B a Matrix with as many rows as A and any number of columns</p>
+<p>@throws Exception</p>
+<p>@return Matrix X so that L*U*X = B(piv,:)</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\markbaker\matrix\classes\src\Decomposition\LU.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Matrix\Decomposition\LU</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(Matrix $matrix)</code></li>
+<li><code>getL()</code></li>
+<li><code>getU()</code></li>
+<li><code>getP()</code></li>
+<li><code>getPivot()</code></li>
+<li><code>isNonsingular()</code></li>
+<li><code>buildPivot()</code></li>
+<li><code>localisedReferenceColumn($column)</code></li>
+<li><code>applyTransformations($column, array $luColumn)</code></li>
+<li><code>findPivot($column, array $luColumn)</code></li>
+<li><code>pivotExchange($pivot, $column)</code></li>
+<li><code>computeMultipliers($diagonal)</code></li>
+<li><code>pivotB(Matrix $B)</code></li>
+<li><code>solve(Matrix $B)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,106 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Style\Supervisor.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Style\Supervisor.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Style\Supervisor.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4493 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Supervisor?</p>
+<p>@var bool</p>
+
+<p>Parent. Only used for supervisor.</p>
+<p>@var Spreadsheet|Supervisor</p>
+
+<p>Parent property name.</p>
+<p>@var null|string</p>
+
+<p>Create a new Supervisor.</p>
+<p>@param bool $isSupervisor Flag indicating if this is a supervisor or not</p>
+<p>                                   Leave this value at default unless you understand exactly what</p>
+<p>                                       its ramifications are</p>
+
+<p>Bind parent. Only used for supervisor.</p>
+<p>@param Spreadsheet|Supervisor $parent</p>
+<p>@param null|string $parentPropertyName</p>
+<p>@return $this</p>
+
+<p>Is this a supervisor or a cell style component?</p>
+<p>@return bool</p>
+
+<p>Get the currently active sheet. Only used for supervisor.</p>
+<p>@return Worksheet</p>
+
+<p>Get the currently active cell coordinate in currently active sheet.</p>
+<p>Only used for supervisor.</p>
+<p>@return string E.g. 'A1'</p>
+
+<p>Get the currently active cell coordinate in currently active sheet.</p>
+<p>Only used for supervisor.</p>
+<p>@return string E.g. 'A1'</p>
+
+<p>Implement PHP __clone to create a deep clone, not just a shallow copy.</p>
+
+<p>Export style as array.</p>
+<p>Available to anything which extends this class:</p>
+<p>Alignment, Border, Borders, Color, Fill, Font,</p>
+<p>NumberFormat, Protection, and Style.</p>
+
+<p>Abstract method to be implemented in anything which</p>
+<p>extends this class.</p>
+<p>This method invokes exportArray2 with the names and values</p>
+<p>of all properties to be included in output array,</p>
+<p>returning that array to exportArray, then to caller.</p>
+
+<p>Populate array from exportArray1.</p>
+<p>This method is available to anything which extends this class.</p>
+<p>The parameter index is the key to be added to the array.</p>
+<p>The parameter objOrValue is either a primitive type,</p>
+<p>which is the value added to the array,</p>
+<p>or a Style object to be recursively added via exportArray.</p>
+<p>@param mixed $objOrValue</p>
+
+<p>Get the shared style component for the currently active cell in currently active sheet.</p>
+<p>Only used for style supervisor.</p>
+<p>@return mixed</p>
+
+<p>Build style array from subcomponents.</p>
+<p>@param array $array</p>
+<p>@return array</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>exportArray1</code></li>
+<li><code>subcomponents</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Style\Supervisor.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Style\Supervisor implements IComparable</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($isSupervisor = false)</code></li>
+<li><code>bindParent($parent, $parentPropertyName = null)</code></li>
+<li><code>getIsSupervisor()</code></li>
+<li><code>getActiveSheet()</code></li>
+<li><code>getSelectedCells()</code></li>
+<li><code>getActiveCell()</code></li>
+<li><code>__clone()</code></li>
+<li><code>exportArray()</code></li>
+<li><code>exportArray1()</code></li>
+<li><code>exportArray2(array &$exportedArray, string $index, $objOrValue)</code></li>
+<li><code>getSharedComponent()</code></li>
+<li><code>getStyleArray($array)</code></li>
+</ul>
+</body></html>

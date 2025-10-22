@@ -1,0 +1,99 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\RestApi\ThirdParty\Requests\Transport\fsockopen.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\RestApi\ThirdParty\Requests\Transport\fsockopen.php</h1>
+
+<ul>
+<li>Path: <code>plugins\RestApi\ThirdParty\Requests\Transport\fsockopen.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 13004 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>fsockopen HTTP transport</p>
+<p>@package Requests</p>
+<p>@subpackage Transport</p>
+
+<p>fsockopen HTTP transport</p>
+<p>@package Requests</p>
+<p>@subpackage Transport</p>
+
+<p>Second to microsecond conversion</p>
+<p>@var integer</p>
+
+<p>Raw HTTP data</p>
+<p>@var string</p>
+
+<p>Stream metadata</p>
+<p>@var array Associative array of properties, see {@see https://secure.php.net/stream_get_meta_data}</p>
+
+<p>What's the maximum number of bytes we should keep?</p>
+<p>@var int|bool Byte count, or false if no limit.</p>
+
+<p>Perform a request</p>
+<p>@throws Requests_Exception On failure to connect to socket (<code>fsockopenerror</code>)</p>
+<p>@throws Requests_Exception On socket timeout (<code>timeout</code>)</p>
+<p>@param string $url URL to request</p>
+<p>@param array $headers Associative array of request headers</p>
+<p>@param string|array $data Data to send either as the POST body, or as parameters in the URL for a GET/HEAD</p>
+<p>@param array $options Request options, see {@see Requests::response()} for documentation</p>
+<p>@return string Raw HTTP result</p>
+
+<p>Send multiple requests simultaneously</p>
+<p>@param array $requests Request data (array of 'url', 'headers', 'data', 'options') as per {@see Requests_Transport::request}</p>
+<p>@param array $options Global options, see {@see Requests::response()} for documentation</p>
+<p>@return array Array of Requests_Response objects (may contain Requests_Exception or string responses as well)</p>
+
+<p>Retrieve the encodings we can accept</p>
+<p>@return string Accept-Encoding header value</p>
+
+<p>Format a URL given GET data</p>
+<p>@param array $url_parts</p>
+<p>@param array|object $data Data to build query using, see {@see https://secure.php.net/http_build_query}</p>
+<p>@return string URL with data</p>
+
+<p>Error handler for stream_socket_client()</p>
+<p>@param int $errno Error number (e.g. E_WARNING)</p>
+<p>@param string $errstr Error message</p>
+
+<p>Verify the certificate against common name and subject alternative names</p>
+<p>Unfortunately, PHP doesn't check the certificate against the alternative</p>
+<p>names, leading things like 'https://www.github.com/' to be invalid.</p>
+<p>Instead</p>
+<p>@see https://tools.ietf.org/html/rfc2818#section-3.1 RFC2818, Section 3.1</p>
+<p>@throws Requests_Exception On failure to connect via TLS (<code>fsockopen.ssl.connect_error</code>)</p>
+<p>@throws Requests_Exception On not obtaining a match for the host (<code>fsockopen.ssl.no_match</code>)</p>
+<p>@param string $host Host name to verify against</p>
+<p>@param resource $context Stream context</p>
+<p>@return bool</p>
+
+<p>Whether this transport is valid</p>
+<p>@codeCoverageIgnore</p>
+<p>@return boolean True if the transport is valid, false otherwise.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>some</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\RestApi\ThirdParty\Requests\Transport\fsockopen.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Requests_Transport_fsockopen implements Requests_Transport</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>request($url, $headers = array()</code></li>
+<li><code>request_multiple($requests, $options)</code></li>
+<li><code>accept_encoding()</code></li>
+<li><code>format_get($url_parts, $data)</code></li>
+<li><code>connect_error_handler($errno, $errstr)</code></li>
+<li><code>verify_certificate_from_context($host, $context)</code></li>
+<li><code>test($capabilities = array()</code></li>
+</ul>
+</body></html>

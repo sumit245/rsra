@@ -1,0 +1,77 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\AddressGroupConsumer.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\AddressGroupConsumer.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\AddressGroupConsumer.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2481 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Parses a single group of addresses (as a named-group part of an address</p>
+<p>header).</p>
+
+<p>Finds addresses using its AddressConsumer sub-consumer separated by commas,</p>
+<p>and ends processing once a semi-colon is found.</p>
+
+<p>Prior to returning to its calling client, AddressGroupConsumer constructs a</p>
+<p>single Part\AddressGroupPart object filling it with all located addresses, and</p>
+<p>returns it.</p>
+
+<p>The AddressGroupConsumer extends AddressBaseConsumer to define start/end</p>
+<p>tokens, token separators, and construct a Part\AddressGroupPart for returning to</p>
+<p>clients.</p>
+
+<p>@author Zaahid Bateson</p>
+
+<p>Overridden to return patterns matching the beginning and end markers of a</p>
+<p>group address: colon and semi-colon (":" and ";") characters.</p>
+
+<p>@return string[] the patterns</p>
+
+<p>AddressGroupConsumer returns true if the passed token is a semi-colon.</p>
+
+<p>@param string $token</p>
+<p>@return boolean false</p>
+
+<p>AddressGroupConsumer returns true if the passed token is a colon.</p>
+
+<p>@param string $token</p>
+<p>@return boolean false</p>
+
+<p>Performs post-processing on parsed parts.</p>
+
+<p>AddressGroupConsumer returns an array with a single Part\AddressGroupPart</p>
+<p>element with all email addresses from this and any sub-groups.</p>
+
+<p>@param \ZBateson\MailMimeParser\Header\Part\HeaderPart[] $parts</p>
+<p>@return AddressGroupPart[]|array</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>this</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\AddressGroupConsumer.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Header\Consumer\AddressGroupConsumer extends AddressBaseConsumer</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getTokenSeparators()</code></li>
+<li><code>isEndToken($token)</code></li>
+<li><code>isStartToken($token)</code></li>
+<li><code>processParts(array $parts)</code></li>
+</ul>
+</body></html>

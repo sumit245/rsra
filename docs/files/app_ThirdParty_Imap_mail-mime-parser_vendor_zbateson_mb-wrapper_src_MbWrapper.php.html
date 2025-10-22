@@ -1,0 +1,122 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mb-wrapper\src\MbWrapper.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mb-wrapper\src\MbWrapper.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mb-wrapper\src\MbWrapper.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 15207 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MbWrapper project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Helper class for converting strings between charsets, finding a multibyte</p>
+<p>strings length, and creating a substring.</p>
+<p>MbWrapper prefers PHP's mb_* extension first, and reverts to iconv_* if the</p>
+<p>charsets aren't listed as supported by mb_list_encodings().</p>
+<p>A list of aliased charsets are maintained to support the greatest number of</p>
+<p>charsets.  In addition, when searching for a charset, separator characters</p>
+<p>such as dashes are removed, and searches are always performed</p>
+<p>case-insensitively.  This is to support strange reported encodings in emails,</p>
+<p>etc...</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var array aliased charsets supported by mb_convert_encoding.</p>
+<p>     The alias is stripped of any non-alphanumeric characters (so CP367</p>
+<p>     is equal to CP-367) when comparing.</p>
+<p>     Some of these translations are already supported by</p>
+<p>     mb_convert_encoding on "my" PHP 5.5.9, but may not be supported in</p>
+<p>     other implementations or versions since they're not part of</p>
+<p>     documented support.</p>
+
+<p>@var array aliased charsets supported by iconv.</p>
+
+<p>@var string[] An array of encodings supported by the mb_* extension, as</p>
+<p>     returned by mb_list_encodings(), with the key set to the charset's</p>
+<p>     name afte</p>
+
+<p>@var string[] cached lookups for quicker retrieval</p>
+
+<p>Initializes the static mb_* encoding array.</p>
+
+<p>The passed charset is uppercased, and stripped of non-alphanumeric</p>
+<p>characters before being returned.</p>
+<p>@param string|string[] $charset</p>
+<p>@return string|string[]</p>
+
+<p>Converts the passed string's charset from the passed $fromCharset to the</p>
+<p>passed $toCharset</p>
+
+<p>The function attempts to use mb_convert_encoding if possible, and falls</p>
+<p>back to iconv if not.  If the source or destination character sets aren't</p>
+<p>supported, a blank string is returned.</p>
+
+<p>@param string $str</p>
+<p>@return string</p>
+
+<p>Returns true if the passed string is valid in the $charset encoding.</p>
+<p>Either uses mb_check_encoding, or iconv if it's not a supported mb</p>
+<p>encoding.</p>
+<p>@param type $str</p>
+<p>@param type $charset</p>
+
+<p>Uses either mb_strlen or iconv_strlen to return the number of characters</p>
+<p>in the passed $str for the given $charset</p>
+<p>@param string $str</p>
+<p>@param string $charset</p>
+<p>@return int</p>
+
+<p>Uses either mb_substr or iconv_substr to create and return a substring of</p>
+<p>the passed $str.</p>
+<p>@param string $str</p>
+<p>@param string $charset</p>
+<p>@param int $start</p>
+<p>@param int $length</p>
+<p>@return string</p>
+
+<p>Looks up a charset from mb_list_encodings and identified aliases,</p>
+<p>checking if the lookup has been cached already first.</p>
+<p>If the encoding is not listed, the method will return false.</p>
+<p>On success, the method will return the charset name as accepted by mb_*.</p>
+<p>@param string $cs</p>
+<p>@param bool $mbSupported</p>
+<p>@return string|bool</p>
+
+<p>Looks up the passed charset in self::$iconvAliases, returning the mapped</p>
+<p>charset if applicable.  Otherwise returns charset.</p>
+
+<p>@param string $cs</p>
+<p>@return string the mapped charset (if mapped) or $cs otherwise</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>mb_list_encodings</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mb-wrapper\src\MbWrapper.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MbWrapper\for</code></li>
+<li><code>ZBateson\MbWrapper\MbWrapper</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>getNormalizedCharset($charset)</code></li>
+<li><code>convert($str, $fromCharset, $toCharset)</code></li>
+<li><code>checkEncoding($str, $charset)</code></li>
+<li><code>getLength($str, $charset)</code></li>
+<li><code>getSubstr($str, $charset, $start, $length = null)</code></li>
+<li><code>getMbCharset($cs)</code></li>
+<li><code>getIconvAlias($cs)</code></li>
+</ul>
+</body></html>

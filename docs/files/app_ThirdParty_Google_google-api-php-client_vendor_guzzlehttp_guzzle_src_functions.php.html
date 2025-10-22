@@ -1,0 +1,117 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\functions.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\functions.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\functions.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9880 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Expands a URI template</p>
+<p>@param string $template  URI template</p>
+<p>@param array  $variables Template variables</p>
+<p>@return string</p>
+
+<p>Debug function used to describe the provided value type and class.</p>
+<p>@param mixed $input</p>
+<p>@return string Returns a string containing the type of the variable and</p>
+<p>               if a class is provided, the class name.</p>
+
+<p>Parses an array of header lines into an associative array of headers.</p>
+<p>@param array $lines Header lines array of strings in the following</p>
+<p>                    format: "Name: Value"</p>
+<p>@return array</p>
+
+<p>Returns a debug stream based on the provided variable.</p>
+<p>@param mixed $value Optional value</p>
+<p>@return resource</p>
+
+<p>Chooses and creates a default handler to use based on the environment.</p>
+<p>The returned handler is not wrapped by any default middlewares.</p>
+<p>@throws \RuntimeException if no viable Handler is available.</p>
+<p>@return callable Returns the best handler for the given system.</p>
+
+<p>Get the default User-Agent string to use with Guzzle</p>
+<p>@return string</p>
+
+<p>Returns the default cacert bundle for the current system.</p>
+<p>First, the openssl.cafile and curl.cainfo php.ini settings are checked.</p>
+<p>If those settings are not configured, then the common locations for</p>
+<p>bundles found on Red Hat, CentOS, Fedora, Ubuntu, Debian, FreeBSD, OS X</p>
+<p>and Windows are checked. If any of these file locations are found on</p>
+<p>disk, they will be utilized.</p>
+<p>Note: the result of this function is cached for subsequent calls.</p>
+<p>@return string</p>
+<p>@throws \RuntimeException if no bundle can be found.</p>
+
+<p>Creates an associative array of lowercase header names to the actual</p>
+<p>header casing.</p>
+<p>@param array $headers</p>
+<p>@return array</p>
+
+<p>Returns true if the provided host matches any of the no proxy areas.</p>
+<p>This method will strip a port from the host if it is present. Each pattern</p>
+<p>can be matched with an exact match (e.g., "foo.com" == "foo.com") or a</p>
+<p>partial match: (e.g., "foo.com" == "baz.foo.com" and ".foo.com" ==</p>
+<p>"baz.foo.com", but ".foo.com" != "foo.com").</p>
+<p>Areas are matched in the following cases:</p>
+<p>1. "*" (without quotes) always matches any hosts.</p>
+<p>2. An exact match.</p>
+<p>3. The area starts with "." and the area is the last part of the host. e.g.</p>
+<p>   '.mit.edu' will match any host that ends with '.mit.edu'.</p>
+<p>@param string $host         Host to check against the patterns.</p>
+<p>@param array  $noProxyArray An array of host patterns.</p>
+<p>@return bool</p>
+
+<p>Wrapper for json_decode that throws when an error occurs.</p>
+<p>@param string $json    JSON data to parse</p>
+<p>@param bool $assoc     When true, returned objects will be converted</p>
+<p>                       into associative arrays.</p>
+<p>@param int    $depth   User specified recursion depth.</p>
+<p>@param int    $options Bitmask of JSON decode options.</p>
+<p>@return mixed</p>
+<p>@throws \InvalidArgumentException if the JSON cannot be decoded.</p>
+<p>@link http://www.php.net/manual/en/function.json-decode.php</p>
+
+<p>Wrapper for JSON encoding that throws when an error occurs.</p>
+<p>@param mixed $value   The value being encoded</p>
+<p>@param int    $options JSON encode option bitmask</p>
+<p>@param int    $depth   Set the maximum depth. Must be greater than zero.</p>
+<p>@return string</p>
+<p>@throws \InvalidArgumentException if the JSON cannot be encoded.</p>
+<p>@link http://www.php.net/manual/en/function.json-encode.php</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\functions.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>GuzzleHttp\is</code></li>
+<li><code>GuzzleHttp\name</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>uri_template($template, array $variables)</code></li>
+<li><code>describe_type($input)</code></li>
+<li><code>headers_from_lines($lines)</code></li>
+<li><code>debug_resource($value = null)</code></li>
+<li><code>choose_handler()</code></li>
+<li><code>default_user_agent()</code></li>
+<li><code>default_ca_bundle()</code></li>
+<li><code>normalize_header_keys(array $headers)</code></li>
+<li><code>is_host_in_noproxy($host, array $noProxyArray)</code></li>
+<li><code>json_decode($json, $assoc = false, $depth = 512, $options = 0)</code></li>
+<li><code>json_encode($value, $options = 0, $depth = 512)</code></li>
+</ul>
+</body></html>

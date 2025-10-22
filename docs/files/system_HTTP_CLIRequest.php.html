@@ -1,0 +1,103 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\HTTP\CLIRequest.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\HTTP\CLIRequest.php</h1>
+
+<ul>
+<li>Path: <code>system\HTTP\CLIRequest.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5235 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Represents a request from the command-line. Provides additional</p>
+<p>tools to interact with that request since CLI requests are not</p>
+<p>static like HTTP requests might be.</p>
+<p>Portions of this code were initially from the FuelPHP Framework,</p>
+<p>version 1.7.x, and used here under the MIT license they were</p>
+<p>originally made available under.</p>
+<p>http://fuelphp.com</p>
+
+<p>Stores the segments of our cli "URI" command.</p>
+<p>@var array</p>
+
+<p>Command line options and their values.</p>
+<p>@var array</p>
+
+<p>Command line arguments (segments and options).</p>
+<p>@var array</p>
+
+<p>Set the expected HTTP verb</p>
+<p>@var string</p>
+
+<p>Constructor</p>
+
+<p>Returns the "path" of the request script so that it can be used</p>
+<p>in routing to the appropriate controller/method.</p>
+<p>The path is determined by treating the command line arguments</p>
+<p>as if it were a URL - up until we hit our first option.</p>
+<p>Example:</p>
+<p>     php index.php users 21 profile -foo bar</p>
+<p>     // Routes to /users/21/profile (index is removed for routing sake)</p>
+<p>     // with the option foo = bar.</p>
+
+<p>Returns an associative array of all CLI options found, with</p>
+<p>their values.</p>
+
+<p>Returns an array of all CLI arguments (segments and options).</p>
+
+<p>Returns the path segments.</p>
+
+<p>Returns the value for a single CLI option that was passed in.</p>
+<p>@return string|null</p>
+
+<p>Returns the options as a string, suitable for passing along on</p>
+<p>the CLI to other commands.</p>
+<p>Example:</p>
+<p>     $options = [</p>
+<p>         'foo' => 'bar',</p>
+<p>         'baz' => 'queue some stuff'</p>
+<p>     ];</p>
+<p>     getOptionString() = '-foo bar -baz "queue some stuff"'</p>
+
+<p>Parses the command line it was called from and collects all options</p>
+<p>and valid segments.</p>
+<p>NOTE: I tried to use getopt but had it fail occasionally to find</p>
+<p>any options, where argv has always had our back.</p>
+
+<p>Determines if this request was made from the command line (CLI).</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>and</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\HTTP\CLIRequest.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\HTTP\CLIRequest extends Request</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(App $config)</code></li>
+<li><code>getPath()</code></li>
+<li><code>getOptions()</code></li>
+<li><code>getArgs()</code></li>
+<li><code>getSegments()</code></li>
+<li><code>getOption(string $key)</code></li>
+<li><code>getOptionString(bool $useLongOpts = false)</code></li>
+<li><code>parseCommand()</code></li>
+<li><code>isCLI()</code></li>
+</ul>
+</body></html>

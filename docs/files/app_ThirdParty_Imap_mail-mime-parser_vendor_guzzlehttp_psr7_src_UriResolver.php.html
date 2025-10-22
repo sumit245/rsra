@@ -1,0 +1,69 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\guzzlehttp\psr7\src\UriResolver.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\guzzlehttp\psr7\src\UriResolver.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\guzzlehttp\psr7\src\UriResolver.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 8774 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Resolves a URI reference in the context of a base URI and the opposite way.</p>
+<p>@author Tobias Schultze</p>
+<p>@link https://tools.ietf.org/html/rfc3986#section-5</p>
+
+<p>Removes dot segments from a path and returns the new path.</p>
+<p>@param string $path</p>
+<p>@return string</p>
+<p>@link http://tools.ietf.org/html/rfc3986#section-5.2.4</p>
+
+<p>Converts the relative URI into a new URI that is resolved against the base URI.</p>
+<p>@param UriInterface $base Base URI</p>
+<p>@param UriInterface $rel  Relative URI</p>
+<p>@return UriInterface</p>
+<p>@link http://tools.ietf.org/html/rfc3986#section-5.2</p>
+
+<p>Returns the target URI as a relative reference from the base URI.</p>
+<p>This method is the counterpart to resolve():</p>
+<p>   (string) $target === (string) UriResolver::resolve($base, UriResolver::relativize($base, $target))</p>
+<p>One use-case is to use the current request URI as base URI and then generate relative links in your documents</p>
+<p>to reduce the document size or offer self-contained downloadable document archives.</p>
+<p>   $base = new Uri('http://example.com/a/b/');</p>
+<p>   echo UriResolver::relativize($base, new Uri('http://example.com/a/b/c'));  // prints 'c'.</p>
+<p>   echo UriResolver::relativize($base, new Uri('http://example.com/a/x/y'));  // prints '../x/y'.</p>
+<p>   echo UriResolver::relativize($base, new Uri('http://example.com/a/b/?q')); // prints '?q'.</p>
+<p>   echo UriResolver::relativize($base, new Uri('http://example.org/a/b/'));   // prints '//example.org/a/b/'.</p>
+<p>This method also accepts a target that is already relative and will try to relativize it further. Only a</p>
+<p>relative-path reference will be returned as-is.</p>
+<p>   echo UriResolver::relativize($base, new Uri('/a/b/c'));  // prints 'c' as well</p>
+<p>@param UriInterface $base   Base URI</p>
+<p>@param UriInterface $target Target URI</p>
+<p>@return UriInterface The relative URI reference</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\guzzlehttp\psr7\src\UriResolver.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>GuzzleHttp\Psr7\UriResolver</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>removeDotSegments($path)</code></li>
+<li><code>resolve(UriInterface $base, UriInterface $rel)</code></li>
+<li><code>relativize(UriInterface $base, UriInterface $target)</code></li>
+<li><code>getRelativePath(UriInterface $base, UriInterface $target)</code></li>
+<li><code>__construct()</code></li>
+</ul>
+</body></html>

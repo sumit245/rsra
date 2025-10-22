@@ -1,0 +1,111 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Helper\PrivacyHelper.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Helper\PrivacyHelper.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Helper\PrivacyHelper.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7681 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Provides routines to set or retrieve the signature part of a signed message.</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var GenericHelper a GenericHelper instance</p>
+
+<p>@var MultipartHelper a MultipartHelper instance</p>
+
+<p>Constructor</p>
+
+<p>@param MimePartFactory $mimePartFactory</p>
+<p>@param UUEncodedPartFactory $uuEncodedPartFactory</p>
+<p>@param PartBuilderFactory $partBuilderFactory</p>
+<p>@param GenericHelper $genericHelper</p>
+<p>@param MultipartHelper $multipartHelper</p>
+
+<p>The passed message is set as multipart/signed, and a new part is created</p>
+<p>below it with content headers, content and children copied from the</p>
+<p>message.</p>
+<p>@param Message $message</p>
+<p>@param string $micalg</p>
+<p>@param string $protocol</p>
+
+<p>Sets the signature of the message to $body, creating a signature part if</p>
+<p>one doesn't exist.</p>
+<p>@param Message $message</p>
+<p>@param string $body</p>
+
+<p>Loops over parts of the message and sets the content-transfer-encoding</p>
+<p>header to quoted-printable for text/* mime parts, and to base64</p>
+<p>otherwise for parts that are '8bit' encoded.</p>
+<p>Used for multipart/signed messages which doesn't support 8bit transfer</p>
+<p>encodings.</p>
+<p>@param Message $message</p>
+
+<p>Ensures a non-text part comes first in a signed multipart/alternative</p>
+<p>message as some clients seem to prefer the first content part if the</p>
+<p>client doesn't understand multipart/signed.</p>
+<p>@param Message $message</p>
+
+<p>Returns a stream that can be used to read the content part of a signed</p>
+<p>message, which can be used to sign an email or verify a signature.</p>
+<p>The method simply returns the stream for the first child.  No</p>
+<p>verification of whether the message is in fact a signed message is</p>
+<p>performed.</p>
+<p>Note that unlike getSignedMessageAsString, getSignedMessageStream doesn't</p>
+<p>replace new lines.</p>
+<p>@param Message $message</p>
+<p>@return \Psr\Http\Message\StreamInterface or null if the message doesn't</p>
+<p>        have any children</p>
+
+<p>Returns a string containing the entire body (content) of a signed message</p>
+<p>for verification or calculating a signature.</p>
+<p>Non-CRLF new lines are replaced to always be CRLF.</p>
+<p>@param Message $message</p>
+<p>@return string or null if the message doesn't have any children</p>
+
+<p>Returns the signature part of a multipart/signed message or null.</p>
+<p>The signature part is determined to always be the 2nd child of a</p>
+<p>multipart/signed message, the first being the 'body'.</p>
+<p>Using the 'protocol' parameter of the Content-Type header is unreliable</p>
+<p>in some instances (for instance a difference of x-pgp-signature versus</p>
+<p>pgp-signature).</p>
+<p>@param Message $message</p>
+<p>@return \ZBateson\MailMimeParser\Message\Part\MimePart</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Helper\PrivacyHelper.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Message\Helper\PrivacyHelper extends AbstractHelper</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`__construct(MimePartFactory $mimePartFactory,</li>
+<p>        UUEncodedPartFactory $uuEncodedPartFactory,</p>
+<p>        PartBuilderFactory $partBuilderFactory,</p>
+<p>        GenericHelper $genericHelper,</p>
+<p>        MultipartHelper $multipartHelper)`</p>
+<li><code>setMessageAsMultipartSigned(Message $message, $micalg, $protocol)</code></li>
+<li><code>setSignature(Message $message, $body)</code></li>
+<li><code>overwrite8bitContentEncoding(Message $message)</code></li>
+<li><code>ensureHtmlPartFirstForSignedMessage(Message $message)</code></li>
+<li><code>getSignedMessageStream(Message $message)</code></li>
+<li><code>getSignedMessageAsString(Message $message)</code></li>
+<li><code>getSignaturePart(Message $message)</code></li>
+</ul>
+</body></html>

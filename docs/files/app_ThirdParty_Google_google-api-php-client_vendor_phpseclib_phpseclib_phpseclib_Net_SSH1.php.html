@@ -1,0 +1,550 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Net\SSH1.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Net\SSH1.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Net\SSH1.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 52572 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Pure-PHP implementation of SSHv1.</p>
+<p>PHP version 5</p>
+<p>Here's a short example of how to use this library:</p>
+<p><code></p>
+<p><?php</p>
+<p>   include 'vendor/autoload.php';</p>
+<p>   $ssh = new \phpseclib\Net\SSH1('www.domain.tld');</p>
+<p>   if (!$ssh->login('username', 'password')) {</p>
+<p>       exit('Login Failed');</p>
+<p>   }</p>
+<p>   echo $ssh->exec('ls -la');</p>
+<p>?></p>
+<p></code></p>
+<p>Here's another short example:</p>
+<p><code></p>
+<p><?php</p>
+<p>   include 'vendor/autoload.php';</p>
+<p>   $ssh = new \phpseclib\Net\SSH1('www.domain.tld');</p>
+<p>   if (!$ssh->login('username', 'password')) {</p>
+<p>       exit('Login Failed');</p>
+<p>   }</p>
+<p>   echo $ssh->read('username@username:~$');</p>
+<p>   $ssh->write("ls -la\n");</p>
+<p>   echo $ssh->read('username@username:~$');</p>
+<p>?></p>
+<p></code></p>
+<p>More information on the SSHv1 specification can be found by reading</p>
+<p>{@link http://www.snailbook.com/docs/protocol-1.5.txt protocol-1.5.txt}.</p>
+<p>@category  Net</p>
+<p>@package   SSH1</p>
+<p>@author    Jim Wigginton <terrafrost@php.net></p>
+<p>@copyright 2007 Jim Wigginton</p>
+<p>@license   http://www.opensource.org/licenses/mit-license.html  MIT License</p>
+<p>@link      http://phpseclib.sourceforge.net</p>
+
+<p>Pure-PHP implementation of SSHv1.</p>
+<p>@package SSH1</p>
+<p>@author  Jim Wigginton <terrafrost@php.net></p>
+<p>@access  public</p>
+
+<p>#@+</p>
+<p>Encryption Methods</p>
+<p>@see \phpseclib\Net\SSH1::getSupportedCiphers()</p>
+<p>@access public</p>
+
+<p>No encryption</p>
+<p>Not supported.</p>
+
+<p>IDEA in CFB mode</p>
+<p>Not supported.</p>
+
+<p>DES in CBC mode</p>
+
+<p>Triple-DES in CBC mode</p>
+<p>All implementations are required to support this</p>
+
+<p>TRI's Simple Stream encryption CBC</p>
+<p>Not supported nor is it defined in the official SSH1 specs.  OpenSSH, however, does define it (see cipher.h),</p>
+<p>although it doesn't use it (see cipher.c)</p>
+
+<p>RC4</p>
+<p>Not supported.</p>
+<p>@internal According to the SSH1 specs:</p>
+<p>       "The first 16 bytes of the session key are used as the key for</p>
+<p>        the server to client direction.  The remaining 16 bytes are used</p>
+<p>        as the key for the client to server direction.  This gives</p>
+<p>        independent 128-bit keys for each direction."</p>
+<p>    This library currently only supports encryption when the same key is being used for both directions.  This is</p>
+<p>    because there's only one $crypto object.  Two could be added ($encrypt and $decrypt, perhaps).</p>
+
+<p>Blowfish</p>
+<p>Not supported nor is it defined in the official SSH1 specs.  OpenSSH, however, defines it (see cipher.h) and</p>
+<p>uses it (see cipher.c)</p>
+
+<p>#@-</p>
+
+<p>#@+</p>
+<p>Authentication Methods</p>
+<p>@see \phpseclib\Net\SSH1::getSupportedAuthentications()</p>
+<p>@access public</p>
+
+<p>.rhosts or /etc/hosts.equiv</p>
+
+<p>pure RSA authentication</p>
+
+<p>password authentication</p>
+<p>This is the only method that is supported by this library.</p>
+
+<p>.rhosts with RSA host authentication</p>
+
+<p>#@-</p>
+
+<p>#@+</p>
+<p>Terminal Modes</p>
+<p>@link http://3sp.com/content/developer/maverick-net/docs/Maverick.SSH.PseudoTerminalModesMembers.html</p>
+<p>@access private</p>
+
+<p>#@-</p>
+
+<p>The Response Type</p>
+<p>@see \phpseclib\Net\SSH1::_get_binary_packet()</p>
+<p>@access private</p>
+
+<p>The Response Data</p>
+<p>@see \phpseclib\Net\SSH1::_get_binary_packet()</p>
+<p>@access private</p>
+
+<p>#@+</p>
+<p>Execution Bitmap Masks</p>
+<p>@see \phpseclib\Net\SSH1::bitmap</p>
+<p>@access private</p>
+
+<p>#@-</p>
+
+<p>#@+</p>
+<p>@access public</p>
+<p>@see \phpseclib\Net\SSH1::getLog()</p>
+
+<p>Returns the message numbers</p>
+
+<p>Returns the message content</p>
+
+<p>Outputs the content real-time</p>
+
+<p>Dumps the content real-time to a file</p>
+
+<p>#@-</p>
+
+<p>#@+</p>
+<p>@access public</p>
+<p>@see \phpseclib\Net\SSH1::read()</p>
+
+<p>Returns when a string matching $expect exactly is found</p>
+
+<p>Returns when a string matching the regular expression $expect is found</p>
+
+<p>#@-</p>
+
+<p>The SSH identifier</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>The Socket Object</p>
+<p>@var object</p>
+<p>@access private</p>
+
+<p>The cryptography object</p>
+<p>@var object</p>
+<p>@access private</p>
+
+<p>Execution Bitmap</p>
+<p>The bits that are set represent functions that have been called already.  This is used to determine</p>
+<p>if a requisite function has been successfully executed.  If not, an error should be thrown.</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>The Server Key Public Exponent</p>
+<p>Logged for debug purposes</p>
+<p>@see self::getServerKeyPublicExponent()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>The Server Key Public Modulus</p>
+<p>Logged for debug purposes</p>
+<p>@see self::getServerKeyPublicModulus()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>The Host Key Public Exponent</p>
+<p>Logged for debug purposes</p>
+<p>@see self::getHostKeyPublicExponent()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>The Host Key Public Modulus</p>
+<p>Logged for debug purposes</p>
+<p>@see self::getHostKeyPublicModulus()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Supported Ciphers</p>
+<p>Logged for debug purposes</p>
+<p>@see self::getSupportedCiphers()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Supported Authentications</p>
+<p>Logged for debug purposes</p>
+<p>@see self::getSupportedAuthentications()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Server Identification</p>
+<p>@see self::getServerIdentification()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Protocol Flags</p>
+<p>@see self::__construct()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Protocol Flag Log</p>
+<p>@see self::getLog()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Message Log</p>
+<p>@see self::getLog()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Real-time log file pointer</p>
+<p>@see self::_append_log()</p>
+<p>@var resource</p>
+<p>@access private</p>
+
+<p>Real-time log file size</p>
+<p>@see self::_append_log()</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Real-time log file wrap boolean</p>
+<p>@see self::_append_log()</p>
+<p>@var bool</p>
+<p>@access private</p>
+
+<p>Interactive Buffer</p>
+<p>@see self::read()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Timeout</p>
+<p>@see self::setTimeout()</p>
+<p>@access private</p>
+
+<p>Current Timeout</p>
+<p>@see self::_get_channel_packet()</p>
+<p>@access private</p>
+
+<p>Log Boundary</p>
+<p>@see self::_format_log()</p>
+<p>@access private</p>
+
+<p>Log Long Width</p>
+<p>@see self::_format_log()</p>
+<p>@access private</p>
+
+<p>Log Short Width</p>
+<p>@see self::_format_log()</p>
+<p>@access private</p>
+
+<p>Hostname</p>
+<p>@see self::__construct()</p>
+<p>@see self::_connect()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Port Number</p>
+<p>@see self::__construct()</p>
+<p>@see self::_connect()</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Timeout for initial connection</p>
+<p>Set by the constructor call. Calling setTimeout() is optional. If it's not called functions like</p>
+<p>exec() won't timeout unless some PHP setting forces it too. The timeout specified in the constructor,</p>
+<p>however, is non-optional. There will be a timeout, whether or not you set it. If you don't it'll be</p>
+<p>10 seconds. It is used by fsockopen() in that function.</p>
+<p>@see self::__construct()</p>
+<p>@see self::_connect()</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Default cipher</p>
+<p>@see self::__construct()</p>
+<p>@see self::_connect()</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Default Constructor.</p>
+<p>Connects to an SSHv1 server</p>
+<p>@param string $host</p>
+<p>@param int $port</p>
+<p>@param int $timeout</p>
+<p>@param int $cipher</p>
+<p>@return \phpseclib\Net\SSH1</p>
+<p>@access public</p>
+
+<p>Connect to an SSHv1 server</p>
+<p>@return bool</p>
+<p>@access private</p>
+
+<p>Login</p>
+<p>@param string $username</p>
+<p>@param string $password</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Set Timeout</p>
+<p>$ssh->exec('ping 127.0.0.1'); on a Linux host will never return and will run indefinitely.  setTimeout() makes it so it'll timeout.</p>
+<p>Setting $timeout to false or 0 will mean there is no timeout.</p>
+<p>@param mixed $timeout</p>
+
+<p>Executes a command on a non-interactive shell, returns the output, and quits.</p>
+<p>An SSH1 server will close the connection after a command has been executed on a non-interactive shell.  SSH2</p>
+<p>servers don't, however, this isn't an SSH2 client.  The way this works, on the server, is by initiating a</p>
+<p>shell with the -s option, as discussed in the following links:</p>
+<p>{@link http://www.faqs.org/docs/bashman/bashref_65.html http://www.faqs.org/docs/bashman/bashref_65.html}</p>
+<p>{@link http://www.faqs.org/docs/bashman/bashref_62.html http://www.faqs.org/docs/bashman/bashref_62.html}</p>
+<p>To execute further commands, a new \phpseclib\Net\SSH1 object will need to be created.</p>
+<p>Returns false on failure and the output, otherwise.</p>
+<p>@see self::interactiveRead()</p>
+<p>@see self::interactiveWrite()</p>
+<p>@param string $cmd</p>
+<p>@return mixed</p>
+<p>@access public</p>
+
+<p>Creates an interactive shell</p>
+<p>@see self::interactiveRead()</p>
+<p>@see self::interactiveWrite()</p>
+<p>@return bool</p>
+<p>@access private</p>
+
+<p>Inputs a command into an interactive shell.</p>
+<p>@see self::interactiveWrite()</p>
+<p>@param string $cmd</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Returns the output of an interactive shell when there's a match for $expect</p>
+<p>$expect can take the form of a string literal or, if $mode == self::READ_REGEX,</p>
+<p>a regular expression.</p>
+<p>@see self::write()</p>
+<p>@param string $expect</p>
+<p>@param int $mode</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Inputs a command into an interactive shell.</p>
+<p>@see self::interactiveRead()</p>
+<p>@param string $cmd</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Returns the output of an interactive shell when no more output is available.</p>
+<p>Requires PHP 4.3.0 or later due to the use of the stream_select() function.  If you see stuff like</p>
+<p>"^[[00m", you're seeing ANSI escape codes.  According to</p>
+<p>{@link http://support.microsoft.com/kb/101875 How to Enable ANSI.SYS in a Command Window}, "Windows NT</p>
+<p>does not support ANSI escape sequences in Win32 Console applications", so if you're a Windows user,</p>
+<p>there's not going to be much recourse.</p>
+<p>@see self::interactiveRead()</p>
+<p>@return string</p>
+<p>@access public</p>
+
+<p>Disconnect</p>
+<p>@access public</p>
+
+<p>Destructor.</p>
+<p>Will be called, automatically, if you're supporting just PHP5.  If you're supporting PHP4, you'll need to call</p>
+<p>disconnect().</p>
+<p>@access public</p>
+
+<p>Disconnect</p>
+<p>@param string $msg</p>
+<p>@access private</p>
+
+<p>Gets Binary Packets</p>
+<p>See 'The Binary Packet Protocol' of protocol-1.5.txt for more info.</p>
+<p>Also, this function could be improved upon by adding detection for the following exploit:</p>
+<p>http://www.securiteam.com/securitynews/5LP042K3FY.html</p>
+<p>@see self::_send_binary_packet()</p>
+<p>@return array</p>
+<p>@access private</p>
+
+<p>Sends Binary Packets</p>
+<p>Returns true on success, false on failure.</p>
+<p>@see self::_get_binary_packet()</p>
+<p>@param string $data</p>
+<p>@return bool</p>
+<p>@access private</p>
+
+<p>Cyclic Redundancy Check (CRC)</p>
+<p>PHP's crc32 function is implemented slightly differently than the one that SSH v1 uses, so</p>
+<p>we've reimplemented it. A more detailed discussion of the differences can be found after</p>
+<p>$crc_lookup_table's initialization.</p>
+<p>@see self::_get_binary_packet()</p>
+<p>@see self::_send_binary_packet()</p>
+<p>@param string $data</p>
+<p>@return int</p>
+<p>@access private</p>
+
+<p>String Shift</p>
+<p>Inspired by array_shift</p>
+<p>@param string $string</p>
+<p>@param int $index</p>
+<p>@return string</p>
+<p>@access private</p>
+
+<p>RSA Encrypt</p>
+<p>Returns mod(pow($m, $e), $n), where $n should be the product of two (large) primes $p and $q and where $e</p>
+<p>should be a number with the property that gcd($e, ($p - 1) * ($q - 1)) == 1.  Could just make anything that</p>
+<p>calls this call modexp, instead, but I think this makes things clearer, maybe...</p>
+<p>@see self::__construct()</p>
+<p>@param BigInteger $m</p>
+<p>@param array $key</p>
+<p>@return BigInteger</p>
+<p>@access private</p>
+
+<p>Define Array</p>
+<p>Takes any number of arrays whose indices are integers and whose values are strings and defines a bunch of</p>
+<p>named constants from it, using the value as the name of the constant and the index as the value of the constant.</p>
+<p>If any of the constants that would be defined already exists, none of the constants will be defined.</p>
+<p>@param array $array</p>
+<p>@access private</p>
+
+<p>Returns a log of the packets that have been sent and received.</p>
+<p>Returns a string if NET_SSH1_LOGGING == self::LOG_COMPLEX, an array if NET_SSH1_LOGGING == self::LOG_SIMPLE and false if !defined('NET_SSH1_LOGGING')</p>
+<p>@access public</p>
+<p>@return array|false|string</p>
+
+<p>Formats a log for printing</p>
+<p>@param array $message_log</p>
+<p>@param array $message_number_log</p>
+<p>@access private</p>
+<p>@return string</p>
+
+<p>Helper function for _format_log</p>
+<p>For use with preg_replace_callback()</p>
+<p>@param array $matches</p>
+<p>@access private</p>
+<p>@return string</p>
+
+<p>Return the server key public exponent</p>
+<p>Returns, by default, the base-10 representation.  If $raw_output is set to true, returns, instead,</p>
+<p>the raw bytes.  This behavior is similar to PHP's md5() function.</p>
+<p>@param bool $raw_output</p>
+<p>@return string</p>
+<p>@access public</p>
+
+<p>Return the server key public modulus</p>
+<p>Returns, by default, the base-10 representation.  If $raw_output is set to true, returns, instead,</p>
+<p>the raw bytes.  This behavior is similar to PHP's md5() function.</p>
+<p>@param bool $raw_output</p>
+<p>@return string</p>
+<p>@access public</p>
+
+<p>Return the host key public exponent</p>
+<p>Returns, by default, the base-10 representation.  If $raw_output is set to true, returns, instead,</p>
+<p>the raw bytes.  This behavior is similar to PHP's md5() function.</p>
+<p>@param bool $raw_output</p>
+<p>@return string</p>
+<p>@access public</p>
+
+<p>Return the host key public modulus</p>
+<p>Returns, by default, the base-10 representation.  If $raw_output is set to true, returns, instead,</p>
+<p>the raw bytes.  This behavior is similar to PHP's md5() function.</p>
+<p>@param bool $raw_output</p>
+<p>@return string</p>
+<p>@access public</p>
+
+<p>Return a list of ciphers supported by SSH1 server.</p>
+<p>Just because a cipher is supported by an SSH1 server doesn't mean it's supported by this library. If $raw_output</p>
+<p>is set to true, returns, instead, an array of constants.  ie. instead of array('Triple-DES in CBC mode'), you'll</p>
+<p>get array(self::CIPHER_3DES).</p>
+<p>@param bool $raw_output</p>
+<p>@return array</p>
+<p>@access public</p>
+
+<p>Return a list of authentications supported by SSH1 server.</p>
+<p>Just because a cipher is supported by an SSH1 server doesn't mean it's supported by this library. If $raw_output</p>
+<p>is set to true, returns, instead, an array of constants.  ie. instead of array('password authentication'), you'll</p>
+<p>get array(self::AUTH_PASSWORD).</p>
+<p>@param bool $raw_output</p>
+<p>@return array</p>
+<p>@access public</p>
+
+<p>Return the server identification.</p>
+<p>@return string</p>
+<p>@access public</p>
+
+<p>Logs data packets</p>
+<p>Makes sure that only the last 1MB worth of packets will be logged</p>
+<p>@param string $data</p>
+<p>@access private</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>server</code></li>
+<li><code>protocol</code></li>
+<li><code>it</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Net\SSH1.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>phpseclib\Net\SSH1</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($host, $port = 22, $timeout = 10, $cipher = self::CIPHER_3DES)</code></li>
+<li><code>_connect()</code></li>
+<li><code>login($username, $password = '')</code></li>
+<li><code>setTimeout($timeout)</code></li>
+<li><code>exec($cmd, $block = true)</code></li>
+<li><code>_initShell()</code></li>
+<li><code>write($cmd)</code></li>
+<li><code>read($expect, $mode = self::READ_SIMPLE)</code></li>
+<li><code>interactiveWrite($cmd)</code></li>
+<li><code>interactiveRead()</code></li>
+<li><code>disconnect()</code></li>
+<li><code>__destruct()</code></li>
+<li><code>_disconnect($msg = 'Client Quit')</code></li>
+<li><code>_get_binary_packet()</code></li>
+<li><code>_send_binary_packet($data)</code></li>
+<li><code>_crc($data)</code></li>
+<li><code>_string_shift(&$string, $index = 1)</code></li>
+<li><code>_rsa_crypt($m, $key)</code></li>
+<li><code>_define_array()</code></li>
+<li><code>getLog()</code></li>
+<li><code>_format_log($message_log, $message_number_log)</code></li>
+<li><code>_format_log_helper($matches)</code></li>
+<li><code>getServerKeyPublicExponent($raw_output = false)</code></li>
+<li><code>getServerKeyPublicModulus($raw_output = false)</code></li>
+<li><code>getHostKeyPublicExponent($raw_output = false)</code></li>
+<li><code>getHostKeyPublicModulus($raw_output = false)</code></li>
+<li><code>getSupportedCiphers($raw_output = false)</code></li>
+<li><code>getSupportedAuthentications($raw_output = false)</code></li>
+<li><code>getServerIdentification()</code></li>
+<li><code>_append_log($protocol_flags, $message)</code></li>
+</ul>
+</body></html>

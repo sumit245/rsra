@@ -1,0 +1,108 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\DateTimeExcel\Week.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\DateTimeExcel\Week.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\DateTimeExcel\Week.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 10302 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>WEEKNUM.</p>
+<p>Returns the week of the year for a specified date.</p>
+<p>The WEEKNUM function considers the week containing January 1 to be the first week of the year.</p>
+<p>However, there is a European standard that defines the first week as the one with the majority</p>
+<p>of days (four or more) falling in the new year. This means that for years in which there are</p>
+<p>three days or less in the first week of January, the WEEKNUM function returns week numbers</p>
+<p>that are incorrect according to the European standard.</p>
+<p>Excel Function:</p>
+<p>       WEEKNUM(dateValue[,style])</p>
+<p>@param mixed $dateValue Excel date serial value (float), PHP date timestamp (integer),</p>
+<p>                                   PHP DateTime object, or a standard date string</p>
+<p>                        Or can be an array of date values</p>
+<p>@param array|int $method Week begins on Sunday or Monday</p>
+<p>                                       1 or omitted    Week begins on Sunday.</p>
+<p>                                       2                Week begins on Monday.</p>
+<p>                                       11               Week begins on Monday.</p>
+<p>                                       12               Week begins on Tuesday.</p>
+<p>                                       13               Week begins on Wednesday.</p>
+<p>                                       14               Week begins on Thursday.</p>
+<p>                                       15               Week begins on Friday.</p>
+<p>                                       16               Week begins on Saturday.</p>
+<p>                                       17               Week begins on Sunday.</p>
+<p>                                       21               ISO (Jan. 4 is week 1, begins on Monday).</p>
+<p>                        Or can be an array of methods</p>
+<p>@return array|int|string Week Number</p>
+<p>        If an array of values is passed as the argument, then the returned result will also be an array</p>
+<p>           with the same dimensions</p>
+
+<p>ISOWEEKNUM.</p>
+<p>Returns the ISO 8601 week number of the year for a specified date.</p>
+<p>Excel Function:</p>
+<p>       ISOWEEKNUM(dateValue)</p>
+<p>@param mixed $dateValue Excel date serial value (float), PHP date timestamp (integer),</p>
+<p>                                   PHP DateTime object, or a standard date string</p>
+<p>                        Or can be an array of date values</p>
+<p>@return array|int|string Week Number</p>
+<p>        If an array of numbers is passed as the argument, then the returned result will also be an array</p>
+<p>           with the same dimensions</p>
+
+<p>WEEKDAY.</p>
+<p>Returns the day of the week for a specified date. The day is given as an integer</p>
+<p>ranging from 0 to 7 (dependent on the requested style).</p>
+<p>Excel Function:</p>
+<p>       WEEKDAY(dateValue[,style])</p>
+<p>@param null|array|float|int|string $dateValue Excel date serial value (float), PHP date timestamp (integer),</p>
+<p>                                   PHP DateTime object, or a standard date string</p>
+<p>                        Or can be an array of date values</p>
+<p>@param mixed $style A number that determines the type of return value</p>
+<p>                                       1 or omitted    Numbers 1 (Sunday) through 7 (Saturday).</p>
+<p>                                       2                Numbers 1 (Monday) through 7 (Sunday).</p>
+<p>                                       3                Numbers 0 (Monday) through 6 (Sunday).</p>
+<p>                        Or can be an array of styles</p>
+<p>@return array|int|string Day of the week value</p>
+<p>        If an array of values is passed as the argument, then the returned result will also be an array</p>
+<p>           with the same dimensions</p>
+
+<p>@param mixed $style expect int</p>
+
+<p>@param mixed $dateValue Excel date serial value (float), PHP date timestamp (integer),</p>
+<p>                                   PHP DateTime object, or a standard date string</p>
+
+<p>Validate dateValue parameter.</p>
+<p>@param mixed $dateValue</p>
+
+<p>Validate method parameter.</p>
+<p>@param mixed $method</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>0</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\DateTimeExcel\Week.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\DateTimeExcel\Week</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>number($dateValue, $method = Constants::STARTWEEK_SUNDAY)</code></li>
+<li><code>isoWeekNumber($dateValue)</code></li>
+<li><code>day($dateValue, $style = 1)</code></li>
+<li><code>validateStyle($style)</code></li>
+<li><code>dow0Becomes7(int $DoW)</code></li>
+<li><code>apparentBug($dateValue)</code></li>
+<li><code>validateDateValue($dateValue)</code></li>
+<li><code>validateMethod($method)</code></li>
+<li><code>buggyWeekNum1900(int $method)</code></li>
+<li><code>buggyWeekNum1904(int $method, bool $origNull, DateTime $dateObject)</code></li>
+</ul>
+</body></html>

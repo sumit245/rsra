@@ -1,0 +1,69 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\View\RendererInterface.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\View\RendererInterface.php</h1>
+
+<ul>
+<li>Path: <code>system\View\RendererInterface.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2267 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Interface RendererInterface</p>
+<p>The interface used for displaying Views and/or theme files.</p>
+
+<p>Builds the output based upon a file name and any</p>
+<p>data that has already been set.</p>
+<p>@param array $options  Reserved for 3rd-party uses since</p>
+<p>                       it might be needed to pass additional info</p>
+<p>                       to other template engines.</p>
+<p>@param bool  $saveData Whether to save data for subsequent calls</p>
+
+<p>Builds the output based upon a string and any</p>
+<p>data that has already been set.</p>
+<p>@param string $view     The view contents</p>
+<p>@param array  $options  Reserved for 3rd-party uses since</p>
+<p>                        it might be needed to pass additional info</p>
+<p>                        to other template engines.</p>
+<p>@param bool   $saveData Whether to save data for subsequent calls</p>
+
+<p>Sets several pieces of view data at once.</p>
+<p>@param string $context The context to escape it for: html, css, js, url</p>
+<p>                       If 'raw', no escaping will happen</p>
+<p>@return RendererInterface</p>
+
+<p>Sets a single piece of view data.</p>
+<p>@param mixed  $value</p>
+<p>@param string $context The context to escape it for: html, css, js, url</p>
+<p>                       If 'raw' no escaping will happen</p>
+<p>@return RendererInterface</p>
+
+<p>Removes all of the view data from the system.</p>
+<p>@return RendererInterface</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\View\RendererInterface.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>render(string $view, ?array $options = null, bool $saveData = false)</code></li>
+<li><code>renderString(string $view, ?array $options = null, bool $saveData = false)</code></li>
+<li><code>setData(array $data = [], ?string $context = null)</code></li>
+<li><code>setVar(string $name, $value = null, ?string $context = null)</code></li>
+<li><code>resetData()</code></li>
+</ul>
+</body></html>

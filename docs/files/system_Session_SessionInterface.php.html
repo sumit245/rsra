@@ -1,0 +1,136 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Session\SessionInterface.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Session\SessionInterface.php</h1>
+
+<ul>
+<li>Path: <code>system\Session\SessionInterface.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5810 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Expected behavior of a session container used with CodeIgniter.</p>
+
+<p>Regenerates the session ID.</p>
+<p>@param bool $destroy Should old session data be destroyed?</p>
+
+<p>Destroys the current session.</p>
+
+<p>Sets user data into the session.</p>
+<p>If $data is a string, then it is interpreted as a session property</p>
+<p>key, and  $value is expected to be non-null.</p>
+<p>If $data is an array, it is expected to be an array of key/value pairs</p>
+<p>to be set as session properties.</p>
+<p>@param array|string $data  Property name or associative array of properties</p>
+<p>@param mixed        $value Property value if single key provided</p>
+
+<p>Get user data that has been set in the session.</p>
+<p>If the property exists as "normal", returns it.</p>
+<p>Otherwise, returns an array of any temp or flash data values with the</p>
+<p>property key.</p>
+<p>Replaces the legacy method $session->userdata();</p>
+<p>@param string $key Identifier of the session property to retrieve</p>
+<p>@return mixed The property value(s)</p>
+
+<p>Returns whether an index exists in the session array.</p>
+<p>@param string $key Identifier of the session property we are interested in.</p>
+
+<p>Remove one or more session properties.</p>
+<p>If $key is an array, it is interpreted as an array of string property</p>
+<p>identifiers to remove. Otherwise, it is interpreted as the identifier</p>
+<p>of a specific session property to remove.</p>
+<p>@param array|string $key Identifier of the session property or properties to remove.</p>
+
+<p>Sets data into the session that will only last for a single request.</p>
+<p>Perfect for use with single-use status update messages.</p>
+<p>If $data is an array, it is interpreted as an associative array of</p>
+<p>key/value pairs for flashdata properties.</p>
+<p>Otherwise, it is interpreted as the identifier of a specific</p>
+<p>flashdata property, with $value containing the property value.</p>
+<p>@param array|string $data  Property identifier or associative array of properties</p>
+<p>@param array|string $value Property value if $data is a scalar</p>
+
+<p>Retrieve one or more items of flash data from the session.</p>
+<p>If the item key is null, return all flashdata.</p>
+<p>@param string $key Property identifier</p>
+<p>@return array|null The requested property value, or an associative</p>
+<p>                   array  of them</p>
+
+<p>Keeps a single piece of flash data alive for one more request.</p>
+<p>@param array|string $key Property identifier or array of them</p>
+
+<p>Mark a session property or properties as flashdata.</p>
+<p>@param array|string $key Property identifier or array of them</p>
+<p>@return false if any of the properties are not already set</p>
+
+<p>Unmark data in the session as flashdata.</p>
+<p>@param array|string $key Property identifier or array of them</p>
+
+<p>Retrieve all of the keys for session data marked as flashdata.</p>
+<p>@return array The property names of all flashdata</p>
+
+<p>Sets new data into the session, and marks it as temporary data</p>
+<p>with a set lifespan.</p>
+<p>@param array|string $data  Session data key or associative array of items</p>
+<p>@param mixed        $value Value to store</p>
+<p>@param int          $ttl   Time-to-live in seconds</p>
+
+<p>Returns either a single piece of tempdata, or all temp data currently</p>
+<p>in the session.</p>
+<p>@param string $key Session data key</p>
+<p>@return mixed Session data value or null if not found.</p>
+
+<p>Removes a single piece of temporary data from the session.</p>
+<p>@param string $key Session data key</p>
+
+<p>Mark one of more pieces of data as being temporary, meaning that</p>
+<p>it has a set lifespan within the session.</p>
+<p>@param array|string $key Property identifier or array of them</p>
+<p>@param int          $ttl Time to live, in seconds</p>
+<p>@return bool False if any of the properties were not set</p>
+
+<p>Unmarks temporary data in the session, effectively removing its</p>
+<p>lifespan and allowing it to live as long as the session does.</p>
+<p>@param array|string $key Property identifier or array of them</p>
+
+<p>Retrieve the keys of all session data that have been marked as temporary data.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Session\SessionInterface.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>regenerate(bool $destroy = false)</code></li>
+<li><code>destroy()</code></li>
+<li><code>set($data, $value = null)</code></li>
+<li><code>get(?string $key = null)</code></li>
+<li><code>has(string $key)</code></li>
+<li><code>remove($key)</code></li>
+<li><code>setFlashdata($data, $value = null)</code></li>
+<li><code>getFlashdata(?string $key = null)</code></li>
+<li><code>keepFlashdata($key)</code></li>
+<li><code>markAsFlashdata($key)</code></li>
+<li><code>unmarkFlashdata($key)</code></li>
+<li><code>getFlashKeys()</code></li>
+<li><code>setTempdata($data, $value = null, int $ttl = 300)</code></li>
+<li><code>getTempdata(?string $key = null)</code></li>
+<li><code>removeTempdata(string $key)</code></li>
+<li><code>markAsTempdata($key, int $ttl = 300)</code></li>
+<li><code>unmarkTempdata($key)</code></li>
+<li><code>getTempKeys()</code></li>
+</ul>
+</body></html>

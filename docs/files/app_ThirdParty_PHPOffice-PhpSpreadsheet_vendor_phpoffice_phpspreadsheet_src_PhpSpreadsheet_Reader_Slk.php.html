@@ -1,0 +1,106 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Slk.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Slk.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Slk.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 20080 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Input encoding.</p>
+<p>@var string</p>
+
+<p>Sheet index to read.</p>
+<p>@var int</p>
+
+<p>Formats.</p>
+<p>@var array</p>
+
+<p>Format Count.</p>
+<p>@var int</p>
+
+<p>Fonts.</p>
+<p>@var array</p>
+
+<p>Font Count.</p>
+<p>@var int</p>
+
+<p>Create a new SYLK Reader instance.</p>
+
+<p>Validate that the current file is a SYLK file.</p>
+
+<p>Set input encoding.</p>
+<p>@deprecated no use is made of this property</p>
+<p>@param string $inputEncoding Input encoding, eg: 'ANSI'</p>
+<p>@return $this</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Get input encoding.</p>
+<p>@deprecated no use is made of this property</p>
+<p>@return string</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Return worksheet info (Name, Last Column Letter, Last Column Index, Total Rows, Total Columns).</p>
+<p>@param string $filename</p>
+<p>@return array</p>
+
+<p>Loads PhpSpreadsheet from file.</p>
+
+<p>Loads PhpSpreadsheet from file into PhpSpreadsheet instance.</p>
+<p>@param string $filename</p>
+<p>@return Spreadsheet</p>
+
+<p>Get sheet index.</p>
+<p>@return int</p>
+
+<p>Set sheet index.</p>
+<p>@param int $sheetIndex Sheet index</p>
+<p>@return $this</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>file</code></li>
+<li><code>left</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Slk.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Reader\Slk extends BaseReader</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>canRead(string $filename)</code></li>
+<li><code>canReadOrBust(string $filename)</code></li>
+<li><code>setInputEncoding($inputEncoding)</code></li>
+<li><code>getInputEncoding()</code></li>
+<li><code>listWorksheetInfo($filename)</code></li>
+<li><code>loadSpreadsheetFromFile(string $filename)</code></li>
+<li><code>processFormula(string $rowDatum, bool &$hasCalculatedValue, string &$cellDataFormula, string $row, string $column)</code></li>
+<li><code>processCRecord(array $rowData, Spreadsheet &$spreadsheet, string &$row, string &$column)</code></li>
+<li><code>processCFinal(Spreadsheet &$spreadsheet, bool $hasCalculatedValue, string $cellDataFormula, string $cellData, string $coordinate)</code></li>
+<li><code>processFRecord(array $rowData, Spreadsheet &$spreadsheet, string &$row, string &$column)</code></li>
+<li><code>styleSettings(string $rowDatum, array &$styleData, string &$fontStyle)</code></li>
+<li><code>addFormats(Spreadsheet &$spreadsheet, string $formatStyle, string $row, string $column)</code></li>
+<li><code>addFonts(Spreadsheet &$spreadsheet, string $fontStyle, string $row, string $column)</code></li>
+<li><code>addStyle(Spreadsheet &$spreadsheet, array $styleData, string $row, string $column)</code></li>
+<li><code>addWidth(Spreadsheet $spreadsheet, string $columnWidth, string $startCol, string $endCol)</code></li>
+<li><code>processPRecord(array $rowData, Spreadsheet &$spreadsheet)</code></li>
+<li><code>processPColors(string $rowDatum, array &$formatArray)</code></li>
+<li><code>processPFontStyles(string $rowDatum, array &$formatArray)</code></li>
+<li><code>processPFinal(Spreadsheet &$spreadsheet, array $formatArray)</code></li>
+<li><code>loadIntoExisting($filename, Spreadsheet $spreadsheet)</code></li>
+<li><code>columnRowFromRowData(array $rowData, string &$column, string &$row)</code></li>
+<li><code>getSheetIndex()</code></li>
+<li><code>setSheetIndex($sheetIndex)</code></li>
+</ul>
+</body></html>

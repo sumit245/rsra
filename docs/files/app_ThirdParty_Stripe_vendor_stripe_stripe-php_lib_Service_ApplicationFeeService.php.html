@@ -1,0 +1,98 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\ApplicationFeeService.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\ApplicationFeeService.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\ApplicationFeeService.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4778 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Returns a list of application fees you’ve previously collected. The application</p>
+<p>fees are returned in sorted order, with the most recent fees appearing first.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\ApplicationFee></p>
+
+<p>You can see a list of the refunds belonging to a specific application fee. Note</p>
+<p>that the 10 most recent refunds are always available by default on the</p>
+<p>application fee object. If you need more than those 10, you can use this API</p>
+<p>method and the <code>limit</code> and <code>starting_after</code> parameters to</p>
+<p>page through additional refunds.</p>
+<p>@param string $parentId</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\ApplicationFeeRefund></p>
+
+<p>Refunds an application fee that has previously been collected but not yet</p>
+<p>refunded. Funds will be refunded to the Stripe account from which the fee was</p>
+<p>originally collected.</p>
+<p>You can optionally refund only part of an application fee. You can do so</p>
+<p>multiple times, until the entire fee has been refunded.</p>
+<p>Once entirely refunded, an application fee can’t be refunded again. This method</p>
+<p>will raise an error when called on an already-refunded application fee, or when</p>
+<p>trying to refund more money than is left on an application fee.</p>
+<p>@param string $parentId</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\ApplicationFeeRefund</p>
+
+<p>Retrieves the details of an application fee that your account has collected. The</p>
+<p>same information is returned when refunding the application fee.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\ApplicationFee</p>
+
+<p>By default, you can see the 10 most recent refunds stored directly on the</p>
+<p>application fee object, but you can also retrieve details about a specific</p>
+<p>refund stored on the application fee.</p>
+<p>@param string $parentId</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\ApplicationFeeRefund</p>
+
+<p>Updates the specified application fee refund by setting the values of the</p>
+<p>parameters passed. Any parameters not provided will be left unchanged.</p>
+<p>This request only accepts metadata as an argument.</p>
+<p>@param string $parentId</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\ApplicationFeeRefund</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+<li><code>which</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\ApplicationFeeService.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Service\ApplicationFeeService extends \Stripe\Service\AbstractService</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>all($params = null, $opts = null)</code></li>
+<li><code>allRefunds($parentId, $params = null, $opts = null)</code></li>
+<li><code>createRefund($parentId, $params = null, $opts = null)</code></li>
+<li><code>retrieve($id, $params = null, $opts = null)</code></li>
+<li><code>retrieveRefund($parentId, $id, $params = null, $opts = null)</code></li>
+<li><code>updateRefund($parentId, $id, $params = null, $opts = null)</code></li>
+</ul>
+</body></html>

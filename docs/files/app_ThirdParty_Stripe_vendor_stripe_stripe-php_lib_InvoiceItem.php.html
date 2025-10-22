@@ -1,0 +1,59 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\InvoiceItem.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\InvoiceItem.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\InvoiceItem.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3876 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Sometimes you want to add a charge or credit to a customer, but actually charge</p>
+<p>or credit the customer's card only at the end of a regular billing cycle. This</p>
+<p>is useful for combining several charges (to minimize per-transaction fees), or</p>
+<p>for having Stripe tabulate your usage-based billing totals.</p>
+<p>Related guide: <a</p>
+<p>href="https://stripe.com/docs/billing/invoices/subscription#adding-upcoming-invoice-items">Subscription</p>
+<p>Invoices</a>.</p>
+<p>@property string $id Unique identifier for the object.</p>
+<p>@property string $object String representing the object's type. Objects of the same type share the same value.</p>
+<p>@property int $amount Amount (in the <code>currency</code> specified) of the invoice item. This should always be equal to <code>unit_amount * quantity</code>.</p>
+<p>@property string $currency Three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO currency code</a>, in lowercase. Must be a <a href="https://stripe.com/docs/currencies">supported currency</a>.</p>
+<p>@property string|\Stripe\Customer $customer The ID of the customer who will be billed when this invoice item is billed.</p>
+<p>@property int $date Time at which the object was created. Measured in seconds since the Unix epoch.</p>
+<p>@property null|string $description An arbitrary string attached to the object. Often useful for displaying to users.</p>
+<p>@property bool $discountable If true, discounts will apply to this invoice item. Always false for prorations.</p>
+<p>@property null|(string|\Stripe\Discount)[] $discounts The discounts which apply to the invoice item. Item discounts are applied before invoice discounts. Use <code>expand[]=discounts</code> to expand each discount.</p>
+<p>@property null|string|\Stripe\Invoice $invoice The ID of the invoice this invoice item belongs to.</p>
+<p>@property bool $livemode Has the value <code>true</code> if the object exists in live mode or the value <code>false</code> if the object exists in test mode.</p>
+<p>@property null|\Stripe\StripeObject $metadata Set of <a href="https://stripe.com/docs/api/metadata">key-value pairs</a> that you can attach to an object. This can be useful for storing additional information about the object in a structured format.</p>
+<p>@property \Stripe\StripeObject $period</p>
+<p>@property null|\Stripe\Plan $plan If the invoice item is a proration, the plan of the subscription that the proration was computed for.</p>
+<p>@property null|\Stripe\Price $price The price of the invoice item.</p>
+<p>@property bool $proration Whether the invoice item was created automatically as a proration adjustment when the customer switched plans.</p>
+<p>@property int $quantity Quantity of units for the invoice item. If the invoice item is a proration, the quantity of the subscription that the proration was computed for.</p>
+<p>@property null|string|\Stripe\Subscription $subscription The subscription that this invoice item has been created for, if any.</p>
+<p>@property string $subscription_item The subscription item that this invoice item has been created for, if any.</p>
+<p>@property null|\Stripe\TaxRate[] $tax_rates The tax rates which apply to the invoice item. When set, the <code>default_tax_rates</code> on the invoice do not apply to this invoice item.</p>
+<p>@property null|string|\Stripe\TestHelpers\TestClock $test_clock ID of the test clock this invoice item belongs to.</p>
+<p>@property null|int $unit_amount Unit amount (in the <code>currency</code> specified) of the invoice item.</p>
+<p>@property null|string $unit_amount_decimal Same as <code>unit_amount</code>, but contains a decimal value with at most 12 decimal places.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\InvoiceItem.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\InvoiceItem extends ApiResource</code></li>
+</ul>
+</body></html>

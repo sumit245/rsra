@@ -1,0 +1,227 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Database\Forge.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Database\Forge.php</h1>
+
+<ul>
+<li>Path: <code>system\Database\Forge.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 30727 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>The Forge class transforms migrations to executable</p>
+<p>SQL statements.</p>
+
+<p>The active database connection.</p>
+<p>@var BaseConnection</p>
+
+<p>List of fields.</p>
+<p>@var array</p>
+
+<p>List of keys.</p>
+<p>@var array</p>
+
+<p>List of unique keys.</p>
+<p>@var array</p>
+
+<p>List of primary keys.</p>
+<p>@var array</p>
+
+<p>List of foreign keys.</p>
+<p>@var array</p>
+
+<p>Character set used.</p>
+<p>@var string</p>
+
+<p>CREATE DATABASE statement</p>
+<p>@var false|string</p>
+
+<p>CREATE DATABASE IF statement</p>
+<p>@var string</p>
+
+<p>CHECK DATABASE EXIST statement</p>
+<p>@var string</p>
+
+<p>DROP DATABASE statement</p>
+<p>@var false|string</p>
+
+<p>CREATE TABLE statement</p>
+<p>@var string</p>
+
+<p>CREATE TABLE IF statement</p>
+<p>@var bool|string</p>
+
+<p>CREATE TABLE keys flag</p>
+<p>Whether table keys are created from within the</p>
+<p>CREATE TABLE statement.</p>
+<p>@var bool</p>
+
+<p>DROP TABLE IF EXISTS statement</p>
+<p>@var bool|string</p>
+
+<p>RENAME TABLE statement</p>
+<p>@var false|string</p>
+
+<p>UNSIGNED support</p>
+<p>@var array|bool</p>
+
+<p>NULL value representation in CREATE/ALTER TABLE statements</p>
+<p>@var string</p>
+<p>@internal Used for marking nullable fields. Not covered by BC promise.</p>
+
+<p>DEFAULT value representation in CREATE/ALTER TABLE statements</p>
+<p>@var false|string</p>
+
+<p>DROP CONSTRAINT statement</p>
+<p>@var string</p>
+
+<p>DROP INDEX statement</p>
+<p>@var string</p>
+
+<p>Constructor.</p>
+
+<p>Provides access to the forge's current database connection.</p>
+<p>@return ConnectionInterface</p>
+
+<p>Create database</p>
+<p>@param bool $ifNotExists Whether to add IF NOT EXISTS condition</p>
+<p>@throws DatabaseException</p>
+
+<p>Determine if a database exists</p>
+<p>@throws DatabaseException</p>
+
+<p>Drop database</p>
+<p>@throws DatabaseException</p>
+
+<p>Add Key</p>
+<p>@param array|string $key</p>
+<p>@return Forge</p>
+
+<p>Add Primary Key</p>
+<p>@param array|string $key</p>
+<p>@return Forge</p>
+
+<p>Add Unique Key</p>
+<p>@param array|string $key</p>
+<p>@return Forge</p>
+
+<p>Add Field</p>
+<p>@param array|string $field</p>
+<p>@return Forge</p>
+
+<p>Add Foreign Key</p>
+<p>@param string|string[] $fieldName</p>
+<p>@param string|string[] $tableField</p>
+<p>@throws DatabaseException</p>
+<p>@return Forge</p>
+
+<p>Drop Key</p>
+<p>@throws DatabaseException</p>
+<p>@return bool</p>
+
+<p>@throws DatabaseException</p>
+<p>@return BaseResult|bool|false|mixed|Query</p>
+
+<p>@throws DatabaseException</p>
+<p>@return mixed</p>
+
+<p>@return bool|string</p>
+
+<p>@throws DatabaseException</p>
+<p>@return mixed</p>
+
+<p>Generates a platform-specific DROP TABLE string</p>
+<p>@return bool|string</p>
+
+<p>@throws DatabaseException</p>
+<p>@return mixed</p>
+
+<p>@param array|string $field</p>
+<p>@throws DatabaseException</p>
+
+<p>@param array|string $columnName</p>
+<p>@throws DatabaseException</p>
+<p>@return mixed</p>
+
+<p>@param array|string $field</p>
+<p>@throws DatabaseException</p>
+
+<p>@param mixed $fields</p>
+<p>@return false|string|string[]</p>
+
+<p>Process fields</p>
+
+<p>Process column</p>
+
+<p>Performs a data type mapping between different databases.</p>
+
+<p>Depending on the unsigned property value:</p>
+<p>   - TRUE will always set $field['unsigned'] to 'UNSIGNED'</p>
+<p>   - FALSE will always set $field['unsigned'] to ''</p>
+<p>   - array(TYPE) will set $field['unsigned'] to 'UNSIGNED',</p>
+<p>       if $attributes['TYPE'] is found in the array</p>
+<p>   - array(TYPE => UTYPE) will change $field['type'],</p>
+<p>       from TYPE to UTYPE in case of a match</p>
+
+<p>Resets table creation vars</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>within</code></li>
+<li><code>TYPE</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Database\Forge.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Database\transforms</code></li>
+<li><code>CodeIgniter\Database\Forge</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(BaseConnection $db)</code></li>
+<li><code>getConnection()</code></li>
+<li><code>createDatabase(string $dbName, bool $ifNotExists = false)</code></li>
+<li><code>databaseExists(string $dbName)</code></li>
+<li><code>dropDatabase(string $dbName)</code></li>
+<li><code>addKey($key, bool $primary = false, bool $unique = false)</code></li>
+<li><code>addPrimaryKey($key)</code></li>
+<li><code>addUniqueKey($key)</code></li>
+<li><code>addField($field)</code></li>
+<li><code>addForeignKey($fieldName = '', string $tableName = '', $tableField = '', string $onUpdate = '', string $onDelete = '')</code></li>
+<li><code>dropKey(string $table, string $keyName)</code></li>
+<li><code>dropForeignKey(string $table, string $foreignName)</code></li>
+<li><code>createTable(string $table, bool $ifNotExists = false, array $attributes = [])</code></li>
+<li><code>_createTable(string $table, bool $ifNotExists, array $attributes)</code></li>
+<li><code>_createTableAttributes(array $attributes)</code></li>
+<li><code>dropTable(string $tableName, bool $ifExists = false, bool $cascade = false)</code></li>
+<li><code>_dropTable(string $table, bool $ifExists, bool $cascade)</code></li>
+<li><code>renameTable(string $tableName, string $newTableName)</code></li>
+<li><code>addColumn(string $table, $field)</code></li>
+<li><code>dropColumn(string $table, $columnName)</code></li>
+<li><code>modifyColumn(string $table, $field)</code></li>
+<li><code>_alterTable(string $alterType, string $table, $fields)</code></li>
+<li><code>_processFields(bool $createTable = false)</code></li>
+<li><code>_processColumn(array $field)</code></li>
+<li><code>_attributeType(array &$attributes)</code></li>
+<li><code>_attributeUnsigned(array &$attributes, array &$field)</code></li>
+<li><code>_attributeDefault(array &$attributes, array &$field)</code></li>
+<li><code>_attributeUnique(array &$attributes, array &$field)</code></li>
+<li><code>_attributeAutoIncrement(array &$attributes, array &$field)</code></li>
+<li><code>_processPrimaryKeys(string $table)</code></li>
+<li><code>_processIndexes(string $table)</code></li>
+<li><code>_processForeignKeys(string $table)</code></li>
+<li><code>reset()</code></li>
+</ul>
+</body></html>

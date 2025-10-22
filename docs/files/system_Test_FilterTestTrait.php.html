@@ -1,0 +1,101 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Test\FilterTestTrait.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Test\FilterTestTrait.php</h1>
+
+<ul>
+<li>Path: <code>system\Test\FilterTestTrait.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7809 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Filter Test Trait</p>
+<p>Provides functionality for testing</p>
+<p>filters and their route associations.</p>
+<p>@mixin CIUnitTestCase</p>
+
+<p>Have the one-time classes been instantiated?</p>
+<p>@var bool</p>
+
+<p>The active IncomingRequest or CLIRequest</p>
+<p>@var RequestInterface</p>
+
+<p>The active Response instance</p>
+<p>@var ResponseInterface</p>
+
+<p>The Filters configuration to use.</p>
+<p>Extracted for access to aliases</p>
+<p>during Filters::discoverFilters().</p>
+<p>@var FiltersConfig|null</p>
+
+<p>The prepared Filters library.</p>
+<p>@var Filters|null</p>
+
+<p>The default App and discovered</p>
+<p>routes to check for filters.</p>
+<p>@var RouteCollection|null</p>
+
+<p>Initializes dependencies once.</p>
+
+<p>Returns a callable method for a filter position</p>
+<p>using the local HTTP instances.</p>
+<p>@param FilterInterface|string $filter   The filter instance, class, or alias</p>
+<p>@param string                 $position "before" or "after"</p>
+
+<p>Gets an array of filter aliases enabled</p>
+<p>for the given route at position.</p>
+<p>@param string $route    The route to test</p>
+<p>@param string $position "before" or "after"</p>
+<p>@return string[] The filter aliases</p>
+
+<p>Asserts that the given route at position uses</p>
+<p>the filter (by its alias).</p>
+<p>@param string $route    The route to test</p>
+<p>@param string $position "before" or "after"</p>
+<p>@param string $alias    Alias for the anticipated filter</p>
+
+<p>Asserts that the given route at position does not</p>
+<p>use the filter (by its alias).</p>
+<p>@param string $route    The route to test</p>
+<p>@param string $position "before" or "after"</p>
+<p>@param string $alias    Alias for the anticipated filter</p>
+
+<p>Asserts that the given route at position has</p>
+<p>at least one filter set.</p>
+<p>@param string $route    The route to test</p>
+<p>@param string $position "before" or "after"</p>
+
+<p>Asserts that the given route at position has</p>
+<p>no filters set.</p>
+<p>@param string $route    The route to test</p>
+<p>@param string $position "before" or "after"</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>outside</code></li>
+<li><code>Config</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Test\FilterTestTrait.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>setUpFilterTestTrait()</code></li>
+<li><code>getFilterCaller($filter, string $position)</code></li>
+<li><code>getFiltersForRoute(string $route, string $position)</code></li>
+<li><code>assertFilter(string $route, string $position, string $alias)</code></li>
+<li><code>assertNotFilter(string $route, string $position, string $alias)</code></li>
+<li><code>assertHasFilters(string $route, string $position)</code></li>
+<li><code>assertNotHasFilters(string $route, string $position)</code></li>
+</ul>
+</body></html>

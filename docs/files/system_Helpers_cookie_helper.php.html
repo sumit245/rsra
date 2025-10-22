@@ -1,0 +1,77 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Helpers\cookie_helper.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Helpers\cookie_helper.php</h1>
+
+<ul>
+<li>Path: <code>system\Helpers\cookie_helper.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3699 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Set cookie</p>
+<p>Accepts seven parameters, or you can submit an associative</p>
+<p>array in the first parameter containing all the values.</p>
+<p>@param array|string $name     Cookie name or array containing binds</p>
+<p>@param string       $value    The value of the cookie</p>
+<p>@param string       $expire   The number of seconds until expiration</p>
+<p>@param string       $domain   For site-wide cookie. Usually: .yourdomain.com</p>
+<p>@param string       $path     The cookie path</p>
+<p>@param string       $prefix   The cookie prefix ('': the default prefix)</p>
+<p>@param bool         $secure   True makes the cookie secure</p>
+<p>@param bool         $httpOnly True makes the cookie accessible via http(s) only (no javascript)</p>
+<p>@param string|null  $sameSite The cookie SameSite value</p>
+<p>@see \CodeIgniter\HTTP\Response::setCookie()</p>
+
+<p>Fetch an item from the $_COOKIE array</p>
+<p>@param string      $index</p>
+<p>@param string|null $prefix Cookie name prefix.</p>
+<p>                           '': the prefix in Config\Cookie</p>
+<p>                           null: no prefix</p>
+<p>@return array|string|null</p>
+<p>@see \CodeIgniter\HTTP\IncomingRequest::getCookie()</p>
+
+<p>@var Cookie|null $cookie</p>
+
+<p>Delete a cookie</p>
+<p>@param mixed  $name</p>
+<p>@param string $domain the cookie domain. Usually: .yourdomain.com</p>
+<p>@param string $path   the cookie path</p>
+<p>@param string $prefix the cookie prefix</p>
+<p>@see \CodeIgniter\HTTP\Response::deleteCookie()</p>
+
+<p>Checks if a cookie exists by name.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Helpers\cookie_helper.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`set_cookie($name,</li>
+<p>        string $value = '',</p>
+<p>        string $expire = '',</p>
+<p>        string $domain = '',</p>
+<p>        string $path = '/',</p>
+<p>        string $prefix = '',</p>
+<p>        bool $secure = false,</p>
+<p>        bool $httpOnly = false,</p>
+<p>        ?string $sameSite = null)`</p>
+<li><code>get_cookie($index, bool $xssClean = false, ?string $prefix = '')</code></li>
+<li><code>delete_cookie($name, string $domain = '', string $path = '/', string $prefix = '')</code></li>
+<li><code>has_cookie(string $name, ?string $value = null, string $prefix = '')</code></li>
+</ul>
+</body></html>

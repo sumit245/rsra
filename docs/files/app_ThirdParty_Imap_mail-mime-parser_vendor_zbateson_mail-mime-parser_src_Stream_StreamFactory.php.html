@@ -1,0 +1,100 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Stream\StreamFactory.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Stream\StreamFactory.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Stream\StreamFactory.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4782 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Factory class for Psr7 stream decorators used in MailMimeParser.</p>
+<p>@author Zaahid Bateson</p>
+
+<p>Returns a SeekingLimitStream using $part->getStreamPartLength() and</p>
+<p>$part->getStreamPartStartOffset()</p>
+<p>@param StreamInterface $stream</p>
+<p>@param PartBuilder $part</p>
+<p>@return SeekingLimitStream</p>
+
+<p>Returns a SeekingLimitStream using $part->getStreamContentLength() and</p>
+<p>$part->getStreamContentStartOffset()</p>
+<p>@param StreamInterface $stream</p>
+<p>@param PartBuilder $part</p>
+<p>@return SeekingLimitStream</p>
+
+<p>Creates and returns a SeekingLimitedStream.</p>
+<p>@param StreamInterface $stream</p>
+<p>@param int $length</p>
+<p>@param int $start</p>
+<p>@return SeekingLimitStream</p>
+
+<p>Creates a non-closing stream that doesn't close it's internal stream when</p>
+<p>closing/detaching.</p>
+
+<p>@param StreamInterface $stream</p>
+<p>@return NonClosingStream</p>
+
+<p>Creates a ChunkSplitStream.</p>
+
+<p>@param StreamInterface $stream</p>
+<p>@return ChunkSplitStream</p>
+
+<p>Creates and returns a Base64Stream with an internal</p>
+<p>PregReplaceFilterStream that filters out non-base64 characters.</p>
+
+<p>@param StreamInterface $stream</p>
+<p>@return Base64Stream</p>
+
+<p>Creates and returns a QuotedPrintableStream.</p>
+<p>@param StreamInterface $stream</p>
+<p>@return QuotedPrintableStream</p>
+
+<p>Creates and returns a UUStream</p>
+<p>@param StreamInterface $stream</p>
+<p>@return UUStream</p>
+
+<p>Creates and returns a CharsetStream</p>
+<p>@param StreamInterface $stream</p>
+<p>@param string $fromCharset</p>
+<p>@param string $toCharset</p>
+<p>@return CharsetStream</p>
+
+<p>Creates and returns a MessagePartStream</p>
+<p>@param MessagePart $part</p>
+<p>@return MessagePartStream</p>
+
+<p>Creates and returns a HeaderStream</p>
+<p>@param MessagePart $part</p>
+<p>@return HeaderStream</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Stream\StreamFactory.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Stream\for</code></li>
+<li><code>ZBateson\MailMimeParser\Stream\StreamFactory</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getLimitedPartStream(StreamInterface $stream, PartBuilder $part)</code></li>
+<li><code>getLimitedContentStream(StreamInterface $stream, PartBuilder $part)</code></li>
+<li><code>newLimitStream(StreamInterface $stream, $length, $start)</code></li>
+<li><code>newNonClosingStream(StreamInterface $stream)</code></li>
+<li><code>newChunkSplitStream(StreamInterface $stream)</code></li>
+<li><code>newBase64Stream(StreamInterface $stream)</code></li>
+<li><code>newQuotedPrintableStream(StreamInterface $stream)</code></li>
+<li><code>newUUStream(StreamInterface $stream)</code></li>
+<li><code>newCharsetStream(StreamInterface $stream, $fromCharset, $toCharset)</code></li>
+<li><code>newMessagePartStream(MessagePart $part)</code></li>
+<li><code>newHeaderStream(MessagePart $part)</code></li>
+</ul>
+</body></html>

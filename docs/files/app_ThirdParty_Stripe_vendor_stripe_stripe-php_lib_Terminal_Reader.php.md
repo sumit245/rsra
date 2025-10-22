@@ -1,0 +1,67 @@
+# app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Terminal\Reader.php
+
+- Path: `app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Terminal\Reader.php`
+- Type: PHP
+- Size: 4040 bytes
+
+## Summary (from docblocks)
+
+A Reader represents a physical device for accepting payment details.
+Related guide: <a
+href="https://stripe.com/docs/terminal/payments/connect-reader">Connecting to a
+Reader</a>.
+@property string $id Unique identifier for the object.
+@property string $object String representing the object's type. Objects of the same type share the same value.
+@property null|\Stripe\StripeObject $action The most recent action performed by the reader.
+@property null|string $device_sw_version The current software version of the reader.
+@property string $device_type Type of reader, one of <code>bbpos_wisepad3</code>, <code>stripe_m2</code>, <code>bbpos_chipper2x</code>, <code>bbpos_wisepos_e</code>, <code>verifone_P400</code>, or <code>simulated_wisepos_e</code>.
+@property null|string $ip_address The local IP address of the reader.
+@property string $label Custom label given to the reader for easier identification.
+@property bool $livemode Has the value <code>true</code> if the object exists in live mode or the value <code>false</code> if the object exists in test mode.
+@property null|string|\Stripe\Terminal\Location $location The location identifier of the reader.
+@property \Stripe\StripeObject $metadata Set of <a href="https://stripe.com/docs/api/metadata">key-value pairs</a> that you can attach to an object. This can be useful for storing additional information about the object in a structured format.
+@property string $serial_number Serial number of the reader.
+@property null|string $status The networking status of the reader.
+
+@param null|array $params
+@param null|array|string $opts
+@throws \Stripe\Exception\ApiErrorException if the request fails
+@return \Stripe\Terminal\Reader the canceled reader
+
+@param null|array $params
+@param null|array|string $opts
+@throws \Stripe\Exception\ApiErrorException if the request fails
+@return \Stripe\Terminal\Reader the processed reader
+
+@param null|array $params
+@param null|array|string $opts
+@throws \Stripe\Exception\ApiErrorException if the request fails
+@return \Stripe\Terminal\Reader the processed reader
+
+@param null|array $params
+@param null|array|string $opts
+@throws \Stripe\Exception\ApiErrorException if the request fails
+@return \Stripe\Terminal\Reader the seted reader
+
+## References
+
+**Database Tables (inferred)**
+- `our`
+
+## Symbols
+
+# Symbols
+
+**Files documented**: 1
+
+## `app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Terminal\Reader.php`
+
+**Classes**:
+- `Stripe\Terminal\Reader extends \Stripe\ApiResource`
+
+**Functions/Methods**:
+- `cancelAction($params = null, $opts = null)`
+- `processPaymentIntent($params = null, $opts = null)`
+- `processSetupIntent($params = null, $opts = null)`
+- `setReaderDisplay($params = null, $opts = null)`
+

@@ -1,0 +1,84 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xls\BIFFwriter.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xls\BIFFwriter.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xls\BIFFwriter.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7083 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>The byte order of this architecture. 0 => little endian, 1 => big endian.</p>
+<p>@var int</p>
+
+<p>The string containing the data of the BIFF stream.</p>
+<p>@var null|string</p>
+
+<p>The size of the data in bytes. Should be the same as strlen($this->_data).</p>
+<p>@var int</p>
+
+<p>The maximum length for a BIFF record (excluding record header and length field). See addContinue().</p>
+<p>@var int</p>
+<p>@see addContinue()</p>
+
+<p>Constructor.</p>
+
+<p>Determine the byte order and store it as class data to avoid</p>
+<p>recalculating it for each call to new().</p>
+<p>@return int</p>
+
+<p>General storage function.</p>
+<p>@param string $data binary data to append</p>
+
+<p>General storage function like append, but returns string instead of modifying $this->_data.</p>
+<p>@param string $data binary data to write</p>
+<p>@return string</p>
+
+<p>Writes Excel BOF record to indicate the beginning of a stream or</p>
+<p>sub-stream in the BIFF file.</p>
+<p>@param int $type type of BIFF file to write: 0x0005 Workbook,</p>
+<p>                      0x0010 Worksheet</p>
+
+<p>Writes Excel EOF record to indicate the end of a BIFF stream.</p>
+
+<p>Writes Excel EOF record to indicate the end of a BIFF stream.</p>
+
+<p>Excel limits the size of BIFF records. In Excel 5 the limit is 2084 bytes. In</p>
+<p>Excel 97 the limit is 8228 bytes. Records that are longer than these limits</p>
+<p>must be split up into CONTINUE blocks.</p>
+<p>This function takes a long BIFF record and inserts CONTINUE records as</p>
+<p>necessary.</p>
+<p>@param string $data The original binary data to be written</p>
+<p>@return string A very convenient string of continue blocks</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xls\BIFFwriter.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Writer\Xls\library</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Writer\Xls\BIFFwriter</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Writer\Xls\data</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>getByteOrder()</code></li>
+<li><code>append($data)</code></li>
+<li><code>writeData($data)</code></li>
+<li><code>storeBof($type)</code></li>
+<li><code>storeEof()</code></li>
+<li><code>writeEof()</code></li>
+<li><code>addContinue($data)</code></li>
+</ul>
+</body></html>

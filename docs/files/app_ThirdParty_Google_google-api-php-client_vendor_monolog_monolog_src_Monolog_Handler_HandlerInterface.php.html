@@ -1,0 +1,70 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\HandlerInterface.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\HandlerInterface.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\HandlerInterface.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2597 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Interface that all Monolog Handlers must implement</p>
+<p>@author Jordi Boggiano <j.boggiano@seld.be></p>
+
+<p>Checks whether the given record will be handled by this handler.</p>
+<p>This is mostly done for performance reasons, to avoid calling processors for nothing.</p>
+<p>Handlers should still check the record levels within handle(), returning false in isHandling()</p>
+<p>is no guarantee that handle() will not be called, and isHandling() might not be called</p>
+<p>for a given record.</p>
+<p>@param array $record Partial log record containing only a level key</p>
+<p>@return Boolean</p>
+
+<p>Handles a record.</p>
+<p>All records may be passed to this method, and the handler should discard</p>
+<p>those that it does not want to handle.</p>
+<p>The return value of this function controls the bubbling process of the handler stack.</p>
+<p>Unless the bubbling is interrupted (by returning true), the Logger class will keep on</p>
+<p>calling further handlers in the stack with a given log record.</p>
+<p>@param  array   $record The record to handle</p>
+<p>@return Boolean true means that this handler handled the record, and that bubbling is not permitted.</p>
+<p>                       false means the record was either not processed or that this handler allows bubbling.</p>
+
+<p>Handles a set of records at once.</p>
+<p>@param array $records The records to handle (an array of record arrays)</p>
+
+<p>Adds a processor in the stack.</p>
+<p>@param  callable $callback</p>
+<p>@return self</p>
+
+<p>Removes the processor on top of the stack and returns it.</p>
+<p>@return callable</p>
+
+<p>Sets the formatter.</p>
+<p>@param  FormatterInterface $formatter</p>
+<p>@return self</p>
+
+<p>Gets the formatter.</p>
+<p>@return FormatterInterface</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\HandlerInterface.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Monolog\Handler\will</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>isHandling(array $record)</code></li>
+<li><code>handle(array $record)</code></li>
+<li><code>handleBatch(array $records)</code></li>
+<li><code>pushProcessor($callback)</code></li>
+<li><code>popProcessor()</code></li>
+<li><code>setFormatter(FormatterInterface $formatter)</code></li>
+<li><code>getFormatter()</code></li>
+</ul>
+</body></html>

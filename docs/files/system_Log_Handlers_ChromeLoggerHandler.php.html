@@ -1,0 +1,75 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Log\Handlers\ChromeLoggerHandler.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Log\Handlers\ChromeLoggerHandler.php</h1>
+
+<ul>
+<li>Path: <code>system\Log\Handlers\ChromeLoggerHandler.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3838 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Class ChromeLoggerHandler</p>
+<p>Allows for logging items to the Chrome console for debugging.</p>
+<p>Requires the ChromeLogger extension installed in your browser.</p>
+<p>@see https://craig.is/writing/chrome-logger</p>
+
+<p>Version of this library - for ChromeLogger use.</p>
+
+<p>The number of track frames returned from the backtrace.</p>
+<p>@var int</p>
+
+<p>The final data that is sent to the browser.</p>
+<p>@var array</p>
+
+<p>The header used to pass the data.</p>
+<p>@var string</p>
+
+<p>Maps the log levels to the ChromeLogger types.</p>
+<p>@var array</p>
+
+<p>Constructor</p>
+
+<p>Handles logging the message.</p>
+<p>If the handler returns false, then execution of handlers</p>
+<p>will stop. Any handlers that have not run, yet, will not</p>
+<p>be run.</p>
+<p>@param string $level</p>
+<p>@param string $message</p>
+
+<p>Converts the object to display nicely in the Chrome Logger UI.</p>
+<p>@param mixed $object</p>
+<p>@return array</p>
+
+<p>Attaches the header and the content to the passed in request object.</p>
+<p>@param ResponseInterface $response</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Log\Handlers\ChromeLoggerHandler.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Log\Handlers\ChromeLoggerHandler extends BaseHandler</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(array $config = [])</code></li>
+<li><code>handle($level, $message)</code></li>
+<li><code>format($object)</code></li>
+<li><code>sendLogs(?ResponseInterface &$response = null)</code></li>
+</ul>
+</body></html>

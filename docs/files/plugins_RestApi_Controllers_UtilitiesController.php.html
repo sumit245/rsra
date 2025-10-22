@@ -1,0 +1,308 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\RestApi\Controllers\UtilitiesController.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\RestApi\Controllers\UtilitiesController.php</h1>
+
+<ul>
+<li>Path: <code>plugins\RestApi\Controllers\UtilitiesController.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 11514 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@api {get} /api/client_groups List Client Groups</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName GetClientGroups</p>
+<p>@apiGroup Miscellaneous</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiSuccess {Object} Clients Groups information</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>{</p>
+<p>  "id": "1",</p>
+<p>  "title": "Test c group ",</p>
+<p>  "deleted": "0"</p>
+<p>}</p>
+<p>@apiError {Boolean} status Request status</p>
+<p>@apiError {String} message No data were found</p>
+
+<p>@api {get} /api/project_labels List Project Labels</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName GetProejctLabels</p>
+<p>@apiGroup Miscellaneous</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiSuccess {Object} Project Labels information</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>[{</p>
+<p>  "id": "1",</p>
+<p>  "title": "Hourly Project",</p>
+<p>  "color": "#83c340",</p>
+<p>  "context": "project",</p>
+<p>  "user_id": "0",</p>
+<p>  "deleted": "0"</p>
+<p>},</p>
+<p>{</p>
+<p>  "id": "2",</p>
+<p>  "title": "Fixed Project",</p>
+<p>  "color": "#ffc310",</p>
+<p>  "context": "project",</p>
+<p>  "user_id": "0",</p>
+<p>  "deleted": "0"</p>
+<p>}]</p>
+<p>@apiError {Boolean} status Request status</p>
+<p>@apiError {String} message No data were found</p>
+
+<p>@api {get} /api/invoice_labels List Invoice Labels</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName GetInvoiceLabels</p>
+<p>@apiGroup Miscellaneous</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiSuccess {Object} Invoice Labels information</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>  [</p>
+<p>      {</p>
+<p>          "id": "2",</p>
+<p>          "title": "title1",</p>
+<p>          "color": "#aab7b7",</p>
+<p>          "context": "invoice label 1",</p>
+<p>          "user_id": "0",</p>
+<p>          "deleted": "0"</p>
+<p>      },</p>
+<p>      {</p>
+<p>          "id": "1",</p>
+<p>          "title": "title2",</p>
+<p>          "color": "#83c340",</p>
+<p>          "context": "invoice label 2",</p>
+<p>          "user_id": "0",</p>
+<p>          "deleted": "0"</p>
+<p>      }</p>
+<p>  ]</p>
+<p>@apiError {Boolean} status Request status</p>
+<p>@apiError {String} message No data were found</p>
+
+<p>@api {get} /api/ticket_labels List Ticket Labels</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName GetTicketLabels</p>
+<p>@apiGroup Miscellaneous</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiSuccess {Object} Ticket Labels information</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>  [</p>
+<p>      {</p>
+<p>          "id": "12",</p>
+<p>          "title": "label 4",</p>
+<p>          "color": "#e74c3c",</p>
+<p>          "context": "ticket",</p>
+<p>          "user_id": "0",</p>
+<p>          "deleted": "0"</p>
+<p>      },</p>
+<p>      {</p>
+<p>          "id": "11",</p>
+<p>          "title": "label 4",</p>
+<p>          "color": "#f1c40f",</p>
+<p>          "context": "ticket",</p>
+<p>          "user_id": "0",</p>
+<p>          "deleted": "0"</p>
+<p>      },</p>
+<p>      {</p>
+<p>          "id": "10",</p>
+<p>          "title": "label 3",</p>
+<p>          "color": "#29c2c2",</p>
+<p>          "context": "ticket",</p>
+<p>          "user_id": "0",</p>
+<p>          "deleted": "0"</p>
+<p>      },</p>
+<p>      {</p>
+<p>          "id": "9",</p>
+<p>          "title": "label 2",</p>
+<p>          "color": "#ad159e",</p>
+<p>          "context": "ticket",</p>
+<p>          "user_id": "0",</p>
+<p>          "deleted": "0"</p>
+<p>      }</p>
+<p>  ]</p>
+<p>@apiError {Boolean} status Request status</p>
+<p>@apiError {String} message No data were found</p>
+
+<p>@api {get} /api/invoice_tax List Invoice Taxes</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName GetInvoiceTaxes</p>
+<p>@apiGroup Miscellaneous</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiSuccess {Object} Invoice Taxes information</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>{</p>
+<p>  "id": "1",</p>
+<p>  "title": "Tax (10%)",</p>
+<p>  "percentage": "10",</p>
+<p>  "deleted": "0"</p>
+<p>}</p>
+<p>@apiError {Boolean} status Request status</p>
+<p>@apiError {String} message No data were found</p>
+
+<p>@api {get} /api/contact_by_clientid/:clinetid List Contact by ClientID</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName GetContactByClientid</p>
+<p>@apiGroup Miscellaneous</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiSuccess {Object} Client Contact information</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>{</p>
+<p>  "id": "6",</p>
+<p>  "first_name": "Fname",</p>
+<p>  "last_name": "Lname",</p>
+<p>  "user_type": "client",</p>
+<p>  "is_admin": "0",</p>
+<p>  "role_id": "0",</p>
+<p>  "email": "contact@email.pvt.ltd",</p>
+<p>  "password": "$2y$10$02jBZmmhPx3a6plQpsqaFuQoWgTraZuUllc8eiCCiKUCnyVy2wDTa",</p>
+<p>  "image": null,</p>
+<p>  "status": "active",</p>
+<p>  "message_checked_at": null,</p>
+<p>  "client_id": "3",</p>
+<p>  "notification_checked_at": null,</p>
+<p>  "is_primary_contact": "0",</p>
+<p>  "job_title": "HR",</p>
+<p>  "disable_login": "0",</p>
+<p>  "note": "",</p>
+<p>  "address": null,</p>
+<p>  "alternative_address": null,</p>
+<p>  "phone": "1234567890",</p>
+<p>  "alternative_phone": null,</p>
+<p>  "dob": null,</p>
+<p>  "ssn": null,</p>
+<p>  "gender": "male",</p>
+<p>  "sticky_note": null,</p>
+<p>  "skype": "",</p>
+<p>  "enable_web_notification": "1",</p>
+<p>  "enable_email_notification": "1",</p>
+<p>  "created_at": "2021-09-18 11:26:56",</p>
+<p>  "last_online": null,</p>
+<p>  "requested_account_removal": "0",</p>
+<p>  "deleted": "0"</p>
+<p>  "role_title": null,</p>
+<p>  "date_of_hire": null,</p>
+<p>  "salary": null,</p>
+<p>  "salary_term": null</p>
+<p>}</p>
+<p>@apiError {Boolean} status Request status</p>
+<p>@apiError {String} message No data were found</p>
+
+<p>@api {get} /api/ticket_type List Ticket Types</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName GetTicketType</p>
+<p>@apiGroup Miscellaneous</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiSuccess {Object} Tickets Types information</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>{</p>
+<p>  "id": "1",</p>
+<p>  "title": "General Support",</p>
+<p>  "deleted": "0"</p>
+<p>}</p>
+<p>@apiError {Boolean} status Request status</p>
+<p>@apiError {String} message No data were found</p>
+
+<p>@api {get} /api/staff_owner List Staff Owner</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName GetStaffOwner</p>
+<p>@apiGroup Miscellaneous</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiSuccess {Object} Staff Owner information</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>{</p>
+<p>  "id": "6",</p>
+<p>  "first_name": "Fname",</p>
+<p>  "last_name": "Lname",</p>
+<p>  "user_type": "client",</p>
+<p>  "is_admin": "0",</p>
+<p>  "role_id": "0",</p>
+<p>  "email": "contact@email.pvt.ltd",</p>
+<p>  "password": "$2y$10$02jBZmmhPx3a6plQpsqaFuQoWgTraZuUllc8eiCCiKUCnyVy2wDTa",</p>
+<p>  "image": null,</p>
+<p>  "status": "active",</p>
+<p>  "message_checked_at": null,</p>
+<p>  "client_id": "3",</p>
+<p>  "notification_checked_at": null,</p>
+<p>  "is_primary_contact": "0",</p>
+<p>  "job_title": "HR",</p>
+<p>  "disable_login": "0",</p>
+<p>  "note": "",</p>
+<p>  "address": null,</p>
+<p>  "alternative_address": null,</p>
+<p>  "phone": "1234567890",</p>
+<p>  "alternative_phone": null,</p>
+<p>  "dob": null,</p>
+<p>  "ssn": null,</p>
+<p>  "gender": "male",</p>
+<p>  "sticky_note": null,</p>
+<p>  "skype": "",</p>
+<p>  "enable_web_notification": "1",</p>
+<p>  "enable_email_notification": "1",</p>
+<p>  "created_at": "2021-09-18 11:26:56",</p>
+<p>  "last_online": null,</p>
+<p>  "requested_account_removal": "0",</p>
+<p>  "deleted": "0"</p>
+<p>  "role_title": null,</p>
+<p>  "date_of_hire": null,</p>
+<p>  "salary": null,</p>
+<p>  "salary_term": null</p>
+<p>}</p>
+<p>@apiError {Boolean} status Request status</p>
+<p>@apiError {String} message No data were found</p>
+
+<p>@api {get} /api/getProjectMembers List Project Members</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName GetProjectMembers</p>
+<p>@apiGroup Miscellaneous</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiSuccess {Object} Project Members information</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>{</p>
+<p>  "id": "6",</p>
+<p>  "user_id": "1",</p>
+<p>  "project_id": "1",</p>
+<p>  "is_leader": "1",</p>
+<p>  "deleted": "0",</p>
+<p>  "member_name": "Fname Lname",</p>
+<p>  "member_image": null,</p>
+<p>  "job_title": "Admin",</p>
+<p>  "user_type": "staff"     *</p>
+<p>}</p>
+<p>@apiError {Boolean} status Request status</p>
+<p>@apiError {String} message No data were found</p>
+
+<h2>References</h2>
+
+<p><strong>Models Used</strong></p>
+<ul>
+<li><code>Client_groups_model</code></li>
+<li><code>labels_model</code></li>
+<li><code>taxes_model</code></li>
+<li><code>contact_model</code></li>
+<li><code>ticket_types_model</code></li>
+<li><code>users_model</code></li>
+<li><code>project_members_model</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\RestApi\Controllers\UtilitiesController.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>RestApi\Controllers\UtilitiesController extends Rest_api_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>getClientGroups()</code></li>
+<li><code>getProejctLabels()</code></li>
+<li><code>getInvoiceLabels()</code></li>
+<li><code>getTicketLabels()</code></li>
+<li><code>getInvoiceTaxes()</code></li>
+<li><code>getContactByClientid($clientid)</code></li>
+<li><code>getTicketType()</code></li>
+<li><code>getStaffOwner()</code></li>
+<li><code>getProjectMembers()</code></li>
+</ul>
+</body></html>

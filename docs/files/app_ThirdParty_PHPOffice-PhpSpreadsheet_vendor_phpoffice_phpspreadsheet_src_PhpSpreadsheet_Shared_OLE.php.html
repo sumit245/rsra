@@ -1,0 +1,159 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\OLE.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\OLE.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\OLE.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 17460 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>OLE package base class.</p>
+<p>@author   Xavier Noguer <xnoguer@php.net></p>
+<p>@author   Christian Schmidt <schmidt@php.net></p>
+
+<p>The file handle for reading an OLE container.</p>
+<p>@var resource</p>
+
+<p>Array of PPS's found on the OLE container.</p>
+<p>@var array</p>
+
+<p>Root directory of OLE container.</p>
+<p>@var Root</p>
+
+<p>Big Block Allocation Table.</p>
+<p>@var array (blockId => nextBlockId)</p>
+
+<p>Short Block Allocation Table.</p>
+<p>@var array (blockId => nextBlockId)</p>
+
+<p>Size of big blocks. This is usually 512.</p>
+<p>@var int number of octets per block</p>
+
+<p>Size of small blocks. This is usually 64.</p>
+<p>@var int number of octets per block</p>
+
+<p>Threshold for big blocks.</p>
+<p>@var int</p>
+
+<p>Reads an OLE container from the contents of the file given.</p>
+<p>@acces public</p>
+<p>@param string $filename</p>
+<p>@return bool true on success, PEAR_Error on failure</p>
+
+<p>@param int $blockId byte offset from beginning of file</p>
+<p>@return int</p>
+
+<p>Returns a stream for use with fread() etc. External callers should</p>
+<p>use \PhpOffice\PhpSpreadsheet\Shared\OLE\PPS\File::getStream().</p>
+<p>@param int|OLE\PPS $blockIdOrPps block id or PPS</p>
+<p>@return resource read-only stream</p>
+
+<p>Reads a signed char.</p>
+<p>@param resource $fileHandle file handle</p>
+<p>@return int</p>
+
+<p>Reads an unsigned short (2 octets).</p>
+<p>@param resource $fileHandle file handle</p>
+<p>@return int</p>
+
+<p>Reads an unsigned long (4 octets).</p>
+<p>@param resource $fileHandle file handle</p>
+<p>@return int</p>
+
+<p>Gets information about all PPS's on the OLE container from the PPS WK's</p>
+<p>creates an OLE_PPS object for each one.</p>
+<p>@param int $blockId the block id of the first block</p>
+<p>@return bool true on success, PEAR_Error on failure</p>
+
+<p>It checks whether the PPS tree is complete (all PPS's read)</p>
+<p>starting with the given PPS (not necessarily root).</p>
+<p>@param int $index The index of the PPS from which we are checking</p>
+<p>@return bool Whether the PPS tree for the given PPS is complete</p>
+
+<p>Checks whether a PPS is a File PPS or not.</p>
+<p>If there is no PPS for the index given, it will return false.</p>
+<p>@param int $index The index for the PPS</p>
+<p>@return bool true if it's a File PPS, false otherwise</p>
+
+<p>Checks whether a PPS is a Root PPS or not.</p>
+<p>If there is no PPS for the index given, it will return false.</p>
+<p>@param int $index the index for the PPS</p>
+<p>@return bool true if it's a Root PPS, false otherwise</p>
+
+<p>Gives the total number of PPS's found in the OLE container.</p>
+<p>@return int The total number of PPS's found in the OLE container</p>
+
+<p>Gets data from a PPS</p>
+<p>If there is no PPS for the index given, it will return an empty string.</p>
+<p>@param int $index The index for the PPS</p>
+<p>@param int $position The position from which to start reading</p>
+<p>                         (relative to the PPS)</p>
+<p>@param int $length The amount of bytes to read (at most)</p>
+<p>@return string The binary string containing the data requested</p>
+<p>@see OLE_PPS_File::getStream()</p>
+
+<p>Gets the data length from a PPS</p>
+<p>If there is no PPS for the index given, it will return 0.</p>
+<p>@param int $index The index for the PPS</p>
+<p>@return int The amount of bytes in data the PPS has</p>
+
+<p>Utility function to transform ASCII text to Unicode.</p>
+<p>@param string $ascii The ASCII string to transform</p>
+<p>@return string The string in Unicode</p>
+
+<p>Utility function</p>
+<p>Returns a string for the OLE container with the date given.</p>
+<p>@param float|int $date A timestamp</p>
+<p>@return string The string for the OLE container</p>
+
+<p>Returns a timestamp from an OLE container's date.</p>
+<p>@param string $oleTimestamp A binary string with the encoded date</p>
+<p>@return float|int The Unix timestamp corresponding to the string</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>beginning</code></li>
+<li><code>self</code></li>
+<li><code>UTF</code></li>
+<li><code>root</code></li>
+<li><code>which</code></li>
+<li><code>a</code></li>
+<li><code>1</code></li>
+<li><code>an</code></li>
+<li><code>1601</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\OLE.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Shared\OLE</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>read($filename)</code></li>
+<li><code>getBlockOffset($blockId)</code></li>
+<li><code>getStream($blockIdOrPps)</code></li>
+<li><code>readInt1($fileHandle)</code></li>
+<li><code>readInt2($fileHandle)</code></li>
+<li><code>readInt4($fileHandle)</code></li>
+<li><code>readPpsWks($blockId)</code></li>
+<li><code>ppsTreeComplete($index)</code></li>
+<li><code>isFile($index)</code></li>
+<li><code>isRoot($index)</code></li>
+<li><code>ppsTotal()</code></li>
+<li><code>getData($index, $position, $length)</code></li>
+<li><code>getDataLength($index)</code></li>
+<li><code>ascToUcs($ascii)</code></li>
+<li><code>localDateToOLE($date)</code></li>
+<li><code>OLE2LocalDate($oleTimestamp)</code></li>
+</ul>
+</body></html>

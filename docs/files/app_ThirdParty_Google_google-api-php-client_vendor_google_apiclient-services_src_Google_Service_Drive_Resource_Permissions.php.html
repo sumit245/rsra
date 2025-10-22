@@ -1,0 +1,122 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Drive\Resource\Permissions.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Drive\Resource\Permissions.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Drive\Resource\Permissions.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 6946 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>The "permissions" collection of methods.</p>
+<p>Typical usage is:</p>
+<p> <code></p>
+<p>  $driveService = new Google_Service_Drive(...);</p>
+<p>  $permissions = $driveService->permissions;</p>
+<p> </code></p>
+
+<p>Creates a permission for a file or Team Drive. (permissions.create)</p>
+<p>@param string $fileId The ID of the file or Team Drive.</p>
+<p>@param Google_Service_Drive_Permission $postBody</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@opt_param string emailMessage A plain text custom message to include in the</p>
+<p>notification email.</p>
+<p>@opt_param bool sendNotificationEmail Whether to send a notification email</p>
+<p>when sharing to users or groups. This defaults to true for users and groups,</p>
+<p>and is not allowed for other requests. It must not be disabled for ownership</p>
+<p>transfers.</p>
+<p>@opt_param bool supportsTeamDrives Whether the requesting application</p>
+<p>supports Team Drives.</p>
+<p>@opt_param bool transferOwnership Whether to transfer ownership to the</p>
+<p>specified user and downgrade the current owner to a writer. This parameter is</p>
+<p>required as an acknowledgement of the side effect.</p>
+<p>@opt_param bool useDomainAdminAccess Whether the request should be treated as</p>
+<p>if it was issued by a domain administrator; if set to true, then the</p>
+<p>requester will be granted access if they are an administrator of the domain</p>
+<p>to which the item belongs.</p>
+<p>@return Google_Service_Drive_Permission</p>
+
+<p>Deletes a permission. (permissions.delete)</p>
+<p>@param string $fileId The ID of the file or Team Drive.</p>
+<p>@param string $permissionId The ID of the permission.</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@opt_param bool supportsTeamDrives Whether the requesting application</p>
+<p>supports Team Drives.</p>
+<p>@opt_param bool useDomainAdminAccess Whether the request should be treated as</p>
+<p>if it was issued by a domain administrator; if set to true, then the</p>
+<p>requester will be granted access if they are an administrator of the domain</p>
+<p>to which the item belongs.</p>
+
+<p>Gets a permission by ID. (permissions.get)</p>
+<p>@param string $fileId The ID of the file.</p>
+<p>@param string $permissionId The ID of the permission.</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@opt_param bool supportsTeamDrives Whether the requesting application</p>
+<p>supports Team Drives.</p>
+<p>@opt_param bool useDomainAdminAccess Whether the request should be treated as</p>
+<p>if it was issued by a domain administrator; if set to true, then the</p>
+<p>requester will be granted access if they are an administrator of the domain</p>
+<p>to which the item belongs.</p>
+<p>@return Google_Service_Drive_Permission</p>
+
+<p>Lists a file's or Team Drive's permissions. (permissions.listPermissions)</p>
+<p>@param string $fileId The ID of the file or Team Drive.</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@opt_param int pageSize The maximum number of permissions to return per page.</p>
+<p>When not set for files in a Team Drive, at most 100 results will be returned.</p>
+<p>When not set for files that are not in a Team Drive, the entire list will be</p>
+<p>returned.</p>
+<p>@opt_param string pageToken The token for continuing a previous list request</p>
+<p>on the next page. This should be set to the value of 'nextPageToken' from the</p>
+<p>previous response.</p>
+<p>@opt_param bool supportsTeamDrives Whether the requesting application</p>
+<p>supports Team Drives.</p>
+<p>@opt_param bool useDomainAdminAccess Whether the request should be treated as</p>
+<p>if it was issued by a domain administrator; if set to true, then the</p>
+<p>requester will be granted access if they are an administrator of the domain</p>
+<p>to which the item belongs.</p>
+<p>@return Google_Service_Drive_PermissionList</p>
+
+<p>Updates a permission with patch semantics. (permissions.update)</p>
+<p>@param string $fileId The ID of the file or Team Drive.</p>
+<p>@param string $permissionId The ID of the permission.</p>
+<p>@param Google_Service_Drive_Permission $postBody</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@opt_param bool removeExpiration Whether to remove the expiration date.</p>
+<p>@opt_param bool supportsTeamDrives Whether the requesting application</p>
+<p>supports Team Drives.</p>
+<p>@opt_param bool transferOwnership Whether to transfer ownership to the</p>
+<p>specified user and downgrade the current owner to a writer. This parameter is</p>
+<p>required as an acknowledgement of the side effect.</p>
+<p>@opt_param bool useDomainAdminAccess Whether the request should be treated as</p>
+<p>if it was issued by a domain administrator; if set to true, then the</p>
+<p>requester will be granted access if they are an administrator of the domain</p>
+<p>to which the item belongs.</p>
+<p>@return Google_Service_Drive_Permission</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Drive\Resource\Permissions.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Google_Service_Drive_Resource_Permissions extends Google_Service_Resource</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>create($fileId, Google_Service_Drive_Permission $postBody, $optParams = array()</code></li>
+<li><code>delete($fileId, $permissionId, $optParams = array()</code></li>
+<li><code>get($fileId, $permissionId, $optParams = array()</code></li>
+<li><code>listPermissions($fileId, $optParams = array()</code></li>
+<li><code>update($fileId, $permissionId, Google_Service_Drive_Permission $postBody, $optParams = array()</code></li>
+</ul>
+</body></html>

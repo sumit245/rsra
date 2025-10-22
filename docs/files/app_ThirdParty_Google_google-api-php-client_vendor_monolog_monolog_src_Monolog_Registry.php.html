@@ -1,0 +1,83 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Registry.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Registry.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Registry.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4024 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Monolog log registry</p>
+<p>Allows to get <code>Logger</code> instances in the global scope</p>
+<p>via static method calls on this class.</p>
+<p><code></p>
+<p>$application = new Monolog\Logger('application');</p>
+<p>$api = new Monolog\Logger('api');</p>
+<p>Monolog\Registry::addLogger($application);</p>
+<p>Monolog\Registry::addLogger($api);</p>
+<p>function testLogger()</p>
+<p>{</p>
+<p>    Monolog\Registry::api()->addError('Sent to $api Logger instance');</p>
+<p>    Monolog\Registry::application()->addError('Sent to $application Logger instance');</p>
+<p>}</p>
+<p></code></p>
+<p>@author Tomas Tatarko <tomas@tatarko.sk></p>
+
+<p>List of all loggers in the registry (by named indexes)</p>
+<p>@var Logger[]</p>
+
+<p>Adds new logging channel to the registry</p>
+<p>@param  Logger                    $logger    Instance of the logging channel</p>
+<p>@param  string|null               $name      Name of the logging channel ($logger->getName() by default)</p>
+<p>@param  bool                      $overwrite Overwrite instance in the registry if the given name already exists?</p>
+<p>@throws \InvalidArgumentException If $overwrite set to false and named Logger instance already exists</p>
+
+<p>Checks if such logging channel exists by name or instance</p>
+<p>@param string|Logger $logger Name or logger instance</p>
+
+<p>Removes instance from registry by name or instance</p>
+<p>@param string|Logger $logger Name or logger instance</p>
+
+<p>Clears the registry</p>
+
+<p>Gets Logger instance from the registry</p>
+<p>@param  string                    $name Name of the requested Logger instance</p>
+<p>@throws \InvalidArgumentException If named Logger instance is not in the registry</p>
+<p>@return Logger                    Requested instance of Logger</p>
+
+<p>Gets Logger instance from the registry via static method call</p>
+<p>@param  string                    $name      Name of the requested Logger instance</p>
+<p>@param  array                     $arguments Arguments passed to static method call</p>
+<p>@throws \InvalidArgumentException If named Logger instance is not in the registry</p>
+<p>@return Logger                    Requested instance of Logger</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>registry</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Registry.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Monolog\Registry</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>testLogger()</code></li>
+<li><code>addLogger(Logger $logger, $name = null, $overwrite = false)</code></li>
+<li><code>hasLogger($logger)</code></li>
+<li><code>removeLogger($logger)</code></li>
+<li><code>clear()</code></li>
+<li><code>getInstance($name)</code></li>
+<li><code>__callStatic($name, $arguments)</code></li>
+</ul>
+</body></html>

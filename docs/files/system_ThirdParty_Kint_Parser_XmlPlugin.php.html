@@ -1,0 +1,46 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\ThirdParty\Kint\Parser\XmlPlugin.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\ThirdParty\Kint\Parser\XmlPlugin.php</h1>
+
+<ul>
+<li>Path: <code>system\ThirdParty\Kint\Parser\XmlPlugin.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4976 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Which method to parse the variable with.</p>
+<p>DOMDocument provides more information including the text between nodes,</p>
+<p>however it's memory usage is very high and it takes longer to parse and</p>
+<p>render. Plus it's a pain to work with. So SimpleXML is the default.</p>
+<p>@var string</p>
+
+<p>Get the DOMDocument info.</p>
+<p>The documentation of DOMDocument::loadXML() states that while you can</p>
+<p>call it statically, it will give an E_STRICT warning. On my system it</p>
+<p>actually gives an E_DEPRECATED warning, but it works so we'll just add</p>
+<p>an error-silencing '@' to the access path.</p>
+<p>If it errors loading then we wouldn't have gotten this far in the first place.</p>
+<p>@param string      $var         The XML string</p>
+<p>@param null|string $parent_path The path to the parent, in this case the XML string</p>
+<p>@return null|array The root element DOMNode, the access path, and the root element name</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\ThirdParty\Kint\Parser\XmlPlugin.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Kint\Parser\XmlPlugin extends Plugin</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getTypes()</code></li>
+<li><code>getTriggers()</code></li>
+<li><code>parse(&$var, Value &$o, $trigger)</code></li>
+<li><code>xmlToSimpleXML($var, $parent_path)</code></li>
+<li><code>xmlToDOMDocument($var, $parent_path)</code></li>
+</ul>
+</body></html>

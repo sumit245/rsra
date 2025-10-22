@@ -1,0 +1,56 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\AbstractService.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\AbstractService.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\AbstractService.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2795 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Abstract base class for all services.</p>
+
+<p>@var \Stripe\StripeClientInterface</p>
+
+<p>@var \Stripe\StripeStreamingClientInterface</p>
+
+<p>Initializes a new instance of the {@link AbstractService} class.</p>
+<p>@param \Stripe\StripeClientInterface $client</p>
+
+<p>Gets the client used by this service to send requests.</p>
+<p>@return \Stripe\StripeClientInterface</p>
+
+<p>Gets the client used by this service to send requests.</p>
+<p>@return \Stripe\StripeStreamingClientInterface</p>
+
+<p>Translate null values to empty strings. For service methods,</p>
+<p>we interpret null as a request to unset the field, which</p>
+<p>corresponds to sending an empty string for the field to the</p>
+<p>API.</p>
+<p>@param null|array $params</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\AbstractService.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Service\for</code></li>
+<li><code>Stripe\Service\AbstractService</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($client)</code></li>
+<li><code>getClient()</code></li>
+<li><code>getStreamingClient()</code></li>
+<li><code>formatParams($params)</code></li>
+<li><code>request($method, $path, $params, $opts)</code></li>
+<li><code>requestStream($method, $path, $readBodyChunkCallable, $params, $opts)</code></li>
+<li><code>requestCollection($method, $path, $params, $opts)</code></li>
+<li><code>requestSearchResult($method, $path, $params, $opts)</code></li>
+<li><code>buildPath($basePath, ...$ids)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,144 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Pager\PagerRenderer.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Pager\PagerRenderer.php</h1>
+
+<ul>
+<li>Path: <code>system\Pager\PagerRenderer.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9543 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Class PagerRenderer</p>
+<p>This class is passed to the view that describes the pagination,</p>
+<p>and is used to get the link information and provide utility</p>
+<p>methods needed to work with pagination.</p>
+
+<p>First page number.</p>
+<p>@var int</p>
+
+<p>Last page number.</p>
+<p>@var int</p>
+
+<p>Current page number.</p>
+<p>@var int</p>
+
+<p>Total number of items.</p>
+<p>@var int</p>
+
+<p>Total number of pages.</p>
+<p>@var int</p>
+
+<p>URI base for pagination links</p>
+<p>@var URI</p>
+
+<p>Segment number used for pagination.</p>
+<p>@var int</p>
+
+<p>Name of $_GET parameter</p>
+<p>@var string</p>
+
+<p>Constructor.</p>
+
+<p>Sets the total number of links that should appear on either</p>
+<p>side of the current page. Adjusts the first and last counts</p>
+<p>to reflect it.</p>
+<p>@return PagerRenderer</p>
+
+<p>Checks to see if there is a "previous" page before our "first" page.</p>
+
+<p>Returns a URL to the "previous" page. The previous page is NOT the</p>
+<p>page before the current page, but is the page just before the</p>
+<p>"first" page.</p>
+<p>You MUST call hasPrevious() first, or this value may be invalid.</p>
+<p>@return string|null</p>
+
+<p>Checks to see if there is a "next" page after our "last" page.</p>
+
+<p>Returns a URL to the "next" page. The next page is NOT, the</p>
+<p>page after the current page, but is the page that follows the</p>
+<p>"last" page.</p>
+<p>You MUST call hasNext() first, or this value may be invalid.</p>
+<p>@return string|null</p>
+
+<p>Returns the URI of the first page.</p>
+
+<p>Returns the URI of the last page.</p>
+
+<p>Returns the URI of the current page.</p>
+
+<p>Returns an array of links that should be displayed. Each link</p>
+<p>is represented by another array containing of the URI the link</p>
+<p>should go to, the title (number) of the link, and a boolean</p>
+<p>value representing whether this link is active or not.</p>
+
+<p>Updates the first and last pages based on $surroundCount,</p>
+<p>which is the number of links surrounding the active page</p>
+<p>to show.</p>
+<p>@param int|null $count The new "surroundCount"</p>
+
+<p>Checks to see if there is a "previous" page before our "first" page.</p>
+
+<p>Returns a URL to the "previous" page.</p>
+<p>You MUST call hasPreviousPage() first, or this value may be invalid.</p>
+<p>@return string|null</p>
+
+<p>Checks to see if there is a "next" page after our "last" page.</p>
+
+<p>Returns a URL to the "next" page.</p>
+<p>You MUST call hasNextPage() first, or this value may be invalid.</p>
+<p>@return string|null</p>
+
+<p>Returns the page number of the first page.</p>
+
+<p>Returns the page number of the current page.</p>
+
+<p>Returns the page number of the last page.</p>
+
+<p>Returns total number of pages.</p>
+
+<p>Returns the previous page number.</p>
+
+<p>Returns the next page number.</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Pager\PagerRenderer.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Pager\is</code></li>
+<li><code>CodeIgniter\Pager\PagerRenderer</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(array $details)</code></li>
+<li><code>setSurroundCount(?int $count = null)</code></li>
+<li><code>hasPrevious()</code></li>
+<li><code>getPrevious()</code></li>
+<li><code>hasNext()</code></li>
+<li><code>getNext()</code></li>
+<li><code>getFirst()</code></li>
+<li><code>getLast()</code></li>
+<li><code>getCurrent()</code></li>
+<li><code>links()</code></li>
+<li><code>updatePages(?int $count = null)</code></li>
+<li><code>hasPreviousPage()</code></li>
+<li><code>getPreviousPage()</code></li>
+<li><code>hasNextPage()</code></li>
+<li><code>getNextPage()</code></li>
+<li><code>getFirstPageNumber()</code></li>
+<li><code>getCurrentPageNumber()</code></li>
+<li><code>getLastPageNumber()</code></li>
+<li><code>getPageCount()</code></li>
+<li><code>getPreviousPageNumber()</code></li>
+<li><code>getNextPageNumber()</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,97 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Middleware.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Middleware.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Middleware.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9898 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Functions used to create and wrap handlers with handler middleware.</p>
+
+<p>Middleware that adds cookies to requests.</p>
+<p>The options array must be set to a CookieJarInterface in order to use</p>
+<p>cookies. This is typically handled for you by a client.</p>
+<p>@return callable Returns a function that accepts the next handler.</p>
+
+<p>Middleware that throws exceptions for 4xx or 5xx responses when the</p>
+<p>"http_error" request option is set to true.</p>
+<p>@return callable Returns a function that accepts the next handler.</p>
+
+<p>Middleware that pushes history data to an ArrayAccess container.</p>
+<p>@param array|\ArrayAccess $container Container to hold the history (by reference).</p>
+<p>@return callable Returns a function that accepts the next handler.</p>
+<p>@throws \InvalidArgumentException if container is not an array or ArrayAccess.</p>
+
+<p>Middleware that invokes a callback before and after sending a request.</p>
+<p>The provided listener cannot modify or alter the response. It simply</p>
+<p>"taps" into the chain to be notified before returning the promise. The</p>
+<p>before listener accepts a request and options array, and the after</p>
+<p>listener accepts a request, options array, and response promise.</p>
+<p>@param callable $before Function to invoke before forwarding the request.</p>
+<p>@param callable $after  Function invoked after forwarding.</p>
+<p>@return callable Returns a function that accepts the next handler.</p>
+
+<p>Middleware that handles request redirects.</p>
+<p>@return callable Returns a function that accepts the next handler.</p>
+
+<p>Middleware that retries requests based on the boolean result of</p>
+<p>invoking the provided "decider" function.</p>
+<p>If no delay function is provided, a simple implementation of exponential</p>
+<p>backoff will be utilized.</p>
+<p>@param callable $decider Function that accepts the number of retries,</p>
+<p>                         a request, [response], and [exception] and</p>
+<p>                         returns true if the request is to be retried.</p>
+<p>@param callable $delay   Function that accepts the number of retries and</p>
+<p>                         returns the number of milliseconds to delay.</p>
+<p>@return callable Returns a function that accepts the next handler.</p>
+
+<p>Middleware that logs requests, responses, and errors using a message</p>
+<p>formatter.</p>
+<p>@param LoggerInterface  $logger Logs messages.</p>
+<p>@param MessageFormatter $formatter Formatter used to create message strings.</p>
+<p>@param string           $logLevel Level at which to log requests.</p>
+<p>@return callable Returns a function that accepts the next handler.</p>
+
+<p>This middleware adds a default content-type if possible, a default</p>
+<p>content-length or transfer-encoding header, and the expect header.</p>
+<p>@return callable</p>
+
+<p>Middleware that applies a map function to the request before passing to</p>
+<p>the next handler.</p>
+<p>@param callable $fn Function that accepts a RequestInterface and returns</p>
+<p>                    a RequestInterface.</p>
+<p>@return callable</p>
+
+<p>Middleware that applies a map function to the resolved promise's</p>
+<p>response.</p>
+<p>@param callable $fn Function that accepts a ResponseInterface and</p>
+<p>                    returns a ResponseInterface.</p>
+<p>@return callable</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Middleware.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>GuzzleHttp\Middleware</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>cookies()</code></li>
+<li><code>httpErrors()</code></li>
+<li><code>history(&$container)</code></li>
+<li><code>tap(callable $before = null, callable $after = null)</code></li>
+<li><code>redirect()</code></li>
+<li><code>retry(callable $decider, callable $delay = null)</code></li>
+<li><code>log(LoggerInterface $logger, MessageFormatter $formatter, $logLevel = LogLevel::INFO)</code></li>
+<li><code>prepareBody()</code></li>
+<li><code>mapRequest(callable $fn)</code></li>
+<li><code>mapResponse(callable $fn)</code></li>
+</ul>
+</body></html>

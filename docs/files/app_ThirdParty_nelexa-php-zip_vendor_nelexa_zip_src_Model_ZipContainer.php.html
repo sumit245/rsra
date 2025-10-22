@@ -1,0 +1,117 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\ZipContainer.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\ZipContainer.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\ZipContainer.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 8786 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Zip Container.</p>
+
+<p>@var ImmutableZipContainer|null The source container contains zip entries from</p>
+<p>                                an open zip archive. The source container makes</p>
+<p>                                it possible to undo changes in the archive.</p>
+<p>                                When cloning, this container is not cloned.</p>
+
+<p>@param string|ZipEntry $entry</p>
+
+<p>@param string|ZipEntry $old</p>
+<p>@param string|ZipEntry $new</p>
+<p>@throws ZipException</p>
+<p>@return ZipEntry New zip entry</p>
+
+<p>@param string|ZipEntry $entryName</p>
+<p>@throws ZipEntryNotFoundException</p>
+
+<p>@param string|ZipEntry $entryName</p>
+
+<p>@param string|ZipEntry $entryName</p>
+
+<p>Delete all entries.</p>
+
+<p>Delete entries by regex pattern.</p>
+<p>@param string $regexPattern Regex pattern</p>
+<p>@return ZipEntry[] Deleted entries</p>
+
+<p>@var ZipEntry[] $found</p>
+
+<p>Undo all changes done in the archive.</p>
+
+<p>Undo change archive comment.</p>
+
+<p>Revert all changes done to an entry with the given name.</p>
+<p>@param string|ZipEntry $entry Entry name or ZipEntry</p>
+
+<p>Entries sort by name.</p>
+<p>Example:</p>
+<p>```php</p>
+<p>$zipContainer->sortByName(static function (string $nameA, string $nameB): int {</p>
+<p>    return strcmp($nameA, $nameB);</p>
+<p>});</p>
+<p>```</p>
+
+<p>Entries sort by entry.</p>
+<p>Example:</p>
+<p>```php</p>
+<p>$zipContainer->sortByEntry(static function (ZipEntry $a, ZipEntry $b): int {</p>
+<p>    return strcmp($a->getName(), $b->getName());</p>
+<p>});</p>
+<p>```</p>
+
+<p>Specify a password for extracting files.</p>
+<p>@param ?string $password</p>
+
+<p>@throws ZipEntryNotFoundException</p>
+<p>@throws ZipException</p>
+
+<p>@param ?string $writePassword</p>
+<p>@throws ZipEntryNotFoundException</p>
+
+<p>Remove password.</p>
+<p>@throws ZipEntryNotFoundException</p>
+
+<p>@param string|ZipEntry $entryName</p>
+<p>@throws ZipEntryNotFoundException</p>
+
+<p>@throws ZipEntryNotFoundException</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\ZipContainer.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpZip\Model\ZipContainer extends ImmutableZipContainer</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(?ImmutableZipContainer $sourceContainer = null)</code></li>
+<li><code>getSourceContainer()</code></li>
+<li><code>addEntry(ZipEntry $entry)</code></li>
+<li><code>deleteEntry($entry)</code></li>
+<li><code>renameEntry($old, $new)</code></li>
+<li><code>getEntry($entryName)</code></li>
+<li><code>getEntryOrNull($entryName)</code></li>
+<li><code>hasEntry($entryName)</code></li>
+<li><code>deleteAll()</code></li>
+<li><code>deleteByRegex(string $regexPattern)</code></li>
+<li><code>unchangeAll()</code></li>
+<li><code>unchangeArchiveComment()</code></li>
+<li><code>unchangeEntry($entry)</code></li>
+<li><code>sortByName(callable $cmp)</code></li>
+<li><code>sortByEntry(callable $cmp)</code></li>
+<li><code>setArchiveComment(?string $archiveComment)</code></li>
+<li><code>matcher()</code></li>
+<li><code>setReadPassword(?string $password)</code></li>
+<li><code>setReadPasswordEntry(string $entryName, string $password)</code></li>
+<li><code>setWritePassword(?string $writePassword)</code></li>
+<li><code>removePassword()</code></li>
+<li><code>removePasswordEntry($entryName)</code></li>
+<li><code>setEncryptionMethod(int $encryptionMethod = ZipEncryptionMethod::WINZIP_AES_256)</code></li>
+</ul>
+</body></html>

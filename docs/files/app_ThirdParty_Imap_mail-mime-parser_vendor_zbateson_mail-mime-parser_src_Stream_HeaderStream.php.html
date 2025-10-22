@@ -1,0 +1,56 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Stream\HeaderStream.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Stream\HeaderStream.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Stream\HeaderStream.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2584 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Psr7 stream decorator implementation providing a readable stream for a part's</p>
+<p>headers.</p>
+<p>HeaderStream is only used by a MimePart parent.  It can accept any</p>
+<p>MessagePart - for non-MimeParts, only type headers are generated based on</p>
+<p>available information.</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var MessagePart the part to read from.</p>
+
+<p>Constructor</p>
+
+<p>@param MessagePart $part</p>
+
+<p>Returns a header array for the current part.</p>
+<p>If the part is not a MimePart, Content-Type, Content-Disposition and</p>
+<p>Content-Transfer-Encoding headers are generated manually.</p>
+<p>@return array</p>
+
+<p>Writes out headers for $this->part and follows them with an empty line.</p>
+<p>@param StreamInterface $stream</p>
+
+<p>Creates the underlying stream lazily when required.</p>
+<p>@return StreamInterface</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Stream\HeaderStream.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Stream\HeaderStream implements StreamInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(MessagePart $part)</code></li>
+<li><code>getPartHeadersIterator()</code></li>
+<li><code>writePartHeadersTo(StreamInterface $stream)</code></li>
+<li><code>createStream()</code></li>
+</ul>
+</body></html>

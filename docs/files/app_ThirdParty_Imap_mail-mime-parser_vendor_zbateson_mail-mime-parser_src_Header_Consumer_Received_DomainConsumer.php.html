@@ -1,0 +1,84 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\Received\DomainConsumer.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\Received\DomainConsumer.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\Received\DomainConsumer.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4614 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Parses a so-called "extended-domain" (from and by) part of a Received header.</p>
+<p>Looks for and extracts the following fields from an extended-domain part:</p>
+<p>Name, Hostname and Address.</p>
+<p>The Name part is always the portion of the extended-domain part existing on</p>
+<p>its own, outside of the parenthesized hostname and address part.  This is</p>
+<p>true regardless of whether an address is used as the name, as its assumed to</p>
+<p>be the string used to identify the server, whatever it may be.</p>
+<p>The parenthesized part normally (but not necessarily) following a name must</p>
+<p>"look like" a tcp-info section of an extended domain as defined by RFC5321.</p>
+<p>The validation is very purposefully very loose to be accommodating to many</p>
+<p>erroneous implementations.  Strictly speaking, a domain part, if it exists,</p>
+<p>must start with an alphanumeric character.  There must be at least one '.' in</p>
+<p>the domain part, followed by any number of more alphanumeric, '.', and '-'</p>
+<p>characters.  The address part must be within square brackets, '[]'...</p>
+<p>although an address outside of square brackets could be matched by the domain</p>
+<p>matcher if it exists alone within the parentheses.  The address, strictly</p>
+<p>speaking, is any number of '.', numbers, ':' and letters a-f.  This allows it</p>
+<p>to match ipv6 addresses as well.  In addition, the address may start with the</p>
+<p>string "ipv6", and may be followed by a port number as some implementations</p>
+<p>seem to do.</p>
+<p>Strings in parentheses not matching the aforementioned 'domain/address'</p>
+<p>pattern will be considered comments, and will be returned as a separate</p>
+<p>CommentPart.</p>
+<p>@see https://tools.ietf.org/html/rfc5321#section-4.4</p>
+<p>@see https://github.com/Te-k/pyreceived/blob/master/test.py</p>
+<p>@author Zaahid Bateson</p>
+
+<p>Overridden to return true if the passed token is a closing parenthesis.</p>
+<p>@param string $token</p>
+<p>@return bool</p>
+
+<p>Attempts to match a parenthesized expression to find a hostname and an</p>
+<p>address.  Returns true if the expression matched, and either hostname or</p>
+<p>address were found.</p>
+<p>@param string $value</p>
+<p>@param string $hostname</p>
+<p>@param string $address</p>
+<p>@return boolean</p>
+
+<p>Creates a single ReceivedDomainPart out of matched parts.  If an</p>
+<p>unmatched parenthesized expression was found, it's returned as a</p>
+<p>CommentPart.</p>
+<p>@param \ZBateson\MailMimeParser\Header\Part\HeaderPart[] $parts</p>
+<p>@return \ZBateson\MailMimeParser\Header\Part\ReceivedDomainPart[]|</p>
+<p>        \ZBateson\MailMimeParser\Header\Part\CommentPart[]array</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>and</code></li>
+<li><code>an</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\Received\DomainConsumer.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Header\Consumer\Received\DomainConsumer extends GenericReceivedConsumer</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>isEndToken($token)</code></li>
+<li><code>matchHostPart($value, &$hostname, &$address)</code></li>
+<li><code>processParts(array $parts)</code></li>
+</ul>
+</body></html>

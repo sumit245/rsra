@@ -1,0 +1,73 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\promises\src\PromiseInterface.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\promises\src\PromiseInterface.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\promises\src\PromiseInterface.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2830 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>A promise represents the eventual result of an asynchronous operation.</p>
+<p>The primary way of interacting with a promise is through its then method,</p>
+<p>which registers callbacks to receive either a promise’s eventual value or</p>
+<p>the reason why the promise cannot be fulfilled.</p>
+<p>@link https://promisesaplus.com/</p>
+
+<p>Appends fulfillment and rejection handlers to the promise, and returns</p>
+<p>a new promise resolving to the return value of the called handler.</p>
+<p>@param callable $onFulfilled Invoked when the promise fulfills.</p>
+<p>@param callable $onRejected  Invoked when the promise is rejected.</p>
+<p>@return PromiseInterface</p>
+
+<p>Appends a rejection handler callback to the promise, and returns a new</p>
+<p>promise resolving to the return value of the callback if it is called,</p>
+<p>or to its original fulfillment value if the promise is instead</p>
+<p>fulfilled.</p>
+<p>@param callable $onRejected Invoked when the promise is rejected.</p>
+<p>@return PromiseInterface</p>
+
+<p>Get the state of the promise ("pending", "rejected", or "fulfilled").</p>
+<p>The three states can be checked against the constants defined on</p>
+<p>PromiseInterface: PENDING, FULFILLED, and REJECTED.</p>
+<p>@return string</p>
+
+<p>Resolve the promise with the given value.</p>
+<p>@param mixed $value</p>
+<p>@throws \RuntimeException if the promise is already resolved.</p>
+
+<p>Reject the promise with the given reason.</p>
+<p>@param mixed $reason</p>
+<p>@throws \RuntimeException if the promise is already resolved.</p>
+
+<p>Cancels the promise if possible.</p>
+<p>@link https://github.com/promises-aplus/cancellation-spec/issues/7</p>
+
+<p>Waits until the promise completes if possible.</p>
+<p>Pass $unwrap as true to unwrap the result of the promise, either</p>
+<p>returning the resolved value or throwing the rejected exception.</p>
+<p>If the promise cannot be waited on, then the promise will be rejected.</p>
+<p>@param bool $unwrap</p>
+<p>@return mixed</p>
+<p>@throws \LogicException if the promise has no wait function or if the</p>
+<p>                        promise does not settle after waiting.</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\promises\src\PromiseInterface.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`then(callable $onFulfilled = null,</li>
+<p>        callable $onRejected = null)`</p>
+<li><code>otherwise(callable $onRejected)</code></li>
+<li><code>getState()</code></li>
+<li><code>resolve($value)</code></li>
+<li><code>reject($reason)</code></li>
+<li><code>cancel()</code></li>
+<li><code>wait($unwrap = true)</code></li>
+</ul>
+</body></html>

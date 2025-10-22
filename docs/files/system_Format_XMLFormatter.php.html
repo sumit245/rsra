@@ -1,0 +1,56 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Format\XMLFormatter.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Format\XMLFormatter.php</h1>
+
+<ul>
+<li>Path: <code>system\Format\XMLFormatter.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3015 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>XML data formatter</p>
+
+<p>Takes the given data and formats it.</p>
+<p>@param mixed $data</p>
+<p>@return bool|string (XML string | false)</p>
+
+<p>A recursive method to convert an array into a valid XML string.</p>
+<p>Written by CodexWorld. Received permission by email on Nov 24, 2016 to use this code.</p>
+<p>@see http://www.codexworld.com/convert-array-to-xml-in-php/</p>
+<p>@param SimpleXMLElement $output</p>
+
+<p>Normalizes tags into the allowed by W3C.</p>
+<p>Regex adopted from this StackOverflow answer.</p>
+<p>@param int|string $key</p>
+<p>@return string</p>
+<p>@see https://stackoverflow.com/questions/60001029/invalid-characters-in-xml-tag-name</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>this</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Format\XMLFormatter.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Format\XMLFormatter implements FormatterInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>format($data)</code></li>
+<li><code>arrayToXML(array $data, &$output)</code></li>
+<li><code>normalizeXMLTag($key)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,277 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Session\Session.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Session\Session.php</h1>
+
+<ul>
+<li>Path: <code>system\Session\Session.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 26574 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Implementation of CodeIgniter session container.</p>
+<p>Session configuration is done through session variables and cookie related</p>
+<p>variables in app/config/App.php</p>
+
+<p>Instance of the driver to use.</p>
+<p>@var SessionHandlerInterface</p>
+
+<p>The storage driver to use: files, database, redis, memcached</p>
+<p>@var string</p>
+
+<p>The session cookie name, must contain only [0-9a-z_-] characters.</p>
+<p>@var string</p>
+
+<p>The number of SECONDS you want the session to last.</p>
+<p>Setting it to 0 (zero) means expire when the browser is closed.</p>
+<p>@var int</p>
+
+<p>The location to save sessions to, driver dependent..</p>
+<p>For the 'files' driver, it's a path to a writable directory.</p>
+<p>WARNING: Only absolute paths are supported!</p>
+<p>For the 'database' driver, it's a table name.</p>
+<p>@todo address memcache & redis needs</p>
+<p>IMPORTANT: You are REQUIRED to set a valid save path!</p>
+<p>@var string</p>
+
+<p>Whether to match the user's IP address when reading the session data.</p>
+<p>WARNING: If you're using the database driver, don't forget to update</p>
+<p>your session table's PRIMARY KEY when changing this setting.</p>
+<p>@var bool</p>
+
+<p>How many seconds between CI regenerating the session ID.</p>
+<p>@var int</p>
+
+<p>Whether to destroy session data associated with the old session ID</p>
+<p>when auto-regenerating the session ID. When set to FALSE, the data</p>
+<p>will be later deleted by the garbage collector.</p>
+<p>@var bool</p>
+
+<p>The session cookie instance.</p>
+<p>@var Cookie</p>
+
+<p>The domain name to use for cookies.</p>
+<p>Set to .your-domain.com for site-wide cookies.</p>
+<p>@var string</p>
+<p>@deprecated</p>
+
+<p>Path used for storing cookies.</p>
+<p>Typically will be a forward slash.</p>
+<p>@var string</p>
+<p>@deprecated</p>
+
+<p>Cookie will only be set if a secure HTTPS connection exists.</p>
+<p>@var bool</p>
+<p>@deprecated</p>
+
+<p>Cookie SameSite setting as described in RFC6265</p>
+<p>Must be 'None', 'Lax' or 'Strict'.</p>
+<p>@var string</p>
+<p>@deprecated</p>
+
+<p>sid regex expression</p>
+<p>@var string</p>
+
+<p>Logger instance to record error messages and warnings.</p>
+<p>@var LoggerInterface</p>
+
+<p>Constructor.</p>
+<p>Extract configuration settings and save them here.</p>
+
+<p>@var CookieConfig $cookie</p>
+
+<p>Initialize the session container and starts up the session.</p>
+<p>@return mixed</p>
+
+<p>Does a full stop of the session:</p>
+<ul>
+<li>destroys the session</li>
+<li>unsets the session id</li>
+<li>destroys the session cookie</li>
+</ul>
+<p>Configuration.</p>
+<p>Handle input binds and configuration defaults.</p>
+
+<p>Configure session ID length</p>
+<p>To make life easier, we used to force SHA-1 and 4 bits per</p>
+<p>character on everyone. And of course, someone was unhappy.</p>
+<p>Then PHP 7.1 broke backwards-compatibility because ext/session</p>
+<p>is such a mess that nobody wants to touch it with a pole stick,</p>
+<p>and the one guy who does, nobody has the energy to argue with.</p>
+<p>So we were forced to make changes, and OF COURSE something was</p>
+<p>going to break and now we have this pile of shit. -- Narf</p>
+
+<p>Handle temporary variables</p>
+<p>Clears old "flash" data, marks the new one for deletion and handles</p>
+<p>"temp" data deletion.</p>
+
+<p>Regenerates the session ID.</p>
+<p>@param bool $destroy Should old session data be destroyed?</p>
+
+<p>Destroys the current session.</p>
+
+<p>Sets user data into the session.</p>
+<p>If $data is a string, then it is interpreted as a session property</p>
+<p>key, and  $value is expected to be non-null.</p>
+<p>If $data is an array, it is expected to be an array of key/value pairs</p>
+<p>to be set as session properties.</p>
+<p>@param array|string $data  Property name or associative array of properties</p>
+<p>@param mixed        $value Property value if single key provided</p>
+
+<p>Get user data that has been set in the session.</p>
+<p>If the property exists as "normal", returns it.</p>
+<p>Otherwise, returns an array of any temp or flash data values with the</p>
+<p>property key.</p>
+<p>Replaces the legacy method $session->userdata();</p>
+<p>@param string|null $key Identifier of the session property to retrieve</p>
+<p>@return mixed The property value(s)</p>
+
+<p>Returns whether an index exists in the session array.</p>
+<p>@param string $key Identifier of the session property we are interested in.</p>
+
+<p>Push new value onto session value that is array.</p>
+<p>@param string $key  Identifier of the session property we are interested in.</p>
+<p>@param array  $data value to be pushed to existing session key.</p>
+
+<p>Remove one or more session properties.</p>
+<p>If $key is an array, it is interpreted as an array of string property</p>
+<p>identifiers to remove. Otherwise, it is interpreted as the identifier</p>
+<p>of a specific session property to remove.</p>
+<p>@param array|string $key Identifier of the session property or properties to remove.</p>
+
+<p>Magic method to set variables in the session by simply calling</p>
+<p> $session->foo = bar;</p>
+<p>@param string       $key   Identifier of the session property to set.</p>
+<p>@param array|string $value</p>
+
+<p>Magic method to get session variables by simply calling</p>
+<p> $foo = $session->foo;</p>
+<p>@param string $key Identifier of the session property to remove.</p>
+<p>@return string|null</p>
+
+<p>Magic method to check for session variables.</p>
+<p>Different from has() in that it will validate 'session_id' as well.</p>
+<p>Mostly used by internal PHP functions, users should stick to has()</p>
+<p>@param string $key Identifier of the session property to remove.</p>
+
+<p>Sets data into the session that will only last for a single request.</p>
+<p>Perfect for use with single-use status update messages.</p>
+<p>If $data is an array, it is interpreted as an associative array of</p>
+<p>key/value pairs for flashdata properties.</p>
+<p>Otherwise, it is interpreted as the identifier of a specific</p>
+<p>flashdata property, with $value containing the property value.</p>
+<p>@param array|string $data  Property identifier or associative array of properties</p>
+<p>@param array|string $value Property value if $data is a scalar</p>
+
+<p>Retrieve one or more items of flash data from the session.</p>
+<p>If the item key is null, return all flashdata.</p>
+<p>@param string $key Property identifier</p>
+<p>@return array|null The requested property value, or an associative array  of them</p>
+
+<p>Keeps a single piece of flash data alive for one more request.</p>
+<p>@param array|string $key Property identifier or array of them</p>
+
+<p>Mark a session property or properties as flashdata.</p>
+<p>@param array|string $key Property identifier or array of them</p>
+<p>@return bool False if any of the properties are not already set</p>
+
+<p>Unmark data in the session as flashdata.</p>
+<p>@param mixed $key Property identifier or array of them</p>
+
+<p>Retrieve all of the keys for session data marked as flashdata.</p>
+<p>@return array The property names of all flashdata</p>
+
+<p>Sets new data into the session, and marks it as temporary data</p>
+<p>with a set lifespan.</p>
+<p>@param array|string $data  Session data key or associative array of items</p>
+<p>@param null         $value Value to store</p>
+<p>@param int          $ttl   Time-to-live in seconds</p>
+
+<p>Returns either a single piece of tempdata, or all temp data currently</p>
+<p>in the session.</p>
+<p>@param string $key Session data key</p>
+<p>@return mixed Session data value or null if not found.</p>
+
+<p>Removes a single piece of temporary data from the session.</p>
+<p>@param string $key Session data key</p>
+
+<p>Mark one of more pieces of data as being temporary, meaning that</p>
+<p>it has a set lifespan within the session.</p>
+<p>@param array|string $key Property identifier or array of them</p>
+<p>@param int          $ttl Time to live, in seconds</p>
+<p>@return bool False if any of the properties were not set</p>
+
+<p>Unmarks temporary data in the session, effectively removing its</p>
+<p>lifespan and allowing it to live as long as the session does.</p>
+<p>@param array|string $key Property identifier or array of them</p>
+
+<p>Retrieve the keys of all session data that have been marked as temporary data.</p>
+
+<p>Sets the driver as the session handler in PHP.</p>
+<p>Extracted for easier testing.</p>
+
+<p>Starts the session.</p>
+<p>Extracted for testing reasons.</p>
+
+<p>Takes care of setting the cookie on the client side.</p>
+<p>@codeCoverageIgnore</p>
+
+<p>@var Response $response</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>has</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Session\Session.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Session\Session implements SessionInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(SessionHandlerInterface $driver, App $config)</code></li>
+<li><code>start()</code></li>
+<li><code>stop()</code></li>
+<li><code>configure()</code></li>
+<li><code>configureSidLength()</code></li>
+<li><code>initVars()</code></li>
+<li><code>regenerate(bool $destroy = false)</code></li>
+<li><code>destroy()</code></li>
+<li><code>set($data, $value = null)</code></li>
+<li><code>get(?string $key = null)</code></li>
+<li><code>has(string $key)</code></li>
+<li><code>push(string $key, array $data)</code></li>
+<li><code>remove($key)</code></li>
+<li><code>__set(string $key, $value)</code></li>
+<li><code>__get(string $key)</code></li>
+<li><code>__isset(string $key)</code></li>
+<li><code>setFlashdata($data, $value = null)</code></li>
+<li><code>getFlashdata(?string $key = null)</code></li>
+<li><code>keepFlashdata($key)</code></li>
+<li><code>markAsFlashdata($key)</code></li>
+<li><code>unmarkFlashdata($key)</code></li>
+<li><code>getFlashKeys()</code></li>
+<li><code>setTempdata($data, $value = null, int $ttl = 300)</code></li>
+<li><code>getTempdata(?string $key = null)</code></li>
+<li><code>removeTempdata(string $key)</code></li>
+<li><code>markAsTempdata($key, int $ttl = 300)</code></li>
+<li><code>unmarkTempdata($key)</code></li>
+<li><code>getTempKeys()</code></li>
+<li><code>setSaveHandler()</code></li>
+<li><code>startSession()</code></li>
+<li><code>setCookie()</code></li>
+</ul>
+</body></html>

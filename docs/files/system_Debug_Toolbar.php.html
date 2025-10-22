@@ -1,0 +1,90 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Debug\Toolbar.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Debug\Toolbar.php</h1>
+
+<ul>
+<li>Path: <code>system\Debug\Toolbar.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 18359 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Displays a toolbar with bits of stats to aid a developer in debugging.</p>
+<p>Inspiration: http://prophiler.fabfuel.de</p>
+
+<p>Toolbar configuration settings.</p>
+<p>@var ToolbarConfig</p>
+
+<p>Collectors to be used and displayed.</p>
+<p>@var BaseCollector[]</p>
+
+<p>Returns all the data required by Debug Bar</p>
+<p>@param float           $startTime App start time</p>
+<p>@param IncomingRequest $request</p>
+<p>@param Response        $response</p>
+<p>@return string JSON encoded data</p>
+
+<p>Called within the view to display the timeline itself.</p>
+
+<p>Recursively renders timeline elements and their children.</p>
+
+<p>Returns a sorted array of timeline data arrays from the collectors.</p>
+<p>@param array $collectors</p>
+
+<p>Arranges the already sorted timeline data into a parent => child structure.</p>
+
+<p>Returns an array of data from all of the modules</p>
+<p>that should be displayed in the 'Vars' tab.</p>
+
+<p>Rounds a number to the nearest incremental value.</p>
+
+<p>Prepare for debugging..</p>
+<p>@param RequestInterface  $request</p>
+<p>@param ResponseInterface $response</p>
+<p>@global \CodeIgniter\CodeIgniter $app</p>
+
+<p>@var IncomingRequest|null $request</p>
+<p>@var Response|null        $response</p>
+
+<p>Inject debug toolbar into the response.</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Format output</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>all</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Debug\Toolbar.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Debug\Toolbar</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(ToolbarConfig $config)</code></li>
+<li><code>run(float $startTime, float $totalTime, RequestInterface $request, ResponseInterface $response)</code></li>
+<li><code>renderTimeline(array $collectors, float $startTime, int $segmentCount, int $segmentDuration, array &$styles)</code></li>
+<li><code>renderTimelineRecursive(array $rows, float $startTime, int $segmentCount, int $segmentDuration, array &$styles, int &$styleCount, int $level = 0, bool $isChild = false)</code></li>
+<li><code>collectTimelineData($collectors)</code></li>
+<li><code>structureTimelineData(array $elements)</code></li>
+<li><code>collectVarData()</code></li>
+<li><code>roundTo(float $number, int $increments = 5)</code></li>
+<li><code>prepare(?RequestInterface $request = null, ?ResponseInterface $response = null)</code></li>
+<li><code>respond()</code></li>
+<li><code>format(string $data, string $format = 'html')</code></li>
+</ul>
+</body></html>

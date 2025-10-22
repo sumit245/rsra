@@ -1,0 +1,184 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\StripeObject.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\StripeObject.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\StripeObject.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 19286 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Class StripeObject.</p>
+
+<p>@var Util\RequestOptions</p>
+
+<p>@var array</p>
+
+<p>@var array</p>
+
+<p>@var Util\Set</p>
+
+<p>@var Util\Set</p>
+
+<p>@var null|array</p>
+
+<p>@var null|ApiResponse</p>
+
+<p>@return Util\Set Attributes that should not be sent to the API because</p>
+<p>   they're not updatable (e.g. ID).</p>
+
+<p>Additive objects are subobjects in the API that don't have the same</p>
+<p>semantics as most subobjects, which are fully replaced when they're set.</p>
+<p>This is best illustrated by example. The <code>source</code> parameter sent when</p>
+<p>updating a subscription is *not* additive; if we set it:</p>
+<p>    source[object]=card&source[number]=123</p>
+<p>We expect the old <code>source</code> object to have been overwritten completely. If</p>
+<p>the previous source had an <code>address_state</code> key associated with it and we</p>
+<p>didn't send one this time, that value of <code>address_state</code> is gone.</p>
+<p>By contrast, additive objects are those that will have new data added to</p>
+<p>them while keeping any existing data in place. The only known case of its</p>
+<p>use is for <code>metadata</code>, but it could in theory be more general. As an</p>
+<p>example, say we have a <code>metadata</code> object that looks like this on the</p>
+<p>server side:</p>
+<p>    metadata = ["old" => "old_value"]</p>
+<p>If we update the object with <code>metadata[new]=new_value</code>, the server side</p>
+<p>object now has *both* fields:</p>
+<p>    metadata = ["old" => "old_value", "new" => "new_value"]</p>
+<p>This is okay in itself because usually users will want to treat it as</p>
+<p>additive:</p>
+<p>    $obj->metadata["new"] = "new_value";</p>
+<p>    $obj->save();</p>
+<p>However, in other cases, they may want to replace the entire existing</p>
+<p>contents:</p>
+<p>    $obj->metadata = ["new" => "new_value"];</p>
+<p>    $obj->save();</p>
+<p>This is where things get a little bit tricky because in order to clear</p>
+<p>any old keys that may have existed, we actually have to send an explicit</p>
+<p>empty string to the server. So the operation above would have to send</p>
+<p>this form to get the intended behavior:</p>
+<p>    metadata[old]=&metadata[new]=new_value</p>
+<p>This method allows us to track which parameters are considered additive,</p>
+<p>and lets us behave correctly where appropriate when serializing</p>
+<p>parameters to be sent.</p>
+<p>@return Util\Set Set of additive parameters</p>
+
+<p>@param mixed $k</p>
+<p>@return bool</p>
+
+<p>Magic method for var_dump output. Only works with PHP >= 5.6.</p>
+<p>@return array</p>
+
+<p>@return void</p>
+
+<p>@return bool</p>
+
+<p>@return void</p>
+
+<p>@return mixed</p>
+
+<p>@return int</p>
+
+<p>This unfortunately needs to be public to be used in Util\Util.</p>
+<p>@param array $values</p>
+<p>@param null|array|string|Util\RequestOptions $opts</p>
+<p>@return static the object constructed from the given values</p>
+
+<p>Refreshes this object using the provided values.</p>
+<p>@param array $values</p>
+<p>@param null|array|string|Util\RequestOptions $opts</p>
+<p>@param bool $partial defaults to false</p>
+
+<p>Mass assigns attributes on the model.</p>
+<p>@param array $values</p>
+<p>@param null|array|string|Util\RequestOptions $opts</p>
+<p>@param bool $dirty defaults to true</p>
+
+<p>@param bool $force defaults to false</p>
+<p>@return array a recursive mapping of attributes to values for this object,</p>
+<p>   including the proper value for deleted attributes</p>
+
+<p>@return mixed</p>
+
+<p>Returns an associative array with the key and values composing the</p>
+<p>Stripe object.</p>
+<p>@return array the associative array</p>
+
+<p>Returns a pretty JSON representation of the Stripe object.</p>
+<p>@return string the JSON representation of the Stripe object</p>
+
+<p>Sets all keys within the StripeObject as unsaved so that they will be</p>
+<p>included with an update when <code>serializeParameters</code> is called. This</p>
+<p>method is also recursive, so any StripeObjects contained as values or</p>
+<p>which are values in a tenant array are also marked as dirty.</p>
+
+<p>Produces a deep copy of the given object including support for arrays</p>
+<p>and StripeObjects.</p>
+<p>@param mixed $obj</p>
+
+<p>Returns a hash of empty values for all the values that are in the given</p>
+<p>StripeObject.</p>
+<p>@param mixed $obj</p>
+
+<p>@return null|ApiResponse The last response from the Stripe API</p>
+
+<p>Sets the last response from the Stripe API.</p>
+<p>@param ApiResponse $resp</p>
+
+<p>Indicates whether or not the resource has been deleted on the server.</p>
+<p>Note that some, but not all, resources can indicate whether they have</p>
+<p>been deleted.</p>
+<p>@return bool whether the resource is deleted</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>their</code></li>
+<li><code>being</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\StripeObject.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\StripeObject implements \ArrayAccess, \Countable, \JsonSerializable</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getPermanentAttributes()</code></li>
+<li><code>getAdditiveParams()</code></li>
+<li><code>__construct($id = null, $opts = null)</code></li>
+<li><code>__set($k, $v)</code></li>
+<li><code>__isset($k)</code></li>
+<li><code>__unset($k)</code></li>
+<li><code>__debugInfo()</code></li>
+<li><code>offsetSet($k, $v)</code></li>
+<li><code>offsetExists($k)</code></li>
+<li><code>offsetUnset($k)</code></li>
+<li><code>offsetGet($k)</code></li>
+<li><code>count()</code></li>
+<li><code>keys()</code></li>
+<li><code>values()</code></li>
+<li><code>constructFrom($values, $opts = null)</code></li>
+<li><code>refreshFrom($values, $opts, $partial = false)</code></li>
+<li><code>updateAttributes($values, $opts = null, $dirty = true)</code></li>
+<li><code>serializeParameters($force = false)</code></li>
+<li><code>serializeParamsValue($value, $original, $unsaved, $force, $key = null)</code></li>
+<li><code>jsonSerialize()</code></li>
+<li><code>toArray()</code></li>
+<li><code>toJSON()</code></li>
+<li><code>__toString()</code></li>
+<li><code>dirty()</code></li>
+<li><code>dirtyValue($value)</code></li>
+<li><code>deepCopy($obj)</code></li>
+<li><code>emptyValues($obj)</code></li>
+<li><code>getLastResponse()</code></li>
+<li><code>setLastResponse($resp)</code></li>
+<li><code>isDeleted()</code></li>
+</ul>
+</body></html>

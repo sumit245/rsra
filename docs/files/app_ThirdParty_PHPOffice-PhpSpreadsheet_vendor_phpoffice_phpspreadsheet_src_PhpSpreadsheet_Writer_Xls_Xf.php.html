@@ -1,0 +1,132 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xls\Xf.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xls\Xf.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xls\Xf.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 12303 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Style XF or a cell XF ?</p>
+<p>@var bool</p>
+
+<p>Index to the FONT record. Index 4 does not exist.</p>
+<p>@var int</p>
+
+<p>An index (2 bytes) to a FORMAT record (number format).</p>
+<p>@var int</p>
+
+<p>1 bit, apparently not used.</p>
+<p>@var int</p>
+
+<p>The cell's foreground color.</p>
+<p>@var int</p>
+
+<p>The cell's background color.</p>
+<p>@var int</p>
+
+<p>Color of the bottom border of the cell.</p>
+<p>@var int</p>
+
+<p>Color of the top border of the cell.</p>
+<p>@var int</p>
+
+<p>Color of the left border of the cell.</p>
+<p>@var int</p>
+
+<p>Color of the right border of the cell.</p>
+<p>@var int</p>
+
+<p>@var int</p>
+
+<p>@var int</p>
+
+<p>@var Style</p>
+
+<p>Constructor.</p>
+<p>@param Style $style The XF format</p>
+
+<p>Generate an Excel BIFF XF record (style or cell).</p>
+<p>@return string The XF record</p>
+
+<p>Is this a style XF ?</p>
+<p>@param bool $value</p>
+
+<p>Sets the cell's bottom border color.</p>
+<p>@param int $colorIndex Color index</p>
+
+<p>Sets the cell's top border color.</p>
+<p>@param int $colorIndex Color index</p>
+
+<p>Sets the cell's left border color.</p>
+<p>@param int $colorIndex Color index</p>
+
+<p>Sets the cell's right border color.</p>
+<p>@param int $colorIndex Color index</p>
+
+<p>Sets the cell's diagonal border color.</p>
+<p>@param int $colorIndex Color index</p>
+
+<p>Sets the cell's foreground color.</p>
+<p>@param int $colorIndex Color index</p>
+
+<p>Sets the cell's background color.</p>
+<p>@param int $colorIndex Color index</p>
+
+<p>Sets the index to the number format record</p>
+<p>It can be date, time, currency, etc...</p>
+<p>@param int $numberFormatIndex Index to format record</p>
+
+<p>Set the font index.</p>
+<p>@param int $value Font index, note that value 4 does not exist</p>
+
+<p>Map to BIFF8 codes for text rotation angle.</p>
+<p>@param int $textRotation</p>
+<p>@return int</p>
+
+<p>Map locked values.</p>
+<p>@param string $locked</p>
+<p>@return int</p>
+
+<p>Map hidden.</p>
+<p>@param string $hidden</p>
+<p>@return int</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xls\Xf.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Writer\Xls\library</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Writer\Xls\Xf</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(Style $style)</code></li>
+<li><code>writeXf()</code></li>
+<li><code>setIsStyleXf($value)</code></li>
+<li><code>setBottomColor($colorIndex)</code></li>
+<li><code>setTopColor($colorIndex)</code></li>
+<li><code>setLeftColor($colorIndex)</code></li>
+<li><code>setRightColor($colorIndex)</code></li>
+<li><code>setDiagColor($colorIndex)</code></li>
+<li><code>setFgColor($colorIndex)</code></li>
+<li><code>setBgColor($colorIndex)</code></li>
+<li><code>setNumberFormatIndex($numberFormatIndex)</code></li>
+<li><code>setFontIndex($value)</code></li>
+<li><code>mapTextRotation($textRotation)</code></li>
+<li><code>mapLocked($locked)</code></li>
+<li><code>mapHidden($hidden)</code></li>
+</ul>
+</body></html>

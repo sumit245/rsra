@@ -1,0 +1,153 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Publisher\Publisher.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Publisher\Publisher.php</h1>
+
+<ul>
+<li>Path: <code>system\Publisher\Publisher.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 12730 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Publishers read in file paths from a variety of sources and copy</p>
+<p>the files out to different destinations. This class acts both as</p>
+<p>a base for individual publication directives as well as the mode</p>
+<p>of discovery for said instances. In this class a "file" is a full</p>
+<p>path to a verified file while a "path" is relative to its source</p>
+<p>or destination and may indicate either a file or directory of</p>
+<p>unconfirmed existence.</p>
+<p>Class failures throw the PublisherException, but some underlying</p>
+<p>methods may percolate different exceptions, like FileException,</p>
+<p>FileNotFoundException or InvalidArgumentException.</p>
+<p>Write operations will catch all errors in the file-specific</p>
+<p>$errors property to minimize impact of partial batch operations.</p>
+
+<p>Array of discovered Publishers.</p>
+<p>@var array<string, self[]|null></p>
+
+<p>Directory to use for methods that need temporary storage.</p>
+<p>Created on-the-fly as needed.</p>
+
+<p>Exceptions for specific files from the last write operation.</p>
+<p>@var array<string, Throwable></p>
+
+<p>List of file published curing the last write operation.</p>
+<p>@var string[]</p>
+
+<p>List of allowed directories and their allowed files regex.</p>
+<p>Restrictions are intentionally private to prevent overriding.</p>
+<p>@var array<string,string></p>
+
+<p>Base path to use for the source.</p>
+<p>@var string</p>
+
+<p>Base path to use for the destination.</p>
+<p>@var string</p>
+
+<p>Discovers and returns all Publishers in the specified namespace directory.</p>
+<p>@return self[]</p>
+
+<p>@var FileLocator $locator</p>
+
+<p>Removes a directory and all its files and subdirectories.</p>
+
+<p>Loads the helper and verifies the source and destination directories.</p>
+
+<p>Cleans up any temporary files in the scratch space.</p>
+
+<p>Reads files from the sources and copies them out to their destinations.</p>
+<p>This method should be reimplemented by child classes intended for</p>
+<p>discovery.</p>
+<p>@throws RuntimeException</p>
+
+<p>Returns the source directory.</p>
+
+<p>Returns the destination directory.</p>
+
+<p>Returns the temporary workspace, creating it if necessary.</p>
+
+<p>Returns errors from the last write operation if any.</p>
+<p>@return array<string,Throwable></p>
+
+<p>Returns the files published by the last write operation.</p>
+<p>@return string[]</p>
+
+<p>Verifies and adds paths to the list.</p>
+<p>@param string[] $paths</p>
+<p>@return $this</p>
+
+<p>Adds a single path to the file list.</p>
+<p>@return $this</p>
+
+<p>Downloads and stages files from an array of URIs.</p>
+<p>@param string[] $uris</p>
+<p>@return $this</p>
+
+<p>Downloads a file from the URI, and adds it to the file list.</p>
+<p>@param string $uri Because HTTP\URI is stringable it will still be accepted</p>
+<p>@return $this</p>
+
+<p>Removes the destination and all its files and folders.</p>
+<p>@return $this</p>
+
+<p>Copies all files into the destination, does not create directory structure.</p>
+<p>@param bool $replace Whether to overwrite existing files.</p>
+<p>@return bool Whether all files were copied successfully</p>
+
+<p>Merges all files into the destination.</p>
+<p>Creates a mirrored directory structure only for files from source.</p>
+<p>@param bool $replace Whether to overwrite existing files.</p>
+<p>@return bool Whether all files were copied successfully</p>
+
+<p>Copies a file with directory creation and identical file awareness.</p>
+<p>Intentionally allows errors.</p>
+<p>@throws PublisherException For collisions and restriction violations</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+<li><code>the</code></li>
+<li><code>an</code></li>
+<li><code>source</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Publisher\Publisher.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Publisher\acts</code></li>
+<li><code>CodeIgniter\Publisher\a</code></li>
+<li><code>CodeIgniter\Publisher\Publisher extends FileCollection</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>discover(string $directory = 'Publishers')</code></li>
+<li><code>wipeDirectory(string $directory)</code></li>
+<li><code>__construct(?string $source = null, ?string $destination = null)</code></li>
+<li><code>__destruct()</code></li>
+<li><code>publish()</code></li>
+<li><code>getSource()</code></li>
+<li><code>getDestination()</code></li>
+<li><code>getScratch()</code></li>
+<li><code>getErrors()</code></li>
+<li><code>getPublished()</code></li>
+<li><code>addPaths(array $paths, bool $recursive = true)</code></li>
+<li><code>addPath(string $path, bool $recursive = true)</code></li>
+<li><code>addUris(array $uris)</code></li>
+<li><code>addUri(string $uri)</code></li>
+<li><code>wipe()</code></li>
+<li><code>copy(bool $replace = true)</code></li>
+<li><code>merge(bool $replace = true)</code></li>
+<li><code>safeCopyFile(string $from, string $to, bool $replace)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,94 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xls.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xls.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xls.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 35636 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>PhpSpreadsheet object.</p>
+<p>@var Spreadsheet</p>
+
+<p>Total number of shared strings in workbook.</p>
+<p>@var int</p>
+
+<p>Number of unique shared strings in workbook.</p>
+<p>@var int</p>
+
+<p>Array of unique shared strings in workbook.</p>
+<p>@var array</p>
+
+<p>Color cache. Mapping between RGB value and color index.</p>
+<p>@var array</p>
+
+<p>Formula parser.</p>
+<p>@var Parser</p>
+
+<p>Identifier clusters for drawings. Used in MSODRAWINGGROUP record.</p>
+<p>@var array</p>
+
+<p>Basic OLE object summary information.</p>
+<p>@var string</p>
+
+<p>Extended OLE object document summary information.</p>
+<p>@var string</p>
+
+<p>@var Workbook</p>
+
+<p>@var Worksheet[]</p>
+
+<p>Create a new Xls Writer.</p>
+<p>@param Spreadsheet $spreadsheet PhpSpreadsheet object</p>
+
+<p>Save Spreadsheet to file.</p>
+<p>@param resource|string $filename</p>
+
+<p>Build the Worksheet Escher objects.</p>
+
+<p>Build the Escher object corresponding to the MSODRAWINGGROUP record.</p>
+
+<p>Build the OLE Part for DocumentSummary Information.</p>
+<p>@return string</p>
+
+<p>@param float|int $dataProp</p>
+
+<p>Build the OLE Part for Summary Information.</p>
+<p>@return string</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>rich</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xls.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Writer\Xls extends BaseWriter</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Writer\id</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Writer\id</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(Spreadsheet $spreadsheet)</code></li>
+<li><code>save($filename, int $flags = 0)</code></li>
+<li><code>buildWorksheetEschers()</code></li>
+<li><code>processMemoryDrawing(BstoreContainer &$bstoreContainer, MemoryDrawing $drawing, string $renderingFunctionx)</code></li>
+<li><code>processDrawing(BstoreContainer &$bstoreContainer, Drawing $drawing)</code></li>
+<li><code>processBaseDrawing(BstoreContainer &$bstoreContainer, BaseDrawing $drawing)</code></li>
+<li><code>checkForDrawings()</code></li>
+<li><code>buildWorkbookEscher()</code></li>
+<li><code>writeDocumentSummaryInformation()</code></li>
+<li><code>writeSummaryPropOle($dataProp, int &$dataSection_NumProps, array &$dataSection, int $sumdata, int $typdata)</code></li>
+<li><code>writeSummaryProp(string $dataProp, int &$dataSection_NumProps, array &$dataSection, int $sumdata, int $typdata)</code></li>
+<li><code>writeSummaryInformation()</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,336 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\src\Google\Client.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\src\Google\Client.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\src\Google\Client.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 31935 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>The Google API Client</p>
+<p>https://github.com/google/google-api-php-client</p>
+
+<p>@var Google\Auth\OAuth2 $auth</p>
+
+<p>@var GuzzleHttp\ClientInterface $http</p>
+
+<p>@var Psr\Cache\CacheItemPoolInterface $cache</p>
+
+<p>@var array access token</p>
+
+<p>@var array $config</p>
+
+<p>@var Psr\Log\LoggerInterface $logger</p>
+
+<p>@var boolean $deferExecution</p>
+
+<p>@var array $scopes</p>
+
+<p>Construct the Google Client.</p>
+<p>@param array $config</p>
+
+<p>Get a string containing the version of the library.</p>
+<p>@return string</p>
+
+<p>For backwards compatibility</p>
+<p>alias for fetchAccessTokenWithAuthCode</p>
+<p>@param $code string code from accounts.google.com</p>
+<p>@return array access token</p>
+<p>@deprecated</p>
+
+<p>Attempt to exchange a code for an valid authentication token.</p>
+<p>Helper wrapped around the OAuth 2.0 implementation.</p>
+<p>@param $code string code from accounts.google.com</p>
+<p>@return array access token</p>
+
+<p>For backwards compatibility</p>
+<p>alias for fetchAccessTokenWithAssertion</p>
+<p>@return array access token</p>
+<p>@deprecated</p>
+
+<p>Fetches a fresh access token with a given assertion token.</p>
+<p>@param ClientInterface $authHttp optional.</p>
+<p>@return array access token</p>
+
+<p>For backwards compatibility</p>
+<p>alias for fetchAccessTokenWithRefreshToken</p>
+<p>@param string $refreshToken</p>
+<p>@return array access token</p>
+
+<p>Fetches a fresh OAuth 2.0 access token with the given refresh token.</p>
+<p>@param string $refreshToken</p>
+<p>@return array access token</p>
+
+<p>Create a URL to obtain user authorization.</p>
+<p>The authorization endpoint allows the user to first</p>
+<p>authenticate, and then grant/deny the access request.</p>
+<p>@param string|array $scope The scope is expressed as an array or list of space-delimited strings.</p>
+<p>@return string</p>
+
+<p>Adds auth listeners to the HTTP client based on the credentials</p>
+<p>set in the Google API Client object</p>
+<p>@param GuzzleHttp\ClientInterface $http the http client object.</p>
+<p>@return GuzzleHttp\ClientInterface the http client object</p>
+
+<p>Set the configuration to use application default credentials for</p>
+<p>authentication</p>
+<p>@see https://developers.google.com/identity/protocols/application-default-credentials</p>
+<p>@param boolean $useAppCreds</p>
+
+<p>To prevent useApplicationDefaultCredentials from inappropriately being</p>
+<p>called in a conditional</p>
+<p>@see https://developers.google.com/identity/protocols/application-default-credentials</p>
+
+<p>@param string|array $token</p>
+<p>@throws InvalidArgumentException</p>
+
+<p>@return string|null</p>
+
+<p>Returns if the access_token is expired.</p>
+<p>@return bool Returns True if the access_token is expired.</p>
+
+<p>@deprecated See UPGRADING.md for more information</p>
+
+<p>@deprecated See UPGRADING.md for more information</p>
+
+<p>Set the OAuth 2.0 Client ID.</p>
+<p>@param string $clientId</p>
+
+<p>Set the OAuth 2.0 Client Secret.</p>
+<p>@param string $clientSecret</p>
+
+<p>Set the OAuth 2.0 Redirect URI.</p>
+<p>@param string $redirectUri</p>
+
+<p>Set OAuth 2.0 "state" parameter to achieve per-request customization.</p>
+<p>@see http://tools.ietf.org/html/draft-ietf-oauth-v2-22#section-3.1.2.2</p>
+<p>@param string $state</p>
+
+<p>@param string $accessType Possible values for access_type include:</p>
+<p> {@code "offline"} to request offline access from the user.</p>
+<p> {@code "online"} to request online access from the user.</p>
+
+<p>@param string $approvalPrompt Possible values for approval_prompt include:</p>
+<p> {@code "force"} to force the approval UI to appear.</p>
+<p> {@code "auto"} to request auto-approval when possible. (This is the default value)</p>
+
+<p>Set the login hint, email address or sub id.</p>
+<p>@param string $loginHint</p>
+
+<p>Set the application name, this is included in the User-Agent HTTP header.</p>
+<p>@param string $applicationName</p>
+
+<p>If 'plus.login' is included in the list of requested scopes, you can use</p>
+<p>this method to define types of app activities that your app will write.</p>
+<p>You can find a list of available types here:</p>
+<p>@link https://developers.google.com/+/api/moment-types</p>
+<p>@param array $requestVisibleActions Array of app activity types</p>
+
+<p>Set the developer key to use, these are obtained through the API Console.</p>
+<p>@see http://code.google.com/apis/console-help/#generatingdevkeys</p>
+<p>@param string $developerKey</p>
+
+<p>Set the hd (hosted domain) parameter streamlines the login process for</p>
+<p>Google Apps hosted accounts. By including the domain of the user, you</p>
+<p>restrict sign-in to accounts at that domain.</p>
+<p>@param $hd string - the domain to use.</p>
+
+<p>Set the prompt hint. Valid values are none, consent and select_account.</p>
+<p>If no value is specified and the user has not previously authorized</p>
+<p>access, then the user is shown a consent screen.</p>
+<p>@param $prompt string</p>
+
+<p>openid.realm is a parameter from the OpenID 2.0 protocol, not from OAuth</p>
+<p>2.0. It is used in OpenID 2.0 requests to signify the URL-space for which</p>
+<p>an authentication request is valid.</p>
+<p>@param $realm string - the URL-space to use.</p>
+
+<p>If this is provided with the value true, and the authorization request is</p>
+<p>granted, the authorization will include any previous authorizations</p>
+<p>granted to this user/application combination for other scopes.</p>
+<p>@param $include boolean - the URL-space to use.</p>
+
+<p>sets function to be called when an access token is fetched</p>
+<p>@param callable $tokenCallback - function ($cacheKey, $accessToken)</p>
+
+<p>Revoke an OAuth2 access token or refresh token. This method will revoke the current access</p>
+<p>token, if a token isn't provided.</p>
+<p>@param string|null $token The token (access token or a refresh token) that should be revoked.</p>
+<p>@return boolean Returns True if the revocation was successful, otherwise False.</p>
+
+<p>Verify an id_token. This method will verify the current id_token, if one</p>
+<p>isn't provided.</p>
+<p>@throws LogicException</p>
+<p>@param string|null $idToken The token (id_token) that should be verified.</p>
+<p>@return array|false Returns the token payload as an array if the verification was</p>
+<p>successful, false otherwise.</p>
+
+<p>Set the scopes to be requested. Must be called before createAuthUrl().</p>
+<p>Will remove any previously configured scopes.</p>
+<p>@param array $scopes, ie: array('https://www.googleapis.com/auth/plus.login',</p>
+<p>'https://www.googleapis.com/auth/moderator')</p>
+
+<p>This functions adds a scope to be requested as part of the OAuth2.0 flow.</p>
+<p>Will append any scopes not previously requested to the scope parameter.</p>
+<p>A single string will be treated as a scope to request. An array of strings</p>
+<p>will each be appended.</p>
+<p>@param $scope_or_scopes string|array e.g. "profile"</p>
+
+<p>Returns the list of scopes requested by the client</p>
+<p>@return array the list of scopes</p>
+
+<p>@return string|null</p>
+<p>@visible For Testing</p>
+
+<p>Helper method to execute deferred HTTP requests.</p>
+<p>@param $request Psr\Http\Message\RequestInterface|Google_Http_Batch</p>
+<p>@throws Google_Exception</p>
+<p>@return object of the type of the expected class or Psr\Http\Message\ResponseInterface.</p>
+
+<p>Declare whether batch calls should be used. This may increase throughput</p>
+<p>by making multiple requests in one connection.</p>
+<p>@param boolean $useBatch True if the batch support should</p>
+<p>be enabled. Defaults to False.</p>
+
+<p>Are we running in Google AppEngine?</p>
+<p>return bool</p>
+
+<p>For backwards compatibility</p>
+<p>alias for setAuthConfig</p>
+<p>@param string $file the configuration file</p>
+<p>@throws Google_Exception</p>
+<p>@deprecated</p>
+
+<p>Set the auth config from new or deprecated JSON config.</p>
+<p>This structure should match the file downloaded from</p>
+<p>the "Download JSON" button on in the Google Developer</p>
+<p>Console.</p>
+<p>@param string|array $config the configuration json</p>
+<p>@throws Google_Exception</p>
+
+<p>Use when the service account has been delegated domain wide access.</p>
+<p>@param string $subject an email address account to impersonate</p>
+
+<p>Declare whether making API calls should make the call immediately, or</p>
+<p>return a request which can be called with ->execute();</p>
+<p>@param boolean $defer True if calls should not be executed right away.</p>
+
+<p>Whether or not to return raw requests</p>
+<p>@return boolean</p>
+
+<p>@return Google\Auth\OAuth2 implementation</p>
+
+<p>create a default google auth object</p>
+
+<p>Set the Cache object</p>
+<p>@param Psr\Cache\CacheItemPoolInterface $cache</p>
+
+<p>@return Psr\Cache\CacheItemPoolInterface Cache implementation</p>
+
+<p>@param array $cacheConfig</p>
+
+<p>Set the Logger object</p>
+<p>@param Psr\Log\LoggerInterface $logger</p>
+
+<p>@return Psr\Log\LoggerInterface implementation</p>
+
+<p>Set the Http Client object</p>
+<p>@param GuzzleHttp\ClientInterface $http</p>
+
+<p>@return GuzzleHttp\ClientInterface implementation</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>accounts</code></li>
+<li><code>inappropriately</code></li>
+<li><code>OAuth</code></li>
+<li><code>new</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\src\Google\Client.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Google_Client</code></li>
+<li><code>used</code></li>
+<li><code>or</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(array $config = array()</code></li>
+<li><code>getLibraryVersion()</code></li>
+<li><code>authenticate($code)</code></li>
+<li><code>fetchAccessTokenWithAuthCode($code)</code></li>
+<li><code>refreshTokenWithAssertion()</code></li>
+<li><code>fetchAccessTokenWithAssertion(ClientInterface $authHttp = null)</code></li>
+<li><code>refreshToken($refreshToken)</code></li>
+<li><code>fetchAccessTokenWithRefreshToken($refreshToken = null)</code></li>
+<li><code>createAuthUrl($scope = null)</code></li>
+<li><code>authorize(ClientInterface $http = null)</code></li>
+<li><code>useApplicationDefaultCredentials($useAppCreds = true)</code></li>
+<li><code>isUsingApplicationDefaultCredentials()</code></li>
+<li><code>setAccessToken($token)</code></li>
+<li><code>getAccessToken()</code></li>
+<li><code>getRefreshToken()</code></li>
+<li><code>isAccessTokenExpired()</code></li>
+<li><code>getAuth()</code></li>
+<li><code>setAuth($auth)</code></li>
+<li><code>setClientId($clientId)</code></li>
+<li><code>getClientId()</code></li>
+<li><code>setClientSecret($clientSecret)</code></li>
+<li><code>getClientSecret()</code></li>
+<li><code>setRedirectUri($redirectUri)</code></li>
+<li><code>getRedirectUri()</code></li>
+<li><code>setState($state)</code></li>
+<li><code>setAccessType($accessType)</code></li>
+<li><code>setApprovalPrompt($approvalPrompt)</code></li>
+<li><code>setLoginHint($loginHint)</code></li>
+<li><code>setApplicationName($applicationName)</code></li>
+<li><code>setRequestVisibleActions($requestVisibleActions)</code></li>
+<li><code>setDeveloperKey($developerKey)</code></li>
+<li><code>setHostedDomain($hd)</code></li>
+<li><code>setPrompt($prompt)</code></li>
+<li><code>setOpenidRealm($realm)</code></li>
+<li><code>setIncludeGrantedScopes($include)</code></li>
+<li><code>setTokenCallback(callable $tokenCallback)</code></li>
+<li><code>revokeToken($token = null)</code></li>
+<li><code>verifyIdToken($idToken = null)</code></li>
+<li><code>setScopes($scopes)</code></li>
+<li><code>addScope($scope_or_scopes)</code></li>
+<li><code>getScopes()</code></li>
+<li><code>prepareScopes()</code></li>
+<li><code>execute(RequestInterface $request, $expectedClass = null)</code></li>
+<li><code>setUseBatch($useBatch)</code></li>
+<li><code>isAppEngine()</code></li>
+<li><code>setConfig($name, $value)</code></li>
+<li><code>getConfig($name, $default = null)</code></li>
+<li><code>setAuthConfigFile($file)</code></li>
+<li><code>setAuthConfig($config)</code></li>
+<li><code>setSubject($subject)</code></li>
+<li><code>setDefer($defer)</code></li>
+<li><code>shouldDefer()</code></li>
+<li><code>getOAuth2Service()</code></li>
+<li><code>createOAuth2Service()</code></li>
+<li><code>setCache(CacheItemPoolInterface $cache)</code></li>
+<li><code>getCache()</code></li>
+<li><code>setCacheConfig(array $cacheConfig)</code></li>
+<li><code>setLogger(LoggerInterface $logger)</code></li>
+<li><code>getLogger()</code></li>
+<li><code>createDefaultLogger()</code></li>
+<li><code>createDefaultCache()</code></li>
+<li><code>setHttpClient(ClientInterface $http)</code></li>
+<li><code>getHttpClient()</code></li>
+<li><code>createDefaultHttpClient()</code></li>
+<li><code>createApplicationDefaultCredentials()</code></li>
+<li><code>getAuthHandler()</code></li>
+<li><code>createUserRefreshCredentials($scope, $refreshToken)</code></li>
+</ul>
+</body></html>

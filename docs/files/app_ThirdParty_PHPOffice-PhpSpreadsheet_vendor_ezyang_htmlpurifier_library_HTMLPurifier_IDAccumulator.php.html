@@ -1,0 +1,49 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\IDAccumulator.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\IDAccumulator.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\IDAccumulator.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 1647 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Component of HTMLPurifier_AttrContext that accumulates IDs to prevent dupes</p>
+<p>@note In Slashdot-speak, dupe means duplicate.</p>
+<p>@note The default constructor does not accept $config or $context objects:</p>
+<p>      use must use the static build() factory method to perform initialization.</p>
+
+<p>Lookup table of IDs we've accumulated.</p>
+<p>@public</p>
+
+<p>Builds an IDAccumulator, also initializing the default blacklist</p>
+<p>@param HTMLPurifier_Config $config Instance of HTMLPurifier_Config</p>
+<p>@param HTMLPurifier_Context $context Instance of HTMLPurifier_Context</p>
+<p>@return HTMLPurifier_IDAccumulator Fully initialized HTMLPurifier_IDAccumulator</p>
+
+<p>Add an ID to the lookup table.</p>
+<p>@param string $id ID to be added.</p>
+<p>@return bool status, true if success, false if there's a dupe</p>
+
+<p>Load a list of IDs into the lookup table</p>
+<p>@param $array_of_ids Array of IDs to load</p>
+<p>@note This function doesn't care about duplicates</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\IDAccumulator.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>HTMLPurifier_IDAccumulator</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>build($config, $context)</code></li>
+<li><code>add($id)</code></li>
+<li><code>load($array_of_ids)</code></li>
+</ul>
+</body></html>

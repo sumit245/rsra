@@ -1,0 +1,130 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\markbaker\complex\classes\src\Complex.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\markbaker\complex\classes\src\Complex.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\markbaker\complex\classes\src\Complex.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 11279 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Class for the management of Complex numbers</p>
+<p>@copyright  Copyright (c) 2013-2018 Mark Baker (https://github.com/MarkBaker/PHPComplex)</p>
+<p>@license    https://opensource.org/licenses/MIT    MIT</p>
+
+<p>Complex Number object.</p>
+<p>@package Complex</p>
+<p>@method float abs()</p>
+<p>@method Complex acos()</p>
+<p>@method Complex acosh()</p>
+<p>@method Complex acot()</p>
+<p>@method Complex acoth()</p>
+<p>@method Complex acsc()</p>
+<p>@method Complex acsch()</p>
+<p>@method float argument()</p>
+<p>@method Complex asec()</p>
+<p>@method Complex asech()</p>
+<p>@method Complex asin()</p>
+<p>@method Complex asinh()</p>
+<p>@method Complex atan()</p>
+<p>@method Complex atanh()</p>
+<p>@method Complex conjugate()</p>
+<p>@method Complex cos()</p>
+<p>@method Complex cosh()</p>
+<p>@method Complex cot()</p>
+<p>@method Complex coth()</p>
+<p>@method Complex csc()</p>
+<p>@method Complex csch()</p>
+<p>@method Complex exp()</p>
+<p>@method Complex inverse()</p>
+<p>@method Complex ln()</p>
+<p>@method Complex log2()</p>
+<p>@method Complex log10()</p>
+<p>@method Complex negative()</p>
+<p>@method Complex pow(int|float $power)</p>
+<p>@method float rho()</p>
+<p>@method Complex sec()</p>
+<p>@method Complex sech()</p>
+<p>@method Complex sin()</p>
+<p>@method Complex sinh()</p>
+<p>@method Complex sqrt()</p>
+<p>@method Complex tan()</p>
+<p>@method Complex tanh()</p>
+<p>@method float theta()</p>
+<p>@method Complex add(...$complexValues)</p>
+<p>@method Complex subtract(...$complexValues)</p>
+<p>@method Complex multiply(...$complexValues)</p>
+<p>@method Complex divideby(...$complexValues)</p>
+<p>@method Complex divideinto(...$complexValues)</p>
+
+<p>@constant    Euler's Number.</p>
+
+<p>@constant    Regexp to split an input string into real and imaginary components and suffix</p>
+
+<p>@var    float    $realPart    The value of of this complex number on the real plane.</p>
+
+<p>@var    float    $imaginaryPart    The value of of this complex number on the imaginary plane.</p>
+
+<p>@var    string    $suffix    The suffix for this complex number (i or j).</p>
+
+<p>Validates whether the argument is a valid complex number, converting scalar or array values if possible</p>
+<p>@param     mixed    $complexNumber   The value to parse</p>
+<p>@return    array</p>
+<p>@throws    Exception    If the argument isn't a Complex number or cannot be converted to one</p>
+
+<p>Gets the real part of this complex number</p>
+<p>@return Float</p>
+
+<p>Gets the imaginary part of this complex number</p>
+<p>@return Float</p>
+
+<p>Gets the suffix of this complex number</p>
+<p>@return String</p>
+
+<p>Returns true if this is a real value, false if a complex value</p>
+<p>@return Bool</p>
+
+<p>Returns true if this is a complex value, false if a real value</p>
+<p>@return Bool</p>
+
+<p>Validates whether the argument is a valid complex number, converting scalar or array values if possible</p>
+<p>@param     mixed    $complex   The value to validate</p>
+<p>@return    Complex</p>
+<p>@throws    Exception    If the argument isn't a Complex number or cannot be converted to one</p>
+
+<p>Returns the reverse of this complex number</p>
+<p>@return    Complex</p>
+
+<p>Returns the result of the function call or operation</p>
+<p>@return    Complex|float</p>
+<p>@throws    Exception|\InvalidArgumentException</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\markbaker\complex\classes\src\Complex.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Complex\Complex</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>parseComplex($complexNumber)</code></li>
+<li><code>__construct($realPart = 0.0, $imaginaryPart = null, $suffix = 'i')</code></li>
+<li><code>getReal()</code></li>
+<li><code>getImaginary()</code></li>
+<li><code>getSuffix()</code></li>
+<li><code>isReal()</code></li>
+<li><code>isComplex()</code></li>
+<li><code>format()</code></li>
+<li><code>__toString()</code></li>
+<li><code>validateComplexArgument($complex)</code></li>
+<li><code>reverse()</code></li>
+<li><code>invertImaginary()</code></li>
+<li><code>invertReal()</code></li>
+<li><code>__call($functionName, $arguments)</code></li>
+</ul>
+</body></html>

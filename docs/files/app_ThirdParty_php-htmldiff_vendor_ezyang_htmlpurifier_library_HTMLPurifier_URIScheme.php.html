@@ -1,0 +1,64 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\URIScheme.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\URIScheme.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\URIScheme.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3481 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Validator for the components of a URI for a specific scheme</p>
+
+<p>Scheme's default port (integer). If an explicit port number is</p>
+<p>specified that coincides with the default port, it will be</p>
+<p>elided.</p>
+<p>@type int</p>
+
+<p>Whether or not URIs of this scheme are locatable by a browser</p>
+<p>http and ftp are accessible, while mailto and news are not.</p>
+<p>@type bool</p>
+
+<p>Whether or not data transmitted over this scheme is encrypted.</p>
+<p>https is secure, http is not.</p>
+<p>@type bool</p>
+
+<p>Whether or not the URI always uses <hier_part>, resolves edge cases</p>
+<p>with making relative URIs absolute</p>
+<p>@type bool</p>
+
+<p>Whether or not the URI may omit a hostname when the scheme is</p>
+<p>explicitly specified, ala file:///path/to/file. As of writing,</p>
+<p>'file' is the only scheme that browsers support his properly.</p>
+<p>@type bool</p>
+
+<p>Validates the components of a URI for a specific scheme.</p>
+<p>@param HTMLPurifier_URI $uri Reference to a HTMLPurifier_URI object</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@param HTMLPurifier_Context $context</p>
+<p>@return bool success or failure</p>
+
+<p>Public interface for validating components of a URI.  Performs a</p>
+<p>bunch of default actions. Don't overload this method.</p>
+<p>@param HTMLPurifier_URI $uri Reference to a HTMLPurifier_URI object</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@param HTMLPurifier_Context $context</p>
+<p>@return bool success or failure</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\URIScheme.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>HTMLPurifier_URIScheme</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>doValidate(&$uri, $config, $context)</code></li>
+<li><code>validate(&$uri, $config, $context)</code></li>
+</ul>
+</body></html>

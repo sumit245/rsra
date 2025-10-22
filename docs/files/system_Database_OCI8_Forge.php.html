@@ -1,0 +1,88 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Database\OCI8\Forge.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Database\OCI8\Forge.php</h1>
+
+<ul>
+<li>Path: <code>system\Database\OCI8\Forge.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9117 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Forge for OCI8</p>
+
+<p>DROP INDEX statement</p>
+<p>@var string</p>
+
+<p>CREATE DATABASE statement</p>
+<p>@var false</p>
+
+<p>CREATE TABLE IF statement</p>
+<p>@var false</p>
+
+<p>DROP TABLE IF EXISTS statement</p>
+<p>@var false</p>
+
+<p>DROP DATABASE statement</p>
+<p>@var false</p>
+
+<p>UNSIGNED support</p>
+<p>@var array|bool</p>
+
+<p>NULL value representation in CREATE/ALTER TABLE statements</p>
+<p>@var string</p>
+
+<p>RENAME TABLE statement</p>
+<p>@var string</p>
+
+<p>DROP CONSTRAINT statement</p>
+<p>@var string</p>
+
+<p>ALTER TABLE</p>
+<p>@param string $alterType ALTER type</p>
+<p>@param string $table     Table name</p>
+<p>@param mixed  $field     Column definition</p>
+<p>@return string|string[]</p>
+
+<p>Field attribute AUTO_INCREMENT</p>
+<p>@return void</p>
+
+<p>Process column</p>
+
+<p>Performs a data type mapping between different databases.</p>
+<p>@return void</p>
+
+<p>Generates a platform-specific DROP TABLE string</p>
+<p>@return bool|string</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Database\OCI8\Forge.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Database\OCI8\Forge extends BaseForge</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>_alterTable(string $alterType, string $table, $field)</code></li>
+<li><code>_attributeAutoIncrement(array &$attributes, array &$field)</code></li>
+<li><code>_processColumn(array $field)</code></li>
+<li><code>_attributeType(array &$attributes)</code></li>
+<li><code>_dropTable(string $table, bool $ifExists, bool $cascade)</code></li>
+<li><code>_processForeignKeys(string $table)</code></li>
+</ul>
+</body></html>

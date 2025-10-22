@@ -1,0 +1,739 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Database\BaseBuilder.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Database\BaseBuilder.php</h1>
+
+<ul>
+<li>Path: <code>system\Database\BaseBuilder.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 80538 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Class BaseBuilder</p>
+<p>Provides the core Query Builder methods.</p>
+<p>Database-specific Builders might need to override</p>
+<p>certain methods to make them work.</p>
+
+<p>Reset DELETE data flag</p>
+<p>@var bool</p>
+
+<p>QB SELECT data</p>
+<p>@var array</p>
+
+<p>QB DISTINCT flag</p>
+<p>@var bool</p>
+
+<p>QB FROM data</p>
+<p>@var array</p>
+
+<p>QB JOIN data</p>
+<p>@var array</p>
+
+<p>QB WHERE data</p>
+<p>@var array</p>
+
+<p>QB GROUP BY data</p>
+<p>@var array</p>
+
+<p>QB HAVING data</p>
+<p>@var array</p>
+
+<p>QB keys</p>
+<p>@var array</p>
+
+<p>QB LIMIT data</p>
+<p>@var bool|int</p>
+
+<p>QB OFFSET data</p>
+<p>@var bool|int</p>
+
+<p>QB ORDER BY data</p>
+<p>@var array|string|null</p>
+
+<p>QB UNION data</p>
+<p>@var array<string></p>
+
+<p>QB NO ESCAPE data</p>
+<p>@var array</p>
+
+<p>QB data sets</p>
+<p>@var array</p>
+
+<p>QB WHERE group started flag</p>
+<p>@var bool</p>
+
+<p>QB WHERE group count</p>
+<p>@var int</p>
+
+<p>Ignore data that cause certain</p>
+<p>exceptions, for example in case of</p>
+<p>duplicate keys.</p>
+<p>@var bool</p>
+
+<p>A reference to the database connection.</p>
+<p>@var BaseConnection</p>
+
+<p>Name of the primary table for this instance.</p>
+<p>Tracked separately because $QBFrom gets escaped</p>
+<p>and prefixed.</p>
+<p>When $tableName to the constructor has multiple tables,</p>
+<p>the value is empty string.</p>
+<p>@var string</p>
+
+<p>ORDER BY random keyword</p>
+<p>@var array</p>
+
+<p>COUNT string</p>
+<p>@used-by CI_DB_driver::count_all()</p>
+<p>@used-by BaseBuilder::count_all_results()</p>
+<p>@var string</p>
+
+<p>Collects the named parameters and</p>
+<p>their values for later binding</p>
+<p>in the Query object.</p>
+<p>@var array</p>
+
+<p>Collects the key count for named parameters</p>
+<p>in the Query object.</p>
+<p>@var array</p>
+
+<p>Some databases, like SQLite, do not by default</p>
+<p>allow limiting of delete clauses.</p>
+<p>@var bool</p>
+
+<p>Some databases do not by default</p>
+<p>allow limit update queries with WHERE.</p>
+<p>@var bool</p>
+
+<p>Specifies which sql statements</p>
+<p>support the ignore option.</p>
+<p>@var array</p>
+
+<p>Builder testing mode status.</p>
+<p>@var bool</p>
+
+<p>Tables relation types</p>
+<p>@var array</p>
+
+<p>Strings that determine if a string represents a literal value or a field name</p>
+<p>@var string[]</p>
+
+<p>RegExp used to get operators</p>
+<p>@var string[]</p>
+
+<p>Constructor</p>
+<p>@param array|string $tableName tablename or tablenames with or without aliases</p>
+<p>Examples of $tableName: <code>mytable</code>, <code>jobs j</code>, <code>jobs j, users u</code>, <code>['jobs j','users u']</code></p>
+<p>@throws DatabaseException</p>
+
+<p>@var BaseConnection $db</p>
+
+<p>Returns the current database connection</p>
+<p>@return BaseConnection|ConnectionInterface</p>
+
+<p>Sets a test mode status.</p>
+<p>@return $this</p>
+
+<p>Gets the name of the primary table.</p>
+
+<p>Returns an array of bind values and their</p>
+<p>named parameters for binding in the Query object later.</p>
+
+<p>Ignore</p>
+<p>Set ignore Flag for next insert,</p>
+<p>update or delete query.</p>
+<p>@return $this</p>
+
+<p>Generates the SELECT portion of the query</p>
+<p>@param array|RawSql|string $select</p>
+<p>@return $this</p>
+
+<p>Generates a SELECT MAX(field) portion of a query</p>
+<p>@return $this</p>
+
+<p>Generates a SELECT MIN(field) portion of a query</p>
+<p>@return $this</p>
+
+<p>Generates a SELECT AVG(field) portion of a query</p>
+<p>@return $this</p>
+
+<p>Generates a SELECT SUM(field) portion of a query</p>
+<p>@return $this</p>
+
+<p>Generates a SELECT COUNT(field) portion of a query</p>
+<p>@return $this</p>
+
+<p>Adds a subquery to the selection</p>
+
+<p>SELECT [MAX|MIN|AVG|SUM|COUNT]()</p>
+<p>@used-by selectMax()</p>
+<p>@used-by selectMin()</p>
+<p>@used-by selectAvg()</p>
+<p>@used-by selectSum()</p>
+<p>@throws DatabaseException</p>
+<p>@throws DataException</p>
+<p>@return $this</p>
+
+<p>Determines the alias name based on the table</p>
+
+<p>Sets a flag which tells the query string compiler to add DISTINCT</p>
+<p>@return $this</p>
+
+<p>Generates the FROM portion of the query</p>
+<p>@param array|string $from</p>
+<p>@return $this</p>
+
+<p>@param BaseBuilder $from  Expected subquery</p>
+<p>@param string      $alias Subquery alias</p>
+<p>@return $this</p>
+
+<p>Generates the JOIN portion of the query</p>
+<p>@param RawSql|string $cond</p>
+<p>@return $this</p>
+
+<p>Generates the WHERE portion of the query.</p>
+<p>Separates multiple calls with 'AND'.</p>
+<p>@param array|RawSql|string $key</p>
+<p>@param mixed               $value</p>
+<p>@return $this</p>
+
+<p>OR WHERE</p>
+<p>Generates the WHERE portion of the query.</p>
+<p>Separates multiple calls with 'OR'.</p>
+<p>@param array|RawSql|string $key</p>
+<p>@param mixed               $value</p>
+<p>@param bool                $escape</p>
+<p>@return $this</p>
+
+<p>@used-by where()</p>
+<p>@used-by orWhere()</p>
+<p>@used-by having()</p>
+<p>@used-by orHaving()</p>
+<p>@param array|RawSql|string $key</p>
+<p>@param mixed               $value</p>
+<p>@return $this</p>
+
+<p>Generates a WHERE field IN('item', 'item') SQL query,</p>
+<p>joined with 'AND' if appropriate.</p>
+<p>@param array|BaseBuilder|Closure|string $values The values searched on, or anonymous function with subquery</p>
+<p>@return $this</p>
+
+<p>Generates a WHERE field IN('item', 'item') SQL query,</p>
+<p>joined with 'OR' if appropriate.</p>
+<p>@param array|BaseBuilder|Closure|string $values The values searched on, or anonymous function with subquery</p>
+<p>@return $this</p>
+
+<p>Generates a WHERE field NOT IN('item', 'item') SQL query,</p>
+<p>joined with 'AND' if appropriate.</p>
+<p>@param array|BaseBuilder|Closure|string $values The values searched on, or anonymous function with subquery</p>
+<p>@return $this</p>
+
+<p>Generates a WHERE field NOT IN('item', 'item') SQL query,</p>
+<p>joined with 'OR' if appropriate.</p>
+<p>@param array|BaseBuilder|Closure|string $values The values searched on, or anonymous function with subquery</p>
+<p>@return $this</p>
+
+<p>Generates a HAVING field IN('item', 'item') SQL query,</p>
+<p>joined with 'AND' if appropriate.</p>
+<p>@param array|BaseBuilder|Closure|string $values The values searched on, or anonymous function with subquery</p>
+<p>@return $this</p>
+
+<p>Generates a HAVING field IN('item', 'item') SQL query,</p>
+<p>joined with 'OR' if appropriate.</p>
+<p>@param array|BaseBuilder|Closure|string $values The values searched on, or anonymous function with subquery</p>
+<p>@return $this</p>
+
+<p>Generates a HAVING field NOT IN('item', 'item') SQL query,</p>
+<p>joined with 'AND' if appropriate.</p>
+<p>@param array|BaseBuilder|Closure|string $values The values searched on, or anonymous function with subquery</p>
+<p>@return $this</p>
+
+<p>Generates a HAVING field NOT IN('item', 'item') SQL query,</p>
+<p>joined with 'OR' if appropriate.</p>
+<p>@param array|BaseBuilder|Closure|string $values The values searched on, or anonymous function with subquery</p>
+<p>@return $this</p>
+
+<p>@used-by WhereIn()</p>
+<p>@used-by orWhereIn()</p>
+<p>@used-by whereNotIn()</p>
+<p>@used-by orWhereNotIn()</p>
+<p>@param array|BaseBuilder|Closure|null $values The values searched on, or anonymous function with subquery</p>
+<p>@throws InvalidArgumentException</p>
+<p>@return $this</p>
+
+<p>Generates a %LIKE% portion of the query.</p>
+<p>Separates multiple calls with 'AND'.</p>
+<p>@param array|RawSql|string $field</p>
+<p>@return $this</p>
+
+<p>Generates a NOT LIKE portion of the query.</p>
+<p>Separates multiple calls with 'AND'.</p>
+<p>@param array|RawSql|string $field</p>
+<p>@return $this</p>
+
+<p>Generates a %LIKE% portion of the query.</p>
+<p>Separates multiple calls with 'OR'.</p>
+<p>@param array|RawSql|string $field</p>
+<p>@return $this</p>
+
+<p>Generates a NOT LIKE portion of the query.</p>
+<p>Separates multiple calls with 'OR'.</p>
+<p>@param array|RawSql|string $field</p>
+<p>@return $this</p>
+
+<p>Generates a %LIKE% portion of the query.</p>
+<p>Separates multiple calls with 'AND'.</p>
+<p>@param array|RawSql|string $field</p>
+<p>@return $this</p>
+
+<p>Generates a NOT LIKE portion of the query.</p>
+<p>Separates multiple calls with 'AND'.</p>
+<p>@param array|RawSql|string $field</p>
+<p>@return $this</p>
+
+<p>Generates a %LIKE% portion of the query.</p>
+<p>Separates multiple calls with 'OR'.</p>
+<p>@param array|RawSql|string $field</p>
+<p>@return $this</p>
+
+<p>Generates a NOT LIKE portion of the query.</p>
+<p>Separates multiple calls with 'OR'.</p>
+<p>@param array|RawSql|string $field</p>
+<p>@return $this</p>
+
+<p>@used-by like()</p>
+<p>@used-by orLike()</p>
+<p>@used-by notLike()</p>
+<p>@used-by orNotLike()</p>
+<p>@used-by havingLike()</p>
+<p>@used-by orHavingLike()</p>
+<p>@used-by notHavingLike()</p>
+<p>@used-by orNotHavingLike()</p>
+<p>@param array|RawSql|string $field</p>
+<p>@return $this</p>
+
+<p>Platform independent LIKE statement builder.</p>
+
+<p>Add UNION statement</p>
+<p>@param BaseBuilder|Closure $union</p>
+<p>@return $this</p>
+
+<p>Add UNION ALL statement</p>
+<p>@param BaseBuilder|Closure $union</p>
+<p>@return $this</p>
+
+<p>@used-by union()</p>
+<p>@used-by unionAll()</p>
+<p>@param BaseBuilder|Closure $union</p>
+<p>@return $this</p>
+
+<p>Starts a query group.</p>
+<p>@return $this</p>
+
+<p>Starts a query group, but ORs the group</p>
+<p>@return $this</p>
+
+<p>Starts a query group, but NOTs the group</p>
+<p>@return $this</p>
+
+<p>Starts a query group, but OR NOTs the group</p>
+<p>@return $this</p>
+
+<p>Ends a query group</p>
+<p>@return $this</p>
+
+<p>Starts a query group for HAVING clause.</p>
+<p>@return $this</p>
+
+<p>Starts a query group for HAVING clause, but ORs the group.</p>
+<p>@return $this</p>
+
+<p>Starts a query group for HAVING clause, but NOTs the group.</p>
+<p>@return $this</p>
+
+<p>Starts a query group for HAVING clause, but OR NOTs the group.</p>
+<p>@return $this</p>
+
+<p>Ends a query group for HAVING clause.</p>
+<p>@return $this</p>
+
+<p>Prepate a query group start.</p>
+<p>@return $this</p>
+
+<p>Prepate a query group end.</p>
+<p>@return $this</p>
+
+<p>@used-by groupStart()</p>
+<p>@used-by _like()</p>
+<p>@used-by whereHaving()</p>
+<p>@used-by _whereIn()</p>
+<p>@used-by havingGroupStart()</p>
+
+<p>@param array|string $by</p>
+<p>@return $this</p>
+
+<p>Separates multiple calls with 'AND'.</p>
+<p>@param array|RawSql|string $key</p>
+<p>@param mixed               $value</p>
+<p>@return $this</p>
+
+<p>Separates multiple calls with 'OR'.</p>
+<p>@param array|RawSql|string $key</p>
+<p>@param mixed               $value</p>
+<p>@return $this</p>
+
+<p>@param string $direction ASC, DESC or RANDOM</p>
+<p>@return $this</p>
+
+<p>@return $this</p>
+
+<p>Sets the OFFSET value</p>
+<p>@return $this</p>
+
+<p>Generates a platform-specific LIMIT clause.</p>
+
+<p>Allows key/value pairs to be set for insert(), update() or replace().</p>
+<p>@param array|object|string $key    Field name, or an array of field/value pairs</p>
+<p>@param mixed               $value  Field value, if $key is a single field</p>
+<p>@param bool|null           $escape Whether to escape values</p>
+<p>@return $this</p>
+
+<p>Returns the previously set() data, alternatively resetting it if needed.</p>
+
+<p>Compiles a SELECT query string and returns the sql.</p>
+
+<p>Returns a finalized, compiled query string with the bindings</p>
+<p>inserted and prefixes swapped out.</p>
+
+<p>Compiles the select statement based on the other functions called</p>
+<p>and runs the query</p>
+<p>@return false|ResultInterface</p>
+
+<p>Generates a platform-specific query string that counts all records in</p>
+<p>the particular table</p>
+<p>@return int|string</p>
+
+<p>Generates a platform-specific query string that counts all records</p>
+<p>returned by an Query Builder query.</p>
+<p>@return int|string</p>
+
+<p>Compiles the set conditions and returns the sql statement</p>
+<p>@return array</p>
+
+<p>Allows the where clause, limit and offset to be added directly</p>
+<p>@param array|string $where</p>
+<p>@return ResultInterface</p>
+
+<p>Compiles batch insert strings and runs the queries</p>
+<p>@throws DatabaseException</p>
+<p>@return false|int|string[] Number of rows inserted or FALSE on failure, SQL array when testMode</p>
+
+<p>Generates a platform-specific insert string from the supplied data.</p>
+
+<p>Allows key/value pairs to be set for batch inserts</p>
+<p>@param mixed $key</p>
+<p>@return $this|null</p>
+
+<p>Compiles an insert query and returns the sql</p>
+<p>@throws DatabaseException</p>
+<p>@return bool|string</p>
+
+<p>Compiles an insert string and runs the query</p>
+<p>@throws DatabaseException</p>
+<p>@return bool|Query</p>
+
+<p>This method is used by both insert() and getCompiledInsert() to</p>
+<p>validate that the there data is actually being set and that table</p>
+<p>has been chosen to be inserted into.</p>
+<p>@throws DatabaseException</p>
+
+<p>Generates a platform-specific insert string from the supplied data</p>
+
+<p>Compiles an replace into string and runs the query</p>
+<p>@throws DatabaseException</p>
+<p>@return BaseResult|false|Query|string</p>
+
+<p>Generates a platform-specific replace string from the supplied data</p>
+
+<p>Groups tables in FROM clauses if needed, so there is no confusion</p>
+<p>about operator precedence.</p>
+<p>Note: This is only used (and overridden) by MySQL and SQLSRV.</p>
+
+<p>Compiles an update query and returns the sql</p>
+<p>@return bool|string</p>
+
+<p>Compiles an update string and runs the query.</p>
+<p>@param mixed $where</p>
+<p>@throws DatabaseException</p>
+
+<p>Generates a platform-specific update string from the supplied data</p>
+
+<p>This method is used by both update() and getCompiledUpdate() to</p>
+<p>validate that data is actually being set and that a table has been</p>
+<p>chosen to be update.</p>
+<p>@throws DatabaseException</p>
+
+<p>Compiles an update string and runs the query</p>
+<p>@throws DatabaseException</p>
+<p>@return false|int|string[] Number of rows affected or FALSE on failure, SQL array when testMode</p>
+
+<p>Generates a platform-specific batch update string from the supplied data</p>
+
+<p>Allows key/value pairs to be set for batch updating</p>
+<p>@param array|object $key</p>
+<p>@throws DatabaseException</p>
+<p>@return $this|null</p>
+
+<p>Compiles a delete string and runs "DELETE FROM table"</p>
+<p>@return bool|string TRUE on success, FALSE on failure, string on testMode</p>
+
+<p>Compiles a truncate string and runs the query</p>
+<p>If the database does not support the truncate() command</p>
+<p>This function maps to "DELETE FROM table"</p>
+<p>@return bool|string TRUE on success, FALSE on failure, string on testMode</p>
+
+<p>Generates a platform-specific truncate string from the supplied data</p>
+<p>If the database does not support the truncate() command,</p>
+<p>then this method maps to 'DELETE FROM table'</p>
+
+<p>Compiles a delete query string and returns the sql</p>
+
+<p>Compiles a delete string and runs the query</p>
+<p>@param mixed $where</p>
+<p>@throws DatabaseException</p>
+<p>@return bool|string</p>
+
+<p>Increments a numeric column by the specified value.</p>
+<p>@return bool</p>
+
+<p>Decrements a numeric column by the specified value.</p>
+<p>@return bool</p>
+
+<p>Generates a platform-specific delete string from the supplied data</p>
+
+<p>Used to track SQL statements written with aliased tables.</p>
+<p>@param array|string $table The table to inspect</p>
+<p>@return string|void</p>
+
+<p>Compile the SELECT statement</p>
+<p>Generates a query string based on which functions were used.</p>
+<p>Should not be called directly.</p>
+<p>@param mixed $selectOverride</p>
+
+<p>Checks if the ignore option is supported by</p>
+<p>the Database Driver for the specific statement.</p>
+<p>@return string</p>
+
+<p>Escapes identifiers in WHERE and HAVING statements at execution time.</p>
+<p>Required so that aliases are tracked properly, regardless of whether</p>
+<p>where(), orWhere(), having(), orHaving are called prior to from(),</p>
+<p>join() and prefixTable is added only if needed.</p>
+<p>@param string $qbKey 'QBWhere' or 'QBHaving'</p>
+<p>@return string SQL statement</p>
+
+<p>Escapes identifiers in GROUP BY statements at execution time.</p>
+<p>Required so that aliases are tracked properly, regardless of whether</p>
+<p>groupBy() is called prior to from(), join() and prefixTable is added</p>
+<p>only if needed.</p>
+
+<p>Escapes identifiers in ORDER BY statements at execution time.</p>
+<p>Required so that aliases are tracked properly, regardless of whether</p>
+<p>orderBy() is called prior to from(), join() and prefixTable is added</p>
+<p>only if needed.</p>
+
+<p>Takes an object as input and converts the class variables to array key/vals</p>
+<p>@param object $object</p>
+<p>@return array</p>
+
+<p>Takes an object as input and converts the class variables to array key/vals</p>
+<p>@param object $object</p>
+<p>@return array</p>
+
+<p>Determines if a string represents a literal value or a field name</p>
+
+<p>Publicly-visible method to reset the QB values.</p>
+<p>@return $this</p>
+
+<p>Resets the query builder values.  Called by the get() function</p>
+<p>@param array $qbResetItems An array of fields to reset</p>
+
+<p>Resets the query builder values.  Called by the get() function</p>
+
+<p>Resets the query builder "write" values.</p>
+<p>Called by the insert() update() insertBatch() updateBatch() and delete() functions</p>
+
+<p>Tests whether the string has an SQL operator</p>
+
+<p>Returns the SQL string operator</p>
+<p>@return mixed</p>
+
+<p>Stores a bind value after ensuring that it's unique.</p>
+<p>While it might be nicer to have named keys for our binds array</p>
+<p>with PHP 7+ we get a huge memory/performance gain with indexed</p>
+<p>arrays instead, so lets take advantage of that here.</p>
+<p>@param mixed $value</p>
+
+<p>Returns a clone of a Base Builder with reset query builder values.</p>
+<p>@return $this</p>
+<p>@deprecated</p>
+
+<p>@param mixed $value</p>
+
+<p>@param BaseBuilder|Closure $builder</p>
+<p>@param bool                $wrapped Wrap the subquery in brackets</p>
+<p>@param string              $alias   Subquery alias</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>data</code></li>
+<li><code>gets</code></li>
+<li><code>table</code></li>
+<li><code>portion</code></li>
+<li><code>as</code></li>
+<li><code>Expected</code></li>
+<li><code>statement</code></li>
+<li><code>the</code></li>
+<li><code>clauses</code></li>
+<li><code>part</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Database\BaseBuilder.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Database\BaseBuilder</code></li>
+<li><code>CodeIgniter\Database\variables</code></li>
+<li><code>CodeIgniter\Database\variables</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($tableName, ConnectionInterface $db, ?array $options = null)</code></li>
+<li><code>db()</code></li>
+<li><code>testMode(bool $mode = true)</code></li>
+<li><code>getTable()</code></li>
+<li><code>getBinds()</code></li>
+<li><code>ignore(bool $ignore = true)</code></li>
+<li><code>select($select = '*', ?bool $escape = null)</code></li>
+<li><code>selectMax(string $select = '', string $alias = '')</code></li>
+<li><code>selectMin(string $select = '', string $alias = '')</code></li>
+<li><code>selectAvg(string $select = '', string $alias = '')</code></li>
+<li><code>selectSum(string $select = '', string $alias = '')</code></li>
+<li><code>selectCount(string $select = '', string $alias = '')</code></li>
+<li><code>selectSubquery(BaseBuilder $subquery, string $as)</code></li>
+<li><code>maxMinAvgSum(string $select = '', string $alias = '', string $type = 'MAX')</code></li>
+<li><code>createAliasFromTable(string $item)</code></li>
+<li><code>distinct(bool $val = true)</code></li>
+<li><code>from($from, bool $overwrite = false)</code></li>
+<li><code>fromSubquery(BaseBuilder $from, string $alias)</code></li>
+<li><code>join(string $table, $cond, string $type = '', ?bool $escape = null)</code></li>
+<li><code>where($key, $value = null, ?bool $escape = null)</code></li>
+<li><code>orWhere($key, $value = null, ?bool $escape = null)</code></li>
+<li><code>whereHaving(string $qbKey, $key, $value = null, string $type = 'AND ', ?bool $escape = null)</code></li>
+<li><code>whereIn(?string $key = null, $values = null, ?bool $escape = null)</code></li>
+<li><code>orWhereIn(?string $key = null, $values = null, ?bool $escape = null)</code></li>
+<li><code>whereNotIn(?string $key = null, $values = null, ?bool $escape = null)</code></li>
+<li><code>orWhereNotIn(?string $key = null, $values = null, ?bool $escape = null)</code></li>
+<li><code>havingIn(?string $key = null, $values = null, ?bool $escape = null)</code></li>
+<li><code>orHavingIn(?string $key = null, $values = null, ?bool $escape = null)</code></li>
+<li><code>havingNotIn(?string $key = null, $values = null, ?bool $escape = null)</code></li>
+<li><code>orHavingNotIn(?string $key = null, $values = null, ?bool $escape = null)</code></li>
+<li><code>_whereIn(?string $key = null, $values = null, bool $not = false, string $type = 'AND ', ?bool $escape = null, string $clause = 'QBWhere')</code></li>
+<li><code>like($field, string $match = '', string $side = 'both', ?bool $escape = null, bool $insensitiveSearch = false)</code></li>
+<li><code>notLike($field, string $match = '', string $side = 'both', ?bool $escape = null, bool $insensitiveSearch = false)</code></li>
+<li><code>orLike($field, string $match = '', string $side = 'both', ?bool $escape = null, bool $insensitiveSearch = false)</code></li>
+<li><code>orNotLike($field, string $match = '', string $side = 'both', ?bool $escape = null, bool $insensitiveSearch = false)</code></li>
+<li><code>havingLike($field, string $match = '', string $side = 'both', ?bool $escape = null, bool $insensitiveSearch = false)</code></li>
+<li><code>notHavingLike($field, string $match = '', string $side = 'both', ?bool $escape = null, bool $insensitiveSearch = false)</code></li>
+<li><code>orHavingLike($field, string $match = '', string $side = 'both', ?bool $escape = null, bool $insensitiveSearch = false)</code></li>
+<li><code>orNotHavingLike($field, string $match = '', string $side = 'both', ?bool $escape = null, bool $insensitiveSearch = false)</code></li>
+<li><code>_like($field, string $match = '', string $type = 'AND ', string $side = 'both', string $not = '', ?bool $escape = null, bool $insensitiveSearch = false, string $clause = 'QBWhere')</code></li>
+<li><code>_like_statement(?string $prefix, string $column, ?string $not, string $bind, bool $insensitiveSearch = false)</code></li>
+<li><code>union($union)</code></li>
+<li><code>unionAll($union)</code></li>
+<li><code>addUnionStatement($union, bool $all = false)</code></li>
+<li><code>groupStart()</code></li>
+<li><code>orGroupStart()</code></li>
+<li><code>notGroupStart()</code></li>
+<li><code>orNotGroupStart()</code></li>
+<li><code>groupEnd()</code></li>
+<li><code>havingGroupStart()</code></li>
+<li><code>orHavingGroupStart()</code></li>
+<li><code>notHavingGroupStart()</code></li>
+<li><code>orNotHavingGroupStart()</code></li>
+<li><code>havingGroupEnd()</code></li>
+<li><code>groupStartPrepare(string $not = '', string $type = 'AND ', string $clause = 'QBWhere')</code></li>
+<li><code>groupEndPrepare(string $clause = 'QBWhere')</code></li>
+<li><code>groupGetType(string $type)</code></li>
+<li><code>groupBy($by, ?bool $escape = null)</code></li>
+<li><code>having($key, $value = null, ?bool $escape = null)</code></li>
+<li><code>orHaving($key, $value = null, ?bool $escape = null)</code></li>
+<li><code>orderBy(string $orderBy, string $direction = '', ?bool $escape = null)</code></li>
+<li><code>limit(?int $value = null, ?int $offset = 0)</code></li>
+<li><code>offset(int $offset)</code></li>
+<li><code>_limit(string $sql, bool $offsetIgnore = false)</code></li>
+<li><code>set($key, $value = '', ?bool $escape = null)</code></li>
+<li><code>getSetData(bool $clean = false)</code></li>
+<li><code>getCompiledSelect(bool $reset = true)</code></li>
+<li><code>compileFinalQuery(string $sql)</code></li>
+<li><code>get(?int $limit = null, int $offset = 0, bool $reset = true)</code></li>
+<li><code>countAll(bool $reset = true)</code></li>
+<li><code>countAllResults(bool $reset = true)</code></li>
+<li><code>getCompiledQBWhere()</code></li>
+<li><code>getWhere($where = null, ?int $limit = null, ?int $offset = 0, bool $reset = true)</code></li>
+<li><code>insertBatch(?array $set = null, ?bool $escape = null, int $batchSize = 100)</code></li>
+<li><code>_insertBatch(string $table, array $keys, array $values)</code></li>
+<li><code>setInsertBatch($key, string $value = '', ?bool $escape = null)</code></li>
+<li><code>getCompiledInsert(bool $reset = true)</code></li>
+<li><code>insert(?array $set = null, ?bool $escape = null)</code></li>
+<li><code>validateInsert()</code></li>
+<li><code>_insert(string $table, array $keys, array $unescapedKeys)</code></li>
+<li><code>replace(?array $set = null)</code></li>
+<li><code>_replace(string $table, array $keys, array $values)</code></li>
+<li><code>_fromTables()</code></li>
+<li><code>getCompiledUpdate(bool $reset = true)</code></li>
+<li><code>update(?array $set = null, $where = null, ?int $limit = null)</code></li>
+<li><code>_update(string $table, array $values)</code></li>
+<li><code>validateUpdate()</code></li>
+<li><code>updateBatch(?array $set = null, ?string $index = null, int $batchSize = 100)</code></li>
+<li><code>_updateBatch(string $table, array $values, string $index)</code></li>
+<li><code>setUpdateBatch($key, string $index = '', ?bool $escape = null)</code></li>
+<li><code>emptyTable()</code></li>
+<li><code>truncate()</code></li>
+<li><code>_truncate(string $table)</code></li>
+<li><code>getCompiledDelete(bool $reset = true)</code></li>
+<li><code>delete($where = '', ?int $limit = null, bool $resetData = true)</code></li>
+<li><code>increment(string $column, int $value = 1)</code></li>
+<li><code>decrement(string $column, int $value = 1)</code></li>
+<li><code>_delete(string $table)</code></li>
+<li><code>trackAliases($table)</code></li>
+<li><code>compileSelect($selectOverride = false)</code></li>
+<li><code>compileIgnore(string $statement)</code></li>
+<li><code>compileWhereHaving(string $qbKey)</code></li>
+<li><code>compileGroupBy()</code></li>
+<li><code>compileOrderBy()</code></li>
+<li><code>unionInjection(string $sql)</code></li>
+<li><code>objectToArray($object)</code></li>
+<li><code>batchObjectToArray($object)</code></li>
+<li><code>isLiteral(string $str)</code></li>
+<li><code>resetQuery()</code></li>
+<li><code>resetRun(array $qbResetItems)</code></li>
+<li><code>resetSelect()</code></li>
+<li><code>resetWrite()</code></li>
+<li><code>hasOperator(string $str)</code></li>
+<li><code>getOperator(string $str, bool $list = false)</code></li>
+<li><code>setBind(string $key, $value = null, bool $escape = true)</code></li>
+<li><code>cleanClone()</code></li>
+<li><code>isSubquery($value)</code></li>
+<li><code>buildSubquery($builder, bool $wrapped = false, string $alias = '')</code></li>
+</ul>
+</body></html>

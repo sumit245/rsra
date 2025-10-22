@@ -1,0 +1,50 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Treasury\ReceivedCredit.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Treasury\ReceivedCredit.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Treasury\ReceivedCredit.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2911 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>ReceivedCredits represent funds sent to a <a</p>
+<p>href="https://stripe.com/docs/api#financial_accounts">FinancialAccount</a> (for</p>
+<p>example, via ACH or wire). These money movements are not initiated from the</p>
+<p>FinancialAccount.</p>
+<p>@property string $id Unique identifier for the object.</p>
+<p>@property string $object String representing the object's type. Objects of the same type share the same value.</p>
+<p>@property int $amount Amount (in cents) transferred.</p>
+<p>@property int $created Time at which the object was created. Measured in seconds since the Unix epoch.</p>
+<p>@property string $currency Three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO currency code</a>, in lowercase. Must be a <a href="https://stripe.com/docs/currencies">supported currency</a>.</p>
+<p>@property string $description An arbitrary string attached to the object. Often useful for displaying to users.</p>
+<p>@property null|string $failure_code Reason for the failure. A ReceivedCredit might fail because the receiving FinancialAccount is closed or frozen.</p>
+<p>@property null|string $financial_account The FinancialAccount that received the funds.</p>
+<p>@property null|string $hosted_regulatory_receipt_url A <a href="https://stripe.com/docs/treasury/moving-money/regulatory-receipts">hosted transaction receipt</a> URL that is provided when money movement is considered regulated under Stripe's money transmission licenses.</p>
+<p>@property \Stripe\StripeObject $initiating_payment_method_details</p>
+<p>@property \Stripe\StripeObject $linked_flows</p>
+<p>@property bool $livemode Has the value <code>true</code> if the object exists in live mode or the value <code>false</code> if the object exists in test mode.</p>
+<p>@property string $network The rails used to send the funds.</p>
+<p>@property null|\Stripe\StripeObject $reversal_details Details describing when a ReceivedCredit may be reversed.</p>
+<p>@property string $status Status of the ReceivedCredit. ReceivedCredits are created either <code>succeeded</code> (approved) or <code>failed</code> (declined). If a ReceivedCredit is declined, the failure reason can be found in the <code>failure_code</code> field.</p>
+<p>@property null|string|\Stripe\Treasury\Transaction $transaction The Transaction associated with this object.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Treasury\ReceivedCredit.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Treasury\ReceivedCredit extends \Stripe\ApiResource</code></li>
+</ul>
+</body></html>

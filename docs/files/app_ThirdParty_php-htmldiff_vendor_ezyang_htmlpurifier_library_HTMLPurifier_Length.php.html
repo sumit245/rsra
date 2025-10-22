@@ -1,0 +1,76 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Length.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Length.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Length.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3867 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Represents a measurable length, with a string numeric magnitude</p>
+<p>and a unit. This object is immutable.</p>
+
+<p>String numeric magnitude.</p>
+<p>@type string</p>
+
+<p>String unit. False is permitted if $n = 0.</p>
+<p>@type string|bool</p>
+
+<p>Whether or not this length is valid. Null if not calculated yet.</p>
+<p>@type bool</p>
+
+<p>Array Lookup array of units recognized by CSS 3</p>
+<p>@type array</p>
+
+<p>@param string $n Magnitude</p>
+<p>@param bool|string $u Unit</p>
+
+<p>@param string $s Unit string, like '2em' or '3.4in'</p>
+<p>@return HTMLPurifier_Length</p>
+<p>@warning Does not perform validation.</p>
+
+<p>Validates the number and unit.</p>
+<p>@return bool</p>
+
+<p>Returns string representation of number.</p>
+<p>@return string</p>
+
+<p>Retrieves string numeric magnitude.</p>
+<p>@return string</p>
+
+<p>Retrieves string unit.</p>
+<p>@return string</p>
+
+<p>Returns true if this length unit is valid.</p>
+<p>@return bool</p>
+
+<p>Compares two lengths, and returns 1 if greater, -1 if less and 0 if equal.</p>
+<p>@param HTMLPurifier_Length $l</p>
+<p>@return int</p>
+<p>@warning If both values are too large or small, this calculation will</p>
+<p>         not work properly</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Length.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>HTMLPurifier_Length</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($n = '0', $u = false)</code></li>
+<li><code>make($s)</code></li>
+<li><code>validate()</code></li>
+<li><code>toString()</code></li>
+<li><code>getN()</code></li>
+<li><code>getUnit()</code></li>
+<li><code>isValid()</code></li>
+<li><code>compareTo($l)</code></li>
+</ul>
+</body></html>

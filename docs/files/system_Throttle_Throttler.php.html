@@ -1,0 +1,82 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Throttle\Throttler.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Throttle\Throttler.php</h1>
+
+<ul>
+<li>Path: <code>system\Throttle\Throttler.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5058 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Class Throttler</p>
+<p>Uses an implementation of the Token Bucket algorithm to implement a</p>
+<p>"rolling window" type of throttling that can be used for rate limiting</p>
+<p>an API or any other request.</p>
+<p>Each "token" in the "bucket" is equivalent to a single request</p>
+<p>for the purposes of this implementation.</p>
+<p>@see https://en.wikipedia.org/wiki/Token_bucket</p>
+
+<p>Container for throttle counters.</p>
+<p>@var CacheInterface</p>
+
+<p>The number of seconds until the next token is available.</p>
+<p>@var int</p>
+
+<p>The prefix applied to all keys to</p>
+<p>minimize potential conflicts.</p>
+<p>@var string</p>
+
+<p>Timestamp to use (during testing)</p>
+<p>@var int</p>
+
+<p>Constructor.</p>
+
+<p>Returns the number of seconds until the next available token will</p>
+<p>be released for usage.</p>
+
+<p>Restricts the number of requests made by a single IP address within</p>
+<p>a set number of seconds.</p>
+<p>Example:</p>
+<p> if (! $throttler->check($request->ipAddress(), 60, MINUTE)) {</p>
+<p>     die('You submitted over 60 requests within a minute.');</p>
+<p> }</p>
+<p>@param string $key      The name to use as the "bucket" name.</p>
+<p>@param int    $capacity The number of requests the "bucket" can hold</p>
+<p>@param int    $seconds  The time it takes the "bucket" to completely refill</p>
+<p>@param int    $cost     The number of tokens this action uses.</p>
+<p>@internal param int $maxRequests</p>
+
+<p>@param string $key The name of the bucket</p>
+
+<p>Used during testing to set the current timestamp to use.</p>
+<p>@return $this</p>
+
+<p>Return the test time, defaulting to current.</p>
+<p>@TODO should be private</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Throttle\Throttler.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Throttle\Throttler implements ThrottlerInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(CacheInterface $cache)</code></li>
+<li><code>getTokenTime()</code></li>
+<li><code>check(string $key, int $capacity, int $seconds, int $cost = 1)</code></li>
+<li><code>remove(string $key)</code></li>
+<li><code>setTestTime(int $time)</code></li>
+<li><code>time()</code></li>
+</ul>
+</body></html>

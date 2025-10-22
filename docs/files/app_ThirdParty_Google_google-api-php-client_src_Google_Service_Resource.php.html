@@ -1,0 +1,72 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\src\Google\Service\Resource.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\src\Google\Service\Resource.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\src\Google\Service\Resource.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9987 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Copyright 2010 Google Inc.</p>
+<p>Licensed under the Apache License, Version 2.0 (the "License");</p>
+<p>you may not use this file except in compliance with the License.</p>
+<p>You may obtain a copy of the License at</p>
+<p>    http://www.apache.org/licenses/LICENSE-2.0</p>
+<p>Unless required by applicable law or agreed to in writing, software</p>
+<p>distributed under the License is distributed on an "AS IS" BASIS,</p>
+<p>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</p>
+<p>See the License for the specific language governing permissions and</p>
+<p>limitations under the License.</p>
+
+<p>Implements the actual methods/resources of the discovered Google API using magic function</p>
+<p>calling overloading (__call()), which on call will see if the method name (plus.activities.list)</p>
+<p>is available in this service, and if so construct an apiHttpRequest representing it.</p>
+
+<p>@var string $rootUrl</p>
+
+<p>@var Google_Client $client</p>
+
+<p>@var string $serviceName</p>
+
+<p>@var string $servicePath</p>
+
+<p>@var string $resourceName</p>
+
+<p>@var array $methods</p>
+
+<p>TODO: This function needs simplifying.</p>
+<p>@param $name</p>
+<p>@param $arguments</p>
+<p>@param $expectedClass - optional, the expected class name</p>
+<p>@return Google_Http_Request|expectedClass</p>
+<p>@throws Google_Exception</p>
+
+<p>Parse/expand request parameters and create a fully qualified</p>
+<p>request uri.</p>
+<p>@static</p>
+<p>@param string $restPath</p>
+<p>@param array $params</p>
+<p>@return string $requestUrl</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\src\Google\Service\Resource.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Google_Service_Resource</code></li>
+<li><code>name</code></li>
+<li><code>if</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($service, $serviceName, $resourceName, $resource)</code></li>
+<li><code>call($name, $arguments, $expectedClass = null)</code></li>
+<li><code>convertToArrayAndStripNulls($o)</code></li>
+<li><code>createRequestUri($restPath, $params)</code></li>
+</ul>
+</body></html>

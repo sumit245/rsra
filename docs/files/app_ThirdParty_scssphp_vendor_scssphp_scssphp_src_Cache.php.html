@@ -1,0 +1,104 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\scssphp\vendor\scssphp\scssphp\src\Cache.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\scssphp\vendor\scssphp\scssphp\src\Cache.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\scssphp\vendor\scssphp\scssphp\src\Cache.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 6843 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>SCSSPHP</p>
+<p>@copyright 2012-2020 Leaf Corcoran</p>
+<p>@license http://opensource.org/licenses/MIT MIT</p>
+<p>@link http://scssphp.github.io/scssphp</p>
+
+<p>The scss cache manager.</p>
+<p>In short:</p>
+<p>allow to put in cache/get from cache a generic result from a known operation on a generic dataset,</p>
+<p>taking in account options that affects the result</p>
+<p>The cache manager is agnostic about data format and only the operation is expected to be described by string</p>
+
+<p>SCSS cache</p>
+<p>@author Cedric Morin <cedric@yterium.com></p>
+<p>@internal</p>
+
+<p>directory used for storing data</p>
+<p>@var string|false</p>
+
+<p>prefix for the storing data</p>
+<p>@var string</p>
+
+<p>force a refresh : 'once' for refreshing the first hit on a cache only, true to never use the cache in this hit</p>
+<p>@var bool|string</p>
+
+<p>specifies the number of seconds after which data cached will be seen as 'garbage' and potentially cleaned up</p>
+<p>@var int</p>
+
+<p>array of already refreshed cache if $forceRefresh==='once'</p>
+<p>@var array<string, bool></p>
+
+<p>Constructor</p>
+<p>@param array $options</p>
+<p>@phpstan-param array{cacheDir?: string, prefix?: string, forceRefresh?: string} $options</p>
+
+<p>Get the cached result of $operation on $what,</p>
+<p>which is known as dependant from the content of $options</p>
+<p>@param string   $operation    parse, compile...</p>
+<p>@param mixed    $what         content key (e.g., filename to be treated)</p>
+<p>@param array    $options      any option that affect the operation result on the content</p>
+<p>@param int|null $lastModified last modified timestamp</p>
+<p>@return mixed</p>
+<p>@throws \Exception</p>
+
+<p>Put in cache the result of $operation on $what,</p>
+<p>which is known as dependant from the content of $options</p>
+<p>@param string $operation</p>
+<p>@param mixed  $what</p>
+<p>@param mixed  $value</p>
+<p>@param array  $options</p>
+<p>@return void</p>
+
+<p>Get the cache name for the caching of $operation on $what,</p>
+<p>which is known as dependant from the content of $options</p>
+<p>@param string $operation</p>
+<p>@param mixed  $what</p>
+<p>@param array  $options</p>
+<p>@return string</p>
+
+<p>Check that the cache dir exists and is writeable</p>
+<p>@return void</p>
+<p>@throws \Exception</p>
+
+<p>Delete unused cached files</p>
+<p>@return void</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>cache</code></li>
+<li><code>a</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\scssphp\vendor\scssphp\scssphp\src\Cache.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ScssPhp\ScssPhp\Cache</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($options)</code></li>
+<li><code>getCache($operation, $what, $options = [], $lastModified = null)</code></li>
+<li><code>setCache($operation, $what, $value, $options = [])</code></li>
+<li><code>cacheName($operation, $what, $options = [])</code></li>
+<li><code>checkCacheDir()</code></li>
+<li><code>cleanCache()</code></li>
+</ul>
+</body></html>

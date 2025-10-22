@@ -1,0 +1,96 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\psr\simple-cache\src\CacheInterface.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\psr\simple-cache\src\CacheInterface.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\psr\simple-cache\src\CacheInterface.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4608 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Fetches a value from the cache.</p>
+<p>@param string $key     The unique key of this item in the cache.</p>
+<p>@param mixed  $default Default value to return if the key does not exist.</p>
+<p>@return mixed The value of the item from the cache, or $default in case of cache miss.</p>
+<p>@throws \Psr\SimpleCache\InvalidArgumentException</p>
+<p>  MUST be thrown if the $key string is not a legal value.</p>
+
+<p>Persists data in the cache, uniquely referenced by a key with an optional expiration TTL time.</p>
+<p>@param string                 $key   The key of the item to store.</p>
+<p>@param mixed                  $value The value of the item to store, must be serializable.</p>
+<p>@param null|int|\DateInterval $ttl   Optional. The TTL value of this item. If no value is sent and</p>
+<p>                                     the driver supports TTL then the library may set a default value</p>
+<p>                                     for it or let the driver take care of that.</p>
+<p>@return bool True on success and false on failure.</p>
+<p>@throws \Psr\SimpleCache\InvalidArgumentException</p>
+<p>  MUST be thrown if the $key string is not a legal value.</p>
+
+<p>Delete an item from the cache by its unique key.</p>
+<p>@param string $key The unique cache key of the item to delete.</p>
+<p>@return bool True if the item was successfully removed. False if there was an error.</p>
+<p>@throws \Psr\SimpleCache\InvalidArgumentException</p>
+<p>  MUST be thrown if the $key string is not a legal value.</p>
+
+<p>Wipes clean the entire cache's keys.</p>
+<p>@return bool True on success and false on failure.</p>
+
+<p>Obtains multiple cache items by their unique keys.</p>
+<p>@param iterable $keys    A list of keys that can obtained in a single operation.</p>
+<p>@param mixed    $default Default value to return for keys that do not exist.</p>
+<p>@return iterable A list of key => value pairs. Cache keys that do not exist or are stale will have $default as value.</p>
+<p>@throws \Psr\SimpleCache\InvalidArgumentException</p>
+<p>  MUST be thrown if $keys is neither an array nor a Traversable,</p>
+<p>  or if any of the $keys are not a legal value.</p>
+
+<p>Persists a set of key => value pairs in the cache, with an optional TTL.</p>
+<p>@param iterable               $values A list of key => value pairs for a multiple-set operation.</p>
+<p>@param null|int|\DateInterval $ttl    Optional. The TTL value of this item. If no value is sent and</p>
+<p>                                      the driver supports TTL then the library may set a default value</p>
+<p>                                      for it or let the driver take care of that.</p>
+<p>@return bool True on success and false on failure.</p>
+<p>@throws \Psr\SimpleCache\InvalidArgumentException</p>
+<p>  MUST be thrown if $values is neither an array nor a Traversable,</p>
+<p>  or if any of the $values are not a legal value.</p>
+
+<p>Deletes multiple cache items in a single operation.</p>
+<p>@param iterable $keys A list of string-based keys to be deleted.</p>
+<p>@return bool True if the items were successfully removed. False if there was an error.</p>
+<p>@throws \Psr\SimpleCache\InvalidArgumentException</p>
+<p>  MUST be thrown if $keys is neither an array nor a Traversable,</p>
+<p>  or if any of the $keys are not a legal value.</p>
+
+<p>Determines whether an item is present in the cache.</p>
+<p>NOTE: It is recommended that has() is only to be used for cache warming type purposes</p>
+<p>and not to be used within your live applications operations for get/set, as this method</p>
+<p>is subject to a race condition where your has() will return true and immediately after,</p>
+<p>another script can remove it making the state of your app out of date.</p>
+<p>@param string $key The cache item key.</p>
+<p>@return bool</p>
+<p>@throws \Psr\SimpleCache\InvalidArgumentException</p>
+<p>  MUST be thrown if the $key string is not a legal value.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\psr\simple-cache\src\CacheInterface.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>get($key, $default = null)</code></li>
+<li><code>set($key, $value, $ttl = null)</code></li>
+<li><code>delete($key)</code></li>
+<li><code>clear()</code></li>
+<li><code>getMultiple($keys, $default = null)</code></li>
+<li><code>setMultiple($values, $ttl = null)</code></li>
+<li><code>deleteMultiple($keys)</code></li>
+<li><code>has($key)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,271 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\HTTP\IncomingRequest.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\HTTP\IncomingRequest.php</h1>
+
+<ul>
+<li>Path: <code>system\HTTP\IncomingRequest.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 22986 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Class IncomingRequest</p>
+<p>Represents an incoming, getServer-side HTTP request.</p>
+<p>Per the HTTP specification, this interface includes properties for</p>
+<p>each of the following:</p>
+<ul>
+<li>Protocol version</li>
+<li>HTTP method</li>
+<li>URI</li>
+<li>Headers</li>
+<li>Message body</li>
+<p>Additionally, it encapsulates all data as it has arrived to the</p>
+<p>application from the CGI and/or PHP environment, including:</p>
+<li>The values represented in $_SERVER.</li>
+<li>Any cookies provided (generally via $_COOKIE)</li>
+<li>Query string arguments (generally via $_GET, or as parsed via parse_str())</li>
+<li>Upload files, if any (as represented by $_FILES)</li>
+<li>Deserialized body binds (generally from $_POST)</li>
+</ul>
+<p>Enable CSRF flag</p>
+<p>Enables a CSRF cookie token to be set.</p>
+<p>Set automatically based on Config setting.</p>
+<p>@var bool</p>
+<p>@deprecated Not used</p>
+
+<p>The URI for this request.</p>
+<p>Note: This WILL NOT match the actual URL in the browser since for</p>
+<p>everything this cares about (and the router, etc) is the portion</p>
+<p>AFTER the script name. So, if hosted in a sub-folder this will</p>
+<p>appear different than actual URL. If you need that use getPath().</p>
+<p>@TODO should be protected. Use getUri() instead.</p>
+<p>@var URI</p>
+
+<p>The detected path (relative to SCRIPT_NAME).</p>
+<p>Note: current_url() uses this to build its URI,</p>
+<p>so this becomes the source for the "current URL"</p>
+<p>when working with the share request instance.</p>
+<p>@var string|null</p>
+
+<p>File collection</p>
+<p>@var FileCollection|null</p>
+
+<p>Negotiator</p>
+<p>@var Negotiate|null</p>
+
+<p>The default Locale this request</p>
+<p>should operate under.</p>
+<p>@var string</p>
+
+<p>The current locale of the application.</p>
+<p>Default value is set in Config\App.php</p>
+<p>@var string</p>
+
+<p>Stores the valid locale codes.</p>
+<p>@var array</p>
+
+<p>Configuration settings.</p>
+<p>@var App</p>
+
+<p>Holds the old data from a redirect.</p>
+<p>@var array</p>
+
+<p>The user agent this request is from.</p>
+<p>@var UserAgent</p>
+
+<p>Constructor</p>
+<p>@param App         $config</p>
+<p>@param URI         $uri</p>
+<p>@param string|null $body</p>
+<p>@param UserAgent   $userAgent</p>
+
+<p>Handles setting up the locale, perhaps auto-detecting through</p>
+<p>content negotiation.</p>
+<p>@param App $config</p>
+
+<p>Sets up our URI object based on the information we have. This is</p>
+<p>either provided by the user in the baseURL Config setting, or</p>
+<p>determined from the environment as needed.</p>
+
+<p>Detects the relative path based on</p>
+<p>the URIProtocol Config setting.</p>
+
+<p>Will parse the REQUEST_URI and automatically detect the URI from it,</p>
+<p>fixing the query string if necessary.</p>
+<p>@return string The URI it found.</p>
+
+<p>Parse QUERY_STRING</p>
+<p>Will parse QUERY_STRING and automatically detect the URI from it.</p>
+
+<p>Provides a convenient way to work with the Negotiate class</p>
+<p>for content negotiation.</p>
+
+<p>Determines if this request was made from the command line (CLI).</p>
+
+<p>Test to see if a request contains the HTTP_X_REQUESTED_WITH header.</p>
+
+<p>Attempts to detect if the current connection is secure through</p>
+<p>a few different methods.</p>
+
+<p>Sets the relative path and updates the URI object.</p>
+<p>Note: Since current_url() accesses the shared request</p>
+<p>instance, this can be used to change the "current URL"</p>
+<p>for testing.</p>
+<p>@param string $path   URI path relative to SCRIPT_NAME</p>
+<p>@param App    $config Optional alternate config to use</p>
+<p>@return $this</p>
+
+<p>Returns the path relative to SCRIPT_NAME,</p>
+<p>running detection as necessary.</p>
+
+<p>Sets the locale string for this request.</p>
+<p>@return IncomingRequest</p>
+
+<p>Gets the current locale, with a fallback to the default</p>
+<p>locale if none is set.</p>
+
+<p>Returns the default locale as set in Config\App.php</p>
+
+<p>Fetch an item from JSON input stream with fallback to $_REQUEST object. This is the simplest way</p>
+<p>to grab data from the request object and can be used in lieu of the</p>
+<p>other get* methods in most cases.</p>
+<p>@param array|string|null $index</p>
+<p>@param int|null          $filter Filter constant</p>
+<p>@param mixed             $flags</p>
+<p>@return mixed</p>
+
+<p>A convenience method that grabs the raw input stream and decodes</p>
+<p>the JSON into an array.</p>
+<p>If $assoc == true, then all objects in the response will be converted</p>
+<p>to associative arrays.</p>
+<p>@param bool $assoc   Whether to return objects as associative arrays</p>
+<p>@param int  $depth   How many levels deep to decode</p>
+<p>@param int  $options Bitmask of options</p>
+<p>@see http://php.net/manual/en/function.json-decode.php</p>
+<p>@return mixed</p>
+
+<p>Get a specific variable from a JSON input stream</p>
+<p>@param string         $index  The variable that you want which can use dot syntax for getting specific values.</p>
+<p>@param bool           $assoc  If true, return the result as an associative array.</p>
+<p>@param int|null       $filter Filter Constant</p>
+<p>@param array|int|null $flags  Option</p>
+<p>@return mixed</p>
+
+<p>A convenience method that grabs the raw input stream(send method in PUT, PATCH, DELETE) and decodes</p>
+<p>the String into an array.</p>
+<p>@return mixed</p>
+
+<p>Fetch an item from GET data.</p>
+<p>@param array|string|null $index  Index for item to fetch from $_GET.</p>
+<p>@param int|null          $filter A filter name to apply.</p>
+<p>@param mixed|null        $flags</p>
+<p>@return mixed</p>
+
+<p>Fetch an item from POST.</p>
+<p>@param array|string|null $index  Index for item to fetch from $_POST.</p>
+<p>@param int|null          $filter A filter name to apply</p>
+<p>@param mixed             $flags</p>
+<p>@return mixed</p>
+
+<p>Fetch an item from POST data with fallback to GET.</p>
+<p>@param array|string|null $index  Index for item to fetch from $_POST or $_GET</p>
+<p>@param int|null          $filter A filter name to apply</p>
+<p>@param mixed             $flags</p>
+<p>@return mixed</p>
+
+<p>Fetch an item from GET data with fallback to POST.</p>
+<p>@param array|string|null $index  Index for item to be fetched from $_GET or $_POST</p>
+<p>@param int|null          $filter A filter name to apply</p>
+<p>@param mixed             $flags</p>
+<p>@return mixed</p>
+
+<p>Fetch an item from the COOKIE array.</p>
+<p>@param array|string|null $index  Index for item to be fetched from $_COOKIE</p>
+<p>@param int|null          $filter A filter name to be applied</p>
+<p>@param mixed             $flags</p>
+<p>@return mixed</p>
+
+<p>Fetch the user agent string</p>
+<p>@return UserAgent</p>
+
+<p>Attempts to get old Input data that has been flashed to the session</p>
+<p>with redirect_with_input(). It first checks for the data in the old</p>
+<p>POST data, then the old GET data and finally check for dot arrays</p>
+<p>@return mixed</p>
+
+<p>Returns an array of all files that have been uploaded with this</p>
+<p>request. Each file is represented by an UploadedFile instance.</p>
+
+<p>Verify if a file exist, by the name of the input field used to upload it, in the collection</p>
+<p>of uploaded files and if is have been uploaded with multiple option.</p>
+<p>@return array|null</p>
+
+<p>Retrieves a single file by the name of the input field used</p>
+<p>to upload it.</p>
+<p>@return UploadedFile|null</p>
+
+<p>Remove relative directory (../) and multi slashes (///)</p>
+<p>Do some final cleaning of the URI and return it, currently only used in static::_parse_request_uri()</p>
+<p>@deprecated Use URI::removeDotSegments() directly</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>a</code></li>
+<li><code>php</code></li>
+<li><code>it</code></li>
+<li><code>JSON</code></li>
+<li><code>GET</code></li>
+<li><code>POST</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\HTTP\IncomingRequest.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\HTTP\IncomingRequest extends Request</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($config, ?URI $uri = null, $body = 'php://input', ?UserAgent $userAgent = null)</code></li>
+<li><code>detectLocale($config)</code></li>
+<li><code>detectURI(string $protocol, string $baseURL)</code></li>
+<li><code>detectPath(string $protocol = '')</code></li>
+<li><code>parseRequestURI()</code></li>
+<li><code>parseQueryString()</code></li>
+<li><code>negotiate(string $type, array $supported, bool $strictMatch = false)</code></li>
+<li><code>isCLI()</code></li>
+<li><code>isAJAX()</code></li>
+<li><code>isSecure()</code></li>
+<li><code>setPath(string $path, ?App $config = null)</code></li>
+<li><code>getPath()</code></li>
+<li><code>setLocale(string $locale)</code></li>
+<li><code>getLocale()</code></li>
+<li><code>getDefaultLocale()</code></li>
+<li><code>getVar($index = null, $filter = null, $flags = null)</code></li>
+<li><code>getJSON(bool $assoc = false, int $depth = 512, int $options = 0)</code></li>
+<li><code>getJsonVar(string $index, bool $assoc = false, ?int $filter = null, $flags = null)</code></li>
+<li><code>getRawInput()</code></li>
+<li><code>getGet($index = null, $filter = null, $flags = null)</code></li>
+<li><code>getPost($index = null, $filter = null, $flags = null)</code></li>
+<li><code>getPostGet($index = null, $filter = null, $flags = null)</code></li>
+<li><code>getGetPost($index = null, $filter = null, $flags = null)</code></li>
+<li><code>getCookie($index = null, $filter = null, $flags = null)</code></li>
+<li><code>getUserAgent()</code></li>
+<li><code>getOldInput(string $key)</code></li>
+<li><code>getFiles()</code></li>
+<li><code>getFileMultiple(string $fileID)</code></li>
+<li><code>getFile(string $fileID)</code></li>
+<li><code>removeRelativeDirectory(string $uri)</code></li>
+</ul>
+</body></html>

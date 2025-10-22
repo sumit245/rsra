@@ -1,0 +1,73 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Drive\Resource\Revisions.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Drive\Resource\Revisions.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Drive\Resource\Revisions.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3569 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>The "revisions" collection of methods.</p>
+<p>Typical usage is:</p>
+<p> <code></p>
+<p>  $driveService = new Google_Service_Drive(...);</p>
+<p>  $revisions = $driveService->revisions;</p>
+<p> </code></p>
+
+<p>Permanently deletes a revision. This method is only applicable to files with</p>
+<p>binary content in Drive. (revisions.delete)</p>
+<p>@param string $fileId The ID of the file.</p>
+<p>@param string $revisionId The ID of the revision.</p>
+<p>@param array $optParams Optional parameters.</p>
+
+<p>Gets a revision's metadata or content by ID. (revisions.get)</p>
+<p>@param string $fileId The ID of the file.</p>
+<p>@param string $revisionId The ID of the revision.</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@opt_param bool acknowledgeAbuse Whether the user is acknowledging the risk</p>
+<p>of downloading known malware or other abusive files. This is only applicable</p>
+<p>when alt=media.</p>
+<p>@return Google_Service_Drive_Revision</p>
+
+<p>Lists a file's revisions. (revisions.listRevisions)</p>
+<p>@param string $fileId The ID of the file.</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@opt_param int pageSize The maximum number of revisions to return per page.</p>
+<p>@opt_param string pageToken The token for continuing a previous list request</p>
+<p>on the next page. This should be set to the value of 'nextPageToken' from the</p>
+<p>previous response.</p>
+<p>@return Google_Service_Drive_RevisionList</p>
+
+<p>Updates a revision with patch semantics. (revisions.update)</p>
+<p>@param string $fileId The ID of the file.</p>
+<p>@param string $revisionId The ID of the revision.</p>
+<p>@param Google_Service_Drive_Revision $postBody</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@return Google_Service_Drive_Revision</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Drive\Resource\Revisions.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Google_Service_Drive_Resource_Revisions extends Google_Service_Resource</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>delete($fileId, $revisionId, $optParams = array()</code></li>
+<li><code>get($fileId, $revisionId, $optParams = array()</code></li>
+<li><code>listRevisions($fileId, $optParams = array()</code></li>
+<li><code>update($fileId, $revisionId, Google_Service_Drive_Revision $postBody, $optParams = array()</code></li>
+</ul>
+</body></html>

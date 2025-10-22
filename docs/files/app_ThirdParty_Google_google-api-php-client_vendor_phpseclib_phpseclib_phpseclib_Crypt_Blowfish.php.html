@@ -1,0 +1,144 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\Blowfish.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\Blowfish.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\Blowfish.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 26596 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Pure-PHP implementation of Blowfish.</p>
+<p>Uses mcrypt, if available, and an internal implementation, otherwise.</p>
+<p>PHP version 5</p>
+<p>Useful resources are as follows:</p>
+<p> - {@link http://en.wikipedia.org/wiki/Blowfish_(cipher) Wikipedia description of Blowfish}</p>
+<p>Here's a short example of how to use this library:</p>
+<p><code></p>
+<p><?php</p>
+<p>   include 'vendor/autoload.php';</p>
+<p>   $blowfish = new \phpseclib\Crypt\Blowfish();</p>
+<p>   $blowfish->setKey('12345678901234567890123456789012');</p>
+<p>   $plaintext = str_repeat('a', 1024);</p>
+<p>   echo $blowfish->decrypt($blowfish->encrypt($plaintext));</p>
+<p>?></p>
+<p></code></p>
+<p>@category  Crypt</p>
+<p>@package   Blowfish</p>
+<p>@author    Jim Wigginton <terrafrost@php.net></p>
+<p>@author    Hans-Juergen Petrich <petrich@tronic-media.com></p>
+<p>@copyright 2007 Jim Wigginton</p>
+<p>@license   http://www.opensource.org/licenses/mit-license.html  MIT License</p>
+<p>@link      http://phpseclib.sourceforge.net</p>
+
+<p>Pure-PHP implementation of Blowfish.</p>
+<p>@package Blowfish</p>
+<p>@author  Jim Wigginton <terrafrost@php.net></p>
+<p>@author  Hans-Juergen Petrich <petrich@tronic-media.com></p>
+<p>@access  public</p>
+
+<p>Block Length of the cipher</p>
+<p>@see \phpseclib\Crypt\Base::block_size</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>The mcrypt specific name of the cipher</p>
+<p>@see \phpseclib\Crypt\Base::cipher_name_mcrypt</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Optimizing value while CFB-encrypting</p>
+<p>@see \phpseclib\Crypt\Base::cfb_init_len</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>The fixed subkeys boxes ($sbox0 - $sbox3) with 256 entries each</p>
+<p>S-Box 0</p>
+<p>@access private</p>
+<p>@var    array</p>
+
+<p>S-Box 1</p>
+<p>@access private</p>
+<p>@var    array</p>
+
+<p>S-Box 2</p>
+<p>@access private</p>
+<p>@var    array</p>
+
+<p>S-Box 3</p>
+<p>@access private</p>
+<p>@var    array</p>
+
+<p>P-Array consists of 18 32-bit subkeys</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>The BCTX-working Array</p>
+<p>Holds the expanded key [p] and the key-depended s-boxes [sb]</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Holds the last used key</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>The Key Length (in bytes)</p>
+<p>@see \phpseclib\Crypt\Base::setKeyLength()</p>
+<p>@var int</p>
+<p>@access private</p>
+<p>@internal The max value is 256 / 8 = 32, the min value is 128 / 8 = 16.  Exists in conjunction with $Nk</p>
+<p>   because the encryption / decryption / key schedule creation requires this number and not $key_length.  We could</p>
+<p>   derive this from $key_length or vice versa, but that'd mean we'd have to do multiple shift operations, so in lieu</p>
+<p>   of that, we'll just precompute it once.</p>
+
+<p>Sets the key length.</p>
+<p>Key lengths can be between 32 and 448 bits.</p>
+<p>@access public</p>
+<p>@param int $length</p>
+
+<p>Test for engine validity</p>
+<p>This is mainly just a wrapper to set things up for \phpseclib\Crypt\Base::isValidEngine()</p>
+<p>@see \phpseclib\Crypt\Base::isValidEngine()</p>
+<p>@param int $engine</p>
+<p>@access public</p>
+<p>@return bool</p>
+
+<p>Setup the key (expansion)</p>
+<p>@see \phpseclib\Crypt\Base::_setupKey()</p>
+<p>@access private</p>
+
+<p>Encrypts a block</p>
+<p>@access private</p>
+<p>@param string $in</p>
+<p>@return string</p>
+
+<p>Decrypts a block</p>
+<p>@access private</p>
+<p>@param string $in</p>
+<p>@return string</p>
+
+<p>Setup the performance-optimized function for de/encrypt()</p>
+<p>@see \phpseclib\Crypt\Base::_setupInlineCrypt()</p>
+<p>@access private</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\Blowfish.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>phpseclib\Crypt\Blowfish extends Base</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>setKeyLength($length)</code></li>
+<li><code>isValidEngine($engine)</code></li>
+<li><code>_setupKey()</code></li>
+<li><code>_encryptBlock($in)</code></li>
+<li><code>_decryptBlock($in)</code></li>
+<li><code>_setupInlineCrypt()</code></li>
+</ul>
+</body></html>

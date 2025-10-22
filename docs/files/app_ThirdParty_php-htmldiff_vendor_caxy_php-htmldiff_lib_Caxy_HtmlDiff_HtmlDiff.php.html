@@ -1,0 +1,182 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\php-htmldiff\vendor\caxy\php-htmldiff\lib\Caxy\HtmlDiff\HtmlDiff.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\php-htmldiff\vendor\caxy\php-htmldiff\lib\Caxy\HtmlDiff\HtmlDiff.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\php-htmldiff\vendor\caxy\php-htmldiff\lib\Caxy\HtmlDiff\HtmlDiff.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 25589 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Class HtmlDiff.</p>
+
+<p>@var array</p>
+
+<p>@var array</p>
+
+<p>@var array</p>
+
+<p>@param string              $oldText</p>
+<p>@param string              $newText</p>
+<p>@param HtmlDiffConfig|null $config</p>
+<p>@return self</p>
+
+<p>@param $bool</p>
+<p>@return $this</p>
+<p>@deprecated since 0.1.0</p>
+
+<p>@param bool $boolean</p>
+<p>@return HtmlDiff</p>
+<p>@deprecated since 0.1.0</p>
+
+<p>@return bool</p>
+<p>@deprecated since 0.1.0</p>
+
+<p>@return string</p>
+
+<p>@param array $words</p>
+<p>@return array</p>
+
+<p>@param string      $item</p>
+<p>@param null|string $currentIsolatedDiffTag</p>
+<p>@return false|string</p>
+
+<p>@param string      $item</p>
+<p>@param null|string $currentIsolatedDiffTag</p>
+<p>@return false|string</p>
+
+<p>@param Operation $operation</p>
+
+<p>@param Operation $operation</p>
+
+<p>@param Operation $operation</p>
+<p>@param string    $cssClass</p>
+
+<p>@param Operation $operation</p>
+<p>@param string    $cssClass</p>
+
+<p>@param Operation $operation</p>
+<p>@param int       $pos</p>
+<p>@param string    $placeholder</p>
+<p>@param bool      $stripWrappingTags</p>
+<p>@return string</p>
+
+<p>@param string $oldText</p>
+<p>@param string $newText</p>
+<p>@param bool   $stripWrappingTags</p>
+<p>@return string</p>
+
+<p>@param string $oldText</p>
+<p>@param string $newText</p>
+<p>@return string</p>
+
+<p>@param string $oldText</p>
+<p>@param string $newText</p>
+<p>@return string</p>
+
+<p>@param Operation $operation</p>
+
+<p>@param string $text</p>
+<p>@param string $attribute</p>
+<p>@return null|string</p>
+
+<p>@param string $text</p>
+<p>@return bool</p>
+
+<p>@param string $text</p>
+<p>@return bool</p>
+
+<p>@param string $text</p>
+<p>@return bool</p>
+
+<p>@param string       $text</p>
+<p>@param array|string $types</p>
+<p>@return bool</p>
+
+<p>@param string $text</p>
+<p>@return bool</p>
+
+<p>@param Operation $operation</p>
+<p>@param int       $posInNew</p>
+<p>@return array</p>
+
+<p>@param string $tag</p>
+<p>@param string $cssClass</p>
+<p>@param array  $words</p>
+
+<p>@param string $word</p>
+<p>@param string $condition</p>
+<p>@return bool</p>
+
+<p>@param array  $words</p>
+<p>@param string $condition</p>
+<p>@return array</p>
+
+<p>@param string $item</p>
+<p>@return bool</p>
+
+<p>@return Operation[]</p>
+
+<p>@return MatchingBlock[]</p>
+
+<p>@param MatchingBlock[] $matchingBlocks</p>
+
+<p>@param string $word</p>
+<p>@return string</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\php-htmldiff\vendor\caxy\php-htmldiff\lib\Caxy\HtmlDiff\HtmlDiff.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Caxy\HtmlDiff\HtmlDiff extends AbstractDiff</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>create($oldText, $newText, HtmlDiffConfig $config = null)</code></li>
+<li><code>setUseTableDiffing($bool)</code></li>
+<li><code>setInsertSpaceInReplace($boolean)</code></li>
+<li><code>getInsertSpaceInReplace()</code></li>
+<li><code>build()</code></li>
+<li><code>indexNewWords()</code></li>
+<li><code>replaceIsolatedDiffTags()</code></li>
+<li><code>createIsolatedDiffTagPlaceholders(&$words)</code></li>
+<li><code>isOpeningIsolatedDiffTag($item, $currentIsolatedDiffTag = null)</code></li>
+<li><code>isSelfClosingTag($text)</code></li>
+<li><code>isClosingIsolatedDiffTag($item, $currentIsolatedDiffTag = null)</code></li>
+<li><code>performOperation($operation)</code></li>
+<li><code>processReplaceOperation($operation)</code></li>
+<li><code>processInsertOperation($operation, $cssClass)</code></li>
+<li><code>processDeleteOperation($operation, $cssClass)</code></li>
+<li><code>diffIsolatedPlaceholder($operation, $pos, $placeholder, $stripWrappingTags = true)</code></li>
+<li><code>diffElements($oldText, $newText, $stripWrappingTags = true)</code></li>
+<li><code>diffList($oldText, $newText)</code></li>
+<li><code>diffTables($oldText, $newText)</code></li>
+<li><code>diffElementsByAttribute($oldText, $newText, $attribute, $element)</code></li>
+<li><code>processEqualOperation($operation)</code></li>
+<li><code>getAttributeFromTag($text, $attribute)</code></li>
+<li><code>isListPlaceholder($text)</code></li>
+<li><code>isLinkPlaceholder($text)</code></li>
+<li><code>isImagePlaceholder($text)</code></li>
+<li><code>isPlaceholderType($text, $types)</code></li>
+<li><code>isTablePlaceholder($text)</code></li>
+<li><code>findIsolatedDiffTagsInOld($operation, $posInNew)</code></li>
+<li><code>insertTag($tag, $cssClass, &$words)</code></li>
+<li><code>checkCondition($word, $condition)</code></li>
+<li><code>wrapText(string $text, string $tagName, string $cssClass)</code></li>
+<li><code>extractConsecutiveWords(&$words, $condition)</code></li>
+<li><code>isTag($item)</code></li>
+<li><code>isOpeningTag($item)</code></li>
+<li><code>isClosingTag($item)</code></li>
+<li><code>operations()</code></li>
+<li><code>matchingBlocks()</code></li>
+<li><code>findMatchingBlocks(int $startInOld, int $endInOld, int $startInNew, int $endInNew, array &$matchingBlocks)</code></li>
+<li><code>stripTagAttributes($word)</code></li>
+<li><code>findMatch(int $startInOld, int $endInOld, int $startInNew, int $endInNew)</code></li>
+<li><code>oldTextIsOnlyWhitespace(int $startingAtWord, int $wordCount)</code></li>
+</ul>
+</body></html>

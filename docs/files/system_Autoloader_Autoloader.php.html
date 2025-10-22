@@ -1,0 +1,153 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Autoloader\Autoloader.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Autoloader\Autoloader.php</h1>
+
+<ul>
+<li>Path: <code>system\Autoloader\Autoloader.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 10502 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>An autoloader that uses both PSR4 autoloading, and traditional classmaps.</p>
+<p>Given a foo-bar package of classes in the file system at the following paths:</p>
+<p>```</p>
+<p>     /path/to/packages/foo-bar/</p>
+<p>         /src</p>
+<p>             Baz.php         # Foo\Bar\Baz</p>
+<p>             Qux/</p>
+<p>                 Quux.php    # Foo\Bar\Qux\Quux</p>
+<p>```</p>
+<p>you can add the path to the configuration array that is passed in the constructor.</p>
+<p>The Config array consists of 2 primary keys, both of which are associative arrays:</p>
+<p>'psr4', and 'classmap'.</p>
+<p>```</p>
+<p>     $Config = [</p>
+<p>         'psr4' => [</p>
+<p>             'Foo\Bar'   => '/path/to/packages/foo-bar'</p>
+<p>         ],</p>
+<p>         'classmap' => [</p>
+<p>             'MyClass'   => '/path/to/class/file.php'</p>
+<p>         ]</p>
+<p>     ];</p>
+<p>```</p>
+<p>Example:</p>
+<p>```</p>
+<p>     <?php</p>
+<p>     // our configuration array</p>
+<p>     $Config = [ ... ];</p>
+<p>     $loader = new \CodeIgniter\Autoloader\Autoloader($Config);</p>
+<p>     // register the autoloader</p>
+<p>     $loader->register();</p>
+<p>```</p>
+
+<p>Stores namespaces as key, and path as values.</p>
+<p>@var array<string, array<string>></p>
+
+<p>Stores class name as key, and path as values.</p>
+<p>@var array<string, string></p>
+
+<p>Stores files as a list.</p>
+<p>@var array<int, string></p>
+
+<p>Reads in the configuration array (described above) and stores</p>
+<p>the valid parts that we'll need.</p>
+<p>@return $this</p>
+
+<p>@var ClassLoader $composer</p>
+
+<p>Register the loader with the SPL autoloader stack.</p>
+
+<p>Registers namespaces with the autoloader.</p>
+<p>@param array|string $namespace</p>
+<p>@return $this</p>
+
+<p>Get namespaces with prefixes as keys and paths as values.</p>
+<p>If a prefix param is set, returns only paths to the given prefix.</p>
+<p>@return array</p>
+
+<p>Removes a single namespace from the psr4 settings.</p>
+<p>@return $this</p>
+
+<p>Load a class using available class mapping.</p>
+<p>@return false|string</p>
+
+<p>Loads the class file for a given class name.</p>
+<p>@param string $class The fully qualified class name.</p>
+<p>@return false|string The mapped file on success, or boolean false</p>
+<p>                     on failure.</p>
+
+<p>Loads the class file for a given class name.</p>
+<p>@param string $class The fully-qualified class name</p>
+<p>@return false|string The mapped file name on success, or boolean false on fail</p>
+
+<p>A central way to include a file. Split out primarily for testing purposes.</p>
+<p>@return false|string The filename on success, false if the file is not loaded</p>
+
+<p>Sanitizes a filename, replacing spaces with dashes.</p>
+<p>Removes special characters that are illegal in filenames on certain</p>
+<p>operating systems and special characters requiring special escaping</p>
+<p>to manipulate at the command line. Replaces spaces and consecutive</p>
+<p>dashes with a single dash. Trim period, dash and underscore from beginning</p>
+<p>and end of filename.</p>
+<p>@return string The sanitized filename</p>
+
+<p>Locates autoload information from Composer, if available.</p>
+<p>@deprecated No longer used.</p>
+
+<p>@var ClassLoader $composer</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>beginning</code></li>
+<li><code>Composer</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Autoloader\Autoloader.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Autoloader\Autoloader</code></li>
+<li><code>CodeIgniter\Autoloader\name</code></li>
+<li><code>CodeIgniter\Autoloader\map</code></li>
+<li><code>CodeIgniter\Autoloader\files</code></li>
+<li><code>CodeIgniter\Autoloader\using</code></li>
+<li><code>CodeIgniter\Autoloader\mapping</code></li>
+<li><code>CodeIgniter\Autoloader\file</code></li>
+<li><code>CodeIgniter\Autoloader\name</code></li>
+<li><code>CodeIgniter\Autoloader\The</code></li>
+<li><code>CodeIgniter\Autoloader\name</code></li>
+<li><code>CodeIgniter\Autoloader\file</code></li>
+<li><code>CodeIgniter\Autoloader\name</code></li>
+<li><code>CodeIgniter\Autoloader\The</code></li>
+<li><code>CodeIgniter\Autoloader\name</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>initialize(Autoload $config, Modules $modules)</code></li>
+<li><code>loadComposerInfo(Modules $modules)</code></li>
+<li><code>register()</code></li>
+<li><code>addNamespace($namespace, ?string $path = null)</code></li>
+<li><code>getNamespace(?string $prefix = null)</code></li>
+<li><code>removeNamespace(string $namespace)</code></li>
+<li><code>loadClassmap(string $class)</code></li>
+<li><code>loadClass(string $class)</code></li>
+<li><code>loadInNamespace(string $class)</code></li>
+<li><code>includeFile(string $file)</code></li>
+<li><code>sanitizeFilename(string $filename)</code></li>
+<li><code>loadComposerNamespaces(ClassLoader $composer)</code></li>
+<li><code>loadComposerClassmap(ClassLoader $composer)</code></li>
+<li><code>discoverComposerNamespaces()</code></li>
+</ul>
+</body></html>

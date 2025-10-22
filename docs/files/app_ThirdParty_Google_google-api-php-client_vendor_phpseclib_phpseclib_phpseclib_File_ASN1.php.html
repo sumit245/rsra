@@ -1,0 +1,221 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\File\ASN1.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\File\ASN1.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\File\ASN1.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 53215 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Pure-PHP ASN.1 Parser</p>
+<p>PHP version 5</p>
+<p>ASN.1 provides the semantics for data encoded using various schemes.  The most commonly</p>
+<p>utilized scheme is DER or the "Distinguished Encoding Rules".  PEM's are base64 encoded</p>
+<p>DER blobs.</p>
+<p>\phpseclib\File\ASN1 decodes and encodes DER formatted messages and places them in a semantic context.</p>
+<p>Uses the 1988 ASN.1 syntax.</p>
+<p>@category  File</p>
+<p>@package   ASN1</p>
+<p>@author    Jim Wigginton <terrafrost@php.net></p>
+<p>@copyright 2012 Jim Wigginton</p>
+<p>@license   http://www.opensource.org/licenses/mit-license.html  MIT License</p>
+<p>@link      http://phpseclib.sourceforge.net</p>
+
+<p>Pure-PHP ASN.1 Parser</p>
+<p>@package ASN1</p>
+<p>@author  Jim Wigginton <terrafrost@php.net></p>
+<p>@access  public</p>
+
+<p>#@+</p>
+<p>Tag Classes</p>
+<p>@access private</p>
+<p>@link http://www.itu.int/ITU-T/studygroups/com17/languages/X.690-0207.pdf#page=12</p>
+
+<p>#@-</p>
+
+<p>#@+</p>
+<p>Tag Classes</p>
+<p>@access private</p>
+<p>@link http://www.obj-sys.com/asn1tutorial/node124.html</p>
+
+<p>#@-</p>
+
+<p>#@+</p>
+<p>More Tag Classes</p>
+<p>@access private</p>
+<p>@link http://www.obj-sys.com/asn1tutorial/node10.html</p>
+
+<p>#@-</p>
+
+<p>#@+</p>
+<p>Tag Aliases</p>
+<p>These tags are kinda place holders for other tags.</p>
+<p>@access private</p>
+
+<p>#@-</p>
+
+<p>ASN.1 object identifier</p>
+<p>@var array</p>
+<p>@access private</p>
+<p>@link http://en.wikipedia.org/wiki/Object_identifier</p>
+
+<p>Default date format</p>
+<p>@var string</p>
+<p>@access private</p>
+<p>@link http://php.net/class.datetime</p>
+
+<p>Default date format</p>
+<p>@var array</p>
+<p>@access private</p>
+<p>@see self::setTimeFormat()</p>
+<p>@see self::asn1map()</p>
+<p>@link http://php.net/class.datetime</p>
+
+<p>Filters</p>
+<p>If the mapping type is self::TYPE_ANY what do we actually encode it as?</p>
+<p>@var array</p>
+<p>@access private</p>
+<p>@see self::_encode_der()</p>
+
+<p>Type mapping table for the ANY type.</p>
+<p>Structured or unknown types are mapped to a \phpseclib\File\ASN1\Element.</p>
+<p>Unambiguous types get the direct mapping (int/real/bool).</p>
+<p>Others are mapped as a choice, with an extra indexing level.</p>
+<p>@var array</p>
+<p>@access public</p>
+
+<p>String type to character size mapping table.</p>
+<p>Non-convertable types are absent from this table.</p>
+<p>size == 0 indicates variable length encoding.</p>
+<p>@var array</p>
+<p>@access public</p>
+
+<p>Parse BER-encoding</p>
+<p>Serves a similar purpose to openssl's asn1parse</p>
+<p>@param string $encoded</p>
+<p>@return array</p>
+<p>@access public</p>
+
+<p>Parse BER-encoding (Helper function)</p>
+<p>Sometimes we want to get the BER encoding of a particular tag.  $start lets us do that without having to reencode.</p>
+<p>$encoded is passed by reference for the recursive calls done for self::TYPE_BIT_STRING and</p>
+<p>self::TYPE_OCTET_STRING. In those cases, the indefinite length is used.</p>
+<p>@param string $encoded</p>
+<p>@param int $start</p>
+<p>@param int $encoded_pos</p>
+<p>@return array</p>
+<p>@access private</p>
+
+<p>ASN.1 Map</p>
+<p>Provides an ASN.1 semantic mapping ($mapping) from a parsed BER-encoding to a human readable format.</p>
+<p>"Special" mappings may be applied on a per tag-name basis via $special.</p>
+<p>@param array $decoded</p>
+<p>@param array $mapping</p>
+<p>@param array $special</p>
+<p>@return array</p>
+<p>@access public</p>
+
+<p>ASN.1 Encode</p>
+<p>DER-encodes an ASN.1 semantic mapping ($mapping).  Some libraries would probably call this function</p>
+<p>an ASN.1 compiler.</p>
+<p>"Special" mappings can be applied via $special.</p>
+<p>@param string $source</p>
+<p>@param string $mapping</p>
+<p>@param int $idx</p>
+<p>@return string</p>
+<p>@access public</p>
+
+<p>ASN.1 Encode (Helper function)</p>
+<p>@param string $source</p>
+<p>@param string $mapping</p>
+<p>@param int $idx</p>
+<p>@return string</p>
+<p>@access private</p>
+
+<p>DER-encode the length</p>
+<p>DER supports lengths up to (2<strong>8)</strong>127, however, we'll only support lengths up to (2<strong>8)</strong>4.  See</p>
+<p>{@link http://itu.int/ITU-T/studygroups/com17/languages/X.690-0207.pdf#p=13 X.690 paragraph 8.1.3} for more information.</p>
+<p>@access private</p>
+<p>@param int $length</p>
+<p>@return string</p>
+
+<p>BER-decode the time</p>
+<p>Called by _decode_ber() and in the case of implicit tags asn1map().</p>
+<p>@access private</p>
+<p>@param string $content</p>
+<p>@param int $tag</p>
+<p>@return string</p>
+
+<p>Set the time format</p>
+<p>Sets the time / date format for asn1map().</p>
+<p>@access public</p>
+<p>@param string $format</p>
+
+<p>Load OIDs</p>
+<p>Load the relevant OIDs for a particular ASN.1 semantic mapping.</p>
+<p>@access public</p>
+<p>@param array $oids</p>
+
+<p>Load filters</p>
+<p>See \phpseclib\File\X509, etc, for an example.</p>
+<p>@access public</p>
+<p>@param array $filters</p>
+
+<p>String Shift</p>
+<p>Inspired by array_shift</p>
+<p>@param string $string</p>
+<p>@param int $index</p>
+<p>@return string</p>
+<p>@access private</p>
+
+<p>String type conversion</p>
+<p>This is a lazy conversion, dealing only with character size.</p>
+<p>No real conversion table is used.</p>
+<p>@param string $in</p>
+<p>@param int $from</p>
+<p>@param int $to</p>
+<p>@return string</p>
+<p>@access public</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>this</code></li>
+<li><code>all</code></li>
+<li><code>a</code></li>
+<li><code>X</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\File\ASN1.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>phpseclib\File\ASN1</code></li>
+<li><code>phpseclib\File\is</code></li>
+<li><code>phpseclib\File\distinguishes</code></li>
+<li><code>phpseclib\File\number</code></li>
+<li><code>phpseclib\File\match</code></li>
+<li><code>phpseclib\File\match</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>decodeBER($encoded)</code></li>
+<li><code>_decode_ber($encoded, $start = 0, $encoded_pos = 0)</code></li>
+<li><code>asn1map($decoded, $mapping, $special = array()</code></li>
+<li><code>encodeDER($source, $mapping, $special = array()</code></li>
+<li><code>_encode_der($source, $mapping, $idx = null, $special = array()</code></li>
+<li><code>_encodeLength($length)</code></li>
+<li><code>_decodeTime($content, $tag)</code></li>
+<li><code>setTimeFormat($format)</code></li>
+<li><code>loadOIDs($oids)</code></li>
+<li><code>loadFilters($filters)</code></li>
+<li><code>_string_shift(&$string, $index = 1)</code></li>
+<li><code>convert($in, $from = self::TYPE_UTF8_STRING, $to = self::TYPE_UTF8_STRING)</code></li>
+</ul>
+</body></html>

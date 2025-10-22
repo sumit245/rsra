@@ -1,0 +1,120 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Config\Factories.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Config\Factories.php</h1>
+
+<ul>
+<li>Path: <code>system\Config\Factories.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 10424 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Factories for creating instances.</p>
+<p>Factories allow dynamic loading of components by their path</p>
+<p>and name. The "shared instance" implementation provides a</p>
+<p>large performance boost and helps keep code clean of lengthy</p>
+<p>instantiation checks.</p>
+<p>@method static BaseConfig config(...$arguments)</p>
+
+<p>Store of component-specific options, usually</p>
+<p>from CodeIgniter\Config\Factory.</p>
+<p>@var array<string, array></p>
+
+<p>Explicit options for the Config</p>
+<p>component to prevent logic loops.</p>
+<p>@var array<string, mixed></p>
+
+<p>Mapping of class basenames (no namespace) to</p>
+<p>their instances.</p>
+<p>@var array<string, string[]></p>
+
+<p>Store for instances of any component that</p>
+<p>has been requested as "shared".</p>
+<p>A multi-dimensional array with components as</p>
+<p>keys to the array of name-indexed instances.</p>
+<p>@var array<string, array></p>
+
+<p>This method is only to prevent PHPStan error.</p>
+<p>If we have a solution, we can remove this method.</p>
+<p>See https://github.com/codeigniter4/CodeIgniter4/pull/5358</p>
+<p>@template T of Model</p>
+<p>@param class-string<T> $name</p>
+<p>@return T</p>
+
+<p>Loads instances based on the method component name. Either</p>
+<p>creates a new instance or returns an existing shared instance.</p>
+<p>@return mixed</p>
+
+<p>Finds a component class</p>
+<p>@param array  $options The array of component-specific directives</p>
+<p>@param string $name    Class name, namespace optional</p>
+
+<p>Verifies that a class & config satisfy the "preferApp" option</p>
+<p>@param array  $options The array of component-specific directives</p>
+<p>@param string $name    Class name, namespace optional</p>
+
+<p>Verifies that a class & config satisfy the "instanceOf" option</p>
+<p>@param array  $options The array of component-specific directives</p>
+<p>@param string $name    Class name, namespace optional</p>
+
+<p>Returns the component-specific configuration</p>
+<p>@param string $component Lowercase, plural component name</p>
+<p>@return array<string, mixed></p>
+
+<p>Normalizes, stores, and returns the configuration for a specific component</p>
+<p>@param string $component Lowercase, plural component name</p>
+<p>@return array<string, mixed> The result after applying defaults and normalization</p>
+
+<p>Resets the static arrays, optionally just for one component</p>
+<p>@param string|null $component Lowercase, plural component name</p>
+
+<p>Helper method for injecting mock instances</p>
+<p>@param string $component Lowercase, plural component name</p>
+<p>@param string $name      The name of the instance</p>
+
+<p>Gets a basename from a class name, namespaced or not.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>CodeIgniter</code></li>
+<li><code>the</code></li>
+<li><code>a</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Config\Factories.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Config\Factories</code></li>
+<li><code>CodeIgniter\Config\basenames</code></li>
+<li><code>CodeIgniter\Config\if</code></li>
+<li><code>CodeIgniter\Config\names</code></li>
+<li><code>CodeIgniter\Config\exists</code></li>
+<li><code>CodeIgniter\Config\was</code></li>
+<li><code>CodeIgniter\Config\foreach</code></li>
+<li><code>CodeIgniter\Config\name</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>models(string $name, array $options = [], ?ConnectionInterface &$conn = null)</code></li>
+<li><code>__callStatic(string $component, array $arguments)</code></li>
+<li><code>locateClass(array $options, string $name)</code></li>
+<li><code>verifyPreferApp(array $options, string $name)</code></li>
+<li><code>verifyInstanceOf(array $options, string $name)</code></li>
+<li><code>getOptions(string $component)</code></li>
+<li><code>setOptions(string $component, array $values)</code></li>
+<li><code>reset(?string $component = null)</code></li>
+<li><code>injectMock(string $component, string $name, object $instance)</code></li>
+<li><code>getBasename(string $name)</code></li>
+</ul>
+</body></html>

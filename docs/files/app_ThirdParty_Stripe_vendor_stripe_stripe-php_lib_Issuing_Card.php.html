@@ -1,0 +1,54 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Issuing\Card.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Issuing\Card.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Issuing\Card.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3776 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>You can <a href="https://stripe.com/docs/issuing/cards">create physical or</p>
+<p>virtual cards</a> that are issued to cardholders.</p>
+<p>@property string $id Unique identifier for the object.</p>
+<p>@property string $object String representing the object's type. Objects of the same type share the same value.</p>
+<p>@property string $brand The brand of the card.</p>
+<p>@property null|string $cancellation_reason The reason why the card was canceled.</p>
+<p>@property \Stripe\Issuing\Cardholder $cardholder <p>An Issuing <code>Cardholder</code> object represents an individual or business entity who is <a href="https://stripe.com/docs/issuing">issued</a> cards.</p><p>Related guide: <a href="https://stripe.com/docs/issuing/cards#create-cardholder">How to create a Cardholder</a></p></p>
+<p>@property int $created Time at which the object was created. Measured in seconds since the Unix epoch.</p>
+<p>@property string $currency Three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO currency code</a>, in lowercase. Supported currencies are <code>usd</code> in the US, <code>eur</code> in the EU, and <code>gbp</code> in the UK.</p>
+<p>@property string $cvc The card's CVC. For security reasons, this is only available for virtual cards, and will be omitted unless you explicitly request it with <a href="https://stripe.com/docs/api/expanding_objects">the <code>expand</code> parameter</a>. Additionally, it's only available via the <a href="https://stripe.com/docs/api/issuing/cards/retrieve">&quot;Retrieve a card&quot; endpoint</a>, not via &quot;List all cards&quot; or any other endpoint.</p>
+<p>@property int $exp_month The expiration month of the card.</p>
+<p>@property int $exp_year The expiration year of the card.</p>
+<p>@property null|string $financial_account The financial account this card is attached to.</p>
+<p>@property string $last4 The last 4 digits of the card number.</p>
+<p>@property bool $livemode Has the value <code>true</code> if the object exists in live mode or the value <code>false</code> if the object exists in test mode.</p>
+<p>@property \Stripe\StripeObject $metadata Set of <a href="https://stripe.com/docs/api/metadata">key-value pairs</a> that you can attach to an object. This can be useful for storing additional information about the object in a structured format.</p>
+<p>@property string $number The full unredacted card number. For security reasons, this is only available for virtual cards, and will be omitted unless you explicitly request it with <a href="https://stripe.com/docs/api/expanding_objects">the <code>expand</code> parameter</a>. Additionally, it's only available via the <a href="https://stripe.com/docs/api/issuing/cards/retrieve">&quot;Retrieve a card&quot; endpoint</a>, not via &quot;List all cards&quot; or any other endpoint.</p>
+<p>@property null|string|\Stripe\Issuing\Card $replaced_by The latest card that replaces this card, if any.</p>
+<p>@property null|string|\Stripe\Issuing\Card $replacement_for The card this card replaces, if any.</p>
+<p>@property null|string $replacement_reason The reason why the previous card needed to be replaced.</p>
+<p>@property null|\Stripe\StripeObject $shipping Where and how the card will be shipped.</p>
+<p>@property \Stripe\StripeObject $spending_controls</p>
+<p>@property string $status Whether authorizations can be approved on this card.</p>
+<p>@property string $type The type of the card.</p>
+<p>@property null|\Stripe\StripeObject $wallets Information relating to digital wallets (like Apple Pay and Google Pay).</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Issuing\Card.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Issuing\Card extends \Stripe\ApiResource</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,464 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\Hr_payroll\Controllers\Hr_payroll.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\Hr_payroll\Controllers\Hr_payroll.php</h1>
+
+<ul>
+<li>Path: <code>plugins\Hr_payroll\Controllers\Hr_payroll.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 173142 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>income tax rates</p>
+<p>@return [type]</p>
+
+<p>setting incometax rates</p>
+<p>@return [type]</p>
+
+<p>income_tax_rebates</p>
+<p>@return [type]</p>
+
+<p>setting incometax rebates</p>
+<p>@return [type]</p>
+
+<p>earnings list</p>
+<p>@return [type]</p>
+
+<p>setting earnings list</p>
+<p>@return [type]</p>
+
+<p>salary deductions list</p>
+<p>@return [type]</p>
+
+<p>setting salary deductions list</p>
+<p>@return [type]</p>
+
+<p>insurance list</p>
+<p>@return [type]</p>
+
+<p>setting insurance list</p>
+<p>@return [type]</p>
+
+<p>setting company contributions list</p>
+<p>@return [type]</p>
+
+<p>data integrations</p>
+<p>@return [type]</p>
+
+<p>data integration</p>
+<p>@return [type]</p>
+
+<p>timesheet integration type change</p>
+<p>@return [type]</p>
+
+<p>hr records earnings list</p>
+<p>@return [type]</p>
+
+<p>setting earnings list hr records</p>
+<p>@return [type]</p>
+
+<p>hr payroll permission table</p>
+<p>@return [type]</p>
+
+<p>permission modal</p>
+<p>@return [type]</p>
+
+<p>hr payroll update permissions</p>
+<p>@param  string $id</p>
+<p>@return [type]</p>
+
+<p>staff id changed</p>
+<p>@param  [type] $staff_id</p>
+<p>@return [type]</p>
+
+<p>delete hr payroll permission</p>
+<p>@param  [type] $id</p>
+<p>@return [type]</p>
+
+<p>manage employees</p>
+<p>@return [type]</p>
+
+<p>employees filter</p>
+<p>@return [type]</p>
+
+<p>add manage employees</p>
+
+<p>render filter query</p>
+<p>@param  [type] $data_month</p>
+<p>@param  [type] $data_staff</p>
+<p>@param  [type] $data_department</p>
+<p>@param  [type] $data_role_attendance</p>
+<p>@return [type]</p>
+
+<p>manage attendance</p>
+<p>@return [type]</p>
+
+<p>add attendance</p>
+
+<p>import xlsx employees</p>
+<p>@return [type]</p>
+
+<p>create employees sample file</p>
+<p>@return [type]</p>
+
+<p>import employees excel</p>
+<p>@return [type]</p>
+
+<p>attendance filter</p>
+<p>@return [type]</p>
+
+<p>import xlsx attendance</p>
+<p>@return [type]</p>
+
+<p>create attendance sample file</p>
+<p>@return [type]</p>
+
+<p>get values for keys</p>
+<p>@param  [type] $mapping</p>
+<p>@param  [type] $keys</p>
+<p>@return [type]</p>
+
+<p>import attendance excel</p>
+<p>@return [type]</p>
+
+<p>attendance calculation</p>
+<p>@return [type]</p>
+
+<p>manage deductions</p>
+<p>@return [type]</p>
+
+<p>add manage deductions</p>
+
+<p>deductions filter</p>
+<p>@return [type]</p>
+
+<p>manage commissions</p>
+<p>@return [type]</p>
+
+<p>add manage commissions</p>
+
+<p>commissions filter</p>
+<p>@return [type]</p>
+
+<p>[import_xlsx_commissions</p>
+<p>@return [type]</p>
+
+<p>create commissions sample file</p>
+<p>@return [type]</p>
+
+<p>import commissions excel</p>
+<p>@return [type]</p>
+
+<p>manage income taxs</p>
+<p>@return [type]</p>
+
+<p>income taxs filter</p>
+<p>@return [type]</p>
+
+<p>manage insurances</p>
+<p>@return [type]</p>
+
+<p>add manage insurances</p>
+
+<p>insurances filter</p>
+<p>@return [type]</p>
+
+<p>delete_error file day before</p>
+<p>@return [type]</p>
+
+<p>payslip manage</p>
+<p>@param  string $id</p>
+<p>@return [type]</p>
+
+<p>payslip table</p>
+<p>@return table</p>
+
+<p>delete payslip</p>
+<p>@param  [type] $id</p>
+<p>@return [type]</p>
+
+<p>payslip manage</p>
+<p>@param  string $id</p>
+<p>@return [type]</p>
+
+<p>payslip table</p>
+<p>@return table</p>
+
+<p>payroll columns</p>
+<p>@return [type]</p>
+
+<p>get column key html add</p>
+<p>@return [type]</p>
+
+<p>get payroll column function name html</p>
+<p>@return [type]</p>
+
+<p>payroll column</p>
+<p>@return [type]</p>
+
+<p>get payroll column</p>
+<p>@param  [type] $id</p>
+<p>@return [type]</p>
+
+<p>delete payroll column setting</p>
+<p>@param  string $id</p>
+<p>@return [type]</p>
+
+<p>get payslip template</p>
+<p>@param  string $id</p>
+<p>@return [type]</p>
+
+<p>payslip template</p>
+<p>@return [type]</p>
+
+<p>delete payslip template</p>
+<p>@param  [type] $id</p>
+<p>@return [type]</p>
+
+<p>view payslip templates detail, add or edit</p>
+<p>@param [type] $parent_id</p>
+<p>@param string $id</p>
+
+<p>hrp rander</p>
+<p>@param  [type] $view </p>
+<p>@param  array  $data </p>
+<p>@return [type]</p>
+
+<p>hrp view</p>
+<p>@param  [type] $view </p>
+<p>@param  array  $data </p>
+<p>@return [type]</p>
+
+<p>view payslip</p>
+<p>@param  string $id</p>
+<p>@return [type]</p>
+
+<p>view payslip detail v2</p>
+<p>@param  string $id</p>
+<p>@return [type]</p>
+
+<p>manage bonus</p>
+<p>@return [type]</p>
+
+<p>add bonus kpi</p>
+<p>@return redirect</p>
+
+<p>bonus kpi filter</p>
+<p>@return array</p>
+
+<p>payslip</p>
+<p>@param  string $value</p>
+<p>@return [type]</p>
+
+<p>payslip closing</p>
+<p>@return [type]</p>
+
+<p>payslip update status</p>
+<p>@param  [type] $id</p>
+<p>@return [type]</p>
+
+<p>table staff payslip</p>
+<p>@return [type]</p>
+
+<p>view staff payslip modal</p>
+<p>@return [type]</p>
+
+<p>reports</p>
+<p>@return [type]</p>
+
+<p>payslip report</p>
+<p>@return [type]</p>
+
+<p>income summary report</p>
+<p>@return [type]</p>
+
+<p>insurance cost summary report</p>
+<p>@return [type]</p>
+
+<p>payslip chart</p>
+<p>@return [type]</p>
+
+<p>department payslip chart</p>
+<p>@return [type]</p>
+
+<p>payslip template checked</p>
+<p>@return [type]</p>
+
+<p>payslip checked</p>
+<p>@return [type]</p>
+
+<p>create payslip file</p>
+<p>@return [type]</p>
+
+<p>employees copy</p>
+<p>@return [type]</p>
+
+<p>reset datas</p>
+<p>@return [type]</p>
+
+<p>reset data</p>
+<p>@return [type]</p>
+
+<p>employee export pdf</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>payslip manage export pdf</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>re save to dir</p>
+<p>@param  [type] $pdf       </p>
+<p>@param  [type] $file_name </p>
+<p>@return [type]</p>
+
+<p>confirm delete modal form</p>
+<p>@return [type]</p>
+
+<p>table payslip report</p>
+<p>@return [type]</p>
+
+<p>table income summary report</p>
+<p>@return [type]</p>
+
+<p>table insurance cost summary report</p>
+<p>@return [type]</p>
+
+<p>staff pay slips</p>
+<p>@param  [type] $user_id </p>
+<p>@return [type]</p>
+
+<p>staff payslip modal form</p>
+<p>@return [type]</p>
+
+<h2>References</h2>
+
+<p><strong>Models Used</strong></p>
+<ul>
+<li><code>hr_payroll_model</code></li>
+<li><code>staff_model</code></li>
+<li><code>roles_model</code></li>
+<li><code>Team_model</code></li>
+<li><code>Roles_model</code></li>
+<li><code>Users_model</code></li>
+<li><code>departments_model</code></li>
+</ul>
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>database</code></li>
+<li><code>hrm_allowance_commodity_fill</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\Hr_payroll\Controllers\Hr_payroll.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Hr_payroll\Controllers\Hr_payroll extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>income_tax_rates()</code></li>
+<li><code>setting_incometax_rates()</code></li>
+<li><code>income_tax_rebates()</code></li>
+<li><code>setting_incometax_rebates()</code></li>
+<li><code>earnings_list()</code></li>
+<li><code>setting_earnings_list()</code></li>
+<li><code>salary_deductions_list()</code></li>
+<li><code>setting_salary_deductions_list()</code></li>
+<li><code>insurance_list()</code></li>
+<li><code>setting_insurance_list()</code></li>
+<li><code>setting_company_contributions_list()</code></li>
+<li><code>data_integrations()</code></li>
+<li><code>data_integration()</code></li>
+<li><code>timesheet_integration_type_change()</code></li>
+<li><code>hr_records_earnings_list()</code></li>
+<li><code>setting_earnings_list_hr_records()</code></li>
+<li><code>hr_payroll_permission_table()</code></li>
+<li><code>permission_modal()</code></li>
+<li><code>hr_payroll_update_permissions($id = '')</code></li>
+<li><code>staff_id_changed($staff_id)</code></li>
+<li><code>delete_hr_payroll_permission($id)</code></li>
+<li><code>manage_employees()</code></li>
+<li><code>employees_filter()</code></li>
+<li><code>add_manage_employees()</code></li>
+<li><code>render_filter_query($data_month, $data_staff, $data_department, $data_role_attendance)</code></li>
+<li><code>manage_attendance()</code></li>
+<li><code>add_attendance()</code></li>
+<li><code>import_xlsx_employees()</code></li>
+<li><code>create_employees_sample_file()</code></li>
+<li><code>import_employees_excel()</code></li>
+<li><code>attendance_filter()</code></li>
+<li><code>import_xlsx_attendance()</code></li>
+<li><code>create_attendance_sample_file()</code></li>
+<li><code>get_values_for_keys($mapping, $keys)</code></li>
+<li><code>import_attendance_excel()</code></li>
+<li><code>attendance_calculation()</code></li>
+<li><code>manage_deductions()</code></li>
+<li><code>add_manage_deductions()</code></li>
+<li><code>deductions_filter()</code></li>
+<li><code>manage_commissions()</code></li>
+<li><code>add_manage_commissions()</code></li>
+<li><code>commissions_filter()</code></li>
+<li><code>import_xlsx_commissions()</code></li>
+<li><code>create_commissions_sample_file()</code></li>
+<li><code>import_commissions_excel()</code></li>
+<li><code>income_taxs_manage()</code></li>
+<li><code>income_taxs_filter()</code></li>
+<li><code>manage_insurances()</code></li>
+<li><code>add_manage_insurances()</code></li>
+<li><code>insurances_filter()</code></li>
+<li><code>delete_error_file_day_before($before_day = '', $folder_name = '')</code></li>
+<li><code>payslip_manage($id = '')</code></li>
+<li><code>payslip_table()</code></li>
+<li><code>delete_payslip()</code></li>
+<li><code>payslip_templates_manage($id = '')</code></li>
+<li><code>payslip_template_table()</code></li>
+<li><code>payroll_columns()</code></li>
+<li><code>get_payroll_column_method_html_add()</code></li>
+<li><code>get_payroll_column_function_name_html()</code></li>
+<li><code>payroll_column()</code></li>
+<li><code>get_payroll_column($id)</code></li>
+<li><code>delete_payroll_column_setting()</code></li>
+<li><code>get_payslip_template($id = '')</code></li>
+<li><code>payslip_template()</code></li>
+<li><code>delete_payslip_template()</code></li>
+<li><code>view_payslip_templates_detail($id = "")</code></li>
+<li><code>hrp_rander($view, $data = array()</code></li>
+<li><code>hrp_view($view, $data = array()</code></li>
+<li><code>view_payslip_detail($id = "")</code></li>
+<li><code>view_payslip_detail_v2($id = "")</code></li>
+<li><code>manage_bonus()</code></li>
+<li><code>add_bonus_kpi()</code></li>
+<li><code>bonus_kpi_filter()</code></li>
+<li><code>payslip($value = '')</code></li>
+<li><code>payslip_closing()</code></li>
+<li><code>payslip_update_status($id)</code></li>
+<li><code>table_staff_payslip()</code></li>
+<li><code>view_staff_payslip_modal()</code></li>
+<li><code>reports()</code></li>
+<li><code>payslip_report()</code></li>
+<li><code>income_summary_report()</code></li>
+<li><code>insurance_cost_summary_report()</code></li>
+<li><code>payslip_chart()</code></li>
+<li><code>department_payslip_chart()</code></li>
+<li><code>payslip_template_checked()</code></li>
+<li><code>payslip_checked()</code></li>
+<li><code>create_payslip_file()</code></li>
+<li><code>employees_copy()</code></li>
+<li><code>reset_datas()</code></li>
+<li><code>reset_data()</code></li>
+<li><code>employee_export_pdf($id)</code></li>
+<li><code>payslip_manage_export_pdf($id)</code></li>
+<li><code>re_save_to_dir($pdf, $file_name)</code></li>
+<li><code>confirm_delete_modal_form()</code></li>
+<li><code>table_payslip_report()</code></li>
+<li><code>table_income_summary_report()</code></li>
+<li><code>table_insurance_cost_summary_report()</code></li>
+<li><code>staff_pay_slips($user_id)</code></li>
+<li><code>staff_payslip_modal_form()</code></li>
+</ul>
+</body></html>

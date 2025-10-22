@@ -1,0 +1,114 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\HTTP\Negotiate.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\HTTP\Negotiate.php</h1>
+
+<ul>
+<li>Path: <code>system\HTTP\Negotiate.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 10981 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Class Negotiate</p>
+<p>Provides methods to negotiate with the HTTP headers to determine the best</p>
+<p>type match between what the application supports and what the requesting</p>
+<p>getServer wants.</p>
+<p>@see http://tools.ietf.org/html/rfc7231#section-5.3</p>
+
+<p>Request</p>
+<p>@var IncomingRequest|RequestInterface</p>
+
+<p>Constructor</p>
+
+<p>Stores the request instance to grab the headers from.</p>
+<p>@return $this</p>
+
+<p>Determines the best content-type to use based on the $supported</p>
+<p>types the application says it supports, and the types requested</p>
+<p>by the client.</p>
+<p>If no match is found, the first, highest-ranking client requested</p>
+<p>type is returned.</p>
+<p>@param bool $strictMatch If TRUE, will return an empty string when no match found.</p>
+<p>                         If FALSE, will return the first supported element.</p>
+
+<p>Determines the best charset to use based on the $supported</p>
+<p>types the application says it supports, and the types requested</p>
+<p>by the client.</p>
+<p>If no match is found, the first, highest-ranking client requested</p>
+<p>type is returned.</p>
+
+<p>Determines the best encoding type to use based on the $supported</p>
+<p>types the application says it supports, and the types requested</p>
+<p>by the client.</p>
+<p>If no match is found, the first, highest-ranking client requested</p>
+<p>type is returned.</p>
+
+<p>Determines the best language to use based on the $supported</p>
+<p>types the application says it supports, and the types requested</p>
+<p>by the client.</p>
+<p>If no match is found, the first, highest-ranking client requested</p>
+<p>type is returned.</p>
+
+<p>Does the grunt work of comparing any of the app-supported values</p>
+<p>against a given Accept* header string.</p>
+<p>Portions of this code base on Aura.Accept library.</p>
+<p>@param array  $supported    App-supported values</p>
+<p>@param string $header       header string</p>
+<p>@param bool   $enforceTypes If TRUE, will compare media types and sub-types.</p>
+<p>@param bool   $strictMatch  If TRUE, will return empty string on no match.</p>
+<p>                            If FALSE, will return the first supported element.</p>
+<p>@param bool   $matchLocales If TRUE, will match locale sub-types to a broad type (fr-FR = fr)</p>
+<p>@return string Best match</p>
+
+<p>Parses an Accept* header into it's multiple values.</p>
+<p>This is based on code from Aura.Accept library.</p>
+
+<p>Match-maker</p>
+<p>@param bool $matchLocales</p>
+
+<p>Checks two Accept values with matching 'values' to see if their</p>
+<p>'params' are the same.</p>
+
+<p>Compares the types/subtypes of an acceptable Media type and</p>
+<p>the supported string.</p>
+
+<p>Will match locales against their broader pairs, so that fr-FR would</p>
+<p>match a supported localed of fr</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>Aura</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\HTTP\Negotiate.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\HTTP\Negotiate</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(?RequestInterface $request = null)</code></li>
+<li><code>setRequest(RequestInterface $request)</code></li>
+<li><code>media(array $supported, bool $strictMatch = false)</code></li>
+<li><code>charset(array $supported)</code></li>
+<li><code>encoding(array $supported = [])</code></li>
+<li><code>language(array $supported)</code></li>
+<li><code>getBestMatch(array $supported, ?string $header = null, bool $enforceTypes = false, bool $strictMatch = false, bool $matchLocales = false)</code></li>
+<li><code>parseHeader(string $header)</code></li>
+<li><code>match(array $acceptable, string $supported, bool $enforceTypes = false, $matchLocales = false)</code></li>
+<li><code>matchParameters(array $acceptable, array $supported)</code></li>
+<li><code>matchTypes(array $acceptable, array $supported)</code></li>
+<li><code>matchLocales(array $acceptable, array $supported)</code></li>
+</ul>
+</body></html>

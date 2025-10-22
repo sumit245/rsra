@@ -1,0 +1,127 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\src\Google\Http\MediaFileUpload.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\src\Google\Http\MediaFileUpload.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\src\Google\Http\MediaFileUpload.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9150 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Copyright 2012 Google Inc.</p>
+<p>Licensed under the Apache License, Version 2.0 (the "License");</p>
+<p>you may not use this file except in compliance with the License.</p>
+<p>You may obtain a copy of the License at</p>
+<p>    http://www.apache.org/licenses/LICENSE-2.0</p>
+<p>Unless required by applicable law or agreed to in writing, software</p>
+<p>distributed under the License is distributed on an "AS IS" BASIS,</p>
+<p>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</p>
+<p>See the License for the specific language governing permissions and</p>
+<p>limitations under the License.</p>
+
+<p>Manage large file uploads, which may be media but can be any type</p>
+<p>of sizable data.</p>
+
+<p>@var string $mimeType</p>
+
+<p>@var string $data</p>
+
+<p>@var bool $resumable</p>
+
+<p>@var int $chunkSize</p>
+
+<p>@var int $size</p>
+
+<p>@var string $resumeUri</p>
+
+<p>@var int $progress</p>
+
+<p>@var Google_Client</p>
+
+<p>@var Psr\Http\Message\RequestInterface</p>
+
+<p>@var string</p>
+
+<p>Result code from last HTTP call</p>
+<p>@var int</p>
+
+<p>@param $mimeType string</p>
+<p>@param $data string The bytes you want to upload.</p>
+<p>@param $resumable bool</p>
+<p>@param bool $chunkSize File will be uploaded in chunks of this many bytes.</p>
+<p>only used if resumable=True</p>
+
+<p>Set the size of the file that is being uploaded.</p>
+<p>@param $size - int file size in bytes</p>
+
+<p>Return the progress on the upload</p>
+<p>@return int progress in bytes uploaded.</p>
+
+<p>Send the next part of the file to upload.</p>
+<p>@param [$chunk] the next set of bytes to send. If false will used $data passed</p>
+<p>at construct time.</p>
+
+<p>Return the HTTP result code from the last call made.</p>
+<p>@return int code</p>
+
+<p>Sends a PUT-Request to google drive and parses the response,</p>
+<p>setting the appropiate variables from the response()</p>
+<p>@param Google_Http_Request $httpRequest the Reuqest which will be send</p>
+<p>@return false|mixed false when the upload is unfinished or the decoded http response</p>
+
+<p>Resume a previously unfinished upload</p>
+<p>@param $resumeUri the resume-URI of the unfinished, resumable upload.</p>
+
+<p>@return Psr\Http\Message\RequestInterface $request</p>
+<p>@visible for testing</p>
+
+<p>Valid upload types:</p>
+<ul>
+<li>resumable (UPLOAD_RESUMABLE_TYPE)</li>
+<li>media (UPLOAD_MEDIA_TYPE)</li>
+<li>multipart (UPLOAD_MULTIPART_TYPE)</li>
+<p>@param $meta</p>
+<p>@return string</p>
+<p>@visible for testing</p>
+</ul>
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>last</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\src\Google\Http\MediaFileUpload.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Google_Http_MediaFileUpload</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`__construct(Google_Client $client,</li>
+<p>      RequestInterface $request,</p>
+<p>      $mimeType,</p>
+<p>      $data,</p>
+<p>      $resumable = false,</p>
+<p>      $chunkSize = false)`</p>
+<li><code>setFileSize($size)</code></li>
+<li><code>getProgress()</code></li>
+<li><code>nextChunk($chunk = false)</code></li>
+<li><code>getHttpResultCode()</code></li>
+<li><code>makePutRequest(RequestInterface $request)</code></li>
+<li><code>resume($resumeUri)</code></li>
+<li><code>process()</code></li>
+<li><code>getUploadType($meta)</code></li>
+<li><code>getResumeUri()</code></li>
+<li><code>fetchResumeUri()</code></li>
+<li><code>transformToUploadUrl()</code></li>
+<li><code>setChunkSize($chunkSize)</code></li>
+<li><code>getRequest()</code></li>
+</ul>
+</body></html>

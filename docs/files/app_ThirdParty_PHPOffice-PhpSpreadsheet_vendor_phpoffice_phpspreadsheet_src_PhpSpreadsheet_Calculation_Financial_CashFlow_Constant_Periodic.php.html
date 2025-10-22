@@ -1,0 +1,91 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\CashFlow\Constant\Periodic.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\CashFlow\Constant\Periodic.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\CashFlow\Constant\Periodic.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7910 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>FV.</p>
+<p>Returns the Future Value of a cash flow with constant payments and interest rate (annuities).</p>
+<p>Excel Function:</p>
+<p>       FV(rate,nper,pmt[,pv[,type]])</p>
+<p>@param mixed $rate The interest rate per period</p>
+<p>@param mixed $numberOfPeriods Total number of payment periods in an annuity as an integer</p>
+<p>@param mixed $payment The payment made each period: it cannot change over the</p>
+<p>                           life of the annuity. Typically, pmt contains principal</p>
+<p>                           and interest but no other fees or taxes.</p>
+<p>@param mixed $presentValue present Value, or the lump-sum amount that a series of</p>
+<p>                           future payments is worth right now</p>
+<p>@param mixed $type A number 0 or 1 and indicates when payments are due:</p>
+<p>                     0 or omitted    At the end of the period.</p>
+<p>                     1               At the beginning of the period.</p>
+<p>@return float|string</p>
+
+<p>PV.</p>
+<p>Returns the Present Value of a cash flow with constant payments and interest rate (annuities).</p>
+<p>@param mixed $rate Interest rate per period</p>
+<p>@param mixed $numberOfPeriods Number of periods as an integer</p>
+<p>@param mixed $payment Periodic payment (annuity)</p>
+<p>@param mixed $futureValue Future Value</p>
+<p>@param mixed $type Payment type: 0 = at the end of each period, 1 = at the beginning of each period</p>
+<p>@return float|string Result, or a string containing an error</p>
+
+<p>NPER.</p>
+<p>Returns the number of periods for a cash flow with constant periodic payments (annuities), and interest rate.</p>
+<p>@param mixed $rate Interest rate per period</p>
+<p>@param mixed $payment Periodic payment (annuity)</p>
+<p>@param mixed $presentValue Present Value</p>
+<p>@param mixed $futureValue Future Value</p>
+<p>@param mixed $type Payment type: 0 = at the end of each period, 1 = at the beginning of each period</p>
+<p>@return float|string Result, or a string containing an error</p>
+
+<p>@return float|string</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\CashFlow\Constant\Periodic.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\Financial\CashFlow\Constant\Periodic</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`futureValue($rate,</li>
+<p>        $numberOfPeriods,</p>
+<p>        $payment = 0.0,</p>
+<p>        $presentValue = 0.0,</p>
+<p>        $type = FinancialConstants::PAYMENT_END_OF_PERIOD)`</p>
+<li>`presentValue($rate,</li>
+<p>        $numberOfPeriods,</p>
+<p>        $payment = 0.0,</p>
+<p>        $futureValue = 0.0,</p>
+<p>        $type = FinancialConstants::PAYMENT_END_OF_PERIOD)`</p>
+<li>`periods($rate,</li>
+<p>        $payment,</p>
+<p>        $presentValue,</p>
+<p>        $futureValue = 0.0,</p>
+<p>        $type = FinancialConstants::PAYMENT_END_OF_PERIOD)`</p>
+<li>`calculateFutureValue(float $rate,</li>
+<p>        int $numberOfPeriods,</p>
+<p>        float $payment,</p>
+<p>        float $presentValue,</p>
+<p>        int $type)`</p>
+<li>`calculatePresentValue(float $rate,</li>
+<p>        int $numberOfPeriods,</p>
+<p>        float $payment,</p>
+<p>        float $futureValue,</p>
+<p>        int $type)`</p>
+<li>`calculatePeriods(float $rate,</li>
+<p>        float $payment,</p>
+<p>        float $presentValue,</p>
+<p>        float $futureValue,</p>
+<p>        int $type)`</p>
+</ul>
+</body></html>

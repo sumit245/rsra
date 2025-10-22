@@ -1,0 +1,136 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\RestApi\ThirdParty\Requests\Transport\cURL.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\RestApi\ThirdParty\Requests\Transport\cURL.php</h1>
+
+<ul>
+<li>Path: <code>plugins\RestApi\ThirdParty\Requests\Transport\cURL.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 15860 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>cURL HTTP transport</p>
+<p>@package Requests</p>
+<p>@subpackage Transport</p>
+
+<p>cURL HTTP transport</p>
+<p>@package Requests</p>
+<p>@subpackage Transport</p>
+
+<p>Raw HTTP data</p>
+<p>@var string</p>
+
+<p>Raw body data</p>
+<p>@var string</p>
+
+<p>Information on the current request</p>
+<p>@var array cURL information array, see {@see https://secure.php.net/curl_getinfo}</p>
+
+<p>cURL version number</p>
+<p>@var int</p>
+
+<p>cURL handle</p>
+<p>@var resource</p>
+
+<p>Hook dispatcher instance</p>
+<p>@var Requests_Hooks</p>
+
+<p>Have we finished the headers yet?</p>
+<p>@var boolean</p>
+
+<p>If streaming to a file, keep the file pointer</p>
+<p>@var resource</p>
+
+<p>How many bytes are in the response body?</p>
+<p>@var int</p>
+
+<p>What's the maximum number of bytes we should keep?</p>
+<p>@var int|bool Byte count, or false if no limit.</p>
+
+<p>Constructor</p>
+
+<p>Destructor</p>
+
+<p>Perform a request</p>
+<p>@throws Requests_Exception On a cURL error (<code>curlerror</code>)</p>
+<p>@param string $url URL to request</p>
+<p>@param array $headers Associative array of request headers</p>
+<p>@param string|array $data Data to send either as the POST body, or as parameters in the URL for a GET/HEAD</p>
+<p>@param array $options Request options, see {@see Requests::response()} for documentation</p>
+<p>@return string Raw HTTP result</p>
+
+<p>Send multiple requests simultaneously</p>
+<p>@param array $requests Request data</p>
+<p>@param array $options Global options</p>
+<p>@return array Array of Requests_Response objects (may contain Requests_Exception or string responses as well)</p>
+
+<p>Get the cURL handle for use in a multi-request</p>
+<p>@param string $url URL to request</p>
+<p>@param array $headers Associative array of request headers</p>
+<p>@param string|array $data Data to send either as the POST body, or as parameters in the URL for a GET/HEAD</p>
+<p>@param array $options Request options, see {@see Requests::response()} for documentation</p>
+<p>@return resource Subrequest's cURL handle</p>
+
+<p>Setup the cURL handle for the given data</p>
+<p>@param string $url URL to request</p>
+<p>@param array $headers Associative array of request headers</p>
+<p>@param string|array $data Data to send either as the POST body, or as parameters in the URL for a GET/HEAD</p>
+<p>@param array $options Request options, see {@see Requests::response()} for documentation</p>
+
+<p>Process a response</p>
+<p>@param string $response Response data from the body</p>
+<p>@param array $options Request options</p>
+<p>@return string|false HTTP response data including headers. False if non-blocking.</p>
+<p>@throws Requests_Exception</p>
+
+<p>Collect the headers as they are received</p>
+<p>@param resource $handle cURL resource</p>
+<p>@param string $headers Header string</p>
+<p>@return integer Length of provided header</p>
+
+<p>Collect data as it's received</p>
+<p>@since 1.6.1</p>
+<p>@param resource $handle cURL resource</p>
+<p>@param string $data Body data</p>
+<p>@return integer Length of provided data</p>
+
+<p>Format a URL given GET data</p>
+<p>@param string $url</p>
+<p>@param array|object $data Data to build query using, see {@see https://secure.php.net/http_build_query}</p>
+<p>@return string URL with data</p>
+
+<p>Whether this transport is valid</p>
+<p>@codeCoverageIgnore</p>
+<p>@return boolean True if the transport is valid, false otherwise.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>our</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\RestApi\ThirdParty\Requests\Transport\cURL.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Requests_Transport_cURL implements Requests_Transport</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>__destruct()</code></li>
+<li><code>request($url, $headers = array()</code></li>
+<li><code>request_multiple($requests, $options)</code></li>
+<li><code>setup_handle($url, $headers, $data, $options)</code></li>
+<li><code>process_response($response, $options)</code></li>
+<li><code>stream_headers($handle, $headers)</code></li>
+<li><code>stream_body($handle, $data)</code></li>
+<li><code>format_get($url, $data)</code></li>
+<li><code>test($capabilities = array()</code></li>
+</ul>
+</body></html>

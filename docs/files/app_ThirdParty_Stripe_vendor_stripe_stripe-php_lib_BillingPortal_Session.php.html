@@ -1,0 +1,52 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\BillingPortal\Session.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\BillingPortal\Session.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\BillingPortal\Session.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2646 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>The Billing customer portal is a Stripe-hosted UI for subscription and billing</p>
+<p>management.</p>
+<p>A portal configuration describes the functionality and features that you want to</p>
+<p>provide to your customers through the portal.</p>
+<p>A portal session describes the instantiation of the customer portal for a</p>
+<p>particular customer. By visiting the session's URL, the customer can manage</p>
+<p>their subscriptions and billing details. For security reasons, sessions are</p>
+<p>short-lived and will expire if the customer does not visit the URL. Create</p>
+<p>sessions on-demand when customers intend to manage their subscriptions and</p>
+<p>billing details.</p>
+<p>Learn more in the <a</p>
+<p>href="https://stripe.com/docs/billing/subscriptions/integrating-customer-portal">integration</p>
+<p>guide</a>.</p>
+<p>@property string $id Unique identifier for the object.</p>
+<p>@property string $object String representing the object's type. Objects of the same type share the same value.</p>
+<p>@property string|\Stripe\BillingPortal\Configuration $configuration The configuration used by this session, describing the features available.</p>
+<p>@property int $created Time at which the object was created. Measured in seconds since the Unix epoch.</p>
+<p>@property string $customer The ID of the customer for this session.</p>
+<p>@property bool $livemode Has the value <code>true</code> if the object exists in live mode or the value <code>false</code> if the object exists in test mode.</p>
+<p>@property null|string $locale The IETF language tag of the locale Customer Portal is displayed in. If blank or auto, the customer’s <code>preferred_locales</code> or browser’s locale is used.</p>
+<p>@property null|string $on_behalf_of The account for which the session was created on behalf of. When specified, only subscriptions and invoices with this <code>on_behalf_of</code> account appear in the portal. For more information, see the <a href="https://stripe.com/docs/connect/charges-transfers#on-behalf-of">docs</a>. Use the <a href="https://stripe.com/docs/api/accounts/object#account_object-settings-branding">Accounts API</a> to modify the <code>on_behalf_of</code> account's branding settings, which the portal displays.</p>
+<p>@property null|string $return_url The URL to redirect customers to when they click on the portal's link to return to your website.</p>
+<p>@property string $url The short-lived URL of the session that gives customers access to the customer portal.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\BillingPortal\Session.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\BillingPortal\Session extends \Stripe\ApiResource</code></li>
+</ul>
+</body></html>

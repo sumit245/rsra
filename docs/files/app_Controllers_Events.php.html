@@ -1,0 +1,68 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\Controllers\Events.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\Controllers\Events.php</h1>
+
+<ul>
+<li>Path: <code>app\Controllers\Events.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 43923 bytes</li>
+</ul>
+<h2>References</h2>
+
+<p><strong>Models Used</strong></p>
+<ul>
+<li><code>Events_model</code></li>
+<li><code>Clients_model</code></li>
+<li><code>Custom_fields_model</code></li>
+<li><code>Leave_applications_model</code></li>
+<li><code>Projects_model</code></li>
+<li><code>Tasks_model</code></li>
+<li><code>Users_model</code></li>
+<li><code>Settings_model</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\Controllers\Events.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Events extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index($encrypted_event_id = "")</code></li>
+<li><code>can_share_events()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save()</code></li>
+<li><code>delete()</code></li>
+<li><code>calendar_events($filter_values = "", $event_label_id = 0, $client_id = 0)</code></li>
+<li><code>_make_calendar_event($data)</code></li>
+<li><code>_make_leave_event($data)</code></li>
+<li><code>_make_project_event($data, $start_date_event = false)</code></li>
+<li><code>_make_task_event($data, $start_date_event = false)</code></li>
+<li><code>view()</code></li>
+<li><code>_make_view_data($encrypted_event_id, $cycle = "0")</code></li>
+<li><code>_get_confirmed_and_rejected_users_list($confirmed_by_array, $rejected_by_array)</code></li>
+<li><code>save_event_status()</code></li>
+<li><code>get_all_contacts_of_client($client_id)</code></li>
+<li><code>google_calendar_settings_modal_form()</code></li>
+<li><code>save_google_calendar_settings()</code></li>
+<li><code>show_event_in_google_calendar($google_event_id = "")</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_events_file()</code></li>
+<li><code>file_preview($id = "", $key = "")</code></li>
+<li><code>reminders()</code></li>
+<li><code>reminders_list_data($type = "", $task_id = 0, $project_id = 0, $client_id = 0, $lead_id = 0, $ticket_id = 0)</code></li>
+<li><code>_make_reminder_row($data = array()</code></li>
+<li><code>can_access_this_reminder($reminder_info)</code></li>
+<li><code>can_create_reminders()</code></li>
+<li><code>save_reminder_status($id = 0, $status = "")</code></li>
+<li><code>snooze_reminder()</code></li>
+<li><code>reminder_view()</code></li>
+<li><code>get_reminders_for_current_user()</code></li>
+<li><code>count_missed_reminders()</code></li>
+</ul>
+</body></html>
