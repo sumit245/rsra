@@ -1,0 +1,107 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\Fields\NtfsExtraField.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\Fields\NtfsExtraField.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\Fields\NtfsExtraField.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 8160 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>NTFS Extra Field.</p>
+<p>@see https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT .ZIP File Format Specification</p>
+
+<p>@var int Header id</p>
+
+<p>@var int Tag ID</p>
+
+<p>@var int Attribute size</p>
+
+<p>@var int A file time is a 64-bit value that represents the number of</p>
+<p>         100-nanosecond intervals that have elapsed since 12:00</p>
+<p>         A.M. January 1, 1601 Coordinated Universal Time (UTC).</p>
+<p>         this is the offset of Windows time 0 to Unix epoch in 100-nanosecond intervals.</p>
+
+<p>@var int Modify ntfs time</p>
+
+<p>@var int Access ntfs time</p>
+
+<p>@var int Create ntfs time</p>
+
+<p>@return NtfsExtraField</p>
+
+<p>Returns the Header ID (type) of this Extra Field.</p>
+<p>The Header ID is an unsigned short integer (two bytes)</p>
+<p>which must be constant during the life cycle of this object.</p>
+
+<p>Populate data from this array as if it was in local file data.</p>
+<p>@param string        $buffer the buffer to read data from</p>
+<p>@param ZipEntry|null $entry  optional zip entry</p>
+<p>@throws ZipException</p>
+<p>@return NtfsExtraField</p>
+
+<p>Populate data from this array as if it was in central directory data.</p>
+<p>@param string        $buffer the buffer to read data from</p>
+<p>@param ZipEntry|null $entry  optional zip entry</p>
+<p>@throws ZipException</p>
+<p>@return NtfsExtraField</p>
+
+<p>The actual data to put into local file data - without Header-ID</p>
+<p>or length specifier.</p>
+<p>@return string the data</p>
+
+<p>The actual data to put into central directory - without Header-ID or</p>
+<p>length specifier.</p>
+<p>@return string the data</p>
+
+<p>@param float $timestamp Float timestamp</p>
+
+<p>@return float Float unix timestamp</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>this</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\Fields\NtfsExtraField.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpZip\Model\Extra\Fields\NtfsExtraField implements ZipExtraField</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(int $modifyNtfsTime, int $accessNtfsTime, int $createNtfsTime)</code></li>
+<li>`create(\DateTimeInterface $modifyDateTime,</li>
+<p>        \DateTimeInterface $accessDateTime,</p>
+<p>        \DateTimeInterface $createNtfsTime)`</p>
+<li><code>getHeaderId()</code></li>
+<li><code>unpackLocalFileData(string $buffer, ?ZipEntry $entry = null)</code></li>
+<li><code>unpackCentralDirData(string $buffer, ?ZipEntry $entry = null)</code></li>
+<li><code>packLocalFileData()</code></li>
+<li><code>getModifyNtfsTime()</code></li>
+<li><code>setModifyNtfsTime(int $modifyNtfsTime)</code></li>
+<li><code>getAccessNtfsTime()</code></li>
+<li><code>setAccessNtfsTime(int $accessNtfsTime)</code></li>
+<li><code>getCreateNtfsTime()</code></li>
+<li><code>setCreateNtfsTime(int $createNtfsTime)</code></li>
+<li><code>packCentralDirData()</code></li>
+<li><code>getModifyDateTime()</code></li>
+<li><code>setModifyDateTime(\DateTimeInterface $modifyTime)</code></li>
+<li><code>getAccessDateTime()</code></li>
+<li><code>setAccessDateTime(\DateTimeInterface $accessTime)</code></li>
+<li><code>getCreateDateTime()</code></li>
+<li><code>setCreateDateTime(\DateTimeInterface $createTime)</code></li>
+<li><code>timestampToNtfsTime(float $timestamp)</code></li>
+<li><code>dateTimeToNtfsTime(\DateTimeInterface $dateTime)</code></li>
+<li><code>ntfsTimeToTimestamp(int $ntfsTime)</code></li>
+<li><code>ntfsTimeToDateTime(int $ntfsTime)</code></li>
+<li><code>__toString()</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,93 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xlsx\Chart.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xlsx\Chart.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xlsx\Chart.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 61594 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@var int</p>
+
+<p>Write charts to XML format.</p>
+<p>@param mixed $calculateCellValues</p>
+<p>@return string XML Output</p>
+
+<p>Write Chart Title.</p>
+
+<p>Write Chart Legend.</p>
+
+<p>Write Chart Plot Area.</p>
+
+<p>Write Data Labels.</p>
+
+<p>Write Category Axis.</p>
+<p>@param string $id1</p>
+<p>@param string $id2</p>
+<p>@param bool $isMultiLevelSeries</p>
+
+<p>Write Value Axis.</p>
+<p>@param null|string $groupType Chart type</p>
+<p>@param string $id1</p>
+<p>@param string $id2</p>
+<p>@param bool $isMultiLevelSeries</p>
+
+<p>Get the data series type(s) for a chart plot series.</p>
+<p>@return string[]</p>
+
+<p>Method writing plot series values.</p>
+<p>@param int $val value for idx (default: 3)</p>
+<p>@param string $fillColor hex color (default: FF9900)</p>
+
+<p>Write Plot Group (series of related plots).</p>
+<p>@param string $groupType Type of plot for dataseries</p>
+<p>@param bool $catIsMultiLevelSeries Is category a multi-series category</p>
+<p>@param bool $valIsMultiLevelSeries Is value set a multi-series set</p>
+<p>@param string $plotGroupingType Type of grouping for multi-series values</p>
+
+<p>Write Plot Series Label.</p>
+
+<p>Write Plot Series Values.</p>
+<p>@param string $groupType Type of plot for dataseries</p>
+<p>@param string $dataType Datatype of series values</p>
+
+<p>Write Bubble Chart Details.</p>
+
+<p>Write Layout.</p>
+
+<p>Write Alternate Content block.</p>
+
+<p>Write Printer Settings.</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xlsx\Chart.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Writer\Xlsx\Chart extends WriterPart</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>writeChart(\PhpOffice\PhpSpreadsheet\Chart\Chart $chart, $calculateCellValues = true)</code></li>
+<li><code>writeTitle(XMLWriter $objWriter, ?Title $title = null)</code></li>
+<li><code>writeLegend(XMLWriter $objWriter, ?Legend $legend = null)</code></li>
+<li><code>writePlotArea(XMLWriter $objWriter, PlotArea $plotArea, ?Title $xAxisLabel = null, ?Title $yAxisLabel = null, ?Axis $xAxis = null, ?Axis $yAxis = null, ?GridLines $majorGridlines = null, ?GridLines $minorGridlines = null)</code></li>
+<li><code>writeDataLabels(XMLWriter $objWriter, ?Layout $chartLayout = null)</code></li>
+<li><code>writeCategoryAxis(XMLWriter $objWriter, ?Title $xAxisLabel, $id1, $id2, $isMultiLevelSeries, Axis $yAxis)</code></li>
+<li><code>writeValueAxis(XMLWriter $objWriter, ?Title $yAxisLabel, $groupType, $id1, $id2, $isMultiLevelSeries, Axis $xAxis, GridLines $majorGridlines, GridLines $minorGridlines)</code></li>
+<li><code>getChartType(PlotArea $plotArea)</code></li>
+<li><code>writePlotSeriesValuesElement(XMLWriter $objWriter, $val = 3, $fillColor = 'FF9900')</code></li>
+<li><code>writePlotGroup(?DataSeries $plotGroup, $groupType, XMLWriter $objWriter, &$catIsMultiLevelSeries, &$valIsMultiLevelSeries, &$plotGroupingType)</code></li>
+<li><code>writePlotSeriesLabel(?DataSeriesValues $plotSeriesLabel, XMLWriter $objWriter)</code></li>
+<li><code>writePlotSeriesValues(?DataSeriesValues $plotSeriesValues, XMLWriter $objWriter, $groupType, $dataType = 'str')</code></li>
+<li><code>writeBubbles(?DataSeriesValues $plotSeriesValues, XMLWriter $objWriter)</code></li>
+<li><code>writeLayout(XMLWriter $objWriter, ?Layout $layout = null)</code></li>
+<li><code>writeAlternateContent(XMLWriter $objWriter)</code></li>
+<li><code>writePrintSettings(XMLWriter $objWriter)</code></li>
+</ul>
+</body></html>

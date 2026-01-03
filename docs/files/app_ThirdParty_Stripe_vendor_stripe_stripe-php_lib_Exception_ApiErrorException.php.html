@@ -1,0 +1,105 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Exception\ApiErrorException.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Exception\ApiErrorException.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Exception\ApiErrorException.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5012 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Implements properties and methods common to all (non-SPL) Stripe exceptions.</p>
+
+<p>Creates a new API error exception.</p>
+<p>@param string $message the exception message</p>
+<p>@param null|int $httpStatus the HTTP status code</p>
+<p>@param null|string $httpBody the HTTP body as a string</p>
+<p>@param null|array $jsonBody the JSON deserialized body</p>
+<p>@param null|array|\Stripe\Util\CaseInsensitiveArray $httpHeaders the HTTP headers array</p>
+<p>@param null|string $stripeCode the Stripe error code</p>
+<p>@return static</p>
+
+<p>Gets the Stripe error object.</p>
+<p>@return null|\Stripe\ErrorObject</p>
+
+<p>Sets the Stripe error object.</p>
+<p>@param null|\Stripe\ErrorObject $error</p>
+
+<p>Gets the HTTP body as a string.</p>
+<p>@return null|string</p>
+
+<p>Sets the HTTP body as a string.</p>
+<p>@param null|string $httpBody</p>
+
+<p>Gets the HTTP headers array.</p>
+<p>@return null|array|\Stripe\Util\CaseInsensitiveArray</p>
+
+<p>Sets the HTTP headers array.</p>
+<p>@param null|array|\Stripe\Util\CaseInsensitiveArray $httpHeaders</p>
+
+<p>Gets the HTTP status code.</p>
+<p>@return null|int</p>
+
+<p>Sets the HTTP status code.</p>
+<p>@param null|int $httpStatus</p>
+
+<p>Gets the JSON deserialized body.</p>
+<p>@return null|array<string, mixed></p>
+
+<p>Sets the JSON deserialized body.</p>
+<p>@param null|array<string, mixed> $jsonBody</p>
+
+<p>Gets the Stripe request ID.</p>
+<p>@return null|string</p>
+
+<p>Sets the Stripe request ID.</p>
+<p>@param null|string $requestId</p>
+
+<p>Gets the Stripe error code.</p>
+<p>Cf. the <code>CODE_*</code> constants on {@see \Stripe\ErrorObject} for possible</p>
+<p>values.</p>
+<p>@return null|string</p>
+
+<p>Sets the Stripe error code.</p>
+<p>@param null|string $stripeCode</p>
+
+<p>Returns the string representation of the exception.</p>
+<p>@return string</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Exception\ApiErrorException.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Exception\ApiErrorException extends \Exception implements ExceptionInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`factory($message,</li>
+<p>        $httpStatus = null,</p>
+<p>        $httpBody = null,</p>
+<p>        $jsonBody = null,</p>
+<p>        $httpHeaders = null,</p>
+<p>        $stripeCode = null)`</p>
+<li><code>getError()</code></li>
+<li><code>setError($error)</code></li>
+<li><code>getHttpBody()</code></li>
+<li><code>setHttpBody($httpBody)</code></li>
+<li><code>getHttpHeaders()</code></li>
+<li><code>setHttpHeaders($httpHeaders)</code></li>
+<li><code>getHttpStatus()</code></li>
+<li><code>setHttpStatus($httpStatus)</code></li>
+<li><code>getJsonBody()</code></li>
+<li><code>setJsonBody($jsonBody)</code></li>
+<li><code>getRequestId()</code></li>
+<li><code>setRequestId($requestId)</code></li>
+<li><code>getStripeCode()</code></li>
+<li><code>setStripeCode($stripeCode)</code></li>
+<li><code>__toString()</code></li>
+<li><code>constructErrorObject()</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,74 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\promises\src\EachPromise.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\promises\src\EachPromise.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\promises\src\EachPromise.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7278 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Represents a promise that iterates over many promises and invokes</p>
+<p>side-effect functions in the process.</p>
+
+<p>@var \Iterator</p>
+
+<p>@var callable|int</p>
+
+<p>@var callable</p>
+
+<p>@var callable</p>
+
+<p>@var Promise</p>
+
+<p>@var bool</p>
+
+<p>Configuration hash can include the following key value pairs:</p>
+<ul>
+<li>fulfilled: (callable) Invoked when a promise fulfills. The function</li>
+<p>  is invoked with three arguments: the fulfillment value, the index</p>
+<p>  position from the iterable list of the promise, and the aggregate</p>
+<p>  promise that manages all of the promises. The aggregate promise may</p>
+<p>  be resolved from within the callback to short-circuit the promise.</p>
+<li>rejected: (callable) Invoked when a promise is rejected. The</li>
+<p>  function is invoked with three arguments: the rejection reason, the</p>
+<p>  index position from the iterable list of the promise, and the</p>
+<p>  aggregate promise that manages all of the promises. The aggregate</p>
+<p>  promise may be resolved from within the callback to short-circuit</p>
+<p>  the promise.</p>
+<li>concurrency: (integer) Pass this configuration option to limit the</li>
+<p>  allowed number of outstanding concurrently executing promises,</p>
+<p>  creating a capped pool of promises. There is no limit by default.</p>
+<p>@param mixed    $iterable Promises or values to iterate.</p>
+<p>@param array    $config   Configuration options</p>
+</ul>
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>within</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\promises\src\EachPromise.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>GuzzleHttp\Promise\EachPromise implements PromisorInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($iterable, array $config = [])</code></li>
+<li><code>promise()</code></li>
+<li><code>createPromise()</code></li>
+<li><code>refillPending()</code></li>
+<li><code>addPending()</code></li>
+<li><code>advanceIterator()</code></li>
+<li><code>step($idx)</code></li>
+<li><code>checkIfFinished()</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,108 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Engineering\ConvertDecimal.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Engineering\ConvertDecimal.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Engineering\ConvertDecimal.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9473 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>toBinary.</p>
+<p>Return a decimal value as binary.</p>
+<p>Excel Function:</p>
+<p>       DEC2BIN(x[,places])</p>
+<p>@param array|string $value The decimal integer you want to convert. If number is negative,</p>
+<p>                         valid place values are ignored and DEC2BIN returns a 10-character</p>
+<p>                         (10-bit) binary number in which the most significant bit is the sign</p>
+<p>                         bit. The remaining 9 bits are magnitude bits. Negative numbers are</p>
+<p>                         represented using two's-complement notation.</p>
+<p>                     If number < -512 or if number > 511, DEC2BIN returns the #NUM! error</p>
+<p>                         value.</p>
+<p>                     If number is nonnumeric, DEC2BIN returns the #VALUE! error value.</p>
+<p>                     If DEC2BIN requires more than places characters, it returns the #NUM!</p>
+<p>                         error value.</p>
+<p>                     Or can be an array of values</p>
+<p>@param array|int $places The number of characters to use. If places is omitted, DEC2BIN uses</p>
+<p>                         the minimum number of characters necessary. Places is useful for</p>
+<p>                         padding the return value with leading 0s (zeros).</p>
+<p>                     If places is not an integer, it is truncated.</p>
+<p>                     If places is nonnumeric, DEC2BIN returns the #VALUE! error value.</p>
+<p>                     If places is zero or negative, DEC2BIN returns the #NUM! error value.</p>
+<p>                     Or can be an array of values</p>
+<p>@return array|string Result, or an error</p>
+<p>        If an array of numbers is passed as an argument, then the returned result will also be an array</p>
+<p>           with the same dimensions</p>
+
+<p>toHex.</p>
+<p>Return a decimal value as hex.</p>
+<p>Excel Function:</p>
+<p>       DEC2HEX(x[,places])</p>
+<p>@param array|string $value The decimal integer you want to convert. If number is negative,</p>
+<p>                         places is ignored and DEC2HEX returns a 10-character (40-bit)</p>
+<p>                         hexadecimal number in which the most significant bit is the sign</p>
+<p>                         bit. The remaining 39 bits are magnitude bits. Negative numbers</p>
+<p>                         are represented using two's-complement notation.</p>
+<p>                     If number < -549,755,813,888 or if number > 549,755,813,887,</p>
+<p>                         DEC2HEX returns the #NUM! error value.</p>
+<p>                     If number is nonnumeric, DEC2HEX returns the #VALUE! error value.</p>
+<p>                     If DEC2HEX requires more than places characters, it returns the</p>
+<p>                         #NUM! error value.</p>
+<p>                     Or can be an array of values</p>
+<p>@param array|int $places The number of characters to use. If places is omitted, DEC2HEX uses</p>
+<p>                         the minimum number of characters necessary. Places is useful for</p>
+<p>                         padding the return value with leading 0s (zeros).</p>
+<p>                     If places is not an integer, it is truncated.</p>
+<p>                     If places is nonnumeric, DEC2HEX returns the #VALUE! error value.</p>
+<p>                     If places is zero or negative, DEC2HEX returns the #NUM! error value.</p>
+<p>                     Or can be an array of values</p>
+<p>@return array|string Result, or an error</p>
+<p>        If an array of numbers is passed as an argument, then the returned result will also be an array</p>
+<p>           with the same dimensions</p>
+
+<p>toOctal.</p>
+<p>Return an decimal value as octal.</p>
+<p>Excel Function:</p>
+<p>       DEC2OCT(x[,places])</p>
+<p>@param array|string $value The decimal integer you want to convert. If number is negative,</p>
+<p>                         places is ignored and DEC2OCT returns a 10-character (30-bit)</p>
+<p>                         octal number in which the most significant bit is the sign bit.</p>
+<p>                         The remaining 29 bits are magnitude bits. Negative numbers are</p>
+<p>                         represented using two's-complement notation.</p>
+<p>                     If number < -536,870,912 or if number > 536,870,911, DEC2OCT</p>
+<p>                         returns the #NUM! error value.</p>
+<p>                     If number is nonnumeric, DEC2OCT returns the #VALUE! error value.</p>
+<p>                     If DEC2OCT requires more than places characters, it returns the</p>
+<p>                         #NUM! error value.</p>
+<p>                     Or can be an array of values</p>
+<p>@param array|int $places The number of characters to use. If places is omitted, DEC2OCT uses</p>
+<p>                         the minimum number of characters necessary. Places is useful for</p>
+<p>                         padding the return value with leading 0s (zeros).</p>
+<p>                     If places is not an integer, it is truncated.</p>
+<p>                     If places is nonnumeric, DEC2OCT returns the #VALUE! error value.</p>
+<p>                     If places is zero or negative, DEC2OCT returns the #NUM! error value.</p>
+<p>                     Or can be an array of values</p>
+<p>@return array|string Result, or an error</p>
+<p>        If an array of numbers is passed as an argument, then the returned result will also be an array</p>
+<p>           with the same dimensions</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Engineering\ConvertDecimal.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\Engineering\ConvertDecimal extends ConvertBase</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>toBinary($value, $places = null)</code></li>
+<li><code>toHex($value, $places = null)</code></li>
+<li><code>hex32bit(float $value, string $hexstr, bool $force = false)</code></li>
+<li><code>toOctal($value, $places = null)</code></li>
+<li><code>validateDecimal(string $value)</code></li>
+</ul>
+</body></html>

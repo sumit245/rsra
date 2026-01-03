@@ -1,0 +1,240 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Pusher\vendor\pusher\pusher-php-server\src\Pusher.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Pusher\vendor\pusher\pusher-php-server\src\Pusher.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Pusher\vendor\pusher\pusher-php-server\src\Pusher.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 30263 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@var string Version</p>
+
+<p>@var null|PusherCrypto</p>
+
+<p>@var array Settings</p>
+
+<p>@var null|resource</p>
+
+<p>Initializes a new Pusher instance with key, secret, app ID and channel.</p>
+<p>You can optionally turn on debugging for all requests by setting debug to true.</p>
+<p>@param string $auth_key</p>
+<p>@param string $secret</p>
+<p>@param int    $app_id</p>
+<p>@param array  $options  [optional]</p>
+<p>                        Options to configure the Pusher instance.</p>
+<p>                        Was previously a debug flag. Legacy support for this exists if a boolean is passed.</p>
+<p>                        scheme - e.g. http or https</p>
+<p>                        host - the host e.g. api.pusherapp.com. No trailing forward slash.</p>
+<p>                        port - the http port</p>
+<p>                        timeout - the http timeout</p>
+<p>                        useTLS - quick option to use scheme of https and port 443.</p>
+<p>                        encrypted - deprecated; renamed to <code>useTLS</code>.</p>
+<p>                        cluster - cluster name to connect to.</p>
+<p>                        encryption_master_key - deprecated; use <code>encryption_master_key_base64</code></p>
+<p>                        encryption_master_key_base64 - a 32 byte key, encoded as base64. This key, along with the channel name, are used to derive per-channel encryption keys. Per-channel keys are used to encrypt event data on encrypted channels.</p>
+<p>                        debug - (default <code>false</code>) if <code>true</code>, every <code>trigger()</code> and <code>triggerBatch()</code> call will return a <code>$response</code> object, useful for logging/inspection purposes.</p>
+<p>                        curl_options - wrapper for curl_setopt, more here: http://php.net/manual/en/function.curl-setopt.php</p>
+<p>                        notification_host - host to connect to for native notifications.</p>
+<p>                        notification_scheme - scheme for the notification_host.</p>
+<p>@param string $host     [optional] - deprecated</p>
+<p>@param int    $port     [optional] - deprecated</p>
+<p>@param int    $timeout  [optional] - deprecated</p>
+<p>@throws PusherException Throws exception if any required dependencies are missing</p>
+
+<p>Fetch the settings.</p>
+<p>@return array</p>
+
+<p>Set a logger to be informed of internal log messages.</p>
+<p>@deprecated Use the PSR-3 compliant Pusher::setLogger() instead. This method will be removed in the next breaking release.</p>
+<p>@param object $logger A object with a public function log($message) method</p>
+<p>@return void</p>
+
+<p>Log a string.</p>
+<p>@param string           $msg     The message to log</p>
+<p>@param array|\Exception $context [optional] Any extraneous information that does not fit well in a string.</p>
+<p>@param string           $level   [optional] Importance of log message, highly recommended to use Psr\Log\LogLevel::{level}</p>
+<p>@return void</p>
+
+<p>Check if the current PHP setup is sufficient to run this class.</p>
+<p>@throws PusherException If any required dependencies are missing</p>
+<p>@return void</p>
+
+<p>Validate number of channels and channel name format.</p>
+<p>@param string[] $channels An array of channel names to validate</p>
+<p>@throws PusherException If $channels is too big or any channel is invalid</p>
+<p>@return void</p>
+
+<p>Ensure a channel name is valid based on our spec.</p>
+<p>@param string $channel The channel name to validate</p>
+<p>@throws PusherException If $channel is invalid</p>
+<p>@return void</p>
+
+<p>Ensure a socket_id is valid based on our spec.</p>
+<p>@param string $socket_id The socket ID to validate</p>
+<p>@throws PusherException If $socket_id is invalid</p>
+
+<p>Utility function used to create the curl object with common settings.</p>
+<p>@param string            $url_prefix</p>
+<p>@param string            $path</p>
+<p>@param string [optional] $request_method</p>
+<p>@param array [optional]  $query_params</p>
+<p>@throws PusherException Throws exception if curl wasn't initialized correctly</p>
+<p>@return resource</p>
+
+<p>Utility function to execute curl and create capture response information.</p>
+<p>@param $ch resource</p>
+<p>@return array</p>
+
+<p>Build the notification url prefix.</p>
+<p>@return string</p>
+
+<p>Build the Channels url prefix.</p>
+<p>@return string</p>
+
+<p>Build the required HMAC'd auth string.</p>
+<p>@param string $auth_key</p>
+<p>@param string $auth_secret</p>
+<p>@param string $request_method</p>
+<p>@param string $request_path</p>
+<p>@param array  $query_params   [optional]</p>
+<p>@param string $auth_version   [optional]</p>
+<p>@param string $auth_timestamp [optional]</p>
+<p>@return string</p>
+
+<p>Implode an array with the key and value pair giving</p>
+<p>a glue, a separator between pairs and the array</p>
+<p>to implode.</p>
+<p>@param string       $glue      The glue between key and value</p>
+<p>@param string       $separator Separator between pairs</p>
+<p>@param array|string $array     The array to implode</p>
+<p>@return string The imploded array</p>
+
+<p>Trigger an event by providing event name and payload.</p>
+<p>Optionally provide a socket ID to exclude a client (most likely the sender).</p>
+<p>@param array|string $channels        A channel name or an array of channel names to publish the event on.</p>
+<p>@param string       $event</p>
+<p>@param mixed        $data            Event data</p>
+<p>@param string|null  $socket_id       [optional]</p>
+<p>@param bool         $debug           [optional]</p>
+<p>@param bool         $already_encoded [optional]</p>
+<p>@throws PusherException Throws exception if $channels is an array of size 101 or above or $socket_id is invalid</p>
+<p>@return bool|array</p>
+
+<p>Trigger multiple events at the same time.</p>
+<p>@param array $batch           [optional] An array of events to send</p>
+<p>@param bool  $debug           [optional]</p>
+<p>@param bool  $already_encoded [optional]</p>
+<p>@throws PusherException Throws exception if curl wasn't initialized correctly</p>
+<p>@return array|bool|string</p>
+
+<p>Fetch channel information for a specific channel.</p>
+<p>@param string $channel The name of the channel</p>
+<p>@param array  $params  Additional parameters for the query e.g. $params = array( 'info' => 'connection_count' )</p>
+<p>@throws PusherException If $channel is invalid or if curl wasn't initialized correctly</p>
+<p>@return bool|object</p>
+
+<p>Fetch a list containing all channels.</p>
+<p>@param array $params Additional parameters for the query e.g. $params = array( 'info' => 'connection_count' )</p>
+<p>@throws PusherException Throws exception if curl wasn't initialized correctly</p>
+<p>@return array|bool</p>
+
+<p>Fetch user ids currently subscribed to a presence channel.</p>
+<p>@param string $channel The name of the channel</p>
+<p>@throws PusherException Throws exception if curl wasn't initialized correctly</p>
+<p>@return array|bool</p>
+
+<p>GET arbitrary REST API resource using a synchronous http client.</p>
+<p>All request signing is handled automatically.</p>
+<p>@param string $path   Path excluding /apps/APP_ID</p>
+<p>@param array  $params API params (see http://pusher.com/docs/rest_api)</p>
+<p>@throws PusherException Throws exception if curl wasn't initialized correctly</p>
+<p>@return array|bool See Pusher API docs</p>
+
+<p>Creates a socket signature.</p>
+<p>@param string $channel</p>
+<p>@param string $socket_id</p>
+<p>@param string $custom_data</p>
+<p>@throws PusherException Throws exception if $channel is invalid or above or $socket_id is invalid</p>
+<p>@return string Json encoded authentication string.</p>
+
+<p>Creates a presence signature (an extension of socket signing).</p>
+<p>@param string $channel</p>
+<p>@param string $socket_id</p>
+<p>@param string $user_id</p>
+<p>@param mixed  $user_info</p>
+<p>@throws PusherException Throws exception if $channel is invalid or above or $socket_id is invalid</p>
+<p>@return string</p>
+
+<p>Send a native notification via the Push Notifications Api.</p>
+<p>@param array $interests</p>
+<p>@param array $data</p>
+<p>@param bool  $debug</p>
+<p>@throws PusherException If validation fails</p>
+<p>@return array|bool|string</p>
+
+<p>Verify that a webhook actually came from Pusher, decrypts any encrypted events, and marshals them into a PHP object.</p>
+<p>@param array  $headers a array of headers from the request (for example, from getallheaders())</p>
+<p>@param string $body    the body of the request (for example, from file_get_contents('php://input'))</p>
+<p>@return array marshalled object with the properties time_ms (an int) and events (an array of event objects)</p>
+
+<p>Verify that a given Pusher Signature is valid.</p>
+<p>@param array  $headers an array of headers from the request (for example, from getallheaders())</p>
+<p>@param string $body    the body of the request (for example, from file_get_contents('php://input'))</p>
+<p>@throws PusherException if signature is inccorrect.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>server</code></li>
+<li><code>Pusher</code></li>
+<li><code>the</code></li>
+<li><code>getallheaders</code></li>
+<li><code>file_get_contents</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Pusher\vendor\pusher\pusher-php-server\src\Pusher.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Pusher\Pusher implements LoggerAwareInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($auth_key, $secret, $app_id, $options = array()</code></li>
+<li><code>getSettings()</code></li>
+<li><code>log($message)</code></li>
+<li><code>set_logger($logger)</code></li>
+<li><code>log($msg, array $context = array()</code></li>
+<li><code>check_compatibility()</code></li>
+<li><code>validate_channels($channels)</code></li>
+<li><code>validate_channel($channel)</code></li>
+<li><code>validate_socket_id($socket_id)</code></li>
+<li><code>create_curl($url_prefix, $path, $request_method = 'GET', $query_params = array()</code></li>
+<li><code>exec_curl($ch)</code></li>
+<li><code>notification_url_prefix()</code></li>
+<li><code>channels_url_prefix()</code></li>
+<li>`build_auth_query_string($auth_key,</li>
+<p>        $auth_secret,</p>
+<p>        $request_method,</p>
+<p>        $request_path,</p>
+<p>        $query_params = array()`</p>
+<li><code>array_implode($glue, $separator, $array)</code></li>
+<li><code>trigger($channels, $event, $data, $socket_id = null, $debug = false, $already_encoded = false)</code></li>
+<li><code>triggerBatch($batch = array()</code></li>
+<li><code>get_channel_info($channel, $params = array()</code></li>
+<li><code>get_channels($params = array()</code></li>
+<li><code>get_users_info($channel)</code></li>
+<li><code>get($path, $params = array()</code></li>
+<li><code>socket_auth($channel, $socket_id, $custom_data = null)</code></li>
+<li><code>presence_auth($channel, $socket_id, $user_id, $user_info = null)</code></li>
+<li><code>notify($interests, $data = array()</code></li>
+<li><code>webhook($headers, $body)</code></li>
+<li><code>ensure_valid_signature($headers, $body)</code></li>
+</ul>
+</body></html>

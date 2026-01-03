@@ -1,0 +1,102 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\View\Filters.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\View\Filters.php</h1>
+
+<ul>
+<li>Path: <code>system\View\Filters.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 6155 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>View filters</p>
+
+<p>Returns $value as all lowercase with the first letter capitalized.</p>
+
+<p>Formats a date into the given $format.</p>
+<p>@param mixed $value</p>
+
+<p>Given a string or DateTime object, will return the date modified</p>
+<p>by the given value. Returns the value as a unix timestamp</p>
+<p>Example:</p>
+<p>     my_date|date_modify(+1 day)</p>
+<p>@param string $value</p>
+<p>@return false|int</p>
+
+<p>Returns the given default value if $value is empty or undefined.</p>
+<p>@param mixed $value</p>
+
+<p>Escapes the given value with our <code>esc()</code> helper function.</p>
+<p>@param string $value</p>
+
+<p>Returns an excerpt of the given string.</p>
+
+<p>Highlights a given phrase within the text using '<mark></mark>' tags.</p>
+
+<p>Highlights code samples with HTML/CSS.</p>
+<p>@param string $value</p>
+
+<p>Limits the number of characters to $limit, and trails of with an ellipsis.</p>
+<p>Will break at word break so may be more or less than $limit.</p>
+<p>@param string $value</p>
+
+<p>Limits the number of words to $limit, and trails of with an ellipsis.</p>
+<p>@param string $value</p>
+
+<p>Returns the $value displayed in a localized manner.</p>
+<p>@param float|int $value</p>
+
+<p>Returns the $value displayed as a currency string.</p>
+<p>@param float|int $value</p>
+<p>@param int       $fraction</p>
+
+<p>Returns a string with all instances of newline character (\n)</p>
+<p>converted to an HTML <br/> tag.</p>
+
+<p>Takes a body of text and uses the auto_typography() method to</p>
+<p>turn it into prettier, easier-to-read, prose.</p>
+
+<p>Rounds a given $value in one of 3 ways;</p>
+<p> - common    Normal rounding</p>
+<p> - ceil      always rounds up</p>
+<p> - floor     always rounds down</p>
+<p>@param mixed $precision</p>
+<p>@return float|string</p>
+
+<p>Returns a "title case" version of the string.</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\View\Filters.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\View\Filters</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>capitalize(string $value)</code></li>
+<li><code>date($value, string $format)</code></li>
+<li><code>date_modify($value, string $adjustment)</code></li>
+<li><code>default($value, string $default)</code></li>
+<li><code>esc($value, string $context = 'html')</code></li>
+<li><code>excerpt(string $value, string $phrase, int $radius = 100)</code></li>
+<li><code>highlight(string $value, string $phrase)</code></li>
+<li><code>highlight_code($value)</code></li>
+<li><code>limit_chars($value, int $limit = 500)</code></li>
+<li><code>limit_words($value, int $limit = 100)</code></li>
+<li><code>local_number($value, string $type = 'decimal', int $precision = 4, ?string $locale = null)</code></li>
+<li><code>local_currency($value, string $currency, ?string $locale = null, $fraction = null)</code></li>
+<li><code>nl2br(string $value)</code></li>
+<li><code>prose(string $value)</code></li>
+<li><code>round(string $value, $precision = 2, string $type = 'common')</code></li>
+<li><code>title(string $value)</code></li>
+</ul>
+</body></html>

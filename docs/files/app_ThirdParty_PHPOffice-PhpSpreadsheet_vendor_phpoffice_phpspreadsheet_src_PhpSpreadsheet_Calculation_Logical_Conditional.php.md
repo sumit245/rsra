@@ -1,0 +1,106 @@
+# app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Logical\Conditional.php
+
+- Path: `app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Logical\Conditional.php`
+- Type: PHP
+- Size: 8830 bytes
+
+## Summary (from docblocks)
+
+STATEMENT_IF.
+Returns one value if a condition you specify evaluates to TRUE and another value if it evaluates to FALSE.
+Excel Function:
+       =IF(condition[,returnIfTrue[,returnIfFalse]])
+       Condition is any value or expression that can be evaluated to TRUE or FALSE.
+           For example, A10=100 is a logical expression; if the value in cell A10 is equal to 100,
+           the expression evaluates to TRUE. Otherwise, the expression evaluates to FALSE.
+           This argument can use any comparison calculation operator.
+       ReturnIfTrue is the value that is returned if condition evaluates to TRUE.
+           For example, if this argument is the text string "Within budget" and
+               the condition argument evaluates to TRUE, then the IF function returns the text "Within budget"
+           If condition is TRUE and ReturnIfTrue is blank, this argument returns 0 (zero).
+           To display the word TRUE, use the logical value TRUE for this argument.
+           ReturnIfTrue can be another formula.
+       ReturnIfFalse is the value that is returned if condition evaluates to FALSE.
+           For example, if this argument is the text string "Over budget" and the condition argument evaluates
+               to FALSE, then the IF function returns the text "Over budget".
+           If condition is FALSE and ReturnIfFalse is omitted, then the logical value FALSE is returned.
+           If condition is FALSE and ReturnIfFalse is blank, then the value 0 (zero) is returned.
+           ReturnIfFalse can be another formula.
+@param mixed $condition Condition to evaluate
+@param mixed $returnIfTrue Value to return when condition is true
+             Note that this can be an array value
+@param mixed $returnIfFalse Optional value to return when condition is false
+             Note that this can be an array value
+@return mixed The value of returnIfTrue or returnIfFalse determined by condition
+
+STATEMENT_SWITCH.
+Returns corresponding with first match (any data type such as a string, numeric, date, etc).
+Excel Function:
+       =SWITCH (expression, value1, result1, value2, result2, ... value_n, result_n [, default])
+       Expression
+             The expression to compare to a list of values.
+       value1, value2, ... value_n
+             A list of values that are compared to expression.
+             The SWITCH function is looking for the first value that matches the expression.
+       result1, result2, ... result_n
+             A list of results. The SWITCH function returns the corresponding result when a value
+             matches expression.
+             Note that these can be array values to be returned
+        default
+             Optional. It is the default to return if expression does not match any of the values
+             (value1, value2, ... value_n).
+             Note that this can be an array value to be returned
+@param mixed $arguments Statement arguments
+@return mixed The value of matched expression
+
+IFERROR.
+Excel Function:
+       =IFERROR(testValue,errorpart)
+@param mixed $testValue Value to check, is also the value returned when no error
+                     Or can be an array of values
+@param mixed $errorpart Value to return when testValue is an error condition
+             Note that this can be an array value to be returned
+@return mixed The value of errorpart or testValue determined by error condition
+        If an array of values is passed as the $testValue argument, then the returned result will also be
+           an array with the same dimensions
+
+IFNA.
+Excel Function:
+       =IFNA(testValue,napart)
+@param mixed $testValue Value to check, is also the value returned when not an NA
+                     Or can be an array of values
+@param mixed $napart Value to return when testValue is an NA condition
+             Note that this can be an array value to be returned
+@return mixed The value of errorpart or testValue determined by error condition
+        If an array of values is passed as the $testValue argument, then the returned result will also be
+           an array with the same dimensions
+
+IFS.
+Excel Function:
+        =IFS(testValue1;returnIfTrue1;testValue2;returnIfTrue2;...;testValue_n;returnIfTrue_n)
+        testValue1 ... testValue_n
+            Conditions to Evaluate
+        returnIfTrue1 ... returnIfTrue_n
+            Value returned if corresponding testValue (nth) was true
+@param mixed ...$arguments Statement arguments
+             Note that this can be an array value to be returned
+@return mixed|string The value of returnIfTrue_n, if testValue_n was true. #N/A if none of testValues was true
+
+## Symbols
+
+# Symbols
+
+**Files documented**: 1
+
+## `app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Logical\Conditional.php`
+
+**Classes**:
+- `PhpOffice\PhpSpreadsheet\Calculation\Logical\Conditional`
+
+**Functions/Methods**:
+- `statementIf($condition = true, $returnIfTrue = 0, $returnIfFalse = false)`
+- `statementSwitch(...$arguments)`
+- `IFERROR($testValue = '', $errorpart = '')`
+- `IFNA($testValue = '', $napart = '')`
+- `IFS(...$arguments)`
+

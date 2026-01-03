@@ -1,0 +1,204 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Validation\Validation.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Validation\Validation.php</h1>
+
+<ul>
+<li>Path: <code>system\Validation\Validation.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 23680 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Validator</p>
+
+<p>Files to load with validation functions.</p>
+<p>@var array</p>
+
+<p>The loaded instances of our validation files.</p>
+<p>@var array</p>
+
+<p>Stores the actual rules that should</p>
+<p>be ran against $data.</p>
+<p>@var array</p>
+
+<p>The data that should be validated,</p>
+<p>where 'key' is the alias, with value.</p>
+<p>@var array</p>
+
+<p>Any generated errors during validation.</p>
+<p>'key' is the alias, 'value' is the message.</p>
+<p>@var array</p>
+
+<p>Stores custom error message to use</p>
+<p>during validation. Where 'key' is the alias.</p>
+<p>@var array</p>
+
+<p>Our configuration.</p>
+<p>@var ValidationConfig</p>
+
+<p>The view renderer used to render validation messages.</p>
+<p>@var RendererInterface</p>
+
+<p>Validation constructor.</p>
+<p>@param ValidationConfig $config</p>
+
+<p>Runs the validation process, returning true/false determining whether</p>
+<p>validation was successful or not.</p>
+<p>@param array|null  $data    The array of data to validate.</p>
+<p>@param string|null $group   The predefined group of rules to apply.</p>
+<p>@param string|null $dbGroup The database group to use.</p>
+
+<p>Runs the validation process, returning true or false</p>
+<p>determining whether validation was successful or not.</p>
+<p>@param mixed    $value</p>
+<p>@param string[] $errors</p>
+
+<p>Runs all of $rules against $field, until one fails, or</p>
+<p>all of them have been processed. If one fails, it adds</p>
+<p>the error to $this->errors and moves on to the next,</p>
+<p>so that we can collect all of the first errors.</p>
+<p>@param array|string $value</p>
+<p>@param array|null   $rules</p>
+<p>@param array        $data</p>
+
+<p>Takes a Request object and grabs the input data to use from its</p>
+<p>array values.</p>
+
+<p>@var IncomingRequest $request</p>
+
+<p>Sets an individual rule and custom error messages for a single field.</p>
+<p>The custom error message should be just the messages that apply to</p>
+<p>this field, like so:</p>
+<p>   [</p>
+<p>       'rule' => 'message',</p>
+<p>       'rule' => 'message'</p>
+<p>   ]</p>
+<p>@param array|string $rules</p>
+<p>@throws TypeError</p>
+<p>@return $this</p>
+
+<p>Stores the rules that should be used to validate the items.</p>
+<p>Rules should be an array formatted like:</p>
+<p>   [</p>
+<p>       'field' => 'rule1|rule2'</p>
+<p>   ]</p>
+<p>The $errors array should be formatted like:</p>
+<p>   [</p>
+<p>       'field' => [</p>
+<p>           'rule' => 'message',</p>
+<p>           'rule' => 'message</p>
+<p>       ],</p>
+<p>   ]</p>
+<p>@param array $errors // An array of custom error messages</p>
+
+<p>Returns all of the rules currently defined.</p>
+
+<p>Checks to see if the rule for key $field has been set or not.</p>
+
+<p>Get rule group.</p>
+<p>@param string $group Group.</p>
+<p>@throws InvalidArgumentException If group not found.</p>
+<p>@return string[] Rule group.</p>
+
+<p>Set rule group.</p>
+<p>@param string $group Group.</p>
+<p>@throws InvalidArgumentException If group not found.</p>
+
+<p>Returns the rendered HTML of the errors as defined in $template.</p>
+
+<p>Displays a single error in formatted HTML as defined in the $template view.</p>
+
+<p>Loads all of the rulesets classes that have been defined in the</p>
+<p>Config\Validation and stores them locally so we can use them.</p>
+
+<p>Loads custom rule groups (if set) into the current rules.</p>
+<p>Rules can be pre-defined in Config\Validation and can</p>
+<p>be any name, but must all still be an array of the</p>
+<p>same format used with setRules(). Additionally, check</p>
+<p>for {group}_errors for an array of custom error messages.</p>
+<p>@return array|ValidationException|null</p>
+
+<p>Replace any placeholders within the rules with the values that</p>
+<p>match the 'key' of any properties being set. For example, if</p>
+<p>we had the following $data array:</p>
+<p>[ 'id' => 13 ]</p>
+<p>and the following rule:</p>
+<p> 'required|is_unique[users,email,id,{id}]'</p>
+<p>The value of {id} would be replaced with the actual id in the form data:</p>
+<p> 'required|is_unique[users,email,id,13]'</p>
+
+<p>Checks to see if an error exists for the given field.</p>
+
+<p>Returns the error(s) for a specified $field (or empty string if not</p>
+<p>set).</p>
+
+<p>Returns the array of errors that were encountered during</p>
+<p>a run() call. The array should be in the following format:</p>
+<p>   [</p>
+<p>       'field1' => 'error message',</p>
+<p>       'field2' => 'error message',</p>
+<p>   ]</p>
+<p>@return array<string, string></p>
+<p>@codeCoverageIgnore</p>
+
+<p>Sets the error for a specific field. Used by custom validation methods.</p>
+
+<p>Attempts to find the appropriate error message</p>
+<p>@param string|null $value The value that caused the validation to fail.</p>
+
+<p>Split rules string by pipe operator.</p>
+
+<p>Resets the class to a blank slate. Should be called whenever</p>
+<p>you need to process more than one array.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>its</code></li>
+<li><code>a</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Validation\Validation.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Validation\Validation implements ValidationInterface</code></li>
+<li><code>CodeIgniter\Validation\to</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($config, RendererInterface $view)</code></li>
+<li><code>run(?array $data = null, ?string $group = null, ?string $dbGroup = null)</code></li>
+<li><code>check($value, string $rule, array $errors = [])</code></li>
+<li><code>processRules(string $field, ?string $label, $value, $rules = null, ?array $data = null)</code></li>
+<li><code>withRequest(RequestInterface $request)</code></li>
+<li><code>setRule(string $field, ?string $label, $rules, array $errors = [])</code></li>
+<li><code>setRules(array $rules, array $errors = [])</code></li>
+<li><code>getRules()</code></li>
+<li><code>hasRule(string $field)</code></li>
+<li><code>getRuleGroup(string $group)</code></li>
+<li><code>setRuleGroup(string $group)</code></li>
+<li><code>listErrors(string $template = 'list')</code></li>
+<li><code>showError(string $field, string $template = 'single')</code></li>
+<li><code>loadRuleSets()</code></li>
+<li><code>loadRuleGroup(?string $group = null)</code></li>
+<li><code>fillPlaceholders(array $rules, array $data)</code></li>
+<li><code>hasError(string $field)</code></li>
+<li><code>getError(?string $field = null)</code></li>
+<li><code>getErrors()</code></li>
+<li><code>setError(string $field, string $error)</code></li>
+<li><code>getErrorMessage(string $rule, string $field, ?string $label = null, ?string $param = null, ?string $value = null)</code></li>
+<li><code>splitRules(string $rules)</code></li>
+<li><code>reset()</code></li>
+</ul>
+</body></html>

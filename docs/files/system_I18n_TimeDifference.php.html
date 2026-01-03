@@ -1,0 +1,110 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\I18n\TimeDifference.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\I18n\TimeDifference.php</h1>
+
+<ul>
+<li>Path: <code>system\I18n\TimeDifference.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 6998 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Class TimeDifference</p>
+
+<p>The timestamp of the "current" time.</p>
+<p>@var IntlCalendar</p>
+
+<p>The timestamp to compare the current time to.</p>
+<p>@var float</p>
+
+<p>Eras.</p>
+<p>@var float</p>
+
+<p>Years.</p>
+<p>@var float</p>
+
+<p>Months.</p>
+<p>@var float</p>
+
+<p>Weeks.</p>
+<p>@var int</p>
+
+<p>Days.</p>
+<p>@var int</p>
+
+<p>Hours.</p>
+<p>@var int</p>
+
+<p>Minutes.</p>
+<p>@var int</p>
+
+<p>Seconds.</p>
+<p>@var int</p>
+
+<p>Difference in seconds.</p>
+<p>@var int</p>
+
+<p>Note: both parameters are required to be in the same timezone. No timezone</p>
+<p>shifting is done internally.</p>
+
+<p>Returns the number of years of difference between the two.</p>
+<p>@return float|int</p>
+
+<p>Returns the number of months difference between the two dates.</p>
+<p>@return float|int</p>
+
+<p>Returns the number of weeks difference between the two dates.</p>
+<p>@return float|int</p>
+
+<p>Returns the number of days difference between the two dates.</p>
+<p>@return float|int</p>
+
+<p>Returns the number of hours difference between the two dates.</p>
+<p>@return float|int</p>
+
+<p>Returns the number of minutes difference between the two dates.</p>
+<p>@return float|int</p>
+
+<p>Returns the number of seconds difference between the two dates.</p>
+<p>@return int</p>
+
+<p>Convert the time to human readable format</p>
+
+<p>Allow property-like access to our calculated values.</p>
+<p>@param string $name</p>
+<p>@return mixed</p>
+
+<p>Allow property-like checking for our calculated values.</p>
+<p>@param string $name</p>
+<p>@return bool</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\I18n\TimeDifference.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\I18n\TimeDifference</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(DateTime $currentTime, DateTime $testTime)</code></li>
+<li><code>getYears(bool $raw = false)</code></li>
+<li><code>getMonths(bool $raw = false)</code></li>
+<li><code>getWeeks(bool $raw = false)</code></li>
+<li><code>getDays(bool $raw = false)</code></li>
+<li><code>getHours(bool $raw = false)</code></li>
+<li><code>getMinutes(bool $raw = false)</code></li>
+<li><code>getSeconds(bool $raw = false)</code></li>
+<li><code>humanize(?string $locale = null)</code></li>
+<li><code>__get($name)</code></li>
+<li><code>__isset($name)</code></li>
+</ul>
+</body></html>

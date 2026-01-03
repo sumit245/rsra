@@ -1,0 +1,81 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Calendar\Resource\Calendars.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Calendar\Resource\Calendars.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Calendar\Resource\Calendars.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4883 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>The "calendars" collection of methods.</p>
+<p>Typical usage is:</p>
+<p> <code></p>
+<p>  $calendarService = new Google_Service_Calendar(...);</p>
+<p>  $calendars = $calendarService->calendars;</p>
+<p> </code></p>
+
+<p>Clears a primary calendar. This operation deletes all events associated with</p>
+<p>the primary calendar of an account. (calendars.clear)</p>
+<p>@param string $calendarId Calendar identifier. To retrieve calendar IDs call</p>
+<p>the calendarList.list method. If you want to access the primary calendar of</p>
+<p>the currently logged in user, use the "primary" keyword.</p>
+<p>@param array $optParams Optional parameters.</p>
+
+<p>Deletes a secondary calendar. Use calendars.clear for clearing all events on</p>
+<p>primary calendars. (calendars.delete)</p>
+<p>@param string $calendarId Calendar identifier. To retrieve calendar IDs call</p>
+<p>the calendarList.list method. If you want to access the primary calendar of</p>
+<p>the currently logged in user, use the "primary" keyword.</p>
+<p>@param array $optParams Optional parameters.</p>
+
+<p>Returns metadata for a calendar. (calendars.get)</p>
+<p>@param string $calendarId Calendar identifier. To retrieve calendar IDs call</p>
+<p>the calendarList.list method. If you want to access the primary calendar of</p>
+<p>the currently logged in user, use the "primary" keyword.</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@return Google_Service_Calendar_Calendar</p>
+
+<p>Creates a secondary calendar. (calendars.insert)</p>
+<p>@param Google_Service_Calendar_Calendar $postBody</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@return Google_Service_Calendar_Calendar</p>
+
+<p>Updates metadata for a calendar. This method supports patch semantics.</p>
+<p>(calendars.patch)</p>
+<p>@param string $calendarId Calendar identifier. To retrieve calendar IDs call</p>
+<p>the calendarList.list method. If you want to access the primary calendar of</p>
+<p>the currently logged in user, use the "primary" keyword.</p>
+<p>@param Google_Service_Calendar_Calendar $postBody</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@return Google_Service_Calendar_Calendar</p>
+
+<p>Updates metadata for a calendar. (calendars.update)</p>
+<p>@param string $calendarId Calendar identifier. To retrieve calendar IDs call</p>
+<p>the calendarList.list method. If you want to access the primary calendar of</p>
+<p>the currently logged in user, use the "primary" keyword.</p>
+<p>@param Google_Service_Calendar_Calendar $postBody</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@return Google_Service_Calendar_Calendar</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Calendar\Resource\Calendars.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Google_Service_Calendar_Resource_Calendars extends Google_Service_Resource</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>clear($calendarId, $optParams = array()</code></li>
+<li><code>delete($calendarId, $optParams = array()</code></li>
+<li><code>get($calendarId, $optParams = array()</code></li>
+<li><code>insert(Google_Service_Calendar_Calendar $postBody, $optParams = array()</code></li>
+<li><code>patch($calendarId, Google_Service_Calendar_Calendar $postBody, $optParams = array()</code></li>
+<li><code>update($calendarId, Google_Service_Calendar_Calendar $postBody, $optParams = array()</code></li>
+</ul>
+</body></html>

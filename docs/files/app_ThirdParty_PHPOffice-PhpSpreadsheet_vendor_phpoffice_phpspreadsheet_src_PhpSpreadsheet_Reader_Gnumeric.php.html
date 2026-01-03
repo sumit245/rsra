@@ -1,0 +1,93 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Gnumeric.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Gnumeric.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Gnumeric.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 21362 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Shared Expressions.</p>
+<p>@var array</p>
+
+<p>Spreadsheet shared across all functions.</p>
+<p>@var Spreadsheet</p>
+
+<p>@var ReferenceHelper</p>
+
+<p>@var array</p>
+
+<p>Create a new Gnumeric.</p>
+
+<p>Can the current IReader read the file?</p>
+
+<p>Reads names of the worksheets from a file, without parsing the whole file to a Spreadsheet object.</p>
+<p>@param string $filename</p>
+<p>@return array</p>
+
+<p>Return worksheet info (Name, Last Column Letter, Last Column Index, Total Rows, Total Columns).</p>
+<p>@param string $filename</p>
+<p>@return array</p>
+
+<p>@param string $filename</p>
+<p>@return string</p>
+
+<p>@param mixed $value</p>
+
+<p>Loads Spreadsheet from file.</p>
+
+<p>Loads from file into Spreadsheet instance.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+<li><code>file</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Gnumeric.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Reader\Gnumeric extends BaseReader</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>canRead(string $filename)</code></li>
+<li><code>matchXml(XMLReader $xml, string $expectedLocalName)</code></li>
+<li><code>listWorksheetNames($filename)</code></li>
+<li><code>listWorksheetInfo($filename)</code></li>
+<li><code>gzfileGetContents($filename)</code></li>
+<li><code>gnumericMappings()</code></li>
+<li><code>processComments(SimpleXMLElement $sheet)</code></li>
+<li><code>testSimpleXml($value)</code></li>
+<li><code>loadSpreadsheetFromFile(string $filename)</code></li>
+<li><code>loadIntoExisting(string $filename, Spreadsheet $spreadsheet)</code></li>
+<li><code>setSelectedSheet(SimpleXMLElement $gnmXML)</code></li>
+<li><code>setSelectedCells(?SimpleXMLElement $sheet)</code></li>
+<li><code>processMergedCells(?SimpleXMLElement $sheet)</code></li>
+<li><code>processAutofilter(?SimpleXMLElement $sheet)</code></li>
+<li><code>setColumnWidth(int $whichColumn, float $defaultWidth)</code></li>
+<li><code>setColumnInvisible(int $whichColumn)</code></li>
+<li><code>processColumnLoop(int $whichColumn, int $maxCol, ?SimpleXMLElement $columnOverride, float $defaultWidth)</code></li>
+<li><code>processColumnWidths(?SimpleXMLElement $sheet, int $maxCol)</code></li>
+<li><code>setRowHeight(int $whichRow, float $defaultHeight)</code></li>
+<li><code>setRowInvisible(int $whichRow)</code></li>
+<li><code>processRowLoop(int $whichRow, int $maxRow, ?SimpleXMLElement $rowOverride, float $defaultHeight)</code></li>
+<li><code>processRowHeights(?SimpleXMLElement $sheet, int $maxRow)</code></li>
+<li><code>processDefinedNames(?SimpleXMLElement $gnmXML)</code></li>
+<li><code>parseRichText(string $is)</code></li>
+<li>`loadCell(SimpleXMLElement $cell,</li>
+<p>        string $worksheetName,</p>
+<p>        SimpleXMLElement $cellAttributes,</p>
+<p>        string $column,</p>
+<p>        int $row)`</p>
+</ul>
+</body></html>

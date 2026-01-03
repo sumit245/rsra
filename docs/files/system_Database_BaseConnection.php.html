@@ -1,0 +1,517 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Database\BaseConnection.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Database\BaseConnection.php</h1>
+
+<ul>
+<li>Path: <code>system\Database\BaseConnection.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 44194 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>@property array      $aliasedTables</p>
+<p>@property string     $charset</p>
+<p>@property bool       $compress</p>
+<p>@property float      $connectDuration</p>
+<p>@property float      $connectTime</p>
+<p>@property string     $database</p>
+<p>@property string     $DBCollat</p>
+<p>@property bool       $DBDebug</p>
+<p>@property string     $DBDriver</p>
+<p>@property string     $DBPrefix</p>
+<p>@property string     $DSN</p>
+<p>@property mixed      $encrypt</p>
+<p>@property array      $failover</p>
+<p>@property string     $hostname</p>
+<p>@property mixed      $lastQuery</p>
+<p>@property string     $password</p>
+<p>@property bool       $pConnect</p>
+<p>@property int|string $port</p>
+<p>@property bool       $pretend</p>
+<p>@property string     $queryClass</p>
+<p>@property array      $reservedIdentifiers</p>
+<p>@property bool       $strictOn</p>
+<p>@property string     $subdriver</p>
+<p>@property string     $swapPre</p>
+<p>@property int        $transDepth</p>
+<p>@property bool       $transFailure</p>
+<p>@property bool       $transStatus</p>
+
+<p>Data Source Name / Connect string</p>
+<p>@var string</p>
+
+<p>Database port</p>
+<p>@var int|string</p>
+
+<p>Hostname</p>
+<p>@var string</p>
+
+<p>Username</p>
+<p>@var string</p>
+
+<p>Password</p>
+<p>@var string</p>
+
+<p>Database name</p>
+<p>@var string</p>
+
+<p>Database driver</p>
+<p>@var string</p>
+
+<p>Sub-driver</p>
+<p>@used-by CI_DB_pdo_driver</p>
+<p>@var string</p>
+
+<p>Table prefix</p>
+<p>@var string</p>
+
+<p>Persistent connection flag</p>
+<p>@var bool</p>
+
+<p>Debug flag</p>
+<p>Whether to display error messages.</p>
+<p>@var bool</p>
+
+<p>Character set</p>
+<p>@var string</p>
+
+<p>Collation</p>
+<p>@var string</p>
+
+<p>Swap Prefix</p>
+<p>@var string</p>
+
+<p>Encryption flag/data</p>
+<p>@var mixed</p>
+
+<p>Compression flag</p>
+<p>@var bool</p>
+
+<p>Strict ON flag</p>
+<p>Whether we're running in strict SQL mode.</p>
+<p>@var bool</p>
+
+<p>Settings for a failover connection.</p>
+<p>@var array</p>
+
+<p>The last query object that was executed</p>
+<p>on this connection.</p>
+<p>@var mixed</p>
+
+<p>Connection ID</p>
+<p>@var bool|object|resource</p>
+
+<p>Result ID</p>
+<p>@var bool|object|resource</p>
+
+<p>Protect identifiers flag</p>
+<p>@var bool</p>
+
+<p>List of reserved identifiers</p>
+<p>Identifiers that must NOT be escaped.</p>
+<p>@var array</p>
+
+<p>Identifier escape character</p>
+<p>@var array|string</p>
+
+<p>ESCAPE statement string</p>
+<p>@var string</p>
+
+<p>ESCAPE character</p>
+<p>@var string</p>
+
+<p>RegExp used to escape identifiers</p>
+<p>@var array</p>
+
+<p>Holds previously looked up data</p>
+<p>for performance reasons.</p>
+<p>@var array</p>
+
+<p>Microtime when connection was made</p>
+<p>@var float</p>
+
+<p>How long it took to establish connection.</p>
+<p>@var float</p>
+
+<p>If true, no queries will actually be</p>
+<p>ran against the database.</p>
+<p>@var bool</p>
+
+<p>Transaction enabled flag</p>
+<p>@var bool</p>
+
+<p>Strict transaction mode flag</p>
+<p>@var bool</p>
+
+<p>Transaction depth level</p>
+<p>@var int</p>
+
+<p>Transaction status flag</p>
+<p>Used with transactions to determine if a rollback should occur.</p>
+<p>@var bool</p>
+
+<p>Transaction failure flag</p>
+<p>Used with transactions to determine if a transaction has failed.</p>
+<p>@var bool</p>
+
+<p>Array of table aliases.</p>
+<p>@var array</p>
+
+<p>Query Class</p>
+<p>@var string</p>
+
+<p>Saves our connection settings.</p>
+
+<p>Initializes the database connection/settings.</p>
+<p>@throws DatabaseException</p>
+<p>@return mixed</p>
+
+<p>Connect to the database.</p>
+<p>@return mixed</p>
+
+<p>Close the database connection.</p>
+
+<p>Platform dependent way method for closing the connection.</p>
+<p>@return mixed</p>
+
+<p>Create a persistent database connection.</p>
+<p>@return mixed</p>
+
+<p>Keep or establish the connection if no queries have been sent for</p>
+<p>a length of time exceeding the server's idle timeout.</p>
+<p>@return mixed</p>
+
+<p>Returns the actual connection object. If both a 'read' and 'write'</p>
+<p>connection has been specified, you can pass either term in to</p>
+<p>get that connection. If you pass either alias in and only a single</p>
+<p>connection is present, it must return the sole connection.</p>
+<p>@return mixed</p>
+
+<p>Select a specific database table to use.</p>
+<p>@return mixed</p>
+
+<p>Returns the name of the current database being used.</p>
+
+<p>Set DB Prefix</p>
+<p>Set's the DB Prefix to something new without needing to reconnect</p>
+<p>@param string $prefix The prefix</p>
+
+<p>Returns the database prefix.</p>
+
+<p>The name of the platform in use (MySQLi, Postgre, SQLite3, OCI8, etc)</p>
+
+<p>Returns a string containing the version of the database being used.</p>
+
+<p>Sets the Table Aliases to use. These are typically</p>
+<p>collected during use of the Builder, and set here</p>
+<p>so queries are built correctly.</p>
+<p>@return $this</p>
+
+<p>Add a table alias to our list.</p>
+<p>@return $this</p>
+
+<p>Executes the query against the database.</p>
+<p>@return mixed</p>
+
+<p>Orchestrates a query against the database. Queries must use</p>
+<p>Database\Statement objects to store the query and build it.</p>
+<p>This method works with the cache.</p>
+<p>Should automatically handle different connections for read/write</p>
+<p>queries if needed.</p>
+<p>@param mixed ...$binds</p>
+<p>@return BaseResult|bool|Query BaseResult when “read” type query, bool when “write” type query, Query when prepared query</p>
+<p>@todo BC set $queryClass default as null in 4.1</p>
+
+<p>@var Query $query</p>
+
+<p>Performs a basic query against the database. No binding or caching</p>
+<p>is performed, nor are transactions handled. Simply takes a raw</p>
+<p>query string and returns the database-specific result id.</p>
+<p>@return mixed</p>
+
+<p>Disable Transactions</p>
+<p>This permits transactions to be disabled at run-time.</p>
+
+<p>Enable/disable Transaction Strict Mode</p>
+<p>When strict mode is enabled, if you are running multiple groups of</p>
+<p>transactions, if one group fails all subsequent groups will be</p>
+<p>rolled back.</p>
+<p>If strict mode is disabled, each group is treated autonomously,</p>
+<p>meaning a failure of one group will not affect any others</p>
+<p>@param bool $mode = true</p>
+<p>@return $this</p>
+
+<p>Start Transaction</p>
+
+<p>Complete Transaction</p>
+
+<p>Lets you retrieve the transaction flag to determine if it has failed</p>
+
+<p>Begin Transaction</p>
+
+<p>Commit Transaction</p>
+
+<p>Rollback Transaction</p>
+
+<p>Begin Transaction</p>
+
+<p>Commit Transaction</p>
+
+<p>Rollback Transaction</p>
+
+<p>Returns a non-shared new instance of the query builder for this connection.</p>
+<p>@param array|string $tableName</p>
+<p>@throws DatabaseException</p>
+<p>@return BaseBuilder</p>
+
+<p>Returns a new instance of the BaseBuilder class with a cleared FROM clause.</p>
+
+<p>Creates a prepared statement with the database that can then</p>
+<p>be used to execute multiple statements against. Within the</p>
+<p>closure, you would build the query in any normal way, though</p>
+<p>the Query Builder is the expected manner.</p>
+<p>Example:</p>
+<p>   $stmt = $db->prepare(function($db)</p>
+<p>          {</p>
+<p>            return $db->table('users')</p>
+<p>                  ->where('id', 1)</p>
+<p>                    ->get();</p>
+<p>          })</p>
+<p>@return BasePreparedQuery|null</p>
+
+<p>@var BasePreparedQuery $class</p>
+
+<p>Returns the last query's statement object.</p>
+<p>@return mixed</p>
+
+<p>Returns a string representation of the last query's statement object.</p>
+
+<p>Returns the time we started to connect to this database in</p>
+<p>seconds with microseconds.</p>
+<p>Used by the Debug Toolbar's timeline.</p>
+
+<p>Returns the number of seconds with microseconds that it took</p>
+<p>to connect to the database.</p>
+<p>Used by the Debug Toolbar's timeline.</p>
+
+<p>Protect Identifiers</p>
+<p>This function is used extensively by the Query Builder class, and by</p>
+<p>a couple functions in this class.</p>
+<p>It takes a column or table name (optionally with an alias) and inserts</p>
+<p>the table prefix onto it. Some logic is necessary in order to deal with</p>
+<p>column names that include the path. Consider a query like this:</p>
+<p>SELECT hostname.database.table.column AS c FROM hostname.database.table</p>
+<p>Or a query with aliasing:</p>
+<p>SELECT m.member_id, m.member_name FROM members AS m</p>
+<p>Since the column name can include up to four segments (host, DB, table, column)</p>
+<p>or also have an alias prefix, we need to do a bit of work to figure this out and</p>
+<p>insert the table prefix (if it exists) in the proper position, and escape only</p>
+<p>the correct identifiers.</p>
+<p>@param array|string $item</p>
+<p>@param bool         $prefixSingle       Prefix a table name with no segments?</p>
+<p>@param bool         $protectIdentifiers Protect table or column names?</p>
+<p>@param bool         $fieldExists        Supplied $item contains a column name?</p>
+<p>@return array|string</p>
+<p>@phpstan-return ($item is array ? array : string)</p>
+
+<p>Escape the SQL Identifiers</p>
+<p>This function escapes column and table names</p>
+<p>@param mixed $item</p>
+<p>@return mixed</p>
+
+<p>Prepends a database prefix if one exists in configuration</p>
+<p>@throws DatabaseException</p>
+
+<p>Returns the total number of rows affected by this query.</p>
+
+<p>"Smart" Escape String</p>
+<p>Escapes data based on type.</p>
+<p>Sets boolean and null types</p>
+<p>@param mixed $str</p>
+<p>@return mixed</p>
+
+<p>Escape String</p>
+<p>@param string|string[] $str  Input string</p>
+<p>@param bool            $like Whether or not the string will be used in a LIKE condition</p>
+<p>@return string|string[]</p>
+
+<p>Escape LIKE String</p>
+<p>Calls the individual driver for platform</p>
+<p>specific escaping for LIKE conditions</p>
+<p>@param string|string[] $str</p>
+<p>@return string|string[]</p>
+
+<p>Platform independent string escape.</p>
+<p>Will likely be overridden in child classes.</p>
+
+<p>This function enables you to call PHP database functions that are not natively included</p>
+<p>in CodeIgniter, in a platform independent manner.</p>
+<p>@param array ...$params</p>
+<p>@throws DatabaseException</p>
+
+<p>Get the prefix of the function to access the DB.</p>
+
+<p>Returns an array of table names</p>
+<p>@throws DatabaseException</p>
+<p>@return array|bool</p>
+
+<p>Determine if a particular table exists</p>
+
+<p>Fetch Field Names</p>
+<p>@throws DatabaseException</p>
+<p>@return array|false</p>
+
+<p>Determine if a particular field exists</p>
+
+<p>Returns an object with field data</p>
+<p>@return stdClass[]</p>
+
+<p>Returns an object with key data</p>
+<p>@return array</p>
+
+<p>Returns an object with foreign key data</p>
+<p>@return array</p>
+
+<p>Disables foreign key checks temporarily.</p>
+
+<p>Enables foreign key checks temporarily.</p>
+
+<p>Allows the engine to be set into a mode where queries are not</p>
+<p>actually executed, but they are still generated, timed, etc.</p>
+<p>This is primarily used by the prepared query functionality.</p>
+<p>@return $this</p>
+
+<p>Empties our data cache. Especially helpful during testing.</p>
+<p>@return $this</p>
+
+<p>Determines if the statement is a write-type query or not.</p>
+<p>@param string $sql</p>
+
+<p>Returns the last error code and message.</p>
+<p>Must return an array with keys 'code' and 'message':</p>
+<p>@return array<string, int|string|null></p>
+<p>@phpstan-return array{code: int|string|null, message: string|null}</p>
+
+<p>Insert ID</p>
+<p>@return int|string</p>
+
+<p>Generates the SQL for listing tables in a platform-dependent manner.</p>
+<p>@return false|string</p>
+
+<p>Generates a platform-specific query string so that the column names can be fetched.</p>
+<p>@return false|string</p>
+
+<p>Platform-specific field data information.</p>
+<p>@see    getFieldData()</p>
+
+<p>Platform-specific index data.</p>
+<p>@see    getIndexData()</p>
+
+<p>Platform-specific foreign keys data.</p>
+<p>@see    getForeignKeyData()</p>
+
+<p>Accessor for properties if they exist.</p>
+<p>@return mixed</p>
+
+<p>Checker for properties existence.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>clause</code></li>
+<li><code>hostname</code></li>
+<li><code>members</code></li>
+<li><code>breaking</code></li>
+<li><code>a</code></li>
+<li><code>which</code></li>
+<li><code>where</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Database\BaseConnection.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Database\BaseConnection implements ConnectionInterface</code></li>
+<li><code>CodeIgniter\Database\with</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(array $params)</code></li>
+<li><code>initialize()</code></li>
+<li><code>connect(bool $persistent = false)</code></li>
+<li><code>close()</code></li>
+<li><code>_close()</code></li>
+<li><code>persistentConnect()</code></li>
+<li><code>reconnect()</code></li>
+<li><code>getConnection(?string $alias = null)</code></li>
+<li><code>setDatabase(string $databaseName)</code></li>
+<li><code>getDatabase()</code></li>
+<li><code>setPrefix(string $prefix = '')</code></li>
+<li><code>getPrefix()</code></li>
+<li><code>getPlatform()</code></li>
+<li><code>getVersion()</code></li>
+<li><code>setAliasedTables(array $aliases)</code></li>
+<li><code>addTableAlias(string $table)</code></li>
+<li><code>execute(string $sql)</code></li>
+<li><code>query(string $sql, $binds = null, bool $setEscapeFlags = true, string $queryClass = '')</code></li>
+<li><code>simpleQuery(string $sql)</code></li>
+<li><code>transOff()</code></li>
+<li><code>transStrict(bool $mode = true)</code></li>
+<li><code>transStart(bool $testMode = false)</code></li>
+<li><code>transComplete()</code></li>
+<li><code>transStatus()</code></li>
+<li><code>transBegin(bool $testMode = false)</code></li>
+<li><code>transCommit()</code></li>
+<li><code>transRollback()</code></li>
+<li><code>_transBegin()</code></li>
+<li><code>_transCommit()</code></li>
+<li><code>_transRollback()</code></li>
+<li><code>table($tableName)</code></li>
+<li><code>newQuery()</code></li>
+<li><code>prepare(Closure $func, array $options = [])</code></li>
+<li><code>getLastQuery()</code></li>
+<li><code>showLastQuery()</code></li>
+<li><code>getConnectStart()</code></li>
+<li><code>getConnectDuration(int $decimals = 6)</code></li>
+<li><code>protectIdentifiers($item, bool $prefixSingle = false, ?bool $protectIdentifiers = null, bool $fieldExists = true)</code></li>
+<li><code>escapeIdentifiers($item)</code></li>
+<li><code>prefixTable(string $table = '')</code></li>
+<li><code>affectedRows()</code></li>
+<li><code>escape($str)</code></li>
+<li><code>escapeString($str, bool $like = false)</code></li>
+<li><code>escapeLikeString($str)</code></li>
+<li><code>_escapeString(string $str)</code></li>
+<li><code>callFunction(string $functionName, ...$params)</code></li>
+<li><code>getDriverFunctionPrefix()</code></li>
+<li><code>listTables(bool $constrainByPrefix = false)</code></li>
+<li><code>tableExists(string $tableName)</code></li>
+<li><code>getFieldNames(string $table)</code></li>
+<li><code>fieldExists(string $fieldName, string $tableName)</code></li>
+<li><code>getFieldData(string $table)</code></li>
+<li><code>getIndexData(string $table)</code></li>
+<li><code>getForeignKeyData(string $table)</code></li>
+<li><code>disableForeignKeyChecks()</code></li>
+<li><code>enableForeignKeyChecks()</code></li>
+<li><code>pretend(bool $pretend = true)</code></li>
+<li><code>resetDataCache()</code></li>
+<li><code>isWriteType($sql)</code></li>
+<li><code>error()</code></li>
+<li><code>insertID()</code></li>
+<li><code>_listTables(bool $constrainByPrefix = false)</code></li>
+<li><code>_listColumns(string $table = '')</code></li>
+<li><code>_fieldData(string $table)</code></li>
+<li><code>_indexData(string $table)</code></li>
+<li><code>_foreignKeyData(string $table)</code></li>
+<li><code>__get(string $key)</code></li>
+<li><code>__isset(string $key)</code></li>
+</ul>
+</body></html>

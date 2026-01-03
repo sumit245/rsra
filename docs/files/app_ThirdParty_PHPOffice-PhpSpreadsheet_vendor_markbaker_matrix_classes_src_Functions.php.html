@@ -1,0 +1,142 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\markbaker\matrix\classes\src\Functions.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\markbaker\matrix\classes\src\Functions.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\markbaker\matrix\classes\src\Functions.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 10898 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Validates an array of matrix, converting an array to a matrix if required.</p>
+<p>@param Matrix|array $matrix Matrix or an array to treat as a matrix.</p>
+<p>@return Matrix The new matrix</p>
+<p>@throws Exception If argument isn't a valid matrix or array.</p>
+
+<p>Calculate the adjoint of the matrix</p>
+<p>@param Matrix $matrix The matrix whose adjoint we wish to calculate</p>
+<p>@return Matrix</p>
+<p>@throws Exception</p>
+
+<p>Return the adjoint of this matrix</p>
+<p>The adjugate, classical adjoint, or adjunct of a square matrix is the transpose of its cofactor matrix.</p>
+<p>The adjugate has sometimes been called the "adjoint", but today the "adjoint" of a matrix normally refers</p>
+<p>    to its corresponding adjoint operator, which is its conjugate transpose.</p>
+<p>@param Matrix|array $matrix The matrix whose adjoint we wish to calculate</p>
+<p>@return Matrix</p>
+<p>@throws Exception</p>
+
+<p>Calculate the cofactors of the matrix</p>
+<p>@param Matrix $matrix The matrix whose cofactors we wish to calculate</p>
+<p>@return Matrix</p>
+<p>@throws Exception</p>
+
+<p>Return the cofactors of this matrix</p>
+<p>@param Matrix|array $matrix The matrix whose cofactors we wish to calculate</p>
+<p>@return Matrix</p>
+<p>@throws Exception</p>
+
+<p>@param Matrix $matrix</p>
+<p>@param int $row</p>
+<p>@param int $column</p>
+<p>@return float</p>
+<p>@throws Exception</p>
+
+<p>Calculate the determinant of the matrix</p>
+<p>@param Matrix $matrix The matrix whose determinant we wish to calculate</p>
+<p>@return float</p>
+<p>@throws Exception</p>
+
+<p>Return the determinant of this matrix</p>
+<p>@param Matrix|array $matrix The matrix whose determinant we wish to calculate</p>
+<p>@return float</p>
+<p>@throws Exception</p>
+
+<p>Return the diagonal of this matrix</p>
+<p>@param Matrix|array $matrix The matrix whose diagonal we wish to calculate</p>
+<p>@return Matrix</p>
+<p>@throws Exception</p>
+
+<p>Return the antidiagonal of this matrix</p>
+<p>@param Matrix|array $matrix The matrix whose antidiagonal we wish to calculate</p>
+<p>@return Matrix</p>
+<p>@throws Exception</p>
+
+<p>Return the identity matrix</p>
+<p>The identity matrix, or sometimes ambiguously called a unit matrix, of size n is the n × n square matrix</p>
+<p>  with ones on the main diagonal and zeros elsewhere</p>
+<p>@param Matrix|array $matrix The matrix whose identity we wish to calculate</p>
+<p>@return Matrix</p>
+<p>@throws Exception</p>
+
+<p>Return the inverse of this matrix</p>
+<p>@param Matrix|array $matrix The matrix whose inverse we wish to calculate</p>
+<p>@return Matrix</p>
+<p>@throws Exception</p>
+
+<p>Calculate the minors of the matrix</p>
+<p>@param Matrix $matrix The matrix whose minors we wish to calculate</p>
+<p>@return array[]</p>
+<p>@throws Exception</p>
+
+<p>Return the minors of the matrix</p>
+<p>The minor of a matrix A is the determinant of some smaller square matrix, cut down from A by removing one or</p>
+<p>    more of its rows or columns.</p>
+<p>Minors obtained by removing just one row and one column from square matrices (first minors) are required for</p>
+<p>    calculating matrix cofactors, which in turn are useful for computing both the determinant and inverse of</p>
+<p>    square matrices.</p>
+<p>@param Matrix|array $matrix The matrix whose minors we wish to calculate</p>
+<p>@return Matrix</p>
+<p>@throws Exception</p>
+
+<p>Return the trace of this matrix</p>
+<p>The trace is defined as the sum of the elements on the main diagonal (the diagonal from the upper left to the lower right)</p>
+<p>    of the matrix</p>
+<p>@param Matrix|array $matrix The matrix whose trace we wish to calculate</p>
+<p>@return float</p>
+<p>@throws Exception</p>
+
+<p>Return the transpose of this matrix</p>
+<p>@param Matrix|\a $matrix The matrix whose transpose we wish to calculate</p>
+<p>@return Matrix</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+<li><code>A</code></li>
+<li><code>square</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\markbaker\matrix\classes\src\Functions.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Matrix\Functions</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>validateMatrix($matrix)</code></li>
+<li><code>getAdjoint(Matrix $matrix)</code></li>
+<li><code>adjoint($matrix)</code></li>
+<li><code>getCofactors(Matrix $matrix)</code></li>
+<li><code>cofactors($matrix)</code></li>
+<li><code>getDeterminantSegment(Matrix $matrix, $row, $column)</code></li>
+<li><code>getDeterminant(Matrix $matrix)</code></li>
+<li><code>determinant($matrix)</code></li>
+<li><code>diagonal($matrix)</code></li>
+<li><code>antidiagonal($matrix)</code></li>
+<li><code>identity($matrix)</code></li>
+<li><code>inverse($matrix, string $type = 'inverse')</code></li>
+<li><code>getMinors(Matrix $matrix)</code></li>
+<li><code>minors($matrix)</code></li>
+<li><code>trace($matrix)</code></li>
+<li><code>transpose($matrix)</code></li>
+</ul>
+</body></html>

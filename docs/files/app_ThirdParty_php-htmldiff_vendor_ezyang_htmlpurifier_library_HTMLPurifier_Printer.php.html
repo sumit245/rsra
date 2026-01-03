@@ -1,0 +1,95 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Printer.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Printer.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Printer.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5897 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>For HTML generation convenience funcs.</p>
+<p>@type HTMLPurifier_Generator</p>
+
+<p>For easy access.</p>
+<p>@type HTMLPurifier_Config</p>
+
+<p>Initialize $generator.</p>
+
+<p>Give generator necessary configuration if possible</p>
+<p>@param HTMLPurifier_Config $config</p>
+
+<p>Main function that renders object or aspect of that object</p>
+<p>@note Parameters vary depending on printer</p>
+
+<p>Returns a start tag</p>
+<p>@param string $tag Tag name</p>
+<p>@param array $attr Attribute array</p>
+<p>@return string</p>
+
+<p>Returns an end tag</p>
+<p>@param string $tag Tag name</p>
+<p>@return string</p>
+
+<p>Prints a complete element with content inside</p>
+<p>@param string $tag Tag name</p>
+<p>@param string $contents Element contents</p>
+<p>@param array $attr Tag attributes</p>
+<p>@param bool $escape whether or not to escape contents</p>
+<p>@return string</p>
+
+<p>@param string $tag</p>
+<p>@param array $attr</p>
+<p>@return string</p>
+
+<p>@param string $text</p>
+<p>@return string</p>
+
+<p>Prints a simple key/value row in a table.</p>
+<p>@param string $name Key</p>
+<p>@param mixed $value Value</p>
+<p>@return string</p>
+
+<p>Escapes a string for HTML output.</p>
+<p>@param string $string String to escape</p>
+<p>@return string</p>
+
+<p>Takes a list of strings and turns them into a single list</p>
+<p>@param string[] $array List of strings</p>
+<p>@param bool $polite Bool whether or not to add an end before the last</p>
+<p>@return string</p>
+
+<p>Retrieves the class of an object without prefixes, as well as metadata</p>
+<p>@param object $obj Object to determine class of</p>
+<p>@param string $sec_prefix Further prefix to remove</p>
+<p>@return string</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Printer.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>HTMLPurifier_Printer</code></li>
+<li><code>of</code></li>
+<li><code>of</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>prepareGenerator($config)</code></li>
+<li><code>render()</code></li>
+<li><code>start($tag, $attr = array()</code></li>
+<li><code>end($tag)</code></li>
+<li><code>element($tag, $contents, $attr = array()</code></li>
+<li><code>elementEmpty($tag, $attr = array()</code></li>
+<li><code>text($text)</code></li>
+<li><code>row($name, $value)</code></li>
+<li><code>escape($string)</code></li>
+<li><code>listify($array, $polite = false)</code></li>
+<li><code>getClass($obj, $sec_prefix = '')</code></li>
+</ul>
+</body></html>

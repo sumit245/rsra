@@ -49,17 +49,22 @@ if (!function_exists('get_change_logs')) {
                     $changes = "<del>" . $from_value . "</del> <ins>" . $to_value . "</ins>";
                 }
             } else if (get_array_value($schema_info, "type") === "text") {
-                $from_value = is_null($from_value) ? "" : $from_value;
-                $to_value = is_null($to_value) ? "" : $to_value;
-                $from_value = mb_convert_encoding($from_value, 'HTML-ENTITIES', 'UTF-8');
-                $to_value = mb_convert_encoding($to_value, 'HTML-ENTITIES', 'UTF-8');
+    $from_value = is_null($from_value) ? "" : $from_value;
+    $to_value = is_null($to_value) ? "" : $to_value;
 
-                require_once(APPPATH . "ThirdParty/php-htmldiff/vendor/autoload.php");
-                $htmlDiff = new \Caxy\HtmlDiff\HtmlDiff(nl2br($from_value), nl2br($to_value));
-                $changes = $htmlDiff->build();
-                $changes = is_null($changes) ? "" : $changes;
-                $changes = mb_convert_encoding($changes, 'HTML-ENTITIES', 'UTF-8');
-            } else if (get_array_value($schema_info, "type") === "foreign_key") {
+    // Use htmlentities instead of mb_convert_encoding
+    $from_value = htmlentities($from_value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+    $to_value = htmlentities($to_value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+
+    require_once(APPPATH . "ThirdParty/php-htmldiff/vendor/autoload.php");
+    $htmlDiff = new \Caxy\HtmlDiff\HtmlDiff(nl2br($from_value), nl2br($to_value));
+    $changes = $htmlDiff->build();
+    $changes = is_null($changes) ? "" : $changes;
+
+    // Again use htmlentities for the final output
+    $changes = htmlentities($changes, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+}
+ else if (get_array_value($schema_info, "type") === "foreign_key") {
                 $linked_model = get_array_value($schema_info, "linked_model");
                 if ($from_value && $linked_model) {
 

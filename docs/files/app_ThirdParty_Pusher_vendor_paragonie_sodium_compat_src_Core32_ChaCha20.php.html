@@ -1,0 +1,168 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\Core32\ChaCha20.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\Core32\ChaCha20.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\Core32\ChaCha20.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 14511 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Class ParagonIE_Sodium_Core32_ChaCha20</p>
+
+<p>The ChaCha20 quarter round function. Works on four 32-bit integers.</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param ParagonIE_Sodium_Core32_Int32 $a</p>
+<p>@param ParagonIE_Sodium_Core32_Int32 $b</p>
+<p>@param ParagonIE_Sodium_Core32_Int32 $c</p>
+<p>@param ParagonIE_Sodium_Core32_Int32 $d</p>
+<p>@return array<int, ParagonIE_Sodium_Core32_Int32></p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $a</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $b</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $c</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $d</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param ParagonIE_Sodium_Core32_ChaCha20_Ctx $ctx</p>
+<p>@param string $message</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $x0</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $x1</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $x2</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $x3</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $x4</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $x5</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $x6</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $x7</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $x8</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $x9</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $x10</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $x11</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $x12</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $x13</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $x14</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $x15</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $j0</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $j1</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $j2</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $j3</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $j4</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $j5</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $j6</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $j7</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $j8</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $j9</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $j10</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $j11</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $j12</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $j13</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $j14</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $j15</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $j12</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param int $len</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param int $len</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param string $message</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@param string $ic</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param string $message</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@param string $ic</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>another</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\Core32\ChaCha20.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ParagonIE_Sodium_Core32_ChaCha20 extends ParagonIE_Sodium_Core32_Util</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`quarterRound(ParagonIE_Sodium_Core32_Int32 $a,</li>
+<p>        ParagonIE_Sodium_Core32_Int32 $b,</p>
+<p>        ParagonIE_Sodium_Core32_Int32 $c,</p>
+<p>        ParagonIE_Sodium_Core32_Int32 $d)`</p>
+<li>`encryptBytes(ParagonIE_Sodium_Core32_ChaCha20_Ctx $ctx,</li>
+<p>        $message = '')`</p>
+<li><code>stream($len = 64, $nonce = '', $key = '')</code></li>
+<li><code>ietfStream($len, $nonce = '', $key = '')</code></li>
+<li><code>ietfStreamXorIc($message, $nonce = '', $key = '', $ic = '')</code></li>
+<li><code>streamXorIc($message, $nonce = '', $key = '', $ic = '')</code></li>
+</ul>
+</body></html>

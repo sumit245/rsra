@@ -1,0 +1,187 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Test\CIUnitTestCase.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Test\CIUnitTestCase.php</h1>
+
+<ul>
+<li>Path: <code>system\Test\CIUnitTestCase.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 13695 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Framework test case for PHPUnit.</p>
+
+<p>@var CodeIgniter</p>
+
+<p>Methods to run during setUp.</p>
+<p>WARNING: Do not override unless you know exactly what you are doing.</p>
+<p>         This property may be deprecated in the future.</p>
+<p>@var array of methods</p>
+
+<p>Methods to run during tearDown.</p>
+<p>WARNING: This property may be deprecated in the future.</p>
+<p>@var array of methods</p>
+
+<p>Store of identified traits.</p>
+
+<p>Should run db migration?</p>
+<p>@var bool</p>
+
+<p>Should run db migration only once?</p>
+<p>@var bool</p>
+
+<p>Should run seeding only once?</p>
+<p>@var bool</p>
+
+<p>Should the db be refreshed before test?</p>
+<p>@var bool</p>
+
+<p>The seed file(s) used for all tests within this test case.</p>
+<p>Should be fully-namespaced or relative to $basePath</p>
+<p>@var array|string</p>
+
+<p>The path to the seeds directory.</p>
+<p>Allows overriding the default application directories.</p>
+<p>@var string</p>
+
+<p>The namespace(s) to help us find the migration classes.</p>
+<p>Empty is equivalent to running <code>spark migrate --all</code>.</p>
+<p>Note that running "all" runs migrations in date order,</p>
+<p>but specifying namespaces runs them in namespace order (then date)</p>
+<p>@var array|string|null</p>
+
+<p>The name of the database group to connect to.</p>
+<p>If not present, will use the defaultGroup.</p>
+<p>@var string</p>
+
+<p>Our database connection.</p>
+<p>@var BaseConnection</p>
+
+<p>Migration Runner instance.</p>
+<p>@var MigrationRunner|mixed</p>
+
+<p>Seeder instance</p>
+<p>@var Seeder</p>
+
+<p>Stores information needed to remove any</p>
+<p>rows inserted via $this->hasInDatabase();</p>
+<p>@var array</p>
+
+<p>If present, will override application</p>
+<p>routes when using call().</p>
+<p>@var RouteCollection|null</p>
+
+<p>Values to be set in the SESSION global</p>
+<p>before running the test.</p>
+<p>@var array</p>
+
+<p>Enabled auto clean op buffer after request call</p>
+<p>@var bool</p>
+
+<p>Custom request's headers</p>
+<p>@var array</p>
+
+<p>Allows for formatting the request body to what</p>
+<p>the controller is going to expect</p>
+<p>@var string</p>
+
+<p>Allows for directly setting the body to what</p>
+<p>it needs to be.</p>
+<p>@var mixed</p>
+
+<p>Load the helpers.</p>
+
+<p>Checks for traits with corresponding</p>
+<p>methods for setUp or tearDown.</p>
+<p>@param string $stage 'setUp' or 'tearDown'</p>
+
+<p>Resets shared instanced for all Factories components</p>
+
+<p>Resets shared instanced for all Services</p>
+
+<p>Injects the mock Cache driver to prevent filesystem collisions</p>
+
+<p>Injects the mock email driver so no emails really send</p>
+
+<p>Injects the mock session driver into Services</p>
+
+<p>Custom function to hook into CodeIgniter's Logging mechanism</p>
+<p>to check if certain messages were logged during code execution.</p>
+<p>@param string|null $expectedMessage</p>
+<p>@throws Exception</p>
+<p>@return bool</p>
+
+<p>Hooks into CodeIgniter's Events system to check if a specific</p>
+<p>event was triggered or not.</p>
+<p>@throws Exception</p>
+
+<p>Hooks into xdebug's headers capture, looking for a specific header</p>
+<p>emitted</p>
+<p>@param string $header The leading portion of the header we are looking for</p>
+<p>@throws Exception</p>
+
+<p>Hooks into xdebug's headers capture, looking for a specific header</p>
+<p>emitted</p>
+<p>@param string $header The leading portion of the header we don't want to find</p>
+<p>@throws Exception</p>
+
+<p>Custom function to test that two values are "close enough".</p>
+<p>This is intended for extended execution time testing,</p>
+<p>where the result is close but not exactly equal to the</p>
+<p>expected time, for reasons beyond our control.</p>
+<p>@param mixed $actual</p>
+<p>@throws Exception</p>
+
+<p>Custom function to test that two values are "close enough".</p>
+<p>This is intended for extended execution time testing,</p>
+<p>where the result is close but not exactly equal to the</p>
+<p>expected time, for reasons beyond our control.</p>
+<p>@param mixed $expected</p>
+<p>@param mixed $actual</p>
+<p>@throws Exception</p>
+<p>@return bool|void</p>
+
+<p>Loads up an instance of CodeIgniter</p>
+<p>and gets the environment setup.</p>
+<p>@return CodeIgniter</p>
+
+<p>Return first matching emitted header.</p>
+<p>@param string $header Identifier of the header of interest</p>
+<p>@return string|null The value of the header found, null if not found</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Test\CIUnitTestCase.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Test\CIUnitTestCase extends TestCase</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>setUpBeforeClass()</code></li>
+<li><code>setUp()</code></li>
+<li><code>tearDown()</code></li>
+<li><code>callTraitMethods(string $stage)</code></li>
+<li><code>resetFactories()</code></li>
+<li><code>resetServices(bool $initAutoloader = true)</code></li>
+<li><code>mockCache()</code></li>
+<li><code>mockEmail()</code></li>
+<li><code>mockSession()</code></li>
+<li><code>assertLogged(string $level, $expectedMessage = null)</code></li>
+<li><code>assertEventTriggered(string $eventName)</code></li>
+<li><code>assertHeaderEmitted(string $header, bool $ignoreCase = false)</code></li>
+<li><code>assertHeaderNotEmitted(string $header, bool $ignoreCase = false)</code></li>
+<li><code>assertCloseEnough(int $expected, $actual, string $message = '', int $tolerance = 1)</code></li>
+<li><code>assertCloseEnoughString($expected, $actual, string $message = '', int $tolerance = 1)</code></li>
+<li><code>createApplication()</code></li>
+<li><code>getHeaderEmitted(string $header, bool $ignoreCase = false)</code></li>
+</ul>
+</body></html>

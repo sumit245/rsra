@@ -1,0 +1,203 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Router\Router.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Router\Router.php</h1>
+
+<ul>
+<li>Path: <code>system\Router\Router.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 19420 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Request router.</p>
+
+<p>A RouteCollection instance.</p>
+<p>@var RouteCollectionInterface</p>
+
+<p>Sub-directory that contains the requested controller class.</p>
+<p>Primarily used by 'autoRoute'.</p>
+<p>@var string|null</p>
+
+<p>The name of the controller class.</p>
+<p>@var Closure|string</p>
+
+<p>The name of the method to use.</p>
+<p>@var string</p>
+
+<p>An array of binds that were collected</p>
+<p>so they can be sent to closure routes.</p>
+<p>@var array</p>
+
+<p>The name of the front controller.</p>
+<p>@var string</p>
+
+<p>Whether dashes in URI's should be converted</p>
+<p>to underscores when determining method names.</p>
+<p>@var bool</p>
+
+<p>The route that was matched for this request.</p>
+<p>@var array|null</p>
+
+<p>The options set for the matched route.</p>
+<p>@var array|null</p>
+
+<p>The locale that was detected in a route.</p>
+<p>@var string</p>
+
+<p>The filter info from Route Collection</p>
+<p>if the matched route should be filtered.</p>
+<p>@var string|null</p>
+<p>@deprecated Use $filtersInfo</p>
+
+<p>The filter info from Route Collection</p>
+<p>if the matched route should be filtered.</p>
+<p>@var string[]</p>
+
+<p>Stores a reference to the RouteCollection object.</p>
+
+<p>@throws PageNotFoundException</p>
+<p>@throws RedirectException</p>
+<p>@return Closure|string Controller classname or Closure</p>
+
+<p>Returns the filter info for the matched route, if any.</p>
+<p>@return string|null</p>
+<p>@deprecated Use getFilters()</p>
+
+<p>Returns the filter info for the matched route, if any.</p>
+<p>@return string[]</p>
+
+<p>Returns the name of the matched controller.</p>
+<p>@return Closure|string Controller classname or Closure</p>
+
+<p>Returns the name of the method to run in the</p>
+<p>chosen container.</p>
+
+<p>Returns the 404 Override settings from the Collection.</p>
+<p>If the override is a string, will split to controller/index array.</p>
+
+<p>Returns the binds that have been matched and collected</p>
+<p>during the parsing process as an array, ready to send to</p>
+<p>instance->method(...$params).</p>
+
+<p>Returns the name of the sub-directory the controller is in,</p>
+<p>if any. Relative to APPPATH.'Controllers'.</p>
+<p>Only used when auto-routing is turned on.</p>
+
+<p>Returns the routing information that was matched for this</p>
+<p>request, if a route was defined.</p>
+<p>@return array|null</p>
+
+<p>Returns all options set for the matched route</p>
+<p>@return array|null</p>
+
+<p>Sets the value that should be used to match the index.php file. Defaults</p>
+<p>to index.php but this allows you to modify it in case your are using</p>
+<p>something like mod_rewrite to remove the page. This allows you to set</p>
+<p>it a blank.</p>
+<p>@param string $page</p>
+
+<p>Tells the system whether we should translate URI dashes or not</p>
+<p>in the URI from a dash to an underscore.</p>
+<p>@deprecated This method should be removed.</p>
+
+<p>Returns true/false based on whether the current route contained</p>
+<p>a {locale} placeholder.</p>
+<p>@return bool</p>
+
+<p>Returns the detected locale, if any, or null.</p>
+<p>@return string</p>
+
+<p>Checks Defined Routs.</p>
+<p>Compares the uri string against the routes that the</p>
+<p>RouteCollection class defined for us, attempting to find a match.</p>
+<p>This method will modify $this->controller, etal as needed.</p>
+<p>@param string $uri The URI path to compare against the routes</p>
+<p>@throws RedirectException</p>
+<p>@return bool Whether the route was matched or not.</p>
+
+<p>Checks Auto Routs.</p>
+<p>Attempts to match a URI path against Controllers and directories</p>
+<p>found in APPPATH/Controllers, to find a matching route.</p>
+
+<p>Scans the controller directory, attempting to locate a controller matching the supplied uri $segments</p>
+<p>@param array $segments URI segments</p>
+<p>@return array returns an array of remaining uri segments that don't map onto a directory</p>
+<p>@deprecated this function name does not properly describe its behavior so it has been deprecated</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Scans the controller directory, attempting to locate a controller matching the supplied uri $segments</p>
+<p>@param array $segments URI segments</p>
+<p>@return array returns an array of remaining uri segments that don't map onto a directory</p>
+<p>@deprecated Not used. Moved to AutoRouter class.</p>
+
+<p>Sets the sub-directory that the controller is in.</p>
+<p>@param bool $validate if true, checks to make sure $dir consists of only PSR4 compliant segments</p>
+<p>@deprecated This method should be removed.</p>
+
+<p>Returns true if the supplied $segment string represents a valid PSR-4 compliant namespace/directory segment</p>
+<p>regex comes from https://www.php.net/manual/en/language.variables.basics.php</p>
+<p>@deprecated Moved to AutoRouter class.</p>
+
+<p>Set request route</p>
+<p>Takes an array of URI segments as input and sets the class/method</p>
+<p>to be called.</p>
+<p>@param array $segments URI segments</p>
+
+<p>Sets the default controller based on the info set in the RouteCollection.</p>
+<p>@deprecated This was an unnecessary method, so it is no longer used.</p>
+
+<p>@param callable|string $handler</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>Route</code></li>
+<li><code>the</code></li>
+<li><code>a</code></li>
+<li><code>https</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Router\Router.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Router\Router implements RouterInterface</code></li>
+<li><code>CodeIgniter\Router\defined</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(RouteCollectionInterface $routes, ?Request $request = null)</code></li>
+<li><code>handle(?string $uri = null)</code></li>
+<li><code>getFilter()</code></li>
+<li><code>getFilters()</code></li>
+<li><code>controllerName()</code></li>
+<li><code>methodName()</code></li>
+<li><code>get404Override()</code></li>
+<li><code>params()</code></li>
+<li><code>directory()</code></li>
+<li><code>getMatchedRoute()</code></li>
+<li><code>getMatchedRouteOptions()</code></li>
+<li><code>setIndexPage($page)</code></li>
+<li><code>setTranslateURIDashes(bool $val = false)</code></li>
+<li><code>hasLocale()</code></li>
+<li><code>getLocale()</code></li>
+<li><code>checkRoutes(string $uri)</code></li>
+<li><code>autoRoute(string $uri)</code></li>
+<li><code>validateRequest(array $segments)</code></li>
+<li><code>scanControllers(array $segments)</code></li>
+<li><code>setDirectory(?string $dir = null, bool $append = false, bool $validate = true)</code></li>
+<li><code>isValidSegment(string $segment)</code></li>
+<li><code>setRequest(array $segments = [])</code></li>
+<li><code>setDefaultController()</code></li>
+<li><code>setMatchedRoute(string $route, $handler)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,76 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\IOFactory.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\IOFactory.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\IOFactory.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 8692 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Factory to create readers and writers easily.</p>
+<p>It is not required to use this class, but it should make it easier to read and write files.</p>
+<p>Especially for reading files with an unknown format.</p>
+
+<p>Create Writer\IWriter.</p>
+
+<p>Create IReader.</p>
+
+<p>Loads Spreadsheet from file using automatic Reader\IReader resolution.</p>
+<p>@param string $filename The name of the spreadsheet file</p>
+<p>@param int $flags the optional second parameter flags may be used to identify specific elements</p>
+<p>                      that should be loaded, but which won't be loaded by default, using these values:</p>
+<p>                           IReader::LOAD_WITH_CHARTS - Include any charts that are defined in the loaded file</p>
+<p>@param string[] $readers An array of Readers to use to identify the file type. By default, load() will try</p>
+<p>                            all possible Readers until it finds a match; but this allows you to pass in a</p>
+<p>                            list of Readers so it will only try the subset that you specify here.</p>
+<p>                         Values in this list can be any of the constant values defined in the set</p>
+<p>                                IOFactory::READER_*.</p>
+
+<p>Identify file type using automatic IReader resolution.</p>
+
+<p>Create Reader\IReader for file using automatic IReader resolution.</p>
+<p>@param string[] $readers An array of Readers to use to identify the file type. By default, load() will try</p>
+<p>                            all possible Readers until it finds a match; but this allows you to pass in a</p>
+<p>                            list of Readers so it will only try the subset that you specify here.</p>
+<p>                         Values in this list can be any of the constant values defined in the set</p>
+<p>                                IOFactory::READER_*.</p>
+
+<p>Guess a reader type from the file extension, if any.</p>
+
+<p>Register a writer with its type and class name.</p>
+
+<p>Register a reader with its type and class name.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>file</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\IOFactory.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\IOFactory</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\name</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\name</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>createWriter(Spreadsheet $spreadsheet, string $writerType)</code></li>
+<li><code>createReader(string $readerType)</code></li>
+<li><code>load(string $filename, int $flags = 0, ?array $readers = null)</code></li>
+<li><code>identify(string $filename, ?array $readers = null)</code></li>
+<li><code>createReaderForFile(string $filename, ?array $readers = null)</code></li>
+<li><code>getReaderTypeFromExtension(string $filename)</code></li>
+<li><code>registerWriter(string $writerType, string $writerClass)</code></li>
+<li><code>registerReader(string $readerType, string $readerClass)</code></li>
+</ul>
+</body></html>

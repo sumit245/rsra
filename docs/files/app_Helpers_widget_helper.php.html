@@ -1,0 +1,352 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\Helpers\widget_helper.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\Helpers\widget_helper.php</h1>
+
+<ul>
+<li>Path: <code>app\Helpers\widget_helper.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 56776 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>get clock in/ clock out widget</p>
+<p>@return html</p>
+
+<p>activity logs widget for projects</p>
+<p>@param array $params</p>
+<p>@return html</p>
+
+<p>get timeline widget</p>
+<p>@param array $params</p>
+<p>@return html</p>
+
+<p>get announcement notice</p>
+<p>@return html</p>
+
+<p>get tasks widget of loged in user</p>
+
+<p>@return html</p>
+
+<p>get tasks status widteg of loged in user</p>
+
+<p>@return html</p>
+
+<p>get todays event widget</p>
+
+<p>@return html</p>
+
+<p>get new posts widget</p>
+
+<p>@return html</p>
+
+<p>get event list widget</p>
+
+<p>@return html</p>
+
+<p>get event icons based on event sharing </p>
+
+<p>@return html</p>
+
+<p>get open timers widget</p>
+
+<p>@return html</p>
+
+<p>get income expense widget</p>
+
+<p>@return html</p>
+
+<p>get ticket status widget</p>
+
+<p>@return html</p>
+
+<p>get invoice statistics widget</p>
+
+<p>@return html</p>
+
+<p>get projects statistics widget</p>
+
+<p>@return html</p>
+
+<p>get timecard statistics</p>
+
+<p>@return html</p>
+
+<p>get count of clocked in /out users widget</p>
+
+<p>@return html</p>
+
+<p>get project count status widteg</p>
+<p>@param integer $user_id</p>
+
+<p>@return html</p>
+
+<p>count total time widget</p>
+<p>@param integer $user_id</p>
+
+<p>@return html</p>
+
+<p>count total time widget</p>
+<p>@param integer $user_id</p>
+<p>@param string $widget_type</p>
+
+<p>@return html</p>
+
+<p>get social links widget</p>
+<p>@param object $weblinks</p>
+
+<p>@return html</p>
+
+<p>count unread messages</p>
+<p>@return number</p>
+
+<p>count new tickets</p>
+<p>@param string $ticket_types</p>
+<p>@return number</p>
+
+<p>get all tasks kanban widget</p>
+
+<p>@return html</p>
+
+<p>get todo lists widget</p>
+
+<p>@return html</p>
+
+<p>get invalid access widget</p>
+
+<p>@return html</p>
+
+<p>get open projects widget</p>
+<p>@param integer $user_id</p>
+
+<p>@return html</p>
+
+<p>get completed projects widget</p>
+<p>@param integer $user_id</p>
+
+<p>@return html</p>
+
+<p>get count of clocked in users widget</p>
+
+<p>@return html</p>
+
+<p>get count of clocked out users widget</p>
+
+<p>@return html</p>
+
+<p>get user's open project list widget</p>
+
+<p>@return html</p>
+
+<p>get user's starred project list widget</p>
+<p>@param integer $user_id</p>
+
+<p>@return html</p>
+
+<p>get sticky note widget for logged in user</p>
+<p>@param string $custom_class</p>
+
+<p>@return html</p>
+
+<p>get ticket status small widget for current logged in user</p>
+<p>@param integer $user_id</p>
+<p>@param string $type ($type should be new/open/closed)</p>
+
+<p>@return html</p>
+
+<p>get all team members widget</p>
+
+<p>@return html</p>
+
+<p>get all clocked in team members widget</p>
+<p>@param array $data containing access permissions</p>
+
+<p>@return html</p>
+
+<p>get all clocked out team members widget</p>
+<p>@param array $data containing access permissions</p>
+
+<p>@return html</p>
+
+<p>get active members widget</p>
+
+<p>@return html</p>
+
+<p>get total invoices/payments/due value widget</p>
+<p>@param string $type</p>
+
+<p>@return html</p>
+
+<p>get my tasks list widget</p>
+
+<p>@return html</p>
+
+<p>get pending leave approval widget</p>
+
+<p>@return html</p>
+
+<p>get draft invoices</p>
+
+<p>@return html</p>
+
+<p>get total clients</p>
+
+<p>@return html</p>
+
+<p>get total client contacts</p>
+
+<p>@return html</p>
+
+<p>get active members on projects widget</p>
+
+<p>@return html</p>
+
+<p>get open tickets list widget</p>
+
+<p>@return html</p>
+
+<p>get total leads</p>
+<p>@param boolean $return_as_data</p>
+<p>@return html</p>
+
+<p>get contacts count widget for client</p>
+<p>@param string $widget_type</p>
+<p>@param boolean $return_as_data</p>
+<p>@return html</p>
+
+<p>get invoices count widget for client</p>
+<p>@param string $widget_type</p>
+<p>@param boolean $return_as_data</p>
+<p>@return html</p>
+
+<p>get projects count widget for client</p>
+<p>@param boolean $return_as_data</p>
+<p>@return html</p>
+
+<p>get estimates count widget for client</p>
+<p>@param boolean $return_as_data</p>
+<p>@return html</p>
+
+<p>get clients has open tickets count</p>
+
+<p>@return html</p>
+
+<p>get clients has new orders count</p>
+
+<p>@return html</p>
+
+<p>get proposals count widget for client</p>
+<p>@param boolean $return_as_data</p>
+<p>@return html</p>
+
+<p>get projects overview widget</p>
+<p>@param integer $user_id</p>
+
+<p>@return html</p>
+
+<p>get estimate sent statistics widget</p>
+
+<p>@return html</p>
+
+<p>get last announcement widget</p>
+<p>@return html</p>
+
+<p>get team members overview</p>
+
+<p>@return html</p>
+
+<p>get all task overview widget of loged in user</p>
+
+<p>@return html</p>
+
+<p>get total invoices overview widget</p>
+<p>@param string $type</p>
+
+<p>@return html</p>
+
+<p>get next reminder widget</p>
+
+<p>@return html</p>
+
+<h2>References</h2>
+
+<p><strong>Views Rendered</strong></p>
+<ul>
+<li><code>company/company_widget</code></li>
+</ul>
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>now</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\Helpers\widget_helper.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>clock_widget()</code></li>
+<li><code>activity_logs_widget($params = array()</code></li>
+<li><code>timeline_widget($params = array()</code></li>
+<li><code>announcements_alert_widget()</code></li>
+<li><code>my_open_tasks_widget()</code></li>
+<li><code>my_task_stataus_widget($custom_class = "")</code></li>
+<li><code>events_today_widget()</code></li>
+<li><code>new_posts_widget()</code></li>
+<li><code>events_widget()</code></li>
+<li><code>get_event_icon($share_with = "")</code></li>
+<li><code>has_my_open_timers()</code></li>
+<li><code>income_vs_expenses_widget($custom_class = "")</code></li>
+<li><code>ticket_status_widget($data = array()</code></li>
+<li><code>invoice_statistics_widget($options = array()</code></li>
+<li><code>project_timesheet_statistics_widget($type = "")</code></li>
+<li><code>timecard_statistics_widget()</code></li>
+<li><code>count_clock_status_widget()</code></li>
+<li><code>count_project_status_widget($user_id = 0)</code></li>
+<li><code>count_total_time_widget($user_id = 0)</code></li>
+<li><code>count_total_time_widget_small($user_id = 0, $widget_type = "")</code></li>
+<li><code>social_links_widget($weblinks)</code></li>
+<li><code>count_unread_message()</code></li>
+<li><code>count_new_tickets($ticket_types = "", $show_assigned_tickets_only_user_id = 0)</code></li>
+<li><code>all_tasks_kanban_widget()</code></li>
+<li><code>todo_list_widget()</code></li>
+<li><code>invalid_access_widget()</code></li>
+<li><code>open_projects_widget($user_id = 0)</code></li>
+<li><code>completed_projects_widget($user_id = 0)</code></li>
+<li><code>count_clock_in_widget()</code></li>
+<li><code>count_clock_out_widget()</code></li>
+<li><code>my_open_projects_widget($client_id = 0)</code></li>
+<li><code>my_starred_projects_widget($user_id = 0)</code></li>
+<li><code>sticky_note_widget($custom_class = "")</code></li>
+<li><code>ticket_status_widget_small($data = array()</code></li>
+<li><code>all_team_members_widget()</code></li>
+<li><code>clocked_in_team_members_widget($data = array()</code></li>
+<li><code>clocked_out_team_members_widget($data = array()</code></li>
+<li><code>active_members_and_clients_widget($user_type = "", $show_own_clients_only_user_id = "", $allowed_client_groups = "")</code></li>
+<li><code>get_invoices_value_widget($type = "")</code></li>
+<li><code>my_tasks_list_widget()</code></li>
+<li><code>pending_leave_approval_widget($data = array()</code></li>
+<li><code>draft_invoices_widget()</code></li>
+<li><code>total_clients_widget($show_own_clients_only_user_id = "", $allowed_client_groups = "")</code></li>
+<li><code>total_contacts_widget($show_own_clients_only_user_id = "", $allowed_client_groups = "")</code></li>
+<li><code>active_members_on_projects_widget()</code></li>
+<li><code>open_tickets_list_widget()</code></li>
+<li><code>total_leads_widget($returen_as_data = false, $show_own_leads_only_user_id = "")</code></li>
+<li><code>client_contacts_logged_in_widget($widget_type = "", $show_own_clients_only_user_id = "", $allowed_client_groups = "", $return_as_data = false)</code></li>
+<li><code>client_invoices_widget($widget_type = "", $show_own_clients_only_user_id = "", $allowed_client_groups = "", $return_as_data = false)</code></li>
+<li><code>client_projects_widget($show_own_clients_only_user_id = "", $allowed_client_groups = "", $return_as_data = false)</code></li>
+<li><code>client_estimates_widget($show_own_clients_only_user_id = "", $allowed_client_groups = "", $return_as_data = false)</code></li>
+<li><code>clients_has_open_tickets_widget($show_own_clients_only_user_id = "", $allowed_client_groups = "")</code></li>
+<li><code>clients_has_new_orders_widget($show_own_clients_only_user_id = "", $allowed_client_groups = "")</code></li>
+<li><code>client_proposals_widget($show_own_clients_only_user_id = "", $allowed_client_groups = "", $return_as_data = false)</code></li>
+<li><code>company_widget($company_id = 0)</code></li>
+<li><code>projects_overview_widget()</code></li>
+<li><code>reminders_widget($return_reminders_only = false)</code></li>
+<li><code>estimate_sent_statistics_widget($options = array()</code></li>
+<li><code>last_announcement_widget()</code></li>
+<li><code>team_members_overview_widget($data = array()</code></li>
+<li><code>all_tasks_overview_widget()</code></li>
+<li><code>invoice_overview_widget($options = array()</code></li>
+<li><code>next_reminder_widget()</code></li>
+</ul>
+</body></html>

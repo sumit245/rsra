@@ -1,0 +1,45 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\PromotionCode.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\PromotionCode.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\PromotionCode.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2521 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>A Promotion Code represents a customer-redeemable code for a <a</p>
+<p>href="https://stripe.com/docs/api#coupons">coupon</a>. It can be used to create</p>
+<p>multiple codes for a single coupon.</p>
+<p>@property string $id Unique identifier for the object.</p>
+<p>@property string $object String representing the object's type. Objects of the same type share the same value.</p>
+<p>@property bool $active Whether the promotion code is currently active. A promotion code is only active if the coupon is also valid.</p>
+<p>@property string $code The customer-facing code. Regardless of case, this code must be unique across all active promotion codes for each customer.</p>
+<p>@property \Stripe\Coupon $coupon A coupon contains information about a percent-off or amount-off discount you might want to apply to a customer. Coupons may be applied to <a href="https://stripe.com/docs/api#subscriptions">subscriptions</a>, <a href="https://stripe.com/docs/api#invoices">invoices</a>, <a href="https://stripe.com/docs/api/checkout/sessions">checkout sessions</a>, <a href="https://stripe.com/docs/api#quotes">quotes</a>, and more. Coupons do not work with conventional one-off <a href="https://stripe.com/docs/api#create_charge">charges</a> or <a href="https://stripe.com/docs/api/payment_intents">payment intents</a>.</p>
+<p>@property int $created Time at which the object was created. Measured in seconds since the Unix epoch.</p>
+<p>@property null|string|\Stripe\Customer $customer The customer that this promotion code can be used by.</p>
+<p>@property null|int $expires_at Date at which the promotion code can no longer be redeemed.</p>
+<p>@property bool $livemode Has the value <code>true</code> if the object exists in live mode or the value <code>false</code> if the object exists in test mode.</p>
+<p>@property null|int $max_redemptions Maximum number of times this promotion code can be redeemed.</p>
+<p>@property null|\Stripe\StripeObject $metadata Set of <a href="https://stripe.com/docs/api/metadata">key-value pairs</a> that you can attach to an object. This can be useful for storing additional information about the object in a structured format.</p>
+<p>@property \Stripe\StripeObject $restrictions</p>
+<p>@property int $times_redeemed Number of times this promotion code has been used.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\PromotionCode.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\PromotionCode extends ApiResource</code></li>
+</ul>
+</body></html>

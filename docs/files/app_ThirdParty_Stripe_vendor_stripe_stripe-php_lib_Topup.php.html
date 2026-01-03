@@ -1,0 +1,59 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Topup.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Topup.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Topup.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3756 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>To top up your Stripe balance, you create a top-up object. You can retrieve</p>
+<p>individual top-ups, as well as list all top-ups. Top-ups are identified by a</p>
+<p>unique, random ID.</p>
+<p>Related guide: <a href="https://stripe.com/docs/connect/top-ups">Topping Up your</p>
+<p>Platform Account</a>.</p>
+<p>@property string $id Unique identifier for the object.</p>
+<p>@property string $object String representing the object's type. Objects of the same type share the same value.</p>
+<p>@property int $amount Amount transferred.</p>
+<p>@property null|string|\Stripe\BalanceTransaction $balance_transaction ID of the balance transaction that describes the impact of this top-up on your account balance. May not be specified depending on status of top-up.</p>
+<p>@property int $created Time at which the object was created. Measured in seconds since the Unix epoch.</p>
+<p>@property string $currency Three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO currency code</a>, in lowercase. Must be a <a href="https://stripe.com/docs/currencies">supported currency</a>.</p>
+<p>@property null|string $description An arbitrary string attached to the object. Often useful for displaying to users.</p>
+<p>@property null|int $expected_availability_date Date the funds are expected to arrive in your Stripe account for payouts. This factors in delays like weekends or bank holidays. May not be specified depending on status of top-up.</p>
+<p>@property null|string $failure_code Error code explaining reason for top-up failure if available (see <a href="https://stripe.com/docs/api#errors">the errors section</a> for a list of codes).</p>
+<p>@property null|string $failure_message Message to user further explaining reason for top-up failure if available.</p>
+<p>@property bool $livemode Has the value <code>true</code> if the object exists in live mode or the value <code>false</code> if the object exists in test mode.</p>
+<p>@property \Stripe\StripeObject $metadata Set of <a href="https://stripe.com/docs/api/metadata">key-value pairs</a> that you can attach to an object. This can be useful for storing additional information about the object in a structured format.</p>
+<p>@property null|\Stripe\Source $source For most Stripe users, the source of every top-up is a bank account. This hash is then the <a href="https://stripe.com/docs/api#source_object">source object</a> describing that bank account.</p>
+<p>@property null|string $statement_descriptor Extra information about a top-up. This will appear on your source's bank statement. It must contain at least one letter.</p>
+<p>@property string $status The status of the top-up is either <code>canceled</code>, <code>failed</code>, <code>pending</code>, <code>reversed</code>, or <code>succeeded</code>.</p>
+<p>@property null|string $transfer_group A string that identifies this top-up as part of a group.</p>
+
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Topup the canceled topup</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Topup.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Topup extends ApiResource</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>cancel($params = null, $opts = null)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,62 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\ThirdParty\Kint\Renderer\TextRenderer.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\ThirdParty\Kint\Renderer\TextRenderer.php</h1>
+
+<ul>
+<li>Path: <code>system\ThirdParty\Kint\Renderer\TextRenderer.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9565 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>TextRenderer plugins should be instances of Kint\Renderer\Text\Plugin.</p>
+
+<p>Parser plugins must be instanceof one of these or</p>
+<p>it will be removed for performance reasons.</p>
+
+<p>The maximum length of a string before it is truncated.</p>
+<p>Falsey to disable</p>
+<p>@var int</p>
+
+<p>The default width of the terminal for headers.</p>
+<p>@var int</p>
+
+<p>Indentation width.</p>
+<p>@var int</p>
+
+<p>Decorate the header and footer.</p>
+<p>@var bool</p>
+
+<p>Sort mode for object properties.</p>
+<p>@var int</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\ThirdParty\Kint\Renderer\TextRenderer.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Kint\Renderer\TextRenderer extends Renderer</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>render(Value $o)</code></li>
+<li><code>renderNothing()</code></li>
+<li><code>boxText($text, $width)</code></li>
+<li><code>renderTitle(Value $o)</code></li>
+<li><code>renderHeader(Value $o)</code></li>
+<li><code>renderChildren(Value $o)</code></li>
+<li><code>colorValue($string)</code></li>
+<li><code>colorType($string)</code></li>
+<li><code>colorTitle($string)</code></li>
+<li><code>postRender()</code></li>
+<li><code>filterParserPlugins(array $plugins)</code></li>
+<li><code>ideLink($file, $line)</code></li>
+<li><code>escape($string, $encoding = false)</code></li>
+<li><code>calledFrom()</code></li>
+<li><code>getPlugin(array $plugins, array $hints)</code></li>
+</ul>
+</body></html>

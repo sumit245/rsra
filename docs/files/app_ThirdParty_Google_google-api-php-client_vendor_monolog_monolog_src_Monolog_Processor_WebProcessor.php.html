@@ -1,0 +1,51 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Processor\WebProcessor.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Processor\WebProcessor.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Processor\WebProcessor.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3212 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Injects url/method and remote IP of the current web request in all records</p>
+<p>@author Jordi Boggiano <j.boggiano@seld.be></p>
+
+<p>@var array|\ArrayAccess</p>
+
+<p>Default fields</p>
+<p>Array is structured as [key in record.extra => key in $serverData]</p>
+<p>@var array</p>
+
+<p>@param array|\ArrayAccess $serverData  Array or object w/ ArrayAccess that provides access to the $_SERVER data</p>
+<p>@param array|null         $extraFields Field names and the related key inside $serverData to be added. If not provided it defaults to: url, ip, http_method, server, referrer</p>
+
+<p>@param  array $record</p>
+<p>@return array</p>
+
+<p>@param  string $extraName</p>
+<p>@param  string $serverName</p>
+<p>@return $this</p>
+
+<p>@param  array $extra</p>
+<p>@return array</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Processor\WebProcessor.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Monolog\Processor\WebProcessor</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($serverData = null, array $extraFields = null)</code></li>
+<li><code>__invoke(array $record)</code></li>
+<li><code>addExtraField($extraName, $serverName)</code></li>
+<li><code>appendExtraFields(array $extra)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,168 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Encoder.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Encoder.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Encoder.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 25647 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>A UTF-8 specific character encoder that handles cleaning and transforming.</p>
+<p>@note All functions in this class should be static.</p>
+
+<p>Constructor throws fatal error if you attempt to instantiate class</p>
+
+<p>Error-handler that mutes errors, alternative to shut-up operator.</p>
+
+<p>iconv wrapper which mutes errors, but doesn't work around bugs.</p>
+<p>@param string $in Input encoding</p>
+<p>@param string $out Output encoding</p>
+<p>@param string $text The text to convert</p>
+<p>@return string</p>
+
+<p>iconv wrapper which mutes errors and works around bugs.</p>
+<p>@param string $in Input encoding</p>
+<p>@param string $out Output encoding</p>
+<p>@param string $text The text to convert</p>
+<p>@param int $max_chunk_size</p>
+<p>@return string</p>
+
+<p>Cleans a UTF-8 string for well-formedness and SGML validity</p>
+<p>It will parse according to UTF-8 and return a valid UTF8 string, with</p>
+<p>non-SGML codepoints excluded.</p>
+<p>Specifically, it will permit:</p>
+<p>\x{9}\x{A}\x{D}\x{20}-\x{7E}\x{A0}-\x{D7FF}\x{E000}-\x{FFFD}\x{10000}-\x{10FFFF}</p>
+<p>Source: https://www.w3.org/TR/REC-xml/#NT-Char</p>
+<p>Arguably this function should be modernized to the HTML5 set</p>
+<p>of allowed characters:</p>
+<p>https://www.w3.org/TR/html5/syntax.html#preprocessing-the-input-stream</p>
+<p>which simultaneously expand and restrict the set of allowed characters.</p>
+<p>@param string $str The string to clean</p>
+<p>@param bool $force_php</p>
+<p>@return string</p>
+<p>@note Just for reference, the non-SGML code points are 0 to 31 and</p>
+<p>      127 to 159, inclusive.  However, we allow code points 9, 10</p>
+<p>      and 13, which are the tab, line feed and carriage return</p>
+<p>      respectively. 128 and above the code points map to multibyte</p>
+<p>      UTF-8 representations.</p>
+<p>@note Fallback code adapted from utf8ToUnicode by Henri Sivonen and</p>
+<p>      hsivonen@iki.fi at <http://iki.fi/hsivonen/php-utf8/> under the</p>
+<p>      LGPL license.  Notes on what changed are inside, but in general,</p>
+<p>      the original code transformed UTF-8 text into an array of integer</p>
+<p>      Unicode codepoints. Understandably, transforming that back to</p>
+<p>      a string would be somewhat expensive, so the function was modded to</p>
+<p>      directly operate on the string.  However, this discourages code</p>
+<p>      reuse, and the logic enumerated here would be useful for any</p>
+<p>      function that needs to be able to understand UTF-8 characters.</p>
+<p>      As of right now, only smart lossless character encoding converters</p>
+<p>      would need that, and I'm probably not going to implement them.</p>
+
+<p>Translates a Unicode codepoint into its corresponding UTF-8 character.</p>
+<p>@note Based on Feyd's function at</p>
+<p>      <http://forums.devnetwork.net/viewtopic.php?p=191404#191404>,</p>
+<p>      which is in public domain.</p>
+<p>@note While we're going to do code point parsing anyway, a good</p>
+<p>      optimization would be to refuse to translate code points that</p>
+<p>      are non-SGML characters.  However, this could lead to duplication.</p>
+<p>@note This is very similar to the unichr function in</p>
+<p>      maintenance/generate-entity-file.php (although this is superior,</p>
+<p>      due to its sanity checks).</p>
+
+<p>@return bool</p>
+
+<p>Convert a string to UTF-8 based on configuration.</p>
+<p>@param string $str The string to convert</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@param HTMLPurifier_Context $context</p>
+<p>@return string</p>
+
+<p>Converts a string from UTF-8 based on configuration.</p>
+<p>@param string $str The string to convert</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@param HTMLPurifier_Context $context</p>
+<p>@return string</p>
+<p>@note Currently, this is a lossy conversion, with unexpressable</p>
+<p>      characters being omitted.</p>
+
+<p>Lossless (character-wise) conversion of HTML to ASCII</p>
+<p>@param string $str UTF-8 string to be converted to ASCII</p>
+<p>@return string ASCII encoded string with non-ASCII character entity-ized</p>
+<p>@warning Adapted from MediaWiki, claiming fair use: this is a common</p>
+<p>      algorithm. If you disagree with this license fudgery,</p>
+<p>      implement it yourself.</p>
+<p>@note Uses decimal numeric entities since they are best supported.</p>
+<p>@note This is a DUMB function: it has no concept of keeping</p>
+<p>      character entities that the projected character encoding</p>
+<p>      can allow. We could possibly implement a smart version</p>
+<p>      but that would require it to also know which Unicode</p>
+<p>      codepoints the charset supported (not an easy task).</p>
+<p>@note Sort of with cleanUTF8() but it assumes that $str is</p>
+<p>      well-formed UTF-8</p>
+
+<p>No bugs detected in iconv.</p>
+
+<p>Iconv truncates output if converting from UTF-8 to another</p>
+<p> character set with //IGNORE, and a non-encodable character is found</p>
+
+<p>Iconv does not support //IGNORE, making it unusable for</p>
+<p> transcoding purposes</p>
+
+<p>glibc iconv has a known bug where it doesn't handle the magic</p>
+<p>//IGNORE stanza correctly.  In particular, rather than ignore</p>
+<p>characters, it will return an EILSEQ after consuming some number</p>
+<p>of characters, and expect you to restart iconv as if it were</p>
+<p>an E2BIG.  Old versions of PHP did not respect the errno, and</p>
+<p>returned the fragment, so as a result you would see iconv</p>
+<p>mysteriously truncating output. We can work around this by</p>
+<p>manually chopping our input into segments of about 8000</p>
+<p>characters, as long as PHP ignores the error code.  If PHP starts</p>
+<p>paying attention to the error code, iconv becomes unusable.</p>
+<p>@return int Error code indicating severity of bug.</p>
+
+<p>This expensive function tests whether or not a given character</p>
+<p>encoding supports ASCII. 7/8-bit encodings like Shift_JIS will</p>
+<p>fail this test, and require special processing. Variable width</p>
+<p>encodings shouldn't ever fail.</p>
+<p>@param string $encoding Encoding name to test, as per iconv format</p>
+<p>@param bool $bypass Whether or not to bypass the precompiled arrays.</p>
+<p>@return Array of UTF-8 characters to their corresponding ASCII,</p>
+<p>     which can be used to "undo" any overzealous iconv action.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>utf8ToUnicode</code></li>
+<li><code>Unicode</code></li>
+<li><code>UTF</code></li>
+<li><code>MediaWiki</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Encoder.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>should</code></li>
+<li><code>HTMLPurifier_Encoder</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>muteErrorHandler()</code></li>
+<li><code>unsafeIconv($in, $out, $text)</code></li>
+<li><code>iconv($in, $out, $text, $max_chunk_size = 8000)</code></li>
+<li><code>cleanUTF8($str, $force_php = false)</code></li>
+<li><code>unichr($code)</code></li>
+<li><code>iconvAvailable()</code></li>
+<li><code>convertToUTF8($str, $config, $context)</code></li>
+<li><code>convertFromUTF8($str, $config, $context)</code></li>
+<li><code>convertToASCIIDumbLossless($str)</code></li>
+<li><code>testIconvTruncateBug()</code></li>
+<li><code>testEncodingSupportsASCII($encoding, $bypass = false)</code></li>
+</ul>
+</body></html>

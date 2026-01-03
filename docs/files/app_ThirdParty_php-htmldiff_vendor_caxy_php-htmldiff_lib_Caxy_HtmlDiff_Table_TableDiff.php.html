@@ -1,0 +1,208 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\php-htmldiff\vendor\caxy\php-htmldiff\lib\Caxy\HtmlDiff\Table\TableDiff.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\php-htmldiff\vendor\caxy\php-htmldiff\lib\Caxy\HtmlDiff\Table\TableDiff.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\php-htmldiff\vendor\caxy\php-htmldiff\lib\Caxy\HtmlDiff\Table\TableDiff.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 27387 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Class TableDiff.</p>
+
+<p>@var null|Table</p>
+
+<p>@var null|Table</p>
+
+<p>@var null|\DOMElement</p>
+
+<p>@var null|\DOMDocument</p>
+
+<p>@var int</p>
+
+<p>@var int</p>
+
+<p>@var array</p>
+
+<p>@param string              $oldText</p>
+<p>@param string              $newText</p>
+<p>@param HtmlDiffConfig|null $config</p>
+<p>@return self</p>
+
+<p>TableDiff constructor.</p>
+<p>@param string     $oldText</p>
+<p>@param string     $newText</p>
+<p>@param string     $encoding</p>
+<p>@param array|null $specialCaseTags</p>
+<p>@param bool|null  $groupDiffs</p>
+
+<p>@return string</p>
+
+<p>@param TableRow[] $oldRows</p>
+<p>@param TableRow[] $newRows</p>
+<p>@param RowMatch[] $matches</p>
+
+<p>@param Operation $operation</p>
+<p>@param array     $newRows</p>
+<p>@param array     $appliedRowSpans</p>
+<p>@param bool      $forceExpansion</p>
+
+<p>@param Operation $operation</p>
+<p>@param array     $oldRows</p>
+<p>@param array     $appliedRowSpans</p>
+<p>@param bool      $forceExpansion</p>
+
+<p>@param Operation $operation</p>
+<p>@param array     $oldRows</p>
+<p>@param array     $newRows</p>
+<p>@param array     $appliedRowSpans</p>
+
+<p>@param Operation $operation</p>
+<p>@param array     $oldRows</p>
+<p>@param array     $newRows</p>
+<p>@param array     $appliedRowSpans</p>
+
+<p>@param array $oldMatchData</p>
+<p>@param array $newMatchData</p>
+<p>@return array</p>
+
+<p>@param array $newMatchData</p>
+<p>@param int   $startInOld</p>
+<p>@param int   $endInOld</p>
+<p>@param int   $startInNew</p>
+<p>@param int   $endInNew</p>
+<p>@param array $matches</p>
+
+<p>@param array $newMatchData</p>
+<p>@param int   $startInOld</p>
+<p>@param int   $endInOld</p>
+<p>@param int   $startInNew</p>
+<p>@param int   $endInNew</p>
+<p>@return RowMatch|null</p>
+
+<p>@param TableRow|null $oldRow</p>
+<p>@param TableRow|null $newRow</p>
+<p>@param array         $appliedRowSpans</p>
+<p>@param bool          $forceExpansion</p>
+<p>@return array</p>
+
+<p>@param TableCell|null $oldCell</p>
+<p>@param TableCell|null $newCell</p>
+<p>@return \DOMElement</p>
+
+<p>@param TableCell|null $oldCell</p>
+<p>@param TableCell|null $newCell</p>
+<p>@param bool           $usingExtraRow</p>
+<p>@return \DOMElement</p>
+
+<p>@param string $text</p>
+<p>@return \DOMDocument</p>
+
+<p>@param string $text</p>
+<p>@return Table</p>
+
+<p>@param Table         $table</p>
+<p>@param \DOMNode|null $node</p>
+
+<p>@param TableRow $row</p>
+
+<p>@param \DOMNode $node</p>
+<p>@return string</p>
+
+<p>@param \DOMNode $node</p>
+<p>@return string</p>
+
+<p>@param \DOMNode $node</p>
+<p>@param string   $html</p>
+
+<p>@param Table $table</p>
+
+<p>@param TableRow        $tableRow</p>
+<p>@param DiffRowPosition $position</p>
+<p>@param array           $cellsWithMultipleRows</p>
+<p>@param \DOMNode        $diffRow</p>
+<p>@param string          $diffType</p>
+<p>@param bool            $usingExtraRow</p>
+
+<p>@param null|TableCell  $oldCell</p>
+<p>@param null|TableCell  $newCell</p>
+<p>@param array           $cellsWithMultipleRows</p>
+<p>@param \DOMElement     $diffRow</p>
+<p>@param DiffRowPosition $position</p>
+<p>@param bool            $usingExtraRow</p>
+<p>@return \DOMElement</p>
+
+<p>@param TableRow|null $oldRow</p>
+<p>@param TableRow|null $newRow</p>
+<p>@param array         $appliedRowSpans</p>
+<p>@param bool          $forceExpansion</p>
+
+<p>@param TableRow $oldRow</p>
+<p>@param TableRow $newRow</p>
+<p>@param int      $oldIndex</p>
+<p>@param int      $newIndex</p>
+<p>@return float|int</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\php-htmldiff\vendor\caxy\php-htmldiff\lib\Caxy\HtmlDiff\Table\TableDiff.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Caxy\HtmlDiff\Table\TableDiff extends AbstractDiff</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>create($oldText, $newText, HtmlDiffConfig $config = null)</code></li>
+<li>`__construct($oldText,</li>
+<p>        $newText,</p>
+<p>        $encoding = 'UTF-8',</p>
+<p>        $specialCaseTags = null,</p>
+<p>        $groupDiffs = null)`</p>
+<li><code>build()</code></li>
+<li><code>diffTableContent()</code></li>
+<li><code>diffTableRowsWithMatches($oldRows, $newRows, $matches)</code></li>
+<li>`processInsertOperation(Operation $operation,</li>
+<p>        $newRows,</p>
+<p>        &$appliedRowSpans,</p>
+<p>        $forceExpansion = false)`</p>
+<li>`processDeleteOperation(Operation $operation,</li>
+<p>        $oldRows,</p>
+<p>        &$appliedRowSpans,</p>
+<p>        $forceExpansion = false)`</p>
+<li><code>processEqualOperation(Operation $operation, $oldRows, $newRows, &$appliedRowSpans)</code></li>
+<li><code>processReplaceOperation(Operation $operation, $oldRows, $newRows, &$appliedRowSpans)</code></li>
+<li><code>getRowMatches($oldMatchData, $newMatchData)</code></li>
+<li><code>findRowMatches($newMatchData, $startInOld, $endInOld, $startInNew, $endInNew, &$matches)</code></li>
+<li><code>findRowMatch($newMatchData, $startInOld, $endInOld, $startInNew, $endInNew)</code></li>
+<li><code>diffRows($oldRow, $newRow, array &$appliedRowSpans, $forceExpansion = false)</code></li>
+<li><code>getNewCellNode(TableCell $oldCell = null, TableCell $newCell = null)</code></li>
+<li><code>diffCells($oldCell, $newCell, $usingExtraRow = false)</code></li>
+<li><code>buildTableDoms()</code></li>
+<li><code>createDocumentWithHtml($text)</code></li>
+<li><code>parseTableStructure($text)</code></li>
+<li><code>parseTable(Table $table, \DOMNode $node = null)</code></li>
+<li><code>parseTableRow(TableRow $row)</code></li>
+<li><code>getInnerHtml($node)</code></li>
+<li><code>htmlFromNode($node)</code></li>
+<li><code>setInnerHtml($node, $html)</code></li>
+<li><code>indexCellValues(Table $table)</code></li>
+<li>`syncVirtualColumns($tableRow,</li>
+<p>        DiffRowPosition $position,</p>
+<p>        &$cellsWithMultipleRows,</p>
+<p>        $diffRow,</p>
+<p>        $diffType,</p>
+<p>        $usingExtraRow = false)`</p>
+<li>`diffCellsAndIncrementCounters($oldCell,</li>
+<p>        $newCell,</p>
+<p>        &$cellsWithMultipleRows,</p>
+<p>        $diffRow,</p>
+<p>        DiffRowPosition $position,</p>
+<p>        $usingExtraRow = false)`</p>
+<li><code>diffAndAppendRows($oldRow, $newRow, &$appliedRowSpans, $forceExpansion = false)</code></li>
+<li><code>getMatchPercentage(TableRow $oldRow, TableRow $newRow, $oldIndex, $newIndex)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,16 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Routes Map</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>Routes Map</h1>
+
+<p>Detected route declarations from <code>app/Config/Routes.php</code> (basic parsing):</p>
+
+<table>
+<tr><td>Method</td><td>URI</td><td>Target</td></tr>
+<tr><td>GET</td><td>/</td><td>Dashboard::index</td></tr>
+<tr><td>ADD</td><td>about/(:any)</td><td>About::index/$1</td></tr>
+<tr><td>GET</td><td>Plugins</td><td>Plugins::index</td></tr>
+<tr><td>GET</td><td>Plugins/(:any)</td><td>Plugins::$1</td></tr>
+<tr><td>POST</td><td>Plugins/(:any)</td><td>Plugins::$1</td></tr>
+<tr><td>GET</td><td>Updates</td><td>Updates::index</td></tr>
+<tr><td>GET</td><td>Updates/(:any)</td><td>Updates::$1</td></tr>
+<tr><td>POST</td><td>Updates/(:any)</td><td>Updates::$1</td></tr>
+</table>
+</body></html>

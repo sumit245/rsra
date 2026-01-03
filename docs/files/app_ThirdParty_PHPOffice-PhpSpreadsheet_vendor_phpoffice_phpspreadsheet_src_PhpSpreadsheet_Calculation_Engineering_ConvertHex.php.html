@@ -1,0 +1,107 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Engineering\ConvertHex.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Engineering\ConvertHex.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Engineering\ConvertHex.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7726 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>toBinary.</p>
+<p>Return a hex value as binary.</p>
+<p>Excel Function:</p>
+<p>       HEX2BIN(x[,places])</p>
+<p>@param array|string $value The hexadecimal number you want to convert.</p>
+<p>                     Number cannot contain more than 10 characters.</p>
+<p>                     The most significant bit of number is the sign bit (40th bit from the right).</p>
+<p>                     The remaining 9 bits are magnitude bits.</p>
+<p>                     Negative numbers are represented using two's-complement notation.</p>
+<p>                     If number is negative, HEX2BIN ignores places and returns a 10-character binary number.</p>
+<p>                     If number is negative, it cannot be less than FFFFFFFE00,</p>
+<p>                         and if number is positive, it cannot be greater than 1FF.</p>
+<p>                     If number is not a valid hexadecimal number, HEX2BIN returns the #NUM! error value.</p>
+<p>                     If HEX2BIN requires more than places characters, it returns the #NUM! error value.</p>
+<p>                     Or can be an array of values</p>
+<p>@param array|int $places The number of characters to use. If places is omitted,</p>
+<p>                         HEX2BIN uses the minimum number of characters necessary. Places</p>
+<p>                         is useful for padding the return value with leading 0s (zeros).</p>
+<p>                     If places is not an integer, it is truncated.</p>
+<p>                     If places is nonnumeric, HEX2BIN returns the #VALUE! error value.</p>
+<p>                     If places is negative, HEX2BIN returns the #NUM! error value.</p>
+<p>                     Or can be an array of values</p>
+<p>@return array|string Result, or an error</p>
+<p>        If an array of numbers is passed as an argument, then the returned result will also be an array</p>
+<p>           with the same dimensions</p>
+
+<p>toDecimal.</p>
+<p>Return a hex value as decimal.</p>
+<p>Excel Function:</p>
+<p>       HEX2DEC(x)</p>
+<p>@param array|string $value The hexadecimal number you want to convert. This number cannot</p>
+<p>                         contain more than 10 characters (40 bits). The most significant</p>
+<p>                         bit of number is the sign bit. The remaining 39 bits are magnitude</p>
+<p>                         bits. Negative numbers are represented using two's-complement</p>
+<p>                         notation.</p>
+<p>                     If number is not a valid hexadecimal number, HEX2DEC returns the</p>
+<p>                         #NUM! error value.</p>
+<p>                     Or can be an array of values</p>
+<p>@return array|string Result, or an error</p>
+<p>        If an array of numbers is passed as an argument, then the returned result will also be an array</p>
+<p>           with the same dimensions</p>
+
+<p>toOctal.</p>
+<p>Return a hex value as octal.</p>
+<p>Excel Function:</p>
+<p>       HEX2OCT(x[,places])</p>
+<p>@param array|string $value The hexadecimal number you want to convert. Number cannot</p>
+<p>                                   contain more than 10 characters. The most significant bit of</p>
+<p>                                   number is the sign bit. The remaining 39 bits are magnitude</p>
+<p>                                   bits. Negative numbers are represented using two's-complement</p>
+<p>                                   notation.</p>
+<p>                                   If number is negative, HEX2OCT ignores places and returns a</p>
+<p>                                   10-character octal number.</p>
+<p>                                   If number is negative, it cannot be less than FFE0000000, and</p>
+<p>                                   if number is positive, it cannot be greater than 1FFFFFFF.</p>
+<p>                                   If number is not a valid hexadecimal number, HEX2OCT returns</p>
+<p>                                   the #NUM! error value.</p>
+<p>                                   If HEX2OCT requires more than places characters, it returns</p>
+<p>                                   the #NUM! error value.</p>
+<p>                     Or can be an array of values</p>
+<p>@param array|int $places The number of characters to use. If places is omitted, HEX2OCT</p>
+<p>                                   uses the minimum number of characters necessary. Places is</p>
+<p>                                   useful for padding the return value with leading 0s (zeros).</p>
+<p>                                   If places is not an integer, it is truncated.</p>
+<p>                                   If places is nonnumeric, HEX2OCT returns the #VALUE! error</p>
+<p>                                   value.</p>
+<p>                                   If places is negative, HEX2OCT returns the #NUM! error value.</p>
+<p>                     Or can be an array of values</p>
+<p>@return array|string Result, or an error</p>
+<p>        If an array of numbers is passed as an argument, then the returned result will also be an array</p>
+<p>           with the same dimensions</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Engineering\ConvertHex.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\Engineering\ConvertHex extends ConvertBase</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>toBinary($value, $places = null)</code></li>
+<li><code>toDecimal($value)</code></li>
+<li><code>toOctal($value, $places = null)</code></li>
+<li><code>validateHex(string $value)</code></li>
+</ul>
+</body></html>

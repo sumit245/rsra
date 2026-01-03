@@ -1,0 +1,221 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\scssphp\vendor\composer\ClassLoader.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\scssphp\vendor\composer\ClassLoader.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\scssphp\vendor\composer\ClassLoader.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 16068 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>ClassLoader implements a PSR-0, PSR-4 and classmap class loader.</p>
+<p>    $loader = new \Composer\Autoload\ClassLoader();</p>
+<p>    // register classes with namespaces</p>
+<p>    $loader->add('Symfony\Component', __DIR__.'/component');</p>
+<p>    $loader->add('Symfony',           __DIR__.'/framework');</p>
+<p>    // activate the autoloader</p>
+<p>    $loader->register();</p>
+<p>    // to enable searching the include path (eg. for PEAR packages)</p>
+<p>    $loader->setUseIncludePath(true);</p>
+<p>In this example, if you try to use a class in the Symfony\Component</p>
+<p>namespace or one of its children (Symfony\Component\Console for instance),</p>
+<p>the autoloader will first look for the class under the component/</p>
+<p>directory, and it will then fallback to the framework/ directory if not</p>
+<p>found before giving up.</p>
+<p>This class is loosely based on the Symfony UniversalClassLoader.</p>
+<p>@author Fabien Potencier <fabien@symfony.com></p>
+<p>@author Jordi Boggiano <j.boggiano@seld.be></p>
+<p>@see    https://www.php-fig.org/psr/psr-0/</p>
+<p>@see    https://www.php-fig.org/psr/psr-4/</p>
+
+<p>@var ?string</p>
+
+<p>@var array[]</p>
+<p>@psalm-var array<string, array<string, int>></p>
+
+<p>@var array[]</p>
+<p>@psalm-var array<string, array<int, string>></p>
+
+<p>@var array[]</p>
+<p>@psalm-var array<string, string></p>
+
+<p>@var array[]</p>
+<p>@psalm-var array<string, array<string, string[]>></p>
+
+<p>@var array[]</p>
+<p>@psalm-var array<string, string></p>
+
+<p>@var bool</p>
+
+<p>@var string[]</p>
+<p>@psalm-var array<string, string></p>
+
+<p>@var bool</p>
+
+<p>@var bool[]</p>
+<p>@psalm-var array<string, bool></p>
+
+<p>@var ?string</p>
+
+<p>@var self[]</p>
+
+<p>@param ?string $vendorDir</p>
+
+<p>@return string[]</p>
+
+<p>@return array[]</p>
+<p>@psalm-return array<string, array<int, string>></p>
+
+<p>@return array[]</p>
+<p>@psalm-return array<string, string></p>
+
+<p>@return array[]</p>
+<p>@psalm-return array<string, string></p>
+
+<p>@return string[] Array of classname => path</p>
+<p>@psalm-return array<string, string></p>
+
+<p>@param string[] $classMap Class to filename map</p>
+<p>@psalm-param array<string, string> $classMap</p>
+<p>@return void</p>
+
+<p>Registers a set of PSR-0 directories for a given prefix, either</p>
+<p>appending or prepending to the ones previously set for this prefix.</p>
+<p>@param string          $prefix  The prefix</p>
+<p>@param string[]|string $paths   The PSR-0 root directories</p>
+<p>@param bool            $prepend Whether to prepend the directories</p>
+<p>@return void</p>
+
+<p>Registers a set of PSR-4 directories for a given namespace, either</p>
+<p>appending or prepending to the ones previously set for this namespace.</p>
+<p>@param string          $prefix  The prefix/namespace, with trailing '\\'</p>
+<p>@param string[]|string $paths   The PSR-4 base directories</p>
+<p>@param bool            $prepend Whether to prepend the directories</p>
+<p>@throws \InvalidArgumentException</p>
+<p>@return void</p>
+
+<p>Registers a set of PSR-0 directories for a given prefix,</p>
+<p>replacing any others previously set for this prefix.</p>
+<p>@param string          $prefix The prefix</p>
+<p>@param string[]|string $paths  The PSR-0 base directories</p>
+<p>@return void</p>
+
+<p>Registers a set of PSR-4 directories for a given namespace,</p>
+<p>replacing any others previously set for this namespace.</p>
+<p>@param string          $prefix The prefix/namespace, with trailing '\\'</p>
+<p>@param string[]|string $paths  The PSR-4 base directories</p>
+<p>@throws \InvalidArgumentException</p>
+<p>@return void</p>
+
+<p>Turns on searching the include path for class files.</p>
+<p>@param bool $useIncludePath</p>
+<p>@return void</p>
+
+<p>Can be used to check if the autoloader uses the include path to check</p>
+<p>for classes.</p>
+<p>@return bool</p>
+
+<p>Turns off searching the prefix and fallback directories for classes</p>
+<p>that have not been registered with the class map.</p>
+<p>@param bool $classMapAuthoritative</p>
+<p>@return void</p>
+
+<p>Should class lookup fail if not found in the current class map?</p>
+<p>@return bool</p>
+
+<p>APCu prefix to use to cache found/not-found classes, if the extension is enabled.</p>
+<p>@param string|null $apcuPrefix</p>
+<p>@return void</p>
+
+<p>The APCu prefix in use, or null if APCu caching is not enabled.</p>
+<p>@return string|null</p>
+
+<p>Registers this instance as an autoloader.</p>
+<p>@param bool $prepend Whether to prepend the autoloader or not</p>
+<p>@return void</p>
+
+<p>Unregisters this instance as an autoloader.</p>
+<p>@return void</p>
+
+<p>Loads the given class or interface.</p>
+<p>@param  string    $class The name of the class</p>
+<p>@return true|null True if loaded, null otherwise</p>
+
+<p>Finds the path to the file where the class is defined.</p>
+<p>@param string $class The name of the class</p>
+<p>@return string|false The path if found, false otherwise</p>
+
+<p>Returns the currently registered loaders indexed by their corresponding vendor directories.</p>
+<p>@return self[]</p>
+
+<p>@param  string       $class</p>
+<p>@param  string       $ext</p>
+<p>@return string|false</p>
+
+<p>Scope isolated include.</p>
+<p>Prevents access to $this/self from included files.</p>
+<p>@param  string $file</p>
+<p>@return void</p>
+<p>@private</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>included</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\scssphp\vendor\composer\ClassLoader.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Composer\Autoload\loader</code></li>
+<li><code>Composer\Autoload\in</code></li>
+<li><code>Composer\Autoload\under</code></li>
+<li><code>Composer\Autoload\is</code></li>
+<li><code>Composer\Autoload\ClassLoader</code></li>
+<li><code>Composer\Autoload\files</code></li>
+<li><code>Composer\Autoload\map</code></li>
+<li><code>Composer\Autoload\lookup</code></li>
+<li><code>Composer\Autoload\map</code></li>
+<li><code>Composer\Autoload\or</code></li>
+<li><code>Composer\Autoload\The</code></li>
+<li><code>Composer\Autoload\is</code></li>
+<li><code>Composer\Autoload\The</code></li>
+<li><code>Composer\Autoload\map</code></li>
+<li><code>Composer\Autoload\does</code></li>
+<li><code>Composer\Autoload\name</code></li>
+<li><code>Composer\Autoload\name</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($vendorDir = null)</code></li>
+<li><code>getPrefixes()</code></li>
+<li><code>getPrefixesPsr4()</code></li>
+<li><code>getFallbackDirs()</code></li>
+<li><code>getFallbackDirsPsr4()</code></li>
+<li><code>getClassMap()</code></li>
+<li><code>addClassMap(array $classMap)</code></li>
+<li><code>add($prefix, $paths, $prepend = false)</code></li>
+<li><code>addPsr4($prefix, $paths, $prepend = false)</code></li>
+<li><code>set($prefix, $paths)</code></li>
+<li><code>setPsr4($prefix, $paths)</code></li>
+<li><code>setUseIncludePath($useIncludePath)</code></li>
+<li><code>getUseIncludePath()</code></li>
+<li><code>setClassMapAuthoritative($classMapAuthoritative)</code></li>
+<li><code>isClassMapAuthoritative()</code></li>
+<li><code>setApcuPrefix($apcuPrefix)</code></li>
+<li><code>getApcuPrefix()</code></li>
+<li><code>register($prepend = false)</code></li>
+<li><code>unregister()</code></li>
+<li><code>loadClass($class)</code></li>
+<li><code>findFile($class)</code></li>
+<li><code>getRegisteredLoaders()</code></li>
+<li><code>findFileWithExtension($class, $ext)</code></li>
+<li><code>includeFile($file)</code></li>
+</ul>
+</body></html>

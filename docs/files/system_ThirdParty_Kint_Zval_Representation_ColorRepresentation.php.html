@@ -1,0 +1,54 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\ThirdParty\Kint\Zval\Representation\ColorRepresentation.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\ThirdParty\Kint\Zval\Representation\ColorRepresentation.php</h1>
+
+<ul>
+<li>Path: <code>system\ThirdParty\Kint\Zval\Representation\ColorRepresentation.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 18421 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@var non-empty-array<array-key, float> $params Psalm bug workaround</p>
+
+<p>Turns HSL color to RGB. Black magic.</p>
+<p>@param float $h Hue</p>
+<p>@param float $s Saturation</p>
+<p>@param float $l Lightness</p>
+<p>@return int[] RGB array</p>
+
+<p>Converts RGB to HSL. Color inversion of previous black magic is white magic?</p>
+<p>@param float|int $red   Red</p>
+<p>@param float|int $green Green</p>
+<p>@param float|int $blue  Blue</p>
+<p>@return float[] HSL array</p>
+
+<p>Helper function for hslToRgb. Even blacker magic.</p>
+<p>@param float $m1</p>
+<p>@param float $m2</p>
+<p>@param float $hue</p>
+<p>@return float Color value</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\ThirdParty\Kint\Zval\Representation\ColorRepresentation.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Kint\Zval\Representation\ColorRepresentation extends Representation</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($value)</code></li>
+<li><code>getColor($variant = null)</code></li>
+<li><code>hasAlpha($variant = null)</code></li>
+<li><code>setValues($value)</code></li>
+<li><code>setValuesFromHex($hex)</code></li>
+<li><code>setValuesFromFunction($value)</code></li>
+<li><code>hslToRgb($h, $s, $l)</code></li>
+<li><code>rgbToHsl($red, $green, $blue)</code></li>
+<li><code>hueToRgb($m1, $m2, $hue)</code></li>
+</ul>
+</body></html>

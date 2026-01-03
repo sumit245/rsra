@@ -2,16 +2,21 @@
 
 namespace App\Models;
 
-class Users_model extends Crud_model {
+use Exception;
+
+class Users_model extends Crud_model
+{
 
     protected $table = null;
 
-    function __construct() {
+    function __construct()
+    {
         $this->table = 'users';
         parent::__construct($this->table);
     }
 
-    function authenticate($email, $password) {
+    function authenticate($email, $password)
+    {
 
         if ($email) {
             $email = $this->db->escapeString($email);
@@ -39,7 +44,8 @@ class Users_model extends Crud_model {
         }
     }
 
-    private function verify_password($user_info, $password) {
+    private function verify_password($user_info, $password)
+    {
         //there has two password encryption method for legacy (md5) compatibility
         //check if anyone of them is correct
         if ((strlen($user_info->password) === 60 && password_verify($password, $user_info->password)) || $user_info->password === md5($password)) {
@@ -59,7 +65,8 @@ class Users_model extends Crud_model {
         }
     }
 
-    private function _client_can_login($user_info) {
+    private function _client_can_login($user_info)
+    {
         //check client login settings
         if ($user_info->user_type === "client" && get_setting("disable_client_login")) {
             return false;
@@ -78,12 +85,14 @@ class Users_model extends Crud_model {
         }
     }
 
-    function login_user_id() {
+    function login_user_id()
+    {
         $session = \Config\Services::session();
         return $session->has("user_id") ? $session->get("user_id") : "";
     }
 
-    function sign_out() {
+    function sign_out()
+    {
         try {
             app_hooks()->do_action('app_hook_before_signout');
         } catch (\Exception $ex) {
@@ -95,7 +104,8 @@ class Users_model extends Crud_model {
         app_redirect('signin');
     }
 
-    function get_details($options = array()) {
+    function get_details($options = array())
+    {
         $users_table = $this->db->prefixTable('users');
         $team_member_job_info_table = $this->db->prefixTable('team_member_job_info');
         $clients_table = $this->db->prefixTable('clients');
@@ -248,7 +258,8 @@ class Users_model extends Crud_model {
         }
     }
 
-    function is_email_exists($email, $id = 0, $client_id = 0) {
+    function is_email_exists($email, $id = 0, $client_id = 0)
+    {
         $users_table = $this->db->prefixTable('users');
         $id = $id ? $this->db->escapeString($id) : $id;
         $client_id = $client_id ? $this->db->escapeString($client_id) : $client_id;
@@ -270,27 +281,41 @@ class Users_model extends Crud_model {
         }
     }
 
-    function get_job_info($user_id) {
+    function get_job_info($user_id)
+    {
         parent::use_table("team_member_job_info");
         return parent::get_one_where(array("user_id" => $user_id));
     }
 
-    function save_job_info($data) {
+    function save_job_info($data)
+    {
         parent::use_table("team_member_job_info");
 
-        //check if job info already exists
-        $where = array("user_id" => $this->_get_clean_value($data, "user_id"));
-        $exists = parent::get_one_where($where);
-        if ($exists->user_id) {
-            //job info found. update the record
-            return parent::update_where($data, $where);
-        } else {
-            //insert new one
-            return parent::ci_save($data);
+        try {
+            log_message('critical', 'save_job_info data: ' . print_r($data, true));
+
+            // check if job info already exists
+            $where = array("user_id" => $this->_get_clean_value($data, "user_id"));
+            $exists = parent::get_one_where($where);
+
+            if ($exists->user_id) {
+                $result = parent::update_where($data, $where);
+            } else {
+                $result = parent::ci_save($data);
+            }
+
+            return $result;
+        } catch (Exception $e) {
+            log_message('critical', 'save_job_info exception: ' . $e->getMessage());
+            return false;
+        } finally {
+            parent::use_table("users");
         }
     }
 
-    function get_team_members($member_ids = "") {
+
+    function get_team_members($member_ids = "")
+    {
         $users_table = $this->db->prefixTable('users');
         $sql = "SELECT $users_table.*
         FROM $users_table
@@ -299,7 +324,8 @@ class Users_model extends Crud_model {
         return $this->db->query($sql);
     }
 
-    function get_access_info($user_id = 0) {
+    function get_access_info($user_id = 0)
+    {
         $users_table = $this->db->prefixTable('users');
         $roles_table = $this->db->prefixTable('roles');
         $team_table = $this->db->prefixTable('team');
@@ -319,7 +345,8 @@ class Users_model extends Crud_model {
         return $this->db->query($sql)->getRow();
     }
 
-    function get_team_members_and_clients($user_type = "", $user_ids = "", $exlclude_user = 0) {
+    function get_team_members_and_clients($user_type = "", $user_ids = "", $exlclude_user = 0)
+    {
 
         $users_table = $this->db->prefixTable('users');
         $clients_table = $this->db->prefixTable('clients');
@@ -350,7 +377,8 @@ class Users_model extends Crud_model {
 
     /* return comma separated list of user names */
 
-    function user_group_names($user_ids = "") {
+    function user_group_names($user_ids = "")
+    {
         $users_table = $this->db->prefixTable('users');
 
         $sql = "SELECT GROUP_CONCAT(' ', $users_table.first_name, ' ', $users_table.last_name) AS user_group_name
@@ -361,7 +389,8 @@ class Users_model extends Crud_model {
 
     /* return list of ids of the online users */
 
-    function get_online_user_ids() {
+    function get_online_user_ids()
+    {
         $users_table = $this->db->prefixTable('users');
         $now = get_current_utc_time();
 
@@ -371,7 +400,8 @@ class Users_model extends Crud_model {
         return $this->db->query($sql)->getResult();
     }
 
-    function get_active_members_and_clients($options = array()) {
+    function get_active_members_and_clients($options = array())
+    {
         $users_table = $this->db->prefixTable('users');
         $clients_table = $this->db->prefixTable('clients');
 
@@ -408,7 +438,8 @@ class Users_model extends Crud_model {
         return $this->db->query($sql);
     }
 
-    function count_total_contacts($options = array()) {
+    function count_total_contacts($options = array())
+    {
         $users_table = $this->db->prefixTable('users');
         $clients_table = $this->db->prefixTable('clients');
 
@@ -437,7 +468,8 @@ class Users_model extends Crud_model {
         return $this->db->query($sql)->getRow()->total;
     }
 
-    private function make_quick_filter_query($filter, $users_table) {
+    private function make_quick_filter_query($filter, $users_table)
+    {
         $query = "";
 
         if ($filter == "logged_in_today" || $filter == "logged_in_seven_days") {
@@ -452,7 +484,8 @@ class Users_model extends Crud_model {
         return $query;
     }
 
-    function get_user_from_full_name($user_full_name = "", $user_type = "") {
+    function get_user_from_full_name($user_full_name = "", $user_type = "")
+    {
         $users_table = $this->db->prefixTable('users');
 
         $where = "";
@@ -470,7 +503,8 @@ class Users_model extends Crud_model {
         return $this->db->query($sql)->getRow();
     }
 
-    function get_other_clients_of_this_client_contact($email, $id) {
+    function get_other_clients_of_this_client_contact($email, $id)
+    {
         $users_table = $this->db->prefixTable('users');
         $clients_table = $this->db->prefixTable('clients');
 
@@ -482,7 +516,8 @@ class Users_model extends Crud_model {
         return $this->db->query($sql);
     }
 
-    function update_password($email, $password) {
+    function update_password($email, $password)
+    {
         $users_table = $this->db->prefixTable('users');
 
         $sql = "UPDATE $users_table SET $users_table.password='$password' WHERE $users_table.deleted=0 AND $users_table.email='$email'; ";
@@ -491,7 +526,8 @@ class Users_model extends Crud_model {
         return true;
     }
 
-    function count_total_users() {
+    function count_total_users()
+    {
         $users_table = $this->db->prefixTable('users');
 
         $sql = "SELECT COUNT($users_table.id) AS total
@@ -499,5 +535,4 @@ class Users_model extends Crud_model {
         WHERE $users_table.deleted=0 AND $users_table.user_type='staff' AND $users_table.status='active'";
         return $this->db->query($sql)->getRow()->total;
     }
-
 }

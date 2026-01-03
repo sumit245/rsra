@@ -1,0 +1,99 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\CLI\BaseCommand.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\CLI\BaseCommand.php</h1>
+
+<ul>
+<li>Path: <code>system\CLI\BaseCommand.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5175 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>BaseCommand is the base class used in creating CLI commands.</p>
+<p>@property array           $arguments</p>
+<p>@property Commands        $commands</p>
+<p>@property string          $description</p>
+<p>@property string          $group</p>
+<p>@property LoggerInterface $logger</p>
+<p>@property string          $name</p>
+<p>@property array           $options</p>
+<p>@property string          $usage</p>
+
+<p>The group the command is lumped under</p>
+<p>when listing commands.</p>
+<p>@var string</p>
+
+<p>The Command's name</p>
+<p>@var string</p>
+
+<p>the Command's usage description</p>
+<p>@var string</p>
+
+<p>the Command's short description</p>
+<p>@var string</p>
+
+<p>the Command's options description</p>
+<p>@var array</p>
+
+<p>the Command's Arguments description</p>
+<p>@var array</p>
+
+<p>The Logger to use for a command</p>
+<p>@var LoggerInterface</p>
+
+<p>Instance of Commands so</p>
+<p>commands can call other commands.</p>
+<p>@var Commands</p>
+
+<p>Actually execute a command.</p>
+<p>@param array<int|string, string|null> $params</p>
+
+<p>Can be used by a command to run other commands.</p>
+<p>@throws ReflectionException</p>
+<p>@return mixed</p>
+
+<p>A simple method to display an error with line/file, in child commands.</p>
+
+<p>Show Help includes (Usage, Arguments, Description, Options).</p>
+
+<p>Pads our string out so that all titles are the same length to nicely line up descriptions.</p>
+<p>@param int $extra How many extra spaces to add at the end</p>
+
+<p>Get pad for $key => $value array output</p>
+<p>@deprecated Use setPad() instead.</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Makes it simple to access our protected properties.</p>
+<p>@return mixed</p>
+
+<p>Makes it simple to check our protected properties.</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\CLI\BaseCommand.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\CLI\used</code></li>
+<li><code>CodeIgniter\CLI\BaseCommand</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(LoggerInterface $logger, Commands $commands)</code></li>
+<li><code>run(array $params)</code></li>
+<li><code>call(string $command, array $params = [])</code></li>
+<li><code>showError(Throwable $e)</code></li>
+<li><code>showHelp()</code></li>
+<li><code>setPad(string $item, int $max, int $extra = 2, int $indent = 0)</code></li>
+<li><code>getPad(array $array, int $pad)</code></li>
+<li><code>__get(string $key)</code></li>
+<li><code>__isset(string $key)</code></li>
+</ul>
+</body></html>

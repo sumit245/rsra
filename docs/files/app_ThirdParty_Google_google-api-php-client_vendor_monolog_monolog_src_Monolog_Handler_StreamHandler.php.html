@@ -1,0 +1,63 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\StreamHandler.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\StreamHandler.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\StreamHandler.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5203 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Stores to any stream resource</p>
+<p>Can be used to store into php://stderr, remote and local files, etc.</p>
+<p>@author Jordi Boggiano <j.boggiano@seld.be></p>
+
+<p>@param resource|string $stream</p>
+<p>@param int             $level          The minimum logging level at which this handler will be triggered</p>
+<p>@param Boolean         $bubble         Whether the messages that are handled can bubble up the stack or not</p>
+<p>@param int|null        $filePermission Optional file permissions (default (0644) are only for owner read/write)</p>
+<p>@param Boolean         $useLocking     Try to lock log file before doing any writes</p>
+<p>@throws \Exception                If a missing directory is not buildable</p>
+<p>@throws \InvalidArgumentException If stream is not a resource or string</p>
+
+<p>{@inheritdoc}</p>
+
+<p>Return the currently active stream if it is open</p>
+<p>@return resource|null</p>
+
+<p>Return the stream URL if it was configured with a URL and not an active resource</p>
+<p>@return string|null</p>
+
+<p>{@inheritdoc}</p>
+
+<p>Write to stream</p>
+<p>@param resource $stream</p>
+<p>@param array $record</p>
+
+<p>@param string $stream</p>
+<p>@return null|string</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\StreamHandler.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Monolog\Handler\StreamHandler extends AbstractProcessingHandler</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($stream, $level = Logger::DEBUG, $bubble = true, $filePermission = null, $useLocking = false)</code></li>
+<li><code>close()</code></li>
+<li><code>getStream()</code></li>
+<li><code>getUrl()</code></li>
+<li><code>write(array $record)</code></li>
+<li><code>streamWrite($stream, array $record)</code></li>
+<li><code>customErrorHandler($code, $msg)</code></li>
+<li><code>getDirFromStream($stream)</code></li>
+<li><code>createDir()</code></li>
+</ul>
+</body></html>

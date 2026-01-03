@@ -1,0 +1,81 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\Securities\AccruedInterest.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\Securities\AccruedInterest.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\Securities\AccruedInterest.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 6718 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>ACCRINT.</p>
+<p>Returns the accrued interest for a security that pays periodic interest.</p>
+<p>Excel Function:</p>
+<p>       ACCRINT(issue,firstinterest,settlement,rate,par,frequency[,basis][,calc_method])</p>
+<p>@param mixed $issue the security's issue date</p>
+<p>@param mixed $firstInterest the security's first interest date</p>
+<p>@param mixed $settlement The security's settlement date.</p>
+<p>                             The security settlement date is the date after the issue date</p>
+<p>                                 when the security is traded to the buyer.</p>
+<p>@param mixed $rate The security's annual coupon rate</p>
+<p>@param mixed $parValue The security's par value.</p>
+<p>                           If you omit par, ACCRINT uses $1,000.</p>
+<p>@param mixed $frequency The number of coupon payments per year.</p>
+<p>                            Valid frequency values are:</p>
+<p>                              1    Annual</p>
+<p>                              2    Semi-Annual</p>
+<p>                              4    Quarterly</p>
+<p>@param mixed $basis The type of day count to use.</p>
+<p>                        0 or omitted    US (NASD) 30/360</p>
+<p>                        1               Actual/actual</p>
+<p>                        2               Actual/360</p>
+<p>                        3               Actual/365</p>
+<p>                        4               European 30/360</p>
+<p>@param mixed $calcMethod</p>
+<p>@return float|string Result, or a string containing an error</p>
+
+<p>ACCRINTM.</p>
+<p>Returns the accrued interest for a security that pays interest at maturity.</p>
+<p>Excel Function:</p>
+<p>       ACCRINTM(issue,settlement,rate[,par[,basis]])</p>
+<p>@param mixed $issue The security's issue date</p>
+<p>@param mixed $settlement The security's settlement (or maturity) date</p>
+<p>@param mixed $rate The security's annual coupon rate</p>
+<p>@param mixed $parValue The security's par value.</p>
+<p>                           If you omit parValue, ACCRINT uses $1,000.</p>
+<p>@param mixed $basis The type of day count to use.</p>
+<p>                        0 or omitted    US (NASD) 30/360</p>
+<p>                        1               Actual/actual</p>
+<p>                        2               Actual/360</p>
+<p>                        3               Actual/365</p>
+<p>                        4               European 30/360</p>
+<p>@return float|string Result, or a string containing an error</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\Securities\AccruedInterest.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\Financial\Securities\AccruedInterest</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`periodic($issue,</li>
+<p>        $firstInterest,</p>
+<p>        $settlement,</p>
+<p>        $rate,</p>
+<p>        $parValue = 1000,</p>
+<p>        $frequency = FinancialConstants::FREQUENCY_ANNUAL,</p>
+<p>        $basis = FinancialConstants::BASIS_DAYS_PER_YEAR_NASD,</p>
+<p>        $calcMethod = self::ACCRINT_CALCMODE_ISSUE_TO_SETTLEMENT)`</p>
+<li>`atMaturity($issue,</li>
+<p>        $settlement,</p>
+<p>        $rate,</p>
+<p>        $parValue = 1000,</p>
+<p>        $basis = FinancialConstants::BASIS_DAYS_PER_YEAR_NASD)`</p>
+</ul>
+</body></html>

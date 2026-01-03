@@ -1,0 +1,463 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Email\Email.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Email\Email.php</h1>
+
+<ul>
+<li>Path: <code>system\Email\Email.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 57746 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>CodeIgniter Email Class</p>
+<p>Permits email to be sent using Mail, Sendmail, or SMTP.</p>
+
+<p>Properties from the last successful send.</p>
+<p>@var array|null</p>
+
+<p>Properties to be added to the next archive.</p>
+<p>@var array</p>
+
+<p>@var string</p>
+
+<p>@var string</p>
+
+<p>Used as the User-Agent and X-Mailer headers' value.</p>
+<p>@var string</p>
+
+<p>Path to the Sendmail binary.</p>
+<p>@var string</p>
+
+<p>Which method to use for sending e-mails.</p>
+<p>@var string 'mail', 'sendmail' or 'smtp'</p>
+
+<p>STMP Server host</p>
+<p>@var string</p>
+
+<p>SMTP Username</p>
+<p>@var string</p>
+
+<p>SMTP Password</p>
+<p>@var string</p>
+
+<p>SMTP Server port</p>
+<p>@var int</p>
+
+<p>SMTP connection timeout in seconds</p>
+<p>@var int</p>
+
+<p>SMTP persistent connection</p>
+<p>@var bool</p>
+
+<p>SMTP Encryption</p>
+<p>@var string Empty, 'tls' or 'ssl'</p>
+
+<p>Whether to apply word-wrapping to the message body.</p>
+<p>@var bool</p>
+
+<p>Number of characters to wrap at.</p>
+<p>@see Email::$wordWrap</p>
+<p>@var int</p>
+
+<p>Message format.</p>
+<p>@var string 'text' or 'html'</p>
+
+<p>Character set (default: utf-8)</p>
+<p>@var string</p>
+
+<p>Alternative message (for HTML messages only)</p>
+<p>@var string</p>
+
+<p>Whether to validate e-mail addresses.</p>
+<p>@var bool</p>
+
+<p>X-Priority header value.</p>
+<p>@var int 1-5</p>
+
+<p>Newline character sequence.</p>
+<p>Use "\r\n" to comply with RFC 822.</p>
+<p>@see http://www.ietf.org/rfc/rfc822.txt</p>
+<p>@var string "\r\n" or "\n"</p>
+
+<p>CRLF character sequence</p>
+<p>RFC 2045 specifies that for 'quoted-printable' encoding,</p>
+<p>"\r\n" must be used. However, it appears that some servers</p>
+<p>(even on the receiving end) don't handle it properly and</p>
+<p>switching to "\n", while improper, is the only solution</p>
+<p>that seems to work for all environments.</p>
+<p>@see http://www.ietf.org/rfc/rfc822.txt</p>
+<p>@var string</p>
+
+<p>Whether to use Delivery Status Notification.</p>
+<p>@var bool</p>
+
+<p>Whether to send multipart alternatives.</p>
+<p>Yahoo! doesn't seem to like these.</p>
+<p>@var bool</p>
+
+<p>Whether to send messages to BCC recipients in batches.</p>
+<p>@var bool</p>
+
+<p>BCC Batch max number size.</p>
+<p>@see Email::$BCCBatchMode</p>
+<p>@var int|string</p>
+
+<p>Subject header</p>
+<p>@var string</p>
+
+<p>Message body</p>
+<p>@var string</p>
+
+<p>Final message body to be sent.</p>
+<p>@var string</p>
+
+<p>Final headers to send</p>
+<p>@var string</p>
+
+<p>SMTP Connection socket placeholder</p>
+<p>@var resource|null</p>
+
+<p>Mail encoding</p>
+<p>@var string '8bit' or '7bit'</p>
+
+<p>Whether to perform SMTP authentication</p>
+<p>@var bool</p>
+
+<p>Whether to send a Reply-To header</p>
+<p>@var bool</p>
+
+<p>Debug messages</p>
+<p>@see Email::printDebugger()</p>
+<p>@var array</p>
+
+<p>Recipients</p>
+<p>@var array|string</p>
+
+<p>CC Recipients</p>
+<p>@var array</p>
+
+<p>BCC Recipients</p>
+<p>@var array</p>
+
+<p>Message headers</p>
+<p>@var array</p>
+
+<p>Attachment data</p>
+<p>@var array</p>
+
+<p>Valid $protocol values</p>
+<p>@see Email::$protocol</p>
+<p>@var array</p>
+
+<p>Character sets valid for 7-bit encoding,</p>
+<p>excluding language suffix.</p>
+<p>@var array</p>
+
+<p>Bit depths</p>
+<p>Valid mail encodings</p>
+<p>@see Email::$encoding</p>
+<p>@var array</p>
+
+<p>$priority translations</p>
+<p>Actual values to send with the X-Priority header</p>
+<p>@var array</p>
+
+<p>mbstring.func_overload flag</p>
+<p>@var bool</p>
+
+<p>@param array|null $config</p>
+
+<p>Initialize preferences</p>
+<p>@param array|\Config\Email $config</p>
+<p>@return Email</p>
+
+<p>@param bool $clearAttachments</p>
+<p>@return Email</p>
+
+<p>@param string      $from</p>
+<p>@param string      $name</p>
+<p>@param string|null $returnPath Return-Path</p>
+<p>@return Email</p>
+
+<p>@param string $replyto</p>
+<p>@param string $name</p>
+<p>@return Email</p>
+
+<p>@param array|string $to</p>
+<p>@return Email</p>
+
+<p>@param string $cc</p>
+<p>@return Email</p>
+
+<p>@param string $bcc</p>
+<p>@param string $limit</p>
+<p>@return Email</p>
+
+<p>@param string $subject</p>
+<p>@return Email</p>
+
+<p>@param string $body</p>
+<p>@return Email</p>
+
+<p>@param string      $file        Can be local path, URL or buffered content</p>
+<p>@param string      $disposition 'attachment'</p>
+<p>@param string|null $newname</p>
+<p>@param string      $mime</p>
+<p>@return bool|Email</p>
+
+<p>Set and return attachment Content-ID</p>
+<p>Useful for attached inline pictures</p>
+<p>@param string $filename</p>
+<p>@return bool|string</p>
+
+<p>@param string $header</p>
+<p>@param string $value</p>
+<p>@return Email</p>
+
+<p>@param string $email</p>
+<p>@return array</p>
+
+<p>@param string $str</p>
+<p>@return Email</p>
+
+<p>@param string $type</p>
+<p>@return Email</p>
+
+<p>@param bool $wordWrap</p>
+<p>@return Email</p>
+
+<p>@param string $protocol</p>
+<p>@return Email</p>
+
+<p>@param int $n</p>
+<p>@return Email</p>
+
+<p>@param string $newline</p>
+<p>@return Email</p>
+
+<p>@param string $CRLF</p>
+<p>@return Email</p>
+
+<p>@return string</p>
+
+<p>@return string</p>
+
+<p>@return string</p>
+
+<p>@return string</p>
+
+<p>Set RFC 822 Date</p>
+<p>@return string</p>
+
+<p>@return string</p>
+
+<p>@param array|string $email</p>
+<p>@return bool</p>
+
+<p>@param string $email</p>
+<p>@return bool</p>
+
+<p>@param array|string $email</p>
+<p>@return array|string</p>
+
+<p>Build alternative plain text message</p>
+<p>Provides the raw message for use in plain-text headers of</p>
+<p>HTML-formatted emails.</p>
+<p>If the user hasn't specified his own alternative message</p>
+<p>it creates one by stripping the HTML</p>
+<p>@return string</p>
+
+<p>@param string   $str</p>
+<p>@param int|null $charlim Line-length limit</p>
+<p>@return string</p>
+
+<p>Build final headers</p>
+
+<p>Write Headers as a string</p>
+
+<p>Build Final Body and attachments</p>
+
+<p>@param mixed $type</p>
+<p>@return bool</p>
+
+<p>@param string      $body      Message body to append to</p>
+<p>@param string      $boundary  Multipart boundary</p>
+<p>@param string|null $multipart When provided, only attachments of this type will be processed</p>
+
+<p>Prepares string for Quoted-Printable Content-Transfer-Encoding</p>
+<p>Refer to RFC 2045 http://www.ietf.org/rfc/rfc2045.txt</p>
+<p>@param string $str</p>
+<p>@return string</p>
+
+<p>Performs "Q Encoding" on a string for use in email headers.</p>
+<p>It's related but not identical to quoted-printable, so it has its</p>
+<p>own method.</p>
+<p>@param string $str</p>
+<p>@return string</p>
+
+<p>@param bool $autoClear</p>
+<p>@return bool</p>
+
+<p>Batch Bcc Send. Sends groups of BCCs in batches</p>
+
+<p>Unwrap special elements</p>
+
+<p>Strip line-breaks via callback</p>
+<p>@param string $matches</p>
+<p>@return string</p>
+
+<p>Spool mail to the mail server</p>
+<p>@return bool</p>
+
+<p>Validate email for shell</p>
+<p>Applies stricter, shell-safe validation to email addresses.</p>
+<p>Introduced to prevent RCE via sendmail's -f option.</p>
+<p>@see     https://github.com/codeigniter4/CodeIgniter/issues/4963</p>
+<p>@see     https://gist.github.com/Zenexer/40d02da5e07f151adeaeeaa11af9ab36</p>
+<p>@license https://creativecommons.org/publicdomain/zero/1.0/    CC0 1.0, Public Domain</p>
+<p>Credits for the base concept go to Paul Buonopane <paul@namepros.com></p>
+<p>@param string $email</p>
+<p>@return bool</p>
+
+<p>Send using mail()</p>
+<p>@return bool</p>
+
+<p>Send using Sendmail</p>
+<p>@return bool</p>
+
+<p>Send using SMTP</p>
+<p>@return bool</p>
+
+<p>Shortcut to send RSET or QUIT depending on keep-alive</p>
+
+<p>@return bool|string</p>
+
+<p>@param string $cmd</p>
+<p>@param string $data</p>
+<p>@return bool</p>
+
+<p>@return bool</p>
+
+<p>@param string $data</p>
+<p>@return bool</p>
+
+<p>@return string</p>
+
+<p>There are only two legal types of hostname - either a fully</p>
+<p>qualified domain name (eg: "mail.example.com") or an IP literal</p>
+<p>(eg: "[1.2.3.4]").</p>
+<p>@see https://tools.ietf.org/html/rfc5321#section-2.3.5</p>
+<p>@see http://cbl.abuseat.org/namingproblems.html</p>
+<p>@return string</p>
+
+<p>@param array $include List of raw data chunks to include in the output</p>
+<p>                      Valid options are: 'headers', 'subject', 'body'</p>
+<p>@return string</p>
+
+<p>@param string $msg</p>
+
+<p>Mime Types</p>
+<p>@param string $ext</p>
+<p>@return string</p>
+
+<p>Byte-safe strlen()</p>
+<p>@param string $str</p>
+<p>@return int</p>
+
+<p>Byte-safe substr()</p>
+<p>@param string   $str</p>
+<p>@param int      $start</p>
+<p>@param int|null $length</p>
+<p>@return string</p>
+
+<p>Determines the values that should be stored in $archive.</p>
+<p>@return array The updated archive values</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Email\Email.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Email\Email</code></li>
+<li><code>CodeIgniter\Email\property</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($config = null)</code></li>
+<li><code>initialize($config)</code></li>
+<li><code>clear($clearAttachments = false)</code></li>
+<li><code>setFrom($from, $name = '', $returnPath = null)</code></li>
+<li><code>setReplyTo($replyto, $name = '')</code></li>
+<li><code>setTo($to)</code></li>
+<li><code>setCC($cc)</code></li>
+<li><code>setBCC($bcc, $limit = '')</code></li>
+<li><code>setSubject($subject)</code></li>
+<li><code>setMessage($body)</code></li>
+<li><code>attach($file, $disposition = '', $newname = null, $mime = '')</code></li>
+<li><code>setAttachmentCID($filename)</code></li>
+<li><code>setHeader($header, $value)</code></li>
+<li><code>stringToArray($email)</code></li>
+<li><code>setAltMessage($str)</code></li>
+<li><code>setMailType($type = 'text')</code></li>
+<li><code>setWordWrap($wordWrap = true)</code></li>
+<li><code>setProtocol($protocol = 'mail')</code></li>
+<li><code>setPriority($n = 3)</code></li>
+<li><code>setNewline($newline = "\n")</code></li>
+<li><code>setCRLF($CRLF = "\n")</code></li>
+<li><code>getMessageID()</code></li>
+<li><code>getProtocol()</code></li>
+<li><code>getEncoding()</code></li>
+<li><code>getContentType()</code></li>
+<li><code>setDate()</code></li>
+<li><code>getMimeMessage()</code></li>
+<li><code>validateEmail($email)</code></li>
+<li><code>isValidEmail($email)</code></li>
+<li><code>cleanEmail($email)</code></li>
+<li><code>getAltMessage()</code></li>
+<li><code>wordWrap($str, $charlim = null)</code></li>
+<li><code>buildHeaders()</code></li>
+<li><code>writeHeaders()</code></li>
+<li><code>buildMessage()</code></li>
+<li><code>attachmentsHaveMultipart($type)</code></li>
+<li><code>appendAttachments(&$body, $boundary, $multipart = null)</code></li>
+<li><code>prepQuotedPrintable($str)</code></li>
+<li><code>prepQEncoding($str)</code></li>
+<li><code>send($autoClear = true)</code></li>
+<li><code>batchBCCSend()</code></li>
+<li><code>unwrapSpecials()</code></li>
+<li><code>removeNLCallback($matches)</code></li>
+<li><code>spoolEmail()</code></li>
+<li><code>validateEmailForShell(&$email)</code></li>
+<li><code>sendWithMail()</code></li>
+<li><code>sendWithSendmail()</code></li>
+<li><code>sendWithSmtp()</code></li>
+<li><code>SMTPEnd()</code></li>
+<li><code>SMTPConnect()</code></li>
+<li><code>sendCommand($cmd, $data = '')</code></li>
+<li><code>SMTPAuthenticate()</code></li>
+<li><code>sendData($data)</code></li>
+<li><code>getSMTPData()</code></li>
+<li><code>getHostname()</code></li>
+<li><code>printDebugger($include = ['headers', 'subject', 'body'])</code></li>
+<li><code>setErrorMessage($msg)</code></li>
+<li><code>mimeTypes($ext = '')</code></li>
+<li><code>__destruct()</code></li>
+<li><code>strlen($str)</code></li>
+<li><code>substr($str, $start, $length = null)</code></li>
+<li><code>setArchiveValues()</code></li>
+</ul>
+</body></html>

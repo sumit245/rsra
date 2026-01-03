@@ -1,0 +1,62 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\ThirdParty\Kint\Zval\BlobValue.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\ThirdParty\Kint\Zval\BlobValue.php</h1>
+
+<ul>
+<li>Path: <code>system\ThirdParty\Kint\Zval\BlobValue.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 6009 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@var array Character encodings to detect</p>
+<p>@see https://secure.php.net/function.mb-detect-order</p>
+<p>In practice, mb_detect_encoding can only successfully determine the</p>
+<p>difference between the following common charsets at once without</p>
+<p>breaking things for one of the other charsets:</p>
+<ul>
+<li>ASCII</li>
+<li>UTF-8</li>
+<li>SJIS</li>
+<li>EUC-JP</li>
+<p>The order of the charsets is significant. If you put UTF-8 before ASCII</p>
+<p>it will never match ASCII, because UTF-8 is a superset of ASCII.</p>
+<p>Similarly, SJIS and EUC-JP frequently match UTF-8 strings, so you should</p>
+<p>check UTF-8 first. SJIS and EUC-JP seem to work either way, but SJIS is</p>
+<p>more common so it should probably be first.</p>
+<p>While you're free to experiment with other charsets, remember to keep</p>
+<p>this behavior in mind when setting up your char_encodings array.</p>
+<p>This depends on the mbstring extension</p>
+</ul>
+<p>@var array Legacy character encodings to detect</p>
+<p>@see https://secure.php.net/function.iconv</p>
+<p>Assuming the other encoding checks fail, this will perform a</p>
+<p>simple iconv conversion to check for invalid bytes. If any are</p>
+<p>found it will not match.</p>
+<p>This can be useful for ambiguous single byte encodings like</p>
+<p>windows-125x and iso-8859-x which have practically undetectable</p>
+<p>differences because they use every single byte available.</p>
+<p>This is *NOT* reliable and should not be trusted implicitly. As</p>
+<p>with char_encodings, the order of the charsets is significant.</p>
+<p>This depends on the iconv extension</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\ThirdParty\Kint\Zval\BlobValue.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Kint\Zval\BlobValue extends Value</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getType()</code></li>
+<li><code>getValueShort()</code></li>
+<li><code>transplant(Value $old)</code></li>
+<li><code>strlen($string, $encoding = false)</code></li>
+<li><code>substr($string, $start, $length = null, $encoding = false)</code></li>
+<li><code>detectEncoding($string)</code></li>
+</ul>
+</body></html>

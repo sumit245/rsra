@@ -1,0 +1,100 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\URI.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\URI.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\URI.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 10596 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>HTML Purifier's internal representation of a URI.</p>
+<p>@note</p>
+<p>     Internal data-structures are completely escaped. If the data needs</p>
+<p>     to be used in a non-URI context (which is very unlikely), be sure</p>
+<p>     to decode it first. The URI may not necessarily be well-formed until</p>
+<p>     validate() is called.</p>
+
+<p>@type string</p>
+
+<p>@type string</p>
+
+<p>@type string</p>
+
+<p>@type int</p>
+
+<p>@type string</p>
+
+<p>@type string</p>
+
+<p>@type string</p>
+
+<p>@param string $scheme</p>
+<p>@param string $userinfo</p>
+<p>@param string $host</p>
+<p>@param int $port</p>
+<p>@param string $path</p>
+<p>@param string $query</p>
+<p>@param string $fragment</p>
+<p>@note Automatically normalizes scheme and port</p>
+
+<p>Retrieves a scheme object corresponding to the URI's scheme/default</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@param HTMLPurifier_Context $context</p>
+<p>@return HTMLPurifier_URIScheme Scheme object appropriate for validating this URI</p>
+
+<p>Generic validation method applicable for all schemes. May modify</p>
+<p>this URI in order to get it into a compliant form.</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@param HTMLPurifier_Context $context</p>
+<p>@return bool True if validation/filtering succeeds, false if failure</p>
+
+<p>Convert URI back to string</p>
+<p>@return string URI appropriate for output</p>
+
+<p>Returns true if this URL might be considered a 'local' URL given</p>
+<p>the current context.  This is true when the host is null, or</p>
+<p>when it matches the host supplied to the configuration.</p>
+<p>Note that this does not do any scheme checking, so it is mostly</p>
+<p>only appropriate for metadata that doesn't care about protocol</p>
+<p>security.  isBenign is probably what you actually want.</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@param HTMLPurifier_Context $context</p>
+<p>@return bool</p>
+
+<p>Returns true if this URL should be considered a 'benign' URL,</p>
+<p>that is:</p>
+<p>     - It is a local URL (isLocal), and</p>
+<p>     - It has a equal or better level of security</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@param HTMLPurifier_Context $context</p>
+<p>@return bool</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>RFC</code></li>
+<li><code>browsers</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\URI.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>HTMLPurifier_URI</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($scheme, $userinfo, $host, $port, $path, $query, $fragment)</code></li>
+<li><code>getSchemeObj($config, $context)</code></li>
+<li><code>validate($config, $context)</code></li>
+<li><code>toString()</code></li>
+<li><code>isLocal($config, $context)</code></li>
+<li><code>isBenign($config, $context)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,116 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\SubscriptionItemService.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\SubscriptionItemService.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\SubscriptionItemService.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5876 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Returns a list of your subscription items for a given subscription.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\SubscriptionItem></p>
+
+<p>For the specified subscription item, returns a list of summary objects. Each</p>
+<p>object in the list provides usage information that’s been summarized from</p>
+<p>multiple usage records and over a subscription billing period (e.g., 15 usage</p>
+<p>records in the month of September).</p>
+<p>The list is sorted in reverse-chronological order (newest first). The first list</p>
+<p>item represents the most current usage period that hasn’t ended yet. Since new</p>
+<p>usage records can still be added, the returned summary information for the</p>
+<p>subscription item’s ID should be seen as unstable until the subscription billing</p>
+<p>period ends.</p>
+<p>@param string $parentId</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\UsageRecordSummary></p>
+
+<p>Adds a new item to an existing subscription. No existing items will be changed</p>
+<p>or replaced.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\SubscriptionItem</p>
+
+<p>Creates a usage record for a specified subscription item and date, and fills it</p>
+<p>with a quantity.</p>
+<p>Usage records provide <code>quantity</code> information that Stripe uses to</p>
+<p>track how much a customer is using your service. With usage information and the</p>
+<p>pricing model set up by the <a</p>
+<p>href="https://stripe.com/docs/billing/subscriptions/metered-billing">metered</p>
+<p>billing</a> plan, Stripe helps you send accurate invoices to your customers.</p>
+<p>The default calculation for usage is to add up all the <code>quantity</code></p>
+<p>values of the usage records within a billing period. You can change this default</p>
+<p>behavior with the billing plan’s <code>aggregate_usage</code> <a</p>
+<p>href="/docs/api/plans/create#create_plan-aggregate_usage">parameter</a>. When</p>
+<p>there is more than one usage record with the same timestamp, Stripe adds the</p>
+<p><code>quantity</code> values together. In most cases, this is the desired</p>
+<p>resolution, however, you can change this behavior with the <code>action</code></p>
+<p>parameter.</p>
+<p>The default pricing model for metered billing is <a</p>
+<p>href="/docs/api/plans/object#plan_object-billing_scheme">per-unit pricing</a>.</p>
+<p>For finer granularity, you can configure metered billing to have a <a</p>
+<p>href="https://stripe.com/docs/billing/subscriptions/tiers">tiered pricing</a></p>
+<p>model.</p>
+<p>@param string $parentId</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\UsageRecord</p>
+
+<p>Deletes an item from the subscription. Removing a subscription item from a</p>
+<p>subscription will not cancel the subscription.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\SubscriptionItem</p>
+
+<p>Retrieves the subscription item with the given ID.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\SubscriptionItem</p>
+
+<p>Updates the plan or quantity of an item on a current subscription.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\SubscriptionItem</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+<li><code>the</code></li>
+<li><code>a</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\SubscriptionItemService.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Service\SubscriptionItemService extends \Stripe\Service\AbstractService</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>all($params = null, $opts = null)</code></li>
+<li><code>allUsageRecordSummaries($parentId, $params = null, $opts = null)</code></li>
+<li><code>create($params = null, $opts = null)</code></li>
+<li><code>createUsageRecord($parentId, $params = null, $opts = null)</code></li>
+<li><code>delete($id, $params = null, $opts = null)</code></li>
+<li><code>retrieve($id, $params = null, $opts = null)</code></li>
+<li><code>update($id, $params = null, $opts = null)</code></li>
+</ul>
+</body></html>

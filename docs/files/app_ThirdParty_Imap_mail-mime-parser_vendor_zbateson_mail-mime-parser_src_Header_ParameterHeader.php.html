@@ -1,0 +1,62 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\ParameterHeader.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\ParameterHeader.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\ParameterHeader.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2269 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Represents a header containing a primary value part and subsequent name/value</p>
+<p>parts using a ParameterConsumer.</p>
+
+<p>@author Zaahid Bateson</p>
+
+<p>@var \ZBateson\MailMimeParser\Header\Part\ParameterPart[] key map of</p>
+<p>lower-case parameter names and associated ParameterParts.</p>
+
+<p>Returns a ParameterConsumer.</p>
+
+<p>@param ConsumerService $consumerService</p>
+<p>@return \ZBateson\MailMimeParser\Header\Consumer\AbstractConsumer</p>
+
+<p>Overridden to assign ParameterParts to a map of lower-case parameter</p>
+<p>names to ParameterParts.</p>
+
+<p>@param AbstractConsumer $consumer</p>
+
+<p>Returns true if a parameter exists with the passed name.</p>
+
+<p>@param string $name</p>
+<p>@return boolean</p>
+
+<p>Returns the value of the parameter with the given name, or $defaultValue</p>
+<p>if not set.</p>
+
+<p>@param string $name</p>
+<p>@param string $defaultValue</p>
+<p>@return string</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\ParameterHeader.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Header\ParameterHeader extends AbstractHeader</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getConsumer(ConsumerService $consumerService)</code></li>
+<li><code>setParseHeaderValue(AbstractConsumer $consumer)</code></li>
+<li><code>hasParameter($name)</code></li>
+<li><code>getValueFor($name, $defaultValue = null)</code></li>
+</ul>
+</body></html>

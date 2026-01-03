@@ -1,0 +1,157 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Style\Alignment.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Style\Alignment.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Style\Alignment.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 12891 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Horizontal alignment.</p>
+<p>@var null|string</p>
+
+<p>Vertical alignment.</p>
+<p>@var null|string</p>
+
+<p>Text rotation.</p>
+<p>@var null|int</p>
+
+<p>Wrap text.</p>
+<p>@var bool</p>
+
+<p>Shrink to fit.</p>
+<p>@var bool</p>
+
+<p>Indent - only possible with horizontal alignment left and right.</p>
+<p>@var int</p>
+
+<p>Read order.</p>
+<p>@var int</p>
+
+<p>Create a new Alignment.</p>
+<p>@param bool $isSupervisor Flag indicating if this is a supervisor or not</p>
+<p>                                      Leave this value at default unless you understand exactly what</p>
+<p>                                         its ramifications are</p>
+<p>@param bool $isConditional Flag indicating if this is a conditional style or not</p>
+<p>                                      Leave this value at default unless you understand exactly what</p>
+<p>                                         its ramifications are</p>
+
+<p>Get the shared style component for the currently active cell in currently active sheet.</p>
+<p>Only used for style supervisor.</p>
+<p>@return Alignment</p>
+
+<p>@var Style</p>
+
+<p>Build style array from subcomponents.</p>
+<p>@param array $array</p>
+<p>@return array</p>
+
+<p>Apply styles from array.</p>
+<p><code></p>
+<p>$spreadsheet->getActiveSheet()->getStyle('B2')->getAlignment()->applyFromArray(</p>
+<p>       [</p>
+<p>           'horizontal'   => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,</p>
+<p>           'vertical'     => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,</p>
+<p>           'textRotation' => 0,</p>
+<p>           'wrapText'     => TRUE</p>
+<p>       ]</p>
+<p>);</p>
+<p></code></p>
+<p>@param array $styleArray Array containing style information</p>
+<p>@return $this</p>
+
+<p>Get Horizontal.</p>
+<p>@return null|string</p>
+
+<p>Set Horizontal.</p>
+<p>@param string $horizontalAlignment see self::HORIZONTAL_*</p>
+<p>@return $this</p>
+
+<p>Get Vertical.</p>
+<p>@return null|string</p>
+
+<p>Set Vertical.</p>
+<p>@param string $verticalAlignment see self::VERTICAL_*</p>
+<p>@return $this</p>
+
+<p>Get TextRotation.</p>
+<p>@return null|int</p>
+
+<p>Set TextRotation.</p>
+<p>@param int $angleInDegrees</p>
+<p>@return $this</p>
+
+<p>Get Wrap Text.</p>
+<p>@return bool</p>
+
+<p>Set Wrap Text.</p>
+<p>@param bool $wrapped</p>
+<p>@return $this</p>
+
+<p>Get Shrink to fit.</p>
+<p>@return bool</p>
+
+<p>Set Shrink to fit.</p>
+<p>@param bool $shrink</p>
+<p>@return $this</p>
+
+<p>Get indent.</p>
+<p>@return int</p>
+
+<p>Set indent.</p>
+<p>@param int $indent</p>
+<p>@return $this</p>
+
+<p>Get read order.</p>
+<p>@return int</p>
+
+<p>Set read order.</p>
+<p>@param int $readOrder</p>
+<p>@return $this</p>
+
+<p>Get hash code.</p>
+<p>@return string Hash code</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>subcomponents</code></li>
+<li><code>array</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Style\Alignment.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Style\Alignment extends Supervisor</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($isSupervisor = false, $isConditional = false)</code></li>
+<li><code>getSharedComponent()</code></li>
+<li><code>getStyleArray($array)</code></li>
+<li><code>applyFromArray(array $styleArray)</code></li>
+<li><code>getHorizontal()</code></li>
+<li><code>setHorizontal(string $horizontalAlignment)</code></li>
+<li><code>getVertical()</code></li>
+<li><code>setVertical($verticalAlignment)</code></li>
+<li><code>getTextRotation()</code></li>
+<li><code>setTextRotation($angleInDegrees)</code></li>
+<li><code>getWrapText()</code></li>
+<li><code>setWrapText($wrapped)</code></li>
+<li><code>getShrinkToFit()</code></li>
+<li><code>setShrinkToFit($shrink)</code></li>
+<li><code>getIndent()</code></li>
+<li><code>setIndent($indent)</code></li>
+<li><code>getReadOrder()</code></li>
+<li><code>setReadOrder($readOrder)</code></li>
+<li><code>getHashCode()</code></li>
+<li><code>exportArray1()</code></li>
+</ul>
+</body></html>

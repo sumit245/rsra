@@ -1,0 +1,103 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Part\MimePart.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Part\MimePart.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Part\MimePart.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5031 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Represents a single part of a multi-part mime message.</p>
+<p>A MimePart object may have any number of child parts, or may be a child</p>
+<p>itself with its own parent or parents.</p>
+<p>The content of the part can be read from its PartStream resource handle,</p>
+<p>accessible via MessagePart::getContentResourceHandle.</p>
+<p>@author Zaahid Bateson</p>
+
+<p>Returns true if this part's mime type is multipart/*</p>
+<p>@return bool</p>
+
+<p>Returns a filename for the part if one is defined, or null otherwise.</p>
+
+<p>@return string</p>
+
+<p>Returns true.</p>
+
+<p>@return bool</p>
+
+<p>Returns true if this part's mime type is text/plain, text/html or if the</p>
+<p>Content-Type header defines a charset.</p>
+
+<p>@return bool</p>
+
+<p>Returns the lower-cased, trimmed value of the Content-Type header.</p>
+
+<p>Parses the Content-Type header, defaults to returning text/plain if not</p>
+<p>defined.</p>
+<p>@param string $default pass to override the returned value when not set</p>
+<p>@return string</p>
+
+<p>Returns the upper-cased charset of the Content-Type header's charset</p>
+<p>parameter if set, ISO-8859-1 if the Content-Type is text/plain or</p>
+<p>text/html and the charset parameter isn't set, or null otherwise.</p>
+<p>If the charset parameter is set to 'binary' it is ignored and considered</p>
+<p>'not set' (returns ISO-8859-1 for text/plain, text/html or null</p>
+<p>otherwise).</p>
+
+<p>@return string</p>
+
+<p>Returns the content's disposition, defaulting to 'inline' if not set.</p>
+<p>@param string $default pass to override the default returned disposition</p>
+<p>       when not set.</p>
+<p>@return string</p>
+
+<p>Returns the content-transfer-encoding used for this part, defaulting to</p>
+<p>'7bit' if not set.</p>
+<p>@param string $default pass to override the default when not set.</p>
+<p>@return string</p>
+
+<p>Returns the Content ID of the part.</p>
+<p>In MimePart, this is merely a shortcut to calling</p>
+<p>``<code> $part->getHeaderValue('Content-ID'); </code>``.</p>
+
+<p>@return string|null</p>
+
+<p>Convenience method to find a part by its Content-ID header.</p>
+<p>@param string $contentId</p>
+<p>@return MessagePart</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>its</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Part\MimePart.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Message\Part\MimePart extends ParentHeaderPart</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>isMultiPart()</code></li>
+<li><code>getFilename()</code></li>
+<li><code>isMime()</code></li>
+<li><code>isTextPart()</code></li>
+<li><code>getContentType($default = 'text/plain')</code></li>
+<li><code>getCharset()</code></li>
+<li><code>getContentDisposition($default = 'inline')</code></li>
+<li><code>getContentTransferEncoding($default = '7bit')</code></li>
+<li><code>getContentId()</code></li>
+<li><code>getPartByContentId($contentId)</code></li>
+</ul>
+</body></html>

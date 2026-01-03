@@ -1,0 +1,192 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Style\Style.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Style\Style.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Style\Style.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 26798 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Font.</p>
+<p>@var Font</p>
+
+<p>Fill.</p>
+<p>@var Fill</p>
+
+<p>Borders.</p>
+<p>@var Borders</p>
+
+<p>Alignment.</p>
+<p>@var Alignment</p>
+
+<p>Number Format.</p>
+<p>@var NumberFormat</p>
+
+<p>Protection.</p>
+<p>@var Protection</p>
+
+<p>Index of style in collection. Only used for real style.</p>
+<p>@var int</p>
+
+<p>Use Quote Prefix when displaying in cell editor. Only used for real style.</p>
+<p>@var bool</p>
+
+<p>Internal cache for styles</p>
+<p>Used when applying style on range of cells (column or row) and cleared when</p>
+<p>all cells in range is styled.</p>
+<p>PhpSpreadsheet will always minimize the amount of styles used. So cells with</p>
+<p>same styles will reference the same Style instance. To check if two styles</p>
+<p>are similar Style::getHashCode() is used. This call is expensive. To minimize</p>
+<p>the need to call this method we can cache the internal PHP object id of the</p>
+<p>Style in the range. Style::getHashCode() will then only be called when we</p>
+<p>encounter a unique style.</p>
+<p>@see Style::applyFromArray()</p>
+<p>@see Style::getHashCode()</p>
+<p>@var ?array<string, array></p>
+
+<p>Create a new Style.</p>
+<p>@param bool $isSupervisor Flag indicating if this is a supervisor or not</p>
+<p>        Leave this value at default unless you understand exactly what</p>
+<p>   its ramifications are</p>
+<p>@param bool $isConditional Flag indicating if this is a conditional style or not</p>
+<p>      Leave this value at default unless you understand exactly what</p>
+<p>   its ramifications are</p>
+
+<p>Get the shared style component for the currently active cell in currently active sheet.</p>
+<p>Only used for style supervisor.</p>
+
+<p>Get parent. Only used for style supervisor.</p>
+
+<p>Build style array from subcomponents.</p>
+<p>@param array $array</p>
+<p>@return array</p>
+
+<p>Apply styles from array.</p>
+<p><code></p>
+<p>$spreadsheet->getActiveSheet()->getStyle('B2')->applyFromArray(</p>
+<p>    [</p>
+<p>        'font' => [</p>
+<p>            'name' => 'Arial',</p>
+<p>            'bold' => true,</p>
+<p>            'italic' => false,</p>
+<p>            'underline' => Font::UNDERLINE_DOUBLE,</p>
+<p>            'strikethrough' => false,</p>
+<p>            'color' => [</p>
+<p>                'rgb' => '808080'</p>
+<p>            ]</p>
+<p>        ],</p>
+<p>        'borders' => [</p>
+<p>            'bottom' => [</p>
+<p>                'borderStyle' => Border::BORDER_DASHDOT,</p>
+<p>                'color' => [</p>
+<p>                    'rgb' => '808080'</p>
+<p>                ]</p>
+<p>            ],</p>
+<p>            'top' => [</p>
+<p>                'borderStyle' => Border::BORDER_DASHDOT,</p>
+<p>                'color' => [</p>
+<p>                    'rgb' => '808080'</p>
+<p>                ]</p>
+<p>            ]</p>
+<p>        ],</p>
+<p>        'alignment' => [</p>
+<p>            'horizontal' => Alignment::HORIZONTAL_CENTER,</p>
+<p>            'vertical' => Alignment::VERTICAL_CENTER,</p>
+<p>            'wrapText' => true,</p>
+<p>        ],</p>
+<p>        'quotePrefix'    => true</p>
+<p>    ]</p>
+<p>);</p>
+<p></code></p>
+<p>@param array $styleArray Array containing style information</p>
+<p>@param bool $advancedBorders advanced mode for setting borders</p>
+<p>@return $this</p>
+
+<p>Get Fill.</p>
+<p>@return Fill</p>
+
+<p>Get Font.</p>
+<p>@return Font</p>
+
+<p>Set font.</p>
+<p>@return $this</p>
+
+<p>Get Borders.</p>
+<p>@return Borders</p>
+
+<p>Get Alignment.</p>
+<p>@return Alignment</p>
+
+<p>Get Number Format.</p>
+<p>@return NumberFormat</p>
+
+<p>Get Conditional Styles. Only used on supervisor.</p>
+<p>@return Conditional[]</p>
+
+<p>Set Conditional Styles. Only used on supervisor.</p>
+<p>@param Conditional[] $conditionalStyleArray Array of conditional styles</p>
+<p>@return $this</p>
+
+<p>Get Protection.</p>
+<p>@return Protection</p>
+
+<p>Get quote prefix.</p>
+<p>@return bool</p>
+
+<p>Set quote prefix.</p>
+<p>@param bool $quotePrefix</p>
+<p>@return $this</p>
+
+<p>Get hash code.</p>
+<p>@return string Hash code</p>
+
+<p>Get own index in style collection.</p>
+<p>@return int</p>
+
+<p>Set own index in style collection.</p>
+<p>@param int $index</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>subcomponents</code></li>
+<li><code>array</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Style\Style.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Style\Style extends Supervisor</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($isSupervisor = false, $isConditional = false)</code></li>
+<li><code>getSharedComponent()</code></li>
+<li><code>getParent()</code></li>
+<li><code>getStyleArray($array)</code></li>
+<li><code>applyFromArray(array $styleArray, $advancedBorders = true)</code></li>
+<li><code>getOldXfIndexes(string $selectionType, array $rangeStart, array $rangeEnd, string $columnStart, string $columnEnd, array $styleArray)</code></li>
+<li><code>getFill()</code></li>
+<li><code>getFont()</code></li>
+<li><code>setFont(Font $font)</code></li>
+<li><code>getBorders()</code></li>
+<li><code>getAlignment()</code></li>
+<li><code>getNumberFormat()</code></li>
+<li><code>getConditionalStyles()</code></li>
+<li><code>setConditionalStyles(array $conditionalStyleArray)</code></li>
+<li><code>getProtection()</code></li>
+<li><code>getQuotePrefix()</code></li>
+<li><code>setQuotePrefix($quotePrefix)</code></li>
+<li><code>getHashCode()</code></li>
+<li><code>getIndex()</code></li>
+<li><code>setIndex($index)</code></li>
+<li><code>exportArray1()</code></li>
+</ul>
+</body></html>

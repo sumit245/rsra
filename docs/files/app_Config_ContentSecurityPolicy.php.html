@@ -1,0 +1,108 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\Config\ContentSecurityPolicy.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\Config\ContentSecurityPolicy.php</h1>
+
+<ul>
+<li>Path: <code>app\Config\ContentSecurityPolicy.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4266 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Stores the default settings for the ContentSecurityPolicy, if you</p>
+<p>choose to use it. The values here will be read in and set as defaults</p>
+<p>for the site. If needed, they can be overridden on a page-by-page basis.</p>
+<p>Suggested reference for explanations:</p>
+<p>@see https://www.html5rocks.com/en/tutorials/security/content-security-policy/</p>
+
+<p>Default CSP report context</p>
+<p>@var bool</p>
+
+<p>Specifies a URL where a browser will send reports</p>
+<p>when a content security policy is violated.</p>
+<p>@var string|null</p>
+
+<p>Instructs user agents to rewrite URL schemes, changing</p>
+<p>HTTP to HTTPS. This directive is for websites with</p>
+<p>large numbers of old URLs that need to be rewritten.</p>
+<p>@var bool</p>
+
+<p>Will default to self if not overridden</p>
+<p>@var string|string[]|null</p>
+
+<p>Lists allowed scripts' URLs.</p>
+<p>@var string|string[]</p>
+
+<p>Lists allowed stylesheets' URLs.</p>
+<p>@var string|string[]</p>
+
+<p>Defines the origins from which images can be loaded.</p>
+<p>@var string|string[]</p>
+
+<p>Restricts the URLs that can appear in a page's <code><base></code> element.</p>
+<p>Will default to self if not overridden</p>
+<p>@var string|string[]|null</p>
+
+<p>Lists the URLs for workers and embedded frame contents</p>
+<p>@var string|string[]</p>
+
+<p>Limits the origins that you can connect to (via XHR,</p>
+<p>WebSockets, and EventSource).</p>
+<p>@var string|string[]</p>
+
+<p>Specifies the origins that can serve web fonts.</p>
+<p>@var string|string[]</p>
+
+<p>Lists valid endpoints for submission from <code><form></code> tags.</p>
+<p>@var string|string[]</p>
+
+<p>Specifies the sources that can embed the current page.</p>
+<p>This directive applies to <code><frame></code>, <code><iframe></code>, <code><embed></code>,</p>
+<p>and <code><applet></code> tags. This directive can't be used in</p>
+<p><code><meta></code> tags and applies only to non-HTML resources.</p>
+<p>@var string|string[]|null</p>
+
+<p>The frame-src directive restricts the URLs which may</p>
+<p>be loaded into nested browsing contexts.</p>
+<p>@var array|string|null</p>
+
+<p>Restricts the origins allowed to deliver video and audio.</p>
+<p>@var string|string[]|null</p>
+
+<p>Allows control over Flash and other plugins.</p>
+<p>@var string|string[]</p>
+
+<p>@var string|string[]|null</p>
+
+<p>Limits the kinds of plugins a page may invoke.</p>
+<p>@var string|string[]|null</p>
+
+<p>List of actions allowed.</p>
+<p>@var string|string[]|null</p>
+
+<p>Nonce tag for style</p>
+<p>@var string</p>
+
+<p>Nonce tag for script</p>
+<p>@var string</p>
+
+<p>Replace nonce tag automatically</p>
+<p>@var bool</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>which</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\Config\ContentSecurityPolicy.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Config\ContentSecurityPolicy extends BaseConfig</code></li>
+</ul>
+</body></html>

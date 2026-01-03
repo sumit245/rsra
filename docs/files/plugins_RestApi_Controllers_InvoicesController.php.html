@@ -1,0 +1,269 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\RestApi\Controllers\InvoicesController.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\RestApi\Controllers\InvoicesController.php</h1>
+
+<ul>
+<li>Path: <code>plugins\RestApi\Controllers\InvoicesController.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 22384 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@api {get} /api/invoices/:invoiceid List all Invoices information</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName getInvoices</p>
+<p>@apiGroup Invoices</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiParam {Number} invoiceid Mandatory invoice unique ID</p>
+<p>@apiSuccess {Object} Invoices information</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p> {</p>
+<p>  "id": "1",</p>
+<p>  "client_id": "2",</p>
+<p>  "project_id": "1",</p>
+<p>  "bill_date": "2021-09-12",</p>
+<p>  "due_date": "2021-10-01",</p>
+<p>  "note": "",</p>
+<p>  "labels": "",</p>
+<p>  "last_email_sent_date": "2021-09-12",</p>
+<p>  "status": "not_paid",</p>
+<p>  "tax_id": "1",</p>
+<p>  "tax_id2": "1",</p>
+<p>  "tax_id3": "0",</p>
+<p>  "recurring": "0",</p>
+<p>  "recurring_invoice_id": "0",</p>
+<p>  "repeat_every": "1",</p>
+<p>  "repeat_type": "months",</p>
+<p>  "no_of_cycles": "0",</p>
+<p>  "next_recurring_date": null,</p>
+<p>  "no_of_cycles_completed": "0",</p>
+<p>  "due_reminder_date": null,</p>
+<p>  "recurring_reminder_date": null,</p>
+<p>  "discount_amount": "1",</p>
+<p>  "discount_amount_type": "percentage",</p>
+<p>  "discount_type": "after_tax",</p>
+<p>  "cancelled_at": null,</p>
+<p>  "cancelled_by": "0",</p>
+<p>  "files": "a:0:{}",</p>
+<p>  "deleted": "0",</p>
+<p>  "currency": "USD",</p>
+<p>  "currency_symbol": "INR",</p>
+<p>  "company_name": "Company",</p>
+<p>  "project_title": "project 1",</p>
+<p>  "invoice_value": "1188",</p>
+<p>  "payment_received": "0",</p>
+<p>  "tax_percentage": "10",</p>
+<p>  "tax_percentage2": "10",</p>
+<p>  "tax_percentage3": null,</p>
+<p>  "cancelled_by_user": null,</p>
+<p>  "labels_list": null</p>
+<p>}</p>
+<p>@apiError {Boolean} status Request status</p>
+<p>@apiError {String} message No data were found</p>
+
+<p>Return the properties of a resource object</p>
+<p>@return mixed</p>
+
+<p>@api {get} /api/invoices/search/:keysearch Search invoice Information</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName getInvoicesSearch</p>
+<p>@apiGroup Invoices</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiParam {String} keysearch Search Keywords</p>
+<p>@apiSuccess {Object} Invoices information</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p> {</p>
+<p>  "id": "1",</p>
+<p>  "client_id": "2",</p>
+<p>  "project_id": "1",</p>
+<p>  "bill_date": "2021-09-12",</p>
+<p>  "due_date": "2021-10-01",</p>
+<p>  "note": "",</p>
+<p>  "labels": "",</p>
+<p>  "last_email_sent_date": "2021-09-12",</p>
+<p>  "status": "not_paid",</p>
+<p>  "tax_id": "1",</p>
+<p>  "tax_id2": "1",</p>
+<p>  "tax_id3": "0",</p>
+<p>  "recurring": "0",</p>
+<p>  "recurring_invoice_id": "0",</p>
+<p>  "repeat_every": "1",</p>
+<p>  "repeat_type": "months",</p>
+<p>  "no_of_cycles": "0",</p>
+<p>  "next_recurring_date": null,</p>
+<p>  "no_of_cycles_completed": "0",</p>
+<p>  "due_reminder_date": null,</p>
+<p>  "recurring_reminder_date": null,</p>
+<p>  "discount_amount": "1",</p>
+<p>  "discount_amount_type": "percentage",</p>
+<p>  "discount_type": "after_tax",</p>
+<p>  "cancelled_at": null,</p>
+<p>  "cancelled_by": "0",</p>
+<p>  "files": "a:0:{}",</p>
+<p>  "deleted": "0",</p>
+<p>  "currency": "USD",</p>
+<p>  "currency_symbol": "INR",</p>
+<p>  "company_name": "Company",</p>
+<p>  "project_title": "project 1",</p>
+<p>  "invoice_value": "1188",</p>
+<p>  "payment_received": "0",</p>
+<p>  "tax_percentage": "10",</p>
+<p>  "tax_percentage2": "10",</p>
+<p>  "tax_percentage3": null,</p>
+<p>  "cancelled_by_user": null,</p>
+<p>  "labels_list": null</p>
+<p>}</p>
+<p>@apiError {Boolean} status Request status</p>
+<p>@apiError {String} message No data were found</p>
+
+<p>Return a new resource object, with default properties</p>
+<p>@return mixed</p>
+
+<p>@api {post} api/invoices Add New Invoice</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName create</p>
+<p>@apiGroup Invoice</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiParam {string} invoice_bill_date                        		 Optional invoice bill date.</p>
+<p>@apiParam {string} invoice_due_date		                         Mandatory invoice due date .</p>
+<p>@apiParam {string} invoice_client_id		                   	     Mandatory invoice client id.</p>
+<p>@apiParam {string} invoice_project_id	                       	 Optional invoice project id.</p>
+<p>@apiParam {string} tax_id	                        			 Optional invoice tax id.</p>
+<p>@apiParam {string} tax_id2	                        			 Optional invoice tax id2.</p>
+<p>@apiParam {string} tax_id3	                        			 Optional invoice tax id3.</p>
+<p>@apiParam {string} recurring					            		 Optional invoice recurring.</p>
+<p>@apiParam {string} invoice_note						 			 Optional invoice note.</p>
+<p>@apiParam {string} labels							 			 Optional invoice labels.</p>
+<p> @apiParamExample Request-Example:</p>
+<p>    array (size=10)</p>
+<p>       'invoice_bill_date' => string '2021-10-22' (length=10)</p>
+<p>       'invoice_due_date' => string '2021-10-23' (length=10)</p>
+<p>       'invoice_client_id' => string '2' (length=1)</p>
+<p>       'invoice_project_id' => string '6' (length=1)</p>
+<p>       'tax_id' => string '1' (length=1)</p>
+<p>       'tax_id2' => string '1' (length=1) </p>
+<p>	  	  'tax_id3' => string '1' (length=1)</p>
+<p>  	  'recurring' => string '0' (length=1)</p>
+<p>	  	  'invoice_note' => string 'notes' (length=5)</p>
+<p>      'labels' => string '1,2' (length=3)</p>
+<p>@apiSuccess {Boolean} status Request status.</p>
+<p>@apiSuccess {String} message Invoice add successful.</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>    HTTP/1.1 200 OK</p>
+<p>    {</p>
+<p>      "status": true,</p>
+<p>      "message": "Invoice add successful."</p>
+<p>    }</p>
+<p>@apiError {Boolean} status Request status.</p>
+<p>@apiError {String} message Invoice add fail.</p>
+<p>@apiErrorExample Error-Response:</p>
+<p>    HTTP/1.1 404 Not Found</p>
+<p>    {</p>
+<p>      "status": false,</p>
+<p>      "message": "Invoice add fail."</p>
+<p>    }</p>
+
+<p>Return the editable properties of a resource object</p>
+<p>@return mixed</p>
+
+<p>@api {put} api/invoices/:id Update a Invoice</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName update</p>
+<p>@apiGroup Invoice</p>
+<p>@apiParam {string} invoice_bill_date 						Optional Invoice Bill Date.</p>
+<p>@apiParam {string} invoice_due_date 							Mandatory Invoice Due Date.</p>
+<p>@apiParam {string} invoice_client_id 						Mandatory Invoice CLient id.</p>
+<p>@apiParam {string} invoice_project_id 						Optional Invoice Poject id.</p>
+<p>@apiParam {string} tax_id 									Optional Invoice Tax id.</p>
+<p>@apiParam {string} tax_id2 									Optional Invoice Tax id2.</p>
+<p>@apiParam {string} tax_id3 									Optional Invoice Tax id3.</p>
+<p>@apiParam {string} recurring 								Optional Invoice Recurring.</p>
+<p>@apiParam {string} invoice_note 								Optional Invoice Invoice note</p>
+<p>@apiParam {string} labels 									Optional Invoice Label.</p>
+<p>@apiParamExample {json} Request-Example:</p>
+<p>{</p>
+<p>   "invoice_bill_date":"2021-10-22",</p>
+<p>   "invoice_due_date":"2021-10-23",</p>
+<p>   "invoice_client_id":2,</p>
+<p>   "invoice_project_id":6,</p>
+<p>   "tax_id":1,</p>
+<p>   "tax_id2":1,</p>
+<p>   "tax_id3":1,</p>
+<p>   "recurring":0,</p>
+<p>   "invoice_note":"notes",</p>
+<p>   "labels":"1,2"</p>
+<p>}</p>
+<p>@apiSuccess {Boolean} status Request status.</p>
+<p>@apiSuccess {String} message Invoice Update Successful.</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>	HTTP/1.1 200 OK</p>
+<p>	{</p>
+<p>	  "status": true,</p>
+<p>	  "message": "Invoice Update Successful."</p>
+<p>	}</p>
+<p>@apiError {Boolean} status Request status.</p>
+<p>@apiError {String} message Invoice Update Fail.   </p>
+<p>@apiErrorExample Error-Response:</p>
+<p>   HTTP/1.1 404 Not Found</p>
+<p>   {</p>
+<p>     "status": false,</p>
+<p>     "message": "Invoice Update Fail."</p>
+<p>   }</p>
+
+<p>@api {delete} api/invoices/:id Delete a Invoices</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName Delete</p>
+<p>@apiGroup Invoices</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiParam {Number} id invoice unique ID.</p>
+<p>@apiSuccess {String} status Request status.</p>
+<p>@apiSuccess {String} message Invoice Delete Successfuly.</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>    HTTP/1.1 200 OK</p>
+<p>    {</p>
+<p>      "status": true,</p>
+<p>      "message": "Invoice Delete Successfuly."</p>
+<p>    }</p>
+<p>@apiError {Boolean} status Request status.</p>
+<p>@apiError {String} message Invoice Delete Fail.</p>
+<p>@apiErrorExample Error-Response:</p>
+<p>    HTTP/1.1 404 Not Found</p>
+<p>    {</p>
+<p>      "status": false,</p>
+<p>      "message": "Invoice Delete Fail."</p>
+<p>    }</p>
+
+<h2>References</h2>
+
+<p><strong>Models Used</strong></p>
+<ul>
+<li><code>restapi_invoice_model</code></li>
+<li><code>restapi_clients_model</code></li>
+<li><code>restapi_labels_model</code></li>
+<li><code>projects_model</code></li>
+<li><code>taxes_model</code></li>
+<li><code>invoices_model</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\RestApi\Controllers\InvoicesController.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>RestApi\Controllers\InvoicesController extends Rest_api_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index($invoice_id="")</code></li>
+<li><code>show($id = null, $searchTerm = "")</code></li>
+<li><code>search($key = '')</code></li>
+<li><code>new()</code></li>
+<li><code>create()</code></li>
+<li><code>edit($id = null)</code></li>
+<li><code>update($id = null)</code></li>
+<li><code>delete($id = null)</code></li>
+</ul>
+</body></html>

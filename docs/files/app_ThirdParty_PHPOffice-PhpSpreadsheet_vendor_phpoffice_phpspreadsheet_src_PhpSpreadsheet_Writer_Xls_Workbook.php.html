@@ -1,0 +1,219 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xls\Workbook.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xls\Workbook.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xls\Workbook.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 41458 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Formula parser.</p>
+<p>@var \PhpOffice\PhpSpreadsheet\Writer\Xls\Parser</p>
+
+<p>The BIFF file size for the workbook.</p>
+<p>@var int</p>
+<p>@see calcSheetOffsets()</p>
+
+<p>XF Writers.</p>
+<p>@var \PhpOffice\PhpSpreadsheet\Writer\Xls\Xf[]</p>
+
+<p>Array containing the colour palette.</p>
+<p>@var array</p>
+
+<p>The codepage indicates the text encoding used for strings.</p>
+<p>@var int</p>
+
+<p>The country code used for localization.</p>
+<p>@var int</p>
+
+<p>Workbook.</p>
+<p>@var Spreadsheet</p>
+
+<p>Fonts writers.</p>
+<p>@var Font[]</p>
+
+<p>Added fonts. Maps from font's hash => index in workbook.</p>
+<p>@var array</p>
+
+<p>Shared number formats.</p>
+<p>@var array</p>
+
+<p>Added number formats. Maps from numberFormat's hash => index in workbook.</p>
+<p>@var array</p>
+
+<p>Sizes of the binary worksheet streams.</p>
+<p>@var array</p>
+
+<p>Offsets of the binary worksheet streams relative to the start of the global workbook stream.</p>
+<p>@var array</p>
+
+<p>Total number of shared strings in workbook.</p>
+<p>@var int</p>
+
+<p>Number of unique shared strings in workbook.</p>
+<p>@var int</p>
+
+<p>Array of unique shared strings in workbook.</p>
+<p>@var array</p>
+
+<p>Color cache.</p>
+
+<p>Escher object corresponding to MSODRAWINGGROUP.</p>
+<p>@var null|\PhpOffice\PhpSpreadsheet\Shared\Escher</p>
+
+<p>Class constructor.</p>
+<p>@param Spreadsheet $spreadsheet The Workbook</p>
+<p>@param int $str_total Total number of strings</p>
+<p>@param int $str_unique Total number of unique strings</p>
+<p>@param array $str_table String Table</p>
+<p>@param array $colors Colour Table</p>
+<p>@param Parser $parser The formula parser created for the Workbook</p>
+
+<p>Add a new XF writer.</p>
+<p>@param bool $isStyleXf Is it a style XF?</p>
+<p>@return int Index to XF record</p>
+
+<p>Add a font to added fonts.</p>
+<p>@return int Index to FONT record</p>
+
+<p>Alter color palette adding a custom color.</p>
+<p>@param string $rgb E.g. 'FF00AA'</p>
+<p>@return int Color index</p>
+
+<p>Sets the colour palette to the Excel 97+ default.</p>
+
+<p>Assemble worksheets into a workbook and send the BIFF data to an OLE</p>
+<p>storage.</p>
+<p>@param array $worksheetSizes The sizes in bytes of the binary worksheet streams</p>
+<p>@return string Binary data for workbook stream</p>
+
+<p>Calculate offsets for Worksheet BOF records.</p>
+
+<p>Store the Excel FONT records.</p>
+
+<p>Store user defined numerical formats i.e. FORMAT records.</p>
+
+<p>Write all XF records.</p>
+
+<p>Write all STYLE records.</p>
+
+<p>Writes all the DEFINEDNAME records (BIFF8).</p>
+<p>So far this is only used for repeating rows/columns (print titles) and print areas.</p>
+
+<p>local scope.</p>
+<p>@phpstan-ignore-next-line</p>
+
+<p>Write a DEFINEDNAME record for BIFF8 using explicit binary formula data.</p>
+<p>@param string $name The name in UTF-8</p>
+<p>@param string $formulaData The binary formula data</p>
+<p>@param int $sheetIndex 1-based sheet index the defined name applies to. 0 = global</p>
+<p>@param bool $isBuiltIn Built-in name?</p>
+<p>@return string Complete binary record data</p>
+
+<p>Write a short NAME record.</p>
+<p>@param string $name</p>
+<p>@param int $sheetIndex 1-based sheet index the defined name applies to. 0 = global</p>
+<p>@param int[][] $rangeBounds range boundaries</p>
+<p>@param bool $isHidden</p>
+<p>@return string Complete binary record data</p>
+
+<p>Stores the CODEPAGE biff record.</p>
+
+<p>Write Excel BIFF WINDOW1 record.</p>
+
+<p>Writes Excel BIFF BOUNDSHEET record.</p>
+<p>@param int $offset Location of worksheet BOF</p>
+
+<p>Write Internal SUPBOOK record.</p>
+
+<p>Writes the Excel BIFF EXTERNSHEET record. These references are used by</p>
+<p>formulas.</p>
+
+<p>Write Excel BIFF STYLE records.</p>
+
+<p>Writes Excel FORMAT record for non "built-in" numerical formats.</p>
+<p>@param string $format Custom format string</p>
+<p>@param int $ifmt Format index code</p>
+
+<p>Write DATEMODE record to indicate the date system in use (1904 or 1900).</p>
+
+<p>Stores the COUNTRY record for localization.</p>
+<p>@return string</p>
+
+<p>Write the RECALCID record.</p>
+<p>@return string</p>
+
+<p>Stores the PALETTE biff record.</p>
+
+<p>Handling of the SST continue blocks is complicated by the need to include an</p>
+<p>additional continuation byte depending on whether the string is split between</p>
+<p>blocks or whether it starts at the beginning of the block. (There are also</p>
+<p>additional complications that will arise later when/if Rich Strings are</p>
+<p>supported).</p>
+<p>The Excel documentation says that the SST record should be followed by an</p>
+<p>EXTSST record. The EXTSST record is a hash table that is used to optimise</p>
+<p>access to SST. However, despite the documentation it doesn't seem to be</p>
+<p>required so we will ignore it.</p>
+<p>@return string Binary data</p>
+
+<p>Writes the MSODRAWINGGROUP record if needed. Possibly split using CONTINUE records.</p>
+
+<p>Get Escher object.</p>
+
+<p>Set Escher object.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>font</code></li>
+<li><code>numberFormat</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xls\Workbook.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Writer\Xls\library</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Writer\Xls\Workbook extends BIFFwriter</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(Spreadsheet $spreadsheet, &$str_total, &$str_unique, &$str_table, &$colors, Parser $parser)</code></li>
+<li><code>addXfWriter(Style $style, $isStyleXf = false)</code></li>
+<li><code>addFont(\PhpOffice\PhpSpreadsheet\Style\Font $font)</code></li>
+<li><code>addColor($rgb)</code></li>
+<li><code>setPaletteXl97()</code></li>
+<li><code>writeWorkbook(array $worksheetSizes)</code></li>
+<li><code>calcSheetOffsets()</code></li>
+<li><code>writeAllFonts()</code></li>
+<li><code>writeAllNumberFormats()</code></li>
+<li><code>writeAllXfs()</code></li>
+<li><code>writeAllStyles()</code></li>
+<li><code>parseDefinedNameValue(DefinedName $definedName)</code></li>
+<li><code>writeAllDefinedNamesBiff8()</code></li>
+<li><code>writeDefinedNameBiff8($name, $formulaData, $sheetIndex = 0, $isBuiltIn = false)</code></li>
+<li><code>writeShortNameBiff8($name, $sheetIndex, $rangeBounds, $isHidden = false)</code></li>
+<li><code>writeCodepage()</code></li>
+<li><code>writeWindow1()</code></li>
+<li><code>writeBoundSheet(\PhpOffice\PhpSpreadsheet\Worksheet\Worksheet $sheet, $offset)</code></li>
+<li><code>writeSupbookInternal()</code></li>
+<li><code>writeExternalsheetBiff8()</code></li>
+<li><code>writeStyle()</code></li>
+<li><code>writeNumberFormat($format, $ifmt)</code></li>
+<li><code>writeDateMode()</code></li>
+<li><code>writeCountry()</code></li>
+<li><code>writeRecalcId()</code></li>
+<li><code>writePalette()</code></li>
+<li><code>writeSharedStringsTable()</code></li>
+<li><code>writeMsoDrawingGroup()</code></li>
+<li><code>getEscher()</code></li>
+<li><code>setEscher(?\PhpOffice\PhpSpreadsheet\Shared\Escher $escher)</code></li>
+</ul>
+</body></html>

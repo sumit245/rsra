@@ -1,0 +1,157 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\IO\Stream\ZipEntryStreamWrapper.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\IO\Stream\ZipEntryStreamWrapper.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\IO\Stream\ZipEntryStreamWrapper.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9547 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>The class provides stream reuse functionality.</p>
+<p>Stream will not be closed at {@see fclose}.</p>
+<p>@see https://www.php.net/streamwrapper</p>
+
+<p>@var string the registered protocol</p>
+
+<p>@var resource</p>
+
+<p>@var resource</p>
+
+<p>@return resource</p>
+
+<p>Opens file or URL.</p>
+<p>This method is called immediately after the wrapper is</p>
+<p>initialized (f.e. by {@see fopen()} and {@see file_get_contents()}).</p>
+<p>@param string      $path        specifies the URL that was passed to</p>
+<p>                                the original function</p>
+<p>@param string      $mode        the mode used to open the file, as detailed</p>
+<p>                                for {@see fopen()}</p>
+<p>@param int         $options     Holds additional flags set by the streams</p>
+<p>                                API. It can hold one or more of the</p>
+<p>                                following values OR'd together.</p>
+<p>@param string|null $opened_path if the path is opened successfully, and</p>
+<p>                                STREAM_USE_PATH is set in options,</p>
+<p>                                opened_path should be set to the</p>
+<p>                                full path of the file/resource that</p>
+<p>                                was actually opened</p>
+<p>@throws ZipException</p>
+<p>@see https://www.php.net/streamwrapper.stream-open</p>
+
+<p>Read from stream.</p>
+<p>This method is called in response to {@see fread()} and {@see fgets()}.</p>
+<p>Note: Remember to update the read/write position of the stream</p>
+<p>(by the number of bytes that were successfully read).</p>
+<p>@param int $count how many bytes of data from the current</p>
+<p>                  position should be returned</p>
+<p>@return false|string If there are less than count bytes available,</p>
+<p>                     return as many as are available. If no more data</p>
+<p>                     is available, return either FALSE or</p>
+<p>                     an empty string.</p>
+<p>@see https://www.php.net/streamwrapper.stream-read</p>
+
+<p>Seeks to specific location in a stream.</p>
+<p>This method is called in response to {@see fseek()}.</p>
+<p>The read/write position of the stream should be updated according</p>
+<p>to the offset and whence.</p>
+<p>@param int $offset the stream offset to seek to</p>
+<p>@param int $whence Possible values:</p>
+<p>                   {@see \SEEK_SET} - Set position equal to offset bytes.</p>
+<p>                   {@see \SEEK_CUR} - Set position to current location plus offset.</p>
+<p>                   {@see \SEEK_END} - Set position to end-of-file plus offset.</p>
+<p>@return bool return TRUE if the position was updated, FALSE otherwise</p>
+<p>@see https://www.php.net/streamwrapper.stream-seek</p>
+
+<p>Retrieve the current position of a stream.</p>
+<p>This method is called in response to {@see fseek()} to determine</p>
+<p>the current position.</p>
+<p>@return int should return the current position of the stream</p>
+<p>@see https://www.php.net/streamwrapper.stream-tell</p>
+
+<p>Tests for end-of-file on a file pointer.</p>
+<p>This method is called in response to {@see feof()}.</p>
+<p>@return bool should return TRUE if the read/write position is at</p>
+<p>             the end of the stream and if no more data is available</p>
+<p>             to be read, or FALSE otherwise</p>
+<p>@see https://www.php.net/streamwrapper.stream-eof</p>
+
+<p>Retrieve information about a file resource.</p>
+<p>This method is called in response to {@see fstat()}.</p>
+<p>@see https://www.php.net/streamwrapper.stream-stat</p>
+<p>@see https://www.php.net/stat</p>
+<p>@see https://www.php.net/fstat</p>
+
+<p>Flushes the output.</p>
+<p>This method is called in response to {@see fflush()} and when the</p>
+<p>stream is being closed while any unflushed data has been written to</p>
+<p>it before.</p>
+<p>If you have cached data in your stream but not yet stored it into</p>
+<p>the underlying storage, you should do so now.</p>
+<p>@return bool should return TRUE if the cached data was successfully</p>
+<p>             stored (or if there was no data to store), or FALSE</p>
+<p>             if the data could not be stored</p>
+<p>@see https://www.php.net/streamwrapper.stream-flush</p>
+
+<p>Truncate stream.</p>
+<p>Will respond to truncation, e.g., through {@see ftruncate()}.</p>
+<p>@param int $newSize the new size</p>
+<p>@return bool returns TRUE on success or FALSE on failure</p>
+<p>@see https://www.php.net/streamwrapper.stream-truncate</p>
+
+<p>Write to stream.</p>
+<p>This method is called in response to {@see fwrite().}</p>
+<p>Note: Remember to update the current position of the stream by</p>
+<p>number of bytes that were successfully written.</p>
+<p>@param string $data should be stored into the underlying stream</p>
+<p>@return int should return the number of bytes that were successfully stored, or 0 if none could be stored</p>
+<p>@see https://www.php.net/streamwrapper.stream-write</p>
+
+<p>Retrieve the underlaying resource.</p>
+<p>This method is called in response to {@see stream_select()}.</p>
+<p>@param int $cast_as can be {@see STREAM_CAST_FOR_SELECT} when {@see stream_select()}</p>
+<p>                    is callingstream_cast() or {@see STREAM_CAST_AS_STREAM} when</p>
+<p>                    stream_cast() is called for other uses</p>
+<p>@return resource</p>
+
+<p>Close a resource.</p>
+<p>This method is called in response to {@see fclose()}.</p>
+<p>All resources that were locked, or allocated, by the wrapper should be released.</p>
+<p>@see https://www.php.net/streamwrapper.stream-close</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>stream</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\IO\Stream\ZipEntryStreamWrapper.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpZip\IO\Stream\provides</code></li>
+<li><code>PhpZip\IO\Stream\ZipEntryStreamWrapper</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>register()</code></li>
+<li><code>unregister()</code></li>
+<li><code>wrap(ZipEntry $entry)</code></li>
+<li><code>stream_open(string $path, string $mode, int $options, ?string &$opened_path)</code></li>
+<li><code>stream_read(int $count)</code></li>
+<li><code>stream_seek(int $offset, int $whence = \SEEK_SET)</code></li>
+<li><code>stream_tell()</code></li>
+<li><code>stream_eof()</code></li>
+<li><code>stream_stat()</code></li>
+<li><code>stream_flush()</code></li>
+<li><code>stream_truncate(int $newSize)</code></li>
+<li><code>stream_write(string $data)</code></li>
+<li><code>stream_cast(int $cast_as)</code></li>
+<li><code>stream_close()</code></li>
+</ul>
+</body></html>

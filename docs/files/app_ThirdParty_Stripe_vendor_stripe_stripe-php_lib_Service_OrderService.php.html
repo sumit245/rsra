@@ -1,0 +1,103 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\OrderService.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\OrderService.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\OrderService.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4816 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Returns a list of your orders. The orders are returned sorted by creation date,</p>
+<p>with the most recently created orders appearing first.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\Order></p>
+
+<p>When retrieving an order, there is an includable <strong>line_items</strong></p>
+<p>property containing the first handful of those items. There is also a URL where</p>
+<p>you can retrieve the full (paginated) list of line items.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\LineItem></p>
+
+<p>Cancels the order as well as the payment intent if one is attached.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Order</p>
+
+<p>Creates a new <code>open</code> order object.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Order</p>
+
+<p>Reopens a <code>submitted</code> order.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Order</p>
+
+<p>Retrieves the details of an existing order. Supply the unique order ID from</p>
+<p>either an order creation request or the order list, and Stripe will return the</p>
+<p>corresponding order information.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Order</p>
+
+<p>Submitting an Order transitions the status to <code>processing</code> and</p>
+<p>creates a PaymentIntent object so the order can be paid. If the Order has an</p>
+<p><code>amount_total</code> of 0, no PaymentIntent object will be created. Once</p>
+<p>the order is submitted, its contents cannot be changed, unless the <a</p>
+<p>href="#reopen_order">reopen</a> method is called.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Order</p>
+
+<p>Updates the specific order by setting the values of the parameters passed. Any</p>
+<p>parameters not provided will be left unchanged.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Order</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\OrderService.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Service\OrderService extends \Stripe\Service\AbstractService</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>all($params = null, $opts = null)</code></li>
+<li><code>allLineItems($id, $params = null, $opts = null)</code></li>
+<li><code>cancel($id, $params = null, $opts = null)</code></li>
+<li><code>create($params = null, $opts = null)</code></li>
+<li><code>reopen($id, $params = null, $opts = null)</code></li>
+<li><code>retrieve($id, $params = null, $opts = null)</code></li>
+<li><code>submit($id, $params = null, $opts = null)</code></li>
+<li><code>update($id, $params = null, $opts = null)</code></li>
+</ul>
+</body></html>

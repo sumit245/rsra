@@ -1,0 +1,138 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Database\Query.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Database\Query.php</h1>
+
+<ul>
+<li>Path: <code>system\Database\Query.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 10522 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Query builder</p>
+
+<p>The query string, as provided by the user.</p>
+<p>@var string</p>
+
+<p>The query string if table prefix has been swapped.</p>
+<p>@var string|null</p>
+
+<p>The final query string after binding, etc.</p>
+<p>@var string|null</p>
+
+<p>The binds and their values used for binding.</p>
+<p>@var array</p>
+
+<p>Bind marker</p>
+<p>Character used to identify values in a prepared statement.</p>
+<p>@var string</p>
+
+<p>The start time in seconds with microseconds</p>
+<p>for when this query was executed.</p>
+<p>@var float|string</p>
+
+<p>The end time in seconds with microseconds</p>
+<p>for when this query was executed.</p>
+<p>@var float</p>
+
+<p>The error code, if any.</p>
+<p>@var int</p>
+
+<p>The error message, if any.</p>
+<p>@var string</p>
+
+<p>Pointer to database connection.</p>
+<p>Mainly for escaping features.</p>
+<p>@var ConnectionInterface</p>
+
+<p>Sets the raw query string to use for this statement.</p>
+<p>@param mixed $binds</p>
+<p>@return $this</p>
+
+<p>Will store the variables to bind into the query later.</p>
+<p>@return $this</p>
+
+<p>Returns the final, processed query string after binding, etal</p>
+<p>has been performed.</p>
+
+<p>Records the execution time of the statement using microtime(true)</p>
+<p>for it's start and end values. If no end value is present, will</p>
+<p>use the current time to determine total duration.</p>
+<p>@param float $end</p>
+<p>@return $this</p>
+
+<p>Returns the start time in seconds with microseconds.</p>
+<p>@return float|string</p>
+
+<p>Returns the duration of this query during execution, or null if</p>
+<p>the query has not been executed yet.</p>
+<p>@param int $decimals The accuracy of the returned time.</p>
+
+<p>Stores the error description that happened for this query.</p>
+<p>@return $this</p>
+
+<p>Reports whether this statement created an error not.</p>
+
+<p>Returns the error code created while executing this statement.</p>
+
+<p>Returns the error message created while executing this statement.</p>
+
+<p>Determines if the statement is a write-type query or not.</p>
+
+<p>Swaps out one table prefix for a new one.</p>
+<p>@return $this</p>
+
+<p>Returns the original SQL that was passed into the system.</p>
+
+<p>Escapes and inserts any binds into the finalQueryString property.</p>
+<p>@see https://regex101.com/r/EUEhay/5</p>
+
+<p>Match bindings</p>
+
+<p>Match bindings</p>
+
+<p>Returns string to display in debug toolbar</p>
+
+<p>@see https://stackoverflow.com/a/20767160</p>
+<p>@see https://regex101.com/r/hUlrGN/4</p>
+
+<p>Return text representation of the query</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Database\Query.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Database\Query implements QueryInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(ConnectionInterface $db)</code></li>
+<li><code>setQuery(string $sql, $binds = null, bool $setEscape = true)</code></li>
+<li><code>setBinds(array $binds, bool $setEscape = true)</code></li>
+<li><code>getQuery()</code></li>
+<li><code>setDuration(float $start, ?float $end = null)</code></li>
+<li><code>getStartTime(bool $returnRaw = false, int $decimals = 6)</code></li>
+<li><code>getDuration(int $decimals = 6)</code></li>
+<li><code>setError(int $code, string $error)</code></li>
+<li><code>hasError()</code></li>
+<li><code>getErrorCode()</code></li>
+<li><code>getErrorMessage()</code></li>
+<li><code>isWriteType()</code></li>
+<li><code>swapPrefix(string $orig, string $swap)</code></li>
+<li><code>getOriginalQuery()</code></li>
+<li><code>compileBinds()</code></li>
+<li><code>matchNamedBinds(string $sql, array $binds)</code></li>
+<li><code>matchSimpleBinds(string $sql, array $binds, int $bindCount, int $ml)</code></li>
+<li><code>debugToolbarDisplay()</code></li>
+<li><code>__toString()</code></li>
+</ul>
+</body></html>

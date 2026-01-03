@@ -1,0 +1,49 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\CubeHandler.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\CubeHandler.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\CubeHandler.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4631 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Logs to Cube.</p>
+<p>@link http://square.github.com/cube/</p>
+<p>@author Wan Chen <kami@kamisama.me></p>
+
+<p>Create a Cube handler</p>
+<p>@throws \UnexpectedValueException when given url is not a valid url.</p>
+<p>                                  A valid url must consist of three parts : protocol://host:port</p>
+<p>                                  Only valid protocols used by Cube are http and udp</p>
+
+<p>Establish a connection to an UDP socket</p>
+<p>@throws \LogicException           when unable to connect to the socket</p>
+<p>@throws MissingExtensionException when there is no socket extension</p>
+
+<p>Establish a connection to a http server</p>
+<p>@throws \LogicException when no curl extension</p>
+
+<p>{@inheritdoc}</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\CubeHandler.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Monolog\Handler\CubeHandler extends AbstractProcessingHandler</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($url, $level = Logger::DEBUG, $bubble = true)</code></li>
+<li><code>connectUdp()</code></li>
+<li><code>connectHttp()</code></li>
+<li><code>write(array $record)</code></li>
+<li><code>writeUdp($data)</code></li>
+<li><code>writeHttp($data)</code></li>
+</ul>
+</body></html>

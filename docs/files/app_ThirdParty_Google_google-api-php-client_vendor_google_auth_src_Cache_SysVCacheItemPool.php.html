@@ -1,0 +1,102 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\google\auth\src\Cache\SysVCacheItemPool.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\google\auth\src\Cache\SysVCacheItemPool.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\google\auth\src\Cache\SysVCacheItemPool.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5795 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Copyright 2018 Google Inc. All Rights Reserved.</p>
+<p>Licensed under the Apache License, Version 2.0 (the "License");</p>
+<p>you may not use this file except in compliance with the License.</p>
+<p>You may obtain a copy of the License at</p>
+<p>     http://www.apache.org/licenses/LICENSE-2.0</p>
+<p>Unless required by applicable law or agreed to in writing, software</p>
+<p>distributed under the License is distributed on an "AS IS" BASIS,</p>
+<p>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</p>
+<p>See the License for the specific language governing permissions and</p>
+<p>limitations under the License.</p>
+
+<p>SystemV shared memory based CacheItemPool implementation.</p>
+<p>This CacheItemPool implementation can be used among multiple processes, but</p>
+<p>it doesn't provide any locking mechanism. If multiple processes write to</p>
+<p>this ItemPool, you have to avoid race condition manually in your code.</p>
+
+<p>@var int</p>
+
+<p>@var CacheItemInterface[]</p>
+
+<p>@var CacheItemInterface[]</p>
+
+<p>@var array</p>
+
+<p>Save the current items.</p>
+<p>@return bool true when success, false upon failure</p>
+
+<p>Load the items from the shared memory.</p>
+<p>@return bool true when success, false upon failure</p>
+
+<p>Create a SystemV shared memory based CacheItemPool.</p>
+<p>@param array $options [optional] {</p>
+<p>    Configuration options.</p>
+<p>    @type int $variableKey The variable key for getting the data from</p>
+<p>          the shared memory. <strong>Defaults to</strong> 1.</p>
+<p>    @type string $proj The project identifier for ftok. This needs to</p>
+<p>          be a one character string. <strong>Defaults to</strong> 'A'.</p>
+<p>    @type int $memsize The memory size in bytes for shm_attach.</p>
+<p>          <strong>Defaults to</strong> 10000.</p>
+<p>    @type int $perm The permission for shm_attach. <strong>Defaults to</strong> 0600.</p>
+
+<p>{@inheritdoc}</p>
+
+<p>{@inheritdoc}</p>
+
+<p>{@inheritdoc}</p>
+
+<p>{@inheritdoc}</p>
+
+<p>{@inheritdoc}</p>
+
+<p>{@inheritdoc}</p>
+
+<p>{@inheritdoc}</p>
+
+<p>{@inheritdoc}</p>
+
+<p>{@inheritdoc}</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\google\auth\src\Cache\SysVCacheItemPool.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Google\Auth\Cache\SysVCacheItemPool implements CacheItemPoolInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>saveCurrentItems()</code></li>
+<li><code>loadItems()</code></li>
+<li><code>__construct($options = [])</code></li>
+<li><code>getItem($key)</code></li>
+<li><code>getItems(array $keys = [])</code></li>
+<li><code>hasItem($key)</code></li>
+<li><code>clear()</code></li>
+<li><code>deleteItem($key)</code></li>
+<li><code>deleteItems(array $keys)</code></li>
+<li><code>save(CacheItemInterface $item)</code></li>
+<li><code>saveDeferred(CacheItemInterface $item)</code></li>
+<li><code>commit()</code></li>
+</ul>
+</body></html>

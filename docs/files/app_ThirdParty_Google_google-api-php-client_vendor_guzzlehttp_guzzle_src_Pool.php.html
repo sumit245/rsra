@@ -1,0 +1,71 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Pool.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Pool.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Pool.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4652 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Sends and iterator of requests concurrently using a capped pool size.</p>
+<p>The pool will read from an iterator until it is cancelled or until the</p>
+<p>iterator is consumed. When a request is yielded, the request is sent after</p>
+<p>applying the "request_options" request options (if provided in the ctor).</p>
+<p>When a function is yielded by the iterator, the function is provided the</p>
+<p>"request_options" array that should be merged on top of any existing</p>
+<p>options, and the function MUST then return a wait-able promise.</p>
+
+<p>@var EachPromise</p>
+
+<p>@param ClientInterface $client   Client used to send the requests.</p>
+<p>@param array|\Iterator $requests Requests or functions that return</p>
+<p>                                 requests to send concurrently.</p>
+<p>@param array           $config   Associative array of options</p>
+<p>    - concurrency: (int) Maximum number of requests to send concurrently</p>
+<p>    - options: Array of request options to apply to each request.</p>
+<p>    - fulfilled: (callable) Function to invoke when a request completes.</p>
+<p>    - rejected: (callable) Function to invoke when a request is rejected.</p>
+
+<p>Sends multiple requests concurrently and returns an array of responses</p>
+<p>and exceptions that uses the same ordering as the provided requests.</p>
+<p>IMPORTANT: This method keeps every request and response in memory, and</p>
+<p>as such, is NOT recommended when sending a large number or an</p>
+<p>indeterminate number of requests concurrently.</p>
+<p>@param ClientInterface $client   Client used to send the requests</p>
+<p>@param array|\Iterator $requests Requests to send concurrently.</p>
+<p>@param array           $options  Passes through the options available in</p>
+<p>                                 {@see GuzzleHttp\Pool::__construct}</p>
+<p>@return array Returns an array containing the response or an exception</p>
+<p>              in the same order that the requests were sent.</p>
+<p>@throws \InvalidArgumentException if the event format is incorrect.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>an</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Pool.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>GuzzleHttp\Pool implements PromisorInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`__construct(ClientInterface $client,</li>
+<p>        $requests,</p>
+<p>        array $config = [])`</p>
+<li><code>promise()</code></li>
+<li>`batch(ClientInterface $client,</li>
+<p>        $requests,</p>
+<p>        array $options = [])`</p>
+<li><code>cmpCallback(array &$options, $name, array &$results)</code></li>
+</ul>
+</body></html>

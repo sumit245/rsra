@@ -1,0 +1,129 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\System\SSH\Agent.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\System\SSH\Agent.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\System\SSH\Agent.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 8627 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Pure-PHP ssh-agent client.</p>
+<p>PHP version 5</p>
+<p>Here are some examples of how to use this library:</p>
+<p><code></p>
+<p><?php</p>
+<p>   include 'vendor/autoload.php';</p>
+<p>   $agent = new \phpseclib\System\SSH\Agent();</p>
+<p>   $ssh = new \phpseclib\Net\SSH2('www.domain.tld');</p>
+<p>   if (!$ssh->login('username', $agent)) {</p>
+<p>       exit('Login Failed');</p>
+<p>   }</p>
+<p>   echo $ssh->exec('pwd');</p>
+<p>   echo $ssh->exec('ls -la');</p>
+<p>?></p>
+<p></code></p>
+<p>@category  System</p>
+<p>@package   SSH\Agent</p>
+<p>@author    Jim Wigginton <terrafrost@php.net></p>
+<p>@copyright 2014 Jim Wigginton</p>
+<p>@license   http://www.opensource.org/licenses/mit-license.html  MIT License</p>
+<p>@link      http://phpseclib.sourceforge.net</p>
+<p>@internal  See http://api.libssh.org/rfc/PROTOCOL.agent</p>
+
+<p>Pure-PHP ssh-agent client identity factory</p>
+<p>requestIdentities() method pumps out \phpseclib\System\SSH\Agent\Identity objects</p>
+<p>@package SSH\Agent</p>
+<p>@author  Jim Wigginton <terrafrost@php.net></p>
+<p>@access  internal</p>
+
+<p>#@+</p>
+<p>Message numbers</p>
+<p>@access private</p>
+
+<p>#@-</p>
+
+<p>@+</p>
+<p>Agent forwarding status</p>
+<p>@access private</p>
+
+<p>#@-</p>
+
+<p>Unused</p>
+
+<p>Socket Resource</p>
+<p>@var resource</p>
+<p>@access private</p>
+
+<p>Agent forwarding status</p>
+<p>@access private</p>
+
+<p>Buffer for accumulating forwarded authentication</p>
+<p>agent data arriving on SSH data channel destined</p>
+<p>for agent unix socket</p>
+<p>@access private</p>
+
+<p>Tracking the number of bytes we are expecting</p>
+<p>to arrive for the agent socket on the SSH data</p>
+<p>channel</p>
+
+<p>Default Constructor</p>
+<p>@return \phpseclib\System\SSH\Agent</p>
+<p>@access public</p>
+
+<p>Request Identities</p>
+<p>See "2.5.2 Requesting a list of protocol 2 keys"</p>
+<p>Returns an array containing zero or more \phpseclib\System\SSH\Agent\Identity objects</p>
+<p>@return array</p>
+<p>@access public</p>
+
+<p>Signal that agent forwarding should</p>
+<p>be requested when a channel is opened</p>
+<p>@param Net_SSH2 $ssh</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Request agent forwarding of remote server</p>
+<p>@param Net_SSH2 $ssh</p>
+<p>@return bool</p>
+<p>@access private</p>
+
+<p>On successful channel open</p>
+<p>This method is called upon successful channel</p>
+<p>open to give the SSH Agent an opportunity</p>
+<p>to take further action. i.e. request agent forwarding</p>
+<p>@param Net_SSH2 $ssh</p>
+<p>@access private</p>
+
+<p>Forward data to SSH Agent and return data reply</p>
+<p>@param string $data</p>
+<p>@return data from SSH Agent</p>
+<p>@access private</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>SSH</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\System\SSH\Agent.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>phpseclib\System\SSH\Agent</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>requestIdentities()</code></li>
+<li><code>startSSHForwarding($ssh)</code></li>
+<li><code>_request_forwarding($ssh)</code></li>
+<li><code>_on_channel_open($ssh)</code></li>
+<li><code>_forward_data($data)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,337 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\RestApi\ThirdParty\Requests.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\RestApi\ThirdParty\Requests.php</h1>
+
+<ul>
+<li>Path: <code>plugins\RestApi\ThirdParty\Requests.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 30429 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Requests for PHP</p>
+<p>Inspired by Requests for Python.</p>
+<p>Based on concepts from SimplePie_File, RequestCore and WP_Http.</p>
+<p>@package Requests</p>
+
+<p>Requests for PHP</p>
+<p>Inspired by Requests for Python.</p>
+<p>Based on concepts from SimplePie_File, RequestCore and WP_Http.</p>
+<p>@package Requests</p>
+
+<p>POST method</p>
+<p>@var string</p>
+
+<p>PUT method</p>
+<p>@var string</p>
+
+<p>GET method</p>
+<p>@var string</p>
+
+<p>HEAD method</p>
+<p>@var string</p>
+
+<p>DELETE method</p>
+<p>@var string</p>
+
+<p>OPTIONS method</p>
+<p>@var string</p>
+
+<p>TRACE method</p>
+<p>@var string</p>
+
+<p>PATCH method</p>
+<p>@link https://tools.ietf.org/html/rfc5789</p>
+<p>@var string</p>
+
+<p>Default size of buffer size to read streams</p>
+<p>@var integer</p>
+
+<p>Current version of Requests</p>
+<p>@var string</p>
+
+<p>Registered transport classes</p>
+<p>@var array</p>
+
+<p>Selected transport name</p>
+<p>Use {@see get_transport()} instead</p>
+<p>@var array</p>
+
+<p>Default certificate path.</p>
+<p>@see Requests::get_certificate_path()</p>
+<p>@see Requests::set_certificate_path()</p>
+<p>@var string</p>
+
+<p>This is a static class, do not instantiate it</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Autoloader for Requests</p>
+<p>Register this with {@see register_autoloader()} if you'd like to avoid</p>
+<p>having to create your own.</p>
+<p>(You can also use <code>spl_autoload_register</code> directly if you'd prefer.)</p>
+<p>@codeCoverageIgnore</p>
+<p>@param string $class Class name to load</p>
+
+<p>Register the built-in autoloader</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Register a transport</p>
+<p>@param string $transport Transport class to add, must support the Requests_Transport interface</p>
+
+<p>Get a working transport</p>
+<p>@throws Requests_Exception If no valid transport is found (<code>notransport</code>)</p>
+<p>@return Requests_Transport</p>
+
+<p>#@+</p>
+<p>@see request()</p>
+<p>@param string $url</p>
+<p>@param array $headers</p>
+<p>@param array $options</p>
+<p>@return Requests_Response</p>
+
+<p>Send a GET request</p>
+
+<p>Send a HEAD request</p>
+
+<p>Send a DELETE request</p>
+
+<p>Send a TRACE request</p>
+
+<p>#@-</p>
+
+<p>#@+</p>
+<p>@see request()</p>
+<p>@param string $url</p>
+<p>@param array $headers</p>
+<p>@param array $data</p>
+<p>@param array $options</p>
+<p>@return Requests_Response</p>
+
+<p>Send a POST request</p>
+
+<p>Send a PUT request</p>
+
+<p>Send an OPTIONS request</p>
+
+<p>Send a PATCH request</p>
+<p>Note: Unlike {@see post} and {@see put}, <code>$headers</code> is required, as the</p>
+<p>specification recommends that should send an ETag</p>
+<p>@link https://tools.ietf.org/html/rfc5789</p>
+
+<p>#@-</p>
+
+<p>Main interface for HTTP requests</p>
+<p>This method initiates a request and sends it via a transport before</p>
+<p>parsing.</p>
+<p>The <code>$options</code> parameter takes an associative array with the following</p>
+<p>options:</p>
+<ul>
+<li><code>timeout</code>: How long should we wait for a response?</li>
+<p>   Note: for cURL, a minimum of 1 second applies, as DNS resolution</p>
+<p>   operates at second-resolution only.</p>
+<p>   (float, seconds with a millisecond precision, default: 10, example: 0.01)</p>
+<li><code>connect_timeout</code>: How long should we wait while trying to connect?</li>
+<p>   (float, seconds with a millisecond precision, default: 10, example: 0.01)</p>
+<li><code>useragent</code>: Useragent to send to the server</li>
+<p>   (string, default: php-requests/$version)</p>
+<li><code>follow_redirects</code>: Should we follow 3xx redirects?</li>
+<p>   (boolean, default: true)</p>
+<li><code>redirects</code>: How many times should we redirect before erroring?</li>
+<p>   (integer, default: 10)</p>
+<li><code>blocking</code>: Should we block processing on this request?</li>
+<p>   (boolean, default: true)</p>
+<li><code>filename</code>: File to stream the body to instead.</li>
+<p>   (string|boolean, default: false)</p>
+<li><code>auth</code>: Authentication handler or array of user/password details to use</li>
+<p>   for Basic authentication</p>
+<p>   (Requests_Auth|array|boolean, default: false)</p>
+<li><code>proxy</code>: Proxy details to use for proxy by-passing and authentication</li>
+<p>   (Requests_Proxy|array|string|boolean, default: false)</p>
+<li><code>max_bytes</code>: Limit for the response body size.</li>
+<p>   (integer|boolean, default: false)</p>
+<li><code>idn</code>: Enable IDN parsing</li>
+<p>   (boolean, default: true)</p>
+<li><code>transport</code>: Custom transport. Either a class name, or a</li>
+<p>   transport object. Defaults to the first working transport from</p>
+<p>   {@see getTransport()}</p>
+<p>   (string|Requests_Transport, default: {@see getTransport()})</p>
+<li><code>hooks</code>: Hooks handler.</li>
+<p>   (Requests_Hooker, default: new Requests_Hooks())</p>
+<li><code>verify</code>: Should we verify SSL certificates? Allows passing in a custom</li>
+<p>   certificate file as a string. (Using true uses the system-wide root</p>
+<p>   certificate store instead, but this may have different behaviour</p>
+<p>   across transports.)</p>
+<p>   (string|boolean, default: library/Requests/Transport/cacert.pem)</p>
+<li><code>verifyname</code>: Should we verify the common name in the SSL certificate?</li>
+<p>   (boolean, default: true)</p>
+<li><code>data_format</code>: How should we send the <code>$data</code> parameter?</li>
+<p>   (string, one of 'query' or 'body', default: 'query' for</p>
+<p>   HEAD/GET/DELETE, 'body' for POST/PUT/OPTIONS/PATCH)</p>
+<p>@throws Requests_Exception On invalid URLs (<code>nonhttp</code>)</p>
+<p>@param string $url URL to request</p>
+<p>@param array $headers Extra headers to send with the request</p>
+<p>@param array|null $data Data to send either as a query string for GET/HEAD requests, or in the body for POST requests</p>
+<p>@param string $type HTTP request type (use Requests constants)</p>
+<p>@param array $options Options for the request (see description for more information)</p>
+<p>@return Requests_Response</p>
+</ul>
+<p>Send multiple HTTP requests simultaneously</p>
+<p>The <code>$requests</code> parameter takes an associative or indexed array of</p>
+<p>request fields. The key of each request can be used to match up the</p>
+<p>request with the returned data, or with the request passed into your</p>
+<p><code>multiple.request.complete</code> callback.</p>
+<p>The request fields value is an associative array with the following keys:</p>
+<ul>
+<li><code>url</code>: Request URL Same as the <code>$url</code> parameter to</li>
+<p>   {@see Requests::request}</p>
+<p>   (string, required)</p>
+<li><code>headers</code>: Associative array of header fields. Same as the <code>$headers</code></li>
+<p>   parameter to {@see Requests::request}</p>
+<p>   (array, default: <code>array()</code>)</p>
+<li><code>data</code>: Associative array of data fields or a string. Same as the</li>
+<p>   <code>$data</code> parameter to {@see Requests::request}</p>
+<p>   (array|string, default: <code>array()</code>)</p>
+<li><code>type</code>: HTTP request type (use Requests constants). Same as the <code>$type</code></li>
+<p>   parameter to {@see Requests::request}</p>
+<p>   (string, default: <code>Requests::GET</code>)</p>
+<li><code>cookies</code>: Associative array of cookie name to value, or cookie jar.</li>
+<p>   (array|Requests_Cookie_Jar)</p>
+<p>If the <code>$options</code> parameter is specified, individual requests will</p>
+<p>inherit options from it. This can be used to use a single hooking system,</p>
+<p>or set all the types to <code>Requests::POST</code>, for example.</p>
+<p>In addition, the <code>$options</code> parameter takes the following global options:</p>
+<li><code>complete</code>: A callback for when a request is complete. Takes two</li>
+<p>   parameters, a Requests_Response/Requests_Exception reference, and the</p>
+<p>   ID from the request array (Note: this can also be overridden on a</p>
+<p>   per-request basis, although that's a little silly)</p>
+<p>   (callback)</p>
+<p>@param array $requests Requests data (see description for more information)</p>
+<p>@param array $options Global and default options (see {@see Requests::request})</p>
+<p>@return array Responses (either Requests_Response or a Requests_Exception object)</p>
+</ul>
+<p>Get the default options</p>
+<p>@see Requests::request() for values returned by this method</p>
+<p>@param boolean $multirequest Is this a multirequest?</p>
+<p>@return array Default option values</p>
+
+<p>Get default certificate path.</p>
+<p>@return string Default certificate path.</p>
+
+<p>Set default certificate path.</p>
+<p>@param string $path Certificate path, pointing to a PEM file.</p>
+
+<p>Set the default values</p>
+<p>@param string $url URL to request</p>
+<p>@param array $headers Extra headers to send with the request</p>
+<p>@param array|null $data Data to send either as a query string for GET/HEAD requests, or in the body for POST requests</p>
+<p>@param string $type HTTP request type</p>
+<p>@param array $options Options for the request</p>
+<p>@return array $options</p>
+
+<p>HTTP response parser</p>
+<p>@throws Requests_Exception On missing head/body separator (<code>requests.no_crlf_separator</code>)</p>
+<p>@throws Requests_Exception On missing head/body separator (<code>noversion</code>)</p>
+<p>@throws Requests_Exception On missing head/body separator (<code>toomanyredirects</code>)</p>
+<p>@param string $headers Full response text including headers and body</p>
+<p>@param string $url Original request URL</p>
+<p>@param array $req_headers Original $headers array passed to {@link request()}, in case we need to follow redirects</p>
+<p>@param array $req_data Original $data array passed to {@link request()}, in case we need to follow redirects</p>
+<p>@param array $options Original $options array passed to {@link request()}, in case we need to follow redirects</p>
+<p>@return Requests_Response</p>
+
+<p>Callback for <code>transport.internal.parse_response</code></p>
+<p>Internal use only. Converts a raw HTTP response to a Requests_Response</p>
+<p>while still executing a multiple request.</p>
+<p>@param string $response Full response text including headers and body (will be overwritten with Response instance)</p>
+<p>@param array $request Request data as passed into {@see Requests::request_multiple()}</p>
+<p>@return null <code>$response</code> is either set to a Requests_Response instance, or a Requests_Exception object</p>
+
+<p>Decoded a chunked body as per RFC 2616</p>
+<p>@see https://tools.ietf.org/html/rfc2616#section-3.6.1</p>
+<p>@param string $data Chunked body</p>
+<p>@return string Decoded body</p>
+
+<p>Convert a key => value array to a 'key: value' array for headers</p>
+<p>@param array $array Dictionary of header values</p>
+<p>@return array List of headers</p>
+
+<p>Convert a key => value array to a 'key: value' array for headers</p>
+<p>@codeCoverageIgnore</p>
+<p>@deprecated Misspelling of {@see Requests::flatten}</p>
+<p>@param array $array Dictionary of header values</p>
+<p>@return array List of headers</p>
+
+<p>Decompress an encoded body</p>
+<p>Implements gzip, compress and deflate. Guesses which it is by attempting</p>
+<p>to decode.</p>
+<p>@param string $data Compressed data in one of the above formats</p>
+<p>@return string Decompressed string</p>
+
+<p>Decompression of deflated string while staying compatible with the majority of servers.</p>
+<p>Certain Servers will return deflated data with headers which PHP's gzinflate()</p>
+<p>function cannot handle out of the box. The following function has been created from</p>
+<p>various snippets on the gzinflate() PHP documentation.</p>
+<p>Warning: Magic numbers within. Due to the potential different formats that the compressed</p>
+<p>data may be returned in, some "magic offsets" are needed to ensure proper decompression</p>
+<p>takes place. For a simple progmatic way to determine the magic offset in use, see:</p>
+<p>https://core.trac.wordpress.org/ticket/18273</p>
+<p>@since 2.8.1</p>
+<p>@link https://core.trac.wordpress.org/ticket/18273</p>
+<p>@link https://secure.php.net/manual/en/function.gzinflate.php#70875</p>
+<p>@link https://secure.php.net/manual/en/function.gzinflate.php#77336</p>
+<p>@param string $gz_data String to decompress.</p>
+<p>@return string|bool False on failure.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>SimplePie_File</code></li>
+<li><code>it</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\RestApi\ThirdParty\Requests.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Requests</code></li>
+<li><code>Class</code></li>
+<li><code>starts</code></li>
+<li><code>to</code></li>
+<li><code>name</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>autoloader($class)</code></li>
+<li><code>register_autoloader()</code></li>
+<li><code>add_transport($transport)</code></li>
+<li><code>get_transport($capabilities = array()</code></li>
+<li><code>get($url, $headers = array()</code></li>
+<li><code>head($url, $headers = array()</code></li>
+<li><code>delete($url, $headers = array()</code></li>
+<li><code>trace($url, $headers = array()</code></li>
+<li><code>post($url, $headers = array()</code></li>
+<li><code>put($url, $headers = array()</code></li>
+<li><code>options($url, $headers = array()</code></li>
+<li><code>patch($url, $headers, $data = array()</code></li>
+<li><code>request($url, $headers = array()</code></li>
+<li><code>request_multiple($requests, $options = array()</code></li>
+<li><code>get_default_options($multirequest = false)</code></li>
+<li><code>get_certificate_path()</code></li>
+<li><code>set_certificate_path($path)</code></li>
+<li><code>set_defaults(&$url, &$headers, &$data, &$type, &$options)</code></li>
+<li><code>parse_response($headers, $url, $req_headers, $req_data, $options)</code></li>
+<li><code>parse_multiple(&$response, $request)</code></li>
+<li><code>decode_chunked($data)</code></li>
+<li><code>flatten($array)</code></li>
+<li><code>flattern($array)</code></li>
+<li><code>decompress($data)</code></li>
+<li><code>compatible_gzinflate($gz_data)</code></li>
+<li><code>match_domain($host, $reference)</code></li>
+</ul>
+</body></html>

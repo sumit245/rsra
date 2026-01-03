@@ -1,0 +1,61 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Database\OCI8\Result.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Database\OCI8\Result.php</h1>
+
+<ul>
+<li>Path: <code>system\Database\OCI8\Result.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2868 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Result for OCI8</p>
+
+<p>Gets the number of fields in the result set.</p>
+
+<p>Generates an array of column names in the result set.</p>
+
+<p>Generates an array of objects representing field meta-data.</p>
+
+<p>Frees the current result.</p>
+<p>@return void</p>
+
+<p>Moves the internal pointer to the desired offset. This is called</p>
+<p>internally before fetching results to make sure the result set</p>
+<p>starts at zero.</p>
+<p>@return false</p>
+
+<p>Returns the result set as an array.</p>
+<p>Overridden by driver classes.</p>
+<p>@return mixed</p>
+
+<p>Returns the result set as an object.</p>
+<p>Overridden by child classes.</p>
+<p>@return bool|Entity|object</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Database\OCI8\Result.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Database\OCI8\Result extends BaseResult implements ResultInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getFieldCount()</code></li>
+<li><code>getFieldNames()</code></li>
+<li><code>getFieldData()</code></li>
+<li><code>freeResult()</code></li>
+<li><code>dataSeek(int $n = 0)</code></li>
+<li><code>fetchAssoc()</code></li>
+<li><code>fetchObject(string $className = 'stdClass')</code></li>
+</ul>
+</body></html>

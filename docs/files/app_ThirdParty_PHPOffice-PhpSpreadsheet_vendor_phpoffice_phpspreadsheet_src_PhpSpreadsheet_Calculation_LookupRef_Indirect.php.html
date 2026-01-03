@@ -1,0 +1,52 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\LookupRef\Indirect.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\LookupRef\Indirect.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\LookupRef\Indirect.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4742 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Determine whether cell address is in A1 (true) or R1C1 (false) format.</p>
+<p>@param mixed $a1fmt Expect bool Helpers::CELLADDRESS_USE_A1 or CELLADDRESS_USE_R1C1,</p>
+<p>                     but can be provided as numeric which is cast to bool</p>
+
+<p>Convert cellAddress to string, verify not null string.</p>
+<p>@param array|string $cellAddress</p>
+
+<p>INDIRECT.</p>
+<p>Returns the reference specified by a text string.</p>
+<p>References are immediately evaluated to display their contents.</p>
+<p>Excel Function:</p>
+<p>       =INDIRECT(cellAddress, bool) where the bool argument is optional</p>
+<p>@param array|string $cellAddress $cellAddress The cell address of the current cell (containing this formula)</p>
+<p>@param mixed $a1fmt Expect bool Helpers::CELLADDRESS_USE_A1 or CELLADDRESS_USE_R1C1,</p>
+<p>                     but can be provided as numeric which is cast to bool</p>
+<p>@param Cell $cell The current cell (containing this formula)</p>
+<p>@return array|string An array containing a cell or range of cells, or a string on error</p>
+
+<p>Extract range values.</p>
+<p>@return mixed Array of values in range if range contains more than one element.</p>
+<p>                 Otherwise, a single value is returned.</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\LookupRef\Indirect.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\LookupRef\Indirect</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>a1Format($a1fmt)</code></li>
+<li><code>validateAddress($cellAddress)</code></li>
+<li><code>INDIRECT($cellAddress, $a1fmt, Cell $cell)</code></li>
+<li><code>extractRequiredCells(?Worksheet $worksheet, string $cellAddress)</code></li>
+<li><code>handleRowColumnRanges(?Worksheet $worksheet, string $start, string $end)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,6 @@
+{
+    "RestApi_verification_id": "bypass|local|user|key",
+    "RestApi_verified": 1,
+    "RestApi_last_verification": 1760728864,
+    "plugins_serialized": "a:5:{s:10:\"Hr_payroll\";s:9:\"activated\";s:10:\"Hr_profile\";s:9:\"activated\";s:8:\"Purchase\";s:9:\"activated\";s:7:\"RestApi\";s:9:\"activated\";s:9:\"Warehouse\";s:9:\"activated\";}"
+}

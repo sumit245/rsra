@@ -1,0 +1,70 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\CustomerBalanceTransaction.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\CustomerBalanceTransaction.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\CustomerBalanceTransaction.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5336 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Each customer has a <a</p>
+<p>href="https://stripe.com/docs/api/customers/object#customer_object-balance"><code>balance</code></a></p>
+<p>value, which denotes a debit or credit that's automatically applied to their</p>
+<p>next invoice upon finalization. You may modify the value directly by using the</p>
+<p><a href="https://stripe.com/docs/api/customers/update">update customer API</a>,</p>
+<p>or by creating a Customer Balance Transaction, which increments or decrements</p>
+<p>the customer's <code>balance</code> by the specified <code>amount</code>.</p>
+<p>Related guide: <a</p>
+<p>href="https://stripe.com/docs/billing/customer/balance">Customer Balance</a> to</p>
+<p>learn more.</p>
+<p>@property string $id Unique identifier for the object.</p>
+<p>@property string $object String representing the object's type. Objects of the same type share the same value.</p>
+<p>@property int $amount The amount of the transaction. A negative value is a credit for the customer's balance, and a positive value is a debit to the customer's <code>balance</code>.</p>
+<p>@property int $created Time at which the object was created. Measured in seconds since the Unix epoch.</p>
+<p>@property null|string|\Stripe\CreditNote $credit_note The ID of the credit note (if any) related to the transaction.</p>
+<p>@property string $currency Three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO currency code</a>, in lowercase. Must be a <a href="https://stripe.com/docs/currencies">supported currency</a>.</p>
+<p>@property string|\Stripe\Customer $customer The ID of the customer the transaction belongs to.</p>
+<p>@property null|string $description An arbitrary string attached to the object. Often useful for displaying to users.</p>
+<p>@property int $ending_balance The customer's <code>balance</code> after the transaction was applied. A negative value decreases the amount due on the customer's next invoice. A positive value increases the amount due on the customer's next invoice.</p>
+<p>@property null|string|\Stripe\Invoice $invoice The ID of the invoice (if any) related to the transaction.</p>
+<p>@property bool $livemode Has the value <code>true</code> if the object exists in live mode or the value <code>false</code> if the object exists in test mode.</p>
+<p>@property null|\Stripe\StripeObject $metadata Set of <a href="https://stripe.com/docs/api/metadata">key-value pairs</a> that you can attach to an object. This can be useful for storing additional information about the object in a structured format.</p>
+<p>@property string $type Transaction type: <code>adjustment</code>, <code>applied_to_invoice</code>, <code>credit_note</code>, <code>initial</code>, <code>invoice_too_large</code>, <code>invoice_too_small</code>, <code>unspent_receiver_credit</code>, or <code>unapplied_from_invoice</code>. See the <a href="https://stripe.com/docs/billing/customer/balance#types">Customer Balance page</a> to learn more about transaction types.</p>
+
+<p>@return string the API URL for this balance transaction</p>
+
+<p>@param array|string $_id</p>
+<p>@param null|array|string $_opts</p>
+<p>@throws \Stripe\Exception\BadMethodCallException</p>
+
+<p>@param string $_id</p>
+<p>@param null|array $_params</p>
+<p>@param null|array|string $_options</p>
+<p>@throws \Stripe\Exception\BadMethodCallException</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\CustomerBalanceTransaction.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\CustomerBalanceTransaction extends ApiResource</code></li>
+<li><code>Stripe\instance</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>instanceUrl()</code></li>
+<li><code>retrieve($_id, $_opts = null)</code></li>
+<li><code>update($_id, $_params = null, $_options = null)</code></li>
+</ul>
+</body></html>

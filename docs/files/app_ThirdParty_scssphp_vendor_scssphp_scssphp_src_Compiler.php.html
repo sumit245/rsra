@@ -1,0 +1,1709 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\scssphp\vendor\scssphp\scssphp\src\Compiler.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\scssphp\vendor\scssphp\scssphp\src\Compiler.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\scssphp\vendor\scssphp\scssphp\src\Compiler.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 312273 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>SCSSPHP</p>
+<p>@copyright 2012-2020 Leaf Corcoran</p>
+<p>@license http://opensource.org/licenses/MIT MIT</p>
+<p>@link http://scssphp.github.io/scssphp</p>
+
+<p>The scss compiler and parser.</p>
+<p>Converting SCSS to CSS is a three stage process. The incoming file is parsed</p>
+<p>by <code>Parser</code> into a syntax tree, then it is compiled into another tree</p>
+<p>representing the CSS structure by <code>Compiler</code>. The CSS tree is fed into a</p>
+<p>formatter, like <code>Formatter</code> which then outputs CSS as a string.</p>
+<p>During the first compile, all values are *reduced*, which means that their</p>
+<p>types are brought to the lowest form before being dump as strings. This</p>
+<p>handles math equations, variable dereferences, and the like.</p>
+<p>The <code>compile</code> function of <code>Compiler</code> is the entry point.</p>
+<p>In summary:</p>
+<p>The <code>Compiler</code> class creates an instance of the parser, feeds it SCSS code,</p>
+<p>then transforms the resulting tree to a CSS tree. This class also holds the</p>
+<p>evaluation context, such as all available mixins and variables at any given</p>
+<p>time.</p>
+<p>The <code>Parser</code> class is only concerned with parsing its input.</p>
+<p>The <code>Formatter</code> takes a CSS tree, and dumps it to a formatted string,</p>
+<p>handling things like indentation.</p>
+
+<p>SCSS compiler</p>
+<p>@author Leaf Corcoran <leafot@gmail.com></p>
+<p>@final Extending the Compiler is deprecated</p>
+
+<p>@deprecated</p>
+
+<p>@deprecated</p>
+
+<p>@deprecated</p>
+
+<p>@deprecated</p>
+
+<p>@deprecated</p>
+
+<p>@deprecated</p>
+
+<p>@var array<string, string></p>
+
+<p>@var array<string, string></p>
+
+<p>@deprecated</p>
+
+<p>@deprecated</p>
+
+<p>@var array<int, string|callable></p>
+
+<p>@var array<string, Block></p>
+
+<p>@var string[]</p>
+
+<p>@var array</p>
+<p>@phpstan-var array<string, array{0: callable, 1: string[]|null}></p>
+
+<p>@var array<string, mixed></p>
+
+<p>@var array<string, bool></p>
+
+<p>@var string|null</p>
+
+<p>@var null</p>
+<p>@deprecated</p>
+
+<p>@var int|SourceMapGenerator</p>
+<p>@phpstan-var self::SOURCE_MAP_*|SourceMapGenerator</p>
+
+<p>@var array</p>
+<p>@phpstan-var array{sourceRoot?: string, sourceMapFilename?: string|null, sourceMapURL?: string|null, sourceMapWriteTo?: string|null, outputSourceFiles?: bool, sourceMapRootpath?: string, sourceMapBasepath?: string}</p>
+
+<p>@var bool</p>
+
+<p>@var Formatter</p>
+
+<p>@var string</p>
+<p>@phpstan-var class-string<Formatter></p>
+
+<p>@var Environment</p>
+
+<p>@var OutputBlock|null</p>
+
+<p>@var \ScssPhp\ScssPhp\Compiler\Environment</p>
+
+<p>@var OutputBlock|null</p>
+
+<p>@var Environment|null</p>
+
+<p>@var bool|null</p>
+<p>@deprecated</p>
+
+<p>@var array<int, string|null></p>
+
+<p>@var Cache|null</p>
+
+<p>@var bool</p>
+
+<p>@var int</p>
+
+<p>@var array[]</p>
+
+<p>@var array<string, int[]></p>
+
+<p>@var array<string, int></p>
+
+<p>@var Parser|null</p>
+
+<p>@var int|null</p>
+
+<p>@var int|null</p>
+
+<p>@var int|null</p>
+
+<p>@var bool|null</p>
+
+<p>@var null</p>
+<p>@deprecated</p>
+
+<p>@var bool</p>
+
+<p>@var array[]</p>
+
+<p>@var array</p>
+<p>@phpstan-var list<array{currentDir: string|null, path: string, filePath: string}></p>
+
+<p>The directory of the currently processed file</p>
+<p>@var string|null</p>
+
+<p>The directory of the input file</p>
+<p>@var string</p>
+
+<p>@var bool</p>
+
+<p>@var LoggerInterface</p>
+
+<p>@var array<string, bool></p>
+
+<p>Constructor</p>
+<p>@param array|null $cacheOptions</p>
+<p>@phpstan-param array{cacheDir?: string, prefix?: string, forceRefresh?: string, checkImportResolutions?: bool}|null $cacheOptions</p>
+
+<p>Get compiler options</p>
+<p>@return array<string, mixed></p>
+<p>@internal</p>
+
+<p>Sets an alternative logger.</p>
+<p>Changing the logger in the middle of the compilation is not</p>
+<p>supported and will result in an undefined behavior.</p>
+<p>@param LoggerInterface $logger</p>
+<p>@return void</p>
+
+<p>Set an alternative error output stream, for testing purpose only</p>
+<p>@param resource $handle</p>
+<p>@return void</p>
+<p>@deprecated Use {@see setLogger} instead</p>
+
+<p>Compile scss</p>
+<p>@param string      $code</p>
+<p>@param string|null $path</p>
+<p>@return string</p>
+<p>@throws SassException when the source fails to compile</p>
+<p>@deprecated Use {@see compileString} instead.</p>
+
+<p>Compile scss</p>
+<p>@param string      $source</p>
+<p>@param string|null $path</p>
+<p>@return CompilationResult</p>
+<p>@throws SassException when the source fails to compile</p>
+
+<p>@param CachedResult $result</p>
+<p>@return bool</p>
+
+<p>Instantiate parser</p>
+<p>@param string|null $path</p>
+<p>@return \ScssPhp\ScssPhp\Parser</p>
+
+<p>Is self extend?</p>
+<p>@param array $target</p>
+<p>@param array $origin</p>
+<p>@return bool</p>
+
+<p>Push extends</p>
+<p>@param string[]   $target</p>
+<p>@param array      $origin</p>
+<p>@param array|null $block</p>
+<p>@return void</p>
+
+<p>Make output block</p>
+<p>@param string|null   $type</p>
+<p>@param string[]|null $selectors</p>
+<p>@return \ScssPhp\ScssPhp\Formatter\OutputBlock</p>
+
+<p>Compile root</p>
+<p>@param \ScssPhp\ScssPhp\Block $rootBlock</p>
+<p>@return void</p>
+
+<p>Report missing selectors</p>
+<p>@return void</p>
+
+<p>Flatten selectors</p>
+<p>@param \ScssPhp\ScssPhp\Formatter\OutputBlock $block</p>
+<p>@param string                                 $parentKey</p>
+<p>@return void</p>
+
+<p>Glue parts of :not( or :nth-child( ... that are in general split in selectors parts</p>
+<p>@param array $parts</p>
+<p>@return array</p>
+
+<p>Match extends</p>
+<p>@param array $selector</p>
+<p>@param array $out</p>
+<p>@param int   $from</p>
+<p>@param bool  $initial</p>
+<p>@return void</p>
+
+<p>Test a part for being a pseudo selector</p>
+<p>@param string $part</p>
+<p>@param array  $matches</p>
+<p>@return bool</p>
+
+<p>Push extended selector except if</p>
+<p> - this is a pseudo selector</p>
+<p> - same as previous</p>
+<p> - in a white list</p>
+<p>in this case we merge the pseudo selector content</p>
+<p>@param array $out</p>
+<p>@param array $extended</p>
+<p>@return void</p>
+
+<p>Match extends single</p>
+<p>@param array $rawSingle</p>
+<p>@param array $outOrigin</p>
+<p>@param bool  $initial</p>
+<p>@return bool</p>
+
+<p>Extract a relationship from the fragment.</p>
+<p>When extracting the last portion of a selector we will be left with a</p>
+<p>fragment which may end with a direction relationship combinator. This</p>
+<p>method will extract the relationship fragment and return it along side</p>
+<p>the rest.</p>
+<p>@param array $fragment The selector fragment maybe ending with a direction relationship combinator.</p>
+<p>@return array The selector without the relationship fragment if any, the relationship fragment.</p>
+
+<p>Combine selector single</p>
+<p>@param array $base</p>
+<p>@param array $other</p>
+<p>@return array</p>
+
+<p>Compile media</p>
+<p>@param \ScssPhp\ScssPhp\Block $media</p>
+<p>@return void</p>
+
+<p>Media parent</p>
+<p>@param \ScssPhp\ScssPhp\Formatter\OutputBlock $scope</p>
+<p>@return \ScssPhp\ScssPhp\Formatter\OutputBlock</p>
+
+<p>Compile directive</p>
+<p>@param DirectiveBlock|array                   $directive</p>
+<p>@param \ScssPhp\ScssPhp\Formatter\OutputBlock $out</p>
+<p>@return void</p>
+
+<p>directive names can include some interpolation</p>
+<p>@param string|array $directiveName</p>
+<p>@return string</p>
+<p>@throws CompilerException</p>
+
+<p>Compile at-root</p>
+<p>@param \ScssPhp\ScssPhp\Block $block</p>
+<p>@return void</p>
+
+<p>Filter at-root scope depending on with/without option</p>
+<p>@param \ScssPhp\ScssPhp\Formatter\OutputBlock $scope</p>
+<p>@param array                                  $with</p>
+<p>@param array                                  $without</p>
+<p>@return OutputBlock</p>
+
+<p>found missing selector from a at-root compilation in the previous scope</p>
+<p>(if at-root is just enclosing a property, the selector is in the parent tree)</p>
+<p>@param \ScssPhp\ScssPhp\Formatter\OutputBlock $scope</p>
+<p>@param \ScssPhp\ScssPhp\Formatter\OutputBlock $previousScope</p>
+<p>@return OutputBlock</p>
+
+<p>Find a selector by the depth node in the scope</p>
+<p>@param \ScssPhp\ScssPhp\Formatter\OutputBlock $scope</p>
+<p>@param int                                    $depth</p>
+<p>@return array</p>
+
+<p>Compile @at-root's with: inclusion / without: exclusion into 2 lists uses to filter scope/env later</p>
+<p>@param array|null $withCondition</p>
+<p>@return array</p>
+<p>@phpstan-return array{array<string, bool>, array<string, bool>}</p>
+
+<p>Filter env stack</p>
+<p>@param Environment[] $envs</p>
+<p>@param array $with</p>
+<p>@param array $without</p>
+<p>@return Environment</p>
+<p>@phpstan-param  non-empty-array<Environment> $envs</p>
+
+<p>Filter WITH rules</p>
+<p>@param \ScssPhp\ScssPhp\Block|\ScssPhp\ScssPhp\Formatter\OutputBlock $block</p>
+<p>@param array                                                         $with</p>
+<p>@param array                                                         $without</p>
+<p>@return bool</p>
+
+<p>Test a single type of block against with/without lists</p>
+<p>@param string $what</p>
+<p>@param array  $with</p>
+<p>@param array  $without</p>
+<p>@return bool</p>
+<p>  true if the block should be kept, false to reject</p>
+
+<p>Compile keyframe block</p>
+<p>@param \ScssPhp\ScssPhp\Block $block</p>
+<p>@param string[]               $selectors</p>
+<p>@return void</p>
+
+<p>Compile nested properties lines</p>
+<p>@param \ScssPhp\ScssPhp\Block                 $block</p>
+<p>@param \ScssPhp\ScssPhp\Formatter\OutputBlock $out</p>
+<p>@return void</p>
+
+<p>Compile nested block</p>
+<p>@param \ScssPhp\ScssPhp\Block $block</p>
+<p>@param string[]               $selectors</p>
+<p>@return void</p>
+
+<p>Recursively compiles a block.</p>
+<p>A block is analogous to a CSS block in most cases. A single SCSS document</p>
+<p>is encapsulated in a block when parsed, but it does not have parent tags</p>
+<p>so all of its children appear on the root level when compiled.</p>
+<p>Blocks are made up of selectors and children.</p>
+<p>The children of a block are just all the blocks that are defined within.</p>
+<p>Compiling the block involves pushing a fresh environment on the stack,</p>
+<p>and iterating through the props, compiling each one.</p>
+<p>@see Compiler::compileChild()</p>
+<p>@param \ScssPhp\ScssPhp\Block $block</p>
+<p>@return void</p>
+
+<p>Compile the value of a comment that can have interpolation</p>
+<p>@param array $value</p>
+<p>@param bool  $pushEnv</p>
+<p>@return string</p>
+
+<p>Compile root level comment</p>
+<p>@param array $block</p>
+<p>@return void</p>
+
+<p>Evaluate selectors</p>
+<p>@param array $selectors</p>
+<p>@return array</p>
+
+<p>Evaluate selector</p>
+<p>@param array $selector</p>
+<p>@return array</p>
+<p>@phpstan-impure</p>
+
+<p>Evaluate selector part; replaces all the interpolates, stripping quotes</p>
+<p>@param array $part</p>
+<p>@return array</p>
+<p>@phpstan-impure</p>
+
+<p>Collapse selectors</p>
+<p>@param array $selectors</p>
+<p>@return string</p>
+
+<p>Collapse selectors</p>
+<p>@param array $selectors</p>
+<p>@return array</p>
+
+<p>Parse down the selector and revert [self] to "&" before a reparsing</p>
+<p>@param array       $selectors</p>
+<p>@param string|null $replace</p>
+<p>@return array</p>
+
+<p>Flatten selector single; joins together .classes and #ids</p>
+<p>@param array $single</p>
+<p>@return array</p>
+
+<p>Compile selector to string; self(&) should have been replaced by now</p>
+<p>@param string|array $selector</p>
+<p>@return string</p>
+
+<p>Compile selector part</p>
+<p>@param array $piece</p>
+<p>@return string</p>
+
+<p>Has selector placeholder?</p>
+<p>@param array $selector</p>
+<p>@return bool</p>
+
+<p>@param string $name</p>
+<p>@return void</p>
+
+<p>@return void</p>
+
+<p>Compile children and return result</p>
+<p>@param array                                  $stms</p>
+<p>@param \ScssPhp\ScssPhp\Formatter\OutputBlock $out</p>
+<p>@param string                                 $traceName</p>
+<p>@return array|Number|null</p>
+
+<p>Compile children and throw exception if unexpected at-return</p>
+<p>@param array[]                                $stms</p>
+<p>@param \ScssPhp\ScssPhp\Formatter\OutputBlock $out</p>
+<p>@param \ScssPhp\ScssPhp\Block                 $selfParent</p>
+<p>@param string                                 $traceName</p>
+<p>@return void</p>
+<p>@throws \Exception</p>
+
+<p>evaluate media query : compile internal value keeping the structure unchanged</p>
+<p>@param array $queryList</p>
+<p>@return array</p>
+
+<p>Compile media query</p>
+<p>@param array $queryList</p>
+<p>@return string[]</p>
+
+<p>Merge direct relationships between selectors</p>
+<p>@param array $selectors1</p>
+<p>@param array $selectors2</p>
+<p>@return array</p>
+
+<p>Merge media types</p>
+<p>@param array $type1</p>
+<p>@param array $type2</p>
+<p>@return array|null</p>
+
+<p>Compile import; returns true if the value was something that could be imported</p>
+<p>@param array                                  $rawPath</p>
+<p>@param \ScssPhp\ScssPhp\Formatter\OutputBlock $out</p>
+<p>@param bool                                   $once</p>
+<p>@return bool</p>
+
+<p>@param array $rawPath</p>
+<p>@return string</p>
+<p>@throws CompilerException</p>
+
+<p>@param array $path</p>
+<p>@return array</p>
+<p>@throws CompilerException</p>
+
+<p>Append a root directive like @import or @charset as near as the possible from the source code</p>
+<p>(keeping before comments, @import and @charset coming before in the source code)</p>
+<p>@param string                                 $line</p>
+<p>@param \ScssPhp\ScssPhp\Formatter\OutputBlock $out</p>
+<p>@param array                                  $allowed</p>
+<p>@return void</p>
+
+<p>Append lines to the current output block:</p>
+<p>directly to the block or through a child if necessary</p>
+<p>@param \ScssPhp\ScssPhp\Formatter\OutputBlock $out</p>
+<p>@param string                                 $type</p>
+<p>@param string                                 $line</p>
+<p>@return void</p>
+
+<p>Compile child; returns a value to halt execution</p>
+<p>@param array                                  $child</p>
+<p>@param \ScssPhp\ScssPhp\Formatter\OutputBlock $out</p>
+<p>@return array|Number|null</p>
+
+<p>Reduce expression to string</p>
+<p>@param array $exp</p>
+<p>@param bool $keepParens</p>
+<p>@return array</p>
+
+<p>Is truthy?</p>
+<p>@param array|Number $value</p>
+<p>@return bool</p>
+
+<p>Is the value a direct relationship combinator?</p>
+<p>@param string $value</p>
+<p>@return bool</p>
+
+<p>Should $value cause its operand to eval</p>
+<p>@param array $value</p>
+<p>@return bool</p>
+
+<p>Reduce value</p>
+<p>@param array|Number $value</p>
+<p>@param bool         $inExp</p>
+<p>@return array|Number</p>
+
+<p>Function caller</p>
+<p>@param string|array $functionReference</p>
+<p>@param array        $argValues</p>
+<p>@return array|Number</p>
+
+<p>@param array|Number $arg</p>
+<p>@param string[]     $allowed_function</p>
+<p>@param bool         $inFunction</p>
+<p>@return array|Number|false</p>
+
+<p>Reformat fncall arguments to proper css function output</p>
+<p>@param array|Number $arg</p>
+<p>@return array|Number</p>
+
+<p>Find a function reference</p>
+<p>@param string $name</p>
+<p>@param bool $safeCopy</p>
+<p>@return array</p>
+
+<p>@var string $libName</p>
+
+<p>Normalize name</p>
+<p>@param string $name</p>
+<p>@return string</p>
+
+<p>Normalize value</p>
+<p>@internal</p>
+<p>@param array|Number $value</p>
+<p>@return array|Number</p>
+
+<p>Add numbers</p>
+<p>@param Number $left</p>
+<p>@param Number $right</p>
+<p>@return Number</p>
+
+<p>Multiply numbers</p>
+<p>@param Number $left</p>
+<p>@param Number $right</p>
+<p>@return Number</p>
+
+<p>Subtract numbers</p>
+<p>@param Number $left</p>
+<p>@param Number $right</p>
+<p>@return Number</p>
+
+<p>Divide numbers</p>
+<p>@param Number $left</p>
+<p>@param Number $right</p>
+<p>@return Number</p>
+
+<p>Mod numbers</p>
+<p>@param Number $left</p>
+<p>@param Number $right</p>
+<p>@return Number</p>
+
+<p>Add strings</p>
+<p>@param array $left</p>
+<p>@param array $right</p>
+<p>@return array|null</p>
+
+<p>Boolean and</p>
+<p>@param array|Number $left</p>
+<p>@param array|Number $right</p>
+<p>@param bool         $shouldEval</p>
+<p>@return array|Number|null</p>
+
+<p>Boolean or</p>
+<p>@param array|Number $left</p>
+<p>@param array|Number $right</p>
+<p>@param bool         $shouldEval</p>
+<p>@return array|Number|null</p>
+
+<p>Compare colors</p>
+<p>@param string $op</p>
+<p>@param array  $left</p>
+<p>@param array  $right</p>
+<p>@return array</p>
+
+<p>Compare color and number</p>
+<p>@param string $op</p>
+<p>@param array  $left</p>
+<p>@param Number  $right</p>
+<p>@return array</p>
+
+<p>Compare number and color</p>
+<p>@param string $op</p>
+<p>@param Number  $left</p>
+<p>@param array  $right</p>
+<p>@return array</p>
+
+<p>Compare number1 == number2</p>
+<p>@param array|Number $left</p>
+<p>@param array|Number $right</p>
+<p>@return array</p>
+
+<p>Compare number1 != number2</p>
+<p>@param array|Number $left</p>
+<p>@param array|Number $right</p>
+<p>@return array</p>
+
+<p>Compare number1 == number2</p>
+<p>@param Number $left</p>
+<p>@param Number $right</p>
+<p>@return array</p>
+
+<p>Compare number1 != number2</p>
+<p>@param Number $left</p>
+<p>@param Number $right</p>
+<p>@return array</p>
+
+<p>Compare number1 >= number2</p>
+<p>@param Number $left</p>
+<p>@param Number $right</p>
+<p>@return array</p>
+
+<p>Compare number1 > number2</p>
+<p>@param Number $left</p>
+<p>@param Number $right</p>
+<p>@return array</p>
+
+<p>Compare number1 <= number2</p>
+<p>@param Number $left</p>
+<p>@param Number $right</p>
+<p>@return array</p>
+
+<p>Compare number1 < number2</p>
+<p>@param Number $left</p>
+<p>@param Number $right</p>
+<p>@return array</p>
+
+<p>Cast to boolean</p>
+<p>@api</p>
+<p>@param bool $thing</p>
+<p>@return array</p>
+
+<p>Escape non printable chars in strings output as in dart-sass</p>
+<p>@internal</p>
+<p>@param string $string</p>
+<p>@param bool   $inKeyword</p>
+<p>@return string</p>
+
+<p>Compiles a primitive value into a CSS property value.</p>
+<p>Values in scssphp are typed by being wrapped in arrays, their format is</p>
+<p>typically:</p>
+<p>    array(type, contents [, additional_contents]*)</p>
+<p>The input is expected to be reduced. This function will not work on</p>
+<p>things like expressions and variables.</p>
+<p>@api</p>
+<p>@param array|Number $value</p>
+<p>@param bool         $quote</p>
+<p>@return string</p>
+
+<p>@param array|Number $value</p>
+<p>@return string</p>
+
+<p>Flatten list</p>
+<p>@param array $list</p>
+<p>@return string</p>
+<p>@deprecated</p>
+
+<p>Gets the text of a Sass string</p>
+<p>Calling this method on anything else than a SassString is unsupported. Use {@see assertString} first</p>
+<p>to ensure that the value is indeed a string.</p>
+<p>@param array $value</p>
+<p>@return string</p>
+
+<p>Compile string content</p>
+<p>@param array $string</p>
+<p>@param bool  $quote</p>
+<p>@return string</p>
+
+<p>Extract interpolation; it doesn't need to be recursive, compileValue will handle that</p>
+<p>@param array $list</p>
+<p>@return array</p>
+
+<p>Find the final set of selectors</p>
+<p>@param \ScssPhp\ScssPhp\Compiler\Environment $env</p>
+<p>@param \ScssPhp\ScssPhp\Block                $selfParent</p>
+<p>@return array</p>
+
+<p>Join selectors; looks for & to replace, or append parent before child</p>
+<p>@param array $parent</p>
+<p>@param array $child</p>
+<p>@param bool  $stillHasSelf</p>
+<p>@param array $selfParentSelectors</p>
+<p>@return array</p>
+
+<p>Multiply media</p>
+<p>@param \ScssPhp\ScssPhp\Compiler\Environment $env</p>
+<p>@param array                                 $childQueries</p>
+<p>@return array</p>
+
+<p>Convert env linked list to stack</p>
+<p>@param Environment $env</p>
+<p>@return Environment[]</p>
+<p>@phpstan-return non-empty-array<Environment></p>
+
+<p>Convert env stack to singly linked list</p>
+<p>@param Environment[] $envs</p>
+<p>@return Environment</p>
+<p>@phpstan-param  non-empty-array<Environment> $envs</p>
+
+<p>Push environment</p>
+<p>@param \ScssPhp\ScssPhp\Block $block</p>
+<p>@return \ScssPhp\ScssPhp\Compiler\Environment</p>
+
+<p>Pop environment</p>
+<p>@return void</p>
+
+<p>Propagate vars from a just poped Env (used in @each and @for)</p>
+<p>@param array         $store</p>
+<p>@param null|string[] $excludedVars</p>
+<p>@return void</p>
+
+<p>Get store environment</p>
+<p>@return \ScssPhp\ScssPhp\Compiler\Environment</p>
+
+<p>Set variable</p>
+<p>@param string                                $name</p>
+<p>@param mixed                                 $value</p>
+<p>@param bool                                  $shadow</p>
+<p>@param \ScssPhp\ScssPhp\Compiler\Environment $env</p>
+<p>@param mixed                                 $valueUnreduced</p>
+<p>@return void</p>
+
+<p>Set existing variable</p>
+<p>@param string                                $name</p>
+<p>@param mixed                                 $value</p>
+<p>@param \ScssPhp\ScssPhp\Compiler\Environment $env</p>
+<p>@param mixed                                 $valueUnreduced</p>
+<p>@return void</p>
+
+<p>Set raw variable</p>
+<p>@param string                                $name</p>
+<p>@param mixed                                 $value</p>
+<p>@param \ScssPhp\ScssPhp\Compiler\Environment $env</p>
+<p>@param mixed                                 $valueUnreduced</p>
+<p>@return void</p>
+
+<p>Get variable</p>
+<p>@internal</p>
+<p>@param string                                $name</p>
+<p>@param bool                                  $shouldThrow</p>
+<p>@param \ScssPhp\ScssPhp\Compiler\Environment $env</p>
+<p>@param bool                                  $unreduced</p>
+<p>@return mixed|null</p>
+
+<p>Has variable?</p>
+<p>@param string                                $name</p>
+<p>@param \ScssPhp\ScssPhp\Compiler\Environment $env</p>
+<p>@return bool</p>
+
+<p>Inject variables</p>
+<p>@param array $args</p>
+<p>@return void</p>
+
+<p>Replaces variables.</p>
+<p>@param array<string, mixed> $variables</p>
+<p>@return void</p>
+
+<p>Replaces variables.</p>
+<p>@param array<string, mixed> $variables</p>
+<p>@return void</p>
+
+<p>Set variables</p>
+<p>@api</p>
+<p>@param array $variables</p>
+<p>@return void</p>
+<p>@deprecated Use "addVariables" or "replaceVariables" instead.</p>
+
+<p>Unset variable</p>
+<p>@api</p>
+<p>@param string $name</p>
+<p>@return void</p>
+
+<p>Returns list of variables</p>
+<p>@api</p>
+<p>@return array</p>
+
+<p>Adds to list of parsed files</p>
+<p>@internal</p>
+<p>@param string|null $path</p>
+<p>@return void</p>
+
+<p>Returns list of parsed files</p>
+<p>@deprecated</p>
+<p>@return array<string, int></p>
+
+<p>Add import path</p>
+<p>@api</p>
+<p>@param string|callable $path</p>
+<p>@return void</p>
+
+<p>Set import paths</p>
+<p>@api</p>
+<p>@param string|array<string|callable> $path</p>
+<p>@return void</p>
+
+<p>Set number precision</p>
+<p>@api</p>
+<p>@param int $numberPrecision</p>
+<p>@return void</p>
+<p>@deprecated The number precision is not configurable anymore. The default is enough for all browsers.</p>
+
+<p>Sets the output style.</p>
+<p>@api</p>
+<p>@param string $style One of the OutputStyle constants</p>
+<p>@return void</p>
+<p>@phpstan-param OutputStyle::* $style</p>
+
+<p>Set formatter</p>
+<p>@api</p>
+<p>@param string $formatterName</p>
+<p>@return void</p>
+<p>@deprecated Use {@see setOutputStyle} instead.</p>
+<p>@phpstan-param class-string<Formatter> $formatterName</p>
+
+<p>Set line number style</p>
+<p>@api</p>
+<p>@param string $lineNumberStyle</p>
+<p>@return void</p>
+<p>@deprecated The line number output is not supported anymore. Use source maps instead.</p>
+
+<p>Configures the handling of non-ASCII outputs.</p>
+<p>If $charset is <code>true</code>, this will include a <code>@charset</code> declaration or a</p>
+<p>UTF-8 [byte-order mark][] if the stylesheet contains any non-ASCII</p>
+<p>characters. Otherwise, it will never include a <code>@charset</code> declaration or a</p>
+<p>byte-order mark.</p>
+<p>[byte-order mark]: https://en.wikipedia.org/wiki/Byte_order_mark#UTF-8</p>
+<p>@param bool $charset</p>
+<p>@return void</p>
+
+<p>Enable/disable source maps</p>
+<p>@api</p>
+<p>@param int $sourceMap</p>
+<p>@return void</p>
+<p>@phpstan-param self::SOURCE_MAP_* $sourceMap</p>
+
+<p>Set source map options</p>
+<p>@api</p>
+<p>@param array $sourceMapOptions</p>
+<p>@phpstan-param  array{sourceRoot?: string, sourceMapFilename?: string|null, sourceMapURL?: string|null, sourceMapWriteTo?: string|null, outputSourceFiles?: bool, sourceMapRootpath?: string, sourceMapBasepath?: string} $sourceMapOptions</p>
+<p>@return void</p>
+
+<p>Register function</p>
+<p>@api</p>
+<p>@param string        $name</p>
+<p>@param callable      $callback</p>
+<p>@param string[]|null $argumentDeclaration</p>
+<p>@return void</p>
+
+<p>Unregister function</p>
+<p>@api</p>
+<p>@param string $name</p>
+<p>@return void</p>
+
+<p>Add feature</p>
+<p>@api</p>
+<p>@param string $name</p>
+<p>@return void</p>
+<p>@deprecated Registering additional features is deprecated.</p>
+
+<p>Import file</p>
+<p>@param string                                 $path</p>
+<p>@param \ScssPhp\ScssPhp\Formatter\OutputBlock $out</p>
+<p>@return void</p>
+
+<p>Save the imported files with their resolving path context</p>
+<p>@param string|null $currentDirectory</p>
+<p>@param string      $path</p>
+<p>@param string      $filePath</p>
+<p>@return void</p>
+
+<p>Detects whether the import is a CSS import.</p>
+<p>For legacy reasons, custom importers are called for those, allowing them</p>
+<p>to replace them with an actual Sass import. However this behavior is</p>
+<p>deprecated. Custom importers are expected to return null when they receive</p>
+<p>a CSS import.</p>
+<p>@param string $url</p>
+<p>@return bool</p>
+
+<p>Return the file path for an import url if it exists</p>
+<p>@internal</p>
+<p>@param string      $url</p>
+<p>@param string|null $currentDir</p>
+<p>@return string|null</p>
+
+<p>@param string $url</p>
+<p>@param string $baseDir</p>
+<p>@return string|null</p>
+
+<p>@param string[] $paths</p>
+<p>@return string|null</p>
+
+<p>@param string $path</p>
+<p>@return string[]</p>
+
+<p>@param string $path</p>
+<p>@return string[]</p>
+
+<p>@param string $path</p>
+<p>@return string|null</p>
+
+<p>@param string|null $path</p>
+<p>@return string</p>
+
+<p>Set encoding</p>
+<p>@api</p>
+<p>@param string|null $encoding</p>
+<p>@return void</p>
+<p>@deprecated Non-compliant support for other encodings than UTF-8 is deprecated.</p>
+
+<p>Ignore errors?</p>
+<p>@api</p>
+<p>@param bool $ignoreErrors</p>
+<p>@return \ScssPhp\ScssPhp\Compiler</p>
+<p>@deprecated Ignoring Sass errors is not longer supported.</p>
+
+<p>Get source position</p>
+<p>@api</p>
+<p>@return array</p>
+<p>@deprecated</p>
+
+<p>Throw error (exception)</p>
+<p>@api</p>
+<p>@param string $msg Message with optional sprintf()-style vararg parameters</p>
+<p>@return never</p>
+<p>@throws \ScssPhp\ScssPhp\Exception\CompilerException</p>
+<p>@deprecated use "error" and throw the exception in the caller instead.</p>
+
+<p>Build an error (exception)</p>
+<p>@internal</p>
+<p>@param string                     $msg Message with optional sprintf()-style vararg parameters</p>
+<p>@param bool|float|int|string|null ...$args</p>
+<p>@return CompilerException</p>
+
+<p>@param string $msg</p>
+<p>@return string</p>
+
+<p>@param string $functionName</p>
+<p>@param array $ExpectedArgs</p>
+<p>@param int $nbActual</p>
+<p>@return CompilerException</p>
+<p>@deprecated</p>
+
+<p>Beautify call stack for output</p>
+<p>@param bool     $all</p>
+<p>@param int|null $limit</p>
+<p>@return string</p>
+
+<p>Handle import loop</p>
+<p>@param string $name</p>
+<p>@return void</p>
+<p>@throws \Exception</p>
+
+<p>Call SCSS @function</p>
+<p>@param CallableBlock|null $func</p>
+<p>@param array              $argValues</p>
+<p>@return array|Number</p>
+
+<p>Call built-in and registered (PHP) functions</p>
+<p>@param string $name</p>
+<p>@param callable $function</p>
+<p>@param array  $prototype</p>
+<p>@param array  $args</p>
+<p>@return array|Number|null</p>
+
+<p>Get built-in function</p>
+<p>@param string $name Normalized name</p>
+<p>@return array</p>
+
+<p>Normalize native function name</p>
+<p>@internal</p>
+<p>@param string $name</p>
+<p>@return string</p>
+
+<p>Check if a function is a native built-in scss function, for css parsing</p>
+<p>@internal</p>
+<p>@param string $name</p>
+<p>@return bool</p>
+
+<p>Sorts keyword arguments</p>
+<p>@param string $functionName</p>
+<p>@param array|null  $prototypes</p>
+<p>@param array  $args</p>
+<p>@return array|null</p>
+
+<p>Parses a function prototype to the internal representation of arguments.</p>
+<p>The input is an array of strings describing each argument, as supported</p>
+<p>in {@see registerFunction}. Argument names don't include the <code>$</code>.</p>
+<p>The output contains the list of positional argument, with their normalized</p>
+<p>name (underscores are replaced by dashes), their original name (to be used</p>
+<p>in case of error reporting) and their default value. The output also contains</p>
+<p>the normalized name of the rest argument, or null if the function prototype</p>
+<p>is not variadic.</p>
+<p>@param string[] $prototype</p>
+<p>@return array</p>
+<p>@phpstan-return array{arguments: list<array{0: string, 1: string, 2: array|Number|null}>, rest_argument: string|null}</p>
+
+<p>Returns the function prototype for the given positional and named arguments.</p>
+<p>If no exact match is found, finds the closest approximation. Note that this</p>
+<p>doesn't guarantee that $positional and $names are valid for the returned</p>
+<p>prototype.</p>
+<p>@param array[]               $prototypes</p>
+<p>@param int                   $positional</p>
+<p>@param array<string, string> $names A set of names, as both keys and values</p>
+<p>@return array</p>
+<p>@phpstan-param non-empty-list<array{arguments: list<array{0: string, 1: string, 2: array|Number|null}>, rest_argument: string|null}> $prototypes</p>
+<p>@phpstan-return array{arguments: list<array{0: string, 1: string, 2: array|Number|null}>, rest_argument: string|null}</p>
+
+<p>Checks whether the argument invocation matches the callable prototype.</p>
+<p>The rules are similar to {@see verifyPrototype}. The boolean return value</p>
+<p>avoids the overhead of building and catching exceptions when the reason of</p>
+<p>not matching the prototype does not need to be known.</p>
+<p>@param array                 $prototype</p>
+<p>@param int                   $positional</p>
+<p>@param array<string, string> $names</p>
+<p>@return bool</p>
+<p>@phpstan-param array{arguments: list<array{0: string, 1: string, 2: array|Number|null}>, rest_argument: string|null} $prototype</p>
+
+<p>Verifies that the argument invocation is valid for the callable prototype.</p>
+<p>@param array                 $prototype</p>
+<p>@param int                   $positional</p>
+<p>@param array<string, string> $names</p>
+<p>@param bool                  $hasSplat</p>
+<p>@return void</p>
+<p>@throws SassScriptException</p>
+<p>@phpstan-param array{arguments: list<array{0: string, 1: string, 2: array|Number|null}>, rest_argument: string|null} $prototype</p>
+
+<p>Evaluates the argument from the invocation.</p>
+<p>This returns several things about this invocation:</p>
+<ul>
+<li>the list of positional arguments</li>
+<li>the map of named arguments, indexed by normalized names</li>
+<li>the set of names used in the arguments (that's an array using the normalized names as keys for O(1) access)</li>
+<li>the separator used by the list using the splat operator, if any</li>
+<li>a boolean indicator whether any splat argument (list or map) was used, to support the incomplete error reporting.</li>
+<p>@param array[] $args</p>
+<p>@param bool    $reduce Whether arguments should be reduced to their value</p>
+<p>@return array</p>
+<p>@throws SassScriptException</p>
+<p>@phpstan-return array{0: list<array|Number>, 1: array<string, array|Number>, 2: array<string, string>, 3: string|null, 4: bool}</p>
+</ul>
+<p>@param bool         $reduce</p>
+<p>@param array|Number $value</p>
+<p>@return array|Number</p>
+
+<p>Apply argument values per definition</p>
+<p>@param array[]    $argDef</p>
+<p>@param array|null $argValues</p>
+<p>@param bool       $storeInEnv</p>
+<p>@param bool       $reduce     only used if $storeInEnv = false</p>
+<p>@return array<string, array|Number></p>
+<p>@phpstan-param list<array{0: string, 1: array|Number|null, 2: bool}> $argDef</p>
+<p>@throws \Exception</p>
+
+<p>Apply argument values per definition.</p>
+<p>This method assumes that the arguments are valid for the provided prototype.</p>
+<p>The validation with {@see verifyPrototype} must have been run before calling</p>
+<p>it.</p>
+<p>Arguments are returned as a map from the normalized argument names to the</p>
+<p>value. Additional arguments are collected in a sass argument list available</p>
+<p>under the name of the rest argument in the result.</p>
+<p>Defaults are not applied as they are resolved in a different environment.</p>
+<p>@param array                       $prototype</p>
+<p>@param array<array|Number>         $positionalArgs</p>
+<p>@param array<string, array|Number> $namedArgs</p>
+<p>@param string|null                 $splatSeparator</p>
+<p>@return array<string, array|Number></p>
+<p>@phpstan-param array{arguments: list<array{0: string, 1: string, 2: array|Number|null}>, rest_argument: string|null} $prototype</p>
+
+<p>Coerce a php value into a scss one</p>
+<p>@param mixed $value</p>
+<p>@return array|Number</p>
+
+<p>Tries to convert an item to a Sass map</p>
+<p>@param Number|array $item</p>
+<p>@return array|null</p>
+
+<p>Coerce something to map</p>
+<p>@param array|Number $item</p>
+<p>@return array|Number</p>
+
+<p>Coerce something to list</p>
+<p>@param array|Number $item</p>
+<p>@param string       $delim</p>
+<p>@param bool         $removeTrailingNull</p>
+<p>@return array</p>
+
+<p>Coerce color for expression</p>
+<p>@param array|Number $value</p>
+<p>@return array|Number</p>
+
+<p>Coerce value to color</p>
+<p>@param array|Number $value</p>
+<p>@param bool         $inRGBFunction</p>
+<p>@return array|null</p>
+
+<p>@param int|Number $value</p>
+<p>@param bool       $isAlpha</p>
+<p>@return int|mixed</p>
+
+<p>@param mixed     $value</p>
+<p>@param int|float $min</p>
+<p>@param int|float $max</p>
+<p>@param bool      $isInt</p>
+<p>@return int|mixed</p>
+
+<p>Coerce value to string</p>
+<p>@param array|Number $value</p>
+<p>@return array</p>
+
+<p>Assert value is a string</p>
+<p>This method deals with internal implementation details of the value</p>
+<p>representation where unquoted strings can sometimes be stored under</p>
+<p>other types.</p>
+<p>The returned value is always using the T_STRING type.</p>
+<p>@api</p>
+<p>@param array|Number $value</p>
+<p>@param string|null  $varName</p>
+<p>@return array</p>
+<p>@throws SassScriptException</p>
+
+<p>Coerce value to a percentage</p>
+<p>@param array|Number $value</p>
+<p>@return int|float</p>
+<p>@deprecated</p>
+
+<p>Assert value is a map</p>
+<p>@api</p>
+<p>@param array|Number $value</p>
+<p>@param string|null  $varName</p>
+<p>@return array</p>
+<p>@throws SassScriptException</p>
+
+<p>Assert value is a list</p>
+<p>@api</p>
+<p>@param array|Number $value</p>
+<p>@return array</p>
+<p>@throws \Exception</p>
+
+<p>Gets the keywords of an argument list.</p>
+<p>Keys in the returned array are normalized names (underscores are replaced with dashes)</p>
+<p>without the leading <code>$</code>.</p>
+<p>Calling this helper with anything that an argument list received for a rest argument</p>
+<p>of the function argument declaration is not supported.</p>
+<p>@param array|Number $value</p>
+<p>@return array<string, array|Number></p>
+
+<p>Assert value is a color</p>
+<p>@api</p>
+<p>@param array|Number $value</p>
+<p>@param string|null  $varName</p>
+<p>@return array</p>
+<p>@throws SassScriptException</p>
+
+<p>Assert value is a number</p>
+<p>@api</p>
+<p>@param array|Number $value</p>
+<p>@param string|null  $varName</p>
+<p>@return Number</p>
+<p>@throws SassScriptException</p>
+
+<p>Assert value is a integer</p>
+<p>@api</p>
+<p>@param array|Number $value</p>
+<p>@param string|null  $varName</p>
+<p>@return int</p>
+<p>@throws SassScriptException</p>
+
+<p>Extract the  ... / alpha on the last argument of channel arg</p>
+<p>in color functions</p>
+<p>@param array $args</p>
+<p>@return array</p>
+
+<p>Make sure a color's components don't go out of bounds</p>
+<p>@param array $c</p>
+<p>@return array</p>
+
+<p>Convert RGB to HSL</p>
+<p>@internal</p>
+<p>@param int $red</p>
+<p>@param int $green</p>
+<p>@param int $blue</p>
+<p>@return array</p>
+
+<p>Hue to RGB helper</p>
+<p>@param float $m1</p>
+<p>@param float $m2</p>
+<p>@param float $h</p>
+<p>@return float</p>
+
+<p>Convert HSL to RGB</p>
+<p>@internal</p>
+<p>@param int|float $hue        H from 0 to 360</p>
+<p>@param int|float $saturation S from 0 to 100</p>
+<p>@param int|float $lightness  L from 0 to 100</p>
+<p>@return array</p>
+
+<p>Convert HWB to RGB</p>
+<p>https://www.w3.org/TR/css-color-4/#hwb-to-rgb</p>
+<p>@api</p>
+<p>@param int|float $hue        H from 0 to 360</p>
+<p>@param int|float $whiteness  W from 0 to 100</p>
+<p>@param int|float $blackness  B from 0 to 100</p>
+<p>@return array</p>
+
+<p>Convert RGB to HWB</p>
+<p>@api</p>
+<p>@param int $red</p>
+<p>@param int $green</p>
+<p>@param int $blue</p>
+<p>@return array</p>
+
+<p>@param array $args</p>
+<p>@param array $kwargs</p>
+<p>@param string $funcName</p>
+<p>@return array</p>
+
+<p>Helper function for adjust_color, change_color, and scale_color</p>
+<p>@param array<array|Number> $args</p>
+<p>@param string $operation</p>
+<p>@param callable $fn</p>
+<p>@return array</p>
+<p>@phpstan-param callable(float|int, float|int|null, float|int): (float|int) $fn</p>
+
+<p>@phpstan-var callable(string, float|int, bool=, bool=): (float|int|null) $getParam</p>
+
+<p>@param array $args</p>
+<p>@param array $kwargs</p>
+<p>@param string $funcName</p>
+<p>@return array|null</p>
+
+<p>@param array     $color</p>
+<p>@param int       $idx</p>
+<p>@param int|float $amount</p>
+<p>@return array</p>
+
+<p>@var Number|null</p>
+
+<p>@var Number|null</p>
+
+<p>Gets the value corresponding to that key in the map</p>
+<p>@param array        $map</p>
+<p>@param Number|array $key</p>
+<p>@return Number|array|null</p>
+
+<p>Gets the index corresponding to that key in the map entries</p>
+<p>@param array        $map</p>
+<p>@param Number|array $key</p>
+<p>@return int|null</p>
+
+<p>@param array|Number $keyValue</p>
+<p>@return bool</p>
+
+<p>@param array    $map</p>
+<p>@param array    $keys</p>
+<p>@param callable $modify</p>
+<p>@param bool     $addNesting</p>
+<p>@return Number|array</p>
+<p>@phpstan-param array<Number|array> $keys</p>
+<p>@phpstan-param callable(Number|array): (Number|array) $modify</p>
+
+<p>@param array    $map</p>
+<p>@param array    $keys</p>
+<p>@param callable $modify</p>
+<p>@param bool     $addNesting</p>
+<p>@return array</p>
+<p>@phpstan-param non-empty-array<Number|array> $keys</p>
+<p>@phpstan-param callable(Number|array): (Number|array) $modify</p>
+
+<p>Merges 2 Sass maps together</p>
+<p>@param array $map1</p>
+<p>@param array $map2</p>
+<p>@return array</p>
+
+<p>@param array $list1</p>
+<p>@param array|Number|null $sep</p>
+<p>@return string</p>
+<p>@throws CompilerException</p>
+<p>@deprecated</p>
+
+<p>@param array|Number $value</p>
+<p>@return string</p>
+
+<p>Apply a filter on a string content, only on ascii chars</p>
+<p>let extended chars untouched</p>
+<p>@param string $stringContent</p>
+<p>@param callable $filter</p>
+<p>@return string</p>
+
+<p>Workaround IE7's content counter bug.</p>
+<p>@param array $args</p>
+<p>@return array</p>
+
+<p>@param array|Number $value</p>
+<p>@param bool         $force_enclosing_display</p>
+<p>@return array</p>
+
+<p>Preprocess selector args</p>
+<p>@param array       $arg</p>
+<p>@param string|null $varname</p>
+<p>@param bool        $allowParent</p>
+<p>@return array</p>
+
+<p>Check variable type for getSelectorArg() function</p>
+<p>@param array $arg</p>
+<p>@param int $maxDepth</p>
+<p>@return bool</p>
+
+<p>Postprocess selector to output in right format</p>
+<p>@param array $selectors</p>
+<p>@return array</p>
+
+<p>Test a $super selector again $sub</p>
+<p>@param array $super</p>
+<p>@param array $sub</p>
+<p>@return bool</p>
+
+<p>Test a part of super selector again a part of sub selector</p>
+<p>@param array $superParts</p>
+<p>@param array $subParts</p>
+<p>@return bool</p>
+
+<p>Append parts of the last selector in the list to the previous, recursively</p>
+<p>@param array $selectors</p>
+<p>@return array</p>
+<p>@throws \ScssPhp\ScssPhp\Exception\CompilerException</p>
+
+<p>Extend/replace in selectors</p>
+<p>used by selector-extend and selector-replace that use the same logic</p>
+<p>@param array $selectors</p>
+<p>@param array $extendee</p>
+<p>@param array $extender</p>
+<p>@param bool  $replace</p>
+<p>@return array</p>
+
+<p>The selector-unify magic as its best</p>
+<p>(at least works as expected on test cases)</p>
+<p>@param array $compound1</p>
+<p>@param array $compound2</p>
+<p>@return array</p>
+
+<p>Prepend each selector from $selectors with $parts</p>
+<p>@param array $selectors</p>
+<p>@param array $parts</p>
+<p>@return array</p>
+
+<p>Try to find a matching part in a compound:</p>
+<ul>
+<li>with same html tag name</li>
+<li>with some class or id or something in common</li>
+<p>@param array $part</p>
+<p>@param array $compound</p>
+<p>@return array|false</p>
+</ul>
+<p>Merge two part list taking care that</p>
+<ul>
+<li>the html tag is coming first - if any</li>
+<li>the :something are coming last</li>
+<p>@param array $parts1</p>
+<p>@param array $parts2</p>
+<p>@return array</p>
+</ul>
+<p>Check the compatibility between two tag names:</p>
+<p>if both are defined they should be identical or one has to be '*'</p>
+<p>@param string $tag1</p>
+<p>@param string $tag2</p>
+<p>@return array|false</p>
+
+<p>Find the html tag name in a selector parts list</p>
+<p>@param string[] $parts</p>
+<p>@return string</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>a</code></li>
+<li><code>something</code></li>
+<li><code>variable</code></li>
+<li><code>using</code></li>
+<li><code>our</code></li>
+<li><code>selectors</code></li>
+<li><code>0</code></li>
+<li><code>PHP</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\scssphp\vendor\scssphp\scssphp\src\Compiler.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ScssPhp\ScssPhp\creates</code></li>
+<li><code>ScssPhp\ScssPhp\also</code></li>
+<li><code>ScssPhp\ScssPhp\is</code></li>
+<li><code>ScssPhp\ScssPhp\Compiler</code></li>
+<li><code>ScssPhp\ScssPhp\or</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($cacheOptions = null)</code></li>
+<li><code>getCompileOptions()</code></li>
+<li><code>setLogger(LoggerInterface $logger)</code></li>
+<li><code>setErrorOuput($handle)</code></li>
+<li><code>compile($code, $path = null)</code></li>
+<li><code>compileString($source, $path = null)</code></li>
+<li><code>isFreshCachedResult(CachedResult $result)</code></li>
+<li><code>parserFactory($path)</code></li>
+<li><code>isSelfExtend($target, $origin)</code></li>
+<li><code>pushExtends($target, $origin, $block)</code></li>
+<li><code>makeOutputBlock($type, $selectors = null)</code></li>
+<li><code>compileRoot(Block $rootBlock)</code></li>
+<li><code>missingSelectors()</code></li>
+<li><code>flattenSelectors(OutputBlock $block, $parentKey = null)</code></li>
+<li><code>glueFunctionSelectors($parts)</code></li>
+<li><code>matchExtends($selector, &$out, $from = 0, $initial = true)</code></li>
+<li><code>isPseudoSelector($part, &$matches)</code></li>
+<li><code>pushOrMergeExtentedSelector(&$out, $extended)</code></li>
+<li><code>matchExtendsSingle($rawSingle, &$outOrigin, $initial = true)</code></li>
+<li><code>extractRelationshipFromFragment(array $fragment)</code></li>
+<li><code>combineSelectorSingle($base, $other)</code></li>
+<li><code>compileMedia(Block $media)</code></li>
+<li><code>mediaParent(OutputBlock $scope)</code></li>
+<li><code>compileDirective($directive, OutputBlock $out)</code></li>
+<li><code>compileDirectiveName($directiveName)</code></li>
+<li><code>compileAtRoot(Block $block)</code></li>
+<li><code>filterScopeWithWithout($scope, $with, $without)</code></li>
+<li><code>completeScope($scope, $previousScope)</code></li>
+<li><code>findScopeSelectors($scope, $depth)</code></li>
+<li><code>compileWith($withCondition)</code></li>
+<li><code>filterWithWithout($envs, $with, $without)</code></li>
+<li><code>isWith($block, $with, $without)</code></li>
+<li><code>testWithWithout($what, $with, $without)</code></li>
+<li><code>compileKeyframeBlock(Block $block, $selectors)</code></li>
+<li><code>compileNestedPropertiesBlock(Block $block, OutputBlock $out)</code></li>
+<li><code>compileNestedBlock(Block $block, $selectors)</code></li>
+<li><code>compileBlock(Block $block)</code></li>
+<li><code>compileCommentValue($value, $pushEnv = false)</code></li>
+<li><code>compileComment($block)</code></li>
+<li><code>evalSelectors($selectors)</code></li>
+<li><code>evalSelector($selector)</code></li>
+<li><code>evalSelectorPart($part)</code></li>
+<li><code>collapseSelectors($selectors)</code></li>
+<li><code>collapseSelectorsAsList($selectors)</code></li>
+<li><code>replaceSelfSelector($selectors, $replace = null)</code></li>
+<li><code>flattenSelectorSingle($single)</code></li>
+<li><code>compileSelector($selector)</code></li>
+<li><code>compileSelectorPart($piece)</code></li>
+<li><code>hasSelectorPlaceholder($selector)</code></li>
+<li><code>pushCallStack($name = '')</code></li>
+<li><code>popCallStack()</code></li>
+<li><code>compileChildren($stms, OutputBlock $out, $traceName = '')</code></li>
+<li><code>compileChildrenNoReturn($stms, OutputBlock $out, $selfParent = null, $traceName = '')</code></li>
+<li><code>evaluateMediaQuery($queryList)</code></li>
+<li><code>compileMediaQuery($queryList)</code></li>
+<li><code>mergeDirectRelationships($selectors1, $selectors2)</code></li>
+<li><code>mergeMediaTypes($type1, $type2)</code></li>
+<li><code>compileImport($rawPath, OutputBlock $out, $once = false)</code></li>
+<li><code>compileImportPath($rawPath)</code></li>
+<li><code>escapeImportPathString($path)</code></li>
+<li><code>appendRootDirective($line, $out, $allowed = [Type::T_COMMENT])</code></li>
+<li><code>appendOutputLine(OutputBlock $out, $type, $line)</code></li>
+<li><code>compileChild($child, OutputBlock $out)</code></li>
+<li><code>expToString($exp, $keepParens = false)</code></li>
+<li><code>isTruthy($value)</code></li>
+<li><code>isImmediateRelationshipCombinator($value)</code></li>
+<li><code>shouldEval($value)</code></li>
+<li><code>reduce($value, $inExp = false)</code></li>
+<li><code>fncall($functionReference, $argValues)</code></li>
+<li><code>cssValidArg($arg, $allowed_function = [], $inFunction = false)</code></li>
+<li><code>stringifyFncallArgs($arg)</code></li>
+<li><code>getFunctionReference($name, $safeCopy = false)</code></li>
+<li><code>if($func = $this->get(static::$namespaces['function'] . $name, false)</code></li>
+<li><code>list($f, $prototype)</code></li>
+<li><code>normalizeName($name)</code></li>
+<li><code>normalizeValue($value)</code></li>
+<li><code>opAddNumberNumber(Number $left, Number $right)</code></li>
+<li><code>opMulNumberNumber(Number $left, Number $right)</code></li>
+<li><code>opSubNumberNumber(Number $left, Number $right)</code></li>
+<li><code>opDivNumberNumber(Number $left, Number $right)</code></li>
+<li><code>opModNumberNumber(Number $left, Number $right)</code></li>
+<li><code>opAdd($left, $right)</code></li>
+<li><code>opAnd($left, $right, $shouldEval)</code></li>
+<li><code>opOr($left, $right, $shouldEval)</code></li>
+<li><code>opColorColor($op, $left, $right)</code></li>
+<li><code>opColorNumber($op, $left, Number $right)</code></li>
+<li><code>opNumberColor($op, Number $left, $right)</code></li>
+<li><code>opEq($left, $right)</code></li>
+<li><code>opNeq($left, $right)</code></li>
+<li><code>opEqNumberNumber(Number $left, Number $right)</code></li>
+<li><code>opNeqNumberNumber(Number $left, Number $right)</code></li>
+<li><code>opGteNumberNumber(Number $left, Number $right)</code></li>
+<li><code>opGtNumberNumber(Number $left, Number $right)</code></li>
+<li><code>opLteNumberNumber(Number $left, Number $right)</code></li>
+<li><code>opLtNumberNumber(Number $left, Number $right)</code></li>
+<li><code>toBool($thing)</code></li>
+<li><code>escapeNonPrintableChars($string, $inKeyword = false)</code></li>
+<li><code>compileValue($value, $quote = true)</code></li>
+<li><code>compileDebugValue($value)</code></li>
+<li><code>flattenList($list)</code></li>
+<li><code>getStringText(array $value)</code></li>
+<li><code>compileStringContent($string, $quote = true)</code></li>
+<li><code>extractInterpolation($list)</code></li>
+<li><code>multiplySelectors(Environment $env, $selfParent = null)</code></li>
+<li><code>joinSelectors($parent, $child, &$stillHasSelf, $selfParentSelectors = null)</code></li>
+<li><code>multiplyMedia(Environment $env = null, $childQueries = null)</code></li>
+<li><code>compactEnv(Environment $env)</code></li>
+<li><code>extractEnv($envs)</code></li>
+<li><code>pushEnv(Block $block = null)</code></li>
+<li><code>popEnv()</code></li>
+<li><code>backPropagateEnv($store, $excludedVars = null)</code></li>
+<li><code>getStoreEnv()</code></li>
+<li><code>set($name, $value, $shadow = false, Environment $env = null, $valueUnreduced = null)</code></li>
+<li><code>setExisting($name, $value, Environment $env, $valueUnreduced = null)</code></li>
+<li><code>setRaw($name, $value, Environment $env, $valueUnreduced = null)</code></li>
+<li><code>get($name, $shouldThrow = true, Environment $env = null, $unreduced = false)</code></li>
+<li><code>has($name, Environment $env = null)</code></li>
+<li><code>injectVariables(array $args)</code></li>
+<li><code>replaceVariables(array $variables)</code></li>
+<li><code>addVariables(array $variables)</code></li>
+<li><code>setVariables(array $variables)</code></li>
+<li><code>unsetVariable($name)</code></li>
+<li><code>getVariables()</code></li>
+<li><code>addParsedFile($path)</code></li>
+<li><code>getParsedFiles()</code></li>
+<li><code>addImportPath($path)</code></li>
+<li><code>setImportPaths($path)</code></li>
+<li><code>setNumberPrecision($numberPrecision)</code></li>
+<li><code>setOutputStyle($style)</code></li>
+<li><code>setFormatter($formatterName)</code></li>
+<li><code>setLineNumberStyle($lineNumberStyle)</code></li>
+<li><code>setCharset($charset)</code></li>
+<li><code>setSourceMap($sourceMap)</code></li>
+<li><code>setSourceMapOptions($sourceMapOptions)</code></li>
+<li><code>registerFunction($name, $callback, $argumentDeclaration = null)</code></li>
+<li><code>unregisterFunction($name)</code></li>
+<li><code>addFeature($name)</code></li>
+<li><code>importFile($path, OutputBlock $out)</code></li>
+<li><code>registerImport($currentDirectory, $path, $filePath)</code></li>
+<li><code>isCssImport($url)</code></li>
+<li><code>findImport($url, $currentDir = null)</code></li>
+<li><code>resolveImportPath($url, $baseDir)</code></li>
+<li><code>checkImportPathConflicts(array $paths)</code></li>
+<li><code>tryImportPathWithExtensions($path)</code></li>
+<li><code>tryImportPath($path)</code></li>
+<li><code>tryImportPathAsDirectory($path)</code></li>
+<li><code>getPrettyPath($path)</code></li>
+<li><code>setEncoding($encoding)</code></li>
+<li><code>setIgnoreErrors($ignoreErrors)</code></li>
+<li><code>getSourcePosition()</code></li>
+<li><code>throwError($msg)</code></li>
+<li><code>error($msg, ...$args)</code></li>
+<li><code>addLocationToMessage($msg)</code></li>
+<li><code>errorArgsNumber($functionName, $ExpectedArgs, $nbActual)</code></li>
+<li><code>callStackMessage($all = false, $limit = null)</code></li>
+<li><code>handleImportLoop($name)</code></li>
+<li><code>callScssFunction($func, $argValues)</code></li>
+<li><code>callNativeFunction($name, $function, $prototype, $args)</code></li>
+<li><code>getBuiltinFunction($name)</code></li>
+<li><code>normalizeNativeFunctionName($name)</code></li>
+<li><code>isNativeFunction($name)</code></li>
+<li><code>sortNativeFunctionArgs($functionName, $prototypes, $args)</code></li>
+<li><code>parseFunctionPrototype(array $prototype)</code></li>
+<li><code>selectFunctionPrototype(array $prototypes, $positional, array $names)</code></li>
+<li><code>checkPrototypeMatches(array $prototype, $positional, array $names)</code></li>
+<li><code>verifyPrototype(array $prototype, $positional, array $names, $hasSplat)</code></li>
+<li><code>evaluateArguments(array $args, $reduce = true)</code></li>
+<li><code>maybeReduce($reduce, $value)</code></li>
+<li><code>applyArguments($argDef, $argValues, $storeInEnv = true, $reduce = true)</code></li>
+<li><code>applyArgumentsToDeclaration(array $prototype, array $positionalArgs, array $namedArgs, $splatSeparator)</code></li>
+<li><code>coerceValue($value)</code></li>
+<li><code>tryMap($item)</code></li>
+<li><code>coerceMap($item)</code></li>
+<li><code>coerceList($item, $delim = ',', $removeTrailingNull = false)</code></li>
+<li><code>coerceForExpression($value)</code></li>
+<li><code>coerceColor($value, $inRGBFunction = false)</code></li>
+<li><code>compileRGBAValue($value, $isAlpha = false)</code></li>
+<li><code>compileColorPartValue($value, $min, $max, $isInt = true)</code></li>
+<li><code>coerceString($value)</code></li>
+<li><code>assertString($value, $varName = null)</code></li>
+<li><code>if($value[0] === Type::T_FUNCTION)</code></li>
+<li><code>coercePercent($value)</code></li>
+<li><code>assertMap($value, $varName = null)</code></li>
+<li><code>assertList($value)</code></li>
+<li><code>getArgumentListKeywords($value)</code></li>
+<li><code>assertColor($value, $varName = null)</code></li>
+<li><code>assertNumber($value, $varName = null)</code></li>
+<li><code>assertInteger($value, $varName = null)</code></li>
+<li><code>extractSlashAlphaInColorFunction($args)</code></li>
+<li><code>fixColor($c)</code></li>
+<li><code>toHSL($red, $green, $blue)</code></li>
+<li><code>hueToRGB($m1, $m2, $h)</code></li>
+<li><code>toRGB($hue, $saturation, $lightness)</code></li>
+<li><code>HWBtoRGB($hue, $whiteness, $blackness)</code></li>
+<li><code>RGBtoHWB($red, $green, $blue)</code></li>
+<li><code>libCall($args)</code></li>
+<li><code>libGetFunction($args)</code></li>
+<li><code>libIf($args)</code></li>
+<li><code>libIndex($args)</code></li>
+<li><code>libRgb($args, $kwargs, $funcName = 'rgb')</code></li>
+<li><code>libRgba($args, $kwargs)</code></li>
+<li><code>alterColor(array $args, $operation, $fn)</code></li>
+<li><code>libAdjustColor($args)</code></li>
+<li><code>libChangeColor($args)</code></li>
+<li><code>libScaleColor($args)</code></li>
+<li><code>libIeHexStr($args)</code></li>
+<li><code>libRed($args)</code></li>
+<li><code>libGreen($args)</code></li>
+<li><code>libBlue($args)</code></li>
+<li><code>libAlpha($args)</code></li>
+<li><code>libOpacity($args)</code></li>
+<li><code>libMix($args)</code></li>
+<li><code>libHsl($args, $kwargs, $funcName = 'hsl')</code></li>
+<li><code>foreach($args as $arg)</code></li>
+<li><code>libHsla($args, $kwargs)</code></li>
+<li><code>libHue($args)</code></li>
+<li><code>libSaturation($args)</code></li>
+<li><code>libLightness($args)</code></li>
+<li><code>libHwb($args, $kwargs, $funcName = 'hwb')</code></li>
+<li><code>libWhiteness($args, $kwargs, $funcName = 'whiteness')</code></li>
+<li><code>libBlackness($args, $kwargs, $funcName = 'blackness')</code></li>
+<li><code>adjustHsl($color, $idx, $amount)</code></li>
+<li><code>libAdjustHue($args)</code></li>
+<li><code>libLighten($args)</code></li>
+<li><code>libDarken($args)</code></li>
+<li><code>libSaturate($args)</code></li>
+<li><code>libDesaturate($args)</code></li>
+<li><code>libGrayscale($args)</code></li>
+<li><code>libComplement($args)</code></li>
+<li><code>libInvert($args)</code></li>
+<li><code>libOpacify($args)</code></li>
+<li><code>libFadeIn($args)</code></li>
+<li><code>libTransparentize($args)</code></li>
+<li><code>libFadeOut($args)</code></li>
+<li><code>libUnquote($args)</code></li>
+<li><code>libQuote($args)</code></li>
+<li><code>libPercentage($args)</code></li>
+<li><code>libRound($args)</code></li>
+<li><code>libFloor($args)</code></li>
+<li><code>libCeil($args)</code></li>
+<li><code>libAbs($args)</code></li>
+<li><code>libMin($args)</code></li>
+<li><code>libMax($args)</code></li>
+<li><code>libLength($args)</code></li>
+<li><code>libListSeparator($args)</code></li>
+<li><code>libNth($args)</code></li>
+<li><code>libSetNth($args)</code></li>
+<li><code>libMapGet($args)</code></li>
+<li><code>mapGet(array $map, $key)</code></li>
+<li><code>mapGetEntryIndex(array $map, $key)</code></li>
+<li><code>libMapKeys($args)</code></li>
+<li><code>libMapValues($args)</code></li>
+<li><code>libMapRemove($args)</code></li>
+<li><code>libMapHasKey($args)</code></li>
+<li><code>mapHasKey(array $map, $keyValue)</code></li>
+<li><code>libMapMerge($args)</code></li>
+<li><code>modifyMap(array $map, array $keys, callable $modify, $addNesting = true)</code></li>
+<li><code>modifyNestedMap(array $map, array $keys, callable $modify, $addNesting)</code></li>
+<li><code>mergeMaps(array $map1, array $map2)</code></li>
+<li><code>libKeywords($args)</code></li>
+<li><code>libIsBracketed($args)</code></li>
+<li><code>listSeparatorForJoin($list1, $sep)</code></li>
+<li><code>libJoin($args)</code></li>
+<li><code>libAppend($args)</code></li>
+<li><code>libZip($args)</code></li>
+<li><code>libTypeOf($args)</code></li>
+<li><code>getTypeOf($value)</code></li>
+<li><code>libUnit($args)</code></li>
+<li><code>libUnitless($args)</code></li>
+<li><code>libComparable($args)</code></li>
+<li><code>libStrIndex($args)</code></li>
+<li><code>libStrInsert($args)</code></li>
+<li><code>libStrLength($args)</code></li>
+<li><code>libStrSlice($args)</code></li>
+<li><code>libToLowerCase($args)</code></li>
+<li><code>libToUpperCase($args)</code></li>
+<li><code>stringTransformAsciiOnly($stringContent, $filter)</code></li>
+<li><code>libFeatureExists($args)</code></li>
+<li><code>libFunctionExists($args)</code></li>
+<li><code>libGlobalVariableExists($args)</code></li>
+<li><code>libMixinExists($args)</code></li>
+<li><code>libVariableExists($args)</code></li>
+<li><code>libCounter($args)</code></li>
+<li><code>libRandom($args)</code></li>
+<li><code>libUniqueId()</code></li>
+<li><code>inspectFormatValue($value, $force_enclosing_display = false)</code></li>
+<li><code>libInspect($args)</code></li>
+<li><code>getSelectorArg($arg, $varname = null, $allowParent = false)</code></li>
+<li><code>checkSelectorArgType($arg, $maxDepth = 2)</code></li>
+<li><code>formatOutputSelector($selectors)</code></li>
+<li><code>libIsSuperselector($args)</code></li>
+<li><code>isSuperSelector($super, $sub)</code></li>
+<li><code>isSuperPart($superParts, $subParts)</code></li>
+<li><code>libSelectorAppend($args)</code></li>
+<li><code>selectorAppend($selectors)</code></li>
+<li><code>libSelectorExtend($args)</code></li>
+<li><code>libSelectorReplace($args)</code></li>
+<li><code>extendOrReplaceSelectors($selectors, $extendee, $extender, $replace = false)</code></li>
+<li><code>libSelectorNest($args)</code></li>
+<li><code>libSelectorParse($args)</code></li>
+<li><code>libSelectorUnify($args)</code></li>
+<li><code>unifyCompoundSelectors($compound1, $compound2)</code></li>
+<li><code>prependSelectors($selectors, $parts)</code></li>
+<li><code>matchPartInCompound($part, $compound)</code></li>
+<li><code>mergeParts($parts1, $parts2)</code></li>
+<li><code>checkCompatibleTags($tag1, $tag2)</code></li>
+<li><code>findTagName($parts)</code></li>
+<li><code>libSimpleSelectors($args)</code></li>
+<li><code>libScssphpGlob($args)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,112 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\Identity\VerificationSessionService.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\Identity\VerificationSessionService.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\Identity\VerificationSessionService.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5683 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Returns a list of VerificationSessions.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\Identity\VerificationSession></p>
+
+<p>A VerificationSession object can be canceled when it is in</p>
+<p><code>requires_input</code> <a</p>
+<p>href="/docs/identity/how-sessions-work">status</a>.</p>
+<p>Once canceled, future submission attempts are disabled. This cannot be undone.</p>
+<p><a href="/docs/identity/verification-sessions#cancel">Learn more</a>.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Identity\VerificationSession</p>
+
+<p>Creates a VerificationSession object.</p>
+<p>After the VerificationSession is created, display a verification modal using the</p>
+<p>session <code>client_secret</code> or send your users to the session’s</p>
+<p><code>url</code>.</p>
+<p>If your API key is in test mode, verification checks won’t actually process,</p>
+<p>though everything else will occur as if in live mode.</p>
+<p>Related guide: <a href="/docs/identity/verify-identity-documents">Verify your</p>
+<p>users’ identity documents</a>.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Identity\VerificationSession</p>
+
+<p>Redact a VerificationSession to remove all collected information from Stripe.</p>
+<p>This will redact the VerificationSession and all objects related to it,</p>
+<p>including VerificationReports, Events, request logs, etc.</p>
+<p>A VerificationSession object can be redacted when it is in</p>
+<p><code>requires_input</code> or <code>verified</code> <a</p>
+<p>href="/docs/identity/how-sessions-work">status</a>. Redacting a</p>
+<p>VerificationSession in <code>requires_action</code> state will automatically</p>
+<p>cancel it.</p>
+<p>The redaction process may take up to four days. When the redaction process is in</p>
+<p>progress, the VerificationSession’s <code>redaction.status</code> field will be</p>
+<p>set to <code>processing</code>; when the process is finished, it will change to</p>
+<p><code>redacted</code> and an <code>identity.verification_session.redacted</code></p>
+<p>event will be emitted.</p>
+<p>Redaction is irreversible. Redacted objects are still accessible in the Stripe</p>
+<p>API, but all the fields that contain personal data will be replaced by the</p>
+<p>string <code>[redacted]</code> or a similar placeholder. The</p>
+<p><code>metadata</code> field will also be erased. Redacted objects cannot be</p>
+<p>updated or used for any purpose.</p>
+<p><a href="/docs/identity/verification-sessions#redact">Learn more</a>.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Identity\VerificationSession</p>
+
+<p>Retrieves the details of a VerificationSession that was previously created.</p>
+<p>When the session status is <code>requires_input</code>, you can use this method</p>
+<p>to retrieve a valid <code>client_secret</code> or <code>url</code> to allow</p>
+<p>re-submission.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Identity\VerificationSession</p>
+
+<p>Updates a VerificationSession object.</p>
+<p>When the session status is <code>requires_input</code>, you can use this method</p>
+<p>to update the verification check and options.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Identity\VerificationSession</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+<li><code>Stripe</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\Identity\VerificationSessionService.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Service\Identity\VerificationSessionService extends \Stripe\Service\AbstractService</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>all($params = null, $opts = null)</code></li>
+<li><code>cancel($id, $params = null, $opts = null)</code></li>
+<li><code>create($params = null, $opts = null)</code></li>
+<li><code>redact($id, $params = null, $opts = null)</code></li>
+<li><code>retrieve($id, $params = null, $opts = null)</code></li>
+<li><code>update($id, $params = null, $opts = null)</code></li>
+</ul>
+</body></html>

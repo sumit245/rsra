@@ -1,0 +1,175 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\HttpClient\CurlClient.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\HttpClient\CurlClient.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\HttpClient\CurlClient.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 24722 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@var \Stripe\Util\RandomGenerator</p>
+
+<p>CurlClient constructor.</p>
+<p>Pass in a callable to $defaultOptions that returns an array of CURLOPT_* values to start</p>
+<p>off a request with, or an flat array with the same format used by curl_setopt_array() to</p>
+<p>provide a static set of options. Note that many options are overridden later in the request</p>
+<p>call, including timeouts, which can be set via setTimeout() and setConnectTimeout().</p>
+<p>Note that request() will silently ignore a non-callable, non-array $defaultOptions, and will</p>
+<p>throw an exception if $defaultOptions returns a non-array value.</p>
+<p>@param null|array|callable $defaultOptions</p>
+<p>@param null|\Stripe\Util\RandomGenerator $randomGenerator</p>
+
+<p>@return bool</p>
+
+<p>@param bool $enable</p>
+
+<p>@return bool</p>
+
+<p>@param bool $enable</p>
+
+<p>@return null|callable</p>
+
+<p>Sets a callback that is called after each request. The callback will</p>
+<p>receive the following parameters:</p>
+<p><ol></p>
+<p>  <li>string $rbody The response body</li></p>
+<p>  <li>integer $rcode The response status code</li></p>
+<p>  <li>\Stripe\Util\CaseInsensitiveArray $rheaders The response headers</li></p>
+<p>  <li>integer $errno The curl error number</li></p>
+<p>  <li>string|null $message The curl error message</li></p>
+<p>  <li>boolean $shouldRetry Whether the request will be retried</li></p>
+<p>  <li>integer $numRetries The number of the retry attempt</li></p>
+<p></ol>.</p>
+<p>@param null|callable $requestStatusCallback</p>
+
+<p>Curl permits sending \CURLOPT_HEADERFUNCTION, which is called with lines</p>
+<p>from the header and \CURLOPT_WRITEFUNCTION, which is called with bytes</p>
+<p>from the body. You usually want to handle the body differently depending</p>
+<p>on what was in the header.</p>
+<p>This function makes it easier to specify different callbacks depending</p>
+<p>on the contents of the heeder. After the header has been completely read</p>
+<p>and the body begins to stream, it will call $determineWriteCallback with</p>
+<p>the array of headers. $determineWriteCallback should, based on the</p>
+<p>headers it receives, return a "writeCallback" that describes what to do</p>
+<p>with the incoming HTTP response body.</p>
+<p>@param array $opts</p>
+<p>@param callable $determineWriteCallback</p>
+<p>@return array</p>
+
+<p>Like <code>executeRequestWithRetries</code> except:</p>
+<p>  1. Does not buffer the body of a successful (status code < 300)</p>
+<p>     response into memory -- instead, calls the caller-provided</p>
+<p>     $readBodyChunk with each chunk of incoming data.</p>
+<p>  2. Does not retry if a network error occurs while streaming the</p>
+<p>     body of a successful response.</p>
+<p>@param array $opts cURL options</p>
+<p>@param string $absUrl</p>
+<p>@param callable $readBodyChunk</p>
+<p>@return array</p>
+
+<p>@var bool</p>
+
+<p>@var int</p>
+
+<p>@var null|string</p>
+
+<p>@var null|bool</p>
+
+<p>@var null|array</p>
+
+<p>@param array $opts cURL options</p>
+<p>@param string $absUrl</p>
+
+<p>@param string $url</p>
+<p>@param int $errno</p>
+<p>@param string $message</p>
+<p>@param int $numRetries</p>
+<p>@throws Exception\ApiConnectionException</p>
+
+<p>Checks if an error is a problem that we should retry on. This includes both</p>
+<p>socket errors that may represent an intermittent problem and some special</p>
+<p>HTTP statuses.</p>
+<p>@param int $errno</p>
+<p>@param int $rcode</p>
+<p>@param array|\Stripe\Util\CaseInsensitiveArray $rheaders</p>
+<p>@param int $numRetries</p>
+<p>@return bool</p>
+
+<p>Provides the number of seconds to wait before retrying a request.</p>
+<p>@param int $numRetries</p>
+<p>@param array|\Stripe\Util\CaseInsensitiveArray $rheaders</p>
+<p>@return int</p>
+
+<p>Initializes the curl handle. If already initialized, the handle is closed first.</p>
+
+<p>Closes the curl handle if initialized. Do nothing if already closed.</p>
+
+<p>Resets the curl handle. If the handle is not already initialized, or if persistent</p>
+<p>connections are disabled, the handle is reinitialized instead.</p>
+
+<p>Indicates whether it is safe to use HTTP/2 or not.</p>
+<p>@return bool</p>
+
+<p>Checks if a list of headers contains a specific header name.</p>
+<p>@param string[] $headers</p>
+<p>@param string $name</p>
+<p>@return bool</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>their</code></li>
+<li><code>array</code></li>
+<li><code>being</code></li>
+<li><code>the</code></li>
+<li><code>an</code></li>
+<li><code>a</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\HttpClient\CurlClient.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\HttpClient\CurlClient implements ClientInterface, StreamingClientInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>instance()</code></li>
+<li><code>__construct($defaultOptions = null, $randomGenerator = null)</code></li>
+<li><code>__destruct()</code></li>
+<li><code>initUserAgentInfo()</code></li>
+<li><code>getDefaultOptions()</code></li>
+<li><code>getUserAgentInfo()</code></li>
+<li><code>getEnablePersistentConnections()</code></li>
+<li><code>setEnablePersistentConnections($enable)</code></li>
+<li><code>getEnableHttp2()</code></li>
+<li><code>setEnableHttp2($enable)</code></li>
+<li><code>getRequestStatusCallback()</code></li>
+<li><code>setRequestStatusCallback($requestStatusCallback)</code></li>
+<li><code>setTimeout($seconds)</code></li>
+<li><code>setConnectTimeout($seconds)</code></li>
+<li><code>getTimeout()</code></li>
+<li><code>getConnectTimeout()</code></li>
+<li><code>constructRequest($method, $absUrl, $headers, $params, $hasFile)</code></li>
+<li><code>request($method, $absUrl, $headers, $params, $hasFile)</code></li>
+<li><code>requestStream($method, $absUrl, $headers, $params, $hasFile, $readBodyChunk)</code></li>
+<li><code>useHeadersToDetermineWriteCallback($opts, $determineWriteCallback)</code></li>
+<li><code>parseLineIntoHeaderArray($line, &$headers)</code></li>
+<li><code>executeStreamingRequestWithRetries($opts, $absUrl, $readBodyChunk)</code></li>
+<li><code>executeRequestWithRetries($opts, $absUrl)</code></li>
+<li><code>handleCurlError($url, $errno, $message, $numRetries)</code></li>
+<li><code>shouldRetry($errno, $rcode, $rheaders, $numRetries)</code></li>
+<li><code>sleepTime($numRetries, $rheaders)</code></li>
+<li><code>initCurlHandle()</code></li>
+<li><code>closeCurlHandle()</code></li>
+<li><code>resetCurlHandle()</code></li>
+<li><code>canSafelyUseHttp2()</code></li>
+<li><code>hasHeader($headers, $name)</code></li>
+</ul>
+</body></html>

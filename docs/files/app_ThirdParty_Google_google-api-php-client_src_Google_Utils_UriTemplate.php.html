@@ -1,0 +1,74 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\src\Google\Utils\UriTemplate.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\src\Google\Utils\UriTemplate.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\src\Google\Utils\UriTemplate.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9446 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Implementation of levels 1-3 of the URI Template spec.</p>
+<p>@see http://tools.ietf.org/html/rfc6570</p>
+
+<p>@var $operators array</p>
+<p>These are valid at the start of a template block to</p>
+<p>modify the way in which the variables inside are</p>
+<p>processed.</p>
+
+<p>@var reserved array</p>
+<p>These are the characters which should not be URL encoded in reserved</p>
+<p>strings.</p>
+
+<p>This function finds the first matching {...} block and</p>
+<p>executes the replacement. It then calls itself to find</p>
+<p>subsequent blocks, if any.</p>
+
+<p>Return the type of a passed in value</p>
+
+<p>Utility function that merges multiple combine calls</p>
+<p>for multi-key templates.</p>
+
+<p>Utility function to encode and trim values</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\src\Google\Utils\UriTemplate.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Google_Utils_UriTemplate</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>parse($string, array $parameters)</code></li>
+<li><code>resolveNextSection($string, $parameters)</code></li>
+<li><code>replace($string, $start, $end, $parameters)</code></li>
+<li>`replaceVars($section,</li>
+<p>      $parameters,</p>
+<p>      $sep = ",",</p>
+<p>      $combine = null,</p>
+<p>      $reserved = false,</p>
+<p>      $tag_empty = false,</p>
+<p>      $combine_on_empty = true)`</p>
+<li>`combine($key,</li>
+<p>      $parameters,</p>
+<p>      $sep,</p>
+<p>      $combine,</p>
+<p>      $reserved,</p>
+<p>      $tag_empty,</p>
+<p>      $combine_on_empty)`</p>
+<li><code>getDataType($data)</code></li>
+<li>`combineList($vars,</li>
+<p>      $sep,</p>
+<p>      $parameters,</p>
+<p>      $combine,</p>
+<p>      $reserved,</p>
+<p>      $tag_empty,</p>
+<p>      $combine_on_empty)`</p>
+<li><code>getValue($value, $length)</code></li>
+</ul>
+</body></html>

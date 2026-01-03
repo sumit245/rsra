@@ -1,0 +1,146 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Config\BaseService.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Config\BaseService.php</h1>
+
+<ul>
+<li>Path: <code>system\Config\BaseService.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 12954 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Services Configuration file.</p>
+<p>Services are simply other classes/libraries that the system uses</p>
+<p>to do its job. This is used by CodeIgniter to allow the core of the</p>
+<p>framework to be swapped out easily without affecting the usage within</p>
+<p>the rest of your application.</p>
+<p>This is used in place of a Dependency Injection container primarily</p>
+<p>due to its simplicity, which allows a better long-term maintenance</p>
+<p>of the applications built on top of CodeIgniter. A bonus side-effect</p>
+<p>is that IDEs are able to determine what class you are calling</p>
+<p>whereas with DI Containers there usually isn't a way for them to do this.</p>
+<p>Warning: To allow overrides by service providers do not use static calls,</p>
+<p>instead call out to \Config\Services (imported as AppServices).</p>
+<p>@see http://blog.ircmaxell.com/2015/11/simple-easy-risk-and-change.html</p>
+<p>@see http://www.infoq.com/presentations/Simple-Made-Easy</p>
+<p>@method static CacheInterface cache(Cache $config = null, $getShared = true)</p>
+<p>@method static CLIRequest clirequest(App $config = null, $getShared = true)</p>
+<p>@method static CodeIgniter codeigniter(App $config = null, $getShared = true)</p>
+<p>@method static Commands commands($getShared = true)</p>
+<p>@method static ContentSecurityPolicy csp(CSPConfig $config = null, $getShared = true)</p>
+<p>@method static CURLRequest curlrequest($options = [], ResponseInterface $response = null, App $config = null, $getShared = true)</p>
+<p>@method static Email email($config = null, $getShared = true)</p>
+<p>@method static EncrypterInterface encrypter(Encryption $config = null, $getShared = false)</p>
+<p>@method static Exceptions exceptions(ConfigExceptions $config = null, IncomingRequest $request = null, Response $response = null, $getShared = true)</p>
+<p>@method static Filters filters(ConfigFilters $config = null, $getShared = true)</p>
+<p>@method static Format format(ConfigFormat $config = null, $getShared = true)</p>
+<p>@method static Honeypot honeypot(ConfigHoneyPot $config = null, $getShared = true)</p>
+<p>@method static BaseHandler image($handler = null, Images $config = null, $getShared = true)</p>
+<p>@method static Iterator iterator($getShared = true)</p>
+<p>@method static Language language($locale = null, $getShared = true)</p>
+<p>@method static Logger logger($getShared = true)</p>
+<p>@method static MigrationRunner migrations(Migrations $config = null, ConnectionInterface $db = null, $getShared = true)</p>
+<p>@method static Negotiate negotiator(RequestInterface $request = null, $getShared = true)</p>
+<p>@method static Pager pager(ConfigPager $config = null, RendererInterface $view = null, $getShared = true)</p>
+<p>@method static Parser parser($viewPath = null, ConfigView $config = null, $getShared = true)</p>
+<p>@method static RedirectResponse redirectresponse(App $config = null, $getShared = true)</p>
+<p>@method static View renderer($viewPath = null, ConfigView $config = null, $getShared = true)</p>
+<p>@method static IncomingRequest request(App $config = null, $getShared = true)</p>
+<p>@method static Response response(App $config = null, $getShared = true)</p>
+<p>@method static Router router(RouteCollectionInterface $routes = null, Request $request = null, $getShared = true)</p>
+<p>@method static RouteCollection routes($getShared = true)</p>
+<p>@method static Security security(App $config = null, $getShared = true)</p>
+<p>@method static Session session(App $config = null, $getShared = true)</p>
+<p>@method static Throttler throttler($getShared = true)</p>
+<p>@method static Timer timer($getShared = true)</p>
+<p>@method static Toolbar toolbar(ConfigToolbar $config = null, $getShared = true)</p>
+<p>@method static Typography typography($getShared = true)</p>
+<p>@method static URI uri($uri = null, $getShared = true)</p>
+<p>@method static Validation validation(ConfigValidation $config = null, $getShared = true)</p>
+<p>@method static Cell viewcell($getShared = true)</p>
+
+<p>Cache for instance of any services that</p>
+<p>have been requested as a "shared" instance.</p>
+<p>Keys should be lowercase service names.</p>
+<p>@var array</p>
+
+<p>Mock objects for testing which are returned if exist.</p>
+<p>@var array</p>
+
+<p>Have we already discovered other Services?</p>
+<p>@var bool</p>
+
+<p>A cache of other service classes we've found.</p>
+<p>@var array</p>
+
+<p>A cache of the names of services classes found.</p>
+<p>@var array<string></p>
+
+<p>Returns a shared instance of any of the class' services.</p>
+<p>$key must be a name matching a service.</p>
+<p>@param mixed ...$params</p>
+<p>@return mixed</p>
+
+<p>The Autoloader class is the central class that handles our</p>
+<p>spl_autoload_register method, and helper methods.</p>
+<p>@return Autoloader</p>
+
+<p>The file locator provides utility methods for looking for non-classes</p>
+<p>within namespaced folders, as well as convenience methods for</p>
+<p>loading 'helpers', and 'libraries'.</p>
+<p>@return FileLocator</p>
+
+<p>Provides the ability to perform case-insensitive calling of service</p>
+<p>names.</p>
+<p>@return mixed</p>
+
+<p>Check if the requested service is defined and return the declaring</p>
+<p>class. Return null if not found.</p>
+
+<p>Reset shared instances and mocks for testing.</p>
+
+<p>Resets any mock and shared instances for a single service.</p>
+
+<p>Inject mock object for testing.</p>
+<p>@param mixed $mock</p>
+
+<p>Will scan all psr4 namespaces registered with system to look</p>
+<p>for new Config\Services files. Caches a copy of each one, then</p>
+<p>looks for the service method in each, returning an instance of</p>
+<p>the service, if available.</p>
+<p>@return mixed</p>
+<p>@deprecated</p>
+<p>@codeCoverageIgnore</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Config\BaseService.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Config\you</code></li>
+<li><code>CodeIgniter\Config\BaseService</code></li>
+<li><code>CodeIgniter\Config\is</code></li>
+<li><code>CodeIgniter\Config\that</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getSharedInstance(string $key, ...$params)</code></li>
+<li><code>autoloader(bool $getShared = true)</code></li>
+<li><code>locator(bool $getShared = true)</code></li>
+<li><code>__callStatic(string $name, array $arguments)</code></li>
+<li><code>serviceExists(string $name)</code></li>
+<li><code>reset(bool $initAutoloader = true)</code></li>
+<li><code>resetSingle(string $name)</code></li>
+<li><code>injectMock(string $name, $mock)</code></li>
+<li><code>discoverServices(string $name, array $arguments)</code></li>
+<li><code>buildServicesCache()</code></li>
+</ul>
+</body></html>

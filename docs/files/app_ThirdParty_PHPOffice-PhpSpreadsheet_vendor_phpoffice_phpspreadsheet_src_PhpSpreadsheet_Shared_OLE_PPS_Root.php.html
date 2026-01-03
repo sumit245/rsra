@@ -1,0 +1,85 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\OLE\PPS\Root.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\OLE\PPS\Root.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\OLE\PPS\Root.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 15015 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Class for creating Root PPS's for OLE containers.</p>
+<p>@author   Xavier Noguer <xnoguer@php.net></p>
+
+<p>@var resource</p>
+
+<p>@var int</p>
+
+<p>@var int</p>
+
+<p>@param null|float|int $time_1st A timestamp</p>
+<p>@param null|float|int $time_2nd A timestamp</p>
+<p>@param File[] $raChild</p>
+
+<p>Method for saving the whole OLE container (including files).</p>
+<p>In fact, if called with an empty argument (or '-'), it saves to a</p>
+<p>temporary file and then outputs it's contents to stdout.</p>
+<p>If a resource pointer to a stream created by fopen() is passed</p>
+<p>it will be used, but you have to close such stream by yourself.</p>
+<p>@param resource $fileHandle the name of the file or stream where to save the OLE container</p>
+<p>@return bool true on success</p>
+
+<p>Calculate some numbers.</p>
+<p>@param array $raList Reference to an array of PPS's</p>
+<p>@return float[] The array of numbers</p>
+
+<p>Helper function for caculating a magic value for block sizes.</p>
+<p>@param int $i2 The argument</p>
+<p>@return float</p>
+<p>@see save()</p>
+
+<p>Save OLE header.</p>
+<p>@param int $iSBDcnt</p>
+<p>@param int $iBBcnt</p>
+<p>@param int $iPPScnt</p>
+
+<p>Saving big data (PPS's with data bigger than \PhpOffice\PhpSpreadsheet\Shared\OLE::OLE_DATA_SIZE_SMALL).</p>
+<p>@param int $iStBlk</p>
+<p>@param array $raList Reference to array of PPS's</p>
+
+<p>get small data (PPS's with data smaller than \PhpOffice\PhpSpreadsheet\Shared\OLE::OLE_DATA_SIZE_SMALL).</p>
+<p>@param array $raList Reference to array of PPS's</p>
+<p>@return string</p>
+
+<p>Saves all the PPS's WKs.</p>
+<p>@param array $raList Reference to an array with all PPS's</p>
+
+<p>Saving Big Block Depot.</p>
+<p>@param int $iSbdSize</p>
+<p>@param int $iBsize</p>
+<p>@param int $iPpsCnt</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\OLE\PPS\Root.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Shared\OLE\PPS\Root extends PPS</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($time_1st, $time_2nd, $raChild)</code></li>
+<li><code>save($fileHandle)</code></li>
+<li><code>calcSize(&$raList)</code></li>
+<li><code>adjust2($i2)</code></li>
+<li><code>saveHeader($iSBDcnt, $iBBcnt, $iPPScnt)</code></li>
+<li><code>saveBigData($iStBlk, &$raList)</code></li>
+<li><code>makeSmallData(&$raList)</code></li>
+<li><code>savePps(&$raList)</code></li>
+<li><code>saveBbd($iSbdSize, $iBsize, $iPpsCnt)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,92 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Session\Handlers\RedisHandler.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Session\Handlers\RedisHandler.php</h1>
+
+<ul>
+<li>Path: <code>system\Session\Handlers\RedisHandler.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9271 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Session handler using Redis for persistence</p>
+
+<p>phpRedis instance</p>
+<p>@var Redis|null</p>
+
+<p>Key prefix</p>
+<p>@var string</p>
+
+<p>Lock key</p>
+<p>@var string|null</p>
+
+<p>Key exists flag</p>
+<p>@var bool</p>
+
+<p>Number of seconds until the session ends.</p>
+<p>@var int</p>
+
+<p>@throws SessionException</p>
+
+<p>Re-initialize existing session, or creates a new one.</p>
+<p>@param string $path The path where to store/retrieve the session</p>
+<p>@param string $name The session name</p>
+
+<p>Reads the session data from the session storage, and returns the results.</p>
+<p>@param string $id The session ID</p>
+<p>@return false|string Returns an encoded string of the read data.</p>
+<p>                     If nothing was read, it must return false.</p>
+
+<p>Writes the session data to the session storage.</p>
+<p>@param string $id   The session ID</p>
+<p>@param string $data The encoded session data</p>
+
+<p>Closes the current session.</p>
+
+<p>Destroys a session</p>
+<p>@param string $id The session ID being destroyed</p>
+
+<p>Cleans up expired sessions.</p>
+<p>@param int $max_lifetime Sessions that have not updated</p>
+<p>                         for the last max_lifetime seconds will be removed.</p>
+<p>@return false|int Returns the number of deleted sessions on success, or false on failure.</p>
+
+<p>Acquires an emulated lock.</p>
+<p>@param string $sessionID Session ID</p>
+
+<p>Releases a previously acquired lock</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Session\Handlers\RedisHandler.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Session\Handlers\RedisHandler extends BaseHandler</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(AppConfig $config, string $ipAddress)</code></li>
+<li><code>open($path, $name)</code></li>
+<li><code>read($id)</code></li>
+<li><code>write($id, $data)</code></li>
+<li><code>close()</code></li>
+<li><code>destroy($id)</code></li>
+<li><code>gc($max_lifetime)</code></li>
+<li><code>lockSession(string $sessionID)</code></li>
+<li><code>releaseLock()</code></li>
+</ul>
+</body></html>

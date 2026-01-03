@@ -1,0 +1,124 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\Controllers\Clients.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\Controllers\Clients.php</h1>
+
+<ul>
+<li>Path: <code>app\Controllers\Clients.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 85054 bytes</li>
+</ul>
+<h2>References</h2>
+
+<p><strong>Models Used</strong></p>
+<ul>
+<li><code>Clients_model</code></li>
+<li><code>Custom_fields_model</code></li>
+<li><code>Tickets_model</code></li>
+<li><code>General_files_model</code></li>
+<li><code>Users_model</code></li>
+<li><code>Social_links_model</code></li>
+<li><code>Settings_model</code></li>
+<li><code>Email_templates_model</code></li>
+<li><code>Verification_model</code></li>
+<li><code>Custom_field_values_model</code></li>
+<li><code>Client_groups_model</code></li>
+</ul>
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>client</code></li>
+<li><code>this</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\Controllers\Clients.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Clients extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index($tab = "")</code></li>
+<li><code>can_edit_clients()</code></li>
+<li><code>can_view_files()</code></li>
+<li><code>can_add_files()</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save()</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data, $custom_fields)</code></li>
+<li><code>view($client_id = 0, $tab = "")</code></li>
+<li><code>add_remove_star($client_id, $type = "add")</code></li>
+<li><code>show_my_starred_clients()</code></li>
+<li><code>projects($client_id)</code></li>
+<li><code>payments($client_id)</code></li>
+<li><code>tickets($client_id)</code></li>
+<li><code>invoices($client_id)</code></li>
+<li><code>estimates($client_id)</code></li>
+<li><code>orders($client_id)</code></li>
+<li><code>estimate_requests($client_id)</code></li>
+<li><code>notes($client_id)</code></li>
+<li><code>events($client_id)</code></li>
+<li><code>files($client_id, $view_type = "")</code></li>
+<li><code>file_modal_form()</code></li>
+<li><code>save_file()</code></li>
+<li><code>files_list_data($client_id = 0)</code></li>
+<li><code>_make_file_row($data)</code></li>
+<li><code>view_file($file_id = 0)</code></li>
+<li><code>download_file($id)</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_file()</code></li>
+<li><code>delete_file()</code></li>
+<li><code>contact_profile($contact_id = 0, $tab = "")</code></li>
+<li><code>account_settings($contact_id)</code></li>
+<li><code>my_preferences()</code></li>
+<li><code>save_my_preferences()</code></li>
+<li><code>save_personal_language($language)</code></li>
+<li><code>contacts($client_id = 0)</code></li>
+<li><code>add_new_contact_modal_form()</code></li>
+<li><code>contact_general_info_tab($contact_id = 0)</code></li>
+<li><code>company_info_tab($client_id = 0)</code></li>
+<li><code>contact_social_links_tab($contact_id = 0)</code></li>
+<li><code>save_contact()</code></li>
+<li><code>save_contact_social_links($contact_id = 0)</code></li>
+<li><code>save_account_settings($user_id)</code></li>
+<li><code>save_profile_image($user_id = 0)</code></li>
+<li><code>delete_contact()</code></li>
+<li><code>contacts_list_data($client_id = 0)</code></li>
+<li><code>_contact_row_data($id)</code></li>
+<li><code>_make_contact_row($data, $custom_fields, $hide_primary_contact_label = false)</code></li>
+<li><code>invitation_modal()</code></li>
+<li><code>send_invitation()</code></li>
+<li><code>users()</code></li>
+<li><code>keyboard_shortcut_modal_form()</code></li>
+<li><code>upload_excel_file()</code></li>
+<li><code>import_clients_modal_form()</code></li>
+<li><code>_prepare_client_data($data_row, $allowed_headers)</code></li>
+<li><code>_get_existing_custom_field_id($title = "")</code></li>
+<li><code>_prepare_headers_for_submit($headers_row, $headers)</code></li>
+<li><code>save_client_from_excel_file()</code></li>
+<li><code>_save_custom_fields_of_client($client_id, $custom_field_values_array)</code></li>
+<li><code>_get_client_group_ids($client_groups_data)</code></li>
+<li><code>_get_allowed_headers()</code></li>
+<li><code>_store_headers_position($headers_row = array()</code></li>
+<li><code>validate_import_clients_file()</code></li>
+<li><code>validate_import_clients_file_data($check_on_submit = false)</code></li>
+<li><code>_row_data_validation_and_get_error_message($key, $data, $has_contact_first_name, $headers = array()</code></li>
+<li><code>download_sample_excel_file()</code></li>
+<li><code>gdpr()</code></li>
+<li><code>export_my_data()</code></li>
+<li><code>_make_export_data($user_info)</code></li>
+<li><code>request_my_account_removal()</code></li>
+<li><code>expenses($client_id)</code></li>
+<li><code>contracts($client_id)</code></li>
+<li><code>clients_list()</code></li>
+<li><code>make_access_permissions_view_data()</code></li>
+<li><code>proposals($client_id)</code></li>
+<li><code>switch_account($user_id)</code></li>
+</ul>
+</body></html>

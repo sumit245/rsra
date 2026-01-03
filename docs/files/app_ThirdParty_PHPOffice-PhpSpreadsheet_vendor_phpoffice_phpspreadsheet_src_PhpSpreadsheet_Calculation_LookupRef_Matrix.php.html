@@ -1,0 +1,61 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\LookupRef\Matrix.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\LookupRef\Matrix.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\LookupRef\Matrix.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4237 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Helper function; NOT an implementation of any Excel Function.</p>
+
+<p>Helper function; NOT an implementation of any Excel Function.</p>
+
+<p>TRANSPOSE.</p>
+<p>@param array|mixed $matrixData A matrix of values</p>
+<p>@return array</p>
+
+<p>INDEX.</p>
+<p>Uses an index to choose a value from a reference or array</p>
+<p>Excel Function:</p>
+<p>       =INDEX(range_array, row_num, [column_num], [area_num])</p>
+<p>@param mixed $matrix A range of cells or an array constant</p>
+<p>@param mixed $rowNum The row in the array or range from which to return a value.</p>
+<p>                         If row_num is omitted, column_num is required.</p>
+<p>                     Or can be an array of values</p>
+<p>@param mixed $columnNum The column in the array or range from which to return a value.</p>
+<p>                         If column_num is omitted, row_num is required.</p>
+<p>                     Or can be an array of values</p>
+<p>TODO Provide support for area_num, currently not supported</p>
+<p>@return mixed the value of a specified cell or array of cells</p>
+<p>        If an array of values is passed as the $rowNum and/or $columnNum arguments, then the returned result</p>
+<p>           will also be an array with the same dimensions</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+<li><code>which</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\LookupRef\Matrix.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\LookupRef\Matrix</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>isColumnVector(array $values)</code></li>
+<li><code>isRowVector(array $values)</code></li>
+<li><code>transpose($matrixData)</code></li>
+<li><code>index($matrix, $rowNum = 0, $columnNum = 0)</code></li>
+<li><code>extractRowValue(array $matrix, array $rowKeys, int $rowNum)</code></li>
+</ul>
+</body></html>

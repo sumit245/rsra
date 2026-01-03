@@ -1,0 +1,157 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\ThirdParty\Escaper\Escaper.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\ThirdParty\Escaper\Escaper.php</h1>
+
+<ul>
+<li>Path: <code>system\ThirdParty\Escaper\Escaper.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 11998 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Context specific methods for use in secure output escaping</p>
+
+<p>Entity Map mapping Unicode codepoints to any available named HTML entities.</p>
+<p>While HTML supports far more named entities, the lowest common denominator</p>
+<p>has become HTML5's XML Serialisation which is restricted to the those named</p>
+<p>entities that XML supports. Using HTML entities would result in this error:</p>
+<p>    XML Parsing Error: undefined entity</p>
+<p>@var array<int, string></p>
+
+<p>Current encoding for escaping. If not UTF-8, we convert strings from this encoding</p>
+<p>pre-escaping and back to this encoding post-escaping.</p>
+<p>@var string</p>
+
+<p>Holds the value of the special flags passed as second parameter to</p>
+<p>htmlspecialchars().</p>
+<p>@var int</p>
+
+<p>Static Matcher which escapes characters for HTML Attribute contexts</p>
+<p>@var callable</p>
+<p>@psalm-var callable(array<array-key, string>):string</p>
+
+<p>Static Matcher which escapes characters for Javascript contexts</p>
+<p>@var callable</p>
+<p>@psalm-var callable(array<array-key, string>):string</p>
+
+<p>Static Matcher which escapes characters for CSS Attribute contexts</p>
+<p>@var callable</p>
+<p>@psalm-var callable(array<array-key, string>):string</p>
+
+<p>List of all encoding supported by this class</p>
+<p>@var array</p>
+
+<p>Constructor: Single parameter allows setting of global encoding for use by</p>
+<p>the current object.</p>
+<p>@throws Exception\InvalidArgumentException</p>
+
+<p>Return the encoding that all output/input is expected to be encoded in.</p>
+<p>@return string</p>
+
+<p>Escape a string for the HTML Body context where there are very few characters</p>
+<p>of special meaning. Internally this will use htmlspecialchars().</p>
+<p>@return string</p>
+
+<p>Escape a string for the HTML Attribute context. We use an extended set of characters</p>
+<p>to escape that are not covered by htmlspecialchars() to cover cases where an attribute</p>
+<p>might be unquoted or quoted illegally (e.g. backticks are valid quotes for IE).</p>
+<p>@return string</p>
+
+<p>Escape a string for the Javascript context. This does not use json_encode(). An extended</p>
+<p>set of characters are escaped beyond ECMAScript's rules for Javascript literal string</p>
+<p>escaping in order to prevent misinterpretation of Javascript as HTML leading to the</p>
+<p>injection of special characters and entities. The escaping used should be tolerant</p>
+<p>of cases where HTML escaping was not applied on top of Javascript escaping correctly.</p>
+<p>Backslash escaping is not used as it still leaves the escaped character as-is and so</p>
+<p>is not useful in a HTML context.</p>
+<p>@return string</p>
+
+<p>Escape a string for the URI or Parameter contexts. This should not be used to escape</p>
+<p>an entire URI - only a subcomponent being inserted. The function is a simple proxy</p>
+<p>to rawurlencode() which now implements RFC 3986 since PHP 5.3 completely.</p>
+<p>@return string</p>
+
+<p>Escape a string for the CSS context. CSS escaping can be applied to any string being</p>
+<p>inserted into CSS and escapes everything except alphanumerics.</p>
+<p>@return string</p>
+
+<p>Callback function for preg_replace_callback that applies HTML Attribute</p>
+<p>escaping to all matches.</p>
+<p>@param array<array-key, string> $matches</p>
+<p>@return string</p>
+
+<p>The following replaces characters undefined in HTML with the</p>
+<p>hex entity for the Unicode replacement character.</p>
+
+<p>Check if the current character to escape has a name entity we should</p>
+<p>replace it with while grabbing the integer value of the character.</p>
+
+<p>Per OWASP recommendations, we'll use upper hex entities</p>
+<p>for any other characters where a named entity does not exist.</p>
+
+<p>Callback function for preg_replace_callback that applies Javascript</p>
+<p>escaping to all matches.</p>
+<p>@param array<array-key, string> $matches</p>
+<p>@return string</p>
+
+<p>Callback function for preg_replace_callback that applies CSS</p>
+<p>escaping to all matches.</p>
+<p>@param array<array-key, string> $matches</p>
+<p>@return string</p>
+
+<p>Converts a string to UTF-8 from the base encoding. The base encoding is set via this</p>
+<p>@param string $string</p>
+<p>@throws Exception\RuntimeException</p>
+<p>@return string</p>
+
+<p>Converts a string from UTF-8 to the base encoding. The base encoding is set via this</p>
+<p>@param string $string</p>
+<p>@return string</p>
+
+<p>Checks if a given string appears to be valid UTF-8 or not.</p>
+<p>@param string $string</p>
+<p>@return bool</p>
+
+<p>Encoding conversion helper which wraps mb_convert_encoding</p>
+<p>@param string $string</p>
+<p>@param string $to</p>
+<p>@param array|string $from</p>
+<p>@return string</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>this</code></li>
+<li><code>the</code></li>
+<li><code>UTF</code></li>
+<li><code>users</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\ThirdParty\Escaper\Escaper.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Laminas\Escaper\Escaper</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(?string $encoding = null)</code></li>
+<li><code>getEncoding()</code></li>
+<li><code>escapeHtml(string $string)</code></li>
+<li><code>escapeHtmlAttr(string $string)</code></li>
+<li><code>escapeJs(string $string)</code></li>
+<li><code>escapeUrl(string $string)</code></li>
+<li><code>escapeCss(string $string)</code></li>
+<li><code>htmlAttrMatcher($matches)</code></li>
+<li><code>jsMatcher($matches)</code></li>
+<li><code>cssMatcher($matches)</code></li>
+<li><code>toUtf8($string)</code></li>
+<li><code>fromUtf8($string)</code></li>
+<li><code>isUtf8($string)</code></li>
+<li><code>convertEncoding($string, $to, $from)</code></li>
+</ul>
+</body></html>

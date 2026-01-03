@@ -1,0 +1,100 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\src\Google\Model.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\src\Google\Model.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\src\Google\Model.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 8795 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This class defines attributes, valid values, and usage which is generated</p>
+<p>from a given json schema.</p>
+<p>http://tools.ietf.org/html/draft-zyp-json-schema-03#section-5</p>
+
+<p>If you need to specify a NULL JSON value, use Google_Model::NULL_VALUE</p>
+<p>instead - it will be replaced when converting to JSON with a real null.</p>
+
+<p>Polymorphic - accepts a variable number of arguments dependent</p>
+<p>on the type of the model subclass.</p>
+
+<p>Getter that handles passthrough access to the data array, and lazy object creation.</p>
+<p>@param string $key Property name.</p>
+<p>@return mixed The value if any, or null.</p>
+
+<p>Initialize this object's properties from an array.</p>
+<p>@param array $array Used to seed this object's properties.</p>
+<p>@return void</p>
+
+<p>Blank initialiser to be used in subclasses to do  post-construction initialisation - this</p>
+<p>avoids the need for subclasses to have to implement the variadics handling in their</p>
+<p>constructors.</p>
+
+<p>Create a simplified object suitable for straightforward</p>
+<p>conversion to JSON. This is relatively expensive</p>
+<p>due to the usage of reflection, but shouldn't be called</p>
+<p>a whole lot, and is the most straightforward way to filter.</p>
+
+<p>Handle different types of values, primarily</p>
+<p>other objects and map and array data types.</p>
+
+<p>Check whether the value is the null placeholder and return true null.</p>
+
+<p>If there is an internal name mapping, use that.</p>
+
+<p>Returns true only if the array is associative.</p>
+<p>@param array $array</p>
+<p>@return bool True if the array is associative.</p>
+
+<p>Verify if $obj is an array.</p>
+<p>@throws Google_Exception Thrown if $obj isn't an array.</p>
+<p>@param array $obj Items that should be validated.</p>
+<p>@param string $method Method expecting an array as an argument.</p>
+
+<p>Convert a string to camelCase</p>
+<p>@param  string $value</p>
+<p>@return string</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+<li><code>an</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\src\Google\Model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>defines</code></li>
+<li><code>Google_Model implements ArrayAccess</code></li>
+<li><code>if</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>__get($key)</code></li>
+<li><code>mapTypes($array)</code></li>
+<li><code>gapiInit()</code></li>
+<li><code>toSimpleObject()</code></li>
+<li><code>getSimpleValue($value)</code></li>
+<li><code>nullPlaceholderCheck($value)</code></li>
+<li><code>getMappedName($key)</code></li>
+<li><code>isAssociativeArray($array)</code></li>
+<li><code>assertIsArray($obj, $method)</code></li>
+<li><code>offsetExists($offset)</code></li>
+<li><code>offsetGet($offset)</code></li>
+<li><code>offsetSet($offset, $value)</code></li>
+<li><code>offsetUnset($offset)</code></li>
+<li><code>keyType($key)</code></li>
+<li><code>dataType($key)</code></li>
+<li><code>__isset($key)</code></li>
+<li><code>__unset($key)</code></li>
+<li><code>camelCase($value)</code></li>
+</ul>
+</body></html>

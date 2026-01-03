@@ -1,0 +1,82 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\AddressHeader.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\AddressHeader.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\AddressHeader.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3451 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Reads an address list header using the AddressBaseConsumer.</p>
+
+<p>An address list may consist of one or more addresses and address groups.</p>
+<p>Each address separated by a comma, and each group separated by a semi-colon.</p>
+
+<p>For full specifications, see https://www.ietf.org/rfc/rfc2822.txt</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var \ZBateson\MailMimeParser\Header\Part\AddressPart[] array of</p>
+<p>addresses</p>
+
+<p>@var \ZBateson\MailMimeParser\Header\Part\AddressGroupPart[] array of</p>
+<p>address groups</p>
+
+<p>Returns an AddressBaseConsumer.</p>
+
+<p>@param ConsumerService $consumerService</p>
+<p>@return \ZBateson\MailMimeParser\Header\Consumer\AbstractConsumer</p>
+
+<p>Overridden to extract all addresses into addresses array.</p>
+
+<p>@param AbstractConsumer $consumer</p>
+
+<p>Returns all address parts in the header including all addresses that are</p>
+<p>in groups.</p>
+
+<p>@return \ZBateson\MailMimeParser\Header\Part\AddressPart[]</p>
+
+<p>Returns all group parts in the header.</p>
+
+<p>@return \ZBateson\MailMimeParser\Header\Part\AddressGroupPart[]</p>
+
+<p>Returns true if an address exists with the passed email address.</p>
+
+<p>Comparison is done case insensitively.</p>
+
+<p>@param string $email</p>
+<p>@return boolean</p>
+
+<p>Same as getValue, but for clarity to match AddressPart.</p>
+<p>@return string</p>
+
+<p>Returns the name associated with the first email address to complement</p>
+<p>getValue().</p>
+
+<p>@return string</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\AddressHeader.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Header\AddressHeader extends AbstractHeader</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getConsumer(ConsumerService $consumerService)</code></li>
+<li><code>setParseHeaderValue(AbstractConsumer $consumer)</code></li>
+<li><code>getAddresses()</code></li>
+<li><code>getGroups()</code></li>
+<li><code>hasAddress($email)</code></li>
+<li><code>getEmail()</code></li>
+<li><code>getPersonName()</code></li>
+</ul>
+</body></html>

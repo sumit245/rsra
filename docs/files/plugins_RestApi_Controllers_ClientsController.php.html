@@ -1,0 +1,264 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\RestApi\Controllers\ClientsController.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\RestApi\Controllers\ClientsController.php</h1>
+
+<ul>
+<li>Path: <code>plugins\RestApi\Controllers\ClientsController.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 17556 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@api {get} /api/clients/:clientid List all Clients information</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName getClients</p>
+<p>@apiGroup Clients</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiParam {Number} clientid Mandatory Clientid unique ID</p>
+<p>@apiSuccess {Object} Clients information</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>{</p>
+<p>		"id": "2",</p>
+<p>		"company_name": "cijagani",</p>
+<p>		"address": "Rajkot",</p>
+<p>		"city": "",</p>
+<p>		"state": "",</p>
+<p>		"zip": "",</p>
+<p>		"country": "",</p>
+<p>		"created_date": "2021-09-12",</p>
+<p>		"website": "",</p>
+<p>		"phone": "",</p>
+<p>		"currency_symbol": "INR",</p>
+<p>		"starred_by": "",</p>
+<p>		"group_ids": "1",</p>
+<p>		"deleted": "0",</p>
+<p>		"is_lead": "0",</p>
+<p>		"lead_status_id": "1",</p>
+<p>		"owner_id": "1",</p>
+<p>		"created_by": "1",</p>
+<p>		"sort": "0",</p>
+<p>		"lead_source_id": "1",</p>
+<p>		"last_lead_status": "New",</p>
+<p>		"client_migration_date": "2021-09-12",</p>
+<p>		"vat_number": "",</p>
+<p>		"currency": "USD",</p>
+<p>		"disable_online_payment": "1",</p>
+<p>		"primary_contact": "chirag jagani",</p>
+<p>		"primary_contact_id": "4",</p>
+<p>		"contact_avatar": null,</p>
+<p>		"total_projects": "7",</p>
+<p>		"payment_received": "0",</p>
+<p>		"invoice_value": "1188",</p>
+<p>		"client_groups": "Test c group ",</p>
+<p>		"lead_status_title": "New",</p>
+<p>		"lead_status_color": "#f1c40f",</p>
+<p>		"owner_name": "chirag jagani",</p>
+<p>		"owner_avatar": null</p>
+<p>}</p>
+<p>@apiError {Boolean} status Request status</p>
+<p>@apiError {String} message No data were found</p>
+
+<p>Return the properties of a resource object</p>
+<p>@return mixed</p>
+
+<p>@api {get} /api/getClientsSearch/search/:keysearch Search Client Information</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName getClientsSearch</p>
+<p>@apiGroup Clients</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiParam {String} keysearch Search Keywords</p>
+<p>@apiSuccess {Object} Clients information</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>{</p>
+<p>		"id": "2",</p>
+<p>		"company_name": "cijagani",</p>
+<p>		"address": "Rajkot",</p>
+<p>		"city": "",</p>
+<p>		"state": "",</p>
+<p>		"zip": "",</p>
+<p>		"country": "",</p>
+<p>		"created_date": "2021-09-12",</p>
+<p>		"website": "",</p>
+<p>		"phone": "",</p>
+<p>		"currency_symbol": "INR",</p>
+<p>		"starred_by": "",</p>
+<p>		"group_ids": "1",</p>
+<p>		"deleted": "0",</p>
+<p>		"is_lead": "0",</p>
+<p>		"lead_status_id": "1",</p>
+<p>		"owner_id": "1",</p>
+<p>		"created_by": "1",</p>
+<p>		"sort": "0",</p>
+<p>		"lead_source_id": "1",</p>
+<p>		"last_lead_status": "New",</p>
+<p>		"client_migration_date": "2021-09-12",</p>
+<p>		"vat_number": "",</p>
+<p>		"currency": "USD",</p>
+<p>		"disable_online_payment": "1",</p>
+<p>		"primary_contact": "chirag jagani",</p>
+<p>		"primary_contact_id": "4",</p>
+<p>		"contact_avatar": null,</p>
+<p>		"total_projects": "7",</p>
+<p>		"payment_received": "0",</p>
+<p>		"invoice_value": "1188",</p>
+<p>		"client_groups": "Test c group ",</p>
+<p>		"lead_status_title": "New",</p>
+<p>		"lead_status_color": "#f1c40f",</p>
+<p>		"owner_name": "chirag jagani",</p>
+<p>		"owner_avatar": null</p>
+<p>}</p>
+<p>@apiError {Boolean} status Request status</p>
+<p>@apiError {String} message No data were found</p>
+
+<p>@api {post} api/clients Add New Client</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName create</p>
+<p>@apiGroup Clients</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiParam {string} company_name                          Mandatory Comapny Name.</p>
+<p>@apiParam {string} owner_id		                        Mandatory Comapny owner id.</p>
+<p>@apiParam {string} group_ids		                        Optional Comapny group ids.</p>
+<p>@apiParam {string} address 								Optional Company address.</p>
+<p>@apiParam {string} city 									Optional Company city.</p>
+<p>@apiParam {string} state 								Optional Company state.</p>
+<p>@apiParam {string} zip 									Optional Company zip.</p>
+<p>@apiParam {string} country 								Optional Company country.</p>
+<p>@apiParam {string} phone 								Optional Company phone.</p>
+<p>@apiParam {string} website 								Optional Company website.</p>
+<p>@apiParam {string} vat_number 							Optional Company vat number.</p>
+<p>@apiParam {string} disable_online_payment				Optional Company disable online payment.</p>
+<p>@apiParamExample Request-Example:</p>
+<p>    array (size=12)</p>
+<p>       'company_name' => string 'Company Name' (length=12)</p>
+<p>       'owner_id' => string '1' (length=1)</p>
+<p>       'group_ids' => string '1,2' (length=3)</p>
+<p>       'address' => string 'test address' (length=12)</p>
+<p>       'city' => string 'test city' (length=9)</p>
+<p>       'state' => string 'test state' (length=10)</p>
+<p>       'zip' => string '123456' (length=6)</p>
+<p>       'country' => string 'test country' (length=12)</p>
+<p>       'phone' => string '9856231470' (length=10)</p>
+<p>       'website' => string 'www.test.com' (length=12)</p>
+<p>       'vat_number' => string '123465789' (length=9)</p>
+<p>       'start_date' => string '25/07/2019' (length=10)</p>
+<p>       'disable_online_payment' => string '0' (length=1)     *</p>
+<p>@apiSuccess {Boolean} status Request status.</p>
+<p>@apiSuccess {String} message Client add successful.</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>    HTTP/1.1 200 OK</p>
+<p>    {</p>
+<p>      "status": true,</p>
+<p>      "message": "Client add successful."</p>
+<p>    }</p>
+<p>@apiError {Boolean} status Request status.</p>
+<p>@apiError {String} message Client add fail.</p>
+<p>@apiErrorExample Error-Response:</p>
+<p>    HTTP/1.1 404 Not Found</p>
+<p>    {</p>
+<p>      "status": false,</p>
+<p>      "message": "Client add fail."</p>
+<p>    }</p>
+
+<p>@api {put} api/clients/:id Update a Client</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName update</p>
+<p>@apiGroup Clients</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiParam {Number} id client unique ID.</p>
+<p>@apiParam {string} company_name                          Mandatory Comapny Name.</p>
+<p>@apiParam {string} owner_id		                        Mandatory Comapny owner id.</p>
+<p>@apiParam {string} group_ids		                        Optional Comapny group ids.</p>
+<p>@apiParam {string} address 								Optional Company address.</p>
+<p>@apiParam {string} city 									Optional Company city.</p>
+<p>@apiParam {string} state 								Optional Company state.</p>
+<p>@apiParam {string} zip 									Optional Company zip.</p>
+<p>@apiParam {string} country 								Optional Company country.</p>
+<p>@apiParam {string} phone 								Optional Company phone.</p>
+<p>@apiParam {string} website 								Optional Company website.</p>
+<p>@apiParam {string} vat_number 							Optional Company vat number.</p>
+<p>@apiParam {string} disable_online_payment				Optional Company disable online payment.</p>
+<p>@apiParamExample {json} Request-Example:</p>
+<p>{</p>
+<p>    "company_name":"updated company",</p>
+<p>    "owner_id":3,</p>
+<p>    "group_ids":"1,2",</p>
+<p>    "address":"address",</p>
+<p>	    "city":"city",</p>
+<p>	    "state":"state",</p>
+<p>    "zip":123468,</p>
+<p>    "country":"country",</p>
+<p>    "phone":1234567890,</p>
+<p>    "website":"www.website.com",</p>
+<p>    "vat_number":123456,</p>
+<p>    "disable_online_payment":1</p>
+<p>}</p>
+<p>@apiSuccess {Boolean} status Request status.</p>
+<p>@apiSuccess {String} message Client Update Successful.</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>    HTTP/1.1 200 OK</p>
+<p>    {</p>
+<p>      "status": true,</p>
+<p>      "message": "Client Update Successful."</p>
+<p>    }</p>
+<p>@apiError {Boolean} status Request status.</p>
+<p>@apiError {String} message Client Update Fail.</p>
+<p>@apiErrorExample Error-Response:</p>
+<p>    HTTP/1.1 404 Not Found</p>
+<p>    {</p>
+<p>      "status": false,</p>
+<p>      "message": "Client Update Fail."</p>
+<p>    }</p>
+
+<p>@api {delete} api/clients/:id Delete a Client</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName Delete</p>
+<p>@apiGroup Clients</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiParam {Number} id clients unique ID.</p>
+<p>@apiSuccess {String} status Request status.</p>
+<p>@apiSuccess {String} message Client Deleted Successfully.</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>    HTTP/1.1 200 OK</p>
+<p>    {</p>
+<p>      "status": true,</p>
+<p>      "message": "Client Deleted Successfully."</p>
+<p>    }</p>
+<p>@apiError {Boolean} status Request status.</p>
+<p>@apiError {String} message Client Delete Fail..</p>
+<p>@apiErrorExample Error-Response:</p>
+<p>    HTTP/1.1 404 Not Found</p>
+<p>    {</p>
+<p>      "status": false,</p>
+<p>      "message": "Client Delete Fail."</p>
+<p>    }</p>
+
+<h2>References</h2>
+
+<p><strong>Models Used</strong></p>
+<ul>
+<li><code>clients_model</code></li>
+<li><code>restapi_clients_model</code></li>
+<li><code>users_model</code></li>
+<li><code>clients_group_model</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\RestApi\Controllers\ClientsController.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>RestApi\Controllers\ClientsController extends Rest_api_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index($clientid = '')</code></li>
+<li><code>show($id = null, $searchTerm = "")</code></li>
+<li><code>search($key = '')</code></li>
+<li><code>create()</code></li>
+<li><code>update($id = null)</code></li>
+<li><code>delete($id = null)</code></li>
+</ul>
+</body></html>

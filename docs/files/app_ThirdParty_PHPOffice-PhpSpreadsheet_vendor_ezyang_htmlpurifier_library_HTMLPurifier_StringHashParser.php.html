@@ -1,0 +1,66 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\StringHashParser.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\StringHashParser.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\StringHashParser.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3641 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Parses string hash files. File format is as such:</p>
+<p>     DefaultKeyValue</p>
+<p>     KEY: Value</p>
+<p>     KEY2: Value2</p>
+<p>     --MULTILINE-KEY--</p>
+<p>     Multiline</p>
+<p>     value.</p>
+<p>Which would output something similar to:</p>
+<p>     array(</p>
+<p>         'ID' => 'DefaultKeyValue',</p>
+<p>         'KEY' => 'Value',</p>
+<p>         'KEY2' => 'Value2',</p>
+<p>         'MULTILINE-KEY' => "Multiline\nvalue.\n",</p>
+<p>     )</p>
+<p>We use this as an easy to use file-format for configuration schema</p>
+<p>files, but the class itself is usage agnostic.</p>
+<p>You can use ---- to forcibly terminate parsing of a single string-hash;</p>
+<p>this marker is used in multi string-hashes to delimit boundaries.</p>
+
+<p>@type string</p>
+
+<p>Parses a file that contains a single string-hash.</p>
+<p>@param string $file</p>
+<p>@return array</p>
+
+<p>Parses a file that contains multiple string-hashes delimited by '----'</p>
+<p>@param string $file</p>
+<p>@return array</p>
+
+<p>Internal parser that acepts a file handle.</p>
+<p>@note While it's possible to simulate in-memory parsing by using</p>
+<p>      custom stream wrappers, if such a use-case arises we should</p>
+<p>      factor out the file handle into its own class.</p>
+<p>@param resource $fh File handle with pointer at start of valid string-hash</p>
+<p>           block.</p>
+<p>@return array</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\StringHashParser.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>itself</code></li>
+<li><code>HTMLPurifier_StringHashParser</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>parseFile($file)</code></li>
+<li><code>parseMultiFile($file)</code></li>
+<li><code>parseHandle($fh)</code></li>
+</ul>
+</body></html>

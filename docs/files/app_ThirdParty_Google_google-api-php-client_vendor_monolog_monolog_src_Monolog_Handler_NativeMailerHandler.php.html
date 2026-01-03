@@ -1,0 +1,92 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\NativeMailerHandler.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\NativeMailerHandler.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\NativeMailerHandler.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5206 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>NativeMailerHandler uses the mail() function to send the emails</p>
+<p>@author Christophe Coevoet <stof@notk.org></p>
+<p>@author Mark Garrett <mark@moderndeveloperllc.com></p>
+
+<p>The email addresses to which the message will be sent</p>
+<p>@var array</p>
+
+<p>The subject of the email</p>
+<p>@var string</p>
+
+<p>Optional headers for the message</p>
+<p>@var array</p>
+
+<p>Optional parameters for the message</p>
+<p>@var array</p>
+
+<p>The wordwrap length for the message</p>
+<p>@var int</p>
+
+<p>The Content-type for the message</p>
+<p>@var string</p>
+
+<p>The encoding for the message</p>
+<p>@var string</p>
+
+<p>@param string|array $to             The receiver of the mail</p>
+<p>@param string       $subject        The subject of the mail</p>
+<p>@param string       $from           The sender of the mail</p>
+<p>@param int          $level          The minimum logging level at which this handler will be triggered</p>
+<p>@param bool         $bubble         Whether the messages that are handled can bubble up the stack or not</p>
+<p>@param int          $maxColumnWidth The maximum column width that the message lines will have</p>
+
+<p>Add headers to the message</p>
+<p>@param  string|array $headers Custom added headers</p>
+<p>@return self</p>
+
+<p>Add parameters to the message</p>
+<p>@param  string|array $parameters Custom added parameters</p>
+<p>@return self</p>
+
+<p>{@inheritdoc}</p>
+
+<p>@return string $contentType</p>
+
+<p>@return string $encoding</p>
+
+<p>@param  string $contentType The content type of the email - Defaults to text/plain. Use text/html for HTML</p>
+<p>                            messages.</p>
+<p>@return self</p>
+
+<p>@param  string $encoding</p>
+<p>@return self</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>The</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\NativeMailerHandler.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Monolog\Handler\NativeMailerHandler extends MailHandler</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($to, $subject, $from, $level = Logger::ERROR, $bubble = true, $maxColumnWidth = 70)</code></li>
+<li><code>addHeader($headers)</code></li>
+<li><code>addParameter($parameters)</code></li>
+<li><code>send($content, array $records)</code></li>
+<li><code>getContentType()</code></li>
+<li><code>getEncoding()</code></li>
+<li><code>setContentType($contentType)</code></li>
+<li><code>setEncoding($encoding)</code></li>
+</ul>
+</body></html>

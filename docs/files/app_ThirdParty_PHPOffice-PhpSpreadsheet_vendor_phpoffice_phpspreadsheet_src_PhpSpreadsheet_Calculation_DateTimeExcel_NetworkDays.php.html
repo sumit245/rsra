@@ -1,0 +1,54 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\DateTimeExcel\NetworkDays.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\DateTimeExcel\NetworkDays.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\DateTimeExcel\NetworkDays.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4289 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>NETWORKDAYS.</p>
+<p>Returns the number of whole working days between start_date and end_date. Working days</p>
+<p>exclude weekends and any dates identified in holidays.</p>
+<p>Use NETWORKDAYS to calculate employee benefits that accrue based on the number of days</p>
+<p>worked during a specific term.</p>
+<p>Excel Function:</p>
+<p>       NETWORKDAYS(startDate,endDate[,holidays[,holiday[,...]]])</p>
+<p>@param mixed $startDate Excel date serial value (float), PHP date timestamp (integer),</p>
+<p>                                           PHP DateTime object, or a standard date string</p>
+<p>                        Or can be an array of date values</p>
+<p>@param mixed $endDate Excel date serial value (float), PHP date timestamp (integer),</p>
+<p>                                           PHP DateTime object, or a standard date string</p>
+<p>                        Or can be an array of date values</p>
+<p>@param mixed $dateArgs An array of dates (such as holidays) to exclude from the calculation</p>
+<p>@return array|int|string Interval between the dates</p>
+<p>        If an array of values is passed for the $startDate or $endDate arguments, then the returned result</p>
+<p>           will also be an array with matching dimensions</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\DateTimeExcel\NetworkDays.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\DateTimeExcel\NetworkDays</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>count($startDate, $endDate, ...$dateArgs)</code></li>
+<li><code>calcStartDow(float $startDate)</code></li>
+<li><code>calcEndDow(float $endDate)</code></li>
+<li><code>calcPartWeekDays(int $startDow, int $endDow)</code></li>
+<li><code>applySign(int $result, float $sDate, float $eDate)</code></li>
+</ul>
+</body></html>

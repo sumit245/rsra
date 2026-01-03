@@ -1,0 +1,1062 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Statistical.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Statistical.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Statistical.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 56970 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@deprecated 1.18.0</p>
+
+<p>AVEDEV.</p>
+<p>Returns the average of the absolute deviations of data points from their mean.</p>
+<p>AVEDEV is a measure of the variability in a data set.</p>
+<p>Excel Function:</p>
+<p>       AVEDEV(value1[,value2[, ...]])</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Statistical\Averages::averageDeviations()</p>
+<p>     Use the averageDeviations() method in the Statistical\Averages class instead</p>
+<p>@param mixed ...$args Data values</p>
+<p>@return float|string</p>
+
+<p>AVERAGE.</p>
+<p>Returns the average (arithmetic mean) of the arguments</p>
+<p>Excel Function:</p>
+<p>       AVERAGE(value1[,value2[, ...]])</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Statistical\Averages::average()</p>
+<p>     Use the average() method in the Statistical\Averages class instead</p>
+<p>@param mixed ...$args Data values</p>
+<p>@return float|string</p>
+
+<p>AVERAGEA.</p>
+<p>Returns the average of its arguments, including numbers, text, and logical values</p>
+<p>Excel Function:</p>
+<p>       AVERAGEA(value1[,value2[, ...]])</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Statistical\Averages::averageA()</p>
+<p>     Use the averageA() method in the Statistical\Averages class instead</p>
+<p>@param mixed ...$args Data values</p>
+<p>@return float|string</p>
+
+<p>AVERAGEIF.</p>
+<p>Returns the average value from a range of cells that contain numbers within the list of arguments</p>
+<p>Excel Function:</p>
+<p>       AVERAGEIF(value1[,value2[, ...]],condition)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Statistical\Conditional::AVERAGEIF()</p>
+<p>     Use the AVERAGEIF() method in the Statistical\Conditional class instead</p>
+<p>@param mixed $range Data values</p>
+<p>@param string $condition the criteria that defines which cells will be checked</p>
+<p>@param mixed[] $averageRange Data values</p>
+<p>@return null|float|string</p>
+
+<p>BETADIST.</p>
+<p>Returns the beta distribution.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Distributions\Beta::distribution()</p>
+<p>     Use the distribution() method in the Statistical\Distributions\Beta class instead</p>
+<p>@param float $value Value at which you want to evaluate the distribution</p>
+<p>@param float $alpha Parameter to the distribution</p>
+<p>@param float $beta Parameter to the distribution</p>
+<p>@param mixed $rMin</p>
+<p>@param mixed $rMax</p>
+<p>@return array|float|string</p>
+
+<p>BETAINV.</p>
+<p>Returns the inverse of the Beta distribution.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Distributions\Beta::inverse()</p>
+<p>     Use the inverse() method in the Statistical\Distributions\Beta class instead</p>
+<p>@param float $probability Probability at which you want to evaluate the distribution</p>
+<p>@param float $alpha Parameter to the distribution</p>
+<p>@param float $beta Parameter to the distribution</p>
+<p>@param float $rMin Minimum value</p>
+<p>@param float $rMax Maximum value</p>
+<p>@return array|float|string</p>
+
+<p>BINOMDIST.</p>
+<p>Returns the individual term binomial distribution probability. Use BINOMDIST in problems with</p>
+<p>       a fixed number of tests or trials, when the outcomes of any trial are only success or failure,</p>
+<p>       when trials are independent, and when the probability of success is constant throughout the</p>
+<p>       experiment. For example, BINOMDIST can calculate the probability that two of the next three</p>
+<p>       babies born are male.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Distributions\Binomial::distribution()</p>
+<p>     Use the distribution() method in the Statistical\Distributions\Binomial class instead</p>
+<p>@param mixed $value Number of successes in trials</p>
+<p>@param mixed $trials Number of trials</p>
+<p>@param mixed $probability Probability of success on each trial</p>
+<p>@param mixed $cumulative</p>
+<p>@return array|float|string</p>
+
+<p>CHIDIST.</p>
+<p>Returns the one-tailed probability of the chi-squared distribution.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Distributions\ChiSquared::distributionRightTail()</p>
+<p>     Use the distributionRightTail() method in the Statistical\Distributions\ChiSquared class instead</p>
+<p>@param float $value Value for the function</p>
+<p>@param float $degrees degrees of freedom</p>
+<p>@return array|float|string</p>
+
+<p>CHIINV.</p>
+<p>Returns the one-tailed probability of the chi-squared distribution.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Distributions\ChiSquared::inverseRightTail()</p>
+<p>     Use the inverseRightTail() method in the Statistical\Distributions\ChiSquared class instead</p>
+<p>@param float $probability Probability for the function</p>
+<p>@param float $degrees degrees of freedom</p>
+<p>@return array|float|string</p>
+
+<p>CONFIDENCE.</p>
+<p>Returns the confidence interval for a population mean</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Confidence::CONFIDENCE()</p>
+<p>     Use the CONFIDENCE() method in the Statistical\Confidence class instead</p>
+<p>@param float $alpha</p>
+<p>@param float $stdDev Standard Deviation</p>
+<p>@param float $size</p>
+<p>@return array|float|string</p>
+
+<p>CORREL.</p>
+<p>Returns covariance, the average of the products of deviations for each data point pair.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Trends::CORREL()</p>
+<p>     Use the CORREL() method in the Statistical\Trends class instead</p>
+<p>@param mixed $yValues array of mixed Data Series Y</p>
+<p>@param null|mixed $xValues array of mixed Data Series X</p>
+<p>@return float|string</p>
+
+<p>COUNT.</p>
+<p>Counts the number of cells that contain numbers within the list of arguments</p>
+<p>Excel Function:</p>
+<p>       COUNT(value1[,value2[, ...]])</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Statistical\Counts::COUNT()</p>
+<p>     Use the COUNT() method in the Statistical\Counts class instead</p>
+<p>@param mixed ...$args Data values</p>
+<p>@return int</p>
+
+<p>COUNTA.</p>
+<p>Counts the number of cells that are not empty within the list of arguments</p>
+<p>Excel Function:</p>
+<p>       COUNTA(value1[,value2[, ...]])</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Statistical\Counts::COUNTA()</p>
+<p>     Use the COUNTA() method in the Statistical\Counts class instead</p>
+<p>@param mixed ...$args Data values</p>
+<p>@return int</p>
+
+<p>COUNTBLANK.</p>
+<p>Counts the number of empty cells within the list of arguments</p>
+<p>Excel Function:</p>
+<p>       COUNTBLANK(value1[,value2[, ...]])</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Statistical\Counts::COUNTBLANK()</p>
+<p>     Use the COUNTBLANK() method in the Statistical\Counts class instead</p>
+<p>@param mixed ...$args Data values</p>
+<p>@return int</p>
+
+<p>COUNTIF.</p>
+<p>Counts the number of cells that contain numbers within the list of arguments</p>
+<p>Excel Function:</p>
+<p>       COUNTIF(range,condition)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Statistical\Conditional::COUNTIF()</p>
+<p>     Use the COUNTIF() method in the Statistical\Conditional class instead</p>
+<p>@param mixed $range Data values</p>
+<p>@param string $condition the criteria that defines which cells will be counted</p>
+<p>@return int</p>
+
+<p>COUNTIFS.</p>
+<p>Counts the number of cells that contain numbers within the list of arguments</p>
+<p>Excel Function:</p>
+<p>       COUNTIFS(criteria_range1, criteria1, [criteria_range2, criteria2]…)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Statistical\Conditional::COUNTIFS()</p>
+<p>     Use the COUNTIFS() method in the Statistical\Conditional class instead</p>
+<p>@param mixed $args Pairs of Ranges and Criteria</p>
+<p>@return int</p>
+
+<p>COVAR.</p>
+<p>Returns covariance, the average of the products of deviations for each data point pair.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Trends::COVAR()</p>
+<p>     Use the COVAR() method in the Statistical\Trends class instead</p>
+<p>@param mixed $yValues array of mixed Data Series Y</p>
+<p>@param mixed $xValues array of mixed Data Series X</p>
+<p>@return float|string</p>
+
+<p>CRITBINOM.</p>
+<p>Returns the smallest value for which the cumulative binomial distribution is greater</p>
+<p>       than or equal to a criterion value</p>
+<p>See https://support.microsoft.com/en-us/help/828117/ for details of the algorithm used</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Distributions\Binomial::inverse()</p>
+<p>     Use the inverse() method in the Statistical\Distributions\Binomial class instead</p>
+<p>@param float $trials number of Bernoulli trials</p>
+<p>@param float $probability probability of a success on each trial</p>
+<p>@param float $alpha criterion value</p>
+<p>@return array|int|string</p>
+
+<p>DEVSQ.</p>
+<p>Returns the sum of squares of deviations of data points from their sample mean.</p>
+<p>Excel Function:</p>
+<p>       DEVSQ(value1[,value2[, ...]])</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Deviations::sumSquares()</p>
+<p>     Use the sumSquares() method in the Statistical\Deviations class instead</p>
+<p>@param mixed ...$args Data values</p>
+<p>@return float|string</p>
+
+<p>EXPONDIST.</p>
+<p>   Returns the exponential distribution. Use EXPONDIST to model the time between events,</p>
+<p>       such as how long an automated bank teller takes to deliver cash. For example, you can</p>
+<p>       use EXPONDIST to determine the probability that the process takes at most 1 minute.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Distributions\Exponential::distribution()</p>
+<p>     Use the distribution() method in the Statistical\Distributions\Exponential class instead</p>
+<p>@param float $value Value of the function</p>
+<p>@param float $lambda The parameter value</p>
+<p>@param bool $cumulative</p>
+<p>@return array|float|string</p>
+
+<p>F.DIST.</p>
+<p>   Returns the F probability distribution.</p>
+<p>   You can use this function to determine whether two data sets have different degrees of diversity.</p>
+<p>   For example, you can examine the test scores of men and women entering high school, and determine</p>
+<p>       if the variability in the females is different from that found in the males.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Distributions\F::distribution()</p>
+<p>     Use the distribution() method in the Statistical\Distributions\Exponential class instead</p>
+<p>@param float $value Value of the function</p>
+<p>@param int $u The numerator degrees of freedom</p>
+<p>@param int $v The denominator degrees of freedom</p>
+<p>@param bool $cumulative If cumulative is TRUE, F.DIST returns the cumulative distribution function;</p>
+<p>                        if FALSE, it returns the probability density function.</p>
+<p>@return array|float|string</p>
+
+<p>FISHER.</p>
+<p>Returns the Fisher transformation at x. This transformation produces a function that</p>
+<p>       is normally distributed rather than skewed. Use this function to perform hypothesis</p>
+<p>       testing on the correlation coefficient.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Distributions\Fisher::distribution()</p>
+<p>     Use the distribution() method in the Statistical\Distributions\Fisher class instead</p>
+<p>@param float $value</p>
+<p>@return array|float|string</p>
+
+<p>FISHERINV.</p>
+<p>Returns the inverse of the Fisher transformation. Use this transformation when</p>
+<p>       analyzing correlations between ranges or arrays of data. If y = FISHER(x), then</p>
+<p>       FISHERINV(y) = x.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Distributions\Fisher::inverse()</p>
+<p>     Use the inverse() method in the Statistical\Distributions\Fisher class instead</p>
+<p>@param float $value</p>
+<p>@return array|float|string</p>
+
+<p>FORECAST.</p>
+<p>Calculates, or predicts, a future value by using existing values. The predicted value is a y-value for a given x-value.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Trends::FORECAST()</p>
+<p>     Use the FORECAST() method in the Statistical\Trends class instead</p>
+<p>@param float $xValue Value of X for which we want to find Y</p>
+<p>@param mixed $yValues array of mixed Data Series Y</p>
+<p>@param mixed $xValues of mixed Data Series X</p>
+<p>@return array|bool|float|string</p>
+
+<p>GAMMA.</p>
+<p>Returns the gamma function value.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Distributions\Gamma::gamma()</p>
+<p>     Use the gamma() method in the Statistical\Distributions\Gamma class instead</p>
+<p>@param float $value</p>
+<p>@return array|float|string The result, or a string containing an error</p>
+
+<p>GAMMADIST.</p>
+<p>Returns the gamma distribution.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Distributions\Gamma::distribution()</p>
+<p>     Use the distribution() method in the Statistical\Distributions\Gamma class instead</p>
+<p>@param float $value Value at which you want to evaluate the distribution</p>
+<p>@param float $a Parameter to the distribution</p>
+<p>@param float $b Parameter to the distribution</p>
+<p>@param bool $cumulative</p>
+<p>@return array|float|string</p>
+
+<p>GAMMAINV.</p>
+<p>Returns the inverse of the Gamma distribution.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Distributions\Gamma::inverse()</p>
+<p>     Use the inverse() method in the Statistical\Distributions\Gamma class instead</p>
+<p>@param float $probability Probability at which you want to evaluate the distribution</p>
+<p>@param float $alpha Parameter to the distribution</p>
+<p>@param float $beta Parameter to the distribution</p>
+<p>@return array|float|string</p>
+
+<p>GAMMALN.</p>
+<p>Returns the natural logarithm of the gamma function.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Distributions\Gamma::ln()</p>
+<p>     Use the ln() method in the Statistical\Distributions\Gamma class instead</p>
+<p>@param float $value</p>
+<p>@return array|float|string</p>
+
+<p>GAUSS.</p>
+<p>Calculates the probability that a member of a standard normal population will fall between</p>
+<p>    the mean and z standard deviations from the mean.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Distributions\StandardNormal::gauss()</p>
+<p>     Use the gauss() method in the Statistical\Distributions\StandardNormal class instead</p>
+<p>@param float $value</p>
+<p>@return array|float|string The result, or a string containing an error</p>
+
+<p>GEOMEAN.</p>
+<p>Returns the geometric mean of an array or range of positive data. For example, you</p>
+<p>       can use GEOMEAN to calculate average growth rate given compound interest with</p>
+<p>       variable rates.</p>
+<p>Excel Function:</p>
+<p>       GEOMEAN(value1[,value2[, ...]])</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Averages\Mean::geometric()</p>
+<p>     Use the geometric() method in the Statistical\Averages\Mean class instead</p>
+<p>@param mixed ...$args Data values</p>
+<p>@return float|string</p>
+
+<p>GROWTH.</p>
+<p>Returns values along a predicted exponential Trend</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Trends::GROWTH()</p>
+<p>     Use the GROWTH() method in the Statistical\Trends class instead</p>
+<p>@param mixed[] $yValues Data Series Y</p>
+<p>@param mixed[] $xValues Data Series X</p>
+<p>@param mixed[] $newValues Values of X for which we want to find Y</p>
+<p>@param bool $const a logical value specifying whether to force the intersect to equal 0</p>
+<p>@return float[]</p>
+
+<p>HARMEAN.</p>
+<p>Returns the harmonic mean of a data set. The harmonic mean is the reciprocal of the</p>
+<p>       arithmetic mean of reciprocals.</p>
+<p>Excel Function:</p>
+<p>       HARMEAN(value1[,value2[, ...]])</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Averages\Mean::harmonic()</p>
+<p>     Use the harmonic() method in the Statistical\Averages\Mean class instead</p>
+<p>@param mixed ...$args Data values</p>
+<p>@return float|string</p>
+
+<p>HYPGEOMDIST.</p>
+<p>Returns the hypergeometric distribution. HYPGEOMDIST returns the probability of a given number of</p>
+<p>sample successes, given the sample size, population successes, and population size.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Distributions\HyperGeometric::distribution()</p>
+<p>     Use the distribution() method in the Statistical\Distributions\HyperGeometric class instead</p>
+<p>@param mixed $sampleSuccesses Number of successes in the sample</p>
+<p>@param mixed $sampleNumber Size of the sample</p>
+<p>@param mixed $populationSuccesses Number of successes in the population</p>
+<p>@param mixed $populationNumber Population size</p>
+<p>@return array|float|string</p>
+
+<p>INTERCEPT.</p>
+<p>Calculates the point at which a line will intersect the y-axis by using existing x-values and y-values.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Trends::INTERCEPT()</p>
+<p>     Use the INTERCEPT() method in the Statistical\Trends class instead</p>
+<p>@param mixed[] $yValues Data Series Y</p>
+<p>@param mixed[] $xValues Data Series X</p>
+<p>@return float|string</p>
+
+<p>KURT.</p>
+<p>Returns the kurtosis of a data set. Kurtosis characterizes the relative peakedness</p>
+<p>or flatness of a distribution compared with the normal distribution. Positive</p>
+<p>kurtosis indicates a relatively peaked distribution. Negative kurtosis indicates a</p>
+<p>relatively flat distribution.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Deviations::kurtosis()</p>
+<p>     Use the kurtosis() method in the Statistical\Deviations class instead</p>
+<p>@param array ...$args Data Series</p>
+<p>@return float|string</p>
+
+<p>LARGE.</p>
+<p>Returns the nth largest value in a data set. You can use this function to</p>
+<p>       select a value based on its relative standing.</p>
+<p>Excel Function:</p>
+<p>       LARGE(value1[,value2[, ...]],entry)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Size::large()</p>
+<p>     Use the large() method in the Statistical\Size class instead</p>
+<p>@param mixed $args Data values</p>
+<p>@return float|string The result, or a string containing an error</p>
+
+<p>LINEST.</p>
+<p>Calculates the statistics for a line by using the "least squares" method to calculate a straight line that best fits your data,</p>
+<p>       and then returns an array that describes the line.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Trends::LINEST()</p>
+<p>     Use the LINEST() method in the Statistical\Trends class instead</p>
+<p>@param mixed[] $yValues Data Series Y</p>
+<p>@param null|mixed[] $xValues Data Series X</p>
+<p>@param bool $const a logical value specifying whether to force the intersect to equal 0</p>
+<p>@param bool $stats a logical value specifying whether to return additional regression statistics</p>
+<p>@return array|int|string The result, or a string containing an error</p>
+
+<p>LOGEST.</p>
+<p>Calculates an exponential curve that best fits the X and Y data series,</p>
+<p>       and then returns an array that describes the line.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Trends::LOGEST()</p>
+<p>     Use the LOGEST() method in the Statistical\Trends class instead</p>
+<p>@param mixed[] $yValues Data Series Y</p>
+<p>@param null|mixed[] $xValues Data Series X</p>
+<p>@param bool $const a logical value specifying whether to force the intersect to equal 0</p>
+<p>@param bool $stats a logical value specifying whether to return additional regression statistics</p>
+<p>@return array|int|string The result, or a string containing an error</p>
+
+<p>LOGINV.</p>
+<p>Returns the inverse of the normal cumulative distribution</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Distributions\LogNormal::inverse()</p>
+<p>     Use the inverse() method in the Statistical\Distributions\LogNormal class instead</p>
+<p>@param float $probability</p>
+<p>@param float $mean</p>
+<p>@param float $stdDev</p>
+<p>@return array|float|string The result, or a string containing an error</p>
+<p>@TODO    Try implementing P J Acklam's refinement algorithm for greater</p>
+<p>           accuracy if I can get my head round the mathematics</p>
+<p>           (as described at) http://home.online.no/~pjacklam/notes/invnorm/</p>
+
+<p>LOGNORMDIST.</p>
+<p>Returns the cumulative lognormal distribution of x, where ln(x) is normally distributed</p>
+<p>with parameters mean and standard_dev.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Distributions\LogNormal::cumulative()</p>
+<p>     Use the cumulative() method in the Statistical\Distributions\LogNormal class instead</p>
+<p>@param float $value</p>
+<p>@param float $mean</p>
+<p>@param float $stdDev</p>
+<p>@return array|float|string The result, or a string containing an error</p>
+
+<p>LOGNORM.DIST.</p>
+<p>Returns the lognormal distribution of x, where ln(x) is normally distributed</p>
+<p>with parameters mean and standard_dev.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Distributions\LogNormal::distribution()</p>
+<p>     Use the distribution() method in the Statistical\Distributions\LogNormal class instead</p>
+<p>@param float $value</p>
+<p>@param float $mean</p>
+<p>@param float $stdDev</p>
+<p>@param bool $cumulative</p>
+<p>@return array|float|string The result, or a string containing an error</p>
+
+<p>MAX.</p>
+<p>MAX returns the value of the element of the values passed that has the highest value,</p>
+<p>       with negative numbers considered smaller than positive numbers.</p>
+<p>Excel Function:</p>
+<p>       max(value1[,value2[, ...]])</p>
+<p>@Deprecated 1.17.0</p>
+<p>@param mixed ...$args Data values</p>
+<p>@return float</p>
+<p>@see Statistical\Maximum::max()</p>
+<p>     Use the MAX() method in the Statistical\Maximum class instead</p>
+
+<p>MAXA.</p>
+<p>Returns the greatest value in a list of arguments, including numbers, text, and logical values</p>
+<p>Excel Function:</p>
+<p>       maxA(value1[,value2[, ...]])</p>
+<p>@Deprecated 1.17.0</p>
+<p>@param mixed ...$args Data values</p>
+<p>@return float</p>
+<p>@see Statistical\Maximum::maxA()</p>
+<p>     Use the MAXA() method in the Statistical\Maximum class instead</p>
+
+<p>MAXIFS.</p>
+<p>Counts the maximum value within a range of cells that contain numbers within the list of arguments</p>
+<p>Excel Function:</p>
+<p>       MAXIFS(max_range, criteria_range1, criteria1, [criteria_range2, criteria2], ...)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Statistical\Conditional::MAXIFS()</p>
+<p>     Use the MAXIFS() method in the Statistical\Conditional class instead</p>
+<p>@param mixed $args Data range and criterias</p>
+<p>@return float</p>
+
+<p>MEDIAN.</p>
+<p>Returns the median of the given numbers. The median is the number in the middle of a set of numbers.</p>
+<p>Excel Function:</p>
+<p>       MEDIAN(value1[,value2[, ...]])</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Averages::median()</p>
+<p>     Use the median() method in the Statistical\Averages class instead</p>
+<p>@param mixed ...$args Data values</p>
+<p>@return float|string The result, or a string containing an error</p>
+
+<p>MIN.</p>
+<p>MIN returns the value of the element of the values passed that has the smallest value,</p>
+<p>       with negative numbers considered smaller than positive numbers.</p>
+<p>Excel Function:</p>
+<p>       MIN(value1[,value2[, ...]])</p>
+<p>@Deprecated 1.17.0</p>
+<p>@param mixed ...$args Data values</p>
+<p>@return float</p>
+<p>@see Statistical\Minimum::min()</p>
+<p>     Use the min() method in the Statistical\Minimum class instead</p>
+
+<p>MINA.</p>
+<p>Returns the smallest value in a list of arguments, including numbers, text, and logical values</p>
+<p>Excel Function:</p>
+<p>       MINA(value1[,value2[, ...]])</p>
+<p>@Deprecated 1.17.0</p>
+<p>@param mixed ...$args Data values</p>
+<p>@return float</p>
+<p>@see Statistical\Minimum::minA()</p>
+<p>     Use the minA() method in the Statistical\Minimum class instead</p>
+
+<p>MINIFS.</p>
+<p>Returns the minimum value within a range of cells that contain numbers within the list of arguments</p>
+<p>Excel Function:</p>
+<p>       MINIFS(min_range, criteria_range1, criteria1, [criteria_range2, criteria2], ...)</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Statistical\Conditional::MINIFS()</p>
+<p>     Use the MINIFS() method in the Statistical\Conditional class instead</p>
+<p>@param mixed $args Data range and criterias</p>
+<p>@return float</p>
+
+<p>MODE.</p>
+<p>Returns the most frequently occurring, or repetitive, value in an array or range of data</p>
+<p>Excel Function:</p>
+<p>       MODE(value1[,value2[, ...]])</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Averages::mode()</p>
+<p>     Use the mode() method in the Statistical\Averages class instead</p>
+<p>@param mixed ...$args Data values</p>
+<p>@return float|string The result, or a string containing an error</p>
+
+<p>NEGBINOMDIST.</p>
+<p>Returns the negative binomial distribution. NEGBINOMDIST returns the probability that</p>
+<p>       there will be number_f failures before the number_s-th success, when the constant</p>
+<p>       probability of a success is probability_s. This function is similar to the binomial</p>
+<p>       distribution, except that the number of successes is fixed, and the number of trials is</p>
+<p>       variable. Like the binomial, trials are assumed to be independent.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Distributions\Binomial::negative()</p>
+<p>     Use the negative() method in the Statistical\Distributions\Binomial class instead</p>
+<p>@param mixed $failures Number of Failures</p>
+<p>@param mixed $successes Threshold number of Successes</p>
+<p>@param mixed $probability Probability of success on each trial</p>
+<p>@return array|float|string The result, or a string containing an error</p>
+
+<p>NORMDIST.</p>
+<p>Returns the normal distribution for the specified mean and standard deviation. This</p>
+<p>function has a very wide range of applications in statistics, including hypothesis</p>
+<p>testing.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Distributions\Normal::distribution()</p>
+<p>     Use the distribution() method in the Statistical\Distributions\Normal class instead</p>
+<p>@param mixed $value</p>
+<p>@param mixed $mean Mean Value</p>
+<p>@param mixed $stdDev Standard Deviation</p>
+<p>@param mixed $cumulative</p>
+<p>@return array|float|string The result, or a string containing an error</p>
+
+<p>NORMINV.</p>
+<p>Returns the inverse of the normal cumulative distribution for the specified mean and standard deviation.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Distributions\Normal::inverse()</p>
+<p>     Use the inverse() method in the Statistical\Distributions\Normal class instead</p>
+<p>@param mixed $probability</p>
+<p>@param mixed $mean Mean Value</p>
+<p>@param mixed $stdDev Standard Deviation</p>
+<p>@return array|float|string The result, or a string containing an error</p>
+
+<p>NORMSDIST.</p>
+<p>Returns the standard normal cumulative distribution function. The distribution has</p>
+<p>a mean of 0 (zero) and a standard deviation of one. Use this function in place of a</p>
+<p>table of standard normal curve areas.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Distributions\StandardNormal::cumulative()</p>
+<p>     Use the cumulative() method in the Statistical\Distributions\StandardNormal class instead</p>
+<p>@param mixed $value</p>
+<p>@return array|float|string The result, or a string containing an error</p>
+
+<p>NORM.S.DIST.</p>
+<p>Returns the standard normal cumulative distribution function. The distribution has</p>
+<p>a mean of 0 (zero) and a standard deviation of one. Use this function in place of a</p>
+<p>table of standard normal curve areas.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Distributions\StandardNormal::distribution()</p>
+<p>     Use the distribution() method in the Statistical\Distributions\StandardNormal class instead</p>
+<p>@param mixed $value</p>
+<p>@param mixed $cumulative</p>
+<p>@return array|float|string The result, or a string containing an error</p>
+
+<p>NORMSINV.</p>
+<p>Returns the inverse of the standard normal cumulative distribution</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Distributions\StandardNormal::inverse()</p>
+<p>     Use the inverse() method in the Statistical\Distributions\StandardNormal class instead</p>
+<p>@param mixed $value</p>
+<p>@return array|float|string The result, or a string containing an error</p>
+
+<p>PERCENTILE.</p>
+<p>Returns the nth percentile of values in a range..</p>
+<p>Excel Function:</p>
+<p>       PERCENTILE(value1[,value2[, ...]],entry)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Percentiles::PERCENTILE()</p>
+<p>Use the PERCENTILE() method in the Statistical\Percentiles class instead</p>
+<p>@param mixed $args Data values</p>
+<p>@return float|string The result, or a string containing an error</p>
+
+<p>PERCENTRANK.</p>
+<p>Returns the rank of a value in a data set as a percentage of the data set.</p>
+<p>Note that the returned rank is simply rounded to the appropriate significant digits,</p>
+<p>     rather than floored (as MS Excel), so value 3 for a value set of  1, 2, 3, 4 will return</p>
+<p>     0.667 rather than 0.666</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Percentiles::PERCENTRANK()</p>
+<p>Use the PERCENTRANK() method in the Statistical\Percentiles class instead</p>
+<p>@param mixed $valueSet An array of, or a reference to, a list of numbers</p>
+<p>@param mixed $value the number whose rank you want to find</p>
+<p>@param mixed $significance the number of significant digits for the returned percentage value</p>
+<p>@return float|string (string if result is an error)</p>
+
+<p>PERMUT.</p>
+<p>Returns the number of permutations for a given number of objects that can be</p>
+<p>       selected from number objects. A permutation is any set or subset of objects or</p>
+<p>       events where internal order is significant. Permutations are different from</p>
+<p>       combinations, for which the internal order is not significant. Use this function</p>
+<p>       for lottery-style probability calculations.</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Statistical\Permutations::PERMUT()</p>
+<p>Use the PERMUT() method in the Statistical\Permutations class instead</p>
+<p>@param int $numObjs Number of different objects</p>
+<p>@param int $numInSet Number of objects in each permutation</p>
+<p>@return array|float|int|string Number of permutations, or a string containing an error</p>
+
+<p>POISSON.</p>
+<p>Returns the Poisson distribution. A common application of the Poisson distribution</p>
+<p>is predicting the number of events over a specific time, such as the number of</p>
+<p>cars arriving at a toll plaza in 1 minute.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Distributions\Poisson::distribution()</p>
+<p>Use the distribution() method in the Statistical\Distributions\Poisson class instead</p>
+<p>@param mixed $value</p>
+<p>@param mixed $mean Mean Value</p>
+<p>@param mixed $cumulative</p>
+<p>@return array|float|string The result, or a string containing an error</p>
+
+<p>QUARTILE.</p>
+<p>Returns the quartile of a data set.</p>
+<p>Excel Function:</p>
+<p>       QUARTILE(value1[,value2[, ...]],entry)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Percentiles::QUARTILE()</p>
+<p>Use the QUARTILE() method in the Statistical\Percentiles class instead</p>
+<p>@param mixed $args Data values</p>
+<p>@return float|string The result, or a string containing an error</p>
+
+<p>RANK.</p>
+<p>Returns the rank of a number in a list of numbers.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Percentiles::RANK()</p>
+<p>Use the RANK() method in the Statistical\Percentiles class instead</p>
+<p>@param mixed $value the number whose rank you want to find</p>
+<p>@param mixed $valueSet An array of, or a reference to, a list of numbers</p>
+<p>@param mixed $order Order to sort the values in the value set</p>
+<p>@return float|string The result, or a string containing an error</p>
+
+<p>RSQ.</p>
+<p>Returns the square of the Pearson product moment correlation coefficient through data points in known_y's and known_x's.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Trends::RSQ()</p>
+<p>     Use the RSQ() method in the Statistical\Trends class instead</p>
+<p>@param mixed[] $yValues Data Series Y</p>
+<p>@param mixed[] $xValues Data Series X</p>
+<p>@return float|string The result, or a string containing an error</p>
+
+<p>SKEW.</p>
+<p>Returns the skewness of a distribution. Skewness characterizes the degree of asymmetry</p>
+<p>of a distribution around its mean. Positive skewness indicates a distribution with an</p>
+<p>asymmetric tail extending toward more positive values. Negative skewness indicates a</p>
+<p>distribution with an asymmetric tail extending toward more negative values.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Deviations::skew()</p>
+<p>     Use the skew() method in the Statistical\Deviations class instead</p>
+<p>@param array ...$args Data Series</p>
+<p>@return float|string The result, or a string containing an error</p>
+
+<p>SLOPE.</p>
+<p>Returns the slope of the linear regression line through data points in known_y's and known_x's.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Trends::SLOPE()</p>
+<p>     Use the SLOPE() method in the Statistical\Trends class instead</p>
+<p>@param mixed[] $yValues Data Series Y</p>
+<p>@param mixed[] $xValues Data Series X</p>
+<p>@return float|string The result, or a string containing an error</p>
+
+<p>SMALL.</p>
+<p>Returns the nth smallest value in a data set. You can use this function to</p>
+<p>       select a value based on its relative standing.</p>
+<p>Excel Function:</p>
+<p>       SMALL(value1[,value2[, ...]],entry)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Size::small()</p>
+<p>     Use the small() method in the Statistical\Size class instead</p>
+<p>@param mixed $args Data values</p>
+<p>@return float|string The result, or a string containing an error</p>
+
+<p>STANDARDIZE.</p>
+<p>Returns a normalized value from a distribution characterized by mean and standard_dev.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Standardize::execute()</p>
+<p>     Use the execute() method in the Statistical\Standardize class instead</p>
+<p>@param float $value Value to normalize</p>
+<p>@param float $mean Mean Value</p>
+<p>@param float $stdDev Standard Deviation</p>
+<p>@return array|float|string Standardized value, or a string containing an error</p>
+
+<p>STDEV.</p>
+<p>Estimates standard deviation based on a sample. The standard deviation is a measure of how</p>
+<p>       widely values are dispersed from the average value (the mean).</p>
+<p>Excel Function:</p>
+<p>       STDEV(value1[,value2[, ...]])</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Statistical\StandardDeviations::STDEV()</p>
+<p>     Use the STDEV() method in the Statistical\StandardDeviations class instead</p>
+<p>@param mixed ...$args Data values</p>
+<p>@return float|string The result, or a string containing an error</p>
+
+<p>STDEVA.</p>
+<p>Estimates standard deviation based on a sample, including numbers, text, and logical values</p>
+<p>Excel Function:</p>
+<p>       STDEVA(value1[,value2[, ...]])</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Statistical\StandardDeviations::STDEVA()</p>
+<p>     Use the STDEVA() method in the Statistical\StandardDeviations class instead</p>
+<p>@param mixed ...$args Data values</p>
+<p>@return float|string</p>
+
+<p>STDEVP.</p>
+<p>Calculates standard deviation based on the entire population</p>
+<p>Excel Function:</p>
+<p>       STDEVP(value1[,value2[, ...]])</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Statistical\StandardDeviations::STDEVP()</p>
+<p>     Use the STDEVP() method in the Statistical\StandardDeviations class instead</p>
+<p>@param mixed ...$args Data values</p>
+<p>@return float|string</p>
+
+<p>STDEVPA.</p>
+<p>Calculates standard deviation based on the entire population, including numbers, text, and logical values</p>
+<p>Excel Function:</p>
+<p>       STDEVPA(value1[,value2[, ...]])</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Statistical\StandardDeviations::STDEVPA()</p>
+<p>     Use the STDEVPA() method in the Statistical\StandardDeviations class instead</p>
+<p>@param mixed ...$args Data values</p>
+<p>@return float|string</p>
+
+<p>STEYX.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Trends::STEYX()</p>
+<p>     Use the STEYX() method in the Statistical\Trends class instead</p>
+<p>Returns the standard error of the predicted y-value for each x in the regression.</p>
+<p>@param mixed[] $yValues Data Series Y</p>
+<p>@param mixed[] $xValues Data Series X</p>
+<p>@return float|string</p>
+
+<p>TDIST.</p>
+<p>Returns the probability of Student's T distribution.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Distributions\StudentT::distribution()</p>
+<p>     Use the distribution() method in the Statistical\Distributions\StudentT class instead</p>
+<p>@param float $value Value for the function</p>
+<p>@param float $degrees degrees of freedom</p>
+<p>@param float $tails number of tails (1 or 2)</p>
+<p>@return array|float|string The result, or a string containing an error</p>
+
+<p>TINV.</p>
+<p>Returns the one-tailed probability of the Student-T distribution.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Distributions\StudentT::inverse()</p>
+<p>     Use the inverse() method in the Statistical\Distributions\StudentT class instead</p>
+<p>@param float $probability Probability for the function</p>
+<p>@param float $degrees degrees of freedom</p>
+<p>@return array|float|string The result, or a string containing an error</p>
+
+<p>TREND.</p>
+<p>Returns values along a linear Trend</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Trends::TREND()</p>
+<p>     Use the TREND() method in the Statistical\Trends class instead</p>
+<p>@param mixed[] $yValues Data Series Y</p>
+<p>@param mixed[] $xValues Data Series X</p>
+<p>@param mixed[] $newValues Values of X for which we want to find Y</p>
+<p>@param bool $const a logical value specifying whether to force the intersect to equal 0</p>
+<p>@return float[]</p>
+
+<p>TRIMMEAN.</p>
+<p>Returns the mean of the interior of a data set. TRIMMEAN calculates the mean</p>
+<p>       taken by excluding a percentage of data points from the top and bottom tails</p>
+<p>       of a data set.</p>
+<p>Excel Function:</p>
+<p>       TRIMEAN(value1[,value2[, ...]], $discard)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Averages\Mean::trim()</p>
+<p>     Use the trim() method in the Statistical\Averages\Mean class instead</p>
+<p>@param mixed $args Data values</p>
+<p>@return float|string</p>
+
+<p>VARFunc.</p>
+<p>Estimates variance based on a sample.</p>
+<p>Excel Function:</p>
+<p>       VAR(value1[,value2[, ...]])</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Statistical\Variances::VAR()</p>
+<p>     Use the VAR() method in the Statistical\Variances class instead</p>
+<p>@param mixed ...$args Data values</p>
+<p>@return float|string (string if result is an error)</p>
+
+<p>VARA.</p>
+<p>Estimates variance based on a sample, including numbers, text, and logical values</p>
+<p>Excel Function:</p>
+<p>       VARA(value1[,value2[, ...]])</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Statistical\Variances::VARA()</p>
+<p>     Use the VARA() method in the Statistical\Variances class instead</p>
+<p>@param mixed ...$args Data values</p>
+<p>@return float|string (string if result is an error)</p>
+
+<p>VARP.</p>
+<p>Calculates variance based on the entire population</p>
+<p>Excel Function:</p>
+<p>       VARP(value1[,value2[, ...]])</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Statistical\Variances::VARP()</p>
+<p>     Use the VARP() method in the Statistical\Variances class instead</p>
+<p>@param mixed ...$args Data values</p>
+<p>@return float|string (string if result is an error)</p>
+
+<p>VARPA.</p>
+<p>Calculates variance based on the entire population, including numbers, text, and logical values</p>
+<p>Excel Function:</p>
+<p>       VARPA(value1[,value2[, ...]])</p>
+<p>@Deprecated 1.17.0</p>
+<p>@see Statistical\Variances::VARPA()</p>
+<p>     Use the VARPA() method in the Statistical\Variances class instead</p>
+<p>@param mixed ...$args Data values</p>
+<p>@return float|string (string if result is an error)</p>
+
+<p>WEIBULL.</p>
+<p>Returns the Weibull distribution. Use this distribution in reliability</p>
+<p>analysis, such as calculating a device's mean time to failure.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Distributions\Weibull::distribution()</p>
+<p>     Use the distribution() method in the Statistical\Distributions\Weibull class instead</p>
+<p>@param float $value</p>
+<p>@param float $alpha Alpha Parameter</p>
+<p>@param float $beta Beta Parameter</p>
+<p>@param bool $cumulative</p>
+<p>@return array|float|string (string if result is an error)</p>
+
+<p>ZTEST.</p>
+<p>Returns the one-tailed P-value of a z-test.</p>
+<p>For a given hypothesized population mean, x, Z.TEST returns the probability that the sample mean would be</p>
+<p>    greater than the average of observations in the data set (array) — that is, the observed sample mean.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see Statistical\Distributions\StandardNormal::zTest()</p>
+<p>     Use the zTest() method in the Statistical\Distributions\StandardNormal class instead</p>
+<p>@param float $dataSet</p>
+<p>@param float $m0 Alpha Parameter</p>
+<p>@param float $sigma Beta Parameter</p>
+<p>@return array|float|string (string if result is an error)</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>their</code></li>
+<li><code>a</code></li>
+<li><code>that</code></li>
+<li><code>the</code></li>
+<li><code>number</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Statistical.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\Statistical</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>AVEDEV(...$args)</code></li>
+<li><code>AVERAGE(...$args)</code></li>
+<li><code>AVERAGEA(...$args)</code></li>
+<li><code>AVERAGEIF($range, $condition, $averageRange = [])</code></li>
+<li><code>BETADIST($value, $alpha, $beta, $rMin = 0, $rMax = 1)</code></li>
+<li><code>BETAINV($probability, $alpha, $beta, $rMin = 0, $rMax = 1)</code></li>
+<li><code>BINOMDIST($value, $trials, $probability, $cumulative)</code></li>
+<li><code>CHIDIST($value, $degrees)</code></li>
+<li><code>CHIINV($probability, $degrees)</code></li>
+<li><code>CONFIDENCE($alpha, $stdDev, $size)</code></li>
+<li><code>CORREL($yValues, $xValues = null)</code></li>
+<li><code>COUNT(...$args)</code></li>
+<li><code>COUNTA(...$args)</code></li>
+<li><code>COUNTBLANK(...$args)</code></li>
+<li><code>COUNTIF($range, $condition)</code></li>
+<li><code>COUNTIFS(...$args)</code></li>
+<li><code>COVAR($yValues, $xValues)</code></li>
+<li><code>CRITBINOM($trials, $probability, $alpha)</code></li>
+<li><code>DEVSQ(...$args)</code></li>
+<li><code>EXPONDIST($value, $lambda, $cumulative)</code></li>
+<li><code>FDIST2($value, $u, $v, $cumulative)</code></li>
+<li><code>FISHER($value)</code></li>
+<li><code>FISHERINV($value)</code></li>
+<li><code>FORECAST($xValue, $yValues, $xValues)</code></li>
+<li><code>GAMMAFunction($value)</code></li>
+<li><code>GAMMADIST($value, $a, $b, $cumulative)</code></li>
+<li><code>GAMMAINV($probability, $alpha, $beta)</code></li>
+<li><code>GAMMALN($value)</code></li>
+<li><code>GAUSS($value)</code></li>
+<li><code>GEOMEAN(...$args)</code></li>
+<li><code>GROWTH($yValues, $xValues = [], $newValues = [], $const = true)</code></li>
+<li><code>HARMEAN(...$args)</code></li>
+<li><code>HYPGEOMDIST($sampleSuccesses, $sampleNumber, $populationSuccesses, $populationNumber)</code></li>
+<li><code>INTERCEPT($yValues, $xValues)</code></li>
+<li><code>KURT(...$args)</code></li>
+<li><code>LARGE(...$args)</code></li>
+<li><code>LINEST($yValues, $xValues = null, $const = true, $stats = false)</code></li>
+<li><code>LOGEST($yValues, $xValues = null, $const = true, $stats = false)</code></li>
+<li><code>LOGINV($probability, $mean, $stdDev)</code></li>
+<li><code>LOGNORMDIST($value, $mean, $stdDev)</code></li>
+<li><code>LOGNORMDIST2($value, $mean, $stdDev, $cumulative = false)</code></li>
+<li><code>MAX(...$args)</code></li>
+<li><code>MAXA(...$args)</code></li>
+<li><code>MAXIFS(...$args)</code></li>
+<li><code>MEDIAN(...$args)</code></li>
+<li><code>MIN(...$args)</code></li>
+<li><code>MINA(...$args)</code></li>
+<li><code>MINIFS(...$args)</code></li>
+<li><code>MODE(...$args)</code></li>
+<li><code>NEGBINOMDIST($failures, $successes, $probability)</code></li>
+<li><code>NORMDIST($value, $mean, $stdDev, $cumulative)</code></li>
+<li><code>NORMINV($probability, $mean, $stdDev)</code></li>
+<li><code>NORMSDIST($value)</code></li>
+<li><code>NORMSDIST2($value, $cumulative)</code></li>
+<li><code>NORMSINV($value)</code></li>
+<li><code>PERCENTILE(...$args)</code></li>
+<li><code>PERCENTRANK($valueSet, $value, $significance = 3)</code></li>
+<li><code>PERMUT($numObjs, $numInSet)</code></li>
+<li><code>POISSON($value, $mean, $cumulative)</code></li>
+<li><code>QUARTILE(...$args)</code></li>
+<li><code>RANK($value, $valueSet, $order = 0)</code></li>
+<li><code>RSQ($yValues, $xValues)</code></li>
+<li><code>SKEW(...$args)</code></li>
+<li><code>SLOPE($yValues, $xValues)</code></li>
+<li><code>SMALL(...$args)</code></li>
+<li><code>STANDARDIZE($value, $mean, $stdDev)</code></li>
+<li><code>STDEV(...$args)</code></li>
+<li><code>STDEVA(...$args)</code></li>
+<li><code>STDEVP(...$args)</code></li>
+<li><code>STDEVPA(...$args)</code></li>
+<li><code>STEYX($yValues, $xValues)</code></li>
+<li><code>TDIST($value, $degrees, $tails)</code></li>
+<li><code>TINV($probability, $degrees)</code></li>
+<li><code>TREND($yValues, $xValues = [], $newValues = [], $const = true)</code></li>
+<li><code>TRIMMEAN(...$args)</code></li>
+<li><code>VARFunc(...$args)</code></li>
+<li><code>VARA(...$args)</code></li>
+<li><code>VARP(...$args)</code></li>
+<li><code>VARPA(...$args)</code></li>
+<li><code>WEIBULL($value, $alpha, $beta, $cumulative)</code></li>
+<li><code>ZTEST($dataSet, $m0, $sigma = null)</code></li>
+</ul>
+</body></html>

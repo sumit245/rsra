@@ -1,0 +1,51 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\nelexa-php-zip\vendor\symfony\finder\Iterator\MultiplePcreFilterIterator.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\nelexa-php-zip\vendor\symfony\finder\Iterator\MultiplePcreFilterIterator.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\nelexa-php-zip\vendor\symfony\finder\Iterator\MultiplePcreFilterIterator.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3245 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>MultiplePcreFilterIterator filters files using patterns (regexps, globs or strings).</p>
+<p>@author Fabien Potencier <fabien@symfony.com></p>
+<p>@template-covariant TKey</p>
+<p>@template-covariant TValue</p>
+<p>@extends \FilterIterator<TKey, TValue></p>
+
+<p>@param \Iterator $iterator        The Iterator to filter</p>
+<p>@param string[]  $matchPatterns   An array of patterns that need to match</p>
+<p>@param string[]  $noMatchPatterns An array of patterns that need to not match</p>
+
+<p>Checks whether the string is accepted by the regex filters.</p>
+<p>If there is no regexps defined in the class, this method will accept the string.</p>
+<p>Such case can be handled by child classes before calling the method if they want to</p>
+<p>apply a different behavior.</p>
+<p>@return bool</p>
+
+<p>Checks whether the string is a regex.</p>
+<p>@return bool</p>
+
+<p>Converts string into regexp.</p>
+<p>@return string</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\nelexa-php-zip\vendor\symfony\finder\Iterator\MultiplePcreFilterIterator.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Symfony\Component\Finder\Iterator\MultiplePcreFilterIterator extends \FilterIterator</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(\Iterator $iterator, array $matchPatterns, array $noMatchPatterns)</code></li>
+<li><code>isAccepted(string $string)</code></li>
+<li><code>isRegex(string $str)</code></li>
+<li><code>toRegex(string $str)</code></li>
+</ul>
+</body></html>

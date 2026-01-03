@@ -4,7 +4,8 @@
 //Don't include this in production/live project
 //
 //read file
-function read_file_by_curl($path) {
+function read_file_by_curl($path)
+{
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_HEADER, 0);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -17,17 +18,20 @@ function read_file_by_curl($path) {
 }
 
 //preapre app.all.css
-function write_css($files) {
+function write_css($files)
+{
     merge_file($files, "assets/css/app.all.css");
 }
 
 //preapre app.all.js
-function write_js($files) {
+function write_js($files)
+{
     merge_file($files, "assets/js/app.all.js");
 }
 
 //merge all files into one
-function merge_file($files, $file_name) {
+function merge_file($files, $file_name)
+{
     $txt = "";
     foreach ($files as $file) {
         $txt .= file_get_contents(base_url($file));
@@ -37,7 +41,8 @@ function merge_file($files, $file_name) {
 }
 
 //prepare css from scss
-function write_scss($files) {
+function write_scss($files)
+{
     require_once APPPATH . 'ThirdParty/scssphp/vendor/autoload.php';
     $scss = new ScssPhp\ScssPhp\Compiler();
     $css = file_get_contents(base_url("assets/css/app.all.css")); //put contents with the existing content of app.all.css
@@ -61,7 +66,6 @@ function write_scss($files) {
             }
         }
     } catch (\Exception $exc) {
-        
     }
 
     //prepare css from other special scss files

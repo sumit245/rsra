@@ -1,0 +1,62 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\ComposerScripts.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\ComposerScripts.php</h1>
+
+<ul>
+<li>Path: <code>system\ComposerScripts.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5092 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>This class is used by Composer during installs and updates</p>
+<p>to move files to locations within the system folder so that end-users</p>
+<p>do not need to use Composer to install a package, but can simply</p>
+<p>download.</p>
+<p>@codeCoverageIgnore</p>
+<p>@internal</p>
+
+<p>Path to the ThirdParty directory.</p>
+
+<p>Direct dependencies of CodeIgniter to copy</p>
+<p>contents to <code>system/ThirdParty/</code>.</p>
+<p>@var array<string, array<string, string>></p>
+
+<p>This static method is called by Composer after every update event,</p>
+<p>i.e., <code>composer install</code>, <code>composer update</code>, <code>composer remove</code>.</p>
+
+<p>Recursively remove the contents of the previous <code>system/ThirdParty</code>.</p>
+
+<p>@var SplFileInfo $file</p>
+
+<p>Recursively copy the files and directories of the origin directory</p>
+<p>into the target directory, i.e. "mirror" its contents.</p>
+
+<p>@var SplFileInfo $file</p>
+
+<p>Copy Kint's init files into <code>system/ThirdParty/Kint/</code></p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\ComposerScripts.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\is</code></li>
+<li><code>CodeIgniter\ComposerScripts</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>postUpdate()</code></li>
+<li><code>recursiveDelete(string $directory)</code></li>
+<li><code>recursiveMirror(string $originDir, string $targetDir)</code></li>
+<li><code>copyKintInitFiles()</code></li>
+</ul>
+</body></html>

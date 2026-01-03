@@ -1,0 +1,111 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Lexer\DOMLex.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Lexer\DOMLex.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Lexer\DOMLex.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 12463 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Parser that uses PHP 5's DOM extension (part of the core).</p>
+<p>In PHP 5, the DOM XML extension was revamped into DOM and added to the core.</p>
+<p>It gives us a forgiving HTML parser, which we use to transform the HTML</p>
+<p>into a DOM, and then into the tokens.  It is blazingly fast (for large</p>
+<p>documents, it performs twenty times faster than</p>
+<p>HTMLPurifier_Lexer_DirectLex,and is the default choice for PHP 5.</p>
+<p>@note Any empty elements will have empty tokens associated with them, even if</p>
+<p>this is prohibited by the spec. This is cannot be fixed until the spec</p>
+<p>comes into play.</p>
+<p>@note PHP's DOM extension does not actually parse any entities, we use</p>
+<p>      our own function to do that.</p>
+<p>@warning DOM tends to drop whitespace, which may wreak havoc on indenting.</p>
+<p>         If this is a huge problem, due to the fact that HTML is hand</p>
+<p>         edited and you are unable to get a parser cache that caches the</p>
+<p>         the output of HTML Purifier while keeping the original HTML lying</p>
+<p>         around, you may want to run Tidy on the resulting output or use</p>
+<p>         HTMLPurifier_DirectLex</p>
+
+<p>@type HTMLPurifier_TokenFactory</p>
+
+<p>@param string $html</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@param HTMLPurifier_Context $context</p>
+<p>@return HTMLPurifier_Token[]</p>
+
+<p>Iterative function that tokenizes a node, putting it into an accumulator.</p>
+<p>To iterate is human, to recurse divine - L. Peter Deutsch</p>
+<p>@param DOMNode $node DOMNode to be tokenized.</p>
+<p>@param HTMLPurifier_Token[] $tokens   Array-list of already tokenized tokens.</p>
+<p>@return HTMLPurifier_Token of node appended to previously passed tokens.</p>
+
+<p>Portably retrieve the tag name of a node; deals with older versions</p>
+<p>of libxml like 2.7.6</p>
+<p>@param DOMNode $node</p>
+
+<p>Portably retrieve the data of a node; deals with older versions</p>
+<p>of libxml like 2.7.6</p>
+<p>@param DOMNode $node</p>
+
+<p>@param DOMNode $node DOMNode to be tokenized.</p>
+<p>@param HTMLPurifier_Token[] $tokens   Array-list of already tokenized tokens.</p>
+<p>@param bool $collect  Says whether or start and close are collected, set to</p>
+<p>                   false at first recursion because it's the implicit DIV</p>
+<p>                   tag you're dealing with.</p>
+<p>@return bool if the token needs an endtoken</p>
+<p>@todo data and tagName properties don't seem to exist in DOMNode?</p>
+
+<p>@param DOMNode $node</p>
+<p>@param HTMLPurifier_Token[] $tokens</p>
+
+<p>Converts a DOMNamedNodeMap of DOMAttr objects into an assoc array.</p>
+<p>@param DOMNamedNodeMap $node_map DOMNamedNodeMap of DOMAttr objects.</p>
+<p>@return array Associative array of attributes.</p>
+
+<p>An error handler that mutes all errors</p>
+<p>@param int $errno</p>
+<p>@param string $errstr</p>
+
+<p>Callback function for undoing escaping of stray angled brackets</p>
+<p>in comments</p>
+<p>@param array $matches</p>
+<p>@return string</p>
+
+<p>Callback function that entity-izes ampersands in comments so that</p>
+<p>callbackUndoCommentSubst doesn't clobber them</p>
+<p>@param array $matches</p>
+<p>@return string</p>
+
+<p>Wraps an HTML fragment in the necessary HTML</p>
+<p>@param string $html</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@param HTMLPurifier_Context $context</p>
+<p>@return string</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Lexer\DOMLex.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>HTMLPurifier_Lexer_DOMLex extends HTMLPurifier_Lexer</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>tokenizeHTML($html, $config, $context)</code></li>
+<li><code>tokenizeDOM($node, &$tokens, $config)</code></li>
+<li><code>getTagName($node)</code></li>
+<li><code>getData($node)</code></li>
+<li><code>createStartNode($node, &$tokens, $collect, $config)</code></li>
+<li><code>createEndNode($node, &$tokens)</code></li>
+<li><code>transformAttrToAssoc($node_map)</code></li>
+<li><code>muteErrorHandler($errno, $errstr)</code></li>
+<li><code>callbackUndoCommentSubst($matches)</code></li>
+<li><code>callbackArmorCommentEntities($matches)</code></li>
+<li><code>wrapHTML($html, $config, $context, $use_div = true)</code></li>
+</ul>
+</body></html>

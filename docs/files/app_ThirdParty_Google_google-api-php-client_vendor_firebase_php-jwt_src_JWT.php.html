@@ -1,0 +1,137 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\firebase\php-jwt\src\JWT.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\firebase\php-jwt\src\JWT.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\firebase\php-jwt\src\JWT.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 14348 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>JSON Web Token implementation, based on this spec:</p>
+<p>https://tools.ietf.org/html/rfc7519</p>
+<p>PHP version 5</p>
+<p>@category Authentication</p>
+<p>@package  Authentication_JWT</p>
+<p>@author   Neuman Vong <neuman@twilio.com></p>
+<p>@author   Anant Narayanan <anant@php.net></p>
+<p>@license  http://opensource.org/licenses/BSD-3-Clause 3-clause BSD</p>
+<p>@link     https://github.com/firebase/php-jwt</p>
+
+<p>When checking nbf, iat or expiration times,</p>
+<p>we want to provide some extra leeway time to</p>
+<p>account for clock skew.</p>
+
+<p>Allow the current timestamp to be specified.</p>
+<p>Useful for fixing a value within unit testing.</p>
+<p>Will default to PHP time() value if null.</p>
+
+<p>Decodes a JWT string into a PHP object.</p>
+<p>@param string        $jwt            The JWT</p>
+<p>@param string|array  $key            The key, or map of keys.</p>
+<p>                                     If the algorithm used is asymmetric, this is the public key</p>
+<p>@param array         $allowed_algs   List of supported verification algorithms</p>
+<p>                                     Supported algorithms are 'HS256', 'HS384', 'HS512' and 'RS256'</p>
+<p>@return object The JWT's payload as a PHP object</p>
+<p>@throws UnexpectedValueException     Provided JWT was invalid</p>
+<p>@throws SignatureInvalidException    Provided JWT was invalid because the signature verification failed</p>
+<p>@throws BeforeValidException         Provided JWT is trying to be used before it's eligible as defined by 'nbf'</p>
+<p>@throws BeforeValidException         Provided JWT is trying to be used before it's been created as defined by 'iat'</p>
+<p>@throws ExpiredException             Provided JWT has since expired, as defined by the 'exp' claim</p>
+<p>@uses jsonDecode</p>
+<p>@uses urlsafeB64Decode</p>
+
+<p>Converts and signs a PHP object or array into a JWT string.</p>
+<p>@param object|array  $payload    PHP object or array</p>
+<p>@param string        $key        The secret key.</p>
+<p>                                 If the algorithm used is asymmetric, this is the private key</p>
+<p>@param string        $alg        The signing algorithm.</p>
+<p>                                 Supported algorithms are 'HS256', 'HS384', 'HS512' and 'RS256'</p>
+<p>@param mixed         $keyId</p>
+<p>@param array         $head       An array with header elements to attach</p>
+<p>@return string A signed JWT</p>
+<p>@uses jsonEncode</p>
+<p>@uses urlsafeB64Encode</p>
+
+<p>Sign a string with a given key and algorithm.</p>
+<p>@param string            $msg    The message to sign</p>
+<p>@param string|resource   $key    The secret key</p>
+<p>@param string            $alg    The signing algorithm.</p>
+<p>                                 Supported algorithms are 'HS256', 'HS384', 'HS512' and 'RS256'</p>
+<p>@return string An encrypted message</p>
+<p>@throws DomainException Unsupported algorithm was specified</p>
+
+<p>Verify a signature with the message, key and method. Not all methods</p>
+<p>are symmetric, so we must have a separate verify and sign method.</p>
+<p>@param string            $msg        The original message (header and body)</p>
+<p>@param string            $signature  The original signature</p>
+<p>@param string|resource   $key        For HS*, a string key works. for RS*, must be a resource of an openssl public key</p>
+<p>@param string            $alg        The algorithm</p>
+<p>@return bool</p>
+<p>@throws DomainException Invalid Algorithm or OpenSSL failure</p>
+
+<p>Decode a JSON string into a PHP object.</p>
+<p>@param string $input JSON string</p>
+<p>@return object Object representation of JSON string</p>
+<p>@throws DomainException Provided string was invalid JSON</p>
+
+<p>In PHP >=5.4.0, json_decode() accepts an options parameter, that allows you</p>
+<p>to specify that large ints (like Steam Transaction IDs) should be treated as</p>
+<p>strings, rather than the PHP default behaviour of converting them to floats.</p>
+
+<p>Not all servers will support that, however, so for older versions we must</p>
+<p>manually detect large ints in the JSON string and quote them (thus converting</p>
+<p>them to strings) before decoding, hence the preg_replace() call.</p>
+
+<p>Encode a PHP object into a JSON string.</p>
+<p>@param object|array $input A PHP object or array</p>
+<p>@return string JSON representation of the PHP object or array</p>
+<p>@throws DomainException Provided object could not be encoded to valid JSON</p>
+
+<p>Decode a string with URL-safe Base64.</p>
+<p>@param string $input A Base64 encoded string</p>
+<p>@return string A decoded string</p>
+
+<p>Encode a string with URL-safe Base64.</p>
+<p>@param string $input The string you want encoded</p>
+<p>@return string The base64 encode of what you passed in</p>
+
+<p>Helper method to create a JSON error.</p>
+<p>@param int $errno An error number from json_last_error()</p>
+<p>@return void</p>
+
+<p>Get the number of bytes in cryptographic strings.</p>
+<p>@param string</p>
+<p>@return int</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>json_last_error</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\firebase\php-jwt\src\JWT.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Firebase\JWT\JWT</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>decode($jwt, $key, array $allowed_algs = array()</code></li>
+<li><code>encode($payload, $key, $alg = 'HS256', $keyId = null, $head = null)</code></li>
+<li><code>sign($msg, $key, $alg = 'HS256')</code></li>
+<li><code>verify($msg, $signature, $key, $alg)</code></li>
+<li><code>jsonDecode($input)</code></li>
+<li><code>jsonEncode($input)</code></li>
+<li><code>urlsafeB64Decode($input)</code></li>
+<li><code>urlsafeB64Encode($input)</code></li>
+<li><code>handleJsonError($errno)</code></li>
+<li><code>safeStrlen($str)</code></li>
+</ul>
+</body></html>

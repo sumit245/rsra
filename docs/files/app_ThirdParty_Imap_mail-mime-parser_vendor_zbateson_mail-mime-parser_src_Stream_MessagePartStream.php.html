@@ -1,0 +1,89 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Stream\MessagePartStream.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Stream\MessagePartStream.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Stream\MessagePartStream.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5759 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Provides a readable stream for a MessagePart.</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var StreamFactory For creating needed stream decorators.</p>
+
+<p>@var MessagePart The part to read from.</p>
+
+<p>Constructor</p>
+
+<p>@param StreamFactory $sdf</p>
+<p>@param MessagePart $part</p>
+
+<p>Attaches and returns a CharsetStream decorator to the passed $stream.</p>
+<p>If the current attached MessagePart doesn't specify a charset, $stream is</p>
+<p>returned as-is.</p>
+<p>@param StreamInterface $stream</p>
+<p>@return StreamInterface</p>
+
+<p>Attaches and returns a transfer encoding stream decorator to the passed</p>
+<p>$stream.</p>
+<p>The attached stream decorator is based on the attached part's returned</p>
+<p>value from MessagePart::getContentTransferEncoding, using one of the</p>
+<p>following stream decorators as appropriate:</p>
+<p>o QuotedPrintableStream</p>
+<p>o Base64Stream</p>
+<p>o UUStream</p>
+<p>@param StreamInterface $stream</p>
+<p>@return StreamInterface</p>
+
+<p>Writes out the content portion of the attached mime part to the passed</p>
+<p>$stream.</p>
+<p>@param StreamInterface $stream</p>
+
+<p>Creates an array of streams based on the attached part's mime boundary</p>
+<p>and child streams.</p>
+<p>@param ParentHeaderPart $part passed in because $this->part is declared</p>
+<p>       as MessagePart</p>
+<p>@return StreamInterface[]</p>
+
+<p>Returns an array of Psr7 Streams representing the attached part and it's</p>
+<p>direct children.</p>
+<p>@return StreamInterface[]</p>
+
+<p>@var ParentHeaderPart</p>
+
+<p>Creates the underlying stream lazily when required.</p>
+<p>@return StreamInterface</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>MessagePart</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Stream\MessagePartStream.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Stream\MessagePartStream implements StreamInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(StreamFactory $sdf, MessagePart $part)</code></li>
+<li><code>getCharsetDecoratorForStream(StreamInterface $stream)</code></li>
+<li><code>getTransferEncodingDecoratorForStream(StreamInterface $stream)</code></li>
+<li><code>writePartContentTo(StreamInterface $stream)</code></li>
+<li><code>getBoundaryAndChildStreams(ParentHeaderPart $part)</code></li>
+<li><code>getStreamsArray()</code></li>
+<li><code>createStream()</code></li>
+</ul>
+</body></html>

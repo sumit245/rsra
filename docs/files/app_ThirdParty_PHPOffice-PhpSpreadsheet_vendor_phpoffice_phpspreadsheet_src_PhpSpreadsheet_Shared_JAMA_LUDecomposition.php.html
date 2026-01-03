@@ -1,0 +1,93 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\JAMA\LUDecomposition.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\JAMA\LUDecomposition.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\JAMA\LUDecomposition.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7748 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>For an m-by-n matrix A with m >= n, the LU decomposition is an m-by-n</p>
+<p>   unit lower triangular matrix L, an n-by-n upper triangular matrix U,</p>
+<p>   and a permutation vector piv of length m so that A(piv,:) = L*U.</p>
+<p>   If m < n, then L is m-by-m and U is m-by-n.</p>
+<p>   The LU decompostion with pivoting always exists, even if the matrix is</p>
+<p>   singular, so the constructor will never fail. The primary use of the</p>
+<p>   LU decomposition is in the solution of square systems of simultaneous</p>
+<p>   linear equations. This will fail if isNonsingular() returns false.</p>
+<p>   @author Paul Meagher</p>
+<p>   @author Bartosz Matosiuk</p>
+<p>   @author Michael Bommarito</p>
+<p>   @version 1.1</p>
+
+<p>Decomposition storage.</p>
+<p>@var array</p>
+
+<p>Row dimension.</p>
+<p>@var int</p>
+
+<p>Column dimension.</p>
+<p>@var int</p>
+
+<p>Pivot sign.</p>
+<p>@var int</p>
+
+<p>Internal storage of pivot vector.</p>
+<p>@var array</p>
+
+<p>LU Decomposition constructor.</p>
+<p>@param Matrix $A Rectangular matrix</p>
+
+<p>Get lower triangular factor.</p>
+<p>@return Matrix Lower triangular factor</p>
+
+<p>Get upper triangular factor.</p>
+<p>@return Matrix Upper triangular factor</p>
+
+<p>Return pivot permutation vector.</p>
+<p>@return array Pivot vector</p>
+
+<p>Alias for getPivot.</p>
+<p>   @see getPivot</p>
+
+<p>Is the matrix nonsingular?</p>
+<p>@return bool true if U, and hence A, is nonsingular</p>
+
+<p>Count determinants.</p>
+<p>@return float</p>
+
+<p>Solve A*X = B.</p>
+<p>@param Matrix $B a Matrix with as many rows as A and any number of columns</p>
+<p>@return Matrix X so that L*U*X = B(piv,:)</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\JAMA\LUDecomposition.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Shared\JAMA\LUDecomposition</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($A)</code></li>
+<li><code>__construct()</code></li>
+<li><code>getL()</code></li>
+<li><code>getL()</code></li>
+<li><code>getU()</code></li>
+<li><code>getU()</code></li>
+<li><code>getPivot()</code></li>
+<li><code>getPivot()</code></li>
+<li><code>getDoublePivot()</code></li>
+<li><code>getDoublePivot()</code></li>
+<li><code>isNonsingular()</code></li>
+<li><code>isNonsingular()</code></li>
+<li><code>det()</code></li>
+<li><code>det()</code></li>
+<li><code>solve(Matrix $B)</code></li>
+</ul>
+</body></html>

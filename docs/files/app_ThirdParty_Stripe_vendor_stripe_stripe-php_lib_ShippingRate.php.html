@@ -1,0 +1,46 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\ShippingRate.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\ShippingRate.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\ShippingRate.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2459 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Shipping rates describe the price of shipping presented to your customers and</p>
+<p>can be applied to <a</p>
+<p>href="https://stripe.com/docs/payments/checkout/shipping">Checkout Sessions</a></p>
+<p>and <a href="https://stripe.com/docs/orders/shipping">Orders</a> to collect</p>
+<p>shipping costs.</p>
+<p>@property string $id Unique identifier for the object.</p>
+<p>@property string $object String representing the object's type. Objects of the same type share the same value.</p>
+<p>@property bool $active Whether the shipping rate can be used for new purchases. Defaults to <code>true</code>.</p>
+<p>@property int $created Time at which the object was created. Measured in seconds since the Unix epoch.</p>
+<p>@property null|\Stripe\StripeObject $delivery_estimate The estimated range for how long shipping will take, meant to be displayable to the customer. This will appear on CheckoutSessions.</p>
+<p>@property null|string $display_name The name of the shipping rate, meant to be displayable to the customer. This will appear on CheckoutSessions.</p>
+<p>@property \Stripe\StripeObject $fixed_amount</p>
+<p>@property bool $livemode Has the value <code>true</code> if the object exists in live mode or the value <code>false</code> if the object exists in test mode.</p>
+<p>@property \Stripe\StripeObject $metadata Set of <a href="https://stripe.com/docs/api/metadata">key-value pairs</a> that you can attach to an object. This can be useful for storing additional information about the object in a structured format.</p>
+<p>@property null|string $tax_behavior Specifies whether the rate is considered inclusive of taxes or exclusive of taxes. One of <code>inclusive</code>, <code>exclusive</code>, or <code>unspecified</code>.</p>
+<p>@property null|string|\Stripe\TaxCode $tax_code A <a href="https://stripe.com/docs/tax/tax-categories">tax code</a> ID. The Shipping tax code is <code>txcd_92010001</code>.</p>
+<p>@property string $type The type of calculation to use on the shipping rate. Can only be <code>fixed_amount</code> for now.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\ShippingRate.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\ShippingRate extends ApiResource</code></li>
+</ul>
+</body></html>

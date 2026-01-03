@@ -1,0 +1,70 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\SubjectConsumer.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\SubjectConsumer.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\SubjectConsumer.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2133 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Extends GenericConsumer to remove its sub consumers.</p>
+<p>Prior to this, subject headers were parsed using the GenericConsumer which</p>
+<p>meant if the subject contained text within parentheses, it would not be</p>
+<p>included as part of the returned value in a getHeaderValue.  Mime-encoded</p>
+<p>parts within quotes would be ignored, and backslash characters denoted an</p>
+<p>escaped character.</p>
+<p>From testing in ThunderBird and Outlook web mail it seems quoting parts</p>
+<p>doesn't have an effect (e.g. quoting a "mime-literal" encoded part still</p>
+<p>comes out decoded), and parts in parentheses (comments) are displayed</p>
+<p>normally.</p>
+
+<p>@author Zaahid Bateson</p>
+
+<p>Returns an empty array</p>
+
+<p>@return AbstractConsumer[] the sub-consumers</p>
+
+<p>Returns an array of \ZBateson\MailMimeParser\Header\Part\HeaderPart for</p>
+<p>the current token on the iterator.</p>
+
+<p>Overridden from AbstractConsumer to remove special filtering for</p>
+<p>backslash escaping, which also seems to not apply to Subject headers at</p>
+<p>least in ThunderBird's implementation.</p>
+
+<p>@param Iterator $tokens</p>
+<p>@return \ZBateson\MailMimeParser\Header\Part\HeaderPart[]|array</p>
+
+<p>Overridden to not split out backslash characters and its next character</p>
+<p>as a special case defined in AbastractConsumer</p>
+
+<p>@return string the regex pattern</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>testing</code></li>
+<li><code>AbstractConsumer</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\SubjectConsumer.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Header\Consumer\SubjectConsumer extends GenericConsumer</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getSubConsumers()</code></li>
+<li><code>getTokenParts(Iterator $tokens)</code></li>
+<li><code>getTokenSplitPattern()</code></li>
+</ul>
+</body></html>

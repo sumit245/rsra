@@ -1,0 +1,130 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\CLI\GeneratorTrait.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\CLI\GeneratorTrait.php</h1>
+
+<ul>
+<li>Path: <code>system\CLI\GeneratorTrait.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9960 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>GeneratorTrait contains a collection of methods</p>
+<p>to build the commands that generates a file.</p>
+
+<p>Component Name</p>
+<p>@var string</p>
+
+<p>File directory</p>
+<p>@var string</p>
+
+<p>View template name</p>
+<p>@var string</p>
+
+<p>Language string key for required class names.</p>
+<p>@var string</p>
+
+<p>Whether to require class name.</p>
+<p>@internal</p>
+<p>@var bool</p>
+
+<p>Whether to sort class imports.</p>
+<p>@internal</p>
+<p>@var bool</p>
+
+<p>Whether the <code>--suffix</code> option has any effect.</p>
+<p>@internal</p>
+<p>@var bool</p>
+
+<p>The params array for easy access by other methods.</p>
+<p>@internal</p>
+<p>@var array</p>
+
+<p>Execute the command.</p>
+
+<p>Prepare options and do the necessary replacements.</p>
+
+<p>Change file basename before saving.</p>
+<p>Useful for components where the file name has a date.</p>
+
+<p>Parses the class name and checks if it is already qualified.</p>
+
+<p>@see https://regex101.com/r/a5KNCR/1</p>
+
+<p>Gets the generator view as defined in the <code>Config\Generators::$views</code>,</p>
+<p>with fallback to <code>$template</code> when the defined view does not exist.</p>
+
+<p>Performs pseudo-variables contained within view file.</p>
+
+<p>Builds the contents for class being generated, doing all</p>
+<p>the replacements necessary, and alphabetically sorts the</p>
+<p>imports for a given template.</p>
+
+<p>Builds the file path from the class name.</p>
+
+<p>Allows child generators to modify the internal <code>$hasClassName</code> flag.</p>
+<p>@return $this</p>
+
+<p>Allows child generators to modify the internal <code>$sortImports</code> flag.</p>
+<p>@return $this</p>
+
+<p>Allows child generators to modify the internal <code>$enabledSuffixing</code> flag.</p>
+<p>@return $this</p>
+
+<p>Gets a single command-line option. Returns TRUE if the option exists,</p>
+<p>but doesn't have a value, and is simply acting as a flag.</p>
+<p>@return mixed</p>
+
+<h2>References</h2>
+
+<p><strong>Views Rendered</strong></p>
+<ul>
+<li><code>CodeIgniter\\Commands\\Generators\\Views\\{$this->template}</code></li>
+</ul>
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>class</code></li>
+<li><code>input</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\CLI\GeneratorTrait.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\CLI\names</code></li>
+<li><code>CodeIgniter\CLI\name</code></li>
+<li><code>CodeIgniter\CLI\imports</code></li>
+<li><code>CodeIgniter\CLI\name</code></li>
+<li><code>CodeIgniter\CLI\name</code></li>
+<li><code>CodeIgniter\CLI\based</code></li>
+<li><code>CodeIgniter\CLI\name</code></li>
+<li><code>CodeIgniter\CLI\name</code></li>
+<li><code>CodeIgniter\CLI\name</code></li>
+<li><code>CodeIgniter\CLI\being</code></li>
+<li><code>CodeIgniter\CLI\name</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>execute(array $params)</code></li>
+<li><code>prepare(string $class)</code></li>
+<li><code>basename(string $filename)</code></li>
+<li><code>qualifyClassName()</code></li>
+<li><code>renderTemplate(array $data = [])</code></li>
+<li><code>parseTemplate(string $class, array $search = [], array $replace = [], array $data = [])</code></li>
+<li><code>buildContent(string $class)</code></li>
+<li><code>buildPath(string $class)</code></li>
+<li><code>setHasClassName(bool $hasClassName)</code></li>
+<li><code>setSortImports(bool $sortImports)</code></li>
+<li><code>setEnabledSuffixing(bool $enabledSuffixing)</code></li>
+<li><code>getOption(string $name)</code></li>
+</ul>
+</body></html>

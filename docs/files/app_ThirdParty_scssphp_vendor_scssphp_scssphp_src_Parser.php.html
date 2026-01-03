@@ -1,0 +1,556 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\scssphp\vendor\scssphp\scssphp\src\Parser.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\scssphp\vendor\scssphp\scssphp\src\Parser.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\scssphp\vendor\scssphp\scssphp\src\Parser.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 114591 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>SCSSPHP</p>
+<p>@copyright 2012-2020 Leaf Corcoran</p>
+<p>@license http://opensource.org/licenses/MIT MIT</p>
+<p>@link http://scssphp.github.io/scssphp</p>
+
+<p>Parser</p>
+<p>@author Leaf Corcoran <leafot@gmail.com></p>
+<p>@internal</p>
+
+<p>@var array<string, int></p>
+
+<p>@var string</p>
+
+<p>@var string</p>
+
+<p>@var string</p>
+
+<p>@var Cache|null</p>
+
+<p>@var array<int, int></p>
+
+<p>The current offset in the buffer</p>
+<p>@var int</p>
+
+<p>@var Block|null</p>
+
+<p>@var bool</p>
+
+<p>@var bool</p>
+
+<p>@var bool</p>
+
+<p>@var string</p>
+
+<p>@var string|null</p>
+
+<p>@var LoggerInterface</p>
+
+<p>Constructor</p>
+<p>@api</p>
+<p>@param string|null          $sourceName</p>
+<p>@param int                  $sourceIndex</p>
+<p>@param string|null          $encoding</p>
+<p>@param Cache|null           $cache</p>
+<p>@param bool                 $cssOnly</p>
+<p>@param LoggerInterface|null $logger</p>
+
+<p>Get source file name</p>
+<p>@api</p>
+<p>@return string</p>
+
+<p>Throw parser error</p>
+<p>@api</p>
+<p>@param string $msg</p>
+<p>@phpstan-return never-return</p>
+<p>@throws ParserException</p>
+<p>@deprecated use "parseError" and throw the exception in the caller instead.</p>
+
+<p>Creates a parser error</p>
+<p>@api</p>
+<p>@param string $msg</p>
+<p>@return ParserException</p>
+
+<p>Parser buffer</p>
+<p>@api</p>
+<p>@param string $buffer</p>
+<p>@return Block</p>
+
+<p>Parse a value or value list</p>
+<p>@api</p>
+<p>@param string       $buffer</p>
+<p>@param string|array $out</p>
+<p>@return bool</p>
+
+<p>Parse a selector or selector list</p>
+<p>@api</p>
+<p>@param string       $buffer</p>
+<p>@param string|array $out</p>
+<p>@param bool         $shouldValidate</p>
+<p>@return bool</p>
+
+<p>Parse a media Query</p>
+<p>@api</p>
+<p>@param string $buffer</p>
+<p>@param array  $out</p>
+<p>@return bool</p>
+
+<p>Parse a single chunk off the head of the buffer and append it to the</p>
+<p>current parse environment.</p>
+<p>Returns false when the buffer is empty, or when there is an error.</p>
+<p>This function is called repeatedly until the entire document is</p>
+<p>parsed.</p>
+<p>This parser is most similar to a recursive descent parser. Single</p>
+<p>functions represent discrete grammatical rules for the language, and</p>
+<p>they are able to capture the text that represents those rules.</p>
+<p>Consider the function Compiler::keyword(). (All parse functions are</p>
+<p>structured the same.)</p>
+<p>The function takes a single reference argument. When calling the</p>
+<p>function it will attempt to match a keyword on the head of the buffer.</p>
+<p>If it is successful, it will place the keyword in the referenced</p>
+<p>argument, advance the position in the buffer, and return true. If it</p>
+<p>fails then it won't advance the buffer and it will return false.</p>
+<p>All of these parse functions are powered by Compiler::match(), which behaves</p>
+<p>the same way, but takes a literal regular expression. Sometimes it is</p>
+<p>more convenient to use match instead of creating a new function.</p>
+<p>Because of the format of the functions, to parse an entire string of</p>
+<p>grammatical rules, you can chain them together using &&.</p>
+<p>But, if some of the rules in the chain succeed before one fails, then</p>
+<p>the buffer position will be left at an invalid state. In order to</p>
+<p>avoid this, Compiler::seek() is used to remember and set buffer positions.</p>
+<p>Before parsing a chain, use $s = $this->count to remember the current</p>
+<p>position into $s. Then if a chain fails, use $this->seek($s) to</p>
+<p>go back where we started.</p>
+<p>@return bool</p>
+
+<p>Push block onto parse tree</p>
+<p>@param array|null $selectors</p>
+<p>@param int        $pos</p>
+<p>@return Block</p>
+
+<p>@param Block $b</p>
+<p>@param int   $pos</p>
+<p>@return void</p>
+
+<p>Push special (named) block onto parse tree</p>
+<p>@deprecated</p>
+<p>@param string  $type</p>
+<p>@param int     $pos</p>
+<p>@return Block</p>
+
+<p>Pop scope and return last block</p>
+<p>@return Block</p>
+<p>@throws \Exception</p>
+
+<p>Peek input stream</p>
+<p>@param string $regex</p>
+<p>@param array  $out</p>
+<p>@param int    $from</p>
+<p>@return int</p>
+
+<p>Seek to position in input stream (or return current position in input stream)</p>
+<p>@param int $where</p>
+<p>@return void</p>
+
+<p>Assert a parsed part is plain CSS Valid</p>
+<p>@param array|false $parsed</p>
+<p>@param int         $startPos</p>
+<p>@return array</p>
+<p>@throws ParserException</p>
+
+<p>Check a parsed element is plain CSS Valid</p>
+<p>@param array $parsed</p>
+<p>@param bool  $allowExpression</p>
+<p>@return array|false</p>
+
+<p>Match string looking for either ending delim, escape, or string interpolation</p>
+<p>{@internal This is a workaround for preg_match's 250K string match limit. }}</p>
+<p>@param array  $m     Matches (passed by reference)</p>
+<p>@param string $delim Delimiter</p>
+<p>@return bool True if match; false otherwise</p>
+<p>@phpstan-impure</p>
+
+<p>Try to match something on head of buffer</p>
+<p>@param string $regex</p>
+<p>@param array  $out</p>
+<p>@param bool   $eatWhitespace</p>
+<p>@return bool</p>
+<p>@phpstan-impure</p>
+
+<p>Match a single string</p>
+<p>@param string $char</p>
+<p>@param bool   $eatWhitespace</p>
+<p>@return bool</p>
+<p>@phpstan-impure</p>
+
+<p>Match literal string</p>
+<p>@param string $what</p>
+<p>@param int    $len</p>
+<p>@param bool   $eatWhitespace</p>
+<p>@return bool</p>
+<p>@phpstan-impure</p>
+
+<p>Match some whitespace</p>
+<p>@return bool</p>
+<p>@phpstan-impure</p>
+
+<p>Append comment to current block</p>
+<p>@param array $comment</p>
+<p>@return void</p>
+
+<p>Append statement to current block</p>
+<p>@param array|null $statement</p>
+<p>@param int        $pos</p>
+<p>@return void</p>
+
+<p>Returns last child was appended</p>
+<p>@return array|null</p>
+
+<p>Parse media query list</p>
+<p>@param array $out</p>
+<p>@return bool</p>
+
+<p>Parse media query</p>
+<p>@param array $out</p>
+<p>@return bool</p>
+
+<p>Parse supports query</p>
+<p>@param array $out</p>
+<p>@return bool</p>
+
+<p>Parse media expression</p>
+<p>@param array $out</p>
+<p>@return bool</p>
+
+<p>Parse argument values</p>
+<p>@param array $out</p>
+<p>@return bool</p>
+
+<p>Parse argument value</p>
+<p>@param array $out</p>
+<p>@return bool</p>
+
+<p>Check if a generic directive is known to be able to allow almost any syntax or not</p>
+<p>@param mixed $directiveName</p>
+<p>@return bool</p>
+
+<p>Parse directive value list that considers $vars as keyword</p>
+<p>@param array        $out</p>
+<p>@param string|false $endChar</p>
+<p>@return bool</p>
+<p>@phpstan-impure</p>
+
+<p>Parse comma separated value list</p>
+<p>@param array $out</p>
+<p>@return bool</p>
+
+<p>Parse a function call, where externals () are part of the call</p>
+<p>and not of the value list</p>
+<p>@param array       $out</p>
+<p>@param bool        $mandatoryEnclos</p>
+<p>@param null|string $charAfter</p>
+<p>@param null|bool   $eatWhiteSp</p>
+<p>@return bool</p>
+
+<p>Parse space separated value list</p>
+<p>@param array $out</p>
+<p>@return bool</p>
+
+<p>Parse generic list</p>
+<p>@param array  $out</p>
+<p>@param string $parseItem The name of the method used to parse items</p>
+<p>@param string $delim</p>
+<p>@param bool   $flatten</p>
+<p>@return bool</p>
+
+<p>@var array|Number|null $value</p>
+
+<p>@var string $word</p>
+
+<p>@var array|Number|null $nextValue</p>
+
+<p>Parse expression</p>
+<p>@param array $out</p>
+<p>@param bool  $listOnly</p>
+<p>@param bool  $lookForExp</p>
+<p>@return bool</p>
+<p>@phpstan-impure</p>
+
+<p>Parse expression specifically checking for lists in parenthesis or brackets</p>
+<p>@param array    $out</p>
+<p>@param int      $s</p>
+<p>@param string   $closingParen</p>
+<p>@param string[] $allowedTypes</p>
+<p>@return bool</p>
+<p>@phpstan-param array<Type::*> $allowedTypes</p>
+
+<p>Parse left-hand side of subexpression</p>
+<p>@param array $lhs</p>
+<p>@param int   $minP</p>
+<p>@return array</p>
+
+<p>Parse value</p>
+<p>@param array $out</p>
+<p>@return bool</p>
+
+<p>Parse parenthesized value</p>
+<p>@param array $out</p>
+<p>@return bool</p>
+
+<p>Parse "progid:"</p>
+<p>@param array $out</p>
+<p>@return bool</p>
+
+<p>Parse function call</p>
+<p>@param string $name</p>
+<p>@param array  $func</p>
+<p>@return bool</p>
+
+<p>Parse function call argument list</p>
+<p>@param array $out</p>
+<p>@return bool</p>
+
+<p>Parse mixin/function definition  argument list</p>
+<p>@param array $out</p>
+<p>@return bool</p>
+
+<p>Parse map</p>
+<p>@param array $out</p>
+<p>@return bool</p>
+
+<p>Parse color</p>
+<p>@param array $out</p>
+<p>@return bool</p>
+
+<p>Parse number with unit</p>
+<p>@param array $unit</p>
+<p>@return bool</p>
+
+<p>Parse string</p>
+<p>@param array $out</p>
+<p>@param bool  $keepDelimWithInterpolation</p>
+<p>@return bool</p>
+
+<p>@param string $out</p>
+<p>@param bool   $inKeywords</p>
+<p>@return bool</p>
+
+<p>Parse keyword or interpolation</p>
+<p>@param array $out</p>
+<p>@param bool  $restricted</p>
+<p>@return bool</p>
+
+<p>Parse an unbounded string stopped by $end</p>
+<p>@param string $end</p>
+<p>@param array  $out</p>
+<p>@param string $nestOpen</p>
+<p>@param string $nestClose</p>
+<p>@param bool   $rtrim</p>
+<p>@param string $disallow</p>
+<p>@return bool</p>
+
+<p>Parser interpolation</p>
+<p>@param string|array $out</p>
+<p>@param bool         $lookWhite save information about whitespace before and after</p>
+<p>@return bool</p>
+
+<p>Parse property name (as an array of parts or a string)</p>
+<p>@param array $out</p>
+<p>@return bool</p>
+
+<p>Parse custom property name (as an array of parts or a string)</p>
+<p>@param array $out</p>
+<p>@return bool</p>
+
+<p>Parse comma separated selector list</p>
+<p>@param array $out</p>
+<p>@param string|bool $subSelector</p>
+<p>@return bool</p>
+
+<p>Parse whitespace separated selector list</p>
+<p>@param array          $out</p>
+<p>@param string|bool $subSelector</p>
+<p>@return bool</p>
+
+<p>parsing escaped chars in selectors:</p>
+<ul>
+<li>escaped single chars are kept escaped in the selector but in a normalized form</li>
+<p>  (if not in 0-9a-f range as this would be ambigous)</p>
+<li>other escaped sequences (multibyte chars or 0-9a-f) are kept in their initial escaped form,</li>
+<p>  normalized to lowercase</p>
+<p>TODO: this is a fallback solution. Ideally escaped chars in selectors should be encoded as the genuine chars,</p>
+<p>and escaping added when printing in the Compiler, where/if it's mandatory</p>
+<li>but this require a better formal selector representation instead of the array we have now</li>
+<p>@param string $out</p>
+<p>@param bool   $keepEscapedNumber</p>
+<p>@return bool</p>
+</ul>
+<p>Parse the parts that make up a selector</p>
+<p>{@internal</p>
+<p>    div[yes=no]#something.hello.world:nth-child(-2n+1)%placeholder</p>
+<p>}}</p>
+<p>@param array          $out</p>
+<p>@param string|bool $subSelector</p>
+<p>@return bool</p>
+
+<p>Parse a variable</p>
+<p>@param array $out</p>
+<p>@return bool</p>
+
+<p>Parse a keyword</p>
+<p>@param string $word</p>
+<p>@param bool   $eatWhitespace</p>
+<p>@param bool   $inSelector</p>
+<p>@return bool</p>
+
+<p>Parse a keyword that should not start with a number</p>
+<p>@param string $word</p>
+<p>@param bool   $eatWhitespace</p>
+<p>@param bool   $inSelector</p>
+<p>@return bool</p>
+
+<p>Parse a placeholder</p>
+<p>@param string|array $placeholder</p>
+<p>@return bool</p>
+
+<p>Parse a url</p>
+<p>@param array $out</p>
+<p>@return bool</p>
+
+<p>Consume an end of statement delimiter</p>
+<p>@param bool $eatWhitespace</p>
+<p>@return bool</p>
+
+<p>Strip assignment flag from the list</p>
+<p>@param array $value</p>
+<p>@return string[]</p>
+
+<p>Strip optional flag from selector list</p>
+<p>@param array $selectors</p>
+<p>@return bool</p>
+
+<p>Turn list of length 1 into value type</p>
+<p>@param array $value</p>
+<p>@return array</p>
+
+<p>Quote regular expression</p>
+<p>@param string $what</p>
+<p>@return string</p>
+
+<p>Extract line numbers from buffer</p>
+<p>@param string $buffer</p>
+<p>@return void</p>
+
+<p>Get source line number and column (given character position in the buffer)</p>
+<p>@param int $pos</p>
+<p>@return array</p>
+<p>@phpstan-return array{int, int}</p>
+
+<p>Save internal encoding of mbstring</p>
+<p>When mbstring.func_overload is used to replace the standard PHP string functions,</p>
+<p>this method configures the internal encoding to a single-byte one so that the</p>
+<p>behavior matches the normal behavior of PHP string functions while using the parser.</p>
+<p>The existing internal encoding is saved and will be restored when calling {@see restoreEncoding}.</p>
+<p>If mbstring.func_overload is not used (or does not override string functions), this method is a no-op.</p>
+<p>@return void</p>
+
+<p>Restore internal encoding</p>
+<p>@return void</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>selector</code></li>
+<li><code>buffer</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\scssphp\vendor\scssphp\scssphp\src\Parser.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ScssPhp\ScssPhp\Parser</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($sourceName, $sourceIndex = 0, $encoding = 'utf-8', Cache $cache = null, $cssOnly = false, LoggerInterface $logger = null)</code></li>
+<li><code>getSourceName()</code></li>
+<li><code>throwParseError($msg = 'parse error')</code></li>
+<li><code>parseError($msg = 'parse error')</code></li>
+<li><code>parse($buffer)</code></li>
+<li><code>parseValue($buffer, &$out)</code></li>
+<li><code>parseSelector($buffer, &$out, $shouldValidate = true)</code></li>
+<li><code>parseMediaQueryList($buffer, &$out)</code></li>
+<li><code>parseChunk()</code></li>
+<li><code>pushBlock($selectors, $pos = 0)</code></li>
+<li><code>registerPushedBlock(Block $b, $pos)</code></li>
+<li><code>pushSpecialBlock($type, $pos)</code></li>
+<li><code>popBlock()</code></li>
+<li><code>peek($regex, &$out, $from = null)</code></li>
+<li><code>seek($where)</code></li>
+<li><code>assertPlainCssValid($parsed, $startPos = null)</code></li>
+<li><code>isPlainCssValidElement($parsed, $allowExpression = false)</code></li>
+<li><code>matchString(&$m, $delim)</code></li>
+<li><code>match($regex, &$out, $eatWhitespace = null)</code></li>
+<li><code>matchChar($char, $eatWhitespace = null)</code></li>
+<li><code>literal($what, $len, $eatWhitespace = null)</code></li>
+<li><code>whitespace()</code></li>
+<li><code>appendComment($comment)</code></li>
+<li><code>append($statement, $pos = null)</code></li>
+<li><code>last()</code></li>
+<li><code>mediaQueryList(&$out)</code></li>
+<li><code>mediaQuery(&$out)</code></li>
+<li><code>supportsQuery(&$out)</code></li>
+<li><code>mediaExpression(&$out)</code></li>
+<li><code>argValues(&$out)</code></li>
+<li><code>argValue(&$out)</code></li>
+<li><code>isKnownGenericDirective($directiveName)</code></li>
+<li><code>directiveValue(&$out, $endChar = false)</code></li>
+<li><code>valueList(&$out)</code></li>
+<li><code>functionCallArgumentsList(&$out, $mandatoryEnclos = true, $charAfter = null, $eatWhiteSp = null)</code></li>
+<li><code>spaceList(&$out)</code></li>
+<li><code>genericList(&$out, $parseItem, $delim = '', $flatten = true)</code></li>
+<li><code>expression(&$out, $listOnly = false, $lookForExp = true)</code></li>
+<li><code>enclosedExpression(&$out, $s, $closingParen = ')</code></li>
+<li><code>expHelper($lhs, $minP)</code></li>
+<li><code>value(&$out)</code></li>
+<li><code>parenValue(&$out)</code></li>
+<li><code>progid(&$out)</code></li>
+<li><code>func($name, &$func)</code></li>
+<li><code>argumentList(&$out)</code></li>
+<li><code>argumentDef(&$out)</code></li>
+<li><code>map(&$out)</code></li>
+<li><code>color(&$out)</code></li>
+<li><code>unit(&$unit)</code></li>
+<li><code>string(&$out, $keepDelimWithInterpolation = false)</code></li>
+<li><code>matchEscapeCharacter(&$out, $inKeywords = false)</code></li>
+<li><code>mixedKeyword(&$out, $restricted = false)</code></li>
+<li><code>openString($end, &$out, $nestOpen = null, $nestClose = null, $rtrim = true, $disallow = null)</code></li>
+<li><code>interpolation(&$out, $lookWhite = true)</code></li>
+<li><code>propertyName(&$out)</code></li>
+<li><code>customProperty(&$out)</code></li>
+<li><code>selectors(&$out, $subSelector = false)</code></li>
+<li><code>selector(&$out, $subSelector = false)</code></li>
+<li><code>matchEscapeCharacterInSelector(&$out, $keepEscapedNumber = false)</code></li>
+<li><code>selectorSingle(&$out, $subSelector = false)</code></li>
+<li><code>variable(&$out)</code></li>
+<li><code>keyword(&$word, $eatWhitespace = null, $inSelector = false)</code></li>
+<li><code>restrictedKeyword(&$word, $eatWhitespace = null, $inSelector = false)</code></li>
+<li><code>placeholder(&$placeholder)</code></li>
+<li><code>url(&$out)</code></li>
+<li><code>end($eatWhitespace = null)</code></li>
+<li><code>stripAssignmentFlags(&$value)</code></li>
+<li><code>stripOptionalFlag(&$selectors)</code></li>
+<li><code>flattenList($value)</code></li>
+<li><code>pregQuote($what)</code></li>
+<li><code>extractLineNumbers($buffer)</code></li>
+<li><code>getSourcePosition($pos)</code></li>
+<li><code>saveEncoding()</code></li>
+<li><code>restoreEncoding()</code></li>
+</ul>
+</body></html>

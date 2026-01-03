@@ -1,0 +1,113 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\SearchResult.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\SearchResult.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\SearchResult.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 6552 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Search results for an API resource.</p>
+<p>This behaves similarly to <code>Collection</code> in that they both wrap</p>
+<p>around a list of objects and provide pagination. However the</p>
+<p><code>SearchResult</code> object paginates by relying on a</p>
+<p><code>next_page</code> token included in the response rather than using</p>
+<p>object IDs and a <code>starting_before</code>/<code>ending_after</code></p>
+<p>parameter. Thus, <code>SearchResult</code> only supports forwards pagination.</p>
+<p>The {@see $total_count} property is only available when</p>
+<p>the <code>expand</code> parameter contains <code>total_count</code>.</p>
+<p>@template TStripeObject of StripeObject</p>
+<p>@template-implements \IteratorAggregate<TStripeObject></p>
+<p>@property string $object</p>
+<p>@property string $url</p>
+<p>@property string $next_page</p>
+<p>@property int $total_count</p>
+<p>@property bool $has_more</p>
+<p>@property TStripeObject[] $data</p>
+
+<p>@var array</p>
+
+<p>@return string the base URL for the given class</p>
+
+<p>Returns the filters.</p>
+<p>@return array the filters</p>
+
+<p>Sets the filters, removing paging options.</p>
+<p>@param array $filters the filters</p>
+
+<p>@return mixed</p>
+
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws Exception\ApiErrorException</p>
+<p>@return SearchResult<TStripeObject></p>
+
+<p>@return int the number of objects in the current page</p>
+
+<p>@return \ArrayIterator an iterator that can be used to iterate</p>
+<p>   across objects in the current page</p>
+
+<p>@return \Generator|TStripeObject[] A generator that can be used to</p>
+<p>   iterate across all objects across all pages. As page boundaries are</p>
+<p>   encountered, the next page will be fetched automatically for</p>
+<p>   continued iteration.</p>
+
+<p>Returns an empty set of search results. This is returned from</p>
+<p>{@see nextPage()} when we know that there isn't a next page in order to</p>
+<p>replicate the behavior of the API when it attempts to return a page</p>
+<p>beyond the last.</p>
+<p>@param null|array|string $opts</p>
+<p>@return SearchResult</p>
+
+<p>Returns true if the page object contains no element.</p>
+<p>@return bool</p>
+
+<p>Fetches the next page in the resource list (if there is one).</p>
+<p>This method will try to respect the limit of the current page. If none</p>
+<p>was given, the default limit will be fetched again.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@return SearchResult<TStripeObject></p>
+
+<p>Gets the first item from the current page. Returns <code>null</code> if the current page is empty.</p>
+<p>@return null|TStripeObject</p>
+
+<p>Gets the last item from the current page. Returns <code>null</code> if the current page is empty.</p>
+<p>@return null|TStripeObject</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\SearchResult.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\SearchResult extends StripeObject implements \Countable, \IteratorAggregate</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>baseUrl()</code></li>
+<li><code>getFilters()</code></li>
+<li><code>setFilters($filters)</code></li>
+<li><code>offsetGet($k)</code></li>
+<li><code>all($params = null, $opts = null)</code></li>
+<li><code>count()</code></li>
+<li><code>getIterator()</code></li>
+<li><code>autoPagingIterator()</code></li>
+<li><code>emptySearchResult($opts = null)</code></li>
+<li><code>isEmpty()</code></li>
+<li><code>nextPage($params = null, $opts = null)</code></li>
+<li><code>first()</code></li>
+<li><code>last()</code></li>
+<li><code>extractPathAndUpdateParams($params)</code></li>
+</ul>
+</body></html>

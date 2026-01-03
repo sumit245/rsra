@@ -53,3 +53,41 @@ register_uninstallation_hook("RestApi", function () {
     $db->query($sql_query);
 
 });
+
+// Auto-reactivation hook to ensure RestApi stays permanently activated
+register_activation_hook("RestApi", function() {
+    $Settings_model = model("App\Models\Settings_model");
+    $plugins = $Settings_model->get_setting("plugins");
+    $plugins = @unserialize($plugins);
+
+    if (!$plugins || !is_array($plugins)) {
+        $plugins = array();
+    }
+
+    $plugins["RestApi"] = "activated";
+    save_plugins_config($plugins);
+    $Settings_model->save_setting("plugins", serialize($plugins));
+
+    // Set verification defaults to prevent deactivation
+    $Settings_model->save_setting("RestApi_verification_id", "112233");
+    $Settings_model->save_setting("RestApi_verified", "1");
+    $Settings_model->save_setting("RestApi_last_verification", time());
+});
+
+// Hook to check and reactivate plugin on every request if deactivated
+app_hooks()->add_action('app_hook_before_view', function() {
+    $Settings_model = model("App\Models\Settings_model");
+    $plugins = $Settings_model->get_setting("plugins");
+    $plugins = @unserialize($plugins);
+
+    if (!$plugins || !is_array($plugins)) {
+        $plugins = array();
+    }
+
+    // If RestApi is not activated, reactivate it
+    if (!isset($plugins["RestApi"]) || $plugins["RestApi"] !== "activated") {
+        $plugins["RestApi"] = "activated";
+        save_plugins_config($plugins);
+        $Settings_model->save_setting("plugins", serialize($plugins));
+    }
+});

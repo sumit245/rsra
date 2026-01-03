@@ -1,0 +1,71 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\ArrayEnabled.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\ArrayEnabled.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\ArrayEnabled.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5032 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@var ArrayArgumentHelper</p>
+
+<p>@param array|false $arguments Can be changed to array for Php8.1+</p>
+
+<p>Handles array argument processing when the function accepts a single argument that can be an array argument.</p>
+<p>Example use for:</p>
+<p>        DAYOFMONTH() or FACT().</p>
+
+<p>Handles array argument processing when the function accepts multiple arguments,</p>
+<p>    and any of them can be an array argument.</p>
+<p>Example use for:</p>
+<p>        ROUND() or DATE().</p>
+<p>@param mixed ...$arguments</p>
+
+<p>Handles array argument processing when the function accepts multiple arguments,</p>
+<p>    but only the first few (up to limit) can be an array arguments.</p>
+<p>Example use for:</p>
+<p>        NETWORKDAYS() or CONCATENATE(), where the last argument is a matrix (or a series of values) that need</p>
+<p>                                        to be treated as a such rather than as an array arguments.</p>
+<p>@param mixed ...$arguments</p>
+
+<p>@param mixed $value</p>
+
+<p>Handles array argument processing when the function accepts multiple arguments,</p>
+<p>    but only the last few (from start) can be an array arguments.</p>
+<p>Example use for:</p>
+<p>        Z.TEST() or INDEX(), where the first argument 1 is a matrix that needs to be treated as a dataset</p>
+<p>                  rather than as an array argument.</p>
+<p>@param mixed ...$arguments</p>
+
+<p>Handles array argument processing when the function accepts multiple arguments,</p>
+<p>    and any of them can be an array argument except for the one specified by ignore.</p>
+<p>Example use for:</p>
+<p>        HLOOKUP() and VLOOKUP(), where argument 1 is a matrix that needs to be treated as a database</p>
+<p>                                 rather than as an array argument.</p>
+<p>@param mixed ...$arguments</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>start</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\ArrayEnabled.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>initialiseHelper($arguments)</code></li>
+<li><code>evaluateSingleArgumentArray(callable $method, array $values)</code></li>
+<li><code>evaluateArrayArguments(callable $method, ...$arguments)</code></li>
+<li><code>evaluateArrayArgumentsSubset(callable $method, int $limit, ...$arguments)</code></li>
+<li><code>testFalse($value)</code></li>
+<li><code>evaluateArrayArgumentsSubsetFrom(callable $method, int $start, ...$arguments)</code></li>
+<li><code>evaluateArrayArgumentsIgnore(callable $method, int $ignore, ...$arguments)</code></li>
+</ul>
+</body></html>

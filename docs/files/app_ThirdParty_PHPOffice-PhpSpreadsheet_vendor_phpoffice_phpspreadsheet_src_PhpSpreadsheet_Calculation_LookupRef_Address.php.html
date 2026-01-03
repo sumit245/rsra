@@ -1,0 +1,53 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\LookupRef\Address.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\LookupRef\Address.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\LookupRef\Address.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4557 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>ADDRESS.</p>
+<p>Creates a cell address as text, given specified row and column numbers.</p>
+<p>Excel Function:</p>
+<p>       =ADDRESS(row, column, [relativity], [referenceStyle], [sheetText])</p>
+<p>@param mixed $row Row number (integer) to use in the cell reference</p>
+<p>                     Or can be an array of values</p>
+<p>@param mixed $column Column number (integer) to use in the cell reference</p>
+<p>                     Or can be an array of values</p>
+<p>@param mixed $relativity Integer flag indicating the type of reference to return</p>
+<p>                            1 or omitted    Absolute</p>
+<p>                            2               Absolute row; relative column</p>
+<p>                            3               Relative row; absolute column</p>
+<p>                            4               Relative</p>
+<p>                     Or can be an array of values</p>
+<p>@param mixed $referenceStyle A logical (boolean) value that specifies the A1 or R1C1 reference style.</p>
+<p>                               TRUE or omitted    ADDRESS returns an A1-style reference</p>
+<p>                               FALSE              ADDRESS returns an R1C1-style reference</p>
+<p>                     Or can be an array of values</p>
+<p>@param mixed $sheetName Optional Name of worksheet to use</p>
+<p>                     Or can be an array of values</p>
+<p>@return array|string</p>
+<p>        If an array of values is passed as the $testValue argument, then the returned result will also be</p>
+<p>           an array with the same dimensions</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\LookupRef\Address.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\LookupRef\Address</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>cell($row, $column, $relativity = 1, $referenceStyle = true, $sheetName = '')</code></li>
+<li><code>sheetName(string $sheetName)</code></li>
+<li><code>formatAsA1(int $row, int $column, int $relativity, string $sheetName)</code></li>
+<li><code>formatAsR1C1(int $row, int $column, int $relativity, string $sheetName)</code></li>
+</ul>
+</body></html>

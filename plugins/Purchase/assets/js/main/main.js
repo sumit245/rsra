@@ -1,6 +1,4 @@
 $(".select2").select2();
-
-// Set datatables error throw console log
 $.fn.dataTable.ext.errMode = 'throw';
 $.fn.dataTableExt.oStdClasses.sWrapper = 'dataTables_wrapper form-inline dt-bootstrap table-loading pt15 pl15 pr15';
 
@@ -11,7 +9,6 @@ var original_top_search_val,
 	table_estimates,
 	table_invoices,
 	table_tasks,
-
 	side_bar = $('#sidebar-menu'),
 	content_wrapper = $('#wrapper'),
 	setup_menu = $('#setup-menu-wrapper'),
@@ -85,6 +82,7 @@ function initDataTable(selector, url, notsearchable, notsortable, fnserverparams
 	length_options.sort(function (a, b) {
 		return a - b;
 	});
+
 	length_options_names.sort(function (a, b) {
 		return a - b;
 	});
@@ -133,7 +131,7 @@ function initDataTable(selector, url, notsearchable, notsortable, fnserverparams
 
 			var $btnColVis = $('.dt-column-visibility');
 			$btnColVis.attr('data-toggle', 'tooltip');
-	
+
 			$btnColVis.attr('title', 'Visibility');
 
 			t.wrap('<div class="table-responsive"></div>');
@@ -176,24 +174,24 @@ function initDataTable(selector, url, notsearchable, notsortable, fnserverparams
 			}
 		},
 		"language": {
-                lengthMenu: "_MENU_",
-                zeroRecords: AppLanugage.noRecordFound,
-                info: "_START_-_END_ / _TOTAL_",
-                sInfo: "_START_-_END_ / _TOTAL_",
-                infoFiltered: "(_MAX_)",
-                search: "",
-                searchPlaceholder: AppLanugage.search,
-                sInfoEmpty: "0-0 / 0",
-                sInfoFiltered: "(_MAX_)",
-                sInfoPostFix: "",
-                sInfoThousands: ",",
-                sProcessing: "<div class='table-loader'><span class='loading'></span></div>",
-                "oPaginate": {
-                    "sPrevious": "<i data-feather='chevrons-left' class='icon-16'></i>",
-                    "sNext": "<i data-feather='chevrons-right' class='icon-16'></i>"
-                }
+			lengthMenu: "_MENU_",
+			zeroRecords: AppLanugage.noRecordFound,
+			info: "_START_-_END_ / _TOTAL_",
+			sInfo: "_START_-_END_ / _TOTAL_",
+			infoFiltered: "(_MAX_)",
+			search: "",
+			searchPlaceholder: AppLanugage.search,
+			sInfoEmpty: "0-0 / 0",
+			sInfoFiltered: "(_MAX_)",
+			sInfoPostFix: "",
+			sInfoThousands: ",",
+			sProcessing: "<div class='table-loader'><span class='loading'></span></div>",
+			"oPaginate": {
+				"sPrevious": "<i data-feather='chevrons-left' class='icon-16'></i>",
+				"sNext": "<i data-feather='chevrons-right' class='icon-16'></i>"
+			}
 
-            },
+		},
 		buttons: get_datatable_buttons(table),
 	};
 
@@ -242,20 +240,19 @@ function initDataTable(selector, url, notsearchable, notsortable, fnserverparams
 	table.on('preXhr.dt', function (e, settings, data) {
 		if (settings.jqXHR) settings.jqXHR.abort();
 	});
-
 	return tableApi;
 }
 
 // Check if field is empty
 function empty(data) {
 	"use strict";
-	if (typeof(data) == 'number' || typeof(data) == 'boolean') {
+	if (typeof (data) == 'number' || typeof (data) == 'boolean') {
 		return false;
 	}
-	if (typeof(data) == 'undefined' || data === null) {
+	if (typeof (data) == 'undefined' || data === null) {
 		return true;
 	}
-	if (typeof(data.length) != 'undefined') {
+	if (typeof (data.length) != 'undefined') {
 		return data.length === 0;
 	}
 	var count = 0;
@@ -273,17 +270,14 @@ function empty(data) {
 function get_datatable_buttons(table) {
 	"use strict";
 	// pdfmake arabic fonts support
-
-
 	var formatExport = {
-		body: function(data, row, column, node) {
+		body: function (data, row, column, node) {
 
 			// Fix for notes inline datatables
 			// Causing issues because of the hidden textarea for edit and the content is duplicating
 			// This logic may be extended in future for other similar fixes
 			var newTmpRow = $('<div></div>', data);
 			newTmpRow.append(data);
-
 			if (newTmpRow.find('[data-note-edit-textarea]').length > 0) {
 				newTmpRow.find('[data-note-edit-textarea]').remove();
 				data = newTmpRow.html().trim();
@@ -291,8 +285,8 @@ function get_datatable_buttons(table) {
 			// Convert e.q. two months ago to actual date
 			var exportTextHasActionDate = newTmpRow.find('.text-has-action.is-date');
 
-			if(exportTextHasActionDate.length) {
-			   data = exportTextHasActionDate.attr('data-title');
+			if (exportTextHasActionDate.length) {
+				data = exportTextHasActionDate.attr('data-title');
 			}
 
 			if (newTmpRow.find('.row-options').length > 0) {
@@ -305,48 +299,45 @@ function get_datatable_buttons(table) {
 				data = newTmpRow.html().trim();
 			}
 
-
-
 			// Datatables use the same implementation to strip the html.
 			var div = document.createElement("div");
 			div.innerHTML = data;
 			var text = div.textContent || div.innerText || "";
-
 			return text.trim();
 		}
 	};
 	var table_buttons_options = [];
 
-	if (typeof(table_export_button_is_hidden) != 'function' || !table_export_button_is_hidden()) {
+	if (typeof (table_export_button_is_hidden) != 'function' || !table_export_button_is_hidden()) {
 		table_buttons_options.push({
 			extend: 'collection',
 			text: 'Export',
 			className: 'btn btn-default-dt-options',
 			buttons: [{
 				extend: 'excel',
-				text:AppLanugage.excel,
+				text: AppLanugage.excel,
 				footer: true,
 				exportOptions: {
 					columns: [':not(.not-export)'],
-					rows: function(index) {
+					rows: function (index) {
 						return _dt_maybe_export_only_selected_rows(index, table);
 					},
 					format: formatExport,
 				},
-			}, {
-			
+			},
+			{
 				extend: 'pdfHtml5',
 				text: AppLanugage.print,
 				footer: true,
 				exportOptions: {
 					columns: [':not(.not-export)'],
-					rows: function(index) {
+					rows: function (index) {
 						return _dt_maybe_export_only_selected_rows(index, table);
 					},
 					format: formatExport,
 				},
 				orientation: 'landscape',
-				customize: function(doc) {
+				customize: function (doc) {
 					// Fix for column widths
 					var table_api = $(table).DataTable();
 					var columns = table_api.columns().visible();
@@ -360,7 +351,7 @@ function get_datatable_buttons(table) {
 						}
 					}
 
-					setTimeout(function() {
+					setTimeout(function () {
 						if (total_visible_columns <= 5) {
 							var pdf_widths = [];
 							for (i = 0; i < total_visible_columns; i++) {
@@ -386,13 +377,14 @@ function get_datatable_buttons(table) {
 
 					doc.pageMargins = [2, 20, 2, 20];
 				}
-			}, {
+			},
+			{
 				extend: 'print',
 				text: AppLanugage.print,
 				footer: true,
 				exportOptions: {
 					columns: [':not(.not-export)'],
-					rows: function(index) {
+					rows: function (index) {
 						return _dt_maybe_export_only_selected_rows(index, table);
 					},
 					format: formatExport,
@@ -402,14 +394,14 @@ function get_datatable_buttons(table) {
 	}
 	var tableButtons = $("body").find('.table-btn');
 
-	$.each(tableButtons, function() {
+	$.each(tableButtons, function () {
 		var b = $(this);
 		if (b.length && b.attr('data-table')) {
 			if ($(table).is(b.attr('data-table'))) {
 				table_buttons_options.push({
 					text: b.text().trim(),
 					className: 'btn btn-default-dt-options',
-					action: function(e, dt, node, config) {
+					action: function (e, dt, node, config) {
 						b.click();
 					}
 				});
@@ -421,14 +413,11 @@ function get_datatable_buttons(table) {
 		table_buttons_options.push({
 			text: '<span data-feather="refresh-cw" class="icon-16"></span>',
 			className: 'btn btn-default-dt-options btn-dt-reload',
-			action: function(e, dt, node, config) {
+			action: function (e, dt, node, config) {
 				dt.ajax.reload();
 			}
 		});
 	}
-	
-
-
 
 	return table_buttons_options;
 }
@@ -467,7 +456,7 @@ function _table_jump_to_page(table, oSettings) {
 
 function is_mobile() {
 	"use strict";
-	if($(window).width() < 800){
+	if ($(window).width() < 800) {
 		return true;
 	}
 	return false;
@@ -505,327 +494,327 @@ function mainWrapperHeightFix() {
 }
 
 
-	// On mass_select all select all the availble rows in the tables.
-	$("body").on('change', '#mass_select_all', function () {
-		var to, rows, checked;
-		to = $(this).data('to-table');
+// On mass_select all select all the availble rows in the tables.
+$("body").on('change', '#mass_select_all', function () {
+	var to, rows, checked;
+	to = $(this).data('to-table');
 
-		rows = $('.table-' + to).find('tbody tr');
-		checked = $(this).prop('checked');
-		$.each(rows, function () {
-			$($(this).find('td').eq(0)).find('input').prop('checked', checked);
-		});
+	rows = $('.table-' + to).find('tbody tr');
+	checked = $(this).prop('checked');
+	$.each(rows, function () {
+		$($(this).find('td').eq(0)).find('input').prop('checked', checked);
 	});
+});
 
-	function _dt_maybe_export_only_selected_rows(index, table) {
-		"use strict";
-		table = $(table);
-		index = index.toString();
-		var bulkActionsCheckbox = table.find('thead th input[type="checkbox"]').eq(0);
-		if (bulkActionsCheckbox && bulkActionsCheckbox.length > 0) {
-			var rows = table.find('tbody tr');
-			var anyChecked = false;
-			$.each(rows, function() {
-				if ($(this).find('td:first input[type="checkbox"]:checked').length) {
-					anyChecked = true;
+function _dt_maybe_export_only_selected_rows(index, table) {
+	"use strict";
+	table = $(table);
+	index = index.toString();
+	var bulkActionsCheckbox = table.find('thead th input[type="checkbox"]').eq(0);
+	if (bulkActionsCheckbox && bulkActionsCheckbox.length > 0) {
+		var rows = table.find('tbody tr');
+		var anyChecked = false;
+		$.each(rows, function () {
+			if ($(this).find('td:first input[type="checkbox"]:checked').length) {
+				anyChecked = true;
+			}
+		});
+
+		if (anyChecked) {
+			if (table.find('tbody tr:eq(' + (index) + ') td:first input[type="checkbox"]:checked').length > 0) {
+				return index;
+			} else {
+				return null;
+			}
+		} else {
+			return index;
+		}
+	}
+	return index;
+}
+
+function init_ajax_search(type, selector, server_data, url) {
+	"use strict";
+	var ajaxSelector = $('body').find(selector);
+
+	if (ajaxSelector.length) {
+		var options = {
+			ajax: {
+				url: (typeof (url) == 'undefined' ? admin_url + 'misc/get_relation_data' : url),
+				data: function () {
+					var data = {};
+					data.type = type;
+					data.rel_id = '';
+					data.q = '{{{q}}}';
+					if (typeof (server_data) != 'undefined') {
+						jQuery.extend(data, server_data);
+					}
+					return data;
 				}
+			},
+			locale: {
+				emptyTitle: app.lang.search_ajax_empty,
+				statusInitialized: app.lang.search_ajax_initialized,
+				statusSearching: app.lang.search_ajax_searching,
+				statusNoResults: app.lang.not_results_found,
+				searchPlaceholder: app.lang.search_ajax_placeholder,
+				currentlySelected: app.lang.currently_selected
+			},
+			requestDelay: 500,
+			cache: false,
+			preprocessData: function (processData) {
+				var bs_data = [];
+				var len = processData.length;
+				for (var i = 0; i < len; i++) {
+					var tmp_data = {
+						'value': processData[i].id,
+						'text': processData[i].name,
+					};
+					if (processData[i].subtext) {
+						tmp_data.data = {
+							subtext: processData[i].subtext
+						};
+					}
+					bs_data.push(tmp_data);
+				}
+				return bs_data;
+			},
+			preserveSelectedPosition: 'after',
+			preserveSelected: true
+		};
+		if (ajaxSelector.data('empty-title')) {
+			options.locale.emptyTitle = ajaxSelector.data('empty-title');
+		}
+
+		ajaxSelector.select2({ data: options });
+	}
+}
+
+
+(function ($) {
+	"use strict";
+	var configuredjQueryValidation = false;
+
+	$.fn.appFormValidator = function (options) {
+		var self = this;
+
+		var defaultMessages = {
+			email: {
+				remote: $.fn.appFormValidator.internal_options.localization.email_exists,
+			},
+		}
+
+		var defaults = {
+			rules: [],
+			messages: [],
+			ignore: [],
+			onSubmit: false,
+			submitHandler: function (form) {
+				var $form = $(form);
+
+				if ($form.hasClass('disable-on-submit')) {
+					$form.find('[type="submit"]').prop('disabled', true);
+				}
+
+				var loadingBtn = $form.find('[data-loading-text]');
+
+				if (loadingBtn.length > 0) {
+					loadingBtn.button('loading');
+				}
+
+				if (settings.onSubmit) {
+					settings.onSubmit(form);
+				} else {
+					return true;
+				}
+			}
+		};
+
+		var settings = $.extend({}, defaults, options);
+
+		// Just make sure that this is always configured
+		if (typeof (settings.messages.email) == 'undefined') {
+			settings.messages.email = defaultMessages.email;
+		}
+
+
+		self.configureJqueryValidationDefaults = function () {
+
+			// Set this only 1 time before the first validation happens
+			if (!configuredjQueryValidation) {
+				configuredjQueryValidation = true;
+			} else {
+				return true;
+			}
+
+			// Jquery validate set default options
+			$.validator.setDefaults({
+				highlight: $.fn.appFormValidator.internal_options.error_highlight,
+				unhighlight: $.fn.appFormValidator.internal_options.error_unhighlight,
+				errorElement: $.fn.appFormValidator.internal_options.error_element,
+				errorClass: $.fn.appFormValidator.internal_options.error_class,
+				errorPlacement: $.fn.appFormValidator.internal_options.error_placement,
 			});
 
-			if (anyChecked) {
-				if (table.find('tbody tr:eq(' + (index) + ') td:first input[type="checkbox"]:checked').length > 0) {
-					return index;
-				} else {
-					return null;
+			self.addMethodFileSize();
+			self.addMethodExtension();
+		}
+
+		self.addMethodFileSize = function () {
+			// New validation method filesize
+			$.validator.addMethod('filesize', function (value, element, param) {
+				return this.optional(element) || (element.files[0].size <= param);
+			}, $.fn.appFormValidator.internal_options.localization.file_exceeds_max_filesize);
+		}
+
+		self.addMethodExtension = function () {
+			// New validation method extension based on app extensions
+			$.validator.addMethod("extension", function (value, element, param) {
+				param = typeof param === "string" ? param.replace(/,/g, "|") : "png|jpe?g|gif";
+				return this.optional(element) || value.match(new RegExp("\\.(" + param + ")$", "i"));
+			}, $.fn.appFormValidator.internal_options.localization.validation_extension_not_allowed);
+		}
+
+		self.validateCustomFields = function ($form) {
+
+			$.each($form.find($.fn.appFormValidator.internal_options.required_custom_fields_selector), function () {
+				// for custom fields in tr.main, do not validate those
+				if (!$(this).parents('tr.main').length && !$(this).hasClass('do-not-validate')) {
+
+					$(this).rules("add", { required: true });
+					if ($.fn.appFormValidator.internal_options.on_required_add_symbol) {
+						var label = $(this).parents('.' + $.fn.appFormValidator.internal_options.field_wrapper_class).find('[for="' + $(this).attr('name') + '"]');
+						if (label.length > 0 && label.find('.req').length === 0) {
+							label.prepend('<small class="req text-danger">* </small>');
+						}
+					}
 				}
-			} else {
-				return index;
+			});
+		}
+
+		self.addRequiredFieldSymbol = function ($form) {
+			if ($.fn.appFormValidator.internal_options.on_required_add_symbol) {
+				$.each(settings.rules, function (name, rule) {
+					if ((rule == 'required' && !jQuery.isPlainObject(rule)) ||
+						(jQuery.isPlainObject(rule) && rule.hasOwnProperty('required'))) {
+						var label = $form.find('[for="' + name + '"]');
+						if (label.length > 0 && label.find('.req').length === 0) {
+							label.prepend(' <small class="req text-danger">* </small>');
+						}
+					}
+				});
 			}
 		}
-		return index;
-	}
 
-	function init_ajax_search(type, selector, server_data, url) {
-		"use strict";
-		var ajaxSelector = $('body').find(selector);
+		self.configureJqueryValidationDefaults();
 
-		if (ajaxSelector.length) {
-			var options = {
-				ajax: {
-					url: (typeof (url) == 'undefined' ? admin_url + 'misc/get_relation_data' : url),
-					data: function () {
-						var data = {};
-						data.type = type;
-						data.rel_id = '';
-						data.q = '{{{q}}}';
-						if (typeof (server_data) != 'undefined') {
-							jQuery.extend(data, server_data);
-						}
-						return data;
-					}
-				},
-				locale: {
-					emptyTitle: app.lang.search_ajax_empty,
-					statusInitialized: app.lang.search_ajax_initialized,
-					statusSearching: app.lang.search_ajax_searching,
-					statusNoResults: app.lang.not_results_found,
-					searchPlaceholder: app.lang.search_ajax_placeholder,
-					currentlySelected: app.lang.currently_selected
-				},
-				requestDelay: 500,
-				cache: false,
-				preprocessData: function (processData) {
-					var bs_data = [];
-					var len = processData.length;
-					for (var i = 0; i < len; i++) {
-						var tmp_data = {
-							'value': processData[i].id,
-							'text': processData[i].name,
-						};
-						if (processData[i].subtext) {
-							tmp_data.data = {
-								subtext: processData[i].subtext
-							};
-						}
-						bs_data.push(tmp_data);
-					}
-					return bs_data;
-				},
-				preserveSelectedPosition: 'after',
-				preserveSelected: true
-			};
-			if (ajaxSelector.data('empty-title')) {
-				options.locale.emptyTitle = ajaxSelector.data('empty-title');
+		return self.each(function () {
+
+			var $form = $(this);
+
+			// If already validated, destroy to free up memory
+			if ($form.data('validator')) {
+				$form.data('validator').destroy();
 			}
 
-			ajaxSelector.select2({data: options});
-		}
+			$form.validate(settings);
+			self.validateCustomFields($form);
+			self.addRequiredFieldSymbol($form);
+
+			$(document).trigger('app.form-validate', $form);
+		});
 	}
-
-
-(function($) {
-	"use strict";
-    var configuredjQueryValidation = false;
-
-    $.fn.appFormValidator = function(options) {
-        var self = this;
-
-        var defaultMessages = {
-            email: {
-                remote: $.fn.appFormValidator.internal_options.localization.email_exists,
-            },
-        }
-
-        var defaults = {
-            rules: [],
-            messages: [],
-            ignore: [],
-            onSubmit: false,
-            submitHandler: function(form) {
-                var $form = $(form);
-
-                if ($form.hasClass('disable-on-submit')) {
-                    $form.find('[type="submit"]').prop('disabled', true);
-                }
-
-                var loadingBtn = $form.find('[data-loading-text]');
-
-                if (loadingBtn.length > 0) {
-                    loadingBtn.button('loading');
-                }
-
-                if (settings.onSubmit) {
-                    settings.onSubmit(form);
-                } else {
-                    return true;
-                }
-            }
-        };
-
-        var settings = $.extend({}, defaults, options);
-
-        // Just make sure that this is always configured
-        if (typeof(settings.messages.email) == 'undefined') {
-            settings.messages.email = defaultMessages.email;
-        }
-
-
-        self.configureJqueryValidationDefaults = function() {
-
-            // Set this only 1 time before the first validation happens
-            if (!configuredjQueryValidation) {
-                configuredjQueryValidation = true;
-            } else {
-                return true;
-            }
-
-            // Jquery validate set default options
-            $.validator.setDefaults({
-                highlight: $.fn.appFormValidator.internal_options.error_highlight,
-                unhighlight: $.fn.appFormValidator.internal_options.error_unhighlight,
-                errorElement: $.fn.appFormValidator.internal_options.error_element,
-                errorClass: $.fn.appFormValidator.internal_options.error_class,
-                errorPlacement: $.fn.appFormValidator.internal_options.error_placement,
-            });
-
-            self.addMethodFileSize();
-            self.addMethodExtension();
-        }
-
-        self.addMethodFileSize = function() {
-            // New validation method filesize
-            $.validator.addMethod('filesize', function(value, element, param) {
-                return this.optional(element) || (element.files[0].size <= param);
-            }, $.fn.appFormValidator.internal_options.localization.file_exceeds_max_filesize);
-        }
-
-        self.addMethodExtension = function() {
-            // New validation method extension based on app extensions
-            $.validator.addMethod("extension", function(value, element, param) {
-                param = typeof param === "string" ? param.replace(/,/g, "|") : "png|jpe?g|gif";
-                return this.optional(element) || value.match(new RegExp("\\.(" + param + ")$", "i"));
-            }, $.fn.appFormValidator.internal_options.localization.validation_extension_not_allowed);
-        }
-
-        self.validateCustomFields = function($form) {
-
-            $.each($form.find($.fn.appFormValidator.internal_options.required_custom_fields_selector), function() {
-                // for custom fields in tr.main, do not validate those
-                if (!$(this).parents('tr.main').length && !$(this).hasClass('do-not-validate')) {
-
-                    $(this).rules("add", { required: true });
-                    if ($.fn.appFormValidator.internal_options.on_required_add_symbol) {
-                        var label = $(this).parents('.' + $.fn.appFormValidator.internal_options.field_wrapper_class).find('[for="' + $(this).attr('name') + '"]');
-                        if (label.length > 0 && label.find('.req').length === 0) {
-                            label.prepend('<small class="req text-danger">* </small>');
-                        }
-                    }
-                }
-            });
-        }
-
-        self.addRequiredFieldSymbol = function($form) {
-            if ($.fn.appFormValidator.internal_options.on_required_add_symbol) {
-                $.each(settings.rules, function(name, rule) {
-                    if ((rule == 'required' && !jQuery.isPlainObject(rule)) ||
-                        (jQuery.isPlainObject(rule) && rule.hasOwnProperty('required'))) {
-                        var label = $form.find('[for="' + name + '"]');
-                        if (label.length > 0 && label.find('.req').length === 0) {
-                            label.prepend(' <small class="req text-danger">* </small>');
-                        }
-                    }
-                });
-            }
-        }
-
-        self.configureJqueryValidationDefaults();
-
-        return self.each(function() {
-
-            var $form = $(this);
-
-            // If already validated, destroy to free up memory
-            if ($form.data('validator')) {
-                $form.data('validator').destroy();
-            }
-
-            $form.validate(settings);
-            self.validateCustomFields($form);
-            self.addRequiredFieldSymbol($form);
-
-            $(document).trigger('app.form-validate', $form);
-        });
-    }
 })(jQuery);
 
 $.fn.appFormValidator.internal_options = {
-    localization: {
-        email_exists: typeof(app) != 'undefined' ? app.lang.email_exists : 'Please fix this field',
-        file_exceeds_max_filesize: typeof(app) != 'undefined' ? app.lang.file_exceeds_max_filesize : 'File Exceeds Max Filesize',
-        validation_extension_not_allowed: typeof(app) != 'undefined' ? $.validator.format(app.lang.validation_extension_not_allowed) : $.validator.format('Extension not allowed'),
-    },
-    on_required_add_symbol: true,
-    error_class: 'text-danger',
-    error_element: 'p',
-    required_custom_fields_selector: '[data-custom-field-required]',
-    field_wrapper_class: 'form-group',
-    field_wrapper_error_class: 'has-error',
-    tab_panel_wrapper: 'tab-pane',
-    validated_tab_class: 'tab-validated',
-    error_placement: function(error, element) {
-        if (element.parent('.input-group').length || element.parents('.chk').length) {
-            if (!element.parents('.chk').length) {
-                error.insertAfter(element.parent());
-            } else {
-                error.insertAfter(element.parents('.chk'));
-            }
-        } else if (element.is('select') && (element.hasClass('selectpicker') || element.hasClass('ajax-search'))) {
-            error.insertAfter(element.parents('.' + $.fn.appFormValidator.internal_options.field_wrapper_class + ' *').last());
-        } else {
-            error.insertAfter(element);
-        }
-    },
-    error_highlight: function(element) {
-        var $child_tab_in_form = $(element).parents('.' + $.fn.appFormValidator.internal_options.tab_panel_wrapper);
-        if ($child_tab_in_form.length && !$child_tab_in_form.is(':visible')) {
-            $('a[href="#' + $child_tab_in_form.attr('id') + '"]')
-                .css('border-bottom', '1px solid red').css('color', 'red')
-                .addClass($.fn.appFormValidator.internal_options.validated_tab_class);
-        }
+	localization: {
+		email_exists: typeof (app) != 'undefined' ? app.lang.email_exists : 'Please fix this field',
+		file_exceeds_max_filesize: typeof (app) != 'undefined' ? app.lang.file_exceeds_max_filesize : 'File Exceeds Max Filesize',
+		validation_extension_not_allowed: typeof (app) != 'undefined' ? $.validator.format(app.lang.validation_extension_not_allowed) : $.validator.format('Extension not allowed'),
+	},
+	on_required_add_symbol: true,
+	error_class: 'text-danger',
+	error_element: 'p',
+	required_custom_fields_selector: '[data-custom-field-required]',
+	field_wrapper_class: 'form-group',
+	field_wrapper_error_class: 'has-error',
+	tab_panel_wrapper: 'tab-pane',
+	validated_tab_class: 'tab-validated',
+	error_placement: function (error, element) {
+		if (element.parent('.input-group').length || element.parents('.chk').length) {
+			if (!element.parents('.chk').length) {
+				error.insertAfter(element.parent());
+			} else {
+				error.insertAfter(element.parents('.chk'));
+			}
+		} else if (element.is('select') && (element.hasClass('selectpicker') || element.hasClass('ajax-search'))) {
+			error.insertAfter(element.parents('.' + $.fn.appFormValidator.internal_options.field_wrapper_class + ' *').last());
+		} else {
+			error.insertAfter(element);
+		}
+	},
+	error_highlight: function (element) {
+		var $child_tab_in_form = $(element).parents('.' + $.fn.appFormValidator.internal_options.tab_panel_wrapper);
+		if ($child_tab_in_form.length && !$child_tab_in_form.is(':visible')) {
+			$('a[href="#' + $child_tab_in_form.attr('id') + '"]')
+				.css('border-bottom', '1px solid red').css('color', 'red')
+				.addClass($.fn.appFormValidator.internal_options.validated_tab_class);
+		}
 
-        if ($(element).is('select')) {
-            // Having some issues with select, it's not aways highlighting good or too fast doing unhighlight
-            delay(function() {
-                $(element).closest('.' + $.fn.appFormValidator.internal_options.field_wrapper_class).addClass($.fn.appFormValidator.internal_options.field_wrapper_error_class);
-            }, 400);
-        } else {
-            $(element).closest('.' + $.fn.appFormValidator.internal_options.field_wrapper_class).addClass($.fn.appFormValidator.internal_options.field_wrapper_error_class);
-        }
-    },
-    error_unhighlight: function(element) {
-        element = $(element);
-        var $child_tab_in_form = element.parents('.' + $.fn.appFormValidator.internal_options.tab_panel_wrapper);
-        if ($child_tab_in_form.length) {
-            $('a[href="#' + $child_tab_in_form.attr('id') + '"]').removeAttr('style').removeClass($.fn.appFormValidator.internal_options.validated_tab_class);
-        }
-        element.closest('.' + $.fn.appFormValidator.internal_options.field_wrapper_class).removeClass($.fn.appFormValidator.internal_options.field_wrapper_error_class);
-    },
+		if ($(element).is('select')) {
+			// Having some issues with select, it's not aways highlighting good or too fast doing unhighlight
+			delay(function () {
+				$(element).closest('.' + $.fn.appFormValidator.internal_options.field_wrapper_class).addClass($.fn.appFormValidator.internal_options.field_wrapper_error_class);
+			}, 400);
+		} else {
+			$(element).closest('.' + $.fn.appFormValidator.internal_options.field_wrapper_class).addClass($.fn.appFormValidator.internal_options.field_wrapper_error_class);
+		}
+	},
+	error_unhighlight: function (element) {
+		element = $(element);
+		var $child_tab_in_form = element.parents('.' + $.fn.appFormValidator.internal_options.tab_panel_wrapper);
+		if ($child_tab_in_form.length) {
+			$('a[href="#' + $child_tab_in_form.attr('id') + '"]').removeAttr('style').removeClass($.fn.appFormValidator.internal_options.validated_tab_class);
+		}
+		element.closest('.' + $.fn.appFormValidator.internal_options.field_wrapper_class).removeClass($.fn.appFormValidator.internal_options.field_wrapper_error_class);
+	},
 }
 
 
 function requestGet(uri, params) {
 	"use strict";
-    params = typeof (params) == 'undefined' ? {} : params;
-    var options = {
-        type: 'GET',
-        url: uri
-    };
-    return $.ajax($.extend({}, options, params));
+	params = typeof (params) == 'undefined' ? {} : params;
+	var options = {
+		type: 'GET',
+		url: uri
+	};
+	return $.ajax($.extend({}, options, params));
 }
 
 // General helper function for $.get ajax requests with dataType JSON
 function requestGetJSON(uri, params) {
 	"use strict";
-    params = typeof (params) == 'undefined' ? {} : params;
-    params.dataType = 'json';
-    return requestGet(uri, params);
+	params = typeof (params) == 'undefined' ? {} : params;
+	params.dataType = 'json';
+	return requestGet(uri, params);
 }
 
 function appValidateForm(form, form_rules, submithandler, overwriteMessages) {
 	"use strict";
-    $(form).appFormValidator({ rules: form_rules, onSubmit: submithandler, messages: overwriteMessages });
+	$(form).appFormValidator({ rules: form_rules, onSubmit: submithandler, messages: overwriteMessages });
 }
 
 function slugify(string) {
 	"use strict";
 	return string
-	.toString()
-	.trim()
-	.toLowerCase()
-	.replace(/\s+/g, "-")
-	.replace(/[^\w\-]+/g, "")
-	.replace(/\-\-+/g, "-")
-	.replace(/^-+/, "")
-	.replace(/-+$/, "");
+		.toString()
+		.trim()
+		.toLowerCase()
+		.replace(/\s+/g, "-")
+		.replace(/[^\w\-]+/g, "")
+		.replace(/\-\-+/g, "-")
+		.replace(/^-+/, "")
+		.replace(/-+$/, "");
 }
 
 function hidden_input(name, val) {

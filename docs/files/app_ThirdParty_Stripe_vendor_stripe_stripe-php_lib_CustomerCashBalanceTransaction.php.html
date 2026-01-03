@@ -1,0 +1,48 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\CustomerCashBalanceTransaction.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\CustomerCashBalanceTransaction.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\CustomerCashBalanceTransaction.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2928 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Customers with certain payments enabled have a cash balance, representing funds</p>
+<p>that were paid by the customer to a merchant, but have not yet been allocated to</p>
+<p>a payment. Cash Balance Transactions represent when funds are moved into or out</p>
+<p>of this balance. This includes funding by the customer, allocation to payments,</p>
+<p>and refunds to the customer.</p>
+<p>@property string $id Unique identifier for the object.</p>
+<p>@property string $object String representing the object's type. Objects of the same type share the same value.</p>
+<p>@property \Stripe\StripeObject $applied_to_payment</p>
+<p>@property int $created Time at which the object was created. Measured in seconds since the Unix epoch.</p>
+<p>@property string $currency Three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO currency code</a>, in lowercase. Must be a <a href="https://stripe.com/docs/currencies">supported currency</a>.</p>
+<p>@property string|\Stripe\Customer $customer The customer whose available cash balance changed as a result of this transaction.</p>
+<p>@property int $ending_balance The total available cash balance for the specified currency after this transaction was applied. Represented in the <a href="https://stripe.com/docs/currencies#zero-decimal">smallest currency unit</a>.</p>
+<p>@property \Stripe\StripeObject $funded</p>
+<p>@property bool $livemode Has the value <code>true</code> if the object exists in live mode or the value <code>false</code> if the object exists in test mode.</p>
+<p>@property int $net_amount The amount by which the cash balance changed, represented in the <a href="https://stripe.com/docs/currencies#zero-decimal">smallest currency unit</a>. A positive value represents funds being added to the cash balance, a negative value represents funds being removed from the cash balance.</p>
+<p>@property \Stripe\StripeObject $refunded_from_payment</p>
+<p>@property string $type The type of the cash balance transaction. One of <code>applied_to_payment</code>, <code>unapplied_from_payment</code>, <code>refunded_from_payment</code>, <code>funded</code>, <code>return_initiated</code>, or <code>return_canceled</code>. New types may be added in future. See <a href="https://stripe.com/docs/payments/customer-balance#types">Customer Balance</a> to learn more about these types.</p>
+<p>@property \Stripe\StripeObject $unapplied_from_payment</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\CustomerCashBalanceTransaction.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\CustomerCashBalanceTransaction extends ApiResource</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,75 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\Fields\UnicodePathExtraField.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\Fields\UnicodePathExtraField.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\Fields\UnicodePathExtraField.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3314 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Info-ZIP Unicode Path Extra Field (0x7075):</p>
+<p>==========================================.</p>
+<p>Stores the UTF-8 version of the file name field as stored in the</p>
+<p>local header and central directory header. (Last Revision 20070912)</p>
+<p>Value         Size        Description</p>
+<p>-----         ----        -----------</p>
+<p>(UPath) 0x7075        Short       tag for this extra block type ("up")</p>
+<p>TSize         Short       total data size for this block</p>
+<p>Version       1 byte      version of this extra field, currently 1</p>
+<p>NameCRC32     4 bytes     File Name Field CRC32 Checksum</p>
+<p>UnicodeName   Variable    UTF-8 version of the entry File Name</p>
+<p>Currently Version is set to the number 1.  If there is a need</p>
+<p>to change this field, the version will be incremented.  Changes</p>
+<p>may not be backward compatible so this extra field should not be</p>
+<p>used if the version is not recognized.</p>
+<p>The NameCRC32 is the standard zip CRC32 checksum of the File Name</p>
+<p>field in the header.  This is used to verify that the header</p>
+<p>File Name field has not changed since the Unicode Path extra field</p>
+<p>was created.  This can happen if a utility renames the File Name but</p>
+<p>does not update the UTF-8 path extra field.  If the CRC check fails,</p>
+<p>this UTF-8 Path Extra Field should be ignored and the File Name field</p>
+<p>in the header should be used instead.</p>
+<p>The UnicodeName is the UTF-8 version of the contents of the File Name</p>
+<p>field in the header.  As UnicodeName is defined to be UTF-8, no UTF-8</p>
+<p>byte order mark (BOM) is used.  The length of this field is determined</p>
+<p>by subtracting the size of the previous fields from TSize.  If both</p>
+<p>the File Name and Comment fields are UTF-8, the new General Purpose</p>
+<p>Bit Flag, bit 11 (Language encoding flag (EFS)), can be used to</p>
+<p>indicate that both the header File Name and Comment fields are UTF-8</p>
+<p>and, in this case, the Unicode Path and Unicode Comment extra fields</p>
+<p>are not needed and should not be created.  Note that, for backward</p>
+<p>compatibility, bit 11 should only be used if the native character set</p>
+<p>of the paths and comments being zipped up are already in UTF-8. It is</p>
+<p>expected that the same file name storage method, either general</p>
+<p>purpose bit 11 or extra fields, be used in both the Local and Central</p>
+<p>Directory Header for a file.</p>
+<p>@see https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT section 4.6.9</p>
+
+<p>Returns the Header ID (type) of this Extra Field.</p>
+<p>The Header ID is an unsigned short integer (two bytes)</p>
+<p>which must be constant during the life cycle of this object.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>TSize</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\Fields\UnicodePathExtraField.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpZip\Model\Extra\Fields\UnicodePathExtraField extends AbstractUnicodeExtraField</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getHeaderId()</code></li>
+<li><code>__toString()</code></li>
+</ul>
+</body></html>

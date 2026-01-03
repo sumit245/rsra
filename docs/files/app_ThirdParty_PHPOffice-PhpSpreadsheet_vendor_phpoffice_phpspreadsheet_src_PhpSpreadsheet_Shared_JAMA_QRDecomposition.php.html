@@ -1,0 +1,78 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\JAMA\QRDecomposition.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\JAMA\QRDecomposition.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\JAMA\QRDecomposition.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 6969 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>For an m-by-n matrix A with m >= n, the QR decomposition is an m-by-n</p>
+<p>   orthogonal matrix Q and an n-by-n upper triangular matrix R so that</p>
+<p>   A = Q*R.</p>
+<p>   The QR decompostion always exists, even if the matrix does not have</p>
+<p>   full rank, so the constructor will never fail.  The primary use of the</p>
+<p>   QR decomposition is in the least squares solution of nonsquare systems</p>
+<p>   of simultaneous linear equations.  This will fail if isFullRank()</p>
+<p>   returns false.</p>
+<p>@author  Paul Meagher</p>
+<p>@version 1.1</p>
+
+<p>Array for internal storage of decomposition.</p>
+<p>@var array</p>
+
+<p>Row dimension.</p>
+<p>@var int</p>
+
+<p>Column dimension.</p>
+<p>@var int</p>
+
+<p>Array for internal storage of diagonal of R.</p>
+<p>@var array</p>
+
+<p>QR Decomposition computed by Householder reflections.</p>
+<p>@param Matrix $A Rectangular matrix</p>
+
+<p>Is the matrix full rank?</p>
+<p>@return bool true if R, and hence A, has full rank, else false</p>
+
+<p>Return the Householder vectors.</p>
+<p>@return Matrix Lower trapezoidal matrix whose columns define the reflections</p>
+
+<p>Return the upper triangular factor.</p>
+<p>@return Matrix upper triangular factor</p>
+
+<p>Generate and return the (economy-sized) orthogonal factor.</p>
+<p>@return Matrix orthogonal factor</p>
+
+<p>Least squares solution of A*X = B.</p>
+<p>@param Matrix $B a Matrix with as many rows as A and any number of columns</p>
+<p>@return Matrix matrix that minimizes the two norm of Q*R*X-B</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\JAMA\QRDecomposition.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Shared\JAMA\QRDecomposition</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(Matrix $A)</code></li>
+<li><code>__construct()</code></li>
+<li><code>isFullRank()</code></li>
+<li><code>isFullRank()</code></li>
+<li><code>getH()</code></li>
+<li><code>getH()</code></li>
+<li><code>getR()</code></li>
+<li><code>getR()</code></li>
+<li><code>getQ()</code></li>
+<li><code>getQ()</code></li>
+<li><code>solve(Matrix $B)</code></li>
+</ul>
+</body></html>

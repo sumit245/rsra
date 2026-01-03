@@ -1,0 +1,256 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\Controllers\Projects.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\Controllers\Projects.php</h1>
+
+<ul>
+<li>Path: <code>app\Controllers\Projects.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 258515 bytes</li>
+</ul>
+<h2>References</h2>
+
+<p><strong>Models Used</strong></p>
+<ul>
+<li><code>Project_settings_model</code></li>
+<li><code>Checklist_items_model</code></li>
+<li><code>Likes_model</code></li>
+<li><code>Pin_comments_model</code></li>
+<li><code>File_category_model</code></li>
+<li><code>Task_priority_model</code></li>
+<li><code>Projects_model</code></li>
+<li><code>Tasks_model</code></li>
+<li><code>Custom_fields_model</code></li>
+<li><code>Clients_model</code></li>
+<li><code>Project_members_model</code></li>
+<li><code>Estimates_model</code></li>
+<li><code>Orders_model</code></li>
+<li><code>Milestones_model</code></li>
+<li><code>Custom_field_values_model</code></li>
+<li><code>Timesheets_model</code></li>
+<li><code>Users_model</code></li>
+<li><code>Task_status_model</code></li>
+<li><code>Project_comments_model</code></li>
+<li><code>Tickets_model</code></li>
+<li><code>Project_files_model</code></li>
+<li><code>Checklist_template_model</code></li>
+<li><code>Labels_model</code></li>
+</ul>
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>estimate</code></li>
+<li><code>order</code></li>
+<li><code>another</code></li>
+<li><code>existing</code></li>
+<li><code>project</code></li>
+<li><code>date</code></li>
+<li><code>the</code></li>
+<li><code>language</code></li>
+<li><code>ticket</code></li>
+<li><code>tasks</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\Controllers\Projects.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Controllers\Projects extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>can_delete_projects($project_id = 0)</code></li>
+<li><code>can_add_remove_project_members()</code></li>
+<li><code>can_view_tasks($project_id = "", $task_id = "")</code></li>
+<li><code>can_delete_tasks()</code></li>
+<li><code>can_comment_on_tasks()</code></li>
+<li><code>can_view_milestones()</code></li>
+<li><code>can_create_milestones()</code></li>
+<li><code>can_edit_milestones()</code></li>
+<li><code>can_delete_milestones()</code></li>
+<li><code>can_delete_files($uploaded_by = 0)</code></li>
+<li><code>can_view_files()</code></li>
+<li><code>can_add_files()</code></li>
+<li><code>can_comment_on_files()</code></li>
+<li><code>can_view_gantt()</code></li>
+<li><code>init_project_settings($project_id)</code></li>
+<li><code>can_view_timesheet($project_id = 0, $show_all_personal_timesheets = false)</code></li>
+<li><code>index()</code></li>
+<li><code>all_projects($status = "")</code></li>
+<li><code>modal_form()</code></li>
+<li><code>save()</code></li>
+<li><code>clone_project_modal_form()</code></li>
+<li><code>save_cloned_project()</code></li>
+<li><code>_prepare_new_task_data_on_cloning_project($new_project_id, $milestones_array, $task, $copy_same_assignee_and_collaborators, $copy_tasks_start_date_and_deadline, $move_all_tasks_to_to_do, $change_the_tasks_start_date_and_deadline_based_on_project_start_date, $old_project_info, $project_start_date)</code></li>
+<li><code>_save_custom_fields_on_cloning_project($task, $new_taks_id)</code></li>
+<li><code>delete()</code></li>
+<li><code>list_data()</code></li>
+<li><code>projects_list_data_of_team_member($team_member_id = 0)</code></li>
+<li><code>projects_list_data_of_client($client_id = 0)</code></li>
+<li><code>_row_data($id)</code></li>
+<li><code>_make_row($data, $custom_fields)</code></li>
+<li><code>view($project_id = 0, $tab = "")</code></li>
+<li><code>can_edit_timesheet_settings($project_id)</code></li>
+<li><code>can_edit_slack_settings()</code></li>
+<li><code>_get_project_info_data($project_id)</code></li>
+<li><code>show_my_starred_projects()</code></li>
+<li><code>overview($project_id)</code></li>
+<li><code>can_access_clients()</code></li>
+<li><code>add_remove_star($project_id, $type = "add")</code></li>
+<li><code>overview_for_client($project_id)</code></li>
+<li><code>project_member_modal_form()</code></li>
+<li><code>save_project_member()</code></li>
+<li><code>delete_project_member()</code></li>
+<li><code>project_member_list_data($project_id = 0, $user_type = "")</code></li>
+<li><code>_project_member_row_data($id)</code></li>
+<li><code>_make_project_member_row($data, $can_send_message_to_client = false)</code></li>
+<li><code>stop_timer_modal_form($project_id)</code></li>
+<li><code>_get_timesheet_tasks_dropdown($project_id, $return_json = false)</code></li>
+<li><code>timer($project_id, $timer_status = "start")</code></li>
+<li><code>timesheets($project_id)</code></li>
+<li><code>_get_project_members_dropdown_list_for_filter($project_id)</code></li>
+<li><code>timelog_modal_form()</code></li>
+<li><code>_prepare_all_related_data_for_timelog($project_id = 0)</code></li>
+<li><code>get_all_related_data_of_selected_project_for_timelog($project_id = "")</code></li>
+<li><code>save_timelog()</code></li>
+<li><code>delete_timelog()</code></li>
+<li><code>check_timelog_update_permission($log_id = null, $project_id = null, $user_id = null)</code></li>
+<li><code>timesheet_list_data()</code></li>
+<li><code>_timesheet_row_data($id)</code></li>
+<li><code>_make_timesheet_row($data, $custom_fields)</code></li>
+<li><code>timesheet_summary($project_id)</code></li>
+<li><code>timesheet_summary_list_data()</code></li>
+<li><code>_get_all_projects_dropdown_list()</code></li>
+<li><code>_get_all_projects_dropdown_list_for_timesheets_filter()</code></li>
+<li><code>_get_members_to_manage_timesheet()</code></li>
+<li><code>_prepare_members_dropdown_for_timesheet_filter($members)</code></li>
+<li><code>all_timesheets()</code></li>
+<li><code>all_timesheet_summary()</code></li>
+<li><code>milestones($project_id)</code></li>
+<li><code>milestone_modal_form()</code></li>
+<li><code>save_milestone()</code></li>
+<li><code>delete_milestone()</code></li>
+<li><code>milestones_list_data($project_id = 0)</code></li>
+<li><code>_milestone_row_data($id)</code></li>
+<li><code>_make_milestone_row($data)</code></li>
+<li><code>tasks($project_id)</code></li>
+<li><code>get_removed_task_status_ids($project_id = 0)</code></li>
+<li><code>tasks_kanban($project_id)</code></li>
+<li><code>get_milestones_for_filter()</code></li>
+<li><code>_get_milestones_dropdown_list($project_id = 0)</code></li>
+<li><code>_get_priorities_dropdown_list($priority_id = 0)</code></li>
+<li><code>_get_project_members_dropdown_list($project_id = 0)</code></li>
+<li><code>all_tasks($tab = "", $status_id = 0, $priority_id = 0)</code></li>
+<li><code>all_tasks_kanban()</code></li>
+<li><code>can_edit_task_of_the_project($project_id = 0)</code></li>
+<li><code>all_tasks_kanban_data()</code></li>
+<li><code>project_tasks_kanban_data($project_id = 0)</code></li>
+<li><code>set_task_comments_as_read($task_id = 0)</code></li>
+<li><code>task_view($task_id = 0)</code></li>
+<li><code>_get_project_deadline_for_task($project_id)</code></li>
+<li><code>_initialize_all_related_data_of_project($project_id = 0, $collaborators = "", $task_labels = "")</code></li>
+<li><code>task_modal_form()</code></li>
+<li><code>get_all_related_data_of_project($project_id, $collaborators = "", $task_labels = "")</code></li>
+<li><code>get_all_related_data_of_selected_project($project_id)</code></li>
+<li><code>save_task()</code></li>
+<li><code>check_sub_tasks_statuses($status_id = 0, $parent_task_id = 0)</code></li>
+<li><code>save_sub_task()</code></li>
+<li><code>_make_sub_task_row($data, $return_type = "row")</code></li>
+<li><code>save_task_status($id = 0)</code></li>
+<li><code>update_task_info($id = 0, $data_field = "")</code></li>
+<li><code>save_task_sort_and_status()</code></li>
+<li><code>delete_task()</code></li>
+<li><code>tasks_list_data($project_id = 0)</code></li>
+<li><code>my_tasks_list_data($is_widget = 0)</code></li>
+<li><code>_task_row_data($id)</code></li>
+<li><code>_make_task_row($data, $custom_fields)</code></li>
+<li><code>_get_collaborators($collaborator_list, $clickable = true)</code></li>
+<li><code>comments($project_id)</code></li>
+<li><code>customer_feedback($project_id)</code></li>
+<li><code>save_comment()</code></li>
+<li><code>delete_comment($id = 0)</code></li>
+<li><code>view_comment_replies($comment_id)</code></li>
+<li><code>comment_reply_form($comment_id, $type = "project", $type_id = 0)</code></li>
+<li><code>files($project_id)</code></li>
+<li><code>view_file($file_id = 0)</code></li>
+<li><code>file_modal_form()</code></li>
+<li><code>save_file()</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_project_file()</code></li>
+<li><code>delete_file()</code></li>
+<li><code>download_file($id)</code></li>
+<li><code>download_multiple_files($files_ids = "")</code></li>
+<li><code>batch_update_modal_form($task_ids = "")</code></li>
+<li><code>save_batch_update()</code></li>
+<li><code>download_comment_files($id)</code></li>
+<li><code>files_list_data($project_id = 0)</code></li>
+<li><code>_make_file_row($data, $custom_fields)</code></li>
+<li><code>notes($project_id)</code></li>
+<li><code>history($offset = 0, $log_for = "", $log_for_id = "", $log_type = "", $log_type_id = "")</code></li>
+<li><code>members($project_id = 0)</code></li>
+<li><code>payments($project_id)</code></li>
+<li><code>invoices($project_id, $client_id = 0)</code></li>
+<li><code>expenses($project_id)</code></li>
+<li><code>change_status($project_id, $status)</code></li>
+<li><code>gantt($project_id = 0)</code></li>
+<li><code>gantt_data($project_id = 0, $group_by = "milestones", $milestone_id = 0, $user_id = 0, $status = "")</code></li>
+<li><code>invalid_date_of_gantt($start_date, $end_date)</code></li>
+<li><code>settings_modal_form()</code></li>
+<li><code>save_settings()</code></li>
+<li><code>save_checklist_item()</code></li>
+<li><code>_make_checklist_item_row($data = array()</code></li>
+<li><code>save_checklist_item_status($id = 0)</code></li>
+<li><code>save_checklist_items_sort()</code></li>
+<li><code>delete_checklist_item($id)</code></li>
+<li><code>get_member_suggestion_to_mention()</code></li>
+<li><code>get_projects_of_selected_client_for_filter()</code></li>
+<li><code>_get_clients_dropdown()</code></li>
+<li><code>timesheet_chart($project_id = 0)</code></li>
+<li><code>all_gantt()</code></li>
+<li><code>timesheet_chart_data($project_id = 0)</code></li>
+<li><code>save_dependency_tasks()</code></li>
+<li><code>_get_all_dependency_for_this_task($task_id)</code></li>
+<li><code>get_existing_dependency_tasks($task_id = 0)</code></li>
+<li><code>_get_all_dependency_for_this_task_specific($task_ids = "", $task_id = 0, $type = "")</code></li>
+<li><code>_make_dependency_tasks_view_data($task_ids = "", $task_id = 0, $type = "")</code></li>
+<li><code>_make_dependency_tasks_row_data($task_info, $task_id, $type)</code></li>
+<li><code>delete_dependency_task($dependency_task_id, $task_id, $type)</code></li>
+<li><code>like_comment($comment_id = 0)</code></li>
+<li><code>save_gantt_task_date()</code></li>
+<li><code>show_my_open_timers()</code></li>
+<li><code>task_timesheet($task_id, $project_id)</code></li>
+<li><code>contracts($project_id)</code></li>
+<li><code>pin_comment($comment_id = 0)</code></li>
+<li><code>tickets($project_id)</code></li>
+<li><code>file_category($project_id = 0)</code></li>
+<li><code>file_category_list_data($project_id = 0)</code></li>
+<li><code>_file_category_row_data($id, $project_id = 0)</code></li>
+<li><code>_make_file_category_row($data, $project_id = 0)</code></li>
+<li><code>file_category_modal_form()</code></li>
+<li><code>save_file_category()</code></li>
+<li><code>delete_file_category()</code></li>
+<li><code>delete_multiple_files($files_ids = "")</code></li>
+<li><code>import_tasks_modal_form()</code></li>
+<li><code>upload_excel_file()</code></li>
+<li><code>download_sample_excel_file()</code></li>
+<li><code>validate_import_tasks_file()</code></li>
+<li><code>_prepare_task_data($data_row, $allowed_headers)</code></li>
+<li><code>_get_existing_custom_field_id($title = "")</code></li>
+<li><code>_prepare_headers_for_submit($headers_row, $headers)</code></li>
+<li><code>save_task_from_excel_file()</code></li>
+<li><code>_save_custom_fields_of_task($task_id, $custom_field_values_array)</code></li>
+<li><code>_get_project_id($project = "")</code></li>
+<li><code>_get_milestone_id($milestone = "")</code></li>
+<li><code>_get_assigned_to_id($assigned_to = "")</code></li>
+<li><code>_check_task_points($points = "")</code></li>
+<li><code>_get_collaborators_ids($collaborators_data)</code></li>
+<li><code>_get_status_id($status = "")</code></li>
+<li><code>_get_label_ids($labels = "")</code></li>
+<li><code>_get_allowed_headers()</code></li>
+<li><code>_store_headers_position($headers_row = array()</code></li>
+<li><code>validate_import_tasks_file_data($check_on_submit = false)</code></li>
+<li><code>_row_data_validation_and_get_error_message($key, $data, $headers = array()</code></li>
+</ul>
+</body></html>

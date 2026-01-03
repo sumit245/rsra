@@ -1,0 +1,496 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\File.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\File.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\File.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 53393 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Class ParagonIE_Sodium_File</p>
+
+<p>Box a file (rather than a string). Uses less memory than</p>
+<p>ParagonIE_Sodium_Compat::crypto_box(), but produces</p>
+<p>the same result.</p>
+<p>@param string $inputFile  Absolute path to a file on the filesystem</p>
+<p>@param string $outputFile Absolute path to a file on the filesystem</p>
+<p>@param string $nonce      Number to be used only once</p>
+<p>@param string $keyPair    ECDH secret key and ECDH public key concatenated</p>
+<p>@return bool</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var int $size</p>
+
+<p>@var resource $ifp</p>
+
+<p>@var resource $ofp</p>
+
+<p>Open a boxed file (rather than a string). Uses less memory than</p>
+<p>ParagonIE_Sodium_Compat::crypto_box_open(), but produces</p>
+<p>the same result.</p>
+<p>Warning: Does not protect against TOCTOU attacks. You should</p>
+<p>just load the file into memory and use crypto_box_open() if</p>
+<p>you are worried about those.</p>
+<p>@param string $inputFile</p>
+<p>@param string $outputFile</p>
+<p>@param string $nonce</p>
+<p>@param string $keypair</p>
+<p>@return bool</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var int $size</p>
+
+<p>@var resource $ifp</p>
+
+<p>@var resource $ofp</p>
+
+<p>Seal a file (rather than a string). Uses less memory than</p>
+<p>ParagonIE_Sodium_Compat::crypto_box_seal(), but produces</p>
+<p>the same result.</p>
+<p>@param string $inputFile  Absolute path to a file on the filesystem</p>
+<p>@param string $outputFile Absolute path to a file on the filesystem</p>
+<p>@param string $publicKey  ECDH public key</p>
+<p>@return bool</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var int $size</p>
+
+<p>@var resource $ifp</p>
+
+<p>@var resource $ofp</p>
+
+<p>@var string $ephKeypair</p>
+
+<p>@var string $msgKeypair</p>
+
+<p>@var string $ephemeralPK</p>
+
+<p>@var string $nonce</p>
+
+<p>@var int $firstWrite</p>
+
+<p>Open a sealed file (rather than a string). Uses less memory than</p>
+<p>ParagonIE_Sodium_Compat::crypto_box_seal_open(), but produces</p>
+<p>the same result.</p>
+<p>Warning: Does not protect against TOCTOU attacks. You should</p>
+<p>just load the file into memory and use crypto_box_seal_open() if</p>
+<p>you are worried about those.</p>
+<p>@param string $inputFile</p>
+<p>@param string $outputFile</p>
+<p>@param string $ecdhKeypair</p>
+<p>@return bool</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var int $size</p>
+
+<p>@var resource $ifp</p>
+
+<p>@var resource $ofp</p>
+
+<p>Calculate the BLAKE2b hash of a file.</p>
+<p>@param string      $filePath     Absolute path to a file on the filesystem</p>
+<p>@param string|null $key          BLAKE2b key</p>
+<p>@param int         $outputLength Length of hash output</p>
+<p>@return string                   BLAKE2b hash</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress FailedTypeResolution</p>
+
+<p>@var int $size</p>
+
+<p>@var resource $fp</p>
+
+<p>Encrypt a file (rather than a string). Uses less memory than</p>
+<p>ParagonIE_Sodium_Compat::crypto_secretbox(), but produces</p>
+<p>the same result.</p>
+<p>@param string $inputFile  Absolute path to a file on the filesystem</p>
+<p>@param string $outputFile Absolute path to a file on the filesystem</p>
+<p>@param string $nonce      Number to be used only once</p>
+<p>@param string $key        Encryption key</p>
+<p>@return bool</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var int $size</p>
+
+<p>@var resource $ifp</p>
+
+<p>@var resource $ofp</p>
+
+<p>Seal a file (rather than a string). Uses less memory than</p>
+<p>ParagonIE_Sodium_Compat::crypto_secretbox_open(), but produces</p>
+<p>the same result.</p>
+<p>Warning: Does not protect against TOCTOU attacks. You should</p>
+<p>just load the file into memory and use crypto_secretbox_open() if</p>
+<p>you are worried about those.</p>
+<p>@param string $inputFile</p>
+<p>@param string $outputFile</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@return bool</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var int $size</p>
+
+<p>@var resource $ifp</p>
+
+<p>@var resource $ofp</p>
+
+<p>Sign a file (rather than a string). Uses less memory than</p>
+<p>ParagonIE_Sodium_Compat::crypto_sign_detached(), but produces</p>
+<p>the same result.</p>
+<p>@param string $filePath  Absolute path to a file on the filesystem</p>
+<p>@param string $secretKey Secret signing key</p>
+<p>@return string           Ed25519 signature</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var int $size</p>
+
+<p>@var resource $fp</p>
+
+<p>@var string $az</p>
+
+<p>@var resource $hs</p>
+
+<p>@var string $nonceHash</p>
+
+<p>@var string $pk</p>
+
+<p>@var string $nonce</p>
+
+<p>@var string $sig</p>
+
+<p>@var resource $hs</p>
+
+<p>@var string $hramHash</p>
+
+<p>@var string $hram</p>
+
+<p>@var string $sigAfter</p>
+
+<p>@var string $sig</p>
+
+<p>Verify a file (rather than a string). Uses less memory than</p>
+<p>ParagonIE_Sodium_Compat::crypto_sign_verify_detached(), but</p>
+<p>produces the same result.</p>
+<p>@param string $sig       Ed25519 signature</p>
+<p>@param string $filePath  Absolute path to a file on the filesystem</p>
+<p>@param string $publicKey Signing public key</p>
+<p>@return bool</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@throws Exception</p>
+
+<p>@var int $size</p>
+
+<p>@var resource $fp</p>
+
+<p>@var bool The original value of ParagonIE_Sodium_Compat::$fastMult</p>
+
+<p>@var ParagonIE_Sodium_Core_Curve25519_Ge_P3 $A</p>
+
+<p>@var resource $hs</p>
+
+<p>@var string $hDigest</p>
+
+<p>@var string $h</p>
+
+<p>@var ParagonIE_Sodium_Core_Curve25519_Ge_P2 $R</p>
+
+<p>@var string $rcheck</p>
+
+<p>@param resource $ifp</p>
+<p>@param resource $ofp</p>
+<p>@param int      $mlen</p>
+<p>@param string   $nonce</p>
+<p>@param string   $boxKeypair</p>
+<p>@return bool</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@param resource $ifp</p>
+<p>@param resource $ofp</p>
+<p>@param int      $mlen</p>
+<p>@param string   $nonce</p>
+<p>@param string   $boxKeypair</p>
+<p>@return bool</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>Encrypt a file</p>
+<p>@param resource $ifp</p>
+<p>@param resource $ofp</p>
+<p>@param int $mlen</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@return bool</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var string $subkey</p>
+
+<p>@var string $realNonce</p>
+
+<p>@var string $block0</p>
+
+<p>@var int $mlen - Length of the plaintext message</p>
+
+<p>@var string $block0</p>
+
+<p>@var string $c</p>
+
+<p>@var int $iter</p>
+
+<p>@var int $incr</p>
+
+<p>Decrypt a file</p>
+<p>@param resource $ifp</p>
+<p>@param resource $ofp</p>
+<p>@param int $mlen</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@return bool</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var string $subkey</p>
+
+<p>@var string $realNonce</p>
+
+<p>@var string $block0</p>
+
+<p>@var int $iter</p>
+
+<p>@var int $incr</p>
+
+<p>@param ParagonIE_Sodium_Core_Poly1305_State $state</p>
+<p>@param resource $ifp</p>
+<p>@param string $tag</p>
+<p>@param int $mlen</p>
+<p>@return bool</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var int $pos</p>
+
+<p>@var int $iter</p>
+
+<p>@var int $incr</p>
+
+<p>Update a hash context with the contents of a file, without</p>
+<p>loading the entire file into memory.</p>
+<p>@param resource|object $hash</p>
+<p>@param resource $fp</p>
+<p>@param int $size</p>
+<p>@return resource|object Resource on PHP < 7.2, HashContext object on PHP >= 7.2</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress PossiblyInvalidArgument</p>
+<p>                PHP 7.2 changes from a resource to an object,</p>
+<p>                which causes Psalm to complain about an error.</p>
+<p>@psalm-suppress TypeCoercion</p>
+<p>                Ditto.</p>
+
+<p>@var int $originalPosition</p>
+
+<p>@var string|bool $message</p>
+
+<p>@var string $message</p>
+
+<p>@psalm-suppress InvalidArgument</p>
+
+<p>Sign a file (rather than a string). Uses less memory than</p>
+<p>ParagonIE_Sodium_Compat::crypto_sign_detached(), but produces</p>
+<p>the same result. (32-bit)</p>
+<p>@param string $filePath  Absolute path to a file on the filesystem</p>
+<p>@param string $secretKey Secret signing key</p>
+<p>@return string           Ed25519 signature</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var int|bool $size</p>
+
+<p>@var int $size</p>
+
+<p>@var resource|bool $fp</p>
+
+<p>@var resource $fp</p>
+
+<p>@var string $az</p>
+
+<p>@var resource $hs</p>
+
+<p>@var string $nonceHash</p>
+
+<p>@var string $pk</p>
+
+<p>@var string $nonce</p>
+
+<p>@var string $sig</p>
+
+<p>@var resource $hs</p>
+
+<p>@var string $hramHash</p>
+
+<p>@var string $hram</p>
+
+<p>@var string $sigAfter</p>
+
+<p>@var string $sig</p>
+
+<p>Verify a file (rather than a string). Uses less memory than</p>
+<p>ParagonIE_Sodium_Compat::crypto_sign_verify_detached(), but</p>
+<p>produces the same result. (32-bit)</p>
+<p>@param string $sig       Ed25519 signature</p>
+<p>@param string $filePath  Absolute path to a file on the filesystem</p>
+<p>@param string $publicKey Signing public key</p>
+<p>@return bool</p>
+<p>@throws SodiumException</p>
+<p>@throws Exception</p>
+
+<p>@var int|bool $size</p>
+
+<p>@var int $size</p>
+
+<p>@var resource|bool $fp</p>
+
+<p>@var resource $fp</p>
+
+<p>@var bool The original value of ParagonIE_Sodium_Compat::$fastMult</p>
+
+<p>@var ParagonIE_Sodium_Core32_Curve25519_Ge_P3 $A</p>
+
+<p>@var resource $hs</p>
+
+<p>@var string $hDigest</p>
+
+<p>@var string $h</p>
+
+<p>@var ParagonIE_Sodium_Core32_Curve25519_Ge_P2 $R</p>
+
+<p>@var string $rcheck</p>
+
+<p>Encrypt a file (32-bit)</p>
+<p>@param resource $ifp</p>
+<p>@param resource $ofp</p>
+<p>@param int $mlen</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@return bool</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var string $subkey</p>
+
+<p>@var string $realNonce</p>
+
+<p>@var string $block0</p>
+
+<p>@var int $mlen - Length of the plaintext message</p>
+
+<p>@var string $block0</p>
+
+<p>@var string $c</p>
+
+<p>@var int $iter</p>
+
+<p>@var int $incr</p>
+
+<p>Decrypt a file (32-bit)</p>
+<p>@param resource $ifp</p>
+<p>@param resource $ofp</p>
+<p>@param int $mlen</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@return bool</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var string $subkey</p>
+
+<p>@var string $realNonce</p>
+
+<p>@var string $block0</p>
+
+<p>@var int $iter</p>
+
+<p>@var int $incr</p>
+
+<p>One-time message authentication for 32-bit systems</p>
+<p>@param ParagonIE_Sodium_Core32_Poly1305_State $state</p>
+<p>@param resource $ifp</p>
+<p>@param string $tag</p>
+<p>@param int $mlen</p>
+<p>@return bool</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var int $pos</p>
+
+<p>@var int $iter</p>
+
+<p>@var int $incr</p>
+
+<p>@param resource $resource</p>
+<p>@return int</p>
+<p>@throws SodiumException</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>sealed</code></li>
+<li><code>salsa20_xor_ic</code></li>
+<li><code>1</code></li>
+<li><code>a</code></li>
+<li><code>file</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\File.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ParagonIE_Sodium_File extends ParagonIE_Sodium_Core_Util</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>box($inputFile, $outputFile, $nonce, $keyPair)</code></li>
+<li><code>box_open($inputFile, $outputFile, $nonce, $keypair)</code></li>
+<li><code>box_seal($inputFile, $outputFile, $publicKey)</code></li>
+<li><code>box_seal_open($inputFile, $outputFile, $ecdhKeypair)</code></li>
+<li><code>generichash($filePath, $key = '', $outputLength = 32)</code></li>
+<li><code>secretbox($inputFile, $outputFile, $nonce, $key)</code></li>
+<li><code>secretbox_open($inputFile, $outputFile, $nonce, $key)</code></li>
+<li><code>sign($filePath, $secretKey)</code></li>
+<li><code>verify($sig, $filePath, $publicKey)</code></li>
+<li><code>box_encrypt($ifp, $ofp, $mlen, $nonce, $boxKeypair)</code></li>
+<li><code>box_decrypt($ifp, $ofp, $mlen, $nonce, $boxKeypair)</code></li>
+<li><code>secretbox_encrypt($ifp, $ofp, $mlen, $nonce, $key)</code></li>
+<li><code>secretbox_decrypt($ifp, $ofp, $mlen, $nonce, $key)</code></li>
+<li>`onetimeauth_verify(ParagonIE_Sodium_Core_Poly1305_State $state,</li>
+<p>        $ifp,</p>
+<p>        $tag = '',</p>
+<p>        $mlen = 0)`</p>
+<li><code>updateHashWithFile($hash, $fp, $size = 0)</code></li>
+<li><code>sign_core32($filePath, $secretKey)</code></li>
+<li><code>verify_core32($sig, $filePath, $publicKey)</code></li>
+<li><code>secretbox_encrypt_core32($ifp, $ofp, $mlen, $nonce, $key)</code></li>
+<li><code>secretbox_decrypt_core32($ifp, $ofp, $mlen, $nonce, $key)</code></li>
+<li>`onetimeauth_verify_core32(ParagonIE_Sodium_Core32_Poly1305_State $state,</li>
+<p>        $ifp,</p>
+<p>        $tag = '',</p>
+<p>        $mlen = 0)`</p>
+<li><code>ftell($resource)</code></li>
+</ul>
+</body></html>

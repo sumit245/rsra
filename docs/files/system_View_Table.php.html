@@ -1,0 +1,144 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\View\Table.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\View\Table.php</h1>
+
+<ul>
+<li>Path: <code>system\View\Table.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 12603 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>HTML Table Generating Class</p>
+<p>Lets you create tables manually or from database result objects, or arrays.</p>
+
+<p>Data for table rows</p>
+<p>@var array</p>
+
+<p>Data for table heading</p>
+<p>@var array</p>
+
+<p>Data for table footing</p>
+<p>@var array</p>
+
+<p>Whether or not to automatically create the table header</p>
+<p>@var bool</p>
+
+<p>Table caption</p>
+<p>@var string|null</p>
+
+<p>Table layout template</p>
+<p>@var array</p>
+
+<p>Newline setting</p>
+<p>@var string</p>
+
+<p>Contents of empty cells</p>
+<p>@var string</p>
+
+<p>Callback for custom table layout</p>
+<p>@var callable|null</p>
+
+<p>Set the template from the table config file if it exists</p>
+<p>@param array $config (default: array())</p>
+
+<p>Set the template</p>
+<p>@param array $template</p>
+<p>@return bool</p>
+
+<p>Set the table heading</p>
+<p>Can be passed as an array or discreet params</p>
+<p>@return Table</p>
+
+<p>Set the table footing</p>
+<p>Can be passed as an array or discreet params</p>
+<p>@return Table</p>
+
+<p>Set columns. Takes a one-dimensional array as input and creates</p>
+<p>a multi-dimensional array with a depth equal to the number of</p>
+<p>columns. This allows a single array with many elements to be</p>
+<p>displayed in a table that has a fixed column count.</p>
+<p>@param array $array</p>
+<p>@param int   $columnLimit</p>
+<p>@return array|false</p>
+
+<p>Set "empty" cells</p>
+<p>Can be passed as an array or discreet params</p>
+<p>@param mixed $value</p>
+<p>@return Table</p>
+
+<p>Add a table row</p>
+<p>Can be passed as an array or discreet params</p>
+<p>@return Table</p>
+
+<p>Prep Args</p>
+<p>Ensures a standard associative array format for all cell data</p>
+<p>@return array</p>
+
+<p>Add a table caption</p>
+<p>@param string $caption</p>
+<p>@return Table</p>
+
+<p>Generate the table</p>
+<p>@param mixed $tableData</p>
+<p>@return string</p>
+
+<p>Clears the table arrays.  Useful if multiple tables are being generated</p>
+<p>@return Table</p>
+
+<p>Set table data from a database result object</p>
+<p>@param BaseResult $object Database result object</p>
+
+<p>Set table data from an array</p>
+<p>@param array $data</p>
+
+<p>Compile Template</p>
+
+<p>Default Template</p>
+<p>@return array</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>database</code></li>
+<li><code>the</code></li>
+<li><code>a</code></li>
+<li><code>an</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\View\Table.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\View\Table</code></li>
+<li><code>CodeIgniter\View\properties</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($config = [])</code></li>
+<li><code>setTemplate($template)</code></li>
+<li><code>setHeading()</code></li>
+<li><code>setFooting()</code></li>
+<li><code>makeColumns($array = [], $columnLimit = 0)</code></li>
+<li><code>setEmpty($value)</code></li>
+<li><code>addRow()</code></li>
+<li><code>_prepArgs(array $args)</code></li>
+<li><code>setCaption($caption)</code></li>
+<li><code>generate($tableData = null)</code></li>
+<li><code>if(isset($this->function)</code></li>
+<li><code>clear()</code></li>
+<li><code>_setFromDBResult($object)</code></li>
+<li><code>_setFromArray($data)</code></li>
+<li><code>_compileTemplate()</code></li>
+<li><code>_defaultTemplate()</code></li>
+</ul>
+</body></html>

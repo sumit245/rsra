@@ -1,0 +1,80 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Formatter\NormalizerFormatter.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Formatter\NormalizerFormatter.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Formatter\NormalizerFormatter.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9402 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Normalizes incoming records to remove objects/resources so it's easier to dump to various targets</p>
+<p>@author Jordi Boggiano <j.boggiano@seld.be></p>
+
+<p>@param string $dateFormat The format of the timestamp: one supported by DateTime::format</p>
+
+<p>{@inheritdoc}</p>
+
+<p>{@inheritdoc}</p>
+
+<p>Return the JSON representation of a value</p>
+<p>@param  mixed             $data</p>
+<p>@param  bool              $ignoreErrors</p>
+<p>@throws \RuntimeException if encoding fails and errors are not ignored</p>
+<p>@return string</p>
+
+<p>@param  mixed  $data</p>
+<p>@return string JSON encoded data or null on failure</p>
+
+<p>Handle a json_encode failure.</p>
+<p>If the failure is due to invalid string encoding, try to clean the</p>
+<p>input and encode again. If the second encoding attempt fails, the</p>
+<p>inital error is not encoding related or the input can't be cleaned then</p>
+<p>raise a descriptive exception.</p>
+<p>@param  int               $code return code of json_last_error function</p>
+<p>@param  mixed             $data data that was meant to be encoded</p>
+<p>@throws \RuntimeException if failure can't be corrected</p>
+<p>@return string            JSON encoded data after error correction</p>
+
+<p>Throws an exception according to a given code with a customized message</p>
+<p>@param  int               $code return code of json_last_error function</p>
+<p>@param  mixed             $data data that was meant to be encoded</p>
+<p>@throws \RuntimeException</p>
+
+<p>Detect invalid UTF-8 string characters and convert to valid UTF-8.</p>
+<p>Valid UTF-8 input will be left unmodified, but strings containing</p>
+<p>invalid UTF-8 codepoints will be reencoded as UTF-8 with an assumed</p>
+<p>original encoding of ISO-8859-15. This conversion may result in</p>
+<p>incorrect output if the actual encoding was not ISO-8859-15, but it</p>
+<p>will be clean UTF-8 output and will not rely on expensive and fragile</p>
+<p>detection algorithms.</p>
+<p>Function converts the input in place in the passed variable so that it</p>
+<p>can be used as a callback for array_walk_recursive.</p>
+<p>@param mixed &$data Input to check and convert if needed</p>
+<p>@private</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Formatter\NormalizerFormatter.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Monolog\Formatter\NormalizerFormatter implements FormatterInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($dateFormat = null)</code></li>
+<li><code>format(array $record)</code></li>
+<li><code>formatBatch(array $records)</code></li>
+<li><code>normalize($data)</code></li>
+<li><code>normalizeException($e)</code></li>
+<li><code>toJson($data, $ignoreErrors = false)</code></li>
+<li><code>jsonEncode($data)</code></li>
+<li><code>handleJsonError($code, $data)</code></li>
+<li><code>throwEncodeError($code, $data)</code></li>
+<li><code>detectAndCleanUtf8(&$data)</code></li>
+</ul>
+</body></html>

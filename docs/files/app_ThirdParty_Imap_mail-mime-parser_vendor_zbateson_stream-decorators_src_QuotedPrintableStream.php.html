@@ -1,0 +1,113 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\stream-decorators\src\QuotedPrintableStream.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\stream-decorators\src\QuotedPrintableStream.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\stream-decorators\src\QuotedPrintableStream.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 6198 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\StreamDecorators project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>GuzzleHttp\Psr7 stream decoder decorator for quoted printable streams.</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var int current read/write position</p>
+
+<p>@var string Last line of written text (used to maintain good line-breaks)</p>
+
+<p>Overridden to return the position in the target encoding.</p>
+<p>@return int</p>
+
+<p>Returns null, getSize isn't supported</p>
+<p>@return null</p>
+
+<p>Not supported.</p>
+<p>@param int $offset</p>
+<p>@param int $whence</p>
+<p>@throws RuntimeException</p>
+
+<p>Overridden to return false</p>
+<p>@return boolean</p>
+
+<p>Reads $length chars from the underlying stream, prepending the past $pre</p>
+<p>to it first.</p>
+<p>If the characters read (including the prepended $pre) contain invalid</p>
+<p>quoted-printable characters, the underlying stream is rewound by the</p>
+<p>total number of characters ($length + strlen($pre)).</p>
+<p>The quoted-printable encoded characters are returned.  If the characters</p>
+<p>read are invalid, '3D' is returned indicating an '=' character.</p>
+<p>@param int $length</p>
+<p>@param string $pre</p>
+<p>@return string</p>
+
+<p>Decodes the passed $block of text.</p>
+<p>If the last or before last character is an '=' char, indicating the</p>
+<p>beginning of a quoted-printable encoded char, 1 or 2 additional bytes are</p>
+<p>read from the underlying stream respectively.</p>
+<p>The decoded string is returned.</p>
+<p>@param string $block</p>
+<p>@return string</p>
+
+<p>Reads up to $length characters, appends them to the passed $str string,</p>
+<p>and returns the total number of characters read.</p>
+<p>-1 is returned if there are no more bytes to read.</p>
+<p>@param int $length</p>
+<p>@param string $append</p>
+<p>@return int</p>
+
+<p>Reads up to $length decoded bytes from the underlying quoted-printable</p>
+<p>encoded stream and returns them.</p>
+<p>@param int $length</p>
+<p>@return string</p>
+
+<p>Writes the passed string to the underlying stream after encoding it as</p>
+<p>quoted-printable.</p>
+<p>Note that reading and writing to the same stream without rewinding is not</p>
+<p>supported.</p>
+<p>@param string $string</p>
+<p>@return int the number of bytes written</p>
+
+<p>Writes out a final CRLF if the current line isn't empty.</p>
+
+<p>Closes the underlying stream and writes a final CRLF if the current line</p>
+<p>isn't empty.</p>
+
+<p>Closes the underlying stream and writes a final CRLF if the current line</p>
+<p>isn't empty.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\stream-decorators\src\QuotedPrintableStream.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\StreamDecorators\QuotedPrintableStream implements StreamInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>tell()</code></li>
+<li><code>getSize()</code></li>
+<li><code>seek($offset, $whence = SEEK_SET)</code></li>
+<li><code>isSeekable()</code></li>
+<li><code>readEncodedChars($length, $pre = '')</code></li>
+<li><code>decodeBlock($block)</code></li>
+<li><code>readRawDecodeAndAppend($length, &$str)</code></li>
+<li><code>read($length)</code></li>
+<li><code>write($string)</code></li>
+<li><code>beforeClose()</code></li>
+<li><code>close()</code></li>
+<li><code>detach()</code></li>
+</ul>
+</body></html>

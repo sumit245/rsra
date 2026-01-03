@@ -1,0 +1,83 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Files\File.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Files\File.php</h1>
+
+<ul>
+<li>Path: <code>system\Files\File.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5969 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Wrapper for PHP's built-in SplFileInfo, with goodies.</p>
+
+<p>The files size in bytes</p>
+<p>@var int</p>
+
+<p>@var string|null</p>
+
+<p>Run our SplFileInfo constructor with an optional verification</p>
+<p>that the path is really a file.</p>
+<p>@throws FileNotFoundException</p>
+
+<p>Retrieve the file size.</p>
+<p>Implementations SHOULD return the value stored in the "size" key of</p>
+<p>the file in the $_FILES array if available, as PHP calculates this based</p>
+<p>on the actual size transmitted.</p>
+<p>@return false|int The file size in bytes, or false on failure</p>
+
+<p>Retrieve the file size by unit.</p>
+<p>@return false|int|string</p>
+
+<p>Attempts to determine the file extension based on the trusted</p>
+<p>getType() method. If the mime type is unknown, will return null.</p>
+
+<p>Retrieve the media type of the file. SHOULD not use information from</p>
+<p>the $_FILES array, but should use other methods to more accurately</p>
+<p>determine the type of file, like finfo, or mime_content_type().</p>
+<p>@return string The media type we determined it to be.</p>
+
+<p>Generates a random names based on a simple hash and the time, with</p>
+<p>the correct file extension attached.</p>
+
+<p>Moves a file to a new location.</p>
+<p>@return File</p>
+
+<p>Returns the destination path for the move operation where overwriting is not expected.</p>
+<p>First, it checks whether the delimiter is present in the filename, if it is, then it checks whether the</p>
+<p>last element is an integer as there may be cases that the delimiter may be present in the filename.</p>
+<p>For the all other cases, it appends an integer starting from zero before the file's extension.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>zero</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Files\File.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Files\File extends SplFileInfo</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(string $path, bool $checkFile = false)</code></li>
+<li><code>getSize()</code></li>
+<li><code>getSizeByUnit(string $unit = 'b')</code></li>
+<li><code>guessExtension()</code></li>
+<li><code>getMimeType()</code></li>
+<li><code>getRandomName()</code></li>
+<li><code>move(string $targetPath, ?string $name = null, bool $overwrite = false)</code></li>
+<li><code>getDestination(string $destination, string $delimiter = '_', int $i = 0)</code></li>
+</ul>
+</body></html>

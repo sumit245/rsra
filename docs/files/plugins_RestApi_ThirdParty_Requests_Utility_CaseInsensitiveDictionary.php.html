@@ -1,0 +1,68 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\RestApi\ThirdParty\Requests\Utility\CaseInsensitiveDictionary.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\RestApi\ThirdParty\Requests\Utility\CaseInsensitiveDictionary.php</h1>
+
+<ul>
+<li>Path: <code>plugins\RestApi\ThirdParty\Requests\Utility\CaseInsensitiveDictionary.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2043 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Case-insensitive dictionary, suitable for HTTP headers</p>
+<p>@package Requests</p>
+<p>@subpackage Utilities</p>
+
+<p>Case-insensitive dictionary, suitable for HTTP headers</p>
+<p>@package Requests</p>
+<p>@subpackage Utilities</p>
+
+<p>Actual item data</p>
+<p>@var array</p>
+
+<p>Creates a case insensitive dictionary.</p>
+<p>@param array $data Dictionary/map to convert to case-insensitive</p>
+
+<p>Check if the given item exists</p>
+<p>@param string $key Item key</p>
+<p>@return boolean Does the item exist?</p>
+
+<p>Get the value for the item</p>
+<p>@param string $key Item key</p>
+<p>@return string|null Item value (null if offsetExists is false)</p>
+
+<p>Set the given item</p>
+<p>@throws Requests_Exception On attempting to use dictionary as list (<code>invalidset</code>)</p>
+<p>@param string $key Item name</p>
+<p>@param string $value Item value</p>
+
+<p>Unset the given header</p>
+<p>@param string $key</p>
+
+<p>Get an iterator for the data</p>
+<p>@return ArrayIterator</p>
+
+<p>Get the headers as an array</p>
+<p>@return array Header data</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\RestApi\ThirdParty\Requests\Utility\CaseInsensitiveDictionary.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Requests_Utility_CaseInsensitiveDictionary implements ArrayAccess, IteratorAggregate</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(array $data = array()</code></li>
+<li><code>offsetExists($key)</code></li>
+<li><code>offsetGet($key)</code></li>
+<li><code>offsetSet($key, $value)</code></li>
+<li><code>offsetUnset($key)</code></li>
+<li><code>getIterator()</code></li>
+<li><code>getAll()</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,210 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\psr\http-message\src\ServerRequestInterface.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\psr\http-message\src\ServerRequestInterface.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\psr\http-message\src\ServerRequestInterface.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 10098 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Representation of an incoming, server-side HTTP request.</p>
+<p>Per the HTTP specification, this interface includes properties for</p>
+<p>each of the following:</p>
+<ul>
+<li>Protocol version</li>
+<li>HTTP method</li>
+<li>URI</li>
+<li>Headers</li>
+<li>Message body</li>
+<p>Additionally, it encapsulates all data as it has arrived to the</p>
+<p>application from the CGI and/or PHP environment, including:</p>
+<li>The values represented in $_SERVER.</li>
+<li>Any cookies provided (generally via $_COOKIE)</li>
+<li>Query string arguments (generally via $_GET, or as parsed via parse_str())</li>
+<li>Upload files, if any (as represented by $_FILES)</li>
+<li>Deserialized body parameters (generally from $_POST)</li>
+<p>$_SERVER values MUST be treated as immutable, as they represent application</p>
+<p>state at the time of request; as such, no methods are provided to allow</p>
+<p>modification of those values. The other values provide such methods, as they</p>
+<p>can be restored from $_SERVER or the request body, and may need treatment</p>
+<p>during the application (e.g., body parameters may be deserialized based on</p>
+<p>content type).</p>
+<p>Additionally, this interface recognizes the utility of introspecting a</p>
+<p>request to derive and match additional parameters (e.g., via URI path</p>
+<p>matching, decrypting cookie values, deserializing non-form-encoded body</p>
+<p>content, matching authorization headers to users, etc). These parameters</p>
+<p>are stored in an "attributes" property.</p>
+<p>Requests are considered immutable; all methods that might change state MUST</p>
+<p>be implemented such that they retain the internal state of the current</p>
+<p>message and return an instance that contains the changed state.</p>
+</ul>
+<p>Retrieve server parameters.</p>
+<p>Retrieves data related to the incoming request environment,</p>
+<p>typically derived from PHP's $_SERVER superglobal. The data IS NOT</p>
+<p>REQUIRED to originate from $_SERVER.</p>
+<p>@return array</p>
+
+<p>Retrieve cookies.</p>
+<p>Retrieves cookies sent by the client to the server.</p>
+<p>The data MUST be compatible with the structure of the $_COOKIE</p>
+<p>superglobal.</p>
+<p>@return array</p>
+
+<p>Return an instance with the specified cookies.</p>
+<p>The data IS NOT REQUIRED to come from the $_COOKIE superglobal, but MUST</p>
+<p>be compatible with the structure of $_COOKIE. Typically, this data will</p>
+<p>be injected at instantiation.</p>
+<p>This method MUST NOT update the related Cookie header of the request</p>
+<p>instance, nor related values in the server params.</p>
+<p>This method MUST be implemented in such a way as to retain the</p>
+<p>immutability of the message, and MUST return an instance that has the</p>
+<p>updated cookie values.</p>
+<p>@param array $cookies Array of key/value pairs representing cookies.</p>
+<p>@return static</p>
+
+<p>Retrieve query string arguments.</p>
+<p>Retrieves the deserialized query string arguments, if any.</p>
+<p>Note: the query params might not be in sync with the URI or server</p>
+<p>params. If you need to ensure you are only getting the original</p>
+<p>values, you may need to parse the query string from <code>getUri()->getQuery()</code></p>
+<p>or from the <code>QUERY_STRING</code> server param.</p>
+<p>@return array</p>
+
+<p>Return an instance with the specified query string arguments.</p>
+<p>These values SHOULD remain immutable over the course of the incoming</p>
+<p>request. They MAY be injected during instantiation, such as from PHP's</p>
+<p>$_GET superglobal, or MAY be derived from some other value such as the</p>
+<p>URI. In cases where the arguments are parsed from the URI, the data</p>
+<p>MUST be compatible with what PHP's parse_str() would return for</p>
+<p>purposes of how duplicate query parameters are handled, and how nested</p>
+<p>sets are handled.</p>
+<p>Setting query string arguments MUST NOT change the URI stored by the</p>
+<p>request, nor the values in the server params.</p>
+<p>This method MUST be implemented in such a way as to retain the</p>
+<p>immutability of the message, and MUST return an instance that has the</p>
+<p>updated query string arguments.</p>
+<p>@param array $query Array of query string arguments, typically from</p>
+<p>    $_GET.</p>
+<p>@return static</p>
+
+<p>Retrieve normalized file upload data.</p>
+<p>This method returns upload metadata in a normalized tree, with each leaf</p>
+<p>an instance of Psr\Http\Message\UploadedFileInterface.</p>
+<p>These values MAY be prepared from $_FILES or the message body during</p>
+<p>instantiation, or MAY be injected via withUploadedFiles().</p>
+<p>@return array An array tree of UploadedFileInterface instances; an empty</p>
+<p>    array MUST be returned if no data is present.</p>
+
+<p>Create a new instance with the specified uploaded files.</p>
+<p>This method MUST be implemented in such a way as to retain the</p>
+<p>immutability of the message, and MUST return an instance that has the</p>
+<p>updated body parameters.</p>
+<p>@param array $uploadedFiles An array tree of UploadedFileInterface instances.</p>
+<p>@return static</p>
+<p>@throws \InvalidArgumentException if an invalid structure is provided.</p>
+
+<p>Retrieve any parameters provided in the request body.</p>
+<p>If the request Content-Type is either application/x-www-form-urlencoded</p>
+<p>or multipart/form-data, and the request method is POST, this method MUST</p>
+<p>return the contents of $_POST.</p>
+<p>Otherwise, this method may return any results of deserializing</p>
+<p>the request body content; as parsing returns structured content, the</p>
+<p>potential types MUST be arrays or objects only. A null value indicates</p>
+<p>the absence of body content.</p>
+<p>@return null|array|object The deserialized body parameters, if any.</p>
+<p>    These will typically be an array or object.</p>
+
+<p>Return an instance with the specified body parameters.</p>
+<p>These MAY be injected during instantiation.</p>
+<p>If the request Content-Type is either application/x-www-form-urlencoded</p>
+<p>or multipart/form-data, and the request method is POST, use this method</p>
+<p>ONLY to inject the contents of $_POST.</p>
+<p>The data IS NOT REQUIRED to come from $_POST, but MUST be the results of</p>
+<p>deserializing the request body content. Deserialization/parsing returns</p>
+<p>structured data, and, as such, this method ONLY accepts arrays or objects,</p>
+<p>or a null value if nothing was available to parse.</p>
+<p>As an example, if content negotiation determines that the request data</p>
+<p>is a JSON payload, this method could be used to create a request</p>
+<p>instance with the deserialized parameters.</p>
+<p>This method MUST be implemented in such a way as to retain the</p>
+<p>immutability of the message, and MUST return an instance that has the</p>
+<p>updated body parameters.</p>
+<p>@param null|array|object $data The deserialized body data. This will</p>
+<p>    typically be in an array or object.</p>
+<p>@return static</p>
+<p>@throws \InvalidArgumentException if an unsupported argument type is</p>
+<p>    provided.</p>
+
+<p>Retrieve attributes derived from the request.</p>
+<p>The request "attributes" may be used to allow injection of any</p>
+<p>parameters derived from the request: e.g., the results of path</p>
+<p>match operations; the results of decrypting cookies; the results of</p>
+<p>deserializing non-form-encoded message bodies; etc. Attributes</p>
+<p>will be application and request specific, and CAN be mutable.</p>
+<p>@return array Attributes derived from the request.</p>
+
+<p>Retrieve a single derived request attribute.</p>
+<p>Retrieves a single derived request attribute as described in</p>
+<p>getAttributes(). If the attribute has not been previously set, returns</p>
+<p>the default value as provided.</p>
+<p>This method obviates the need for a hasAttribute() method, as it allows</p>
+<p>specifying a default value to return if the attribute is not found.</p>
+<p>@see getAttributes()</p>
+<p>@param string $name The attribute name.</p>
+<p>@param mixed $default Default value to return if the attribute does not exist.</p>
+<p>@return mixed</p>
+
+<p>Return an instance with the specified derived request attribute.</p>
+<p>This method allows setting a single derived request attribute as</p>
+<p>described in getAttributes().</p>
+<p>This method MUST be implemented in such a way as to retain the</p>
+<p>immutability of the message, and MUST return an instance that has the</p>
+<p>updated attribute.</p>
+<p>@see getAttributes()</p>
+<p>@param string $name The attribute name.</p>
+<p>@param mixed $value The value of the attribute.</p>
+<p>@return static</p>
+
+<p>Return an instance that removes the specified derived request attribute.</p>
+<p>This method allows removing a single derived request attribute as</p>
+<p>described in getAttributes().</p>
+<p>This method MUST be implemented in such a way as to retain the</p>
+<p>immutability of the message, and MUST return an instance that removes</p>
+<p>the attribute.</p>
+<p>@see getAttributes()</p>
+<p>@param string $name The attribute name.</p>
+<p>@return static</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>PHP</code></li>
+<li><code>some</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\psr\http-message\src\ServerRequestInterface.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getServerParams()</code></li>
+<li><code>getCookieParams()</code></li>
+<li><code>withCookieParams(array $cookies)</code></li>
+<li><code>getQueryParams()</code></li>
+<li><code>withQueryParams(array $query)</code></li>
+<li><code>getUploadedFiles()</code></li>
+<li><code>withUploadedFiles(array $uploadedFiles)</code></li>
+<li><code>getParsedBody()</code></li>
+<li><code>withParsedBody($data)</code></li>
+<li><code>getAttributes()</code></li>
+<li><code>getAttribute($name, $default = null)</code></li>
+<li><code>withAttribute($name, $value)</code></li>
+<li><code>withoutAttribute($name)</code></li>
+</ul>
+</body></html>

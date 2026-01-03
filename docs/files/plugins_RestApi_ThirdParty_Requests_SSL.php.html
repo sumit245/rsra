@@ -1,0 +1,70 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\RestApi\ThirdParty\Requests\SSL.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\RestApi\ThirdParty\Requests\SSL.php</h1>
+
+<ul>
+<li>Path: <code>plugins\RestApi\ThirdParty\Requests\SSL.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3814 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>SSL utilities for Requests</p>
+<p>@package Requests</p>
+<p>@subpackage Utilities</p>
+
+<p>SSL utilities for Requests</p>
+<p>Collection of utilities for working with and verifying SSL certificates.</p>
+<p>@package Requests</p>
+<p>@subpackage Utilities</p>
+
+<p>Verify the certificate against common name and subject alternative names</p>
+<p>Unfortunately, PHP doesn't check the certificate against the alternative</p>
+<p>names, leading things like 'https://www.github.com/' to be invalid.</p>
+<p>@see https://tools.ietf.org/html/rfc2818#section-3.1 RFC2818, Section 3.1</p>
+<p>@throws Requests_Exception On not obtaining a match for the host (<code>fsockopen.ssl.no_match</code>)</p>
+<p>@param string $host Host name to verify against</p>
+<p>@param array $cert Certificate data from openssl_x509_parse()</p>
+<p>@return bool</p>
+
+<p>Verify that a reference name is valid</p>
+<p>Verifies a dNSName for HTTPS usage, (almost) as per Firefox's rules:</p>
+<ul>
+<li>Wildcards can only occur in a name with more than 3 components</li>
+<li>Wildcards can only occur as the last character in the first</li>
+<p>  component</p>
+<li>Wildcards may be preceded by additional characters</li>
+<p>We modify these rules to be a bit stricter and only allow the wildcard</p>
+<p>character to be the full first component; that is, with the exclusion of</p>
+<p>the third rule.</p>
+<p>@param string $reference Reference dNSName</p>
+<p>@return boolean Is the name valid?</p>
+</ul>
+<p>Match a hostname against a dNSName reference</p>
+<p>@param string $host Requested host</p>
+<p>@param string $reference dNSName to match against</p>
+<p>@return boolean Does the domain match?</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>openssl_x509_parse</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\RestApi\ThirdParty\Requests\SSL.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Requests_SSL</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>verify_certificate($host, $cert)</code></li>
+<li><code>verify_reference_name($reference)</code></li>
+<li><code>match_domain($host, $reference)</code></li>
+</ul>
+</body></html>

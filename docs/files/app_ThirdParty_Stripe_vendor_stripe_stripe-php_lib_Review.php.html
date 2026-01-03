@@ -1,0 +1,61 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Review.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Review.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Review.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3425 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Reviews can be used to supplement automated fraud detection with human</p>
+<p>expertise.</p>
+<p>Learn more about <a href="/radar">Radar</a> and reviewing payments <a</p>
+<p>href="https://stripe.com/docs/radar/reviews">here</a>.</p>
+<p>@property string $id Unique identifier for the object.</p>
+<p>@property string $object String representing the object's type. Objects of the same type share the same value.</p>
+<p>@property null|string $billing_zip The ZIP or postal code of the card used, if applicable.</p>
+<p>@property null|string|\Stripe\Charge $charge The charge associated with this review.</p>
+<p>@property null|string $closed_reason The reason the review was closed, or null if it has not yet been closed. One of <code>approved</code>, <code>refunded</code>, <code>refunded_as_fraud</code>, <code>disputed</code>, or <code>redacted</code>.</p>
+<p>@property int $created Time at which the object was created. Measured in seconds since the Unix epoch.</p>
+<p>@property null|string $ip_address The IP address where the payment originated.</p>
+<p>@property null|\Stripe\StripeObject $ip_address_location Information related to the location of the payment. Note that this information is an approximation and attempts to locate the nearest population center - it should not be used to determine a specific address.</p>
+<p>@property bool $livemode Has the value <code>true</code> if the object exists in live mode or the value <code>false</code> if the object exists in test mode.</p>
+<p>@property bool $open If <code>true</code>, the review needs action.</p>
+<p>@property string $opened_reason The reason the review was opened. One of <code>rule</code> or <code>manual</code>.</p>
+<p>@property string|\Stripe\PaymentIntent $payment_intent The PaymentIntent ID associated with this review, if one exists.</p>
+<p>@property string $reason The reason the review is currently open or closed. One of <code>rule</code>, <code>manual</code>, <code>approved</code>, <code>refunded</code>, <code>refunded_as_fraud</code>, <code>disputed</code>, or <code>redacted</code>.</p>
+<p>@property null|\Stripe\StripeObject $session Information related to the browsing session of the user who initiated the payment.</p>
+
+<p>Possible string representations of the current, the opening or the closure reason of the review.</p>
+<p>Not all of these enumeration apply to all of the ´reason´ fields. Please consult the Review object to</p>
+<p>determine where these are apply.</p>
+<p>@see https://stripe.com/docs/api/radar/reviews/object</p>
+
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Review the approved review</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Review.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Review extends ApiResource</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>approve($params = null, $opts = null)</code></li>
+</ul>
+</body></html>

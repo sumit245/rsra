@@ -1,0 +1,79 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Encryption\Encryption.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Encryption\Encryption.php</h1>
+
+<ul>
+<li>Path: <code>system\Encryption\Encryption.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4152 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>CodeIgniter Encryption Manager</p>
+<p>Provides two-way keyed encryption via PHP's Sodium and/or OpenSSL extensions.</p>
+<p>This class determines the driver, cipher, and mode to use, and then</p>
+<p>initializes the appropriate encryption handler.</p>
+
+<p>The encrypter we create</p>
+<p>@var EncrypterInterface</p>
+
+<p>The driver being used</p>
+<p>@var string</p>
+
+<p>The key/seed being used</p>
+<p>@var string</p>
+
+<p>The derived HMAC key</p>
+<p>@var string</p>
+
+<p>HMAC digest to use</p>
+<p>@var string</p>
+
+<p>Map of drivers to handler classes, in preference order</p>
+<p>@var array</p>
+
+<p>Handlers that are to be installed</p>
+<p>@var array<string, boolean></p>
+
+<p>@throws EncryptionException</p>
+
+<p>Initialize or re-initialize an encrypter</p>
+<p>@throws EncryptionException</p>
+<p>@return EncrypterInterface</p>
+
+<p>Create a random key</p>
+<p>@param int $length Output length</p>
+<p>@return string</p>
+
+<p>__get() magic, providing readonly access to some of our protected properties</p>
+<p>@param string $key Property name</p>
+<p>@return mixed</p>
+
+<p>__isset() magic, providing checking for some of our protected properties</p>
+<p>@param string $key Property name</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Encryption\Encryption.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Encryption\determines</code></li>
+<li><code>CodeIgniter\Encryption\Encryption</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(?EncryptionConfig $config = null)</code></li>
+<li><code>initialize(?EncryptionConfig $config = null)</code></li>
+<li><code>createKey($length = 32)</code></li>
+<li><code>__get($key)</code></li>
+<li><code>__isset($key)</code></li>
+</ul>
+</body></html>

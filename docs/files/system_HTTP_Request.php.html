@@ -1,0 +1,77 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\HTTP\Request.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\HTTP\Request.php</h1>
+
+<ul>
+<li>Path: <code>system\HTTP\Request.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2928 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Representation of an HTTP request.</p>
+
+<p>Proxy IPs</p>
+<p>@var array|string</p>
+<p>@deprecated Check the App config directly</p>
+
+<p>Request method.</p>
+<p>@var string</p>
+
+<p>A URI instance.</p>
+<p>@var URI</p>
+
+<p>Constructor.</p>
+<p>@param object $config</p>
+<p>@deprecated The $config is no longer needed and will be removed in a future version</p>
+
+<p>@deprecated $this->proxyIps property will be removed in the future</p>
+
+<p>Validate an IP address</p>
+<p>@param string $ip    IP Address</p>
+<p>@param string $which IP protocol: 'ipv4' or 'ipv6'</p>
+<p>@deprecated Use Validation instead</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Get the request method.</p>
+<p>@param bool $upper Whether to return in upper or lower case.</p>
+<p>@deprecated The $upper functionality will be removed and this will revert to its PSR-7 equivalent</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Sets the request method. Used when spoofing the request.</p>
+<p>@return Request</p>
+<p>@deprecated Use withMethod() instead for immutability</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Returns an instance with the specified method.</p>
+<p>@param string $method</p>
+<p>@return static</p>
+
+<p>Retrieves the URI instance.</p>
+<p>@return URI</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\HTTP\Request.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\HTTP\Request extends Message implements MessageInterface, RequestInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($config = null)</code></li>
+<li><code>isValidIP(?string $ip = null, ?string $which = null)</code></li>
+<li><code>getMethod(bool $upper = false)</code></li>
+<li><code>setMethod(string $method)</code></li>
+<li><code>withMethod($method)</code></li>
+<li><code>getUri()</code></li>
+</ul>
+</body></html>

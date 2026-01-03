@@ -1,0 +1,106 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\Hr_payroll\lib\gtsslib.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\Hr_payroll\lib\gtsslib.php</h1>
+
+<ul>
+<li>Path: <code>plugins\Hr_payroll\lib\gtsslib.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 23463 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>check local license_exist</p>
+<p>@return bool</p>
+
+<p>get current version</p>
+<p>@return string</p>
+
+<p>call api </p>
+<p>@param  string $method </p>
+<p>@param  string $url   </p>
+<p>@param  string $data </p>
+<p>@return json</p>
+
+<p>check connection</p>
+<p>@return json</p>
+
+<p>get latest version</p>
+<p>@return json</p>
+
+<p>activate license</p>
+<p>@param  string  $license</p>
+<p>@param  string  $client</p>
+<p>@param  string  $create_lic</p>
+<p>@return array</p>
+
+<p>verify license</p>
+<p>@param  boolean $time_based_check</p>
+<p>@param  boolean $license  </p>
+<p>@param  boolean $client   </p>
+<p>@return array</p>
+
+<p>deactivate license </p>
+<p>@param  boolean $license </p>
+<p>@param  boolean $client  </p>
+<p>@return json</p>
+
+<p>check_update</p>
+<p>@return json</p>
+
+<p>download_update</p>
+<p>@param  [type]  $update_id </p>
+<p>@param  [type]  $type         </p>
+<p>@param  [type]  $version      </p>
+<p>@param  boolean $license      </p>
+<p>@param  boolean $client       </p>
+<p>@param  boolean $db_for_import</p>
+<p>@return object</p>
+
+<p>progress description</p>
+<p>@param  string $resource     </p>
+<p>@param  string $download_size</p>
+<p>@param  string $downloaded   </p>
+<p>@param  string $upload_size  </p>
+<p>@param  string $uploaded     </p>
+<p>@return object</p>
+
+<p>get_ip_from_third_party</p>
+<p>@return object</p>
+
+<p>get remote filesize</p>
+<p>@param  string $url </p>
+<p>@return int</p>
+
+<p>decrypt</p>
+<p>@param  string $data</p>
+<p>@return string</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\Hr_payroll\lib\gtsslib.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>HRPayrollLic</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>check_local_license_exist()</code></li>
+<li><code>get_current_version()</code></li>
+<li><code>call_api($method, $url, $data = null)</code></li>
+<li><code>check_connection()</code></li>
+<li><code>get_latest_version()</code></li>
+<li><code>activate_license($license, $client, $create_lic = true)</code></li>
+<li><code>verify_license($time_based_check = false, $license = false, $client = false)</code></li>
+<li><code>deactivate_license($license = false, $client = false)</code></li>
+<li><code>check_update()</code></li>
+<li><code>download_update($update_id, $type, $version, $license = false, $client = false, $db_for_import = false)</code></li>
+<li><code>progress($resource, $download_size, $downloaded, $upload_size, $uploaded)</code></li>
+<li><code>get_ip_from_third_party()</code></li>
+<li><code>get_remote_filesize($url)</code></li>
+<li><code>decrypt($data)</code></li>
+</ul>
+</body></html>

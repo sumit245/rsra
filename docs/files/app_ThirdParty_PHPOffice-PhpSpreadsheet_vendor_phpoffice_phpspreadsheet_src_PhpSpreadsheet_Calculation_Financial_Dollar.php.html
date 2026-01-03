@@ -1,0 +1,65 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\Dollar.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\Dollar.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\Dollar.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4704 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>DOLLAR.</p>
+<p>This function converts a number to text using currency format, with the decimals rounded to the specified place.</p>
+<p>The format used is $#,##0.00_);($#,##0.00)..</p>
+<p>@param mixed $number The value to format, or can be an array of numbers</p>
+<p>                        Or can be an array of values</p>
+<p>@param mixed $precision The number of digits to display to the right of the decimal point (as an integer).</p>
+<p>                           If precision is negative, number is rounded to the left of the decimal point.</p>
+<p>                           If you omit precision, it is assumed to be 2</p>
+<p>             Or can be an array of precision values</p>
+<p>@return array|string</p>
+<p>        If an array of values is passed for either of the arguments, then the returned result</p>
+<p>           will also be an array with matching dimensions</p>
+
+<p>DOLLARDE.</p>
+<p>Converts a dollar price expressed as an integer part and a fraction</p>
+<p>       part into a dollar price expressed as a decimal number.</p>
+<p>Fractional dollar numbers are sometimes used for security prices.</p>
+<p>Excel Function:</p>
+<p>       DOLLARDE(fractional_dollar,fraction)</p>
+<p>@param mixed $fractionalDollar Fractional Dollar</p>
+<p>             Or can be an array of values</p>
+<p>@param mixed $fraction Fraction</p>
+<p>             Or can be an array of values</p>
+<p>@return array|float|string</p>
+
+<p>DOLLARFR.</p>
+<p>Converts a dollar price expressed as a decimal number into a dollar price</p>
+<p>       expressed as a fraction.</p>
+<p>Fractional dollar numbers are sometimes used for security prices.</p>
+<p>Excel Function:</p>
+<p>       DOLLARFR(decimal_dollar,fraction)</p>
+<p>@param mixed $decimalDollar Decimal Dollar</p>
+<p>             Or can be an array of values</p>
+<p>@param mixed $fraction Fraction</p>
+<p>             Or can be an array of values</p>
+<p>@return array|float|string</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\Dollar.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\Financial\Dollar</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>format($number, $precision = 2)</code></li>
+<li><code>decimal($fractionalDollar = null, $fraction = 0)</code></li>
+<li><code>fractional($decimalDollar = null, $fraction = 0)</code></li>
+</ul>
+</body></html>

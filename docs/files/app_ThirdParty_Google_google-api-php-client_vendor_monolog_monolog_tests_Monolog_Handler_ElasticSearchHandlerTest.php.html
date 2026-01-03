@@ -1,0 +1,82 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\tests\Monolog\Handler\ElasticSearchHandlerTest.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\tests\Monolog\Handler\ElasticSearchHandlerTest.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\tests\Monolog\Handler\ElasticSearchHandlerTest.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7688 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@var Client mock</p>
+
+<p>@var array Default handler options</p>
+
+<p>@covers Monolog\Handler\ElasticSearchHandler::write</p>
+<p>@covers Monolog\Handler\ElasticSearchHandler::handleBatch</p>
+<p>@covers Monolog\Handler\ElasticSearchHandler::bulkSend</p>
+<p>@covers Monolog\Handler\ElasticSearchHandler::getDefaultFormatter</p>
+
+<p>@covers Monolog\Handler\ElasticSearchHandler::setFormatter</p>
+
+<p>@covers                   Monolog\Handler\ElasticSearchHandler::setFormatter</p>
+<p>@expectedException        InvalidArgumentException</p>
+<p>@expectedExceptionMessage ElasticSearchHandler is only compatible with ElasticaFormatter</p>
+
+<p>@covers Monolog\Handler\ElasticSearchHandler::__construct</p>
+<p>@covers Monolog\Handler\ElasticSearchHandler::getOptions</p>
+
+<p>@covers       Monolog\Handler\ElasticSearchHandler::bulkSend</p>
+<p>@dataProvider providerTestConnectionErrors</p>
+
+<p>@return array</p>
+
+<p>Integration test using localhost Elastic Search server</p>
+<p>@covers Monolog\Handler\ElasticSearchHandler::__construct</p>
+<p>@covers Monolog\Handler\ElasticSearchHandler::handleBatch</p>
+<p>@covers Monolog\Handler\ElasticSearchHandler::bulkSend</p>
+<p>@covers Monolog\Handler\ElasticSearchHandler::getDefaultFormatter</p>
+
+<p>Return last created document id from ES response</p>
+<p>@param  Response    $response Elastica Response object</p>
+<p>@return string|null</p>
+
+<p>Retrieve document by id from Elasticsearch</p>
+<p>@param  Client $client     Elastica client</p>
+<p>@param  string $index</p>
+<p>@param  string $type</p>
+<p>@param  string $documentId</p>
+<p>@return array</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>ES</code></li>
+<li><code>Elasticsearch</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\tests\Monolog\Handler\ElasticSearchHandlerTest.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Monolog\Handler\ElasticSearchHandlerTest extends TestCase</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>setUp()</code></li>
+<li><code>testHandle()</code></li>
+<li><code>testSetFormatter()</code></li>
+<li><code>testSetFormatterInvalid()</code></li>
+<li><code>testOptions()</code></li>
+<li><code>testConnectionErrors($ignore, $expectedError)</code></li>
+<li><code>providerTestConnectionErrors()</code></li>
+<li><code>testHandleIntegration()</code></li>
+<li><code>getCreatedDocId(Response $response)</code></li>
+<li><code>getDocSourceFromElastic(Client $client, $index, $type, $documentId)</code></li>
+</ul>
+</body></html>

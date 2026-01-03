@@ -1,0 +1,100 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\System\SSH\Agent\Identity.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\System\SSH\Agent\Identity.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\System\SSH\Agent\Identity.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4166 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Pure-PHP ssh-agent client.</p>
+<p>PHP version 5</p>
+<p>@category  System</p>
+<p>@package   SSH\Agent</p>
+<p>@author    Jim Wigginton <terrafrost@php.net></p>
+<p>@copyright 2009 Jim Wigginton</p>
+<p>@license   http://www.opensource.org/licenses/mit-license.html  MIT License</p>
+<p>@link      http://phpseclib.sourceforge.net</p>
+<p>@internal  See http://api.libssh.org/rfc/PROTOCOL.agent</p>
+
+<p>Pure-PHP ssh-agent client identity object</p>
+<p>Instantiation should only be performed by \phpseclib\System\SSH\Agent class.</p>
+<p>This could be thought of as implementing an interface that phpseclib\Crypt\RSA</p>
+<p>implements. ie. maybe a Net_SSH_Auth_PublicKey interface or something.</p>
+<p>The methods in this interface would be getPublicKey and sign since those are the</p>
+<p>methods phpseclib looks for to perform public key authentication.</p>
+<p>@package SSH\Agent</p>
+<p>@author  Jim Wigginton <terrafrost@php.net></p>
+<p>@access  internal</p>
+
+<p>Key Object</p>
+<p>@var \phpseclib\Crypt\RSA</p>
+<p>@access private</p>
+<p>@see self::getPublicKey()</p>
+
+<p>Key Blob</p>
+<p>@var string</p>
+<p>@access private</p>
+<p>@see self::sign()</p>
+
+<p>Socket Resource</p>
+<p>@var resource</p>
+<p>@access private</p>
+<p>@see self::sign()</p>
+
+<p>Default Constructor.</p>
+<p>@param resource $fsock</p>
+<p>@return \phpseclib\System\SSH\Agent\Identity</p>
+<p>@access private</p>
+
+<p>Set Public Key</p>
+<p>Called by \phpseclib\System\SSH\Agent::requestIdentities()</p>
+<p>@param \phpseclib\Crypt\RSA $key</p>
+<p>@access private</p>
+
+<p>Set Public Key</p>
+<p>Called by \phpseclib\System\SSH\Agent::requestIdentities(). The key blob could be extracted from $this->key</p>
+<p>but this saves a small amount of computation.</p>
+<p>@param string $key_blob</p>
+<p>@access private</p>
+
+<p>Get Public Key</p>
+<p>Wrapper for $this->key->getPublicKey()</p>
+<p>@param int $format optional</p>
+<p>@return mixed</p>
+<p>@access public</p>
+
+<p>Set Signature Mode</p>
+<p>Doesn't do anything as ssh-agent doesn't let you pick and choose the signature mode. ie.</p>
+<p>ssh-agent's only supported mode is \phpseclib\Crypt\RSA::SIGNATURE_PKCS1</p>
+<p>@param int $mode</p>
+<p>@access public</p>
+
+<p>Create a signature</p>
+<p>See "2.6.2 Protocol 2 private key signature request"</p>
+<p>@param string $message</p>
+<p>@return string</p>
+<p>@access public</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\System\SSH\Agent\Identity.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>phpseclib\System\SSH\Agent\Identity</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($fsock)</code></li>
+<li><code>setPublicKey($key)</code></li>
+<li><code>setPublicKeyBlob($key_blob)</code></li>
+<li><code>getPublicKey($format = null)</code></li>
+<li><code>setSignatureMode($mode)</code></li>
+<li><code>sign($message)</code></li>
+</ul>
+</body></html>

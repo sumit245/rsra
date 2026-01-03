@@ -1,0 +1,267 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\RestApi\Controllers\LeadsController.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\RestApi\Controllers\LeadsController.php</h1>
+
+<ul>
+<li>Path: <code>plugins\RestApi\Controllers\LeadsController.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 17880 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@api {get} /api/leads/:leadid List all leads information</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName index</p>
+<p>@apiGroup Leads</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiParam {Number} leadid Mandatory Lead unique ID</p>
+
+<p>@apiSuccess {Object} Leads information</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>{</p>
+<p>		"id": "2",</p>
+<p>		"company_name": "Test",</p>
+<p>		"address": "",</p>
+<p>		"city": "",</p>
+<p>		"state": "",</p>
+<p>		"zip": "",</p>
+<p>		"country": "",</p>
+<p>		"created_date": "2021-09-12",</p>
+<p>		"website": "",</p>
+<p>		"phone": "",</p>
+<p>		"currency_symbol": "",</p>
+<p>		"starred_by": "",</p>
+<p>		"group_ids": "",</p>
+<p>		"deleted": "0",</p>
+<p>		"is_lead": "1",</p>
+<p>		"lead_status_id": "1",</p>
+<p>		"owner_id": "1",</p>
+<p>		"created_by": "1",</p>
+<p>		"sort": "0",</p>
+<p>		"lead_source_id": "1",</p>
+<p>		"last_lead_status": "",</p>
+<p>		"client_migration_date": "0000-00-00",</p>
+<p>		"vat_number": "",</p>
+<p>		"currency": "",</p>
+<p>		"disable_online_payment": "0",</p>
+<p>		"primary_contact": null,</p>
+<p>		"primary_contact_id": null,</p>
+<p>		"contact_avatar": null,</p>
+<p>		"total_projects": null,</p>
+<p>		"payment_received": "0",</p>
+<p>		"invoice_value": "0",</p>
+<p>		"client_groups": null,</p>
+<p>		"lead_status_title": "New",</p>
+<p>		"lead_status_color": "#f1c40f",</p>
+<p>		"owner_name": "chirag jagani",</p>
+<p>		"owner_avatar": null</p>
+<p>}</p>
+<p>@apiError {Boolean} status Request status</p>
+<p>@apiError {String} message No data were found</p>
+
+<p>Return the properties of a resource object</p>
+<p>@return mixed</p>
+
+<p>@api {get} /api/projects/search/:keysearch Search Leads Information</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName getLeadsSearch</p>
+<p>@apiGroup Leads</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiParam {String} keysearch Search Keywords</p>
+<p>@apiSuccess {Object} Leads information</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>{</p>
+<p>		"id": "2",</p>
+<p>		"company_name": "Test",</p>
+<p>		"address": "",</p>
+<p>		"city": "",</p>
+<p>		"state": "",</p>
+<p>		"zip": "",</p>
+<p>		"country": "",</p>
+<p>		"created_date": "2021-09-12",</p>
+<p>		"website": "",</p>
+<p>		"phone": "",</p>
+<p>		"currency_symbol": "",</p>
+<p>		"starred_by": "",</p>
+<p>		"group_ids": "",</p>
+<p>		"deleted": "0",</p>
+<p>		"is_lead": "1",</p>
+<p>		"lead_status_id": "1",</p>
+<p>		"owner_id": "1",</p>
+<p>		"created_by": "1",</p>
+<p>		"sort": "0",</p>
+<p>		"lead_source_id": "1",</p>
+<p>		"last_lead_status": "",</p>
+<p>		"client_migration_date": "0000-00-00",</p>
+<p>		"vat_number": "",</p>
+<p>		"currency": "",</p>
+<p>		"disable_online_payment": "0",</p>
+<p>		"primary_contact": null,</p>
+<p>		"primary_contact_id": null,</p>
+<p>		"contact_avatar": null,</p>
+<p>		"total_projects": null,</p>
+<p>		"payment_received": "0",</p>
+<p>		"invoice_value": "0",</p>
+<p>		"client_groups": null,</p>
+<p>		"lead_status_title": "New",</p>
+<p>		"lead_status_color": "#f1c40f",</p>
+<p>		"owner_name": "chirag jagani",</p>
+<p>		"owner_avatar": null</p>
+<p>}</p>
+<p>@apiError {Boolean} status Request status</p>
+<p>@apiError {String} message No data were found</p>
+
+<p>@api {post} api/leads Add New Lead</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName create</p>
+<p>@apiGroup Leads</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiParam {string} company_name                          Mandatory Lead Name.</p>
+<p>@apiParam {string} owner_id		                        Mandatory Lead owner id.</p>
+<p>@apiParam {string} lead_status_id						Mandatory Lead status id.</p>
+<p>@apiParam {string} lead_source_id						Mandatory Lead source id.</p>
+<p>@apiParam {string} address 								Optional Lead address.</p>
+<p>@apiParam {string} city 									Optional Lead city.</p>
+<p>@apiParam {string} state 								Optional Lead state.</p>
+<p>@apiParam {string} zip 									Optional Lead zip.</p>
+<p>@apiParam {string} country 								Optional Lead country.</p>
+<p>@apiParam {string} phone 								Optional Lead phone.</p>
+<p>@apiParam {string} website 								Optional Lead website.</p>
+<p>@apiParam {string} vat_number 							Optional Lead vat number.</p>
+<p>@apiParamExample Request-Example:</p>
+<p>    array (size=13)</p>
+<p>       'company_name' => string 'Lead Name' (length=9)</p>
+<p>       'owner_id' => string '1' (length=1)</p>
+<p>       'address' => string 'test address' (length=12)</p>
+<p>       'city' => string 'test city' (length=9)</p>
+<p>       'state' => string 'test state' (length=10)</p>
+<p>       'zip' => string '123456' (length=6)</p>
+<p>       'country' => string 'test country' (length=12)</p>
+<p>       'phone' => string '9856231470' (length=10)</p>
+<p>       'website' => string 'www.test.com' (length=12)</p>
+<p>       'vat_number' => string '123465789' (length=9)</p>
+<p>       'start_date' => string '25/07/2019' (length=10)</p>
+<p>       'lead_source_id' => string '0' (length=10)</p>
+<p>       'lead_status_id' => string '1' (length=1)     *</p>
+<p>@apiSuccess {Boolean} status Request status.</p>
+<p>@apiSuccess {String} message Lead add successful.</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>    HTTP/1.1 200 OK</p>
+<p>    {</p>
+<p>      "status": true,</p>
+<p>      "message": "Lead add successful."</p>
+<p>    }</p>
+<p>@apiError {Boolean} status Request status.</p>
+<p>@apiError {String} message Lead add fail.</p>
+<p>@apiErrorExample Error-Response:</p>
+<p>    HTTP/1.1 404 Not Found</p>
+<p>    {</p>
+<p>      "status": false,</p>
+<p>      "message": "Lead add fail."</p>
+<p>    }</p>
+
+<p>@api {put} api/leads/:id Update a Lead</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName update</p>
+<p>@apiGroup Leads</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiParam {Number} id lead unique ID.</p>
+<p>@apiParam {string} company_name                          Mandatory Lead Name.</p>
+<p>@apiParam {string} owner_id		                        Mandatory Lead owner id.</p>
+<p>@apiParam {string} lead_status_id						Mandatory Lead status id.</p>
+<p>@apiParam {string} lead_source_id						Mandatory Lead source id.</p>
+<p>@apiParam {string} address 								Optional Lead address.</p>
+<p>@apiParam {string} city 									Optional Lead city.</p>
+<p>@apiParam {string} state 								Optional Lead state.</p>
+<p>@apiParam {string} zip 									Optional Lead zip.</p>
+<p>@apiParam {string} country 								Optional Lead country.</p>
+<p>@apiParam {string} phone 								Optional Lead phone.</p>
+<p>@apiParam {string} website 								Optional Lead website.</p>
+<p>@apiParam {string} vat_number 							Optional Lead vat number.</p>
+<p>@apiParamExample {json} Request-Example:</p>
+<p>{</p>
+<p>    "company_name":"updated company",</p>
+<p>    "owner_id":3,</p>
+<p>    "group_ids":"1,2",</p>
+<p>    "address":"address",</p>
+<p>	    "city":"city",</p>
+<p>	    "state":"state",</p>
+<p>    "zip":123468,</p>
+<p>    "country":"country",</p>
+<p>    "phone":1234567890,</p>
+<p>    "website":"www.website.com",</p>
+<p>    "vat_number":123456,</p>
+<p>    "disable_online_payment":1</p>
+<p>}</p>
+<p>@apiSuccess {Boolean} status Request status.</p>
+<p>@apiSuccess {String} message Lead Update Successful.</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>    HTTP/1.1 200 OK</p>
+<p>    {</p>
+<p>      "status": true,</p>
+<p>      "message": "Lead Update Successful."</p>
+<p>    }</p>
+<p>@apiError {Boolean} status Request status.</p>
+<p>@apiError {String} message Lead Update Fail.</p>
+<p>@apiErrorExample Error-Response:</p>
+<p>    HTTP/1.1 404 Not Found</p>
+<p>    {</p>
+<p>      "status": false,</p>
+<p>      "message": "Lead Update Fail."</p>
+<p>    }</p>
+
+<p>@api {delete} api/leads/:id Delete a Lead</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName Delete</p>
+<p>@apiGroup Leads</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiParam {Number} id lead unique ID.</p>
+<p>@apiSuccess {String} status Request status.</p>
+<p>@apiSuccess {String} message Lead Deleted Successfully.</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>    HTTP/1.1 200 OK</p>
+<p>    {</p>
+<p>      "status": true,</p>
+<p>      "message": "Lead Deleted Successfully."</p>
+<p>    }</p>
+<p>@apiError {Boolean} status Request status.</p>
+<p>@apiError {String} message Lead Delete Fail.</p>
+<p>@apiErrorExample Error-Response:</p>
+<p>    HTTP/1.1 404 Not Found</p>
+<p>    {</p>
+<p>      "status": false,</p>
+<p>      "message": "Lead Delete Fail."</p>
+<p>    }</p>
+
+<h2>References</h2>
+
+<p><strong>Models Used</strong></p>
+<ul>
+<li><code>clients_model</code></li>
+<li><code>restapi_leads_model</code></li>
+<li><code>users_model</code></li>
+<li><code>lead_status_model</code></li>
+<li><code>lead_source_model</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\RestApi\Controllers\LeadsController.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>RestApi\Controllers\LeadsController extends Rest_api_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>getSourse($data, $is_single)</code></li>
+<li><code>show($id = null, $searchTerm = "")</code></li>
+<li><code>search($key = '')</code></li>
+<li><code>create()</code></li>
+<li><code>update($id = null)</code></li>
+<li><code>delete($id = null)</code></li>
+</ul>
+</body></html>

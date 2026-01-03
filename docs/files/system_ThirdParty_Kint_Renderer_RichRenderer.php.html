@@ -1,0 +1,81 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\ThirdParty\Kint\Renderer\RichRenderer.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\ThirdParty\Kint\Renderer\RichRenderer.php</h1>
+
+<ul>
+<li>Path: <code>system\ThirdParty\Kint\Renderer\RichRenderer.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 18928 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>RichRenderer value plugins should implement Kint\Renderer\Rich\ValuePluginInterface.</p>
+
+<p>RichRenderer tab plugins should implement Kint\Renderer\Rich\TabPluginInterface.</p>
+
+<p>Whether or not to render access paths.</p>
+<p>Access paths can become incredibly heavy with very deep and wide</p>
+<p>structures. Given mostly public variables it will typically make</p>
+<p>up one quarter of the output HTML size.</p>
+<p>If this is an unacceptably large amount and your browser is groaning</p>
+<p>under the weight of the access paths - your first order of buisiness</p>
+<p>should be to get a new browser. Failing that, use this to turn them off.</p>
+<p>@var bool</p>
+
+<p>The maximum length of a string before it is truncated.</p>
+<p>Falsey to disable</p>
+<p>@var int</p>
+
+<p>Path to the CSS file to load by default.</p>
+<p>@var string</p>
+
+<p>Assume types and sizes don't need to be escaped.</p>
+<p>Turn this off if you use anything but ascii in your class names,</p>
+<p>but it'll cause a slowdown of around 10%</p>
+<p>@var bool</p>
+
+<p>Move all dumps to a folder at the bottom of the body.</p>
+<p>@var bool</p>
+
+<p>Sort mode for object properties.</p>
+<p>@var int</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\ThirdParty\Kint\Renderer\RichRenderer.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Kint\Renderer\RichRenderer extends Renderer</code></li>
+<li><code>Kint\Renderer\names</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>setCallInfo(array $info)</code></li>
+<li><code>setStatics(array $statics)</code></li>
+<li><code>setExpand($expand)</code></li>
+<li><code>getExpand()</code></li>
+<li><code>setForcePreRender()</code></li>
+<li><code>setPreRender($pre_render)</code></li>
+<li><code>getPreRender()</code></li>
+<li><code>setUseFolder($use_folder)</code></li>
+<li><code>getUseFolder()</code></li>
+<li><code>render(Value $o)</code></li>
+<li><code>renderNothing()</code></li>
+<li><code>renderHeaderWrapper(Value $o, $has_children, $contents)</code></li>
+<li><code>renderHeader(Value $o)</code></li>
+<li><code>renderChildren(Value $o)</code></li>
+<li><code>preRender()</code></li>
+<li><code>postRender()</code></li>
+<li><code>escape($string, $encoding = false)</code></li>
+<li><code>ideLink($file, $line)</code></li>
+<li><code>renderTab(Value $o, Representation $rep)</code></li>
+<li><code>getPlugin(array $plugins, array $hints)</code></li>
+<li><code>renderJs()</code></li>
+<li><code>renderCss()</code></li>
+<li><code>renderFolder()</code></li>
+</ul>
+</body></html>

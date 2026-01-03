@@ -1,3 +1,14 @@
+<?php
+$db = \Config\Database::connect();
+
+$builder = $db->table(db_prefix() . 'pur_request');
+$builder->select(db_prefix() . 'projects.title as project_title');
+$builder->join(db_prefix() . 'projects', db_prefix() . 'projects.id = ' . db_prefix() . 'pur_request.project', 'left');
+$builder->where(db_prefix() . 'pur_request.id', $pur_request->id);
+
+$project_result = $builder->get()->getRow();
+$project_title = $project_result ? $project_result->project_title : 'Not Assigned';
+?>
 <div id="page-content" class="page-wrapper clearfix">
   <div class="card clearfix">
 
@@ -93,12 +104,10 @@
                 <td class="bold"><?php echo _l('request_date'); ?></td>
                 <td><?php echo format_to_date($pur_request->request_date); ?></td>
               </tr>
-              <?php if ($user_type == 'staff') { ?>
+              <?php if ($user_type == 'staff' && $pur_request->status == 2) { ?>
                 <tr>
                   <td class="bold"><?php echo _l('pdf'); ?></td>
                   <td>
-
-
                     <span class="dropdown inline-block">
                       <button class="btn btn-default dropdown-toggle caret mt0 mb0" type="button" data-bs-toggle="dropdown" aria-expanded="true" data-bs-display="static">
                         <i data-feather="file-text" class="icon-16"></i>
@@ -109,7 +118,6 @@
                         <li role="presentation"><a href="<?php echo admin_url('purchase/pur_request_pdf/' . $pur_request->id); ?>" class="dropdown-item"><?php echo _l('download'); ?></a></li>
                       </ul>
                     </span>
-
                   </td>
                 </tr>
               <?php } ?>
@@ -118,7 +126,11 @@
                 <td class="bold"><?php echo _l('rq_description'); ?></td>
                 <td><?php echo html_entity_decode($pur_request->rq_description); ?></td>
               </tr>
+<tr>
+    <td class="bold">Project</td> 
+    <td><?= esc($project_title) ?></td>
 
+              </tr>
             </tbody>
           </table>
         </div>
@@ -241,6 +253,53 @@
           </div>
         </div>
         <?php echo form_hidden('request_detail'); ?>
+        <?php echo form_hidden('request_detail'); ?>
+
+        <div class="row ml15 mr15 mt25">
+          <div class="col-md-12">
+            <div class="row">
+              <p class="bold p_style">Comments</p>
+              <hr class="hr_style" />
+              <div id="comments-list">
+                <?php
+                if (isset($pur_request_comments) && !empty($pur_request_comments)) {
+                  foreach ($pur_request_comments as $comment) { ?>
+                    <div class="comment mb15">
+                      <div class="comment-header">
+                        <strong><?php echo html_entity_decode($comment['user_name']); ?></strong> -
+                        <span class="text-muted"><?php echo format_to_date($comment['created_at']); ?></span>
+                      </div>
+                      <div class="comment-body">
+                        <?php echo nl2br(html_entity_decode($comment['comment'])); ?>
+                      </div>
+                    </div>
+                  <?php }
+                } else { ?>
+                  <div class="no-comments text-muted">
+                    <em>No comments yet.</em>
+                  </div>
+                <?php } ?>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row ml15 mr15 mt25">
+          <div class="col-md-12">
+            <div class="row">
+              <p class="bold p_style">Add Comment</p>
+              <hr class="hr_style" />
+              <div class="col-md-12">
+                <div class="form-group">
+                  <textarea id="comment_content" class="form-control" rows="3" placeholder="Type your comment here"></textarea>
+                </div>
+                <button type="button" id="add-comment-btn" onclick="addComment();" class="btn btn-info">
+                  Add comment
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <?php if ($user_type == 'staff') { ?>
           <div class="row ml15 mr15">
@@ -331,9 +390,11 @@
             <div class="pull-right mb15">
               <?php
               if ($check_appr && $check_appr != false) {
-                if ($pur_request->status == 1 && ($check_approve_status == false || $check_approve_status == 'reject')) { ?>
+                if ($pur_request->status == 1 && ($check_approve_status == false || $check_approve_status == 'reject')) {
+              ?>
                   <a data-toggle="tooltip" data-loading-text="<?php echo _l('wait_text'); ?>" class="btn btn-success lead-top-btn lead-view" data-placement="top" href="#" onclick="send_request_approve(<?php echo html_entity_decode($pur_request->id); ?>); return false;"><?php echo _l('send_request_approve_pur'); ?></a>
-                <?php }
+                <?php
+                }
               }
               if (isset($check_approve_status['staffid'])) {
                 ?>
@@ -473,4 +534,77 @@
 </div><!-- /.modal -->
 
 
+
+
+<script>
+  $(document).ready(function () {
+    window.addComment = function () {
+      var comment = $('#comment_content').val().trim();
+
+      if (comment === '') {
+        alert('Please enter a comment');
+        return;
+      }
+
+      var button = $('#add-comment-btn');
+      var originalText = button.text();
+      button.text('Adding...').prop('disabled', true);
+
+      var relatedId = <?php echo json_encode($pur_request->id); ?>;
+      var dataToSend = {
+        comment: comment,
+        related_id: relatedId,
+        comment_type: 'pur_request'
+      };
+
+  
+
+      $.ajax({
+        url: '<?php echo admin_url('purchase/add_comment'); ?>',
+        type: 'POST',
+        data: dataToSend,
+        dataType: 'json',
+        success: function (response) {
+          if (response.success) {
+            $('#comment_content').val('');
+
+            var currentDate = new Date();
+            var formattedDate = currentDate.toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'short',
+              day: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit'
+            });
+
+            var commentHtml = '<div class="comment mb15">' +
+              '<div class="comment-header">' +
+              '<strong>' + response.comment.user_name + '</strong> - ' +
+              '<span class="text-muted">' + formattedDate + '</span>' +
+              '</div>' +
+              '<div class="comment-body">' +
+              response.comment.comment.replace(/\n/g, '<br>') +
+              '</div>' +
+              '</div>';
+
+            $('.no-comments').remove();
+            $('#comments-list').prepend(commentHtml);
+
+          } else {
+            alert('Error: ' + response.message);
+          }
+        },
+        error: function (xhr, status, error) {
+          console.error('AJAX Error:', xhr.responseText);
+          alert('An error occurred while adding the comment');
+        },
+        complete: function () {
+          button.text(originalText).prop('disabled', false);
+        }
+      });
+    };
+  });
+</script>
+
 <?php require FCPATH . PLUGIN_URL_PATH . "Purchase/assets/js/purchase_request/view_pur_request_js.php";  ?>
+

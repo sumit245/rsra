@@ -1,0 +1,67 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Debug\Timer.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Debug\Timer.php</h1>
+
+<ul>
+<li>Path: <code>system\Debug\Timer.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3223 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Class Timer</p>
+<p>Provides a simple way to measure the amount of time</p>
+<p>that elapses between two points.</p>
+
+<p>List of all timers.</p>
+<p>@var array</p>
+
+<p>Starts a timer running.</p>
+<p>Multiple calls can be made to this method so that several</p>
+<p>execution points can be measured.</p>
+<p>@param string $name The name of this timer.</p>
+<p>@param float  $time Allows user to provide time.</p>
+<p>@return Timer</p>
+
+<p>Stops a running timer.</p>
+<p>If the timer is not stopped before the timers() method is called,</p>
+<p>it will be automatically stopped at that point.</p>
+<p>@param string $name The name of this timer.</p>
+<p>@return Timer</p>
+
+<p>Returns the duration of a recorded timer.</p>
+<p>@param string $name     The name of the timer.</p>
+<p>@param int    $decimals Number of decimal places.</p>
+<p>@return float|null Returns null if timer does not exist by that name.</p>
+<p>                   Returns a float representing the number of</p>
+<p>                   seconds elapsed while that timer was running.</p>
+
+<p>Returns the array of timers, with the duration pre-calculated for you.</p>
+<p>@param int $decimals Number of decimal places</p>
+
+<p>Checks whether or not a timer with the specified name exists.</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Debug\Timer.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Debug\Timer</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>start(string $name, ?float $time = null)</code></li>
+<li><code>stop(string $name)</code></li>
+<li><code>getElapsedTime(string $name, int $decimals = 4)</code></li>
+<li><code>getTimers(int $decimals = 4)</code></li>
+<li><code>has(string $name)</code></li>
+</ul>
+</body></html>

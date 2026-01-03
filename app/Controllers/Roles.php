@@ -212,30 +212,23 @@ class Roles extends Security_Controller
         $can_edit_only_own_created_projects   = $this->request->getPost('can_edit_only_own_created_projects');
         $can_delete_only_own_created_projects = $this->request->getPost('can_delete_only_own_created_projects');
         $can_delete_projects                  = $this->request->getPost('can_delete_projects');
-
         $can_add_remove_project_members = $this->request->getPost('can_add_remove_project_members');
-
         $can_create_tasks                      = $this->request->getPost('can_create_tasks');
         $can_edit_tasks                        = $this->request->getPost('can_edit_tasks');
         $can_delete_tasks                      = $this->request->getPost('can_delete_tasks');
         $can_comment_on_tasks                  = $this->request->getPost('can_comment_on_tasks');
         $show_assigned_tasks_only              = $this->request->getPost('show_assigned_tasks_only');
         $can_update_only_assigned_tasks_status = $this->request->getPost('can_update_only_assigned_tasks_status');
-
         $can_create_milestones = $this->request->getPost('can_create_milestones');
         $can_edit_milestones   = $this->request->getPost('can_edit_milestones');
         $can_delete_milestones = $this->request->getPost('can_delete_milestones');
-
         $can_delete_files = $this->request->getPost('can_delete_files');
-
         $announcement            = $this->request->getPost('announcement_permission');
         $help_and_knowledge_base = $this->request->getPost('help_and_knowledge_base');
-
         $can_view_team_members_contact_info     = $this->request->getPost('can_view_team_members_contact_info');
         $can_view_team_members_social_links     = $this->request->getPost('can_view_team_members_social_links');
         $team_member_update_permission          = $this->request->getPost('team_member_update_permission');
         $team_member_update_permission_specific = $this->request->getPost('team_member_update_permission_specific');
-
         $timesheet_manage_permission          = $this->request->getPost('timesheet_manage_permission');
         $timesheet_manage_permission_specific = $this->request->getPost('timesheet_manage_permission_specific');
         if ($timesheet_manage_permission === "specific_excluding_own") {
@@ -244,9 +237,7 @@ class Roles extends Security_Controller
         }
 
         $disable_event_sharing = $this->request->getPost('disable_event_sharing');
-
         $hide_team_members_list = $this->request->getPost('hide_team_members_list');
-
         $can_delete_leave_application = $this->request->getPost('can_delete_leave_application');
 
         if ($this->login_user->is_admin) {
@@ -258,7 +249,6 @@ class Roles extends Security_Controller
             //is not an admin user, fetch data
             $role_info   = $this->Roles_model->get_one($id);
             $permissions = unserialize($role_info->permissions);
-
             $can_manage_all_kinds_of_settings     = get_array_value($permissions, "can_manage_all_kinds_of_settings");
             $can_manage_user_role_and_permissions = get_array_value($permissions, "can_manage_user_role_and_permissions");
             $can_add_or_invite_new_team_members   = get_array_value($permissions, "can_add_or_invite_new_team_members");
@@ -272,12 +262,9 @@ class Roles extends Security_Controller
             $message_permission          = "specific";
             $message_permission_specific = $this->request->getPost("message_permission_specific");
         }
-
         $job_info_manage_permission = $this->request->getPost('job_info_manage_permission');
-
         $timeline_permission          = "";
         $timeline_permission_specific = "";
-
         if ($this->request->getPost('timeline_permission_no')) {
             $timeline_permission = "no";
         } else if ($this->request->getPost('timeline_permission_specific_checkbox')) {
@@ -340,12 +327,12 @@ class Roles extends Security_Controller
             "timeline_permission_specific"           => $timeline_permission_specific,
         ];
 
-        $permissions = app_hooks()->apply_filters('app_filter_role_permissions_save_data', $permissions);
-
+        $plugin_data = $this->request->getPost(); // Fetch all POST data as array
+        $permissions = app_hooks()->apply_filters('app_filter_role_permissions_save_data', $permissions, $plugin_data);
+        log_message('critical', 'Final permissions: ' . print_r($permissions, true));
         $data = [
             "permissions" => serialize($permissions),
         ];
-
         $save_id = $this->Roles_model->ci_save($data, $id);
         if ($save_id) {
             echo json_encode(["success" => true, "data" => $this->_row_data($id), 'id' => $save_id, 'message' => app_lang('record_saved')]);

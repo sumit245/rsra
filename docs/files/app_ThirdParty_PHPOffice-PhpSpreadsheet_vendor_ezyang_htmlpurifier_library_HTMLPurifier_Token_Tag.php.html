@@ -1,0 +1,52 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Token\Tag.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Token\Tag.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Token\Tag.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2016 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Abstract class of a tag token (start, end or empty), and its behavior.</p>
+
+<p>Static bool marker that indicates the class is a tag.</p>
+<p>This allows us to check objects with <tt>!empty($obj->is_tag)</tt></p>
+<p>without having to use a function call <tt>is_a()</tt>.</p>
+<p>@type bool</p>
+
+<p>The lower-case name of the tag, like 'a', 'b' or 'blockquote'.</p>
+<p>@note Strictly speaking, XML tags are case sensitive, so we shouldn't</p>
+<p>be lower-casing them, but these tokens cater to HTML tags, which are</p>
+<p>insensitive.</p>
+<p>@type string</p>
+
+<p>Associative array of the tag's attributes.</p>
+<p>@type array</p>
+
+<p>Non-overloaded constructor, which lower-cases passed tag name.</p>
+<p>@param string $name String name.</p>
+<p>@param array $attr Associative array of attributes.</p>
+<p>@param int $line</p>
+<p>@param int $col</p>
+<p>@param array $armor</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Token\Tag.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>of</code></li>
+<li><code>HTMLPurifier_Token_Tag extends HTMLPurifier_Token</code></li>
+<li><code>is</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($name, $attr = array()</code></li>
+<li><code>toNode()</code></li>
+</ul>
+</body></html>

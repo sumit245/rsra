@@ -1,0 +1,100 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\tcpdf\include\tcpdf_images.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\tcpdf\include\tcpdf_images.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\tcpdf\include\tcpdf_images.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 11369 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@file</p>
+<p>This is a PHP class that contains static image methods for the TCPDF class.<br></p>
+<p>@package com.tecnick.tcpdf</p>
+<p>@author Nicola Asuni</p>
+<p>@version 1.0.005</p>
+
+<p>@class TCPDF_IMAGES</p>
+<p>Static image methods used by the TCPDF class.</p>
+<p>@package com.tecnick.tcpdf</p>
+<p>@brief PHP class for generating PDF documents without requiring external extensions.</p>
+<p>@version 1.0.005</p>
+<p>@author Nicola Asuni - info@tecnick.com</p>
+
+<p>Array of hinheritable SVG properties.</p>
+<p>@since 5.0.000 (2010-05-02)</p>
+<p>@public static</p>
+
+<p>@var string[]</p>
+
+<p>Return the image type given the file name or array returned by getimagesize() function.</p>
+<p>@param string $imgfile image file name</p>
+<p>@param array $iminfo array of image information returned by getimagesize() function.</p>
+<p>@return string image type</p>
+<p>@since 4.8.017 (2009-11-27)</p>
+<p>@public static</p>
+
+<p>Set the transparency for the given GD image.</p>
+<p>@param resource $new_image GD image object</p>
+<p>@param resource $image GD image object.</p>
+<p>@return resource GD image object $new_image</p>
+<p>@since 4.9.016 (2010-04-20)</p>
+<p>@public static</p>
+
+<p>Convert the loaded image to a PNG and then return a structure for the PDF creator.</p>
+<p>This function requires GD library and write access to the directory defined on K_PATH_CACHE constant.</p>
+<p>@param resource $image Image object.</p>
+<p>@param string $tempfile Temporary file name.</p>
+<p>return image PNG image object.</p>
+<p>@since 4.9.016 (2010-04-20)</p>
+<p>@public static</p>
+
+<p>Convert the loaded image to a JPEG and then return a structure for the PDF creator.</p>
+<p>This function requires GD library and write access to the directory defined on K_PATH_CACHE constant.</p>
+<p>@param resource $image Image object.</p>
+<p>@param int $quality JPEG quality.</p>
+<p>@param string $tempfile Temporary file name.</p>
+<p>return array|false image JPEG image object.</p>
+<p>@public static</p>
+
+<p>Extract info from a JPEG file without using the GD library.</p>
+<p>@param string $file image file to parse</p>
+<p>@return array|false structure containing the image data</p>
+<p>@public static</p>
+
+<p>Extract info from a PNG file without using the GD library.</p>
+<p>@param string $file image file to parse</p>
+<p>@return array|false structure containing the image data</p>
+<p>@public static</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>memory</code></li>
+<li><code>a</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\tcpdf\include\tcpdf_images.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>that</code></li>
+<li><code>TCPDF_IMAGES</code></li>
+<li><code>for</code></li>
+<li><code>TCPDF_IMAGES</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getImageFileType($imgfile, $iminfo=array()</code></li>
+<li><code>setGDImageTransparency($new_image, $image)</code></li>
+<li><code>_toPNG($image, $tempfile)</code></li>
+<li><code>_toJPEG($image, $quality, $tempfile)</code></li>
+<li><code>_parsejpeg($file)</code></li>
+<li><code>_parsepng($file)</code></li>
+</ul>
+</body></html>

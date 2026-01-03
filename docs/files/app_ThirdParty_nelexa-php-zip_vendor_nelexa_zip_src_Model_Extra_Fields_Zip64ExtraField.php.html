@@ -1,0 +1,79 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\Fields\Zip64ExtraField.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\Fields\Zip64ExtraField.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\Fields\Zip64ExtraField.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7854 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>ZIP64 Extra Field.</p>
+<p>@see https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT .ZIP File Format Specification</p>
+
+<p>@var int The Header ID for a ZIP64 Extended Information Extra Field.</p>
+
+<p>Returns the Header ID (type) of this Extra Field.</p>
+<p>The Header ID is an unsigned short integer (two bytes)</p>
+<p>which must be constant during the life cycle of this object.</p>
+
+<p>Populate data from this array as if it was in local file data.</p>
+<p>@param string    $buffer the buffer to read data from</p>
+<p>@param ?ZipEntry $entry</p>
+<p>@throws ZipException on error</p>
+<p>@return Zip64ExtraField</p>
+
+<p>Populate data from this array as if it was in central directory data.</p>
+<p>@param string    $buffer the buffer to read data from</p>
+<p>@param ?ZipEntry $entry</p>
+<p>@throws ZipException</p>
+<p>@return Zip64ExtraField</p>
+
+<p>The actual data to put into local file data - without Header-ID</p>
+<p>or length specifier.</p>
+<p>@return string the data</p>
+
+<p>The actual data to put into central directory - without Header-ID or</p>
+<p>length specifier.</p>
+<p>@return string the data</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>this</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\Model\Extra\Fields\Zip64ExtraField.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpZip\Model\Extra\Fields\Zip64ExtraField implements ZipExtraField</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`__construct(?int $uncompressedSize = null,</li>
+<p>        ?int $compressedSize = null,</p>
+<p>        ?int $localHeaderOffset = null,</p>
+<p>        ?int $diskStart = null)`</p>
+<li><code>getHeaderId()</code></li>
+<li><code>unpackLocalFileData(string $buffer, ?ZipEntry $entry = null)</code></li>
+<li><code>unpackCentralDirData(string $buffer, ?ZipEntry $entry = null)</code></li>
+<li><code>packLocalFileData()</code></li>
+<li><code>packSizes()</code></li>
+<li><code>packCentralDirData()</code></li>
+<li><code>getUncompressedSize()</code></li>
+<li><code>setUncompressedSize(?int $uncompressedSize)</code></li>
+<li><code>getCompressedSize()</code></li>
+<li><code>setCompressedSize(?int $compressedSize)</code></li>
+<li><code>getLocalHeaderOffset()</code></li>
+<li><code>setLocalHeaderOffset(?int $localHeaderOffset)</code></li>
+<li><code>getDiskStart()</code></li>
+<li><code>setDiskStart(?int $diskStart)</code></li>
+<li><code>__toString()</code></li>
+</ul>
+</body></html>

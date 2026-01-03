@@ -1,0 +1,329 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\HTTP\URI.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\HTTP\URI.php</h1>
+
+<ul>
+<li>Path: <code>system\HTTP\URI.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 27043 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Abstraction for a uniform resource identifier (URI).</p>
+
+<p>Sub-delimiters used in query strings and fragments.</p>
+
+<p>Unreserved characters used in paths, query strings, and fragments.</p>
+
+<p>Current URI string</p>
+<p>@var string</p>
+
+<p>List of URI segments.</p>
+<p>Starts at 1 instead of 0</p>
+<p>@var array</p>
+
+<p>The URI Scheme.</p>
+<p>@var string</p>
+
+<p>URI User Info</p>
+<p>@var string</p>
+
+<p>URI User Password</p>
+<p>@var string</p>
+
+<p>URI Host</p>
+<p>@var string</p>
+
+<p>URI Port</p>
+<p>@var int</p>
+
+<p>URI path.</p>
+<p>@var string</p>
+
+<p>The name of any fragment.</p>
+<p>@var string</p>
+
+<p>The query string.</p>
+<p>@var array</p>
+
+<p>Default schemes/ports.</p>
+<p>@var array</p>
+
+<p>Whether passwords should be shown in userInfo/authority calls.</p>
+<p>Default to false because URIs often show up in logs</p>
+<p>@var bool</p>
+
+<p>If true, will continue instead of throwing exceptions.</p>
+<p>@var bool</p>
+
+<p>If true, will use raw query string.</p>
+<p>@var bool</p>
+
+<p>Builds a representation of the string from the component parts.</p>
+<p>@param string $scheme</p>
+<p>@param string $authority</p>
+<p>@param string $path</p>
+<p>@param string $query</p>
+<p>@param string $fragment</p>
+
+<p>Used when resolving and merging paths to correctly interpret and</p>
+<p>remove single and double dot segments from the path per</p>
+<p>RFC 3986 Section 5.2.4</p>
+<p>@see http://tools.ietf.org/html/rfc3986#section-5.2.4</p>
+<p>@internal</p>
+
+<p>Constructor.</p>
+<p>@param string $uri</p>
+<p>@throws InvalidArgumentException</p>
+
+<p>If $silent == true, then will not throw exceptions and will</p>
+<p>attempt to continue gracefully.</p>
+<p>@return URI</p>
+
+<p>If $raw == true, then will use parseStr() method</p>
+<p>instead of native parse_str() function.</p>
+<p>@return URI</p>
+
+<p>Sets and overwrites any current URI information.</p>
+<p>@return URI</p>
+
+<p>Retrieve the scheme component of the URI.</p>
+<p>If no scheme is present, this method MUST return an empty string.</p>
+<p>The value returned MUST be normalized to lowercase, per RFC 3986</p>
+<p>Section 3.1.</p>
+<p>The trailing ":" character is not part of the scheme and MUST NOT be</p>
+<p>added.</p>
+<p>@see    https://tools.ietf.org/html/rfc3986#section-3.1</p>
+<p>@return string The URI scheme.</p>
+
+<p>Retrieve the authority component of the URI.</p>
+<p>If no authority information is present, this method MUST return an empty</p>
+<p>string.</p>
+<p>The authority syntax of the URI is:</p>
+<p><pre></p>
+<p>[user-info@]host[:port]</p>
+<p></pre></p>
+<p>If the port component is not set or is the standard port for the current</p>
+<p>scheme, it SHOULD NOT be included.</p>
+<p>@see https://tools.ietf.org/html/rfc3986#section-3.2</p>
+<p>@return string The URI authority, in "[user-info@]host[:port]" format.</p>
+
+<p>Retrieve the user information component of the URI.</p>
+<p>If no user information is present, this method MUST return an empty</p>
+<p>string.</p>
+<p>If a user is present in the URI, this will return that value;</p>
+<p>additionally, if the password is also present, it will be appended to the</p>
+<p>user value, with a colon (":") separating the values.</p>
+<p>NOTE that be default, the password, if available, will NOT be shown</p>
+<p>as a security measure as discussed in RFC 3986, Section 7.5. If you know</p>
+<p>the password is not a security issue, you can force it to be shown</p>
+<p>with $this->showPassword();</p>
+<p>The trailing "@" character is not part of the user information and MUST</p>
+<p>NOT be added.</p>
+<p>@return string|null The URI user information, in "username[:password]" format.</p>
+
+<p>Temporarily sets the URI to show a password in userInfo. Will</p>
+<p>reset itself after the first call to authority().</p>
+<p>@return URI</p>
+
+<p>Retrieve the host component of the URI.</p>
+<p>If no host is present, this method MUST return an empty string.</p>
+<p>The value returned MUST be normalized to lowercase, per RFC 3986</p>
+<p>Section 3.2.2.</p>
+<p>@see    http://tools.ietf.org/html/rfc3986#section-3.2.2</p>
+<p>@return string The URI host.</p>
+
+<p>Retrieve the port component of the URI.</p>
+<p>If a port is present, and it is non-standard for the current scheme,</p>
+<p>this method MUST return it as an integer. If the port is the standard port</p>
+<p>used with the current scheme, this method SHOULD return null.</p>
+<p>If no port is present, and no scheme is present, this method MUST return</p>
+<p>a null value.</p>
+<p>If no port is present, but a scheme is present, this method MAY return</p>
+<p>the standard port for that scheme, but SHOULD return null.</p>
+<p>@return int|null The URI port.</p>
+
+<p>Retrieve the path component of the URI.</p>
+<p>The path can either be empty or absolute (starting with a slash) or</p>
+<p>rootless (not starting with a slash). Implementations MUST support all</p>
+<p>three syntaxes.</p>
+<p>Normally, the empty path "" and absolute path "/" are considered equal as</p>
+<p>defined in RFC 7230 Section 2.7.3. But this method MUST NOT automatically</p>
+<p>do this normalization because in contexts with a trimmed base path, e.g.</p>
+<p>the front controller, this difference becomes significant. It's the task</p>
+<p>of the user to handle both "" and "/".</p>
+<p>The value returned MUST be percent-encoded, but MUST NOT double-encode</p>
+<p>any characters. To determine what characters to encode, please refer to</p>
+<p>RFC 3986, Sections 2 and 3.3.</p>
+<p>As an example, if the value should include a slash ("/") not intended as</p>
+<p>delimiter between path segments, that value MUST be passed in encoded</p>
+<p>form (e.g., "%2F") to the instance.</p>
+<p>@see    https://tools.ietf.org/html/rfc3986#section-2</p>
+<p>@see    https://tools.ietf.org/html/rfc3986#section-3.3</p>
+<p>@return string The URI path.</p>
+
+<p>Retrieve the query string</p>
+
+<p>Retrieve a URI fragment</p>
+
+<p>Returns the segments of the path as an array.</p>
+
+<p>Returns the value of a specific segment of the URI path.</p>
+<p>@param int    $number  Segment number</p>
+<p>@param string $default Default value</p>
+<p>@return string The value of the segment. If no segment is found,</p>
+<p>               throws InvalidArgumentError</p>
+
+<p>Set the value of a specific segment of the URI path.</p>
+<p>Allows to set only existing segments or add new one.</p>
+<p>@param mixed $value (string or int)</p>
+<p>@return $this</p>
+
+<p>Returns the total number of segments.</p>
+
+<p>Formats the URI as a string.</p>
+<p>Warning: For backwards-compatability this method</p>
+<p>assumes URIs with the same host as baseURL should</p>
+<p>be relative to the project's configuration.</p>
+<p>This aspect of __toString() is deprecated and should be avoided.</p>
+
+<p>Change the path (and scheme) assuming URIs with the same host as baseURL</p>
+<p>should be relative to the project's configuration.</p>
+<p>@deprecated This method will be deleted.</p>
+
+<p>Parses the given string and saves the appropriate authority pieces.</p>
+<p>@return $this</p>
+
+<p>Sets the scheme for this URI.</p>
+<p>Because of the large number of valid schemes we cannot limit this</p>
+<p>to only http or https.</p>
+<p>@see https://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml</p>
+<p>@return $this</p>
+
+<p>Sets the userInfo/Authority portion of the URI.</p>
+<p>@param string $user The user's username</p>
+<p>@param string $pass The user's password</p>
+<p>@return $this</p>
+
+<p>Sets the host name to use.</p>
+<p>@return $this</p>
+
+<p>Sets the port portion of the URI.</p>
+<p>@param int $port</p>
+<p>@return $this</p>
+
+<p>Sets the path portion of the URI.</p>
+<p>@return $this</p>
+
+<p>Sets the path portion of the URI based on segments.</p>
+<p>@return $this</p>
+
+<p>Sets the query portion of the URI, while attempting</p>
+<p>to clean the various parts of the query keys and values.</p>
+<p>@return $this</p>
+
+<p>A convenience method to pass an array of items in as the Query</p>
+<p>portion of the URI.</p>
+<p>@return URI</p>
+
+<p>Adds a single new element to the query vars.</p>
+<p>@param mixed $value</p>
+<p>@return $this</p>
+
+<p>Removes one or more query vars from the URI.</p>
+<p>@param string ...$params</p>
+<p>@return $this</p>
+
+<p>Filters the query variables so that only the keys passed in</p>
+<p>are kept. The rest are removed from the object.</p>
+<p>@param string ...$params</p>
+<p>@return $this</p>
+
+<p>Sets the fragment portion of the URI.</p>
+<p>@see https://tools.ietf.org/html/rfc3986#section-3.5</p>
+<p>@return $this</p>
+
+<p>Encodes any dangerous characters, and removes dot segments.</p>
+<p>While dot segments have valid uses according to the spec,</p>
+<p>this URI class does not allow them.</p>
+
+<p>Saves our parts from a parse_url call.</p>
+
+<p>Combines one URI string with this one based on the rules set out in</p>
+<p>RFC 3986 Section 2</p>
+<p>@see http://tools.ietf.org/html/rfc3986#section-5.2</p>
+<p>@return URI</p>
+
+<p>Given 2 paths, will merge them according to rules set out in RFC 2986,</p>
+<p>Section 5.2</p>
+<p>@see http://tools.ietf.org/html/rfc3986#section-5.2.3</p>
+
+<p>This is equivalent to the native PHP parse_str() function.</p>
+<p>This version allows the dot to be used as a key of the query string.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>a</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\HTTP\URI.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\HTTP\URI</code></li>
+<li><code>CodeIgniter\HTTP\does</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>createURIString(?string $scheme = null, ?string $authority = null, ?string $path = null, ?string $query = null, ?string $fragment = null)</code></li>
+<li><code>removeDotSegments(string $path)</code></li>
+<li><code>__construct(?string $uri = null)</code></li>
+<li><code>setSilent(bool $silent = true)</code></li>
+<li><code>useRawQueryString(bool $raw = true)</code></li>
+<li><code>setURI(?string $uri = null)</code></li>
+<li><code>getScheme()</code></li>
+<li><code>getAuthority(bool $ignorePort = false)</code></li>
+<li><code>getUserInfo()</code></li>
+<li><code>showPassword(bool $val = true)</code></li>
+<li><code>getHost()</code></li>
+<li><code>getPort()</code></li>
+<li><code>getPath()</code></li>
+<li><code>getQuery(array $options = [])</code></li>
+<li><code>getFragment()</code></li>
+<li><code>getSegments()</code></li>
+<li><code>getSegment(int $number, string $default = '')</code></li>
+<li><code>setSegment(int $number, $value)</code></li>
+<li><code>getTotalSegments()</code></li>
+<li><code>__toString()</code></li>
+<li><code>changeSchemeAndPath(string $scheme, string $path)</code></li>
+<li><code>setAuthority(string $str)</code></li>
+<li><code>setScheme(string $str)</code></li>
+<li><code>setUserInfo(string $user, string $pass)</code></li>
+<li><code>setHost(string $str)</code></li>
+<li><code>setPort(?int $port = null)</code></li>
+<li><code>setPath(string $path)</code></li>
+<li><code>refreshPath()</code></li>
+<li><code>setQuery(string $query)</code></li>
+<li><code>setQueryArray(array $query)</code></li>
+<li><code>addQuery(string $key, $value = null)</code></li>
+<li><code>stripQuery(...$params)</code></li>
+<li><code>keepQuery(...$params)</code></li>
+<li><code>setFragment(string $string)</code></li>
+<li><code>filterPath(?string $path = null)</code></li>
+<li><code>applyParts(array $parts)</code></li>
+<li><code>resolveRelativeURI(string $uri)</code></li>
+<li><code>mergePaths(self $base, self $reference)</code></li>
+<li><code>parseStr(string $query)</code></li>
+</ul>
+</body></html>

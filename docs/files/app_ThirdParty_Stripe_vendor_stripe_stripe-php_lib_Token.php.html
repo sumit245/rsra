@@ -1,0 +1,62 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Token.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Token.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Token.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3629 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Tokenization is the process Stripe uses to collect sensitive card or bank</p>
+<p>account details, or personally identifiable information (PII), directly from</p>
+<p>your customers in a secure manner. A token representing this information is</p>
+<p>returned to your server to use. You should use our <a</p>
+<p>href="https://stripe.com/docs/payments">recommended payments integrations</a> to</p>
+<p>perform this process client-side. This ensures that no sensitive card data</p>
+<p>touches your server, and allows your integration to operate in a PCI-compliant</p>
+<p>way.</p>
+<p>If you cannot use client-side tokenization, you can also create tokens using the</p>
+<p>API with either your publishable or secret API key. Keep in mind that if your</p>
+<p>integration uses this method, you are responsible for any PCI compliance that</p>
+<p>may be required, and you must keep your secret API key safe. Unlike with</p>
+<p>client-side tokenization, your customer's information is not sent directly to</p>
+<p>Stripe, so we cannot determine how it is handled or stored.</p>
+<p>Tokens cannot be stored or used more than once. To store card or bank account</p>
+<p>information for later use, you can create <a</p>
+<p>href="https://stripe.com/docs/api#customers">Customer</a> objects or <a</p>
+<p>href="https://stripe.com/docs/api#external_accounts">Custom accounts</a>. Note</p>
+<p>that <a href="https://stripe.com/docs/radar">Radar</a>, our integrated solution</p>
+<p>for automatic fraud protection, performs best with integrations that use</p>
+<p>client-side tokenization.</p>
+<p>Related guide: <a</p>
+<p>href="https://stripe.com/docs/payments/accept-a-payment-charges#web-create-token">Accept</p>
+<p>a payment</a></p>
+<p>@property string $id Unique identifier for the object.</p>
+<p>@property string $object String representing the object's type. Objects of the same type share the same value.</p>
+<p>@property \Stripe\BankAccount $bank_account <p>These bank accounts are payment methods on <code>Customer</code> objects.</p><p>On the other hand <a href="https://stripe.com/docs/api#external_accounts">External Accounts</a> are transfer destinations on <code>Account</code> objects for <a href="https://stripe.com/docs/connect/custom-accounts">Custom accounts</a>. They can be bank accounts or debit cards as well, and are documented in the links above.</p><p>Related guide: <a href="https://stripe.com/docs/payments/bank-debits-transfers">Bank Debits and Transfers</a>.</p></p>
+<p>@property \Stripe\Card $card <p>You can store multiple cards on a customer in order to charge the customer later. You can also store multiple debit cards on a recipient in order to transfer to those cards later.</p><p>Related guide: <a href="https://stripe.com/docs/sources/cards">Card Payments with Sources</a>.</p></p>
+<p>@property null|string $client_ip IP address of the client that generated the token.</p>
+<p>@property int $created Time at which the object was created. Measured in seconds since the Unix epoch.</p>
+<p>@property bool $livemode Has the value <code>true</code> if the object exists in live mode or the value <code>false</code> if the object exists in test mode.</p>
+<p>@property string $type Type of the token: <code>account</code>, <code>bank_account</code>, <code>card</code>, or <code>pii</code>.</p>
+<p>@property bool $used Whether this token has already been used (tokens can be used only once).</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Token.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Token extends ApiResource</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,86 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Cookie\CookieJar.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Cookie\CookieJar.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Cookie\CookieJar.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9272 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Cookie jar that stores cookies as an array</p>
+
+<p>@var SetCookie[] Loaded cookie data</p>
+
+<p>@var bool</p>
+
+<p>@param bool $strictMode   Set to true to throw exceptions when invalid</p>
+<p>                          cookies are added to the cookie jar.</p>
+<p>@param array $cookieArray Array of SetCookie objects or a hash of</p>
+<p>                          arrays that can be used with the SetCookie</p>
+<p>                          constructor</p>
+
+<p>Create a new Cookie jar from an associative array and domain.</p>
+<p>@param array  $cookies Cookies to create the jar from</p>
+<p>@param string $domain  Domain to set the cookies to</p>
+<p>@return self</p>
+
+<p>@deprecated</p>
+
+<p>Evaluate if this cookie should be persisted to storage</p>
+<p>that survives between requests.</p>
+<p>@param SetCookie $cookie Being evaluated.</p>
+<p>@param bool $allowSessionCookies If we should persist session cookies</p>
+<p>@return bool</p>
+
+<p>Finds and returns the cookie based on the name</p>
+<p>@param string $name cookie name to search for</p>
+<p>@return SetCookie|null cookie that was found or null if not found</p>
+
+<p>Computes cookie path following RFC 6265 section 5.1.4</p>
+<p>@link https://tools.ietf.org/html/rfc6265#section-5.1.4</p>
+<p>@param RequestInterface $request</p>
+<p>@return string</p>
+
+<p>If a cookie already exists and the server asks to set it again with a</p>
+<p>null value, the cookie must be deleted.</p>
+<p>@param SetCookie $cookie</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>an</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Cookie\CookieJar.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>GuzzleHttp\Cookie\CookieJar implements CookieJarInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($strictMode = false, $cookieArray = [])</code></li>
+<li><code>fromArray(array $cookies, $domain)</code></li>
+<li><code>getCookieValue($value)</code></li>
+<li>`shouldPersist(SetCookie $cookie,</li>
+<p>        $allowSessionCookies = false)`</p>
+<li><code>getCookieByName($name)</code></li>
+<li><code>toArray()</code></li>
+<li><code>clear($domain = null, $path = null, $name = null)</code></li>
+<li><code>clearSessionCookies()</code></li>
+<li><code>setCookie(SetCookie $cookie)</code></li>
+<li><code>count()</code></li>
+<li><code>getIterator()</code></li>
+<li>`extractCookies(RequestInterface $request,</li>
+<p>        ResponseInterface $response)`</p>
+<li><code>getCookiePathFromRequest(RequestInterface $request)</code></li>
+<li><code>withCookieHeader(RequestInterface $request)</code></li>
+<li><code>removeCookieIfEmpty(SetCookie $cookie)</code></li>
+</ul>
+</body></html>

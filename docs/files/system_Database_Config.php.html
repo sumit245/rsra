@@ -1,0 +1,67 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Database\Config.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Database\Config.php</h1>
+
+<ul>
+<li>Path: <code>system\Database\Config.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3628 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Class Config</p>
+
+<p>Cache for instance of any connections that</p>
+<p>have been requested as a "shared" instance.</p>
+<p>@var array</p>
+
+<p>The main instance used to manage all of</p>
+<p>our open database connections.</p>
+<p>@var Database|null</p>
+
+<p>Creates the default</p>
+<p>@param array|string $group     The name of the connection group to use, or an array of configuration settings.</p>
+<p>@param bool         $getShared Whether to return a shared instance of the connection.</p>
+<p>@return BaseConnection</p>
+
+<p>Returns an array of all db connections currently made.</p>
+
+<p>Loads and returns an instance of the Forge for the specified</p>
+<p>database group, and loads the group if it hasn't been loaded yet.</p>
+<p>@param array|ConnectionInterface|string|null $group</p>
+<p>@return Forge</p>
+
+<p>Returns a new instance of the Database Utilities class.</p>
+<p>@param array|string|null $group</p>
+<p>@return BaseUtils</p>
+
+<p>Returns a new instance of the Database Seeder.</p>
+<p>@return Seeder</p>
+
+<p>Ensures the database Connection Manager/Factory is loaded and ready to use.</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Database\Config.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Database\Config extends BaseConfig</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>connect($group = null, bool $getShared = true)</code></li>
+<li><code>getConnections()</code></li>
+<li><code>forge($group = null)</code></li>
+<li><code>utils($group = null)</code></li>
+<li><code>seeder(?string $group = null)</code></li>
+<li><code>ensureFactory()</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,90 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\HTTP\RedirectResponse.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\HTTP\RedirectResponse.php</h1>
+
+<ul>
+<li>Path: <code>system\HTTP\RedirectResponse.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4498 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Handle a redirect response</p>
+
+<p>Sets the URI to redirect to and, optionally, the HTTP status code to use.</p>
+<p>If no code is provided it will be automatically determined.</p>
+<p>@param string   $uri  The URI to redirect to</p>
+<p>@param int|null $code HTTP status code</p>
+<p>@return $this</p>
+
+<p>Sets the URI to redirect to but as a reverse-routed or named route</p>
+<p>instead of a raw URI.</p>
+<p>@throws HTTPException</p>
+<p>@return $this</p>
+
+<p>Helper function to return to previous page.</p>
+<p>Example:</p>
+<p> return redirect()->back();</p>
+<p>@return $this</p>
+
+<p>Specifies that the current $_GET and $_POST arrays should be</p>
+<p>packaged up with the response.</p>
+<p>It will then be available via the 'old()' helper function.</p>
+<p>@return $this</p>
+
+<p>Set validation errors in the session.</p>
+<p>If the validation has any errors, transmit those back</p>
+<p>so they can be displayed when the validation is handled</p>
+<p>within a method different than displaying the form.</p>
+<p>@TODO Make this method public when removing $this->withErrors() in withInput().</p>
+<p>@return $this</p>
+
+<p>Adds a key and message to the session as Flashdata.</p>
+<p>@param array|string $message</p>
+<p>@return $this</p>
+
+<p>Copies any cookies from the global Response instance</p>
+<p>into this RedirectResponse. Useful when you've just</p>
+<p>set a cookie but need ensure that's actually sent</p>
+<p>with the response instead of lost.</p>
+<p>@return $this|RedirectResponse</p>
+
+<p>Copies any headers from the global Response instance</p>
+<p>into this RedirectResponse. Useful when you've just</p>
+<p>set a header be need to ensure its actually sent</p>
+<p>with the redirect response.</p>
+<p>@return $this|RedirectResponse</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\HTTP\RedirectResponse.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\HTTP\RedirectResponse extends Response</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>to(string $uri, ?int $code = null, string $method = 'auto')</code></li>
+<li><code>route(string $route, array $params = [], int $code = 302, string $method = 'auto')</code></li>
+<li><code>back(?int $code = null, string $method = 'auto')</code></li>
+<li><code>withInput()</code></li>
+<li><code>withErrors()</code></li>
+<li><code>with(string $key, $message)</code></li>
+<li><code>withCookies()</code></li>
+<li><code>withHeaders()</code></li>
+</ul>
+</body></html>

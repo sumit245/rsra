@@ -1,0 +1,222 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Cell\Cell.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Cell\Cell.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Cell\Cell.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 18363 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Value binder to use.</p>
+<p>@var IValueBinder</p>
+
+<p>Value of the cell.</p>
+<p>@var mixed</p>
+
+<p>Calculated value of the cell (used for caching)</p>
+<p>   This returns the value last calculated by MS Excel or whichever spreadsheet program was used to</p>
+<p>       create the original spreadsheet file.</p>
+<p>   Note that this value is not guaranteed to reflect the actual calculated value because it is</p>
+<p>       possible that auto-calculation was disabled in the original spreadsheet, and underlying data</p>
+<p>       values used by the formula have changed since it was last calculated.</p>
+<p>@var mixed</p>
+
+<p>Type of the cell data.</p>
+<p>@var string</p>
+
+<p>Collection of cells.</p>
+<p>@var Cells</p>
+
+<p>Index to cellXf.</p>
+<p>@var int</p>
+
+<p>Attributes of the formula.</p>
+
+<p>Update the cell into the cell collection.</p>
+<p>@return $this</p>
+
+<p>Create a new Cell.</p>
+<p>@param mixed $value</p>
+<p>@param string $dataType</p>
+
+<p>Get cell coordinate column.</p>
+<p>@return string</p>
+
+<p>Get cell coordinate row.</p>
+<p>@return int</p>
+
+<p>Get cell coordinate.</p>
+<p>@return string</p>
+
+<p>Get cell value.</p>
+<p>@return mixed</p>
+
+<p>Get cell value with formatting.</p>
+<p>@return string</p>
+
+<p>Set cell value.</p>
+<p>   Sets the value for a cell, automatically determining the datatype using the value binder</p>
+<p>@param mixed $value Value</p>
+<p>@return $this</p>
+
+<p>Set the value for a cell, with the explicit data type passed to the method (bypassing any use of the value binder).</p>
+<p>@param mixed $value Value</p>
+<p>@param string $dataType Explicit data type, see DataType::TYPE_*</p>
+<p>@return Cell</p>
+
+<p>Get calculated cell value.</p>
+<p>@param bool $resetLog Whether the calculation engine logger should be reset or not</p>
+<p>@return mixed</p>
+
+<p>Set old calculated value (cached).</p>
+<p>@param mixed $originalValue Value</p>
+<p>@return Cell</p>
+
+<p>Get old calculated value (cached)</p>
+<p>   This returns the value last calculated by MS Excel or whichever spreadsheet program was used to</p>
+<p>       create the original spreadsheet file.</p>
+<p>   Note that this value is not guaranteed to reflect the actual calculated value because it is</p>
+<p>       possible that auto-calculation was disabled in the original spreadsheet, and underlying data</p>
+<p>       values used by the formula have changed since it was last calculated.</p>
+<p>@return mixed</p>
+
+<p>Get cell data type.</p>
+<p>@return string</p>
+
+<p>Set cell data type.</p>
+<p>@param string $dataType see DataType::TYPE_*</p>
+<p>@return Cell</p>
+
+<p>Identify if the cell contains a formula.</p>
+
+<p>Does this cell contain Data validation rules?</p>
+
+<p>Get Data validation rules.</p>
+<p>@return DataValidation</p>
+
+<p>Set Data validation rules.</p>
+
+<p>Does this cell contain valid value?</p>
+<p>@return bool</p>
+
+<p>Does this cell contain a Hyperlink?</p>
+<p>@return bool</p>
+
+<p>Get Hyperlink.</p>
+<p>@return Hyperlink</p>
+
+<p>Set Hyperlink.</p>
+<p>@return Cell</p>
+
+<p>Get cell collection.</p>
+<p>@return Cells</p>
+
+<p>Get parent worksheet.</p>
+<p>@return Worksheet</p>
+
+<p>Is this cell in a merge range.</p>
+<p>@return bool</p>
+
+<p>Is this cell the master (top left cell) in a merge range (that holds the actual data value).</p>
+<p>@return bool</p>
+
+<p>If this cell is in a merge range, then return the range.</p>
+<p>@return false|string</p>
+
+<p>Get cell style.</p>
+
+<p>Get cell style.</p>
+
+<p>Re-bind parent.</p>
+<p>@return Cell</p>
+
+<p>Is cell in a specific range?</p>
+<p>@param string $range Cell range (e.g. A1:A1)</p>
+<p>@return bool</p>
+
+<p>Compare 2 cells.</p>
+<p>@param Cell $a Cell a</p>
+<p>@param Cell $b Cell b</p>
+<p>@return int Result of comparison (always -1 or 1, never zero!)</p>
+
+<p>Get value binder to use.</p>
+<p>@return IValueBinder</p>
+
+<p>Set value binder to use.</p>
+
+<p>Implement PHP __clone to create a deep clone, not just a shallow copy.</p>
+
+<p>Get index to cellXf.</p>
+<p>@return int</p>
+
+<p>Set index to cellXf.</p>
+<p>@param int $indexValue</p>
+<p>@return Cell</p>
+
+<p>Set the formula attributes.</p>
+<p>@param mixed $attributes</p>
+<p>@return $this</p>
+
+<p>Get the formula attributes.</p>
+
+<p>Convert to string.</p>
+<p>@return string</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Cell\Cell.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Cell\Cell</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>updateInCollection()</code></li>
+<li><code>detach()</code></li>
+<li><code>attach(Cells $parent)</code></li>
+<li><code>__construct($value, $dataType, Worksheet $worksheet)</code></li>
+<li><code>getColumn()</code></li>
+<li><code>getRow()</code></li>
+<li><code>getCoordinate()</code></li>
+<li><code>getValue()</code></li>
+<li><code>getFormattedValue()</code></li>
+<li><code>setValue($value)</code></li>
+<li><code>setValueExplicit($value, $dataType)</code></li>
+<li><code>getCalculatedValue($resetLog = true)</code></li>
+<li><code>setCalculatedValue($originalValue)</code></li>
+<li><code>getOldCalculatedValue()</code></li>
+<li><code>getDataType()</code></li>
+<li><code>setDataType($dataType)</code></li>
+<li><code>isFormula()</code></li>
+<li><code>hasDataValidation()</code></li>
+<li><code>getDataValidation()</code></li>
+<li><code>setDataValidation(?DataValidation $dataValidation = null)</code></li>
+<li><code>hasValidValue()</code></li>
+<li><code>hasHyperlink()</code></li>
+<li><code>getHyperlink()</code></li>
+<li><code>setHyperlink(?Hyperlink $hyperlink = null)</code></li>
+<li><code>getParent()</code></li>
+<li><code>getWorksheet()</code></li>
+<li><code>isInMergeRange()</code></li>
+<li><code>isMergeRangeValueCell()</code></li>
+<li><code>getMergeRange()</code></li>
+<li><code>getStyle()</code></li>
+<li><code>getAppliedStyle()</code></li>
+<li><code>rebindParent(Worksheet $parent)</code></li>
+<li><code>isInRange($range)</code></li>
+<li><code>compareCells(self $a, self $b)</code></li>
+<li><code>getValueBinder()</code></li>
+<li><code>setValueBinder(IValueBinder $binder)</code></li>
+<li><code>__clone()</code></li>
+<li><code>getXfIndex()</code></li>
+<li><code>setXfIndex($indexValue)</code></li>
+<li><code>setFormulaAttributes($attributes)</code></li>
+<li><code>getFormulaAttributes()</code></li>
+<li><code>__toString()</code></li>
+</ul>
+</body></html>

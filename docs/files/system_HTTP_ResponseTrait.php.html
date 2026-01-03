@@ -1,0 +1,262 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\HTTP\ResponseTrait.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\HTTP\ResponseTrait.php</h1>
+
+<ul>
+<li>Path: <code>system\HTTP\ResponseTrait.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 21700 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Response Trait</p>
+<p>Additional methods to make a PSR-7 Response class</p>
+<p>compliant with the framework's own ResponseInterface.</p>
+<p>@property array $statusCodes</p>
+<p>@see https://github.com/php-fig/http-message/blob/master/src/ResponseInterface.php</p>
+
+<p>Whether Content Security Policy is being enforced.</p>
+<p>@var bool</p>
+<p>@deprecated Use $this->CSP->enabled() instead.</p>
+
+<p>Content security policy handler</p>
+<p>@var ContentSecurityPolicy</p>
+
+<p>CookieStore instance.</p>
+<p>@var CookieStore</p>
+
+<p>Set a cookie name prefix if you need to avoid collisions</p>
+<p>@var string</p>
+<p>@deprecated Use the dedicated Cookie class instead.</p>
+
+<p>Set to .your-domain.com for site-wide cookies</p>
+<p>@var string</p>
+<p>@deprecated Use the dedicated Cookie class instead.</p>
+
+<p>Typically will be a forward slash</p>
+<p>@var string</p>
+<p>@deprecated Use the dedicated Cookie class instead.</p>
+
+<p>Cookie will only be set if a secure HTTPS connection exists.</p>
+<p>@var bool</p>
+<p>@deprecated Use the dedicated Cookie class instead.</p>
+
+<p>Cookie will only be accessible via HTTP(S) (no javascript)</p>
+<p>@var bool</p>
+<p>@deprecated Use the dedicated Cookie class instead.</p>
+
+<p>Cookie SameSite setting</p>
+<p>@var string</p>
+<p>@deprecated Use the dedicated Cookie class instead.</p>
+
+<p>Stores all cookies that were set in the response.</p>
+<p>@var array</p>
+<p>@deprecated Use the dedicated Cookie class instead.</p>
+
+<p>Type of format the body is in.</p>
+<p>Valid: html, json, xml</p>
+<p>@var string</p>
+
+<p>Return an instance with the specified status code and, optionally, reason phrase.</p>
+<p>If no reason phrase is specified, will default recommended reason phrase for</p>
+<p>the response's status code.</p>
+<p>@see http://tools.ietf.org/html/rfc7231#section-6</p>
+<p>@see http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml</p>
+<p>@param int    $code   The 3-digit integer result code to set.</p>
+<p>@param string $reason The reason phrase to use with the</p>
+<p>                      provided status code; if none is provided, will</p>
+<p>                      default to the IANA name.</p>
+<p>@throws HTTPException For invalid status code arguments.</p>
+<p>@return $this</p>
+
+<p>Sets the date header</p>
+<p>@return Response</p>
+
+<p>Set the Link Header</p>
+<p>@see http://tools.ietf.org/html/rfc5988</p>
+<p>@return Response</p>
+<p>@todo Recommend moving to Pager</p>
+
+<p>Sets the Content Type header for this response with the mime type</p>
+<p>and, optionally, the charset.</p>
+<p>@return Response</p>
+
+<p>Converts the $body into JSON and sets the Content Type header.</p>
+<p>@param array|string $body</p>
+<p>@return $this</p>
+
+<p>Returns the current body, converted to JSON is it isn't already.</p>
+<p>@throws InvalidArgumentException If the body property is not array.</p>
+<p>@return mixed|string</p>
+
+<p>Converts $body into XML, and sets the correct Content-Type.</p>
+<p>@param array|string $body</p>
+<p>@return $this</p>
+
+<p>Retrieves the current body into XML and returns it.</p>
+<p>@throws InvalidArgumentException If the body property is not array.</p>
+<p>@return mixed|string</p>
+
+<p>Handles conversion of the of the data into the appropriate format,</p>
+<p>and sets the correct Content-Type header for our response.</p>
+<p>@param array|string $body</p>
+<p>@param string       $format Valid: json, xml</p>
+<p>@throws InvalidArgumentException If the body property is not string or array.</p>
+<p>@return mixed</p>
+
+<p>Sets the appropriate headers to ensure this response</p>
+<p>is not cached by the browsers.</p>
+<p>@return Response</p>
+<p>@todo Recommend researching these directives, might need: 'private', 'no-transform', 'no-store', 'must-revalidate'</p>
+<p>@see DownloadResponse::noCache()</p>
+
+<p>A shortcut method that allows the developer to set all of the</p>
+<p>cache-control headers in one method call.</p>
+<p>The options array is used to provide the cache-control directives</p>
+<p>for the header. It might look something like:</p>
+<p>     $options = [</p>
+<p>         'max-age'  => 300,</p>
+<p>         's-maxage' => 900</p>
+<p>         'etag'     => 'abcde',</p>
+<p>     ];</p>
+<p>Typical options are:</p>
+<p> - etag</p>
+<p> - last-modified</p>
+<p> - max-age</p>
+<p> - s-maxage</p>
+<p> - private</p>
+<p> - public</p>
+<p> - must-revalidate</p>
+<p> - proxy-revalidate</p>
+<p> - no-transform</p>
+<p>@return Response</p>
+
+<p>Sets the Last-Modified date header.</p>
+<p>$date can be either a string representation of the date or,</p>
+<p>preferably, an instance of DateTime.</p>
+<p>@param DateTime|string $date</p>
+<p>@return Response</p>
+
+<p>Sends the output to the browser.</p>
+<p>@return Response</p>
+
+<p>Sends the headers of this HTTP response to the browser.</p>
+<p>@return Response</p>
+
+<p>Sends the Body of the message to the browser.</p>
+<p>@return Response</p>
+
+<p>Perform a redirect to a new URL, in two flavors: header or location.</p>
+<p>@param string $uri  The URI to redirect to</p>
+<p>@param int    $code The type of redirection, defaults to 302</p>
+<p>@throws HTTPException For invalid status code.</p>
+<p>@return $this</p>
+
+<p>Set a cookie</p>
+<p>Accepts an arbitrary number of binds (up to 7) or an associative</p>
+<p>array in the first parameter containing all the values.</p>
+<p>@param array|Cookie|string $name     Cookie name / array containing binds / Cookie object</p>
+<p>@param string              $value    Cookie value</p>
+<p>@param string              $expire   Cookie expiration time in seconds</p>
+<p>@param string              $domain   Cookie domain (e.g.: '.yourdomain.com')</p>
+<p>@param string              $path     Cookie path (default: '/')</p>
+<p>@param string              $prefix   Cookie name prefix ('': the default prefix)</p>
+<p>@param bool                $secure   Whether to only transfer cookies via SSL</p>
+<p>@param bool                $httponly Whether only make the cookie accessible via HTTP (no javascript)</p>
+<p>@param string|null         $samesite</p>
+<p>@return $this</p>
+
+<p>Returns the <code>CookieStore</code> instance.</p>
+<p>@return CookieStore</p>
+
+<p>Checks to see if the Response has a specified cookie or not.</p>
+
+<p>Returns the cookie</p>
+<p>@param string $prefix Cookie prefix.</p>
+<p>                      '': the default prefix</p>
+<p>@return Cookie|Cookie[]|null</p>
+
+<p>Sets a cookie to be deleted when the response is sent.</p>
+<p>@return $this</p>
+
+<p>Returns all cookies currently set.</p>
+<p>@return Cookie[]</p>
+
+<p>Actually sets the cookies.</p>
+
+<p>@var IncomingRequest $request</p>
+
+<p>Extracted call to <code>setrawcookie()</code> in order to run unit tests on it.</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Extracted call to <code>setcookie()</code> in order to run unit tests on it.</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Force a download.</p>
+<p>Generates the headers that force a download to happen. And</p>
+<p>sends the file to the browser.</p>
+<p>@param string      $filename The path to the file to send</p>
+<p>@param string|null $data     The data to be downloaded</p>
+<p>@param bool        $setMime  Whether to try and send the actual MIME type</p>
+<p>@return DownloadResponse|null</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\HTTP\ResponseTrait.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\HTTP\instead</code></li>
+<li><code>CodeIgniter\HTTP\instead</code></li>
+<li><code>CodeIgniter\HTTP\instead</code></li>
+<li><code>CodeIgniter\HTTP\instead</code></li>
+<li><code>CodeIgniter\HTTP\instead</code></li>
+<li><code>CodeIgniter\HTTP\instead</code></li>
+<li><code>CodeIgniter\HTTP\instead</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>setStatusCode(int $code, string $reason = '')</code></li>
+<li><code>setDate(DateTime $date)</code></li>
+<li><code>setLink(PagerInterface $pager)</code></li>
+<li><code>setContentType(string $mime, string $charset = 'UTF-8')</code></li>
+<li><code>setJSON($body, bool $unencoded = false)</code></li>
+<li><code>getJSON()</code></li>
+<li><code>setXML($body)</code></li>
+<li><code>getXML()</code></li>
+<li><code>formatBody($body, string $format)</code></li>
+<li><code>noCache()</code></li>
+<li><code>setCache(array $options = [])</code></li>
+<li><code>setLastModified($date)</code></li>
+<li><code>send()</code></li>
+<li><code>sendHeaders()</code></li>
+<li><code>sendBody()</code></li>
+<li><code>redirect(string $uri, string $method = 'auto', ?int $code = null)</code></li>
+<li>`setCookie($name,</li>
+<p>        $value = '',</p>
+<p>        $expire = '',</p>
+<p>        $domain = '',</p>
+<p>        $path = '/',</p>
+<p>        $prefix = '',</p>
+<p>        $secure = false,</p>
+<p>        $httponly = false,</p>
+<p>        $samesite = null)`</p>
+<li><code>getCookieStore()</code></li>
+<li><code>hasCookie(string $name, ?string $value = null, string $prefix = '')</code></li>
+<li><code>getCookie(?string $name = null, string $prefix = '')</code></li>
+<li><code>deleteCookie(string $name = '', string $domain = '', string $path = '/', string $prefix = '')</code></li>
+<li><code>getCookies()</code></li>
+<li><code>sendCookies()</code></li>
+<li><code>dispatchCookies()</code></li>
+<li><code>doSetRawCookie(string $name, string $value, array $options)</code></li>
+<li><code>doSetCookie(string $name, string $value, array $options)</code></li>
+<li><code>download(string $filename = '', $data = '', bool $setMime = false)</code></li>
+</ul>
+</body></html>

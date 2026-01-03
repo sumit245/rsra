@@ -1,0 +1,69 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\src\Google\Http\REST.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\src\Google\Http\REST.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\src\Google\Http\REST.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5547 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This class implements the RESTful transport of apiServiceRequest()'s</p>
+
+<p>Executes a Psr\Http\Message\RequestInterface and (if applicable) automatically retries</p>
+<p>when errors occur.</p>
+<p>@param Google_Client $client</p>
+<p>@param Psr\Http\Message\RequestInterface $req</p>
+<p>@return array decoded result</p>
+<p>@throws Google_Service_Exception on server side error (ie: not authenticated,</p>
+<p> invalid or malformed post body, invalid url)</p>
+
+<p>Executes a Psr\Http\Message\RequestInterface</p>
+<p>@param Google_Client $client</p>
+<p>@param Psr\Http\Message\RequestInterface $request</p>
+<p>@return array decoded result</p>
+<p>@throws Google_Service_Exception on server side error (ie: not authenticated,</p>
+<p> invalid or malformed post body, invalid url)</p>
+
+<p>Decode an HTTP Response.</p>
+<p>@static</p>
+<p>@throws Google_Service_Exception</p>
+<p>@param Psr\Http\Message\RequestInterface $response The http response to be decoded.</p>
+<p>@param Psr\Http\Message\ResponseInterface $response</p>
+<p>@return mixed|null</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>being</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\src\Google\Http\REST.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>implements</code></li>
+<li><code>Google_Http_REST</code></li>
+<li><code>from</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`execute(ClientInterface $client,</li>
+<p>      RequestInterface $request,</p>
+<p>      $expectedClass = null,</p>
+<p>      $config = array()`</p>
+<li><code>doExecute(ClientInterface $client, RequestInterface $request, $expectedClass = null)</code></li>
+<li>`decodeHttpResponse(ResponseInterface $response,</li>
+<p>      RequestInterface $request = null,</p>
+<p>      $expectedClass = null)`</p>
+<li><code>decodeBody(ResponseInterface $response, RequestInterface $request = null)</code></li>
+<li><code>determineExpectedClass($expectedClass, RequestInterface $request = null)</code></li>
+<li><code>getResponseErrors($body)</code></li>
+<li><code>isAltMedia(RequestInterface $request = null)</code></li>
+</ul>
+</body></html>

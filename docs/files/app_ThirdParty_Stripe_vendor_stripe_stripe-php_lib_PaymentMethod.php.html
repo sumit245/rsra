@@ -1,0 +1,91 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\PaymentMethod.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\PaymentMethod.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\PaymentMethod.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4389 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>PaymentMethod objects represent your customer's payment instruments. You can use</p>
+<p>them with <a</p>
+<p>href="https://stripe.com/docs/payments/payment-intents">PaymentIntents</a> to</p>
+<p>collect payments or save them to Customer objects to store instrument details</p>
+<p>for future payments.</p>
+<p>Related guides: <a</p>
+<p>href="https://stripe.com/docs/payments/payment-methods">Payment Methods</a> and</p>
+<p><a href="https://stripe.com/docs/payments/more-payment-scenarios">More Payment</p>
+<p>Scenarios</a>.</p>
+<p>@property string $id Unique identifier for the object.</p>
+<p>@property string $object String representing the object's type. Objects of the same type share the same value.</p>
+<p>@property \Stripe\StripeObject $acss_debit</p>
+<p>@property \Stripe\StripeObject $affirm</p>
+<p>@property \Stripe\StripeObject $afterpay_clearpay</p>
+<p>@property \Stripe\StripeObject $alipay</p>
+<p>@property \Stripe\StripeObject $au_becs_debit</p>
+<p>@property \Stripe\StripeObject $bacs_debit</p>
+<p>@property \Stripe\StripeObject $bancontact</p>
+<p>@property \Stripe\StripeObject $billing_details</p>
+<p>@property \Stripe\StripeObject $blik</p>
+<p>@property \Stripe\StripeObject $boleto</p>
+<p>@property \Stripe\StripeObject $card</p>
+<p>@property \Stripe\StripeObject $card_present</p>
+<p>@property int $created Time at which the object was created. Measured in seconds since the Unix epoch.</p>
+<p>@property null|string|\Stripe\Customer $customer The ID of the Customer to which this PaymentMethod is saved. This will not be set when the PaymentMethod has not been saved to a Customer.</p>
+<p>@property \Stripe\StripeObject $customer_balance</p>
+<p>@property \Stripe\StripeObject $eps</p>
+<p>@property \Stripe\StripeObject $fpx</p>
+<p>@property \Stripe\StripeObject $giropay</p>
+<p>@property \Stripe\StripeObject $grabpay</p>
+<p>@property \Stripe\StripeObject $ideal</p>
+<p>@property \Stripe\StripeObject $interac_present</p>
+<p>@property \Stripe\StripeObject $klarna</p>
+<p>@property \Stripe\StripeObject $konbini</p>
+<p>@property \Stripe\StripeObject $link</p>
+<p>@property bool $livemode Has the value <code>true</code> if the object exists in live mode or the value <code>false</code> if the object exists in test mode.</p>
+<p>@property null|\Stripe\StripeObject $metadata Set of <a href="https://stripe.com/docs/api/metadata">key-value pairs</a> that you can attach to an object. This can be useful for storing additional information about the object in a structured format.</p>
+<p>@property \Stripe\StripeObject $oxxo</p>
+<p>@property \Stripe\StripeObject $p24</p>
+<p>@property \Stripe\StripeObject $paynow</p>
+<p>@property \Stripe\StripeObject $promptpay</p>
+<p>@property \Stripe\StripeObject $radar_options Options to configure Radar. See <a href="https://stripe.com/docs/radar/radar-session">Radar Session</a> for more information.</p>
+<p>@property \Stripe\StripeObject $sepa_debit</p>
+<p>@property \Stripe\StripeObject $sofort</p>
+<p>@property string $type The type of the PaymentMethod. An additional hash is included on the PaymentMethod with a name matching this value. It contains additional information specific to the PaymentMethod type.</p>
+<p>@property \Stripe\StripeObject $us_bank_account</p>
+<p>@property \Stripe\StripeObject $wechat_pay</p>
+
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\PaymentMethod the attached payment method</p>
+
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\PaymentMethod the detached payment method</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\PaymentMethod.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\PaymentMethod extends ApiResource</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>attach($params = null, $opts = null)</code></li>
+<li><code>detach($params = null, $opts = null)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,114 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\ddeboer-imap\vendor\ddeboer\imap\src\Message\AbstractMessage.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\ddeboer-imap\vendor\ddeboer\imap\src\Message\AbstractMessage.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\ddeboer-imap\vendor\ddeboer\imap\src\Message\AbstractMessage.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7656 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@var null|array</p>
+
+<p>Get message headers.</p>
+<p>@return Headers</p>
+
+<p>Get message id.</p>
+<p>A unique message id in the form <...></p>
+<p>@return null|string</p>
+
+<p>Get message sender (from headers).</p>
+<p>@return null|EmailAddress</p>
+
+<p>Get To recipients.</p>
+<p>@return EmailAddress[] Empty array in case message has no To: recipients</p>
+
+<p>Get Cc recipients.</p>
+<p>@return EmailAddress[] Empty array in case message has no CC: recipients</p>
+
+<p>Get Bcc recipients.</p>
+<p>@return EmailAddress[] Empty array in case message has no BCC: recipients</p>
+
+<p>Get Reply-To recipients.</p>
+<p>@return EmailAddress[] Empty array in case message has no Reply-To: recipients</p>
+
+<p>Get Sender.</p>
+<p>@return EmailAddress[] Empty array in case message has no Sender: recipients</p>
+
+<p>Get Return-Path.</p>
+<p>@return EmailAddress[] Empty array in case message has no Return-Path: recipients</p>
+
+<p>Get date (from headers).</p>
+<p>@return null|\DateTimeImmutable</p>
+
+<p>Get message size (from headers).</p>
+<p>@return null|int|string</p>
+
+<p>Get message subject (from headers).</p>
+<p>@return null|string</p>
+
+<p>Get message In-Reply-To (from headers).</p>
+<p>@return array</p>
+
+<p>Get message References (from headers).</p>
+<p>@return array</p>
+
+<p>Get body HTML.</p>
+<p>@return null|string</p>
+
+<p>Get body text.</p>
+<p>@return null|string</p>
+
+<p>Get attachments (if any) linked to this e-mail.</p>
+<p>@return AttachmentInterface[]</p>
+
+<p>Does this message have attachments?</p>
+<p>@return bool</p>
+
+<p>@param array $addresses Addesses</p>
+<p>@return array</p>
+
+<p>@param \stdClass $value</p>
+<p>@return EmailAddress</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>headers</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\ddeboer-imap\vendor\ddeboer\imap\src\Message\AbstractMessage.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Ddeboer\Imap\Message\AbstractMessage extends AbstractPart</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getHeaders()</code></li>
+<li><code>getId()</code></li>
+<li><code>getFrom()</code></li>
+<li><code>getTo()</code></li>
+<li><code>getCc()</code></li>
+<li><code>getBcc()</code></li>
+<li><code>getReplyTo()</code></li>
+<li><code>getSender()</code></li>
+<li><code>getReturnPath()</code></li>
+<li><code>getDate()</code></li>
+<li><code>getSize()</code></li>
+<li><code>getSubject()</code></li>
+<li><code>getInReplyTo()</code></li>
+<li><code>getReferences()</code></li>
+<li><code>getBodyHtml()</code></li>
+<li><code>getBodyText()</code></li>
+<li><code>getAttachments()</code></li>
+<li><code>hasAttachments()</code></li>
+<li><code>decodeEmailAddresses(array $addresses)</code></li>
+<li><code>decodeEmailAddress(\stdClass $value)</code></li>
+</ul>
+</body></html>

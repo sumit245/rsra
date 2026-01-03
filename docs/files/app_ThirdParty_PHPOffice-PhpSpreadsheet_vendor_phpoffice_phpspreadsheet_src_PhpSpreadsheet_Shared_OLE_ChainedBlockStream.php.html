@@ -1,0 +1,75 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\OLE\ChainedBlockStream.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\OLE\ChainedBlockStream.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\OLE\ChainedBlockStream.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5858 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>The OLE container of the file that is being read.</p>
+<p>@var null|OLE</p>
+
+<p>Parameters specified by fopen().</p>
+<p>@var array</p>
+
+<p>The binary data of the file.</p>
+<p>@var string</p>
+
+<p>The file pointer.</p>
+<p>@var int byte offset</p>
+
+<p>Implements support for fopen().</p>
+<p>For creating streams using this wrapper, use OLE_PPS_File::getStream().</p>
+<p>@param string $path resource name including scheme, e.g.</p>
+<p>                                   ole-chainedblockstream://oleInstanceId=1</p>
+<p>@param string $mode only "r" is supported</p>
+<p>@param int $options mask of STREAM_REPORT_ERRORS and STREAM_USE_PATH</p>
+<p>@param string $openedPath absolute path of the opened stream (out parameter)</p>
+<p>@return bool true on success</p>
+
+<p>Implements support for fclose().</p>
+
+<p>Implements support for fread(), fgets() etc.</p>
+<p>@param int $count maximum number of bytes to read</p>
+<p>@return false|string</p>
+
+<p>Implements support for feof().</p>
+<p>@return bool TRUE if the file pointer is at EOF; otherwise FALSE</p>
+
+<p>Returns the position of the file pointer, i.e. its offset into the file</p>
+<p>stream. Implements support for ftell().</p>
+<p>@return int</p>
+
+<p>Implements support for fseek().</p>
+<p>@param int $offset byte offset</p>
+<p>@param int $whence SEEK_SET, SEEK_CUR or SEEK_END</p>
+<p>@return bool</p>
+
+<p>Implements support for fstat(). Currently the only supported field is</p>
+<p>"size".</p>
+<p>@return array</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\OLE\ChainedBlockStream.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Shared\OLE\ChainedBlockStream</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>stream_open($path, $mode, $options, &$openedPath)</code></li>
+<li><code>stream_close()</code></li>
+<li><code>stream_read($count)</code></li>
+<li><code>stream_eof()</code></li>
+<li><code>stream_tell()</code></li>
+<li><code>stream_seek($offset, $whence)</code></li>
+<li><code>stream_stat()</code></li>
+</ul>
+</body></html>

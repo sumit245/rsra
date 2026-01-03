@@ -1,0 +1,87 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Cache\CacheInterface.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Cache\CacheInterface.php</h1>
+
+<ul>
+<li>Path: <code>system\Cache\CacheInterface.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2752 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Cache interface</p>
+
+<p>Takes care of any handler-specific setup that must be done.</p>
+
+<p>Attempts to fetch an item from the cache store.</p>
+<p>@param string $key Cache item name</p>
+<p>@return mixed</p>
+
+<p>Saves an item to the cache store.</p>
+<p>@param string $key   Cache item name</p>
+<p>@param mixed  $value The data to save</p>
+<p>@param int    $ttl   Time To Live, in seconds (default 60)</p>
+<p>@return bool Success or failure</p>
+
+<p>Deletes a specific item from the cache store.</p>
+<p>@param string $key Cache item name</p>
+<p>@return bool Success or failure</p>
+
+<p>Performs atomic incrementation of a raw stored value.</p>
+<p>@param string $key    Cache ID</p>
+<p>@param int    $offset Step/value to increase by</p>
+<p>@return mixed</p>
+
+<p>Performs atomic decrementation of a raw stored value.</p>
+<p>@param string $key    Cache ID</p>
+<p>@param int    $offset Step/value to increase by</p>
+<p>@return mixed</p>
+
+<p>Will delete all items in the entire cache.</p>
+<p>@return bool Success or failure</p>
+
+<p>Returns information on the entire cache.</p>
+<p>The information returned and the structure of the data</p>
+<p>varies depending on the handler.</p>
+<p>@return mixed</p>
+
+<p>Returns detailed information about the specific item in the cache.</p>
+<p>@param string $key Cache item name.</p>
+<p>@return array|false|null</p>
+<p>                         Returns null if the item does not exist, otherwise array<string, mixed></p>
+<p>                         with at least the 'expire' key for absolute epoch expiry (or null).</p>
+<p>                         Some handlers may return false when an item does not exist, which is deprecated.</p>
+
+<p>Determines if the driver is supported on this system.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Cache\CacheInterface.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>initialize()</code></li>
+<li><code>get(string $key)</code></li>
+<li><code>save(string $key, $value, int $ttl = 60)</code></li>
+<li><code>delete(string $key)</code></li>
+<li><code>increment(string $key, int $offset = 1)</code></li>
+<li><code>decrement(string $key, int $offset = 1)</code></li>
+<li><code>clean()</code></li>
+<li><code>getCacheInfo()</code></li>
+<li><code>getMetaData(string $key)</code></li>
+<li><code>isSupported()</code></li>
+</ul>
+</body></html>

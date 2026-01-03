@@ -1,0 +1,402 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\Helpers\general_helper.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\Helpers\general_helper.php</h1>
+
+<ul>
+<li>Path: <code>app\Helpers\general_helper.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 87627 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>use this to print link location</p>
+<p>@param string $uri</p>
+<p>@return print url</p>
+
+<p>prepare uri</p>
+
+<p>@param string $uri</p>
+<p>@return full url</p>
+
+<p>use this to print file path</p>
+
+<p>@param string $uri</p>
+<p>@return full url of the given file path</p>
+
+<p>get the url of user avatar</p>
+
+<p>@param string $image_name</p>
+<p>@return url of the avatar of given image reference</p>
+
+<p>link the css files </p>
+
+<p>@param array $array</p>
+<p>@return print css links</p>
+
+<p>link the javascript files </p>
+
+<p>@param array $array</p>
+<p>@return print js links</p>
+
+<p>check the array key and return the value </p>
+
+<p>@param array $array</p>
+<p>@return extract array value safely</p>
+
+<p>prepare a anchor tag for any js request</p>
+
+<p>@param string $title</p>
+<p>@param array $attributes</p>
+<p>@return html link of anchor tag</p>
+
+<p>prepare a anchor tag for modal </p>
+
+<p>@param string $url</p>
+<p>@param string $title</p>
+<p>@param array $attributes</p>
+<p>@return html link of anchor tag</p>
+
+<p>prepare a anchor tag for ajax request</p>
+
+<p>@param string $url</p>
+<p>@param string $title</p>
+<p>@param array $attributes</p>
+<p>@return html link of anchor tag</p>
+
+<p>get the selected menu </p>
+
+<p>@param array $sidebar_menu</p>
+<p>@return the array containing an active class key</p>
+
+<p>get the selected submenu</p>
+
+<p>@param string $submenu</p>
+<p>@param boolean $is_controller</p>
+<p>@return string "active" indecating the active sub page</p>
+
+<p>get the defined config value by a key</p>
+<p>@param string $key</p>
+<p>@return config value</p>
+
+<p>check if a string starts with a specified sting</p>
+
+<p>@param string $string</p>
+<p>@param string $needle</p>
+<p>@return true/false</p>
+
+<p>check if a string ends with a specified sting</p>
+
+<p>@param string $string</p>
+<p>@param string $needle</p>
+<p>@return true/false</p>
+
+<p>create a encoded id for sequrity pupose </p>
+
+<p>@param string $id</p>
+<p>@param string $salt</p>
+<p>@return endoded value</p>
+
+<p>decode the id which made by encode_id()</p>
+
+<p>@param string $id</p>
+<p>@param string $salt</p>
+<p>@return decoded value</p>
+
+<p>decode html data which submited using a encode method of encodeAjaxPostData() function</p>
+
+<p>@param string $html</p>
+<p>@return htmle</p>
+
+<p>check if fields has any value or not. and generate a error message for null value</p>
+
+<p>@param array $fields</p>
+<p>@return throw error for bad value</p>
+
+<p>convert simple link text to clickable link</p>
+<p>@param string $text</p>
+<p>@return html link</p>
+
+<p>convert mentions to link or link text</p>
+<p>@param string $text containing text with mentioned brace</p>
+<p>@param string $return_type indicates what to return (link or text)</p>
+<p>@return text with link or link text</p>
+
+<p>get all the use_ids from comment mentions</p>
+<p>@param string $text</p>
+<p>@return array of user_ids</p>
+
+<p>send mail</p>
+
+<p>@param string $to</p>
+<p>@param string $subject</p>
+<p>@param string $message</p>
+<p>@param array $optoins</p>
+<p>@return true/false</p>
+
+<p>get users ip address</p>
+
+<p>@return ip</p>
+
+<p>check if it's localhost</p>
+
+<p>@return boolean</p>
+
+<p>convert string to url</p>
+
+<p>@param string $address</p>
+<p>@return url</p>
+
+<p>validate post data using the codeigniter's form validation method</p>
+
+<p>@param string $address</p>
+<p>@return throw error if foind any inconsistancy</p>
+
+<p>team members profile anchor. only clickable to team members</p>
+<p>client's will see a none clickable link</p>
+
+<p>@param string $id</p>
+<p>@param string $name</p>
+<p>@param array $attributes</p>
+<p>@return html link</p>
+
+<p>team members profile anchor. only clickable to team members</p>
+<p>client's will see a none clickable link</p>
+
+<p>@param string $id</p>
+<p>@param string $name</p>
+<p>@param array $attributes</p>
+<p>@return html link</p>
+
+<p>return a colorful label according to invoice status</p>
+
+<p>@param Object $invoice_info</p>
+<p>@return html</p>
+
+<p>get all data to make an invoice</p>
+
+<p>@param Int $invoice_id</p>
+<p>@return array</p>
+
+<p>get all data to make an invoice</p>
+
+<p>@param Invoice making data $invoice_data</p>
+<p>@return array</p>
+
+<p>get all data to make an estimate</p>
+
+<p>@param emtimate making data $estimate_data</p>
+<p>@return array</p>
+
+<p>get all data to make an order</p>
+
+<p>@param emtimate making data $order_data</p>
+<p>@return array</p>
+
+<p>get invoice number</p>
+<p>@param Int $invoice_id</p>
+<p>@return string</p>
+
+<p>get estimate number</p>
+<p>@param Int $estimate_id</p>
+<p>@return string</p>
+
+<p>get proposal number</p>
+<p>@param Int $proposal_id</p>
+<p>@return string</p>
+
+<p>get order number</p>
+<p>@param Int $order_id</p>
+<p>@return string</p>
+
+<p>get ticket number</p>
+<p>@param Int $ticket_id</p>
+<p>@return string</p>
+
+<p>get all data to make an estimate</p>
+
+<p>@param Int $estimate_id</p>
+<p>@return array</p>
+
+<p>get all data to make an contract</p>
+
+<p>@param Int $contract_id</p>
+<p>@return array</p>
+
+<p>get all data to make an proposal</p>
+
+<p>@param Int $proposal_id</p>
+<p>@return array</p>
+
+<p>get all data to make an order</p>
+
+<p>@param Int $order_id</p>
+<p>@return array</p>
+
+<p>get team members and teams select2 dropdown data list</p>
+
+<p>@return array</p>
+
+<p>submit data for notification</p>
+
+<p>@return array</p>
+
+<p>save custom fields for any context</p>
+
+<p>@param Int $estimate_id</p>
+<p>@return array</p>
+
+<p>update custom fields changes to activity logs table</p>
+
+<p>use this to clean xss and html elements</p>
+<p>the best practice is to use this before rendering </p>
+<p>but you can use this before saving for suitable cases</p>
+<p>@param string or array $data</p>
+<p>@return clean $data</p>
+
+<p>redirect to a location within the app</p>
+
+<p>@param string $url</p>
+<p>@return void</p>
+
+<p>show 404 error page</p>
+
+<p>@return void</p>
+
+<p>get all data to make an contract</p>
+
+<p>@param contract making data $contract_data</p>
+<p>@return array</p>
+
+<p>convert copied comment code to link </p>
+<p>@param string $text containing text with copied comment id brace</p>
+<p>@param string $return_type indicates what to return (link or text)</p>
+<p>@return text with link or link text</p>
+
+<p>get all data to make an proposal</p>
+
+<p>@param proposal making data $proposal_data</p>
+<p>@return array</p>
+
+<p>get contract number</p>
+<p>@param Int $contract_id</p>
+<p>@return string</p>
+
+<p>return a colorful label according to estimate status</p>
+
+<p>@param Object $estimate_info</p>
+<p>@return html</p>
+
+<p>@since  1.0.0</p>
+<p>Check whether an setting exists</p>
+<p>@param  string $name setting name</p>
+<p>@return boolean</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>comment</code></li>
+<li><code>settings</code></li>
+<li><code>the</code></li>
+<li><code>setting</code></li>
+<li><code>default</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\Helpers\general_helper.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>key</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>echo_uri($uri = "")</code></li>
+<li><code>get_uri($uri = "")</code></li>
+<li><code>get_file_uri($uri = "")</code></li>
+<li><code>get_avatar($image = "")</code></li>
+<li><code>load_css(array $array)</code></li>
+<li><code>load_js(array $array)</code></li>
+<li><code>get_array_value($array, $key)</code></li>
+<li><code>js_anchor($title = '', $attributes = '')</code></li>
+<li><code>modal_anchor($url, $title = '', $attributes = '')</code></li>
+<li><code>ajax_anchor($url, $title = '', $attributes = '')</code></li>
+<li><code>get_actual_controller_name($router)</code></li>
+<li><code>get_active_menu($sidebar_menu = array()</code></li>
+<li><code>active_submenu($submenu = "", $is_controller = false)</code></li>
+<li><code>get_setting($key = "")</code></li>
+<li><code>starts_with($string, $needle)</code></li>
+<li><code>ends_with($string, $needle)</code></li>
+<li><code>encode_id($id, $salt)</code></li>
+<li><code>get_encrypter()</code></li>
+<li><code>decode_id($id, $salt)</code></li>
+<li><code>decode_ajax_post_data($html)</code></li>
+<li><code>check_required_hidden_fields($fields = array()</code></li>
+<li><code>link_it($text)</code></li>
+<li><code>convert_mentions($text, $convert_links = true)</code></li>
+<li><code>get_members_from_mention($text)</code></li>
+<li><code>send_app_mail($to, $subject, $message, $optoins = array()</code></li>
+<li><code>get_real_ip()</code></li>
+<li><code>is_localhost()</code></li>
+<li><code>to_url($address = "")</code></li>
+<li><code>validate_numeric_value($value = 0)</code></li>
+<li><code>get_team_member_profile_link($id = 0, $name = "", $attributes = array()</code></li>
+<li><code>get_client_contact_profile_link($id = 0, $name = "", $attributes = array()</code></li>
+<li><code>get_invoice_status_label($invoice_info, $return_html = true)</code></li>
+<li><code>get_invoice_making_data($invoice_id)</code></li>
+<li><code>prepare_invoice_pdf($invoice_data, $mode = "download")</code></li>
+<li><code>prepare_estimate_pdf($estimate_data, $mode = "download")</code></li>
+<li><code>prepare_order_pdf($order_data, $mode = "download")</code></li>
+<li><code>get_invoice_id($invoice_id)</code></li>
+<li><code>get_estimate_id($estimate_id)</code></li>
+<li><code>get_proposal_id($proposal_id)</code></li>
+<li><code>get_order_id($order_id)</code></li>
+<li><code>get_ticket_id($ticket_id)</code></li>
+<li><code>get_estimate_making_data($estimate_id)</code></li>
+<li><code>get_contract_making_data($contract_id)</code></li>
+<li><code>get_proposal_making_data($proposal_id)</code></li>
+<li><code>get_order_making_data($order_id = 0)</code></li>
+<li><code>get_team_members_and_teams_select2_data_list($exclude_inactive_users = false)</code></li>
+<li><code>log_notification($event, $options = array()</code></li>
+<li><code>save_custom_fields($related_to_type, $related_to_id, $is_admin = 0, $user_type = "", $activity_log_id = 0, $save_to_related_type = "", $user_id = 0)</code></li>
+<li><code>update_custom_fields_changes($related_to_type, $related_to_id, $changes, $activity_log_id = 0)</code></li>
+<li><code>clean_data($data)</code></li>
+<li><code>get_logo_url()</code></li>
+<li><code>get_file_from_setting($setting_name = "", $only_file_path_with_slash = false)</code></li>
+<li><code>get_favicon_url()</code></li>
+<li><code>get_custom_theme_color_list()</code></li>
+<li><code>make_random_string($length = 10)</code></li>
+<li><code>get_custom_variables_data($related_to_type = "", $related_to_id = 0, $is_admin = 0)</code></li>
+<li><code>make_labels_view_data($labels_list = "", $clickable = false, $large = false)</code></li>
+<li><code>get_update_task_info_anchor_data($model_info, $type = "", $can_edit_tasks = false, $extra_data = "", $extra_condition = false)</code></li>
+<li><code>get_lead_contact_profile_link($id = 0, $name = "", $attributes = array()</code></li>
+<li><code>decode_password($data = "", $salt = "")</code></li>
+<li><code>validate_invoice_verification_code($code = "", $given_invoice_data = array()</code></li>
+<li><code>can_edit_this_task_status($assigned_to = 0)</code></li>
+<li><code>send_message_via_pusher($to_user_id, $message_data, $message_id, $message_type = "message")</code></li>
+<li><code>can_access_messages_module()</code></li>
+<li><code>add_auto_reply_to_ticket($ticket_id = 0)</code></li>
+<li><code>app_redirect($url, $global_link = false)</code></li>
+<li><code>app_lang($lang = "")</code></li>
+<li><code>show_404()</code></li>
+<li><code>prepare_contract_view($contract_data)</code></li>
+<li><code>remove_custom_field_titles_from_variables($content)</code></li>
+<li><code>get_available_contract_variables()</code></li>
+<li><code>get_db_prefix()</code></li>
+<li><code>convert_comment_link($text = "", $convert_links = true)</code></li>
+<li><code>if($convert_links)</code></li>
+<li><code>prepare_proposal_view($proposal_data)</code></li>
+<li><code>get_available_proposal_variables()</code></li>
+<li><code>prepare_allowed_members_array($permissions, $user_id)</code></li>
+<li><code>get_contract_id($contract_id)</code></li>
+<li><code>get_default_company_id()</code></li>
+<li><code>can_access_reminders_module()</code></li>
+<li><code>show_clients_of_this_client_contact($login_user)</code></li>
+<li><code>append_server_side_filtering_commmon_params($options = array()</code></li>
+<li><code>get_reminder_context_info($reminder_info)</code></li>
+<li><code>get_estimate_status_label($estimate_info, $return_html = true)</code></li>
+<li><code>setting_exists($name)</code></li>
+</ul>
+</body></html>

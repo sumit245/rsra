@@ -1,0 +1,42 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\google\auth\src\FetchAuthTokenInterface.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\google\auth\src\FetchAuthTokenInterface.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\google\auth\src\FetchAuthTokenInterface.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 1651 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>An interface implemented by objects that can fetch auth tokens.</p>
+
+<p>Fetches the auth tokens based on the current state.</p>
+<p>@param callable $httpHandler callback which delivers psr7 request</p>
+<p>@return array a hash of auth tokens</p>
+
+<p>Obtains a key that can used to cache the results of #fetchAuthToken.</p>
+<p>If the value is empty, the auth token is not cached.</p>
+<p>@return string a key that may be used to cache the auth token.</p>
+
+<p>Returns an associative array with the token and</p>
+<p>expiration time.</p>
+<p>@return null|array {</p>
+<p>     The last received access token.</p>
+<p>@var string $access_token The access token string.</p>
+<p>@var int $expires_at The time the token expires as a UNIX timestamp.</p>
+<p>}</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\google\auth\src\FetchAuthTokenInterface.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>fetchAuthToken(callable $httpHandler = null)</code></li>
+<li><code>getCacheKey()</code></li>
+<li><code>getLastReceivedToken()</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,146 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\stream-decorators\src\UUStream.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\stream-decorators\src\UUStream.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\stream-decorators\src\UUStream.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 8580 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\StreamDecorators project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>GuzzleHttp\Psr7 stream decoder extension for UU-Encoded streams.</p>
+<p>The size of the underlying stream and the position of bytes can't be</p>
+<p>determined because the number of encoded bytes is indeterminate without</p>
+<p>reading the entire stream.</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var string name of the UUEncoded file</p>
+
+<p>@var BufferStream of read and decoded bytes</p>
+
+<p>@var string remainder of write operation if the bytes didn't align to 3</p>
+<p>     bytes</p>
+
+<p>@var int read/write position</p>
+
+<p>@var boolean set to true when 'write' is called</p>
+
+<p>@param StreamInterface $stream Stream to decorate</p>
+<p>@param string $filename optional file name</p>
+
+<p>Overridden to return the position in the target encoding.</p>
+<p>@return int</p>
+
+<p>Returns null, getSize isn't supported</p>
+<p>@return null</p>
+
+<p>Not supported.</p>
+<p>@param int $offset</p>
+<p>@param int $whence</p>
+<p>@throws RuntimeException</p>
+
+<p>Overridden to return false</p>
+<p>@return boolean</p>
+
+<p>Finds the next end-of-line character to ensure a line isn't broken up</p>
+<p>while buffering.</p>
+<p>@return string</p>
+
+<p>Removes invalid characters from a uuencoded string, and 'BEGIN' and 'END'</p>
+<p>line headers and footers from the passed string before returning it.</p>
+<p>@param string $str</p>
+<p>@return string</p>
+
+<p>Buffers bytes into $this->buffer, removing uuencoding headers and footers</p>
+<p>and decoding them.</p>
+
+<p>Returns true if the end of stream has been reached.</p>
+<p>@return boolean</p>
+
+<p>Attempts to read $length bytes after decoding them, and returns them.</p>
+<p>@param int $length</p>
+<p>@return string</p>
+
+<p>Writes the 'begin' UU header line.</p>
+
+<p>Writes the '`' and 'end' UU footer lines.</p>
+
+<p>Writes the passed bytes to the underlying stream after encoding them.</p>
+<p>@param string $bytes</p>
+
+<p>Prepends any existing remainder to the passed string, then checks if the</p>
+<p>string fits into a uuencoded line, and removes and keeps any remainder</p>
+<p>from the string to write.  Full lines ready for writing are returned.</p>
+
+<p>@param string $string</p>
+<p>@return string</p>
+
+<p>Writes the passed string to the underlying stream after encoding it.</p>
+<p>Note that reading and writing to the same stream without rewinding is not</p>
+<p>supported.</p>
+<p>Also note that some bytes may not be written until close or detach are</p>
+<p>called.  This happens if written data doesn't align to a complete</p>
+<p>uuencoded 'line' of 45 bytes.  In addition, the UU footer is only written</p>
+<p>when closing or detaching as well.</p>
+<p>@param string $string</p>
+<p>@return int the number of bytes written</p>
+
+<p>Returns the filename set in the UUEncoded header (or null)</p>
+<p>@return string</p>
+
+<p>Sets the UUEncoded header file name written in the 'begin' header line.</p>
+<p>@param string $filename</p>
+
+<p>Writes out any remaining bytes and the UU footer.</p>
+
+<p>Writes any remaining bytes out followed by the uu-encoded footer, then</p>
+<p>closes the stream.</p>
+
+<p>Writes any remaining bytes out followed by the uu-encoded footer, then</p>
+<p>detaches the stream.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\stream-decorators\src\UUStream.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\StreamDecorators\UUStream implements StreamInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(StreamInterface $stream, $filename = null)</code></li>
+<li><code>tell()</code></li>
+<li><code>getSize()</code></li>
+<li><code>seek($offset, $whence = SEEK_SET)</code></li>
+<li><code>isSeekable()</code></li>
+<li><code>readToEndOfLine($length)</code></li>
+<li><code>filterAndDecode($str)</code></li>
+<li><code>fillBuffer($length)</code></li>
+<li><code>eof()</code></li>
+<li><code>read($length)</code></li>
+<li><code>writeUUHeader()</code></li>
+<li><code>writeUUFooter()</code></li>
+<li><code>writeEncoded($bytes)</code></li>
+<li><code>handleRemainder($string)</code></li>
+<li><code>write($string)</code></li>
+<li><code>getFilename()</code></li>
+<li><code>setFilename($filename)</code></li>
+<li><code>beforeClose()</code></li>
+<li><code>close()</code></li>
+<li><code>detach()</code></li>
+</ul>
+</body></html>

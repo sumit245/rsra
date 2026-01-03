@@ -1,0 +1,87 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\AES.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\AES.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\AES.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3701 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Pure-PHP implementation of AES.</p>
+<p>Uses mcrypt, if available/possible, and an internal implementation, otherwise.</p>
+<p>PHP version 5</p>
+<p>NOTE: Since AES.php is (for compatibility and phpseclib-historical reasons) virtually</p>
+<p>just a wrapper to Rijndael.php you may consider using Rijndael.php instead of</p>
+<p>to save one include_once().</p>
+<p>If {@link self::setKeyLength() setKeyLength()} isn't called, it'll be calculated from</p>
+<p>{@link self::setKey() setKey()}.  ie. if the key is 128-bits, the key length will be 128-bits.  If it's 136-bits</p>
+<p>it'll be null-padded to 192-bits and 192 bits will be the key length until {@link self::setKey() setKey()}</p>
+<p>is called, again, at which point, it'll be recalculated.</p>
+<p>Since \phpseclib\Crypt\AES extends \phpseclib\Crypt\Rijndael, some functions are available to be called that, in the context of AES, don't</p>
+<p>make a whole lot of sense.  {@link self::setBlockLength() setBlockLength()}, for instance.  Calling that function,</p>
+<p>however possible, won't do anything (AES has a fixed block length whereas Rijndael has a variable one).</p>
+<p>Here's a short example of how to use this library:</p>
+<p><code></p>
+<p><?php</p>
+<p>   include 'vendor/autoload.php';</p>
+<p>   $aes = new \phpseclib\Crypt\AES();</p>
+<p>   $aes->setKey('abcdefghijklmnop');</p>
+<p>   $size = 10 * 1024;</p>
+<p>   $plaintext = '';</p>
+<p>   for ($i = 0; $i < $size; $i++) {</p>
+<p>       $plaintext.= 'a';</p>
+<p>   }</p>
+<p>   echo $aes->decrypt($aes->encrypt($plaintext));</p>
+<p>?></p>
+<p></code></p>
+<p>@category  Crypt</p>
+<p>@package   AES</p>
+<p>@author    Jim Wigginton <terrafrost@php.net></p>
+<p>@copyright 2008 Jim Wigginton</p>
+<p>@license   http://www.opensource.org/licenses/mit-license.html  MIT License</p>
+<p>@link      http://phpseclib.sourceforge.net</p>
+
+<p>Pure-PHP implementation of AES.</p>
+<p>@package AES</p>
+<p>@author  Jim Wigginton <terrafrost@php.net></p>
+<p>@access  public</p>
+
+<p>Dummy function</p>
+<p>Since \phpseclib\Crypt\AES extends \phpseclib\Crypt\Rijndael, this function is, technically, available, but it doesn't do anything.</p>
+<p>@see \phpseclib\Crypt\Rijndael::setBlockLength()</p>
+<p>@access public</p>
+<p>@param int $length</p>
+
+<p>Sets the key length</p>
+<p>Valid key lengths are 128, 192, and 256.  If the length is less than 128, it will be rounded up to</p>
+<p>128.  If the length is greater than 128 and invalid, it will be rounded down to the closest valid amount.</p>
+<p>@see \phpseclib\Crypt\Rijndael:setKeyLength()</p>
+<p>@access public</p>
+<p>@param int $length</p>
+
+<p>Sets the key.</p>
+<p>Rijndael supports five different key lengths, AES only supports three.</p>
+<p>@see \phpseclib\Crypt\Rijndael:setKey()</p>
+<p>@see setKeyLength()</p>
+<p>@access public</p>
+<p>@param string $key</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\AES.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>phpseclib\Crypt\AES extends Rijndael</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>setBlockLength($length)</code></li>
+<li><code>setKeyLength($length)</code></li>
+<li><code>setKey($key)</code></li>
+</ul>
+</body></html>

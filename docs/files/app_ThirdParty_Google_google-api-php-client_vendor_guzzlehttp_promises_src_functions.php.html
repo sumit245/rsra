@@ -1,0 +1,188 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\promises\src\functions.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\promises\src\functions.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\promises\src\functions.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 12054 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Get the global task queue used for promise resolution.</p>
+<p>This task queue MUST be run in an event loop in order for promises to be</p>
+<p>settled asynchronously. It will be automatically run when synchronously</p>
+<p>waiting on a promise.</p>
+<p><code></p>
+<p>while ($eventLoop->isRunning()) {</p>
+<p>    GuzzleHttp\Promise\queue()->run();</p>
+<p>}</p>
+<p></code></p>
+<p>@param TaskQueueInterface $assign Optionally specify a new queue instance.</p>
+<p>@return TaskQueueInterface</p>
+
+<p>Adds a function to run in the task queue when it is next <code>run()</code> and returns</p>
+<p>a promise that is fulfilled or rejected with the result.</p>
+<p>@param callable $task Task function to run.</p>
+<p>@return PromiseInterface</p>
+
+<p>Creates a promise for a value if the value is not a promise.</p>
+<p>@param mixed $value Promise or value.</p>
+<p>@return PromiseInterface</p>
+
+<p>Creates a rejected promise for a reason if the reason is not a promise. If</p>
+<p>the provided reason is a promise, then it is returned as-is.</p>
+<p>@param mixed $reason Promise or reason.</p>
+<p>@return PromiseInterface</p>
+
+<p>Create an exception for a rejected promise value.</p>
+<p>@param mixed $reason</p>
+<p>@return \Exception|\Throwable</p>
+
+<p>Returns an iterator for the given value.</p>
+<p>@param mixed $value</p>
+<p>@return \Iterator</p>
+
+<p>Synchronously waits on a promise to resolve and returns an inspection state</p>
+<p>array.</p>
+<p>Returns a state associative array containing a "state" key mapping to a</p>
+<p>valid promise state. If the state of the promise is "fulfilled", the array</p>
+<p>will contain a "value" key mapping to the fulfilled value of the promise. If</p>
+<p>the promise is rejected, the array will contain a "reason" key mapping to</p>
+<p>the rejection reason of the promise.</p>
+<p>@param PromiseInterface $promise Promise or value.</p>
+<p>@return array</p>
+
+<p>Waits on all of the provided promises, but does not unwrap rejected promises</p>
+<p>as thrown exception.</p>
+<p>Returns an array of inspection state arrays.</p>
+<p>@param PromiseInterface[] $promises Traversable of promises to wait upon.</p>
+<p>@return array</p>
+<p>@see GuzzleHttp\Promise\inspect for the inspection state array format.</p>
+
+<p>Waits on all of the provided promises and returns the fulfilled values.</p>
+<p>Returns an array that contains the value of each promise (in the same order</p>
+<p>the promises were provided). An exception is thrown if any of the promises</p>
+<p>are rejected.</p>
+<p>@param mixed $promises Iterable of PromiseInterface objects to wait on.</p>
+<p>@return array</p>
+<p>@throws \Exception on error</p>
+<p>@throws \Throwable on error in PHP >=7</p>
+
+<p>Given an array of promises, return a promise that is fulfilled when all the</p>
+<p>items in the array are fulfilled.</p>
+<p>The promise's fulfillment value is an array with fulfillment values at</p>
+<p>respective positions to the original array. If any promise in the array</p>
+<p>rejects, the returned promise is rejected with the rejection reason.</p>
+<p>@param mixed $promises Promises or values.</p>
+<p>@return PromiseInterface</p>
+
+<p>Initiate a competitive race between multiple promises or values (values will</p>
+<p>become immediately fulfilled promises).</p>
+<p>When count amount of promises have been fulfilled, the returned promise is</p>
+<p>fulfilled with an array that contains the fulfillment values of the winners</p>
+<p>in order of resolution.</p>
+<p>This prommise is rejected with a {@see GuzzleHttp\Promise\AggregateException}</p>
+<p>if the number of fulfilled promises is less than the desired $count.</p>
+<p>@param int   $count    Total number of promises.</p>
+<p>@param mixed $promises Promises or values.</p>
+<p>@return PromiseInterface</p>
+
+<p>Like some(), with 1 as count. However, if the promise fulfills, the</p>
+<p>fulfillment value is not an array of 1 but the value directly.</p>
+<p>@param mixed $promises Promises or values.</p>
+<p>@return PromiseInterface</p>
+
+<p>Returns a promise that is fulfilled when all of the provided promises have</p>
+<p>been fulfilled or rejected.</p>
+<p>The returned promise is fulfilled with an array of inspection state arrays.</p>
+<p>@param mixed $promises Promises or values.</p>
+<p>@return PromiseInterface</p>
+<p>@see GuzzleHttp\Promise\inspect for the inspection state array format.</p>
+
+<p>Given an iterator that yields promises or values, returns a promise that is</p>
+<p>fulfilled with a null value when the iterator has been consumed or the</p>
+<p>aggregate promise has been fulfilled or rejected.</p>
+<p>$onFulfilled is a function that accepts the fulfilled value, iterator</p>
+<p>index, and the aggregate promise. The callback can invoke any necessary side</p>
+<p>effects and choose to resolve or reject the aggregate promise if needed.</p>
+<p>$onRejected is a function that accepts the rejection reason, iterator</p>
+<p>index, and the aggregate promise. The callback can invoke any necessary side</p>
+<p>effects and choose to resolve or reject the aggregate promise if needed.</p>
+<p>@param mixed    $iterable    Iterator or array to iterate over.</p>
+<p>@param callable $onFulfilled</p>
+<p>@param callable $onRejected</p>
+<p>@return PromiseInterface</p>
+
+<p>Like each, but only allows a certain number of outstanding promises at any</p>
+<p>given time.</p>
+<p>$concurrency may be an integer or a function that accepts the number of</p>
+<p>pending promises and returns a numeric concurrency limit value to allow for</p>
+<p>dynamic a concurrency size.</p>
+<p>@param mixed        $iterable</p>
+<p>@param int|callable $concurrency</p>
+<p>@param callable     $onFulfilled</p>
+<p>@param callable     $onRejected</p>
+<p>@return PromiseInterface</p>
+
+<p>Like each_limit, but ensures that no promise in the given $iterable argument</p>
+<p>is rejected. If any promise is rejected, then the aggregate promise is</p>
+<p>rejected with the encountered rejection.</p>
+<p>@param mixed        $iterable</p>
+<p>@param int|callable $concurrency</p>
+<p>@param callable     $onFulfilled</p>
+<p>@return PromiseInterface</p>
+
+<p>Returns true if a promise is fulfilled.</p>
+<p>@param PromiseInterface $promise</p>
+<p>@return bool</p>
+
+<p>Returns true if a promise is rejected.</p>
+<p>@param PromiseInterface $promise</p>
+<p>@return bool</p>
+
+<p>Returns true if a promise is fulfilled or rejected.</p>
+<p>@param PromiseInterface $promise</p>
+<p>@return bool</p>
+
+<p>@see Coroutine</p>
+<p>@param callable $generatorFn</p>
+<p>@return PromiseInterface</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\promises\src\functions.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>queue(TaskQueueInterface $assign = null)</code></li>
+<li><code>task(callable $task)</code></li>
+<li><code>promise_for($value)</code></li>
+<li><code>rejection_for($reason)</code></li>
+<li><code>exception_for($reason)</code></li>
+<li><code>iter_for($value)</code></li>
+<li><code>inspect(PromiseInterface $promise)</code></li>
+<li><code>inspect_all($promises)</code></li>
+<li><code>unwrap($promises)</code></li>
+<li><code>all($promises)</code></li>
+<li><code>some($count, $promises)</code></li>
+<li><code>any($promises)</code></li>
+<li><code>settle($promises)</code></li>
+<li>`each($iterable,</li>
+<p>    callable $onFulfilled = null,</p>
+<p>    callable $onRejected = null)`</p>
+<li>`each_limit($iterable,</li>
+<p>    $concurrency,</p>
+<p>    callable $onFulfilled = null,</p>
+<p>    callable $onRejected = null)`</p>
+<li>`each_limit_all($iterable,</li>
+<p>    $concurrency,</p>
+<p>    callable $onFulfilled = null)`</p>
+<li><code>is_fulfilled(PromiseInterface $promise)</code></li>
+<li><code>is_rejected(PromiseInterface $promise)</code></li>
+<li><code>is_settled(PromiseInterface $promise)</code></li>
+<li><code>coroutine(callable $generatorFn)</code></li>
+</ul>
+</body></html>

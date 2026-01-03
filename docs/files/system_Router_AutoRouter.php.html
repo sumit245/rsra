@@ -1,0 +1,96 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Router\AutoRouter.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Router\AutoRouter.php</h1>
+
+<ul>
+<li>Path: <code>system\Router\AutoRouter.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9212 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Router for Auto-Routing</p>
+
+<p>List of controllers registered for the CLI verb that should not be accessed in the web.</p>
+<p>@var class-string[]</p>
+
+<p>Sub-directory that contains the requested controller class.</p>
+<p>Primarily used by 'autoRoute'.</p>
+
+<p>The name of the controller class.</p>
+
+<p>The name of the method to use.</p>
+
+<p>Whether dashes in URI's should be converted</p>
+<p>to underscores when determining method names.</p>
+
+<p>HTTP verb for the request.</p>
+
+<p>Default namespace for controllers.</p>
+
+<p>Attempts to match a URI path against Controllers and directories</p>
+<p>found in APPPATH/Controllers, to find a matching route.</p>
+<p>@return array [directory_name, controller_name, controller_method, params]</p>
+
+<p>@var array $params An array of params to the controller method.</p>
+
+<p>Tells the system whether we should translate URI dashes or not</p>
+<p>in the URI from a dash to an underscore.</p>
+<p>@deprecated This method should be removed.</p>
+
+<p>Scans the controller directory, attempting to locate a controller matching the supplied uri $segments</p>
+<p>@param array $segments URI segments</p>
+<p>@return array returns an array of remaining uri segments that don't map onto a directory</p>
+
+<p>Returns true if the supplied $segment string represents a valid PSR-4 compliant namespace/directory segment</p>
+<p>regex comes from https://www.php.net/manual/en/language.variables.basics.php</p>
+
+<p>Sets the sub-directory that the controller is in.</p>
+<p>@param bool $validate if true, checks to make sure $dir consists of only PSR4 compliant segments</p>
+<p>@deprecated This method should be removed.</p>
+
+<p>Returns the name of the sub-directory the controller is in,</p>
+<p>if any. Relative to APPPATH.'Controllers'.</p>
+<p>@deprecated This method should be removed.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+<li><code>https</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Router\AutoRouter.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Router\AutoRouter implements AutoRouterInterface</code></li>
+<li><code>CodeIgniter\Router\name</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`__construct(array $protectedControllers,</li>
+<p>        string $defaultNamespace,</p>
+<p>        string $defaultController,</p>
+<p>        string $defaultMethod,</p>
+<p>        bool $translateURIDashes,</p>
+<p>        string $httpVerb)`</p>
+<li><code>getRoute(string $uri)</code></li>
+<li><code>setTranslateURIDashes(bool $val = false)</code></li>
+<li><code>scanControllers(array $segments)</code></li>
+<li><code>isValidSegment(string $segment)</code></li>
+<li><code>setDirectory(?string $dir = null, bool $append = false, bool $validate = true)</code></li>
+<li><code>directory()</code></li>
+<li><code>controllerName()</code></li>
+<li><code>methodName()</code></li>
+</ul>
+</body></html>

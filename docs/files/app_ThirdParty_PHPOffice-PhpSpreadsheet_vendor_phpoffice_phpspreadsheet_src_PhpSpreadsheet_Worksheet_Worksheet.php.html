@@ -1,0 +1,1031 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\Worksheet.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\Worksheet.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\Worksheet.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 102892 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Maximum 31 characters allowed for sheet title.</p>
+<p>@var int</p>
+
+<p>Invalid characters in sheet title.</p>
+<p>@var array</p>
+
+<p>Parent spreadsheet.</p>
+<p>@var Spreadsheet</p>
+
+<p>Collection of cells.</p>
+<p>@var Cells</p>
+
+<p>Collection of row dimensions.</p>
+<p>@var RowDimension[]</p>
+
+<p>Default row dimension.</p>
+<p>@var RowDimension</p>
+
+<p>Collection of column dimensions.</p>
+<p>@var ColumnDimension[]</p>
+
+<p>Default column dimension.</p>
+<p>@var ColumnDimension</p>
+
+<p>Collection of drawings.</p>
+<p>@var ArrayObject<int, BaseDrawing></p>
+
+<p>Collection of Chart objects.</p>
+<p>@var ArrayObject<int, Chart></p>
+
+<p>Collection of Table objects.</p>
+<p>@var ArrayObject<int, Table></p>
+
+<p>Worksheet title.</p>
+<p>@var string</p>
+
+<p>Sheet state.</p>
+<p>@var string</p>
+
+<p>Page setup.</p>
+<p>@var PageSetup</p>
+
+<p>Page margins.</p>
+<p>@var PageMargins</p>
+
+<p>Page header/footer.</p>
+<p>@var HeaderFooter</p>
+
+<p>Sheet view.</p>
+<p>@var SheetView</p>
+
+<p>Protection.</p>
+<p>@var Protection</p>
+
+<p>Collection of styles.</p>
+<p>@var Style[]</p>
+
+<p>Conditional styles. Indexed by cell coordinate, e.g. 'A1'.</p>
+<p>@var array</p>
+
+<p>Is the current cell collection sorted already?</p>
+<p>@var bool</p>
+
+<p>Collection of breaks.</p>
+<p>@var int[]</p>
+
+<p>Collection of merged cell ranges.</p>
+<p>@var string[]</p>
+
+<p>Collection of protected cell ranges.</p>
+<p>@var string[]</p>
+
+<p>Autofilter Range and selection.</p>
+<p>@var AutoFilter</p>
+
+<p>Freeze pane.</p>
+<p>@var null|string</p>
+
+<p>Default position of the right bottom pane.</p>
+<p>@var null|string</p>
+
+<p>Show gridlines?</p>
+<p>@var bool</p>
+
+<p>Print gridlines?</p>
+<p>@var bool</p>
+
+<p>Show row and column headers?</p>
+<p>@var bool</p>
+
+<p>Show summary below? (Row/Column outline).</p>
+<p>@var bool</p>
+
+<p>Show summary right? (Row/Column outline).</p>
+<p>@var bool</p>
+
+<p>Collection of comments.</p>
+<p>@var Comment[]</p>
+
+<p>Active cell. (Only one!).</p>
+<p>@var string</p>
+
+<p>Selected cells.</p>
+<p>@var string</p>
+
+<p>Cached highest column.</p>
+<p>@var int</p>
+
+<p>Cached highest row.</p>
+<p>@var int</p>
+
+<p>Right-to-left?</p>
+<p>@var bool</p>
+
+<p>Hyperlinks. Indexed by cell coordinate, e.g. 'A1'.</p>
+<p>@var array</p>
+
+<p>Data validation objects. Indexed by cell coordinate, e.g. 'A1'.</p>
+<p>@var array</p>
+
+<p>Tab color.</p>
+<p>@var null|Color</p>
+
+<p>Dirty flag.</p>
+<p>@var bool</p>
+
+<p>Hash.</p>
+<p>@var string</p>
+
+<p>CodeName.</p>
+<p>@var string</p>
+
+<p>Create a new worksheet.</p>
+<p>@param string $title</p>
+
+<p>Disconnect all cells from this Worksheet object,</p>
+<p>typically so that the worksheet object can be unset.</p>
+
+<p>Code to execute when this worksheet is unset().</p>
+
+<p>Return the cell collection.</p>
+<p>@return Cells</p>
+
+<p>Get array of invalid characters for sheet title.</p>
+<p>@return array</p>
+
+<p>Check sheet code name for valid Excel syntax.</p>
+<p>@param string $sheetCodeName The string to check</p>
+<p>@return string The valid string</p>
+
+<p>Check sheet title for valid Excel syntax.</p>
+<p>@param string $sheetTitle The string to check</p>
+<p>@return string The valid string</p>
+
+<p>Get a sorted list of all cell coordinates currently held in the collection by row and column.</p>
+<p>@param bool $sorted Also sort the cell collection?</p>
+<p>@return string[]</p>
+
+<p>Get collection of row dimensions.</p>
+<p>@return RowDimension[]</p>
+
+<p>Get default row dimension.</p>
+<p>@return RowDimension</p>
+
+<p>Get collection of column dimensions.</p>
+<p>@return ColumnDimension[]</p>
+
+<p>Get default column dimension.</p>
+<p>@return ColumnDimension</p>
+
+<p>Get collection of drawings.</p>
+<p>@return ArrayObject<int, BaseDrawing></p>
+
+<p>Get collection of charts.</p>
+<p>@return ArrayObject<int, Chart></p>
+
+<p>Add chart.</p>
+<p>@param null|int $chartIndex Index where chart should go (0,1,..., or null for last)</p>
+<p>@return Chart</p>
+
+<p>Return the count of charts on this worksheet.</p>
+<p>@return int The number of charts</p>
+
+<p>Get a chart by its index position.</p>
+<p>@param string $index Chart index position</p>
+<p>@return Chart|false</p>
+
+<p>Return an array of the names of charts on this worksheet.</p>
+<p>@return string[] The names of charts</p>
+
+<p>Get a chart by name.</p>
+<p>@param string $chartName Chart name</p>
+<p>@return Chart|false</p>
+
+<p>Refresh column dimensions.</p>
+<p>@return $this</p>
+
+<p>Refresh row dimensions.</p>
+<p>@return $this</p>
+
+<p>Calculate worksheet dimension.</p>
+<p>@return string String containing the dimension of this worksheet</p>
+
+<p>Calculate worksheet data dimension.</p>
+<p>@return string String containing the dimension of this worksheet that actually contain data</p>
+
+<p>Calculate widths for auto-size columns.</p>
+<p>@return $this</p>
+
+<p>Get parent.</p>
+<p>@return Spreadsheet</p>
+
+<p>Re-bind parent.</p>
+<p>@return $this</p>
+
+<p>Get title.</p>
+<p>@return string</p>
+
+<p>Set title.</p>
+<p>@param string $title String containing the dimension of this worksheet</p>
+<p>@param bool $updateFormulaCellReferences Flag indicating whether cell references in formulae should</p>
+<p>           be updated to reflect the new sheet name.</p>
+<p>         This should be left as the default true, unless you are</p>
+<p>         certain that no formula cells on any worksheet contain</p>
+<p>         references to this worksheet</p>
+<p>@param bool $validate False to skip validation of new title. WARNING: This should only be set</p>
+<p>                      at parse time (by Readers), where titles can be assumed to be valid.</p>
+<p>@return $this</p>
+
+<p>Get sheet state.</p>
+<p>@return string Sheet state (visible, hidden, veryHidden)</p>
+
+<p>Set sheet state.</p>
+<p>@param string $value Sheet state (visible, hidden, veryHidden)</p>
+<p>@return $this</p>
+
+<p>Get page setup.</p>
+<p>@return PageSetup</p>
+
+<p>Set page setup.</p>
+<p>@return $this</p>
+
+<p>Get page margins.</p>
+<p>@return PageMargins</p>
+
+<p>Set page margins.</p>
+<p>@return $this</p>
+
+<p>Get page header/footer.</p>
+<p>@return HeaderFooter</p>
+
+<p>Set page header/footer.</p>
+<p>@return $this</p>
+
+<p>Get sheet view.</p>
+<p>@return SheetView</p>
+
+<p>Set sheet view.</p>
+<p>@return $this</p>
+
+<p>Get Protection.</p>
+<p>@return Protection</p>
+
+<p>Set Protection.</p>
+<p>@return $this</p>
+
+<p>Get highest worksheet column.</p>
+<p>@param null|int|string $row Return the data highest column for the specified row,</p>
+<p>                                    or the highest column of any row if no row number is passed</p>
+<p>@return string Highest column name</p>
+
+<p>Get highest worksheet column that contains data.</p>
+<p>@param null|int|string $row Return the highest data column for the specified row,</p>
+<p>                                    or the highest data column of any row if no row number is passed</p>
+<p>@return string Highest column name that contains data</p>
+
+<p>Get highest worksheet row.</p>
+<p>@param null|string $column Return the highest data row for the specified column,</p>
+<p>                                    or the highest row of any column if no column letter is passed</p>
+<p>@return int Highest row number</p>
+
+<p>Get highest worksheet row that contains data.</p>
+<p>@param null|string $column Return the highest data row for the specified column,</p>
+<p>                                    or the highest data row of any column if no column letter is passed</p>
+<p>@return int Highest row number that contains data</p>
+
+<p>Get highest worksheet column and highest row that have cell records.</p>
+<p>@return array Highest column name and highest row number</p>
+
+<p>Set a cell value.</p>
+<p>@param array<int>|CellAddress|string $coordinate Coordinate of the cell as a string, eg: 'C5';</p>
+<p>              or as an array of [$columnIndex, $row] (e.g. [3, 5]), or a CellAddress object.</p>
+<p>@param mixed $value Value for the cell</p>
+<p>@return $this</p>
+
+<p>Set a cell value by using numeric cell coordinates.</p>
+<p>@Deprecated 1.23.0</p>
+<p>     Use the setCellValue() method with a cell address such as 'C5' instead;,</p>
+<p>         or passing in an array of [$columnIndex, $row] (e.g. [3, 5]), or a CellAddress object.</p>
+<p>@param int $columnIndex Numeric column coordinate of the cell</p>
+<p>@param int $row Numeric row coordinate of the cell</p>
+<p>@param mixed $value Value of the cell</p>
+<p>@return $this</p>
+
+<p>Set a cell value.</p>
+<p>@param array<int>|CellAddress|string $coordinate Coordinate of the cell as a string, eg: 'C5';</p>
+<p>              or as an array of [$columnIndex, $row] (e.g. [3, 5]), or a CellAddress object.</p>
+<p>@param mixed $value Value of the cell</p>
+<p>@param string $dataType Explicit data type, see DataType::TYPE_*</p>
+<p>@return $this</p>
+
+<p>Set a cell value by using numeric cell coordinates.</p>
+<p>@Deprecated 1.23.0</p>
+<p>     Use the setCellValueExplicit() method with a cell address such as 'C5' instead;,</p>
+<p>         or passing in an array of [$columnIndex, $row] (e.g. [3, 5]), or a CellAddress object.</p>
+<p>@param int $columnIndex Numeric column coordinate of the cell</p>
+<p>@param int $row Numeric row coordinate of the cell</p>
+<p>@param mixed $value Value of the cell</p>
+<p>@param string $dataType Explicit data type, see DataType::TYPE_*</p>
+<p>@return $this</p>
+
+<p>Get cell at a specific coordinate.</p>
+<p>@param array<int>|CellAddress|string $coordinate Coordinate of the cell as a string, eg: 'C5';</p>
+<p>              or as an array of [$columnIndex, $row] (e.g. [3, 5]), or a CellAddress object.</p>
+<p>@return Cell Cell that was found or created</p>
+
+<p>@var Cell $cell</p>
+
+<p>@var Worksheet $sheet</p>
+
+<p>Get the correct Worksheet and coordinate from a coordinate that may</p>
+<p>contains reference to another sheet or a named range.</p>
+<p>@return array{0: Worksheet, 1: string}</p>
+
+<p>@phpstan-ignore-next-line</p>
+
+<p>Get an existing cell at a specific coordinate, or null.</p>
+<p>@param string $coordinate Coordinate of the cell, eg: 'A1'</p>
+<p>@return null|Cell Cell that was found or null</p>
+
+<p>Get cell at a specific coordinate by using numeric cell coordinates.</p>
+<p>@Deprecated 1.23.0</p>
+<p>     Use the getCell() method with a cell address such as 'C5' instead;,</p>
+<p>         or passing in an array of [$columnIndex, $row] (e.g. [3, 5]), or a CellAddress object.</p>
+<p>@param int $columnIndex Numeric column coordinate of the cell</p>
+<p>@param int $row Numeric row coordinate of the cell</p>
+<p>@return Cell Cell that was found/created or null</p>
+
+<p>Create a new cell at the specified coordinate.</p>
+<p>@param string $coordinate Coordinate of the cell</p>
+<p>@return Cell Cell that was created</p>
+
+<p>Does the cell at a specific coordinate exist?</p>
+<p>@param array<int>|CellAddress|string $coordinate Coordinate of the cell as a string, eg: 'C5';</p>
+<p>              or as an array of [$columnIndex, $row] (e.g. [3, 5]), or a CellAddress object.</p>
+
+<p>@var Worksheet $sheet</p>
+
+<p>Cell at a specific coordinate by using numeric cell coordinates exists?</p>
+<p>@Deprecated 1.23.0</p>
+<p>     Use the cellExists() method with a cell address such as 'C5' instead;,</p>
+<p>         or passing in an array of [$columnIndex, $row] (e.g. [3, 5]), or a CellAddress object.</p>
+<p>@param int $columnIndex Numeric column coordinate of the cell</p>
+<p>@param int $row Numeric row coordinate of the cell</p>
+
+<p>Get row dimension at a specific row.</p>
+<p>@param int $row Numeric index of the row</p>
+
+<p>Get column dimension at a specific column.</p>
+<p>@param string $column String index of the column eg: 'A'</p>
+
+<p>Get column dimension at a specific column by using numeric cell coordinates.</p>
+<p>@param int $columnIndex Numeric column coordinate of the cell</p>
+
+<p>Get styles.</p>
+<p>@return Style[]</p>
+
+<p>Get style for cell.</p>
+<p>@param AddressRange|array<int>|CellAddress|int|string $cellCoordinate</p>
+<p>             A simple string containing a cell address like 'A1' or a cell range like 'A1:E10'</p>
+<p>             or passing in an array of [$fromColumnIndex, $fromRow, $toColumnIndex, $toRow] (e.g. [3, 5, 6, 8]),</p>
+<p>             or a CellAddress or AddressRange object.</p>
+
+<p>Get style for cell by using numeric cell coordinates.</p>
+<p>@Deprecated 1.23.0</p>
+<p>     Use the getStyle() method with a cell address range such as 'C5:F8' instead;,</p>
+<p>         or passing in an array of [$fromColumnIndex, $fromRow, $toColumnIndex, $toRow] (e.g. [3, 5, 6, 8]),</p>
+<p>         or an AddressRange object.</p>
+<p>@param int $columnIndex1 Numeric column coordinate of the cell</p>
+<p>@param int $row1 Numeric row coordinate of the cell</p>
+<p>@param null|int $columnIndex2 Numeric column coordinate of the range cell</p>
+<p>@param null|int $row2 Numeric row coordinate of the range cell</p>
+<p>@return Style</p>
+
+<p>Get conditional styles for a cell.</p>
+<p>@param string $coordinate eg: 'A1' or 'A1:A3'.</p>
+<p>         If a single cell is referenced, then the array of conditional styles will be returned if the cell is</p>
+<p>              included in a conditional style range.</p>
+<p>         If a range of cells is specified, then the styles will only be returned if the range matches the entire</p>
+<p>              range of the conditional.</p>
+<p>@return Conditional[]</p>
+
+<p>Do conditional styles exist for this cell?</p>
+<p>@param string $coordinate eg: 'A1' or 'A1:A3'.</p>
+<p>         If a single cell is specified, then this method will return true if that cell is included in a</p>
+<p>              conditional style range.</p>
+<p>         If a range of cells is specified, then true will only be returned if the range matches the entire</p>
+<p>              range of the conditional.</p>
+
+<p>Removes conditional styles for a cell.</p>
+<p>@param string $coordinate eg: 'A1'</p>
+<p>@return $this</p>
+
+<p>Get collection of conditional styles.</p>
+<p>@return array</p>
+
+<p>Set conditional styles.</p>
+<p>@param string $coordinate eg: 'A1'</p>
+<p>@param Conditional[] $styles</p>
+<p>@return $this</p>
+
+<p>Duplicate cell style to a range of cells.</p>
+<p>Please note that this will overwrite existing cell styles for cells in range!</p>
+<p>@param Style $style Cell style to duplicate</p>
+<p>@param string $range Range of cells (i.e. "A1:B10"), or just one cell (i.e. "A1")</p>
+<p>@return $this</p>
+
+<p>Duplicate conditional style to a range of cells.</p>
+<p>Please note that this will overwrite existing cell styles for cells in range!</p>
+<p>@param Conditional[] $styles Cell style to duplicate</p>
+<p>@param string $range Range of cells (i.e. "A1:B10"), or just one cell (i.e. "A1")</p>
+<p>@return $this</p>
+
+<p>Set break on a cell.</p>
+<p>@param array<int>|CellAddress|string $coordinate Coordinate of the cell as a string, eg: 'C5';</p>
+<p>              or as an array of [$columnIndex, $row] (e.g. [3, 5]), or a CellAddress object.</p>
+<p>@param int $break Break type (type of Worksheet::BREAK_*)</p>
+<p>@return $this</p>
+
+<p>Set break on a cell by using numeric cell coordinates.</p>
+<p>@Deprecated 1.23.0</p>
+<p>     Use the setBreak() method with a cell address such as 'C5' instead;,</p>
+<p>         or passing in an array of [$columnIndex, $row] (e.g. [3, 5]), or a CellAddress object.</p>
+<p>@param int $columnIndex Numeric column coordinate of the cell</p>
+<p>@param int $row Numeric row coordinate of the cell</p>
+<p>@param int $break Break type (type of Worksheet::BREAK_*)</p>
+<p>@return $this</p>
+
+<p>Get breaks.</p>
+<p>@return int[]</p>
+
+<p>Set merge on a cell range.</p>
+<p>@param AddressRange|array<int>|string $range A simple string containing a Cell range like 'A1:E10'</p>
+<p>             or passing in an array of [$fromColumnIndex, $fromRow, $toColumnIndex, $toRow] (e.g. [3, 5, 6, 8]),</p>
+<p>             or an AddressRange.</p>
+<p>@return $this</p>
+
+<p>Set merge on a cell range by using numeric cell coordinates.</p>
+<p>@Deprecated 1.23.0</p>
+<p>     Use the mergeCells() method with a cell address range such as 'C5:F8' instead;,</p>
+<p>         or passing in an array of [$fromColumnIndex, $fromRow, $toColumnIndex, $toRow] (e.g. [3, 5, 6, 8]),</p>
+<p>         or an AddressRange object.</p>
+<p>@param int $columnIndex1 Numeric column coordinate of the first cell</p>
+<p>@param int $row1 Numeric row coordinate of the first cell</p>
+<p>@param int $columnIndex2 Numeric column coordinate of the last cell</p>
+<p>@param int $row2 Numeric row coordinate of the last cell</p>
+<p>@return $this</p>
+
+<p>Remove merge on a cell range.</p>
+<p>@param AddressRange|array<int>|string $range A simple string containing a Cell range like 'A1:E10'</p>
+<p>             or passing in an array of [$fromColumnIndex, $fromRow, $toColumnIndex, $toRow] (e.g. [3, 5, 6, 8]),</p>
+<p>             or an AddressRange.</p>
+<p>@return $this</p>
+
+<p>Remove merge on a cell range by using numeric cell coordinates.</p>
+<p>@Deprecated 1.23.0</p>
+<p>     Use the unmergeCells() method with a cell address range such as 'C5:F8' instead;,</p>
+<p>         or passing in an array of [$fromColumnIndex, $fromRow, $toColumnIndex, $toRow] (e.g. [3, 5, 6, 8]),</p>
+<p>         or an AddressRange object.</p>
+<p>@param int $columnIndex1 Numeric column coordinate of the first cell</p>
+<p>@param int $row1 Numeric row coordinate of the first cell</p>
+<p>@param int $columnIndex2 Numeric column coordinate of the last cell</p>
+<p>@param int $row2 Numeric row coordinate of the last cell</p>
+<p>@return $this</p>
+
+<p>Get merge cells array.</p>
+<p>@return string[]</p>
+
+<p>Set merge cells array for the entire sheet. Use instead mergeCells() to merge</p>
+<p>a single cell range.</p>
+<p>@param string[] $mergeCells</p>
+<p>@return $this</p>
+
+<p>Set protection on a cell or cell range.</p>
+<p>@param AddressRange|array<int>|CellAddress|int|string $range A simple string containing a Cell range like 'A1:E10'</p>
+<p>             or passing in an array of [$fromColumnIndex, $fromRow, $toColumnIndex, $toRow] (e.g. [3, 5, 6, 8]),</p>
+<p>             or a CellAddress or AddressRange object.</p>
+<p>@param string $password Password to unlock the protection</p>
+<p>@param bool $alreadyHashed If the password has already been hashed, set this to true</p>
+<p>@return $this</p>
+
+<p>Set protection on a cell range by using numeric cell coordinates.</p>
+<p>@Deprecated 1.23.0</p>
+<p>     Use the protectCells() method with a cell address range such as 'C5:F8' instead;,</p>
+<p>         or passing in an array of [$fromColumnIndex, $fromRow, $toColumnIndex, $toRow] (e.g. [3, 5, 6, 8]),</p>
+<p>         or an AddressRange object.</p>
+<p>@param int $columnIndex1 Numeric column coordinate of the first cell</p>
+<p>@param int $row1 Numeric row coordinate of the first cell</p>
+<p>@param int $columnIndex2 Numeric column coordinate of the last cell</p>
+<p>@param int $row2 Numeric row coordinate of the last cell</p>
+<p>@param string $password Password to unlock the protection</p>
+<p>@param bool $alreadyHashed If the password has already been hashed, set this to true</p>
+<p>@return $this</p>
+
+<p>Remove protection on a cell or cell range.</p>
+<p>@param AddressRange|array<int>|CellAddress|int|string $range A simple string containing a Cell range like 'A1:E10'</p>
+<p>             or passing in an array of [$fromColumnIndex, $fromRow, $toColumnIndex, $toRow] (e.g. [3, 5, 6, 8]),</p>
+<p>             or a CellAddress or AddressRange object.</p>
+<p>@return $this</p>
+
+<p>Remove protection on a cell range by using numeric cell coordinates.</p>
+<p>@Deprecated 1.23.0</p>
+<p>     Use the protectCells() method with a cell address range such as 'C5:F8' instead;,</p>
+<p>         or passing in an array of [$fromColumnIndex, $fromRow, $toColumnIndex, $toRow] (e.g. [3, 5, 6, 8]),</p>
+<p>         or an AddressRange object.</p>
+<p>@param int $columnIndex1 Numeric column coordinate of the first cell</p>
+<p>@param int $row1 Numeric row coordinate of the first cell</p>
+<p>@param int $columnIndex2 Numeric column coordinate of the last cell</p>
+<p>@param int $row2 Numeric row coordinate of the last cell</p>
+<p>@return $this</p>
+
+<p>Get protected cells.</p>
+<p>@return string[]</p>
+
+<p>Get Autofilter.</p>
+<p>@return AutoFilter</p>
+
+<p>Set AutoFilter.</p>
+<p>@param AddressRange|array<int>|AutoFilter|string $autoFilterOrRange</p>
+<p>           A simple string containing a Cell range like 'A1:E10' is permitted for backward compatibility</p>
+<p>             or passing in an array of [$fromColumnIndex, $fromRow, $toColumnIndex, $toRow] (e.g. [3, 5, 6, 8]),</p>
+<p>             or an AddressRange.</p>
+<p>@return $this</p>
+
+<p>Set Autofilter Range by using numeric cell coordinates.</p>
+<p>@Deprecated 1.23.0</p>
+<p>     Use the setAutoFilter() method with a cell address range such as 'C5:F8' instead;,</p>
+<p>         or passing in an array of [$fromColumnIndex, $fromRow, $toColumnIndex, $toRow] (e.g. [3, 5, 6, 8]),</p>
+<p>         or an AddressRange object or AutoFilter object.</p>
+<p>@param int $columnIndex1 Numeric column coordinate of the first cell</p>
+<p>@param int $row1 Numeric row coordinate of the first cell</p>
+<p>@param int $columnIndex2 Numeric column coordinate of the second cell</p>
+<p>@param int $row2 Numeric row coordinate of the second cell</p>
+<p>@return $this</p>
+
+<p>Remove autofilter.</p>
+
+<p>Get collection of Tables.</p>
+<p>@return ArrayObject<int, Table></p>
+
+<p>Add Table.</p>
+<p>@return $this</p>
+
+<p>Remove Table by name.</p>
+<p>@param string $name Table name</p>
+<p>@return $this</p>
+
+<p>Remove collection of Tables.</p>
+
+<p>Get Freeze Pane.</p>
+<p>@return null|string</p>
+
+<p>Freeze Pane.</p>
+<p>Examples:</p>
+<p>    - A2 will freeze the rows above cell A2 (i.e row 1)</p>
+<p>    - B1 will freeze the columns to the left of cell B1 (i.e column A)</p>
+<p>    - B2 will freeze the rows above and to the left of cell B2 (i.e row 1 and column A)</p>
+<p>@param null|array<int>|CellAddress|string $coordinate Coordinate of the cell as a string, eg: 'C5';</p>
+<p>           or as an array of [$columnIndex, $row] (e.g. [3, 5]), or a CellAddress object.</p>
+<p>       Passing a null value for this argument will clear any existing freeze pane for this worksheet.</p>
+<p>@param null|array<int>|CellAddress|string $topLeftCell default position of the right bottom pane</p>
+<p>           Coordinate of the cell as a string, eg: 'C5'; or as an array of [$columnIndex, $row] (e.g. [3, 5]),</p>
+<p>           or a CellAddress object.</p>
+<p>@return $this</p>
+
+<p>Freeze Pane by using numeric cell coordinates.</p>
+<p>@Deprecated 1.23.0</p>
+<p>     Use the freezePane() method with a cell address such as 'C5' instead;,</p>
+<p>         or passing in an array of [$columnIndex, $row] (e.g. [3, 5]), or a CellAddress object.</p>
+<p>@param int $columnIndex Numeric column coordinate of the cell</p>
+<p>@param int $row Numeric row coordinate of the cell</p>
+<p>@return $this</p>
+
+<p>Unfreeze Pane.</p>
+<p>@return $this</p>
+
+<p>Get the default position of the right bottom pane.</p>
+<p>@return null|string</p>
+
+<p>Insert a new row, updating all possible related data.</p>
+<p>@param int $before Insert before this one</p>
+<p>@param int $numberOfRows Number of rows to insert</p>
+<p>@return $this</p>
+
+<p>Insert a new column, updating all possible related data.</p>
+<p>@param string $before Insert before this one, eg: 'A'</p>
+<p>@param int $numberOfColumns Number of columns to insert</p>
+<p>@return $this</p>
+
+<p>Insert a new column, updating all possible related data.</p>
+<p>@param int $beforeColumnIndex Insert before this one (numeric column coordinate of the cell)</p>
+<p>@param int $numberOfColumns Number of columns to insert</p>
+<p>@return $this</p>
+
+<p>Delete a row, updating all possible related data.</p>
+<p>@param int $row Remove starting with this one</p>
+<p>@param int $numberOfRows Number of rows to remove</p>
+<p>@return $this</p>
+
+<p>Remove a column, updating all possible related data.</p>
+<p>@param string $column Remove starting with this one, eg: 'A'</p>
+<p>@param int $numberOfColumns Number of columns to remove</p>
+<p>@return $this</p>
+
+<p>Remove a column, updating all possible related data.</p>
+<p>@param int $columnIndex Remove starting with this one (numeric column coordinate of the cell)</p>
+<p>@param int $numColumns Number of columns to remove</p>
+<p>@return $this</p>
+
+<p>Show gridlines?</p>
+<p>@return bool</p>
+
+<p>Set show gridlines.</p>
+<p>@param bool $showGridLines Show gridlines (true/false)</p>
+<p>@return $this</p>
+
+<p>Print gridlines?</p>
+<p>@return bool</p>
+
+<p>Set print gridlines.</p>
+<p>@param bool $printGridLines Print gridlines (true/false)</p>
+<p>@return $this</p>
+
+<p>Show row and column headers?</p>
+<p>@return bool</p>
+
+<p>Set show row and column headers.</p>
+<p>@param bool $showRowColHeaders Show row and column headers (true/false)</p>
+<p>@return $this</p>
+
+<p>Show summary below? (Row/Column outlining).</p>
+<p>@return bool</p>
+
+<p>Set show summary below.</p>
+<p>@param bool $showSummaryBelow Show summary below (true/false)</p>
+<p>@return $this</p>
+
+<p>Show summary right? (Row/Column outlining).</p>
+<p>@return bool</p>
+
+<p>Set show summary right.</p>
+<p>@param bool $showSummaryRight Show summary right (true/false)</p>
+<p>@return $this</p>
+
+<p>Get comments.</p>
+<p>@return Comment[]</p>
+
+<p>Set comments array for the entire sheet.</p>
+<p>@param Comment[] $comments</p>
+<p>@return $this</p>
+
+<p>Get comment for cell.</p>
+<p>@param array<int>|CellAddress|string $cellCoordinate Coordinate of the cell as a string, eg: 'C5';</p>
+<p>              or as an array of [$columnIndex, $row] (e.g. [3, 5]), or a CellAddress object.</p>
+<p>@return Comment</p>
+
+<p>Get comment for cell by using numeric cell coordinates.</p>
+<p>@Deprecated 1.23.0</p>
+<p>     Use the getComment() method with a cell address such as 'C5' instead;,</p>
+<p>         or passing in an array of [$columnIndex, $row] (e.g. [3, 5]), or a CellAddress object.</p>
+<p>@param int $columnIndex Numeric column coordinate of the cell</p>
+<p>@param int $row Numeric row coordinate of the cell</p>
+<p>@return Comment</p>
+
+<p>Get active cell.</p>
+<p>@return string Example: 'A1'</p>
+
+<p>Get selected cells.</p>
+<p>@return string</p>
+
+<p>Selected cell.</p>
+<p>@param string $coordinate Cell (i.e. A1)</p>
+<p>@return $this</p>
+
+<p>Select a range of cells.</p>
+<p>@param AddressRange|array<int>|CellAddress|int|string $coordinate A simple string containing a Cell range like 'A1:E10'</p>
+<p>             or passing in an array of [$fromColumnIndex, $fromRow, $toColumnIndex, $toRow] (e.g. [3, 5, 6, 8]),</p>
+<p>             or a CellAddress or AddressRange object.</p>
+<p>@return $this</p>
+
+<p>Selected cell by using numeric cell coordinates.</p>
+<p>@Deprecated 1.23.0</p>
+<p>     Use the setSelectedCells() method with a cell address such as 'C5' instead;,</p>
+<p>         or passing in an array of [$columnIndex, $row] (e.g. [3, 5]), or a CellAddress object.</p>
+<p>@param int $columnIndex Numeric column coordinate of the cell</p>
+<p>@param int $row Numeric row coordinate of the cell</p>
+<p>@return $this</p>
+
+<p>Get right-to-left.</p>
+<p>@return bool</p>
+
+<p>Set right-to-left.</p>
+<p>@param bool $value Right-to-left true/false</p>
+<p>@return $this</p>
+
+<p>Fill worksheet from values in array.</p>
+<p>@param array $source Source array</p>
+<p>@param mixed $nullValue Value in source array that stands for blank cell</p>
+<p>@param string $startCell Insert array starting from this cell address as the top left coordinate</p>
+<p>@param bool $strictNullComparison Apply strict comparison when testing for null values in the array</p>
+<p>@return $this</p>
+
+<p>Create array from a range of cells.</p>
+<p>@param string $range Range of cells (i.e. "A1:B10"), or just one cell (i.e. "A1")</p>
+<p>@param mixed $nullValue Value returned in the array entry if a cell doesn't exist</p>
+<p>@param bool $calculateFormulas Should formulas be calculated?</p>
+<p>@param bool $formatData Should formatting be applied to cell values?</p>
+<p>@param bool $returnCellRef False - Return a simple array of rows and columns indexed by number counting from zero</p>
+<p>                              True - Return rows and columns indexed by their actual row and column IDs</p>
+<p>@return array</p>
+
+<p>Create array from a range of cells.</p>
+<p>@param string $definedName The Named Range that should be returned</p>
+<p>@param mixed $nullValue Value returned in the array entry if a cell doesn't exist</p>
+<p>@param bool $calculateFormulas Should formulas be calculated?</p>
+<p>@param bool $formatData Should formatting be applied to cell values?</p>
+<p>@param bool $returnCellRef False - Return a simple array of rows and columns indexed by number counting from zero</p>
+<p>                               True - Return rows and columns indexed by their actual row and column IDs</p>
+<p>@return array</p>
+
+<p>@phpstan-ignore-next-line</p>
+
+<p>Create array from worksheet.</p>
+<p>@param mixed $nullValue Value returned in the array entry if a cell doesn't exist</p>
+<p>@param bool $calculateFormulas Should formulas be calculated?</p>
+<p>@param bool $formatData Should formatting be applied to cell values?</p>
+<p>@param bool $returnCellRef False - Return a simple array of rows and columns indexed by number counting from zero</p>
+<p>                              True - Return rows and columns indexed by their actual row and column IDs</p>
+<p>@return array</p>
+
+<p>Get row iterator.</p>
+<p>@param int $startRow The row number at which to start iterating</p>
+<p>@param int $endRow The row number at which to stop iterating</p>
+<p>@return RowIterator</p>
+
+<p>Get column iterator.</p>
+<p>@param string $startColumn The column address at which to start iterating</p>
+<p>@param string $endColumn The column address at which to stop iterating</p>
+<p>@return ColumnIterator</p>
+
+<p>Run PhpSpreadsheet garbage collector.</p>
+<p>@return $this</p>
+
+<p>Get hash code.</p>
+<p>@return string Hash code</p>
+
+<p>Extract worksheet title from range.</p>
+<p>Example: extractSheetTitle("testSheet!A1") ==> 'A1'</p>
+<p>Example: extractSheetTitle("'testSheet 1'!A1", true) ==> ['testSheet 1', 'A1'];</p>
+<p>@param string $range Range to extract title from</p>
+<p>@param bool $returnRange Return range? (see example)</p>
+<p>@return mixed</p>
+
+<p>Get hyperlink.</p>
+<p>@param string $cellCoordinate Cell coordinate to get hyperlink for, eg: 'A1'</p>
+<p>@return Hyperlink</p>
+
+<p>Set hyperlink.</p>
+<p>@param string $cellCoordinate Cell coordinate to insert hyperlink, eg: 'A1'</p>
+<p>@return $this</p>
+
+<p>Hyperlink at a specific coordinate exists?</p>
+<p>@param string $coordinate eg: 'A1'</p>
+<p>@return bool</p>
+
+<p>Get collection of hyperlinks.</p>
+<p>@return Hyperlink[]</p>
+
+<p>Get data validation.</p>
+<p>@param string $cellCoordinate Cell coordinate to get data validation for, eg: 'A1'</p>
+<p>@return DataValidation</p>
+
+<p>Set data validation.</p>
+<p>@param string $cellCoordinate Cell coordinate to insert data validation, eg: 'A1'</p>
+<p>@return $this</p>
+
+<p>Data validation at a specific coordinate exists?</p>
+<p>@param string $coordinate eg: 'A1'</p>
+<p>@return bool</p>
+
+<p>Get collection of data validations.</p>
+<p>@return DataValidation[]</p>
+
+<p>Accepts a range, returning it as a range that falls within the current highest row and column of the worksheet.</p>
+<p>@param string $range</p>
+<p>@return string Adjusted range value</p>
+
+<p>Get tab color.</p>
+<p>@return Color</p>
+
+<p>Reset tab color.</p>
+<p>@return $this</p>
+
+<p>Tab color set?</p>
+<p>@return bool</p>
+
+<p>Copy worksheet (!= clone!).</p>
+<p>@return static</p>
+
+<p>Implement PHP __clone to create a deep clone, not just a shallow copy.</p>
+
+<p>Define the code name of the sheet.</p>
+<p>@param string $codeName Same rule as Title minus space not allowed (but, like Excel, change</p>
+<p>                      silently space to underscore)</p>
+<p>@param bool $validate False to skip validation of new title. WARNING: This should only be set</p>
+<p>                      at parse time (by Readers), where titles can be assumed to be valid.</p>
+<p>@return $this</p>
+
+<p>Return the code name of the sheet.</p>
+<p>@return null|string</p>
+
+<p>Sheet has a code name ?</p>
+<p>@return bool</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>this</code></li>
+<li><code>the</code></li>
+<li><code>a</code></li>
+<li><code>dimensions</code></li>
+<li><code>row</code></li>
+<li><code>column</code></li>
+<li><code>values</code></li>
+<li><code>zero</code></li>
+<li><code>within</code></li>
+<li><code>worksheet</code></li>
+<li><code>range</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\Worksheet.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Worksheet\Worksheet implements IComparable</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(?Spreadsheet $parent = null, $title = 'Worksheet')</code></li>
+<li><code>disconnectCells()</code></li>
+<li><code>__destruct()</code></li>
+<li><code>getCellCollection()</code></li>
+<li><code>getInvalidCharacters()</code></li>
+<li><code>checkSheetCodeName($sheetCodeName)</code></li>
+<li><code>checkSheetTitle($sheetTitle)</code></li>
+<li><code>getCoordinates($sorted = true)</code></li>
+<li><code>getRowDimensions()</code></li>
+<li><code>getDefaultRowDimension()</code></li>
+<li><code>getColumnDimensions()</code></li>
+<li><code>getDefaultColumnDimension()</code></li>
+<li><code>getDrawingCollection()</code></li>
+<li><code>getChartCollection()</code></li>
+<li><code>addChart(Chart $chart, $chartIndex = null)</code></li>
+<li><code>getChartCount()</code></li>
+<li><code>getChartByIndex($index)</code></li>
+<li><code>getChartNames()</code></li>
+<li><code>getChartByName($chartName)</code></li>
+<li><code>refreshColumnDimensions()</code></li>
+<li><code>refreshRowDimensions()</code></li>
+<li><code>calculateWorksheetDimension()</code></li>
+<li><code>calculateWorksheetDataDimension()</code></li>
+<li><code>calculateColumnWidths()</code></li>
+<li><code>getParent()</code></li>
+<li><code>rebindParent(Spreadsheet $parent)</code></li>
+<li><code>getTitle()</code></li>
+<li><code>setTitle($title, $updateFormulaCellReferences = true, $validate = true)</code></li>
+<li><code>getSheetState()</code></li>
+<li><code>setSheetState($value)</code></li>
+<li><code>getPageSetup()</code></li>
+<li><code>setPageSetup(PageSetup $pageSetup)</code></li>
+<li><code>getPageMargins()</code></li>
+<li><code>setPageMargins(PageMargins $pageMargins)</code></li>
+<li><code>getHeaderFooter()</code></li>
+<li><code>setHeaderFooter(HeaderFooter $headerFooter)</code></li>
+<li><code>getSheetView()</code></li>
+<li><code>setSheetView(SheetView $sheetView)</code></li>
+<li><code>getProtection()</code></li>
+<li><code>setProtection(Protection $protection)</code></li>
+<li><code>getHighestColumn($row = null)</code></li>
+<li><code>getHighestDataColumn($row = null)</code></li>
+<li><code>getHighestRow($column = null)</code></li>
+<li><code>getHighestDataRow($column = null)</code></li>
+<li><code>getHighestRowAndColumn()</code></li>
+<li><code>setCellValue($coordinate, $value)</code></li>
+<li><code>setCellValueByColumnAndRow($columnIndex, $row, $value)</code></li>
+<li><code>setCellValueExplicit($coordinate, $value, $dataType)</code></li>
+<li><code>setCellValueExplicitByColumnAndRow($columnIndex, $row, $value, $dataType)</code></li>
+<li><code>getCell($coordinate)</code></li>
+<li><code>getWorksheetAndCoordinate(string $coordinate)</code></li>
+<li><code>getCellOrNull($coordinate)</code></li>
+<li><code>getCellByColumnAndRow($columnIndex, $row)</code></li>
+<li><code>createNewCell($coordinate)</code></li>
+<li><code>cellExists($coordinate)</code></li>
+<li><code>cellExistsByColumnAndRow($columnIndex, $row)</code></li>
+<li><code>getRowDimension(int $row)</code></li>
+<li><code>getColumnDimension(string $column)</code></li>
+<li><code>getColumnDimensionByColumn(int $columnIndex)</code></li>
+<li><code>getStyles()</code></li>
+<li><code>getStyle($cellCoordinate)</code></li>
+<li><code>getStyleByColumnAndRow($columnIndex1, $row1, $columnIndex2 = null, $row2 = null)</code></li>
+<li><code>getConditionalStyles(string $coordinate)</code></li>
+<li><code>getConditionalRange(string $coordinate)</code></li>
+<li><code>conditionalStylesExists($coordinate)</code></li>
+<li><code>removeConditionalStyles($coordinate)</code></li>
+<li><code>getConditionalStylesCollection()</code></li>
+<li><code>setConditionalStyles($coordinate, $styles)</code></li>
+<li><code>duplicateStyle(Style $style, $range)</code></li>
+<li><code>duplicateConditionalStyle(array $styles, $range = '')</code></li>
+<li><code>setBreak($coordinate, $break)</code></li>
+<li><code>setBreakByColumnAndRow($columnIndex, $row, $break)</code></li>
+<li><code>getBreaks()</code></li>
+<li><code>mergeCells($range)</code></li>
+<li><code>clearMergeCellsByColumn(string $firstColumn, string $lastColumn, int $firstRow, int $lastRow, string $upperLeft)</code></li>
+<li><code>clearMergeCellsByRow(string $firstColumn, int $lastColumnIndex, int $firstRow, int $lastRow, string $upperLeft)</code></li>
+<li><code>mergeCellsByColumnAndRow($columnIndex1, $row1, $columnIndex2, $row2)</code></li>
+<li><code>unmergeCells($range)</code></li>
+<li><code>unmergeCellsByColumnAndRow($columnIndex1, $row1, $columnIndex2, $row2)</code></li>
+<li><code>getMergeCells()</code></li>
+<li><code>setMergeCells(array $mergeCells)</code></li>
+<li><code>protectCells($range, $password, $alreadyHashed = false)</code></li>
+<li><code>protectCellsByColumnAndRow($columnIndex1, $row1, $columnIndex2, $row2, $password, $alreadyHashed = false)</code></li>
+<li><code>unprotectCells($range)</code></li>
+<li><code>unprotectCellsByColumnAndRow($columnIndex1, $row1, $columnIndex2, $row2)</code></li>
+<li><code>getProtectedCells()</code></li>
+<li><code>getAutoFilter()</code></li>
+<li><code>setAutoFilter($autoFilterOrRange)</code></li>
+<li><code>setAutoFilterByColumnAndRow($columnIndex1, $row1, $columnIndex2, $row2)</code></li>
+<li><code>removeAutoFilter()</code></li>
+<li><code>getTableCollection()</code></li>
+<li><code>addTable(Table $table)</code></li>
+<li><code>removeTableByName(string $name)</code></li>
+<li><code>removeTableCollection()</code></li>
+<li><code>getFreezePane()</code></li>
+<li><code>freezePane($coordinate, $topLeftCell = null)</code></li>
+<li><code>setTopLeftCell(string $topLeftCell)</code></li>
+<li><code>freezePaneByColumnAndRow($columnIndex, $row)</code></li>
+<li><code>unfreezePane()</code></li>
+<li><code>getTopLeftCell()</code></li>
+<li><code>insertNewRowBefore($before, $numberOfRows = 1)</code></li>
+<li><code>insertNewColumnBefore($before, $numberOfColumns = 1)</code></li>
+<li><code>insertNewColumnBeforeByIndex($beforeColumnIndex, $numberOfColumns = 1)</code></li>
+<li><code>removeRow($row, $numberOfRows = 1)</code></li>
+<li><code>removeRowDimensions(int $row, int $numberOfRows)</code></li>
+<li><code>removeColumn($column, $numberOfColumns = 1)</code></li>
+<li><code>removeColumnDimensions(int $pColumnIndex, int $numberOfColumns)</code></li>
+<li><code>removeColumnByIndex($columnIndex, $numColumns = 1)</code></li>
+<li><code>getShowGridlines()</code></li>
+<li><code>setShowGridlines($showGridLines)</code></li>
+<li><code>getPrintGridlines()</code></li>
+<li><code>setPrintGridlines($printGridLines)</code></li>
+<li><code>getShowRowColHeaders()</code></li>
+<li><code>setShowRowColHeaders($showRowColHeaders)</code></li>
+<li><code>getShowSummaryBelow()</code></li>
+<li><code>setShowSummaryBelow($showSummaryBelow)</code></li>
+<li><code>getShowSummaryRight()</code></li>
+<li><code>setShowSummaryRight($showSummaryRight)</code></li>
+<li><code>getComments()</code></li>
+<li><code>setComments(array $comments)</code></li>
+<li><code>getComment($cellCoordinate)</code></li>
+<li><code>getCommentByColumnAndRow($columnIndex, $row)</code></li>
+<li><code>getActiveCell()</code></li>
+<li><code>getSelectedCells()</code></li>
+<li><code>setSelectedCell($coordinate)</code></li>
+<li><code>setSelectedCells($coordinate)</code></li>
+<li><code>setSelectedCellByColumnAndRow($columnIndex, $row)</code></li>
+<li><code>getRightToLeft()</code></li>
+<li><code>setRightToLeft($value)</code></li>
+<li><code>fromArray(array $source, $nullValue = null, $startCell = 'A1', $strictNullComparison = false)</code></li>
+<li><code>rangeToArray($range, $nullValue = null, $calculateFormulas = true, $formatData = true, $returnCellRef = false)</code></li>
+<li><code>validateNamedRange(string $definedName, bool $returnNullIfInvalid = false)</code></li>
+<li><code>namedRangeToArray(string $definedName, $nullValue = null, $calculateFormulas = true, $formatData = true, $returnCellRef = false)</code></li>
+<li><code>toArray($nullValue = null, $calculateFormulas = true, $formatData = true, $returnCellRef = false)</code></li>
+<li><code>getRowIterator($startRow = 1, $endRow = null)</code></li>
+<li><code>getColumnIterator($startColumn = 'A', $endColumn = null)</code></li>
+<li><code>garbageCollect()</code></li>
+<li><code>getHashCode()</code></li>
+<li><code>extractSheetTitle($range, $returnRange = false)</code></li>
+<li><code>getHyperlink($cellCoordinate)</code></li>
+<li><code>setHyperlink($cellCoordinate, ?Hyperlink $hyperlink = null)</code></li>
+<li><code>hyperlinkExists($coordinate)</code></li>
+<li><code>getHyperlinkCollection()</code></li>
+<li><code>getDataValidation($cellCoordinate)</code></li>
+<li><code>setDataValidation($cellCoordinate, ?DataValidation $dataValidation = null)</code></li>
+<li><code>dataValidationExists($coordinate)</code></li>
+<li><code>getDataValidationCollection()</code></li>
+<li><code>shrinkRangeToFit($range)</code></li>
+<li><code>getTabColor()</code></li>
+<li><code>resetTabColor()</code></li>
+<li><code>isTabColorSet()</code></li>
+<li><code>copy()</code></li>
+<li><code>__clone()</code></li>
+<li><code>setCodeName($codeName, $validate = true)</code></li>
+<li><code>getCodeName()</code></li>
+<li><code>hasCodeName()</code></li>
+</ul>
+</body></html>

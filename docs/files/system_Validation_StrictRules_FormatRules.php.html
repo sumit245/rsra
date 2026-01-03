@@ -1,0 +1,141 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Validation\StrictRules\FormatRules.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Validation\StrictRules\FormatRules.php</h1>
+
+<ul>
+<li>Path: <code>system\Validation\StrictRules\FormatRules.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 8986 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Format validation Rules.</p>
+
+<p>Alpha</p>
+<p>@param mixed $str</p>
+
+<p>Alpha with spaces.</p>
+<p>@param mixed $value Value.</p>
+<p>@return bool True if alpha with spaces, else false.</p>
+
+<p>Alphanumeric with underscores and dashes</p>
+<p>@param mixed $str</p>
+
+<p>Alphanumeric, spaces, and a limited set of punctuation characters.</p>
+<p>Accepted punctuation characters are: ~ tilde, ! exclamation,</p>
+<h1>number, $ dollar, % percent, & ampersand, * asterisk, - dash,</h1>
+<p>_ underscore, + plus, = equals, | vertical bar, : colon, . period</p>
+<p>~ ! # $ % & * - _ + = | : .</p>
+<p>@param mixed $str</p>
+<p>@return bool</p>
+
+<p>Alphanumeric</p>
+<p>@param mixed $str</p>
+
+<p>Alphanumeric w/ spaces</p>
+<p>@param mixed $str</p>
+
+<p>Any type of string</p>
+<p>@param mixed $str</p>
+
+<p>Decimal number</p>
+<p>@param mixed $str</p>
+
+<p>String of hexidecimal characters</p>
+<p>@param mixed $str</p>
+
+<p>Integer</p>
+<p>@param mixed $str</p>
+
+<p>Is a Natural number  (0,1,2,3, etc.)</p>
+<p>@param mixed $str</p>
+
+<p>Is a Natural number, but not a zero  (1,2,3, etc.)</p>
+<p>@param mixed $str</p>
+
+<p>Numeric</p>
+<p>@param mixed $str</p>
+
+<p>Compares value against a regular expression pattern.</p>
+<p>@param mixed $str</p>
+
+<p>Validates that the string is a valid timezone as per the</p>
+<p>timezone_identifiers_list function.</p>
+<p>@see http://php.net/manual/en/datetimezone.listidentifiers.php</p>
+<p>@param mixed $str</p>
+
+<p>Valid Base64</p>
+<p>Tests a string for characters outside of the Base64 alphabet</p>
+<p>as defined by RFC 2045 http://www.faqs.org/rfcs/rfc2045</p>
+<p>@param mixed $str</p>
+
+<p>Valid JSON</p>
+<p>@param mixed $str</p>
+
+<p>Checks for a correctly formatted email address</p>
+<p>@param mixed $str</p>
+
+<p>Validate a comma-separated list of email addresses.</p>
+<p>Example:</p>
+<p>    valid_emails[one@example.com,two@example.com]</p>
+<p>@param mixed $str</p>
+
+<p>Validate an IP address (human readable format or binary string - inet_pton)</p>
+<p>@param mixed       $ip</p>
+<p>@param string|null $which IP protocol: 'ipv4' or 'ipv6'</p>
+
+<p>Checks a string to ensure it is (loosely) a URL.</p>
+<p>Warning: this rule will pass basic strings like</p>
+<p>"banana"; use valid_url_strict for a stricter rule.</p>
+<p>@param mixed $str</p>
+
+<p>Checks a URL to ensure it's formed correctly.</p>
+<p>@param mixed       $str</p>
+<p>@param string|null $validSchemes comma separated list of allowed schemes</p>
+
+<p>Checks for a valid date and matches a given date format</p>
+<p>@param mixed $str</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Validation\StrictRules\FormatRules.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Validation\StrictRules\FormatRules</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>alpha($str = null)</code></li>
+<li><code>alpha_space($value = null)</code></li>
+<li><code>alpha_dash($str = null)</code></li>
+<li><code>alpha_numeric_punct($str)</code></li>
+<li><code>alpha_numeric($str = null)</code></li>
+<li><code>alpha_numeric_space($str = null)</code></li>
+<li><code>string($str = null)</code></li>
+<li><code>decimal($str = null)</code></li>
+<li><code>hex($str = null)</code></li>
+<li><code>integer($str = null)</code></li>
+<li><code>is_natural($str = null)</code></li>
+<li><code>is_natural_no_zero($str = null)</code></li>
+<li><code>numeric($str = null)</code></li>
+<li><code>regex_match($str, string $pattern)</code></li>
+<li><code>timezone($str = null)</code></li>
+<li><code>valid_base64($str = null)</code></li>
+<li><code>valid_json($str = null)</code></li>
+<li><code>valid_email($str = null)</code></li>
+<li><code>valid_emails($str = null)</code></li>
+<li><code>valid_ip($ip = null, ?string $which = null)</code></li>
+<li><code>valid_url($str = null)</code></li>
+<li><code>valid_url_strict($str = null, ?string $validSchemes = null)</code></li>
+<li><code>valid_date($str = null, ?string $format = null)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,275 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\Hr_profile\Helpers\hr_profile_general_helper.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\Hr_profile\Helpers\hr_profile_general_helper.php</h1>
+
+<ul>
+<li>Path: <code>plugins\Hr_profile\Helpers\hr_profile_general_helper.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 35009 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>job position by staff</p>
+<p>@param  integer $staffid</p>
+<p>@return string</p>
+
+<p>job name by id</p>
+<p>@param  integer $job_position</p>
+<p>@return string</p>
+
+<p>hr profile reformat currency asset</p>
+<p>@param  string $value</p>
+<p>@return string</p>
+
+<p>get department name</p>
+<p>@param  integer $departmentid</p>
+<p>@return object</p>
+
+<p>handle hr profile job position attachments array</p>
+<p>@param  [type] $jobposition_tid</p>
+<p>@param  string $index_name</p>
+<p>@return [type]</p>
+
+<p>get hr profile upload path by type</p>
+<p>@param  string $type</p>
+
+<p>get status modules</p>
+<p>@param  string $module_name</p>
+<p>@return boolean</p>
+
+<p>handle hr profile attachments array</p>
+<p>@param  [type] $staffid</p>
+<p>@param  string $index_name</p>
+<p>@return [type]</p>
+
+<p>Performs fixes when $_FILES is array and the index is messed up</p>
+<p>Eq user click on + then remove the file and then added new file</p>
+<p>In this case the indexes will be 0,2 - 1 is missing because it's removed but they should be 0,1</p>
+<p>@param  string $index_name $_FILES index name</p>
+<p>@return null</p>
+
+<p>hr profile staff profile image upload for staffmodel</p>
+<p>@param  integer $staff id</p>
+<p>@return boolean</p>
+
+<p>list hr profile permisstion</p>
+<p>@return [type]</p>
+
+<p>hr profile get staff id hr permissions</p>
+<p>@return [type]</p>
+
+<p>hr profile get staff id dont permissions</p>
+<p>@return [type]</p>
+
+<p>hr profile handle contract attachments array</p>
+<p>@param  [type] $contractid</p>
+<p>@param  string $index_name</p>
+<p>@return [type]</p>
+
+<p>get job name</p>
+<p>@param  [type] $id</p>
+<p>@return [type]</p>
+
+<p>get department from strings</p>
+<p>@param  [type] $string_ids</p>
+<p>@return [type]</p>
+
+<p>hr profile get kb groups</p>
+<p>@return [type]</p>
+
+<p>hr profile get all knowledge base articles grouped</p>
+<p>@param  boolean $only_customers</p>
+<p>@param  array   $where</p>
+<p>@return [type]</p>
+
+<p>hr profile handle kb article files upload</p>
+<p>@param  string $articleid</p>
+<p>@param  string $index_name</p>
+<p>@return [type]</p>
+
+<p>hr profile get workplace name</p>
+<p>@param  [type] $id</p>
+<p>@return [type]</p>
+
+<p>hr profile get job position name</p>
+<p>@param  [type] $id</p>
+<p>@return [type]</p>
+
+<p>hr profile get job position description</p>
+<p>@param  [type] $id</p>
+<p>@return [type]</p>
+
+<p>hr profile get hr_code</p>
+<p>@param  [type] $staff_id</p>
+<p>@return [type]</p>
+
+<p>hr get staff email by id</p>
+<p>@param  [type] $id</p>
+<p>@return [type]</p>
+
+<p>hr get training hash</p>
+<p>@param  [type] $training_id</p>
+<p>@return [type]</p>
+
+<p>hr profile type of training exists</p>
+<p>@param  [type] $name</p>
+<p>@return [type]</p>
+
+<p>get type of training by id</p>
+<p>@param  [type] $id</p>
+<p>@return [type]</p>
+
+<p>get training library name</p>
+<p>@param  [type] $ids</p>
+<p>@return [type]</p>
+
+<p>hr get list staff name</p>
+<p>@param  [type] $ids</p>
+<p>@return [type]</p>
+
+<p>hr get list job position name</p>
+<p>@param  [type] $ids</p>
+<p>@return [type]</p>
+
+<p>hr contract pdf</p>
+<p>@param  [type] $contract</p>
+<p>@return [type]</p>
+
+<p>hr get contract type</p>
+<p>@param  [type] $id</p>
+<p>@return [type]</p>
+
+<p>hr get role name</p>
+<p>@param  [type] $ids</p>
+<p>@return [type]</p>
+
+<p>get staff department names</p>
+<p>@param  [type] $staffid</p>
+<p>@return [type]</p>
+
+<p>hr render salary table</p>
+<p>@param  [type] $contract_id</p>
+<p>@return [type]</p>
+
+<p>hr process digital signature image</p>
+<p>@param  [type] $partBase64</p>
+<p>@param  [type] $path</p>
+<p>@return [type]</p>
+
+<p>hr profile check hide menu</p>
+<p>@return [type]</p>
+
+<p>get staff image</p>
+<p>@param  [type]  $staff_id</p>
+<p>@param  boolean $include_name</p>
+<p>@return [type]</p>
+
+<p>handle hr profile add attachments</p>
+<p>@param  [type] $file_name</p>
+<p>@param  [type] $target_path</p>
+<p>@param  [type] $rel_id</p>
+<p>@param  [type] $rel_type</p>
+<p>@return [type]</p>
+
+<p>staff contract variables</p>
+<p>@return [type]</p>
+
+<p>staff contract map variables</p>
+<p>@param  [type] $key</p>
+<p>@param  [type] $contract</p>
+<p>@return [type]</p>
+
+<p>hr profile process digital signature image</p>
+<p>@param  [type] $partBase64</p>
+<p>@param  [type] $path</p>
+<p>@param  [type] $image_name</p>
+<p>@return [type]</p>
+
+<p>unique_filename</p>
+<p>@param  [type] $dir</p>
+<p>@param  [type] $filename</p>
+<p>@return [type]</p>
+
+<p>to slug</p>
+<p>@param  [type] $string</p>
+<p>@return [type]</p>
+
+<p>has permission</p>
+<p>@param  [type]  $permission</p>
+<p>@param  string  $staffid</p>
+<p>@param  string  $can</p>
+<p>@return boolean</p>
+
+<p>hr has permission</p>
+<p>@param  [type] $staff_permission</p>
+<p>@param  string $staffid</p>
+<p>@return [type]</p>
+
+<h2>References</h2>
+
+<p><strong>Models Used</strong></p>
+<ul>
+<li><code>Users_model</code></li>
+</ul>
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>strings</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\Hr_profile\Helpers\hr_profile_general_helper.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>hr_profile_job_position_by_staff($staffid)</code></li>
+<li><code>hr_profile_job_name_by_id($job_position)</code></li>
+<li><code>hr_profile_reformat_currency($value)</code></li>
+<li><code>hr_profile_get_department_name($departmentid)</code></li>
+<li><code>handle_hr_profile_job_position_attachments_array($jobposition_tid, $index_name = 'attachments')</code></li>
+<li><code>get_hr_profile_upload_path_by_type($type)</code></li>
+<li><code>hr_profile_get_status_modules($module_name)</code></li>
+<li><code>handle_hr_profile_attachments_array($staffid, $index_name = 'attachments')</code></li>
+<li><code>_file_attachments_index_fix($index_name)</code></li>
+<li><code>hr_profile_handle_staff_profile_image_upload($user_id)</code></li>
+<li><code>list_hr_profile_permisstion()</code></li>
+<li><code>hr_profile_get_staff_id_hr_permissions()</code></li>
+<li><code>hr_profile_get_staff_id_dont_permissions()</code></li>
+<li><code>hr_profile_handle_contract_attachments_array($id, $index_name = 'attachments')</code></li>
+<li><code>get_job_name($id)</code></li>
+<li><code>get_department_from_strings($string_ids, $department_on_line)</code></li>
+<li><code>hr_profile_get_kb_groups()</code></li>
+<li><code>hr_profile_get_all_knowledge_base_articles_grouped($only_customers = true, $where = [])</code></li>
+<li><code>hr_profile_handle_kb_article_files_upload($articleid = '', $index_name = 'kb_article_files')</code></li>
+<li><code>hr_profile_get_workplace_name($id)</code></li>
+<li><code>hr_profile_get_job_position_name($id)</code></li>
+<li><code>hr_profile_get_job_position_description($id)</code></li>
+<li><code>hr_profile_get_hr_code($staff_id)</code></li>
+<li><code>hr_get_staff_email_by_id($id)</code></li>
+<li><code>hr_get_training_hash($training_id)</code></li>
+<li><code>hr_profile_type_of_training_exists($name)</code></li>
+<li><code>get_type_of_training_by_id($id)</code></li>
+<li><code>get_training_library_name($ids)</code></li>
+<li><code>hr_get_list_staff_name($ids)</code></li>
+<li><code>hr_get_list_job_position_name($ids)</code></li>
+<li><code>hr_contract_pdf($contract)</code></li>
+<li><code>hr_get_contract_type($id)</code></li>
+<li><code>hr_get_role_name($id)</code></li>
+<li><code>get_staff_department_names($staffid)</code></li>
+<li><code>hr_render_salary_table($contract_id)</code></li>
+<li><code>hr_process_digital_signature_image($partBase64, $path)</code></li>
+<li><code>hr_profile_check_hide_menu()</code></li>
+<li><code>get_default_company_name($company_id = 0)</code></li>
+<li><code>get_staff_image($staff_id, $include_name = true)</code></li>
+<li><code>handle_hr_profile_add_attachments($file_name, $target_path, $rel_id, $rel_type)</code></li>
+<li><code>hr_log_notification($event, $options = [], $user_id = 0, $to_user_id = 0)</code></li>
+<li><code>staff_contract_variables()</code></li>
+<li><code>staff_contract_map_variables($key, $contract)</code></li>
+<li><code>hr_profile_process_digital_signature_image($partBase64, $path, $image_name)</code></li>
+<li><code>unique_filename($dir, $filename)</code></li>
+<li><code>to_slug($string)</code></li>
+<li><code>has_permission($permission, $staffid = '', $can = '')</code></li>
+<li><code>hr_has_permission($staff_permission, $staffid = '')</code></li>
+</ul>
+</body></html>

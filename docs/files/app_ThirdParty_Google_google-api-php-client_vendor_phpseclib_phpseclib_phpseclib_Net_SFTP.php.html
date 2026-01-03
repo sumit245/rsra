@@ -1,0 +1,720 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Net\SFTP.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Net\SFTP.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Net\SFTP.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 98209 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Pure-PHP implementation of SFTP.</p>
+<p>PHP version 5</p>
+<p>Currently only supports SFTPv2 and v3, which, according to wikipedia.org, "is the most widely used version,</p>
+<p>implemented by the popular OpenSSH SFTP server".  If you want SFTPv4/5/6 support, provide me with access</p>
+<p>to an SFTPv4/5/6 server.</p>
+<p>The API for this library is modeled after the API from PHP's {@link http://php.net/book.ftp FTP extension}.</p>
+<p>Here's a short example of how to use this library:</p>
+<p><code></p>
+<p><?php</p>
+<p>   include 'vendor/autoload.php';</p>
+<p>   $sftp = new \phpseclib\Net\SFTP('www.domain.tld');</p>
+<p>   if (!$sftp->login('username', 'password')) {</p>
+<p>       exit('Login Failed');</p>
+<p>   }</p>
+<p>   echo $sftp->pwd() . "\r\n";</p>
+<p>   $sftp->put('filename.ext', 'hello, world!');</p>
+<p>   print_r($sftp->nlist());</p>
+<p>?></p>
+<p></code></p>
+<p>@category  Net</p>
+<p>@package   SFTP</p>
+<p>@author    Jim Wigginton <terrafrost@php.net></p>
+<p>@copyright 2009 Jim Wigginton</p>
+<p>@license   http://www.opensource.org/licenses/mit-license.html  MIT License</p>
+<p>@link      http://phpseclib.sourceforge.net</p>
+
+<p>Pure-PHP implementations of SFTP.</p>
+<p>@package SFTP</p>
+<p>@author  Jim Wigginton <terrafrost@php.net></p>
+<p>@access  public</p>
+
+<p>SFTP channel constant</p>
+<p>\phpseclib\Net\SSH2::exec() uses 0 and \phpseclib\Net\SSH2::read() / \phpseclib\Net\SSH2::write() use 1.</p>
+<p>@see \phpseclib\Net\SSH2::_send_channel_packet()</p>
+<p>@see \phpseclib\Net\SSH2::_get_channel_packet()</p>
+<p>@access private</p>
+
+<p>#@+</p>
+<p>@access public</p>
+<p>@see \phpseclib\Net\SFTP::put()</p>
+
+<p>Reads data from a local file.</p>
+
+<p>Reads data from a string.</p>
+
+<p>Reads data from callback:</p>
+<p>function callback($length) returns string to proceed, null for EOF</p>
+
+<p>Resumes an upload</p>
+
+<p>Append a local file to an already existing remote file</p>
+
+<p>#@-</p>
+
+<p>Packet Types</p>
+<p>@see self::__construct()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Status Codes</p>
+<p>@see self::__construct()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>The Request ID</p>
+<p>The request ID exists in the off chance that a packet is sent out-of-order.  Of course, this library doesn't support</p>
+<p>concurrent actions, so it's somewhat academic, here.</p>
+<p>@var int</p>
+<p>@see self::_send_sftp_packet()</p>
+<p>@access private</p>
+
+<p>The Packet Type</p>
+<p>The request ID exists in the off chance that a packet is sent out-of-order.  Of course, this library doesn't support</p>
+<p>concurrent actions, so it's somewhat academic, here.</p>
+<p>@var int</p>
+<p>@see self::_get_sftp_packet()</p>
+<p>@access private</p>
+
+<p>Packet Buffer</p>
+<p>@var string</p>
+<p>@see self::_get_sftp_packet()</p>
+<p>@access private</p>
+
+<p>Extensions supported by the server</p>
+<p>@var array</p>
+<p>@see self::_initChannel()</p>
+<p>@access private</p>
+
+<p>Server SFTP version</p>
+<p>@var int</p>
+<p>@see self::_initChannel()</p>
+<p>@access private</p>
+
+<p>Current working directory</p>
+<p>@var string</p>
+<p>@see self::realpath()</p>
+<p>@see self::chdir()</p>
+<p>@access private</p>
+
+<p>Packet Type Log</p>
+<p>@see self::getLog()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Packet Log</p>
+<p>@see self::getLog()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Error information</p>
+<p>@see self::getSFTPErrors()</p>
+<p>@see self::getLastSFTPError()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Stat Cache</p>
+<p>Rather than always having to open a directory and close it immediately there after to see if a file is a directory</p>
+<p>we'll cache the results.</p>
+<p>@see self::_update_stat_cache()</p>
+<p>@see self::_remove_from_stat_cache()</p>
+<p>@see self::_query_stat_cache()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Max SFTP Packet Size</p>
+<p>@see self::__construct()</p>
+<p>@see self::get()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Stat Cache Flag</p>
+<p>@see self::disableStatCache()</p>
+<p>@see self::enableStatCache()</p>
+<p>@var bool</p>
+<p>@access private</p>
+
+<p>Sort Options</p>
+<p>@see self::_comparator()</p>
+<p>@see self::setListOrder()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Canonicalization Flag</p>
+<p>Determines whether or not paths should be canonicalized before being</p>
+<p>passed on to the remote server.</p>
+<p>@see self::enablePathCanonicalization()</p>
+<p>@see self::disablePathCanonicalization()</p>
+<p>@see self::realpath()</p>
+<p>@var bool</p>
+<p>@access private</p>
+
+<p>Default Constructor.</p>
+<p>Connects to an SFTP server</p>
+<p>@param string $host</p>
+<p>@param int $port</p>
+<p>@param int $timeout</p>
+<p>@return \phpseclib\Net\SFTP</p>
+<p>@access public</p>
+
+<p>Login</p>
+<p>@param string $username</p>
+<p>@param string $password</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Disable the stat cache</p>
+<p>@access public</p>
+
+<p>Enable the stat cache</p>
+<p>@access public</p>
+
+<p>Clear the stat cache</p>
+<p>@access public</p>
+
+<p>Enable path canonicalization</p>
+<p>@access public</p>
+
+<p>Enable path canonicalization</p>
+<p>@access public</p>
+
+<p>Returns the current directory name</p>
+<p>@return mixed</p>
+<p>@access public</p>
+
+<p>Logs errors</p>
+<p>@param string $response</p>
+<p>@param int $status</p>
+<p>@access public</p>
+
+<p>Returns canonicalized absolute pathname</p>
+<p>realpath() expands all symbolic links and resolves references to '/./', '/../' and extra '/' characters in the input</p>
+<p>path and returns the canonicalized absolute pathname.</p>
+<p>@param string $path</p>
+<p>@return mixed</p>
+<p>@access public</p>
+
+<p>Canonicalize the Server-Side Path Name</p>
+<p>SFTP doesn't provide a mechanism by which the current working directory can be changed, so we'll emulate it.  Returns</p>
+<p>the absolute (canonicalized) path.</p>
+<p>If canonicalize_paths has been disabled using disablePathCanonicalization(), $path is returned as-is.</p>
+<p>@see self::chdir()</p>
+<p>@see self::disablePathCanonicalization()</p>
+<p>@param string $path</p>
+<p>@return mixed</p>
+<p>@access private</p>
+
+<p>Changes the current directory</p>
+<p>@param string $dir</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Returns a list of files in the given directory</p>
+<p>@param string $dir</p>
+<p>@param bool $recursive</p>
+<p>@return mixed</p>
+<p>@access public</p>
+
+<p>Helper method for nlist</p>
+<p>@param string $dir</p>
+<p>@param bool $recursive</p>
+<p>@param string $relativeDir</p>
+<p>@return mixed</p>
+<p>@access private</p>
+
+<p>Returns a detailed list of files in the given directory</p>
+<p>@param string $dir</p>
+<p>@param bool $recursive</p>
+<p>@return mixed</p>
+<p>@access public</p>
+
+<p>Reads a list, be it detailed or not, of files in the given directory</p>
+<p>@param string $dir</p>
+<p>@param bool $raw</p>
+<p>@return mixed</p>
+<p>@access private</p>
+
+<p>Compares two rawlist entries using parameters set by setListOrder()</p>
+<p>Intended for use with uasort()</p>
+<p>@param array $a</p>
+<p>@param array $b</p>
+<p>@return int</p>
+<p>@access private</p>
+
+<p>Defines how nlist() and rawlist() will be sorted - if at all.</p>
+<p>If sorting is enabled directories and files will be sorted independently with</p>
+<p>directories appearing before files in the resultant array that is returned.</p>
+<p>Any parameter returned by stat is a valid sort parameter for this function.</p>
+<p>Filename comparisons are case insensitive.</p>
+<p>Examples:</p>
+<p>$sftp->setListOrder('filename', SORT_ASC);</p>
+<p>$sftp->setListOrder('size', SORT_DESC, 'filename', SORT_ASC);</p>
+<p>$sftp->setListOrder(true);</p>
+<p>   Separates directories from files but doesn't do any sorting beyond that</p>
+<p>$sftp->setListOrder();</p>
+<p>   Don't do any sort of sorting</p>
+<p>@access public</p>
+
+<p>Returns the file size, in bytes, or false, on failure</p>
+<p>Files larger than 4GB will show up as being exactly 4GB.</p>
+<p>@param string $filename</p>
+<p>@return mixed</p>
+<p>@access public</p>
+
+<p>Save files / directories to cache</p>
+<p>@param string $path</p>
+<p>@param mixed $value</p>
+<p>@access private</p>
+
+<p>Remove files / directories from cache</p>
+<p>@param string $path</p>
+<p>@return bool</p>
+<p>@access private</p>
+
+<p>Checks cache for path</p>
+<p>Mainly used by file_exists</p>
+<p>@param string $dir</p>
+<p>@return mixed</p>
+<p>@access private</p>
+
+<p>Returns general information about a file.</p>
+<p>Returns an array on success and false otherwise.</p>
+<p>@param string $filename</p>
+<p>@return mixed</p>
+<p>@access public</p>
+
+<p>Returns general information about a file or symbolic link.</p>
+<p>Returns an array on success and false otherwise.</p>
+<p>@param string $filename</p>
+<p>@return mixed</p>
+<p>@access public</p>
+
+<p>Returns general information about a file or symbolic link</p>
+<p>Determines information without calling \phpseclib\Net\SFTP::realpath().</p>
+<p>The second parameter can be either NET_SFTP_STAT or NET_SFTP_LSTAT.</p>
+<p>@param string $filename</p>
+<p>@param int $type</p>
+<p>@return mixed</p>
+<p>@access private</p>
+
+<p>Truncates a file to a given length</p>
+<p>@param string $filename</p>
+<p>@param int $new_size</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Sets access and modification time of file.</p>
+<p>If the file does not exist, it will be created.</p>
+<p>@param string $filename</p>
+<p>@param int $time</p>
+<p>@param int $atime</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Changes file or directory owner</p>
+<p>Returns true on success or false on error.</p>
+<p>@param string $filename</p>
+<p>@param int $uid</p>
+<p>@param bool $recursive</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Changes file or directory group</p>
+<p>Returns true on success or false on error.</p>
+<p>@param string $filename</p>
+<p>@param int $gid</p>
+<p>@param bool $recursive</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Set permissions on a file.</p>
+<p>Returns the new file permissions on success or false on error.</p>
+<p>If $recursive is true than this just returns true or false.</p>
+<p>@param int $mode</p>
+<p>@param string $filename</p>
+<p>@param bool $recursive</p>
+<p>@return mixed</p>
+<p>@access public</p>
+
+<p>Sets information about a file</p>
+<p>@param string $filename</p>
+<p>@param string $attr</p>
+<p>@param bool $recursive</p>
+<p>@return bool</p>
+<p>@access private</p>
+
+<p>Recursively sets information on directories on the SFTP server</p>
+<p>Minimizes directory lookups and SSH_FXP_STATUS requests for speed.</p>
+<p>@param string $path</p>
+<p>@param string $attr</p>
+<p>@param int $i</p>
+<p>@return bool</p>
+<p>@access private</p>
+
+<p>Return the target of a symbolic link</p>
+<p>@param string $link</p>
+<p>@return mixed</p>
+<p>@access public</p>
+
+<p>Create a symlink</p>
+<p>symlink() creates a symbolic link to the existing target with the specified name link.</p>
+<p>@param string $target</p>
+<p>@param string $link</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Creates a directory.</p>
+<p>@param string $dir</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Helper function for directory creation</p>
+<p>@param string $dir</p>
+<p>@return bool</p>
+<p>@access private</p>
+
+<p>Removes a directory.</p>
+<p>@param string $dir</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Uploads a file to the SFTP server.</p>
+<p>By default, \phpseclib\Net\SFTP::put() does not read from the local filesystem.  $data is dumped directly into $remote_file.</p>
+<p>So, for example, if you set $data to 'filename.ext' and then do \phpseclib\Net\SFTP::get(), you will get a file, twelve bytes</p>
+<p>long, containing 'filename.ext' as its contents.</p>
+<p>Setting $mode to self::SOURCE_LOCAL_FILE will change the above behavior.  With self::SOURCE_LOCAL_FILE, $remote_file will</p>
+<p>contain as many bytes as filename.ext does on your local filesystem.  If your filename.ext is 1MB then that is how</p>
+<p>large $remote_file will be, as well.</p>
+<p>Setting $mode to self::SOURCE_CALLBACK will use $data as callback function, which gets only one parameter -- number of bytes to return, and returns a string if there is some data or null if there is no more data</p>
+<p>If $data is a resource then it'll be used as a resource instead.</p>
+<p>Currently, only binary mode is supported.  As such, if the line endings need to be adjusted, you will need to take</p>
+<p>care of that, yourself.</p>
+<p>$mode can take an additional two parameters - self::RESUME and self::RESUME_START. These are bitwise AND'd with</p>
+<p>$mode. So if you want to resume upload of a 300mb file on the local file system you'd set $mode to the following:</p>
+<p>self::SOURCE_LOCAL_FILE | self::RESUME</p>
+<p>If you wanted to simply append the full contents of a local file to the full contents of a remote file you'd replace</p>
+<p>self::RESUME with self::RESUME_START.</p>
+<p>If $mode & (self::RESUME | self::RESUME_START) then self::RESUME_START will be assumed.</p>
+<p>$start and $local_start give you more fine grained control over this process and take precident over self::RESUME</p>
+<p>when they're non-negative. ie. $start could let you write at the end of a file (like self::RESUME) or in the middle</p>
+<p>of one. $local_start could let you start your reading from the end of a file (like self::RESUME_START) or in the</p>
+<p>middle of one.</p>
+<p>Setting $local_start to > 0 or $mode | self::RESUME_START doesn't do anything unless $mode | self::SOURCE_LOCAL_FILE.</p>
+<p>@param string $remote_file</p>
+<p>@param string|resource $data</p>
+<p>@param int $mode</p>
+<p>@param int $start</p>
+<p>@param int $local_start</p>
+<p>@param callable|null $progressCallback</p>
+<p>@return bool</p>
+<p>@access public</p>
+<p>@internal ASCII mode for SFTPv4/5/6 can be supported by adding a new function - \phpseclib\Net\SFTP::setMode().</p>
+
+<p>Reads multiple successive SSH_FXP_WRITE responses</p>
+<p>Sending an SSH_FXP_WRITE packet and immediately reading its response isn't as efficient as blindly sending out $i</p>
+<p>SSH_FXP_WRITEs, in succession, and then reading $i responses.</p>
+<p>@param int $i</p>
+<p>@return bool</p>
+<p>@access private</p>
+
+<p>Close handle</p>
+<p>@param string $handle</p>
+<p>@return bool</p>
+<p>@access private</p>
+
+<p>Downloads a file from the SFTP server.</p>
+<p>Returns a string containing the contents of $remote_file if $local_file is left undefined or a boolean false if</p>
+<p>the operation was unsuccessful.  If $local_file is defined, returns true or false depending on the success of the</p>
+<p>operation.</p>
+<p>$offset and $length can be used to download files in chunks.</p>
+<p>@param string $remote_file</p>
+<p>@param string $local_file</p>
+<p>@param int $offset</p>
+<p>@param int $length</p>
+<p>@return mixed</p>
+<p>@access public</p>
+
+<p>Deletes a file on the SFTP server.</p>
+<p>@param string $path</p>
+<p>@param bool $recursive</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Recursively deletes directories on the SFTP server</p>
+<p>Minimizes directory lookups and SSH_FXP_STATUS requests for speed.</p>
+<p>@param string $path</p>
+<p>@param int $i</p>
+<p>@return bool</p>
+<p>@access private</p>
+
+<p>Checks whether a file or directory exists</p>
+<p>@param string $path</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Tells whether the filename is a directory</p>
+<p>@param string $path</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Tells whether the filename is a regular file</p>
+<p>@param string $path</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Tells whether the filename is a symbolic link</p>
+<p>@param string $path</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Tells whether a file exists and is readable</p>
+<p>@param string $path</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Tells whether the filename is writable</p>
+<p>@param string $path</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Tells whether the filename is writeable</p>
+<p>Alias of is_writable</p>
+<p>@param string $path</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Gets last access time of file</p>
+<p>@param string $path</p>
+<p>@return mixed</p>
+<p>@access public</p>
+
+<p>Gets file modification time</p>
+<p>@param string $path</p>
+<p>@return mixed</p>
+<p>@access public</p>
+
+<p>Gets file permissions</p>
+<p>@param string $path</p>
+<p>@return mixed</p>
+<p>@access public</p>
+
+<p>Gets file owner</p>
+<p>@param string $path</p>
+<p>@return mixed</p>
+<p>@access public</p>
+
+<p>Gets file group</p>
+<p>@param string $path</p>
+<p>@return mixed</p>
+<p>@access public</p>
+
+<p>Gets file size</p>
+<p>@param string $path</p>
+<p>@return mixed</p>
+<p>@access public</p>
+
+<p>Gets file type</p>
+<p>@param string $path</p>
+<p>@return mixed</p>
+<p>@access public</p>
+
+<p>Return a stat properity</p>
+<p>Uses cache if appropriate.</p>
+<p>@param string $path</p>
+<p>@param string $prop</p>
+<p>@return mixed</p>
+<p>@access private</p>
+
+<p>Return an lstat properity</p>
+<p>Uses cache if appropriate.</p>
+<p>@param string $path</p>
+<p>@param string $prop</p>
+<p>@return mixed</p>
+<p>@access private</p>
+
+<p>Return a stat or lstat properity</p>
+<p>Uses cache if appropriate.</p>
+<p>@param string $path</p>
+<p>@param string $prop</p>
+<p>@return mixed</p>
+<p>@access private</p>
+
+<p>Renames a file or a directory on the SFTP server</p>
+<p>@param string $oldname</p>
+<p>@param string $newname</p>
+<p>@return bool</p>
+<p>@access public</p>
+
+<p>Parse Attributes</p>
+<p>See '7.  File Attributes' of draft-ietf-secsh-filexfer-13 for more info.</p>
+<p>@param string $response</p>
+<p>@return array</p>
+<p>@access private</p>
+
+<p>Attempt to identify the file type</p>
+<p>Quoting the SFTP RFC, "Implementations MUST NOT send bits that are not defined" but they seem to anyway</p>
+<p>@param int $mode</p>
+<p>@return int</p>
+<p>@access private</p>
+
+<p>Parse Longname</p>
+<p>SFTPv3 doesn't provide any easy way of identifying a file type.  You could try to open</p>
+<p>a file as a directory and see if an error is returned or you could try to parse the</p>
+<p>SFTPv3-specific longname field of the SSH_FXP_NAME packet.  That's what this function does.</p>
+<p>The result is returned using the</p>
+<p>{@link http://tools.ietf.org/html/draft-ietf-secsh-filexfer-04#section-5.2 SFTPv4 type constants}.</p>
+<p>If the longname is in an unrecognized format bool(false) is returned.</p>
+<p>@param string $longname</p>
+<p>@return mixed</p>
+<p>@access private</p>
+
+<p>Sends SFTP Packets</p>
+<p>See '6. General Packet Format' of draft-ietf-secsh-filexfer-13 for more info.</p>
+<p>@param int $type</p>
+<p>@param string $data</p>
+<p>@see self::_get_sftp_packet()</p>
+<p>@see self::_send_channel_packet()</p>
+<p>@return bool</p>
+<p>@access private</p>
+
+<p>Receives SFTP Packets</p>
+<p>See '6. General Packet Format' of draft-ietf-secsh-filexfer-13 for more info.</p>
+<p>Incidentally, the number of SSH_MSG_CHANNEL_DATA messages has no bearing on the number of SFTP packets present.</p>
+<p>There can be one SSH_MSG_CHANNEL_DATA messages containing two SFTP packets or there can be two SSH_MSG_CHANNEL_DATA</p>
+<p>messages containing one SFTP packet.</p>
+<p>@see self::_send_sftp_packet()</p>
+<p>@return string</p>
+<p>@access private</p>
+
+<p>Returns a log of the packets that have been sent and received.</p>
+<p>Returns a string if NET_SFTP_LOGGING == NET_SFTP_LOG_COMPLEX, an array if NET_SFTP_LOGGING == NET_SFTP_LOG_SIMPLE and false if !defined('NET_SFTP_LOGGING')</p>
+<p>@access public</p>
+<p>@return string or Array</p>
+
+<p>Returns all errors</p>
+<p>@return array</p>
+<p>@access public</p>
+
+<p>Returns the last error</p>
+<p>@return string</p>
+<p>@access public</p>
+
+<p>Get supported SFTP versions</p>
+<p>@return array</p>
+<p>@access public</p>
+
+<p>Disconnect</p>
+<p>@param int $reason</p>
+<p>@return bool</p>
+<p>@access private</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>PHP</code></li>
+<li><code>a</code></li>
+<li><code>callback</code></li>
+<li><code>PuTTY</code></li>
+<li><code>files</code></li>
+<li><code>cache</code></li>
+<li><code>the</code></li>
+<li><code>http</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Net\SFTP.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>phpseclib\Net\SFTP extends SSH2</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>callback($length)</code></li>
+<li><code>__construct($host, $port = 22, $timeout = 10)</code></li>
+<li><code>login($username)</code></li>
+<li><code>disableStatCache()</code></li>
+<li><code>enableStatCache()</code></li>
+<li><code>clearStatCache()</code></li>
+<li><code>enablePathCanonicalization()</code></li>
+<li><code>disablePathCanonicalization()</code></li>
+<li><code>pwd()</code></li>
+<li><code>_logError($response, $status = -1)</code></li>
+<li><code>realpath($path)</code></li>
+<li><code>_realpath($path)</code></li>
+<li><code>chdir($dir)</code></li>
+<li><code>nlist($dir = '.', $recursive = false)</code></li>
+<li><code>_nlist_helper($dir, $recursive, $relativeDir)</code></li>
+<li><code>rawlist($dir = '.', $recursive = false)</code></li>
+<li><code>_list($dir, $raw = true)</code></li>
+<li><code>_comparator($a, $b)</code></li>
+<li><code>setListOrder()</code></li>
+<li><code>size($filename)</code></li>
+<li><code>_update_stat_cache($path, $value)</code></li>
+<li><code>_remove_from_stat_cache($path)</code></li>
+<li><code>_query_stat_cache($path)</code></li>
+<li><code>stat($filename)</code></li>
+<li><code>lstat($filename)</code></li>
+<li><code>_stat($filename, $type)</code></li>
+<li><code>truncate($filename, $new_size)</code></li>
+<li><code>touch($filename, $time = null, $atime = null)</code></li>
+<li><code>chown($filename, $uid, $recursive = false)</code></li>
+<li><code>chgrp($filename, $gid, $recursive = false)</code></li>
+<li><code>chmod($mode, $filename, $recursive = false)</code></li>
+<li><code>_setstat($filename, $attr, $recursive)</code></li>
+<li><code>_setstat_recursive($path, $attr, &$i)</code></li>
+<li><code>readlink($link)</code></li>
+<li><code>symlink($target, $link)</code></li>
+<li><code>mkdir($dir, $mode = -1, $recursive = false)</code></li>
+<li><code>_mkdir_helper($dir, $attr)</code></li>
+<li><code>rmdir($dir)</code></li>
+<li><code>put($remote_file, $data, $mode = self::SOURCE_STRING, $start = -1, $local_start = -1, $progressCallback = null)</code></li>
+<li><code>_read_put_responses($i)</code></li>
+<li><code>_close_handle($handle)</code></li>
+<li><code>get($remote_file, $local_file = false, $offset = 0, $length = -1)</code></li>
+<li><code>delete($path, $recursive = true)</code></li>
+<li><code>_delete_recursive($path, &$i)</code></li>
+<li><code>file_exists($path)</code></li>
+<li><code>is_dir($path)</code></li>
+<li><code>is_file($path)</code></li>
+<li><code>is_link($path)</code></li>
+<li><code>is_readable($path)</code></li>
+<li><code>is_writable($path)</code></li>
+<li><code>is_writeable($path)</code></li>
+<li><code>fileatime($path)</code></li>
+<li><code>filemtime($path)</code></li>
+<li><code>fileperms($path)</code></li>
+<li><code>fileowner($path)</code></li>
+<li><code>filegroup($path)</code></li>
+<li><code>filesize($path)</code></li>
+<li><code>filetype($path)</code></li>
+<li><code>_get_stat_cache_prop($path, $prop)</code></li>
+<li><code>_get_lstat_cache_prop($path, $prop)</code></li>
+<li><code>_get_xstat_cache_prop($path, $prop, $type)</code></li>
+<li><code>rename($oldname, $newname)</code></li>
+<li><code>_parseAttributes(&$response)</code></li>
+<li><code>_parseMode($mode)</code></li>
+<li><code>_parseLongname($longname)</code></li>
+<li><code>_send_sftp_packet($type, $data)</code></li>
+<li><code>_get_sftp_packet()</code></li>
+<li><code>getSFTPLog()</code></li>
+<li><code>getSFTPErrors()</code></li>
+<li><code>getLastSFTPError()</code></li>
+<li><code>getSupportedVersions()</code></li>
+<li><code>_disconnect($reason)</code></li>
+</ul>
+</body></html>

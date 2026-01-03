@@ -1,0 +1,858 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\File\X509.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\File\X509.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\File\X509.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 186156 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Pure-PHP X.509 Parser</p>
+<p>PHP version 5</p>
+<p>Encode and decode X.509 certificates.</p>
+<p>The extensions are from {@link http://tools.ietf.org/html/rfc5280 RFC5280} and</p>
+<p>{@link http://web.archive.org/web/19961027104704/http://www3.netscape.com/eng/security/cert-exts.html Netscape Certificate Extensions}.</p>
+<p>Note that loading an X.509 certificate and resaving it may invalidate the signature.  The reason being that the signature is based on a</p>
+<p>portion of the certificate that contains optional parameters with default values.  ie. if the parameter isn't there the default value is</p>
+<p>used.  Problem is, if the parameter is there and it just so happens to have the default value there are two ways that that parameter can</p>
+<p>be encoded.  It can be encoded explicitly or left out all together.  This would effect the signature value and thus may invalidate the</p>
+<p>the certificate all together unless the certificate is re-signed.</p>
+<p>@category  File</p>
+<p>@package   X509</p>
+<p>@author    Jim Wigginton <terrafrost@php.net></p>
+<p>@copyright 2012 Jim Wigginton</p>
+<p>@license   http://www.opensource.org/licenses/mit-license.html  MIT License</p>
+<p>@link      http://phpseclib.sourceforge.net</p>
+
+<p>Pure-PHP X.509 Parser</p>
+<p>@package X509</p>
+<p>@author  Jim Wigginton <terrafrost@php.net></p>
+<p>@access  public</p>
+
+<p>Flag to only accept signatures signed by certificate authorities</p>
+<p>Not really used anymore but retained all the same to suppress E_NOTICEs from old installs</p>
+<p>@access public</p>
+
+<p>#@+</p>
+<p>@access public</p>
+<p>@see \phpseclib\File\X509::getDN()</p>
+
+<p>Return internal array representation</p>
+
+<p>Return string</p>
+
+<p>Return ASN.1 name string</p>
+
+<p>Return OpenSSL compatible array</p>
+
+<p>Return canonical ASN.1 RDNs string</p>
+
+<p>Return name hash for file indexing</p>
+
+<p>#@-</p>
+
+<p>#@+</p>
+<p>@access public</p>
+<p>@see \phpseclib\File\X509::saveX509()</p>
+<p>@see \phpseclib\File\X509::saveCSR()</p>
+<p>@see \phpseclib\File\X509::saveCRL()</p>
+
+<p>Save as PEM</p>
+<p>ie. a base64-encoded PEM with a header and a footer</p>
+
+<p>Save as DER</p>
+
+<p>Save as a SPKAC</p>
+<p>Only works on CSRs. Not currently supported.</p>
+
+<p>Auto-detect the format</p>
+<p>Used only by the load*() functions</p>
+
+<p>#@-</p>
+
+<p>Attribute value disposition.</p>
+<p>If disposition is >= 0, this is the index of the target value.</p>
+
+<p>ASN.1 syntax for X.509 certificates</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>#@+</p>
+<p>ASN.1 syntax for various extensions</p>
+<p>@access private</p>
+
+<p>#@-</p>
+
+<p>#@+</p>
+<p>ASN.1 syntax for various DN attributes</p>
+<p>@access private</p>
+
+<p>#@-</p>
+
+<p>ASN.1 syntax for Certificate Signing Requests (RFC2986)</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>ASN.1 syntax for Certificate Revocation Lists (RFC5280)</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Distinguished Name</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Public key</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Private key</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Object identifiers for X.509 certificates</p>
+<p>@var array</p>
+<p>@access private</p>
+<p>@link http://en.wikipedia.org/wiki/Object_identifier</p>
+
+<p>The certificate authorities</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>The currently loaded certificate</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>The signature subject</p>
+<p>There's no guarantee \phpseclib\File\X509 is going to re-encode an X.509 cert in the same way it was originally</p>
+<p>encoded so we take save the portion of the original cert that the signature would have made for.</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Certificate Start Date</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Certificate End Date</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Serial Number</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Key Identifier</p>
+<p>See {@link http://tools.ietf.org/html/rfc5280#section-4.2.1.1 RFC5280#section-4.2.1.1} and</p>
+<p>{@link http://tools.ietf.org/html/rfc5280#section-4.2.1.2 RFC5280#section-4.2.1.2}.</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>CA Flag</p>
+<p>@var bool</p>
+<p>@access private</p>
+
+<p>SPKAC Challenge</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Recursion Limit</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>URL fetch flag</p>
+<p>@var bool</p>
+<p>@access private</p>
+
+<p>Default Constructor.</p>
+<p>@return \phpseclib\File\X509</p>
+<p>@access public</p>
+
+<p>Load X.509 certificate</p>
+<p>Returns an associative array describing the X.509 cert or a false if the cert failed to load</p>
+<p>@param string $cert</p>
+<p>@param int $mode</p>
+<p>@access public</p>
+<p>@return mixed</p>
+
+<p>Save X.509 certificate</p>
+<p>@param array $cert</p>
+<p>@param int $format optional</p>
+<p>@access public</p>
+<p>@return string</p>
+
+<p>Map extension values from octet string to extension-specific internal</p>
+<p>  format.</p>
+<p>@param array ref $root</p>
+<p>@param string $path</p>
+<p>@param object $asn1</p>
+<p>@access private</p>
+
+<p>Map extension values from extension-specific internal format to</p>
+<p>  octet string.</p>
+<p>@param array ref $root</p>
+<p>@param string $path</p>
+<p>@param object $asn1</p>
+<p>@access private</p>
+
+<p>Map attribute values from ANY type to attribute-specific internal</p>
+<p>  format.</p>
+<p>@param array ref $root</p>
+<p>@param string $path</p>
+<p>@param object $asn1</p>
+<p>@access private</p>
+
+<p>Map attribute values from attribute-specific internal format to</p>
+<p>  ANY type.</p>
+<p>@param array ref $root</p>
+<p>@param string $path</p>
+<p>@param object $asn1</p>
+<p>@access private</p>
+
+<p>Map DN values from ANY type to DN-specific internal</p>
+<p>  format.</p>
+<p>@param array ref $root</p>
+<p>@param string $path</p>
+<p>@param object $asn1</p>
+<p>@access private</p>
+
+<p>Map DN values from DN-specific internal format to</p>
+<p>  ANY type.</p>
+<p>@param array ref $root</p>
+<p>@param string $path</p>
+<p>@param object $asn1</p>
+<p>@access private</p>
+
+<p>Associate an extension ID to an extension mapping</p>
+<p>@param string $extnId</p>
+<p>@access private</p>
+<p>@return mixed</p>
+
+<p>Load an X.509 certificate as a certificate authority</p>
+<p>@param string $cert</p>
+<p>@access public</p>
+<p>@return bool</p>
+
+<p>Validate an X.509 certificate against a URL</p>
+<p>From RFC2818 "HTTP over TLS":</p>
+<p>Matching is performed using the matching rules specified by</p>
+<p>[RFC2459].  If more than one identity of a given type is present in</p>
+<p>the certificate (e.g., more than one dNSName name, a match in any one</p>
+<p>of the set is considered acceptable.) Names may contain the wildcard</p>
+<p>character * which is considered to match any single domain name</p>
+<p>component or component fragment. E.g., *.a.com matches foo.a.com but</p>
+<p>not bar.foo.a.com. f*.com matches foo.com but not bar.com.</p>
+<p>@param string $url</p>
+<p>@access public</p>
+<p>@return bool</p>
+
+<p>Validate a date</p>
+<p>If $date isn't defined it is assumed to be the current date.</p>
+<p>@param int $date optional</p>
+<p>@access public</p>
+
+<p>Fetches a URL</p>
+<p>@param string $url</p>
+<p>@access private</p>
+<p>@return bool|string</p>
+
+<p>Validates an intermediate cert as identified via authority info access extension</p>
+<p>See https://tools.ietf.org/html/rfc4325 for more info</p>
+<p>@param bool $caonly</p>
+<p>@param int $count</p>
+<p>@access private</p>
+<p>@return bool</p>
+
+<p>Validate a signature</p>
+<p>Works on X.509 certs, CSR's and CRL's.</p>
+<p>Returns true if the signature is verified, false if it is not correct or null on error</p>
+<p>By default returns false for self-signed certs. Call validateSignature(false) to make this support</p>
+<p>self-signed.</p>
+<p>The behavior of this function is inspired by {@link http://php.net/openssl-verify openssl_verify}.</p>
+<p>@param bool $caonly optional</p>
+<p>@access public</p>
+<p>@return mixed</p>
+
+<p>Validate a signature</p>
+<p>Performs said validation whilst keeping track of how many times validation method is called</p>
+<p>@param bool $caonly</p>
+<p>@param int $count</p>
+<p>@access private</p>
+<p>@return mixed</p>
+
+<p>Validates a signature</p>
+<p>Returns true if the signature is verified, false if it is not correct or null on error</p>
+<p>@param string $publicKeyAlgorithm</p>
+<p>@param string $publicKey</p>
+<p>@param string $signatureAlgorithm</p>
+<p>@param string $signature</p>
+<p>@param string $signatureSubject</p>
+<p>@access private</p>
+<p>@return int</p>
+
+<p>Sets the recursion limit</p>
+<p>When validating a signature it may be necessary to download intermediate certs from URI's.</p>
+<p>An intermediate cert that linked to itself would result in an infinite loop so to prevent</p>
+<p>that we set a recursion limit. A negative number means that there is no recursion limit.</p>
+<p>@param int $count</p>
+<p>@access public</p>
+
+<p>Prevents URIs from being automatically retrieved</p>
+<p>@access public</p>
+
+<p>Allows URIs to be automatically retrieved</p>
+<p>@access public</p>
+
+<p>Reformat public keys</p>
+<p>Reformats a public key to a format supported by phpseclib (if applicable)</p>
+<p>@param string $algorithm</p>
+<p>@param string $key</p>
+<p>@access private</p>
+<p>@return string</p>
+
+<p>Decodes an IP address</p>
+<p>Takes in a base64 encoded "blob" and returns a human readable IP address</p>
+<p>@param string $ip</p>
+<p>@access private</p>
+<p>@return string</p>
+
+<p>Encodes an IP address</p>
+<p>Takes a human readable IP address into a base64-encoded "blob"</p>
+<p>@param string $ip</p>
+<p>@access private</p>
+<p>@return string</p>
+
+<p>"Normalizes" a Distinguished Name property</p>
+<p>@param string $propName</p>
+<p>@access private</p>
+<p>@return mixed</p>
+
+<p>Set a Distinguished Name property</p>
+<p>@param string $propName</p>
+<p>@param mixed $propValue</p>
+<p>@param string $type optional</p>
+<p>@access public</p>
+<p>@return bool</p>
+
+<p>Remove Distinguished Name properties</p>
+<p>@param string $propName</p>
+<p>@access public</p>
+
+<p>Get Distinguished Name properties</p>
+<p>@param string $propName</p>
+<p>@param array $dn optional</p>
+<p>@param bool $withType optional</p>
+<p>@return mixed</p>
+<p>@access public</p>
+
+<p>Set a Distinguished Name</p>
+<p>@param mixed $dn</p>
+<p>@param bool $merge optional</p>
+<p>@param string $type optional</p>
+<p>@access public</p>
+<p>@return bool</p>
+
+<p>Get the Distinguished Name for a certificates subject</p>
+<p>@param mixed $format optional</p>
+<p>@param array $dn optional</p>
+<p>@access public</p>
+<p>@return bool</p>
+
+<p>Get the Distinguished Name for a certificate/crl issuer</p>
+<p>@param int $format optional</p>
+<p>@access public</p>
+<p>@return mixed</p>
+
+<p>Get the Distinguished Name for a certificate/csr subject</p>
+<p>Alias of getDN()</p>
+<p>@param int $format optional</p>
+<p>@access public</p>
+<p>@return mixed</p>
+
+<p>Get an individual Distinguished Name property for a certificate/crl issuer</p>
+<p>@param string $propName</p>
+<p>@param bool $withType optional</p>
+<p>@access public</p>
+<p>@return mixed</p>
+
+<p>Get an individual Distinguished Name property for a certificate/csr subject</p>
+<p>@param string $propName</p>
+<p>@param bool $withType optional</p>
+<p>@access public</p>
+<p>@return mixed</p>
+
+<p>Get the certificate chain for the current cert</p>
+<p>@access public</p>
+<p>@return mixed</p>
+
+<p>Set public key</p>
+<p>Key needs to be a \phpseclib\Crypt\RSA object</p>
+<p>@param object $key</p>
+<p>@access public</p>
+<p>@return bool</p>
+
+<p>Set private key</p>
+<p>Key needs to be a \phpseclib\Crypt\RSA object</p>
+<p>@param object $key</p>
+<p>@access public</p>
+
+<p>Set challenge</p>
+<p>Used for SPKAC CSR's</p>
+<p>@param string $challenge</p>
+<p>@access public</p>
+
+<p>Gets the public key</p>
+<p>Returns a \phpseclib\Crypt\RSA object or a false.</p>
+<p>@access public</p>
+<p>@return mixed</p>
+
+<p>Load a Certificate Signing Request</p>
+<p>@param string $csr</p>
+<p>@access public</p>
+<p>@return mixed</p>
+
+<p>Save CSR request</p>
+<p>@param array $csr</p>
+<p>@param int $format optional</p>
+<p>@access public</p>
+<p>@return string</p>
+
+<p>Load a SPKAC CSR</p>
+<p>SPKAC's are produced by the HTML5 keygen element:</p>
+<p>https://developer.mozilla.org/en-US/docs/HTML/Element/keygen</p>
+<p>@param string $csr</p>
+<p>@access public</p>
+<p>@return mixed</p>
+
+<p>Save a SPKAC CSR request</p>
+<p>@param array $csr</p>
+<p>@param int $format optional</p>
+<p>@access public</p>
+<p>@return string</p>
+
+<p>Load a Certificate Revocation List</p>
+<p>@param string $crl</p>
+<p>@access public</p>
+<p>@return mixed</p>
+
+<p>Save Certificate Revocation List.</p>
+<p>@param array $crl</p>
+<p>@param int $format optional</p>
+<p>@access public</p>
+<p>@return string</p>
+
+<p>Helper function to build a time field according to RFC 3280 section</p>
+<p> - 4.1.2.5 Validity</p>
+<p> - 5.1.2.4 This Update</p>
+<p> - 5.1.2.5 Next Update</p>
+<p> - 5.1.2.6 Revoked Certificates</p>
+<p>by choosing utcTime iff year of date given is before 2050 and generalTime else.</p>
+<p>@param string $date in format date('D, d M Y H:i:s O')</p>
+<p>@access private</p>
+<p>@return array</p>
+
+<p>Sign an X.509 certificate</p>
+<p>$issuer's private key needs to be loaded.</p>
+<p>$subject can be either an existing X.509 cert (if you want to resign it),</p>
+<p>a CSR or something with the DN and public key explicitly set.</p>
+<p>@param \phpseclib\File\X509 $issuer</p>
+<p>@param \phpseclib\File\X509 $subject</p>
+<p>@param string $signatureAlgorithm optional</p>
+<p>@access public</p>
+<p>@return mixed</p>
+
+<p>Sign a CSR</p>
+<p>@access public</p>
+<p>@return mixed</p>
+
+<p>Sign a SPKAC</p>
+<p>@access public</p>
+<p>@return mixed</p>
+
+<p>Sign a CRL</p>
+<p>$issuer's private key needs to be loaded.</p>
+<p>@param \phpseclib\File\X509 $issuer</p>
+<p>@param \phpseclib\File\X509 $crl</p>
+<p>@param string $signatureAlgorithm optional</p>
+<p>@access public</p>
+<p>@return mixed</p>
+
+<p>X.509 certificate signing helper function.</p>
+<p>@param object $key</p>
+<p>@param \phpseclib\File\X509 $subject</p>
+<p>@param string $signatureAlgorithm</p>
+<p>@access public</p>
+<p>@return mixed</p>
+
+<p>Set certificate start date</p>
+<p>@param string $date</p>
+<p>@access public</p>
+
+<p>Set certificate end date</p>
+<p>@param string $date</p>
+<p>@access public</p>
+
+<p>Set Serial Number</p>
+<p>@param string $serial</p>
+<p>@param $base optional</p>
+<p>@access public</p>
+
+<p>Turns the certificate into a certificate authority</p>
+<p>@access public</p>
+
+<p>Check for validity of subarray</p>
+<p>This is intended for use in conjunction with _subArrayUnchecked(),</p>
+<p>implementing the checks included in _subArray() but without copying</p>
+<p>a potentially large array by passing its reference by-value to is_array().</p>
+<p>@param array $root</p>
+<p>@param string $path</p>
+<p>@return boolean</p>
+<p>@access private</p>
+
+<p>Get a reference to a subarray</p>
+<p>This variant of _subArray() does no is_array() checking,</p>
+<p>so $root should be checked with _isSubArrayValid() first.</p>
+<p>This is here for performance reasons:</p>
+<p>Passing a reference (i.e. $root) by-value (i.e. to is_array())</p>
+<p>creates a copy. If $root is an especially large array, this is expensive.</p>
+<p>@param array $root</p>
+<p>@param string $path  absolute path with / as component separator</p>
+<p>@param bool $create optional</p>
+<p>@access private</p>
+<p>@return array|false</p>
+
+<p>Get a reference to a subarray</p>
+<p>@param array $root</p>
+<p>@param string $path  absolute path with / as component separator</p>
+<p>@param bool $create optional</p>
+<p>@access private</p>
+<p>@return array|false</p>
+
+<p>Get a reference to an extension subarray</p>
+<p>@param array $root</p>
+<p>@param string $path optional absolute path with / as component separator</p>
+<p>@param bool $create optional</p>
+<p>@access private</p>
+<p>@return array|false</p>
+
+<p>Remove an Extension</p>
+<p>@param string $id</p>
+<p>@param string $path optional</p>
+<p>@access private</p>
+<p>@return bool</p>
+
+<p>Get an Extension</p>
+<p>Returns the extension if it exists and false if not</p>
+<p>@param string $id</p>
+<p>@param array $cert optional</p>
+<p>@param string $path optional</p>
+<p>@access private</p>
+<p>@return mixed</p>
+
+<p>Returns a list of all extensions in use</p>
+<p>@param array $cert optional</p>
+<p>@param string $path optional</p>
+<p>@access private</p>
+<p>@return array</p>
+
+<p>Set an Extension</p>
+<p>@param string $id</p>
+<p>@param mixed $value</p>
+<p>@param bool $critical optional</p>
+<p>@param bool $replace optional</p>
+<p>@param string $path optional</p>
+<p>@access private</p>
+<p>@return bool</p>
+
+<p>Remove a certificate, CSR or CRL Extension</p>
+<p>@param string $id</p>
+<p>@access public</p>
+<p>@return bool</p>
+
+<p>Get a certificate, CSR or CRL Extension</p>
+<p>Returns the extension if it exists and false if not</p>
+<p>@param string $id</p>
+<p>@param array $cert optional</p>
+<p>@access public</p>
+<p>@return mixed</p>
+
+<p>Returns a list of all extensions in use in certificate, CSR or CRL</p>
+<p>@param array $cert optional</p>
+<p>@access public</p>
+<p>@return array</p>
+
+<p>Set a certificate, CSR or CRL Extension</p>
+<p>@param string $id</p>
+<p>@param mixed $value</p>
+<p>@param bool $critical optional</p>
+<p>@param bool $replace optional</p>
+<p>@access public</p>
+<p>@return bool</p>
+
+<p>Remove a CSR attribute.</p>
+<p>@param string $id</p>
+<p>@param int $disposition optional</p>
+<p>@access public</p>
+<p>@return bool</p>
+
+<p>Get a CSR attribute</p>
+<p>Returns the attribute if it exists and false if not</p>
+<p>@param string $id</p>
+<p>@param int $disposition optional</p>
+<p>@param array $csr optional</p>
+<p>@access public</p>
+<p>@return mixed</p>
+
+<p>Returns a list of all CSR attributes in use</p>
+<p>@param array $csr optional</p>
+<p>@access public</p>
+<p>@return array</p>
+
+<p>Set a CSR attribute</p>
+<p>@param string $id</p>
+<p>@param mixed $value</p>
+<p>@param bool $disposition optional</p>
+<p>@access public</p>
+<p>@return bool</p>
+
+<p>Sets the subject key identifier</p>
+<p>This is used by the id-ce-authorityKeyIdentifier and the id-ce-subjectKeyIdentifier extensions.</p>
+<p>@param string $value</p>
+<p>@access public</p>
+
+<p>Compute a public key identifier.</p>
+<p>Although key identifiers may be set to any unique value, this function</p>
+<p>computes key identifiers from public key according to the two</p>
+<p>recommended methods (4.2.1.2 RFC 3280).</p>
+<p>Highly polymorphic: try to accept all possible forms of key:</p>
+<ul>
+<li>Key object</li>
+<li>\phpseclib\File\X509 object with public or private key defined</li>
+<li>Certificate or CSR array</li>
+<li>\phpseclib\File\ASN1\Element object</li>
+<li>PEM or DER string</li>
+<p>@param mixed $key optional</p>
+<p>@param int $method optional</p>
+<p>@access public</p>
+<p>@return string binary key identifier</p>
+</ul>
+<p>Format a public key as appropriate</p>
+<p>@access private</p>
+<p>@return array</p>
+
+<p>Set the domain name's which the cert is to be valid for</p>
+<p>@access public</p>
+<p>@return array</p>
+
+<p>Set the IP Addresses's which the cert is to be valid for</p>
+<p>@access public</p>
+<p>@param string $ipAddress optional</p>
+
+<p>Helper function to build domain array</p>
+<p>@access private</p>
+<p>@param string $domain</p>
+<p>@return array</p>
+
+<p>Helper function to build IP Address array</p>
+<p>(IPv6 is not currently supported)</p>
+<p>@access private</p>
+<p>@param string $address</p>
+<p>@return array</p>
+
+<p>Get the index of a revoked certificate.</p>
+<p>@param array $rclist</p>
+<p>@param string $serial</p>
+<p>@param bool $create optional</p>
+<p>@access private</p>
+<p>@return int|false</p>
+
+<p>Revoke a certificate.</p>
+<p>@param string $serial</p>
+<p>@param string $date optional</p>
+<p>@access public</p>
+<p>@return bool</p>
+
+<p>Unrevoke a certificate.</p>
+<p>@param string $serial</p>
+<p>@access public</p>
+<p>@return bool</p>
+
+<p>Get a revoked certificate.</p>
+<p>@param string $serial</p>
+<p>@access public</p>
+<p>@return mixed</p>
+
+<p>List revoked certificates</p>
+<p>@param array $crl optional</p>
+<p>@access public</p>
+<p>@return array</p>
+
+<p>Remove a Revoked Certificate Extension</p>
+<p>@param string $serial</p>
+<p>@param string $id</p>
+<p>@access public</p>
+<p>@return bool</p>
+
+<p>Get a Revoked Certificate Extension</p>
+<p>Returns the extension if it exists and false if not</p>
+<p>@param string $serial</p>
+<p>@param string $id</p>
+<p>@param array $crl optional</p>
+<p>@access public</p>
+<p>@return mixed</p>
+
+<p>Returns a list of all extensions in use for a given revoked certificate</p>
+<p>@param string $serial</p>
+<p>@param array $crl optional</p>
+<p>@access public</p>
+<p>@return array</p>
+
+<p>Set a Revoked Certificate Extension</p>
+<p>@param string $serial</p>
+<p>@param string $id</p>
+<p>@param mixed $value</p>
+<p>@param bool $critical optional</p>
+<p>@param bool $replace optional</p>
+<p>@access public</p>
+<p>@return bool</p>
+
+<p>Extract raw BER from Base64 encoding</p>
+<p>@access private</p>
+<p>@param string $str</p>
+<p>@return string</p>
+
+<p>Returns the OID corresponding to a name</p>
+<p>What's returned in the associative array returned by loadX509() (or load*()) is either a name or an OID if</p>
+<p>no OID to name mapping is available. The problem with this is that what may be an unmapped OID in one version</p>
+<p>of phpseclib may not be unmapped in the next version, so apps that are looking at this OID may not be able</p>
+<p>to work from version to version.</p>
+<p>This method will return the OID if a name is passed to it and if no mapping is avialable it'll assume that</p>
+<p>what's being passed to it already is an OID and return that instead. A few examples.</p>
+<p>getOID('2.16.840.1.101.3.4.2.1') == '2.16.840.1.101.3.4.2.1'</p>
+<p>getOID('id-sha256') == '2.16.840.1.101.3.4.2.1'</p>
+<p>getOID('zzz') == 'zzz'</p>
+<p>@access public</p>
+<p>@return string</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>old</code></li>
+<li><code>RFC5280</code></li>
+<li><code>octet</code></li>
+<li><code>extension</code></li>
+<li><code>ANY</code></li>
+<li><code>attribute</code></li>
+<li><code>DN</code></li>
+<li><code>RFC2818</code></li>
+<li><code>URI</code></li>
+<li><code>being</code></li>
+<li><code>CSR</code></li>
+<li><code>public</code></li>
+<li><code>its</code></li>
+<li><code>Base64</code></li>
+<li><code>version</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\File\X509.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>phpseclib\File\X509</code></li>
+<li><code>phpseclib\File\isn</code></li>
+<li><code>phpseclib\File\isn</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>loadX509($cert, $mode = self::FORMAT_AUTO_DETECT)</code></li>
+<li><code>saveX509($cert, $format = self::FORMAT_PEM)</code></li>
+<li><code>_mapInExtensions(&$root, $path, $asn1)</code></li>
+<li><code>_mapOutExtensions(&$root, $path, $asn1)</code></li>
+<li><code>_mapInAttributes(&$root, $path, $asn1)</code></li>
+<li><code>_mapOutAttributes(&$root, $path, $asn1)</code></li>
+<li><code>_mapInDNs(&$root, $path, $asn1)</code></li>
+<li><code>_mapOutDNs(&$root, $path, $asn1)</code></li>
+<li><code>_getMapping($extnId)</code></li>
+<li><code>loadCA($cert)</code></li>
+<li><code>validateURL($url)</code></li>
+<li><code>validateDate($date = null)</code></li>
+<li><code>_fetchURL($url)</code></li>
+<li><code>_testForIntermediate($caonly, $count)</code></li>
+<li><code>validateSignature($caonly = true)</code></li>
+<li><code>_validateSignatureCountable($caonly, $count)</code></li>
+<li><code>_validateSignature($publicKeyAlgorithm, $publicKey, $signatureAlgorithm, $signature, $signatureSubject)</code></li>
+<li><code>setRecurLimit($count)</code></li>
+<li><code>disableURLFetch()</code></li>
+<li><code>enableURLFetch()</code></li>
+<li><code>_reformatKey($algorithm, $key)</code></li>
+<li><code>_decodeIP($ip)</code></li>
+<li><code>_encodeIP($ip)</code></li>
+<li><code>_translateDNProp($propName)</code></li>
+<li><code>setDNProp($propName, $propValue, $type = 'utf8String')</code></li>
+<li><code>removeDNProp($propName)</code></li>
+<li><code>getDNProp($propName, $dn = null, $withType = false)</code></li>
+<li><code>setDN($dn, $merge = false, $type = 'utf8String')</code></li>
+<li><code>getDN($format = self::DN_ARRAY, $dn = null)</code></li>
+<li><code>getIssuerDN($format = self::DN_ARRAY)</code></li>
+<li><code>getSubjectDN($format = self::DN_ARRAY)</code></li>
+<li><code>getIssuerDNProp($propName, $withType = false)</code></li>
+<li><code>getSubjectDNProp($propName, $withType = false)</code></li>
+<li><code>getChain()</code></li>
+<li><code>setPublicKey($key)</code></li>
+<li><code>setPrivateKey($key)</code></li>
+<li><code>setChallenge($challenge)</code></li>
+<li><code>getPublicKey()</code></li>
+<li><code>loadCSR($csr, $mode = self::FORMAT_AUTO_DETECT)</code></li>
+<li><code>saveCSR($csr, $format = self::FORMAT_PEM)</code></li>
+<li><code>loadSPKAC($spkac)</code></li>
+<li><code>saveSPKAC($spkac, $format = self::FORMAT_PEM)</code></li>
+<li><code>loadCRL($crl, $mode = self::FORMAT_AUTO_DETECT)</code></li>
+<li><code>saveCRL($crl, $format = self::FORMAT_PEM)</code></li>
+<li><code>_timeField($date)</code></li>
+<li><code>sign($issuer, $subject, $signatureAlgorithm = 'sha1WithRSAEncryption')</code></li>
+<li><code>signCSR($signatureAlgorithm = 'sha1WithRSAEncryption')</code></li>
+<li><code>signSPKAC($signatureAlgorithm = 'sha1WithRSAEncryption')</code></li>
+<li><code>signCRL($issuer, $crl, $signatureAlgorithm = 'sha1WithRSAEncryption')</code></li>
+<li><code>_sign($key, $signatureAlgorithm)</code></li>
+<li><code>setStartDate($date)</code></li>
+<li><code>setEndDate($date)</code></li>
+<li><code>setSerialNumber($serial, $base = -256)</code></li>
+<li><code>makeCA()</code></li>
+<li><code>_isSubArrayValid($root, $path)</code></li>
+<li><code>_removeExtension($id, $path = null)</code></li>
+<li><code>_getExtension($id, $cert = null, $path = null)</code></li>
+<li><code>_getExtensions($cert = null, $path = null)</code></li>
+<li><code>_setExtension($id, $value, $critical = false, $replace = true, $path = null)</code></li>
+<li><code>removeExtension($id)</code></li>
+<li><code>getExtension($id, $cert = null)</code></li>
+<li><code>getExtensions($cert = null)</code></li>
+<li><code>setExtension($id, $value, $critical = false, $replace = true)</code></li>
+<li><code>removeAttribute($id, $disposition = self::ATTR_ALL)</code></li>
+<li><code>getAttribute($id, $disposition = self::ATTR_ALL, $csr = null)</code></li>
+<li><code>getAttributes($csr = null)</code></li>
+<li><code>setAttribute($id, $value, $disposition = self::ATTR_ALL)</code></li>
+<li><code>setKeyIdentifier($value)</code></li>
+<li><code>computeKeyIdentifier($key = null, $method = 1)</code></li>
+<li><code>_formatSubjectPublicKey()</code></li>
+<li><code>setDomain()</code></li>
+<li><code>setIPAddress()</code></li>
+<li><code>_dnsName($domain)</code></li>
+<li><code>_iPAddress($address)</code></li>
+<li><code>_revokedCertificate(&$rclist, $serial, $create = false)</code></li>
+<li><code>revoke($serial, $date = null)</code></li>
+<li><code>unrevoke($serial)</code></li>
+<li><code>getRevoked($serial)</code></li>
+<li><code>listRevoked($crl = null)</code></li>
+<li><code>removeRevokedCertificateExtension($serial, $id)</code></li>
+<li><code>getRevokedCertificateExtension($serial, $id, $crl = null)</code></li>
+<li><code>getRevokedCertificateExtensions($serial, $crl = null)</code></li>
+<li><code>setRevokedCertificateExtension($serial, $id, $value, $critical = false, $replace = true)</code></li>
+<li><code>_extractBER($str)</code></li>
+<li><code>getOID($name)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,91 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\DateTimeExcel\Date.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\DateTimeExcel\Date.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\DateTimeExcel\Date.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7378 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>DATE.</p>
+<p>The DATE function returns a value that represents a particular date.</p>
+<p>NOTE: When used in a Cell Formula, MS Excel changes the cell format so that it matches the date</p>
+<p>format of your regional settings. PhpSpreadsheet does not change cell formatting in this way.</p>
+<p>Excel Function:</p>
+<p>       DATE(year,month,day)</p>
+<p>PhpSpreadsheet is a lot more forgiving than MS Excel when passing non numeric values to this function.</p>
+<p>A Month name or abbreviation (English only at this point) such as 'January' or 'Jan' will still be accepted,</p>
+<p>    as will a day value with a suffix (e.g. '21st' rather than simply 21); again only English language.</p>
+<p>@param array|int $year The value of the year argument can include one to four digits.</p>
+<p>                               Excel interprets the year argument according to the configured</p>
+<p>                               date system: 1900 or 1904.</p>
+<p>                               If year is between 0 (zero) and 1899 (inclusive), Excel adds that</p>
+<p>                               value to 1900 to calculate the year. For example, DATE(108,1,2)</p>
+<p>                               returns January 2, 2008 (1900+108).</p>
+<p>                               If year is between 1900 and 9999 (inclusive), Excel uses that</p>
+<p>                               value as the year. For example, DATE(2008,1,2) returns January 2,</p>
+<p>                               2008.</p>
+<p>                               If year is less than 0 or is 10000 or greater, Excel returns the</p>
+<p>                               #NUM! error value.</p>
+<p>@param array|int $month A positive or negative integer representing the month of the year</p>
+<p>                               from 1 to 12 (January to December).</p>
+<p>                               If month is greater than 12, month adds that number of months to</p>
+<p>                               the first month in the year specified. For example, DATE(2008,14,2)</p>
+<p>                               returns the serial number representing February 2, 2009.</p>
+<p>                               If month is less than 1, month subtracts the magnitude of that</p>
+<p>                               number of months, plus 1, from the first month in the year</p>
+<p>                               specified. For example, DATE(2008,-3,2) returns the serial number</p>
+<p>                               representing September 2, 2007.</p>
+<p>@param array|int $day A positive or negative integer representing the day of the month</p>
+<p>                               from 1 to 31.</p>
+<p>                               If day is greater than the number of days in the month specified,</p>
+<p>                               day adds that number of days to the first day in the month. For</p>
+<p>                               example, DATE(2008,1,35) returns the serial number representing</p>
+<p>                               February 4, 2008.</p>
+<p>                               If day is less than 1, day subtracts the magnitude that number of</p>
+<p>                               days, plus one, from the first day of the month specified. For</p>
+<p>                               example, DATE(2008,1,-15) returns the serial number representing</p>
+<p>                               December 16, 2007.</p>
+<p>@return mixed Excel date/time serial value, PHP date/time serial value or PHP date/time object,</p>
+<p>                       depending on the value of the ReturnDateType flag</p>
+<p>        If an array of numbers is passed as the argument, then the returned result will also be an array</p>
+<p>           with the same dimensions</p>
+
+<p>Convert year from multiple formats to int.</p>
+<p>@param mixed $year</p>
+
+<p>Convert month from multiple formats to int.</p>
+<p>@param mixed $month</p>
+
+<p>Convert day from multiple formats to int.</p>
+<p>@param mixed $day</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>1</code></li>
+<li><code>the</code></li>
+<li><code>multiple</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\DateTimeExcel\Date.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\DateTimeExcel\Date</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>fromYMD($year, $month, $day)</code></li>
+<li><code>getYear($year, int $baseYear)</code></li>
+<li><code>getMonth($month)</code></li>
+<li><code>getDay($day)</code></li>
+<li><code>adjustYearMonth(int &$year, int &$month, int $baseYear)</code></li>
+</ul>
+</body></html>

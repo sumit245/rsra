@@ -1,0 +1,1117 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Models</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>Models</h1>
+
+<p><strong>Files documented</strong>: 80</p>
+
+<h2><code>app\Models\Activity_logs_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Activity_logs_model extends Model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>ci_save($data, $activity_log_created_by_app = false)</code></li>
+<li><code>delete_where($where = array()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>get_one($id = 0)</code></li>
+<li><code>get_one_where($where = array()</code></li>
+<li><code>update_where($data = array()</code></li>
+<li><code>_get_clean_value($options, $key)</code></li>
+</ul>
+<h2><code>app\Models\Announcements_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Announcements_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_unread_announcements($user_id, $user_type, $client_group_ids = "")</code></li>
+<li><code>prepare_share_with_query($announcements_table, $user_type, $client_group_ids)</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>mark_as_read($id, $user_id)</code></li>
+<li><code>get_last_announcement($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Article_helpful_status_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Article_helpful_status_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+</ul>
+<h2><code>app\Models\Attendance_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Attendance_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>current_clock_in_record($user_id)</code></li>
+<li><code>log_time($user_id, $note = "")</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>get_summary_details($options = array()</code></li>
+<li><code>count_clock_status()</code></li>
+<li><code>get_timecard_statistics($options = array()</code></li>
+<li><code>get_clocked_out_members($options = array()</code></li>
+<li><code>get_clock_in_out_details_of_all_users($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Checklist_groups_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Checklist_groups_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>get_group_suggestion($keyword = "")</code></li>
+<li><code>get_templates($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Checklist_items_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Checklist_items_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>get_all_checklist_of_project($project_id)</code></li>
+</ul>
+<h2><code>app\Models\Checklist_template_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Checklist_template_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>get_template_suggestion($keyword = "")</code></li>
+<li><code>get_checklists($checklist_ids = "")</code></li>
+</ul>
+<h2><code>app\Models\Clients_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Clients_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>make_quick_filter_query($filter, $clients_table, $projects_table, $invoices_table, $taxes_table, $invoice_payments_table, $invoice_items_table, $estimates_table, $estimate_requests_table, $tickets_table, $orders_table, $proposals_table)</code></li>
+<li><code>get_primary_contact($client_id = 0, $info = false)</code></li>
+<li><code>add_remove_star($client_id, $user_id, $type = "add")</code></li>
+<li><code>get_starred_clients($user_id, $client_groups = "")</code></li>
+<li><code>delete_client_and_sub_items($client_id)</code></li>
+<li><code>is_duplicate_company_name($company_name, $id = 0)</code></li>
+<li><code>get_leads_kanban_details($options = array()</code></li>
+<li><code>get_search_suggestion($search = "", $options = array()</code></li>
+<li><code>count_total_clients($options = array()</code></li>
+<li><code>get_conversion_rate_with_currency_symbol()</code></li>
+<li><code>count_total_leads($show_own_leads_only_user_id = "")</code></li>
+</ul>
+<h2><code>app\Models\Client_groups_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Client_groups_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Company_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Company_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>remove_other_default_company($except_id)</code></li>
+</ul>
+<h2><code>app\Models\Contracts_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Contracts_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>get_contract_total_summary($contract_id = 0)</code></li>
+<li><code>get_contract_last_id()</code></li>
+<li><code>save_initial_number_of_contract($value)</code></li>
+</ul>
+<h2><code>app\Models\Contract_items_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Contract_items_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Contract_templates_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Contract_templates_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Crud_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Crud_model extends Model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($table = null, $db = null)</code></li>
+<li><code>use_table($table)</code></li>
+<li><code>disable_log_activity()</code></li>
+<li><code>init_activity_log($log_type = "", $log_type_title_key = "", $log_for = "", $log_for_key = 0, $log_for2 = "", $log_for_key2 = 0)</code></li>
+<li><code>get_one($id = 0)</code></li>
+<li><code>get_one_where($where = [])</code></li>
+<li><code>get_all($include_deleted = false)</code></li>
+<li><code>escape_array($values = [])</code></li>
+<li><code>get_all_where($where = [], $limit = 1000000, $offset = 0, $sort_by_field = null)</code></li>
+<li><code>ci_save(&$data = [], $id = 0)</code></li>
+<li><code>update_where($data = [], $where = [])</code></li>
+<li><code>delete($id = 0, $undo = false)</code></li>
+<li><code>get_dropdown_list($option_fields = [], $key = "id", $where = [])</code></li>
+<li><code>prepare_custom_field_query_string($related_to, $custom_fields, $related_to_table, $custom_field_filter = [])</code></li>
+<li><code>_get_clients_of_currency_query($currency, $invoices_table, $clients_table)</code></li>
+<li><code>_get_invoice_value_calculation_query($invoices_table)</code></li>
+<li><code>get_labels_data_query()</code></li>
+<li><code>delete_permanently($id = 0)</code></li>
+<li><code>prepare_allowed_client_groups_query($clients_table, $client_groups = "")</code></li>
+<li><code>_get_clean_value($options, $key)</code></li>
+<li><code>get_custom_field_search_query($table, $related_to_type, $search_by)</code></li>
+</ul>
+<h2><code>app\Models\Custom_fields_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Custom_fields_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>get_max_sort_value($related_to = "")</code></li>
+<li><code>get_combined_details($related_to, $related_to_id = 0, $is_admin = 0, $user_type = "")</code></li>
+<li><code>get_custom_field_headers_for_table($related_to, $is_admin = 0, $user_type = "")</code></li>
+<li><code>get_available_fields_for_table($related_to, $is_admin = 0, $user_type = "")</code></li>
+<li><code>get_custom_field_filters($related_to, $is_admin = 0, $user_type = "")</code></li>
+<li><code>prepare_custom_field_filter_dropdown($title = "", $options = "")</code></li>
+<li><code>get_available_filters($related_to, $is_admin = 0, $user_type = "")</code></li>
+<li><code>get_email_template_variables_array($related_to, $related_to_id = 0, $is_admin = 0, $user_type = "")</code></li>
+</ul>
+<h2><code>app\Models\Custom_field_values_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Custom_field_values_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>upsert_custom_field($data, $save_to_related_type = "")</code></li>
+<li><code>upsert($data, $save_to_related_type = "")</code></li>
+</ul>
+<h2><code>app\Models\Custom_widgets_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Custom_widgets_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Dashboards_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Dashboards_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Email_templates_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Email_templates_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>get_final_template($template_name = "", $return_all = false)</code></li>
+</ul>
+<h2><code>app\Models\Estimates_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Estimates_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>get_estimate_total_summary($estimate_id = 0)</code></li>
+<li><code>get_estimate_last_id()</code></li>
+<li><code>save_initial_number_of_estimate($value)</code></li>
+<li><code>estimate_sent_statistics($options = array()</code></li>
+<li><code>_get_estimate_value_calculation_query($estimates_table)</code></li>
+<li><code>get_used_currencies_of_client()</code></li>
+</ul>
+<h2><code>app\Models\Estimate_comments_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Estimate_comments_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Estimate_forms_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Estimate_forms_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Estimate_items_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Estimate_items_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Estimate_requests_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Estimate_requests_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Events_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Events_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>count_events_today($options = array()</code></li>
+<li><code>get_label_suggestions()</code></li>
+<li><code>get_no_of_cycles($repeat_type, $no_of_cycles = 0)</code></li>
+<li><code>sort_by_start_date($a, $b)</code></li>
+<li><code>get_upcomming_events($options = array()</code></li>
+<li><code>get_response_by_users($user_ids_array = array()</code></li>
+<li><code>save_event_status($id, $user_id, $status)</code></li>
+<li><code>get_share_with_users_of_event($event_info = "")</code></li>
+<li><code>get_integrated_users_with_google_calendar()</code></li>
+<li><code>count_missed_reminders($user_id)</code></li>
+</ul>
+<h2><code>app\Models\Expenses_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Expenses_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>get_income_expenses_info($options = array()</code></li>
+<li><code>get_yearly_expenses_chart($year, $project_id = 0)</code></li>
+<li><code>get_renewable_expenses($date)</code></li>
+<li><code>get_summary_details($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Expense_categories_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Expense_categories_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+</ul>
+<h2><code>app\Models\File_category_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\File_category_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+</ul>
+<h2><code>app\Models\General_files_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\General_files_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Help_articles_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Help_articles_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>get_articles_of_a_category($category_id)</code></li>
+<li><code>increas_page_view($id)</code></li>
+<li><code>get_suggestions($type, $search)</code></li>
+</ul>
+<h2><code>app\Models\Help_categories_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Help_categories_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Invoices_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Invoices_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>get_invoice_total_summary($invoice_id = 0)</code></li>
+<li><code>invoice_statistics($options = array()</code></li>
+<li><code>get_used_currencies_of_client()</code></li>
+<li><code>get_invoices_total_and_paymnts($options = array()</code></li>
+<li><code>update_invoice_status($invoice_id = 0, $status = "not_paid")</code></li>
+<li><code>get_renewable_invoices($date)</code></li>
+<li><code>get_invoices_dropdown_list()</code></li>
+<li><code>get_label_suggestions()</code></li>
+<li><code>get_last_invoice_id()</code></li>
+<li><code>save_initial_number_of_invoice($value)</code></li>
+<li><code>count_invoices($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Invoice_items_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Invoice_items_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>get_item_suggestion($keyword = "", $user_type = "")</code></li>
+<li><code>get_item_info_suggestion($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Invoice_payments_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Invoice_payments_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>get_yearly_payments_chart($year, $currency = "", $project_id = 0)</code></li>
+<li><code>get_used_projects($type)</code></li>
+<li><code>get_yearly_summary_details($options = array()</code></li>
+<li><code>get_clients_summary_details($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Items_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Items_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Item_categories_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Item_categories_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Labels_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Labels_model extends Crud_model</code></li>
+<li><code>App\Models\object</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>label_group_list($label_ids = "")</code></li>
+<li><code>is_label_exists($id = 0, $type = "")</code></li>
+</ul>
+<h2><code>app\Models\Lead_source_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Lead_source_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>get_max_sort_value()</code></li>
+</ul>
+<h2><code>app\Models\Lead_status_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Lead_status_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>get_max_sort_value()</code></li>
+<li><code>get_first_status()</code></li>
+</ul>
+<h2><code>app\Models\Leave_applications_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Leave_applications_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details_info($id = 0)</code></li>
+<li><code>get_list($options = array()</code></li>
+<li><code>get_summary($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Leave_types_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Leave_types_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Likes_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Likes_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+</ul>
+<h2><code>app\Models\Messages_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Messages_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>get_list($options = array()</code></li>
+<li><code>get_chat_list($options = array()</code></li>
+<li><code>count_notifications($user_id, $last_message_checke_at = "0", $active_message_id = 0, $user_ids = "")</code></li>
+<li><code>set_message_status_as_read($message_id, $user_id = 0)</code></li>
+<li><code>count_unread_message($user_id = 0, $user_ids = "")</code></li>
+<li><code>delete_messages_for_user($message_id = 0, $user_id = 0)</code></li>
+<li><code>clear_deleted_status($message_id = 0)</code></li>
+<li><code>get_users_for_messaging($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Milestones_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Milestones_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>schema()</code></li>
+<li><code>get_details($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Notes_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Notes_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>get_label_suggestions($user_id)</code></li>
+</ul>
+<h2><code>app\Models\Notifications_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Notifications_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>create_notification($event, $user_id, $options = array()</code></li>
+<li><code>prepare_announcement_receipients_query($announcements_table, $clients_table, $users_table, $announcement_id = 0)</code></li>
+<li><code>prepare_sending_slack_notification($event, $user_id, $notification_id, $notification_settings, $project_id)</code></li>
+<li><code>notify_to_this_user_for_this_ticket($ticket_info, $user)</code></li>
+<li><code>notify_to_this_user_for_this_task($task_info, $user)</code></li>
+<li><code>notify_to_this_user_for_this_estimate($estimate_info, $user)</code></li>
+<li><code>notify_to_this_user_for_this_post($post_info, $user)</code></li>
+<li><code>notify_to_this_user_for_this_client($client_info, $user)</code></li>
+<li><code>get_notifications($user_id, $offset = 0, $limit = 20)</code></li>
+<li><code>get_email_notification($notification_id)</code></li>
+<li><code>count_notifications($user_id, $last_notification_checke_at = "0")</code></li>
+<li><code>set_notification_status_as_read($notification_id, $user_id = 0)</code></li>
+<li><code>get_to_user_name($notification_id = 0)</code></li>
+</ul>
+<h2><code>app\Models\Notification_settings_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Notification_settings_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>notify_to_terms()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>get_notify_to_users_of_event($event = "")</code></li>
+</ul>
+<h2><code>app\Models\Orders_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Orders_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>get_processing_order_total_summary($user_id)</code></li>
+<li><code>get_order_total_summary($order_id = 0)</code></li>
+<li><code>get_order_last_id()</code></li>
+<li><code>save_initial_number_of_order($value)</code></li>
+</ul>
+<h2><code>app\Models\Order_items_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Order_items_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Order_status_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Order_status_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>get_max_sort_value()</code></li>
+<li><code>get_first_status()</code></li>
+</ul>
+<h2><code>app\Models\Pages_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Pages_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>is_slug_exists($slug, $id = 0)</code></li>
+</ul>
+<h2><code>app\Models\Payment_methods_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Payment_methods_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_settings($type = "")</code></li>
+<li><code>get_one_with_settings($id = 0)</code></li>
+<li><code>get_oneline_payment_method($type)</code></li>
+<li><code>_merge_online_settings_with_default($info)</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>delete($id = 0, $undo = false)</code></li>
+<li><code>get_available_online_payment_methods()</code></li>
+</ul>
+<h2><code>app\Models\Paypal_ipn_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Paypal_ipn_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+</ul>
+<h2><code>app\Models\Pin_comments_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Pin_comments_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Posts_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Posts_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>count_new_posts($allowed_member_ids = "")</code></li>
+</ul>
+<h2><code>app\Models\Projects_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Projects_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>get_label_suggestions()</code></li>
+<li><code>count_project_status($options = array()</code></li>
+<li><code>get_gantt_data($options = array()</code></li>
+<li><code>add_remove_star($project_id, $user_id, $type = "add")</code></li>
+<li><code>get_starred_projects($user_id)</code></li>
+<li><code>delete_project_and_sub_items($project_id)</code></li>
+<li><code>get_search_suggestion($search = "", $options = array()</code></li>
+<li><code>count_task_points($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Project_comments_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Project_comments_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>schema()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>save_comment($data)</code></li>
+</ul>
+<h2><code>app\Models\Project_files_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Project_files_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>schema()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>get_files($ids = array()</code></li>
+</ul>
+<h2><code>app\Models\Project_members_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Project_members_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>save_member($data = array()</code></li>
+<li><code>delete($id = 0, $undo = false)</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>get_project_members_dropdown_list($project_id = 0, $user_ids = array()</code></li>
+<li><code>is_user_a_project_member($project_id = 0, $user_id = 0)</code></li>
+<li><code>get_rest_team_members_for_a_project($project_id = 0)</code></li>
+<li><code>get_client_contacts_of_the_project_client($project_id = 0)</code></li>
+</ul>
+<h2><code>app\Models\Project_settings_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Project_settings_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_setting($project_id, $setting_name)</code></li>
+<li><code>save_setting($project_id, $setting_name, $setting_value)</code></li>
+<li><code>get_details($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Proposals_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Proposals_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>get_proposal_total_summary($proposal_id = 0)</code></li>
+<li><code>get_proposal_last_id()</code></li>
+<li><code>save_initial_number_of_proposal($value)</code></li>
+</ul>
+<h2><code>app\Models\Proposal_items_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Proposal_items_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Proposal_templates_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Proposal_templates_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Roles_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Roles_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Settings_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Settings_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_setting($setting_name)</code></li>
+<li><code>save_setting($setting_name, $setting_value, $type = "app")</code></li>
+<li><code>get_all_required_settings($user_id = 0)</code></li>
+</ul>
+<h2><code>app\Models\Social_links_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Social_links_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Stripe_ipn_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Stripe_ipn_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_one_payment_where($payment_verification_code)</code></li>
+</ul>
+<h2><code>app\Models\Tasks_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Tasks_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>schema()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>make_quick_filter_query($filter, $tasks_table)</code></li>
+<li><code>get_kanban_details($options = array()</code></li>
+<li><code>count_my_open_tasks($user_id)</code></li>
+<li><code>get_label_suggestions($project_id)</code></li>
+<li><code>get_my_projects_dropdown_list($user_id = 0)</code></li>
+<li><code>get_task_statistics($options = array()</code></li>
+<li><code>set_task_comments_as_read($task_id, $user_id = 0)</code></li>
+<li><code>save_reminder_date(&$data = array()</code></li>
+<li><code>get_renewable_tasks($date)</code></li>
+<li><code>get_all_dependency_for_this_task($task_id, $type)</code></li>
+<li><code>update_custom_data(&$data = array()</code></li>
+<li><code>get_search_suggestion($search = "", $options = array()</code></li>
+<li><code>get_all_tasks_where_have_dependency($project_id)</code></li>
+<li><code>save_gantt_task_date($data, $task_id)</code></li>
+<li><code>count_sub_task_status($options = array()</code></li>
+<li><code>delete_task_and_sub_items($task_id)</code></li>
+</ul>
+<h2><code>app\Models\Task_priority_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Task_priority_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Task_status_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Task_status_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>get_max_sort_value()</code></li>
+</ul>
+<h2><code>app\Models\Taxes_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Taxes_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = [])</code></li>
+</ul>
+<h2><code>app\Models\Team_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Team_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>get_members($team_ids = array()</code></li>
+</ul>
+<h2><code>app\Models\Tickets_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Tickets_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>count_new_tickets($ticket_types = "", $show_assigned_tickets_only_user_id = 0)</code></li>
+<li><code>get_label_suggestions()</code></li>
+<li><code>delete_ticket_and_sub_items($ticket_id)</code></li>
+<li><code>count_tickets($options = array()</code></li>
+<li><code>get_ticket_statistics($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Ticket_comments_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Ticket_comments_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Ticket_templates_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Ticket_templates_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Ticket_types_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Ticket_types_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+</ul>
+<h2><code>app\Models\Timesheets_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Timesheets_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>get_summary_details($options = array()</code></li>
+<li><code>get_timer_info($project_id, $user_id)</code></li>
+<li><code>get_task_timer_info($task_id, $user_id)</code></li>
+<li><code>process_timer($data)</code></li>
+<li><code>get_open_timers($user_id = 0)</code></li>
+<li><code>get_timesheet_statistics($options = array()</code></li>
+<li><code>active_members_on_projects()</code></li>
+<li><code>user_has_any_timer_except_this_project($project_id, $user_id)</code></li>
+<li><code>user_has_any_timer($user_id)</code></li>
+<li><code>count_total_time($options = array()</code></li>
+<li><code>get_timesheet_own_project_memeber_only_query($timesheet_table)</code></li>
+</ul>
+<h2><code>app\Models\Todo_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Todo_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>get_label_suggestions($user_id)</code></li>
+<li><code>get_search_suggestion($search = "", $created_by = 0)</code></li>
+</ul>
+<h2><code>app\Models\Users_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Users_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>authenticate($email, $password)</code></li>
+<li><code>verify_password($user_info, $password)</code></li>
+<li><code>_client_can_login($user_info)</code></li>
+<li><code>login_user_id()</code></li>
+<li><code>sign_out()</code></li>
+<li><code>get_details($options = array()</code></li>
+<li><code>is_email_exists($email, $id = 0, $client_id = 0)</code></li>
+<li><code>get_job_info($user_id)</code></li>
+<li><code>save_job_info($data)</code></li>
+<li><code>get_team_members($member_ids = "")</code></li>
+<li><code>get_access_info($user_id = 0)</code></li>
+<li><code>get_team_members_and_clients($user_type = "", $user_ids = "", $exlclude_user = 0)</code></li>
+<li><code>user_group_names($user_ids = "")</code></li>
+<li><code>get_online_user_ids()</code></li>
+<li><code>get_active_members_and_clients($options = array()</code></li>
+<li><code>count_total_contacts($options = array()</code></li>
+<li><code>make_quick_filter_query($filter, $users_table)</code></li>
+<li><code>get_user_from_full_name($user_full_name = "", $user_type = "")</code></li>
+<li><code>get_other_clients_of_this_client_contact($email, $id)</code></li>
+<li><code>update_password($email, $password)</code></li>
+<li><code>count_total_users()</code></li>
+</ul>
+<h2><code>app\Models\Verification_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>App\Models\Verification_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_details($options = array()</code></li>
+</ul>
+</body></html>

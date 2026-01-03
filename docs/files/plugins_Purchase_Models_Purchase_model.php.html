@@ -1,0 +1,944 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\Purchase\Models\Purchase_model.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\Purchase\Models\Purchase_model.php</h1>
+
+<ul>
+<li>Path: <code>plugins\Purchase\Models\Purchase_model.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 271129 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This class describes a purchase model.</p>
+
+<p>Gets the vendor table.</p>
+<p>@param      array   $options  The options</p>
+<p>@return       The vendor table.</p>
+
+<p>get unit type</p>
+<p>@param  boolean $id</p>
+<p>@return array or object</p>
+
+<p>Gets the unit table.</p>
+<p>@param      array  $options  The options</p>
+
+<p>Get purchase request items formatted for purchase order</p>
+
+<p>Adds an unit.</p>
+
+<p>Updates an unit.</p>
+
+<p>{ delete unit }</p>
+<p>@param        $id     The identifier</p>
+
+<p>Gets the item categories table.</p>
+
+<p>get commodity group type</p>
+<p>@param  boolean $id</p>
+<p>@return array or object</p>
+
+<p>Adds an commodity group.</p>
+
+<p>Adds an commodity group.</p>
+
+<p>{ delete commodity group }</p>
+<p>@param        $id     The identifier</p>
+
+<p>Gets the sub group table.</p>
+
+<p>get unit type</p>
+<p>@param  boolean $id</p>
+<p>@return array or object</p>
+
+<p>Adds an sub group.</p>
+
+<p>Update an sub group.</p>
+
+<p>{ delete sub group }</p>
+<p>@param        $id     The identifier</p>
+
+<p>{ update po setting }</p>
+
+<p>Gets the vendor category table.</p>
+<p>@param      array  $option  The option</p>
+
+<p>get unit type</p>
+<p>@param  boolean $id</p>
+<p>@return array or object</p>
+
+<p>Adds a vendor category.</p>
+<p>@return     bool</p>
+
+<p>Update an sub group.</p>
+
+<p>{ delete sub group }</p>
+<p>@param        $id     The identifier</p>
+
+<p>{ update purchase setting }</p>
+<p>@param        $data   The data</p>
+
+<p>get approval setting</p>
+<p>@param  boolean $id</p>
+<p>@return array or object</p>
+
+<p>Creates an approval setting row template.</p>
+<p>@param      array   $staff_data  The staff data</p>
+<p>@param      string  $name        The name</p>
+<p>@param      string  $approver    The approver</p>
+<p>@param      string  $staff       The staff</p>
+<p>@param      string  $action      The action</p>
+<p>@param      string  $item_key    The item key</p>
+<p>@return     string</p>
+
+<p>add approval setting</p>
+<p>@param  array $data</p>
+<p>@return boolean</p>
+
+<p>edit approval setting</p>
+<p>@param  integer $id</p>
+<p>@param   array $data</p>
+<p>@return    boolean</p>
+
+<p>delete approval setting</p>
+<p>@param  integer $id</p>
+<p>@return boolean</p>
+
+<p>get unit add item</p>
+<p>@return array</p>
+
+<p>get commodity group add commodity</p>
+<p>@return array</p>
+
+<p>Function that will parse table data from the tables folder for amin area</p>
+<p>@param  string $table  table filename</p>
+<p>@param  array  $params additional params</p>
+<p>@return void</p>
+
+<p>generate commodity barcode</p>
+<p>@return     string</p>
+
+<p>get commodity</p>
+<p>@param  boolean $id</p>
+<p>@return array or object</p>
+
+<p>add commodity one item</p>
+<p>@param array $data</p>
+<p>@return integer</p>
+
+<p>create sku code</p>
+<p>@param  int commodity_group</p>
+<p>@param  int sub_group</p>
+<p>@return string</p>
+
+<p>update commodity one item</p>
+<p>@param  array $data</p>
+<p>@param  integer $id</p>
+<p>@return boolean</p>
+
+<p>delete commodity</p>
+<p>@param  integer $id</p>
+<p>@return boolean</p>
+
+<p>{ clone_item }</p>
+
+<p>get warehourse attachments</p>
+<p>@param  integer $commodity_id</p>
+<p>@return array</p>
+
+<p>add commodity one item</p>
+<p>@param array $data</p>
+<p>@return integer</p>
+
+<p>commodity udpate profit rate</p>
+<p>@param  [type] $id</p>
+<p>@param  [type] $percent</p>
+<p>@param  [type] $type</p>
+<p>@return [type]</p>
+
+<p>caculator purchase price</p>
+<p>@return json</p>
+
+<p>Adds a vendor.</p>
+<p>@param      <type>   $data       The data</p>
+<p>@param      integer  $client_id  The client identifier</p>
+<p>@return     integer  ( id vendor )</p>
+
+<p>Used in Import, Lead Convert, Register</p>
+
+<p>Used in Import, Lead Convert, Register</p>
+
+<p>{ check zero columns }</p>
+<p>@param      <type>  $data   The data</p>
+<p>@return     array</p>
+
+<p>Gets the vendor.</p>
+<p>@param      string        $id     The identifier</p>
+<p>@param      array|string  $where  The where</p>
+<p>@return     <type>        The vendor or list vendors.</p>
+
+<p>{ update vendor }</p>
+<p>@param      <type>   $data            The data</p>
+<p>@param      <type>   $id              The identifier</p>
+<p>@param      boolean  $client_request  The client request</p>
+<p>@return     boolean</p>
+
+<p>Gets the vendors.</p>
+<p>@return       The vendors.</p>
+
+<p>wh get grouped</p>
+<p>@param  string  $can_be</p>
+<p>@param  boolean $search_all</p>
+<p>@return [type]</p>
+
+<p>Gets the item by group.</p>
+<p>@param        $group  The group</p>
+<p>@return      The item by group.</p>
+
+<p>get commodity</p>
+<p>@param  boolean $id</p>
+<p>@return array or object</p>
+
+<p>Adds vendor items.</p>
+<p>@param      $data   The data</p>
+<p>@return     boolean</p>
+
+<p>{ delete vendor items }</p>
+<p>@param      <type>   $id     The identifier</p>
+<p>@return     boolean</p>
+
+<p>{ delete vendor }</p>
+<p>@param        $id     The identifier</p>
+<p>@return     bool</p>
+
+<p>caculator purchase price model</p>
+<p>@return float</p>
+
+<p>Creates a purchase request row template.</p>
+<p>@param      array   $unit_data  The unit data</p>
+<p>@param      string  $name       The name</p>
+
+<p>Gets the tax name.</p>
+<p>@param        $tax    The tax</p>
+<p>@return     string  The tax name.</p>
+
+<p>{ tax rate by id }</p>
+<p>@param        $tax_id  The tax identifier</p>
+
+<p>get taxes dropdown template</p>
+<p>@param  [type]  $name</p>
+<p>@param  [type]  $taxname</p>
+<p>@param  string  $type</p>
+<p>@param  string  $item_key</p>
+<p>@param  boolean $is_edit</p>
+<p>@param  boolean $manual</p>
+<p>@return [type]</p>
+
+<p>row item to variation</p>
+<p>@param  [type] $item_value</p>
+<p>@return [type]</p>
+
+<p>Gets the pur request detail.</p>
+<p>@param      <int>  $pur_request  The pur request</p>
+<p>@return     <array>  The pur request detail.</p>
+
+<p>Gets the taxes.</p>
+<p>@return     <array>  The taxes.</p>
+
+<p>Gets the units.</p>
+<p>@return     <array>  The list units.</p>
+
+<p>wh uniqueByKey</p>
+<p>@param  [type] $array</p>
+<p>@param  [type] $key</p>
+<p>@return [type]</p>
+
+<p>Gets the item v 2.</p>
+<p>@param      string  $id     The identifier</p>
+<p>@return     <type>  The item v 2.</p>
+
+<p>wh get tax rate</p>
+<p>@param  [type] $taxname</p>
+<p>@return [type]</p>
+
+<p>Adds a pur request.</p>
+<p>@param      <array>   $data   The data</p>
+<p>@return     boolean</p>
+
+<p>Gets the approve setting.</p>
+<p>@param      <type>   $type    The type</p>
+<p>@param      string   $status  The status</p>
+<p>@return     boolean  The approve setting.</p>
+
+<p>Gets the purchase request.</p>
+<p>@param      string  $id     The identifier</p>
+<p>@return     <row or array>  The purchase request.</p>
+
+<p>Gets the html tax pur request.</p>
+
+<p>{ update pur request }</p>
+<p>@param      <array>   $data   The data</p>
+<p>@param      <int>   $id     The identifier</p>
+<p>@return     boolean</p>
+
+<p>{ delete pur request }</p>
+
+<p>Gets the staff sign.</p>
+<p>@param      <type>  $rel_id    The relative identifier</p>
+<p>@param      <type>  $rel_type  The relative type</p>
+<p>@return     array   The staff sign.</p>
+
+<p>{ check approval details }</p>
+<p>@param      <type>          $rel_id    The relative identifier</p>
+<p>@param      <type>          $rel_type  The relative type</p>
+<p>@return     boolean|string</p>
+
+<p>Gets the list approval details.</p>
+<p>@param      <type>  $rel_id    The relative identifier</p>
+<p>@param      <type>  $rel_type  The relative type</p>
+<p>@return     <array>  The list approval details.</p>
+
+<p>Gets the items.</p>
+<p>@return     <array>  The items.</p>
+
+<p>Gets the pur request pdf html.</p>
+<p>@param      <type>  $pur_request_id  The pur request identifier</p>
+<p>@return     string  The pur request pdf html.</p>
+
+<p>Gets the pur request pdf html.</p>
+<p>@param      <type>  $pur_request_id  The pur request identifier</p>
+<p>@return     string  The pur request pdf html.</p>
+
+<p>Gets the pur request pdf html.</p>
+<p>@param      <type>  $pur_request_id  The pur request identifier</p>
+<p>@return     string  The pur request pdf html.</p>
+
+<p>Gets the items by identifier.</p>
+<p>@param      <type>  $id     The identifier</p>
+<p>@return     <row>  The items by identifier.</p>
+
+<p>Gets the units by identifier.</p>
+<p>@param      <type>  $id     The identifier</p>
+<p>@return     <row>  The units by identifier.</p>
+
+<p>Sends a mail.</p>
+<p>@param      <type>  $data   The data</p>
+
+<p>pur create notification</p>
+<p>@param  [type]  $event</p>
+<p>@param  [type]  $user_id</p>
+<p>@param  array   $options</p>
+<p>@param  integer $to_user_id</p>
+<p>@return [type]</p>
+
+<p>send request approve</p>
+<p>@param  array $data</p>
+<p>@return boolean</p>
+
+<p>Adds a comment to purchase request</p>
+
+<p>delete approval details</p>
+<p>@param  integer $rel_id</p>
+<p>@param  string $rel_type</p>
+<p>@return  boolean</p>
+
+<p>get staff id by approve value</p>
+<p>@param  array $data</p>
+<p>@param  integer $approve_value</p>
+<p>@return boolean</p>
+
+<p>{ update approve request }</p>
+<p>@param      <type>   $rel_id    The relative identifier</p>
+<p>@param      <type>   $rel_type  The relative type</p>
+<p>@param      <type>   $status    The status</p>
+<p>@return     boolean</p>
+
+<p>{ update item pur request }</p>
+<p>@param      $id     The identifier</p>
+
+<p>update approval details</p>
+<p>@param  integer $id</p>
+<p>@param  array $data</p>
+<p>@return boolean</p>
+
+<p>Adds an attachment to database.</p>
+<p>@param        $rel_id      The relative identifier</p>
+<p>@param        $rel_type    The relative type</p>
+<p>@param        $attachment  The attachment</p>
+<p>@param      bool    $external    The external</p>
+<p>@return     <type></p>
+
+<p>Gets the purchase order attachments.</p>
+<p>@param      <type>  $id     The purchase order</p>
+<p>@return     <type>  The purchase order attachments.</p>
+
+<p>Gets the file.</p>
+<p>@param      <type>   $id      The file id</p>
+<p>@param      boolean  $rel_id  The relative identifier</p>
+<p>@return     boolean  The file.</p>
+
+<p>Gets the part attachments.</p>
+<p>@param      <type>  $surope  The surope</p>
+<p>@param      string  $id      The identifier</p>
+<p>@return     <type>  The part attachments.</p>
+
+<p>{ delete purorder attachment }</p>
+<p>@param      <type>   $id     The identifier</p>
+<p>@return     boolean</p>
+
+<p>Sends to vendors.</p>
+
+<p>Gets the pur request by status.</p>
+<p>@param      <type>  $status  The status</p>
+<p>@return     <array>  The pur request by status.</p>
+
+<p>Creates a quotation row template.</p>
+<p>@param      string      $name            The name</p>
+<p>@param      string      $item_name       The item name</p>
+<p>@param      int|string  $quantity        The quantity</p>
+<p>@param      string      $unit_name       The unit name</p>
+<p>@param      int|string  $unit_price      The unit price</p>
+<p>@param      string      $taxname         The taxname</p>
+<p>@param      string      $item_code       The item code</p>
+<p>@param      string      $unit_id         The unit identifier</p>
+<p>@param      string      $tax_rate        The tax rate</p>
+<p>@param      string      $total_money     The total money</p>
+<p>@param      string      $discount        The discount</p>
+<p>@param      string      $discount_money  The discount money</p>
+<p>@param      string      $total           The total</p>
+<p>@param      string      $into_money      Into money</p>
+<p>@param      string      $tax_id          The tax identifier</p>
+<p>@param      string      $tax_value       The tax value</p>
+<p>@param      string      $item_key        The item key</p>
+<p>@param      bool        $is_edit         Indicates if edit</p>
+<p>@return     string</p>
+
+<p>Gets the items by vendor variations.</p>
+<p>@return       The items.</p>
+
+<p>{ item to variation }</p>
+<p>@param        $array_value  The array value</p>
+<p>@return     array</p>
+
+<p>{ estimate by vendor }</p>
+<p>@param      <type>  $vendor  The vendor</p>
+<p>@return     <array>  ( list estimate by vendor )</p>
+
+<p>Adds an estimate.</p>
+<p>@param      <type>   $data   The data</p>
+<p>@return     boolean  or in estimate</p>
+
+<p>{ function_description }</p>
+<p>@param      <type>  $data   The data</p>
+<p>@return     <array> data</p>
+
+<p>Gets the estimate.</p>
+<p>@param      string  $id     The identifier</p>
+<p>@param      array   $where  The where</p>
+<p>@return     <row , array>  The estimate, list estimate.</p>
+
+<p>Gets the html tax pur estimate.</p>
+
+<p>Gets the pur estimate detail.</p>
+<p>@param      <int>  $pur_request  The pur request</p>
+<p>@return     <array>  The pur estimate detail.</p>
+
+<p>{ update estimate }</p>
+<p>@param      <type>   $data   The data</p>
+<p>@param      <type>   $id     The identifier</p>
+<p>@return     boolean</p>
+
+<p>Gets the purchase estimate attachments.</p>
+<p>@param        $id     The purchase estimate</p>
+<p>@return       The purchase estimate attachments.</p>
+
+<p>{ change status pur estimate }</p>
+<p>@param      <type>   $status  The status</p>
+<p>@param      <type>   $id      The identifier</p>
+<p>@return     boolean</p>
+
+<p>Gets the pur request detail in estimate.</p>
+<p>@param      <int>  $pur_request  The pur request</p>
+<p>@return     <array>  The pur request detail in estimate.</p>
+
+<p>{ function_description }</p>
+
+<p>{ delete estimate attachment }</p>
+<p>@param         $id     The identifier</p>
+<p>@return     boolean</p>
+
+<p>Gets the purcahse estimate attachments.</p>
+<p>@param      <type>  $surope  The surope</p>
+<p>@param      string  $id      The identifier</p>
+<p>@return     <type>  The part attachments.</p>
+
+<p>Gets the estimates by status.</p>
+<p>@param      <type>  $status  The status</p>
+<p>@return     <array>  The estimates by status.</p>
+
+<p>Creates a purchase order row template.</p>
+<p>@param      string      $name              The name</p>
+<p>@param      string      $item_name         The item name</p>
+<p>@param      string      $item_description  The item description</p>
+<p>@param      int|string  $quantity          The quantity</p>
+<p>@param      string      $unit_name         The unit name</p>
+<p>@param      int|string  $unit_price        The unit price</p>
+<p>@param      string      $taxname           The taxname</p>
+<p>@param      string      $item_code         The item code</p>
+<p>@param      string      $unit_id           The unit identifier</p>
+<p>@param      string      $tax_rate          The tax rate</p>
+<p>@param      string      $total_money       The total money</p>
+<p>@param      string      $discount          The discount</p>
+<p>@param      string      $discount_money    The discount money</p>
+<p>@param      string      $total             The total</p>
+<p>@param      string      $into_money        Into money</p>
+<p>@param      string      $tax_id            The tax identifier</p>
+<p>@param      string      $tax_value         The tax value</p>
+<p>@param      string      $item_key          The item key</p>
+<p>@param      bool        $is_edit           Indicates if edit</p>
+<p>@return     string</p>
+
+<p>Adds a pur order.</p>
+<p>@param      <array>   $data   The data</p>
+<p>@return     boolean , int id purchase order</p>
+
+<p>{ update pur order }</p>
+<p>@param      <type>   $data   The data</p>
+<p>@param      <type>   $id     The identifier</p>
+<p>@return     boolean</p>
+
+<p>Gets the pur order detail.</p>
+<p>@param      <int>  $pur_request  The pur request</p>
+<p>@return     <array>  The pur order detail.</p>
+
+<p>Gets the pur order.</p>
+<p>@param      <int>  $id     The identifier</p>
+<p>@return     <row>  The pur order.</p>
+
+<p>Gets the html tax pur order.</p>
+
+<p>Gets the purchase order attachments.</p>
+<p>@param      <type>  $id     The purchase order</p>
+<p>@return     <type>  The purchase order attachments.</p>
+
+<p>{ delete purorder attachment }</p>
+<p>@param      <type>   $id     The identifier</p>
+<p>@return     boolean</p>
+
+<p>Gets the part attachments.</p>
+<p>@param      <type>  $surope  The surope</p>
+<p>@param      string  $id      The identifier</p>
+<p>@return     <type>  The part attachments.</p>
+
+<p>{ change status pur order }</p>
+<p>@param      <type>   $status  The status</p>
+<p>@param      <type>   $id      The identifier</p>
+<p>@return     boolean  ( description_of_the_return_value )</p>
+
+<p>{ change delivery status pur order }</p>
+<p>@param      <type>   $status  The status</p>
+<p>@param      <type>   $id      The identifier</p>
+<p>@return     boolean  ( description_of_the_return_value )</p>
+
+<p>{ mark_pur_order_as }</p>
+<p>@param      string  $status     The status</p>
+<p>@param      <type>  $pur_order  The pur order</p>
+<p>@return     bool</p>
+
+<p>{ function_description }</p>
+
+<p>{ mark converted purchase order }</p>
+
+<p>Gets the estimate html by pr vendor.</p>
+<p>@param        $pur_request  The pur request</p>
+<p>@param      string  $vendor       The vendor</p>
+<p>@return     string  The estimate html by pr vendor.</p>
+
+<p>Gets the pur estimate detail in order.</p>
+<p>@param      <int>  $pur_estimate  The pur estimate</p>
+<p>@return     <array>  The pur estimate detail in order.</p>
+
+<p>Gets the list pur orders.</p>
+<p>@return       The list pur orders.</p>
+
+<p>Gets the pur order approved.</p>
+<p>@return     <array>  The pur order approved.</p>
+
+<p>Gets the pur invoice.</p>
+<p>@param      string  $id     The identifier</p>
+<p>@return       The pur invoice.</p>
+
+<p>Gets the pur order detail.</p>
+<p>@param      <int>  $pur_request  The pur request</p>
+<p>@return     <array>  The pur order detail.</p>
+
+<p>get pur order approved for inv</p>
+<p>@return       The pur order approved.</p>
+
+<p>Creates a purchase invoice row template.</p>
+<p>@param      string      $name              The name</p>
+<p>@param      string      $item_name         The item name</p>
+<p>@param      string      $item_description  The item description</p>
+<p>@param      int|string  $quantity          The quantity</p>
+<p>@param      string      $unit_name         The unit name</p>
+<p>@param      int|string  $unit_price        The unit price</p>
+<p>@param      string      $taxname           The taxname</p>
+<p>@param      string      $item_code         The item code</p>
+<p>@param      string      $unit_id           The unit identifier</p>
+<p>@param      string      $tax_rate          The tax rate</p>
+<p>@param      string      $total_money       The total money</p>
+<p>@param      string      $discount          The discount</p>
+<p>@param      string      $discount_money    The discount money</p>
+<p>@param      string      $total             The total</p>
+<p>@param      string      $into_money        Into money</p>
+<p>@param      string      $tax_id            The tax identifier</p>
+<p>@param      string      $tax_value         The tax value</p>
+<p>@param      string      $item_key          The item key</p>
+<p>@param      bool        $is_edit           Indicates if edit</p>
+<p>@return     string</p>
+
+<p>Adds a pur invoice.</p>
+<p>@param        $data   The data</p>
+
+<p>{ update pur invoice }</p>
+<p>@param        $id     The identifier</p>
+<p>@param        $data   The data</p>
+
+<p>Gets the html tax pur order.</p>
+
+<p>Gets the purchase order attachments.</p>
+<p>@param      <type>  $id     The purchase order</p>
+<p>@return     <type>  The purchase order attachments.</p>
+
+<p>Gets the payment invoice.</p>
+<p>@param        $invoice  The invoice</p>
+<p>@return       The payment invoice.</p>
+
+<p>Gets the inv attachments.</p>
+<p>@param      <type>  $surope  The surope</p>
+<p>@param      string  $id      The identifier</p>
+<p>@return     <type>  The part attachments.</p>
+
+<p>{ delete purchase invoice attachment }</p>
+<p>@param         $id     The identifier</p>
+<p>@return     boolean</p>
+
+<p>get pur order approved for inv</p>
+<p>@return       The pur order approved.</p>
+
+<p>Adds a invoice payment.</p>
+<p>@param         $data       The data</p>
+<p>@param         $invoice  The invoice id</p>
+<p>@return     boolean</p>
+
+<p>Gets the payment pur invoice.</p>
+<p>@param      string  $id     The identifier</p>
+
+<p>{ delete pur invoice }</p>
+<p>@param      <type>   $id     The identifier</p>
+<p>@return     boolean</p>
+
+<p>{ delete invoice payment }</p>
+<p>@param      <type>   $id     The identifier</p>
+<p>@return     boolean  ( delete payment )</p>
+
+<p>{ update invoice after approve }</p>
+<p>@param        $id     The identifier</p>
+
+<p>Gets the inv payment purchase order.</p>
+<p>@param        $pur_order  The pur order</p>
+
+<p>Gets the payment invoices by vendor.</p>
+
+<p>Gets the invoices by vendor.</p>
+
+<p>get unit add commodity</p>
+<p>@return [type]</p>
+
+<p>Gets the contact.</p>
+<p>@param      <type>  $id     The identifier</p>
+<p>@return     <type>  The contact.</p>
+
+<p>Adds a contact.</p>
+<p>@param      <type>   $data                The data</p>
+<p>@param      <type>   $customer_id         The customer identifier</p>
+<p>@param      boolean  $not_manual_request  Not manual request</p>
+<p>@return     boolean  or contact id</p>
+
+<p>{ update contact }</p>
+<p>@param      <type>   $data            The data</p>
+<p>@param      <type>   $id              The identifier</p>
+<p>@param      boolean  $client_request  The client request</p>
+<p>@return     boolean</p>
+
+<p>{ delete contact }</p>
+<p>@param      <type>   $id     The identifier</p>
+<p>@return     boolean</p>
+
+<p>Gets the vendor item.</p>
+<p>@param        $vendorid  The vendorid</p>
+<p>@return       The vendor item.</p>
+
+<p>Gets the item by vendor.</p>
+<p>@param      $vendor  The vendor</p>
+
+<p>Gets the item of vendor.</p>
+<p>@param        $item_id  The item identifier</p>
+<p>@return       The item of vendor.</p>
+
+<p>Adds a vendor item.</p>
+
+<p>create sku code</p>
+<p>@param  int commodity_group</p>
+<p>@param  int sub_group</p>
+<p>@return string</p>
+
+<p>{ update vendor item }</p>
+<p>@param        $data   The data</p>
+<p>@param        $id     The identifier</p>
+
+<p>Gets the vendor item file.</p>
+
+<p>{ share vendor item }</p>
+<p>@param        $item_id  The item identifier</p>
+
+<p>{ delete vendor item }</p>
+<p>@param        $item_id    The item identifier</p>
+<p>@param        $vendor_id  The vendor identifier</p>
+
+<p>Gets the primary contact name of vendor.</p>
+
+<p>Gets the primary contact email of vendor.</p>
+<p>@param        $vendorid  The vendorid</p>
+<p>@return       The primary contact email of vendor.</p>
+
+<p>Gets the purchase request by vendor.</p>
+<p>@param        $vendorid  The vendorid</p>
+
+<p>Gets the pur order by vendor.</p>
+<p>@param      <type>  $vendor  The vendor</p>
+
+<p>Gets the pur order approved.</p>
+<p>@return     <array>  The pur order approved.</p>
+
+<p>Gets the contact details.</p>
+<p>@param      array   $options  The options</p>
+<p>@return       The contact details.</p>
+
+<h2>References</h2>
+
+<p><strong>Models Used</strong></p>
+<ul>
+<li><code>misc_model</code></li>
+<li><code>caculator_profit_rate_model</code></li>
+<li><code>vendors_model</code></li>
+<li><code>departments_model</code></li>
+<li><code>staff_model</code></li>
+</ul>
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>database</code></li>
+<li><code>the</code></li>
+<li><code>id</code></li>
+<li><code>sku</code></li>
+<li><code>customer</code></li>
+<li><code>default</code></li>
+<li><code>plugin</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\Purchase\Models\Purchase_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Purchase\Models\describes</code></li>
+<li><code>Purchase\Models\Purchase_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>get_vendor_table($options = [])</code></li>
+<li><code>get_unit_type($id = false)</code></li>
+<li><code>get_unit_table($options = [])</code></li>
+<li><code>get_pur_request_items_for_order($pur_request_id)</code></li>
+<li><code>add_unit($data)</code></li>
+<li><code>update_unit($data)</code></li>
+<li><code>delete_unit($id)</code></li>
+<li><code>get_item_categories_table($option = [])</code></li>
+<li><code>get_commodity_group($id = false)</code></li>
+<li><code>add_commodity_group($data)</code></li>
+<li><code>update_commodity_group($data)</code></li>
+<li><code>delete_commodity_group($id)</code></li>
+<li><code>get_subgroup_table($option = [])</code></li>
+<li><code>get_sub_group($id = false)</code></li>
+<li><code>add_sub_group($data)</code></li>
+<li><code>update_sub_group($data)</code></li>
+<li><code>delete_sub_group($id)</code></li>
+<li><code>update_po_setting($data)</code></li>
+<li><code>get_vendor_category_table($option = [])</code></li>
+<li><code>get_vendor_category($id = false)</code></li>
+<li><code>add_vendor_category($data)</code></li>
+<li><code>update_vendor_category($data)</code></li>
+<li><code>delete_vendor_category($id)</code></li>
+<li><code>update_purchase_setting($data)</code></li>
+<li><code>get_approval_setting($id = '')</code></li>
+<li><code>create_approval_setting_row_template($staff_data = [], $name = '', $approver = 'staff', $staff = '', $action = '', $item_key = '')</code></li>
+<li><code>add_approval_setting($data)</code></li>
+<li><code>edit_approval_setting($id, $data)</code></li>
+<li><code>delete_approval_setting($id)</code></li>
+<li><code>get_unit_add_item()</code></li>
+<li><code>get_commodity_group_add_commodity()</code></li>
+<li><code>get_table_data($table, $dataPost, $params = [])</code></li>
+<li><code>generate_commodity_barcode()</code></li>
+<li><code>get_commodity($id = false)</code></li>
+<li><code>add_commodity_one_item($data)</code></li>
+<li><code>create_sku_code($commodity_group, $sub_group, $flag_insert_id = false)</code></li>
+<li><code>update_commodity_one_item($data, $id)</code></li>
+<li><code>delete_commodity($id)</code></li>
+<li><code>clone_item($id)</code></li>
+<li><code>get_item_attachments($commodity_id)</code></li>
+<li><code>add_commodity_one_item_clone($data)</code></li>
+<li><code>commodity_udpate_profit_rate($id, $percent, $type)</code></li>
+<li><code>caculator_profit_rate_model($purchase_price, $sale_price)</code></li>
+<li><code>add_vendor($data, $client_id = null, $client_or_lead_convert_request = false)</code></li>
+<li><code>check_zero_columns($data)</code></li>
+<li><code>get_vendor($id)</code></li>
+<li><code>update_vendor($data, $id, $client_request = false)</code></li>
+<li><code>get_vendors()</code></li>
+<li><code>pur_get_grouped($can_be = '', $search_all = false, $vendor = '')</code></li>
+<li><code>get_item_by_group($group)</code></li>
+<li><code>get_item($id = false)</code></li>
+<li><code>add_vendor_items($data)</code></li>
+<li><code>delete_vendor_items($id)</code></li>
+<li><code>delete_vendor($id)</code></li>
+<li><code>caculator_purchase_price_model($profit_rate, $sale_price)</code></li>
+<li><code>create_purchase_request_row_template($name = '', $item_code = '', $item_text = '', $unit_price = '', $quantity = '', $unit_name = '', $into_money = '', $item_key = '', $tax_value = '', $total = '', $tax_name = '', $tax_rate = '', $tax_id = '', $is_edit = false, $currency_rate = 1, $to_currency = '')</code></li>
+<li><code>create_purchase_request_row_template($name = '', $item_code = '', $item_text = '', $sku_code = '', $sku_name = '', $quantity = '', $unit_name = '', $item_key = '', $is_edit = false)</code></li>
+<li><code>get_tax_name($tax)</code></li>
+<li><code>tax_rate_by_id($tax_id)</code></li>
+<li><code>get_taxes_dropdown_template($name, $taxname, $type = '', $item_key = '', $is_edit = false, $manual = false)</code></li>
+<li><code>row_item_to_variation($item_value)</code></li>
+<li><code>get_pur_request_detail($pur_request)</code></li>
+<li><code>get_taxes()</code></li>
+<li><code>get_units()</code></li>
+<li><code>pur_uniqueByKey($array, $key)</code></li>
+<li><code>get_item_v2($id = '')</code></li>
+<li><code>get_item_v3($id = '')</code></li>
+<li><code>get_item_v2($id = '')</code></li>
+<li><code>pur_get_tax_rate($taxname)</code></li>
+<li><code>add_pur_request($data)</code></li>
+<li><code>add_pur_request($data)</code></li>
+<li><code>get_approve_setting($type, $status = '')</code></li>
+<li><code>get_purchase_request($id = '')</code></li>
+<li><code>get_html_tax_pur_request($id)</code></li>
+<li><code>update_pur_request($data, $id)</code></li>
+<li><code>delete_pur_request($id)</code></li>
+<li><code>get_staff_sign($rel_id, $rel_type)</code></li>
+<li><code>check_approval_details($rel_id, $rel_type)</code></li>
+<li><code>get_list_approval_details($rel_id, $rel_type)</code></li>
+<li><code>get_items()</code></li>
+<li><code>get_pur_request_pdf_html($pur_order_id)</code></li>
+<li><code>get_purestimate_pdf_html($pur_estimate_id)</code></li>
+<li><code>get_purorder_pdf_html($pur_order_id)</code></li>
+<li><code>get_items_by_id($id)</code></li>
+<li><code>get_units_by_id($id)</code></li>
+<li><code>send_mail($data)</code></li>
+<li><code>pur_create_notification($event, $user_id, $options = [], $to_user_id = 0)</code></li>
+<li><code>send_request_approve($data)</code></li>
+<li><code>add_comment($data)</code></li>
+<li><code>get_comments($related_id, $comment_type = 'pur_request')</code></li>
+<li><code>delete_approval_details($rel_id, $rel_type)</code></li>
+<li><code>get_staff_id_by_approve_value($data, $approve_value)</code></li>
+<li><code>update_approve_request($rel_id, $rel_type, $status)</code></li>
+<li><code>update_item_pur_request($id)</code></li>
+<li><code>update_approval_details($id, $data)</code></li>
+<li><code>add_attachment_to_database($rel_id, $rel_type, $attachment, $external = false)</code></li>
+<li><code>get_purchase_request_attachments($id)</code></li>
+<li><code>get_file($id, $rel_id = false)</code></li>
+<li><code>get_purrequest_attachments($surope, $id = '')</code></li>
+<li><code>delete_purrequest_attachment($id)</code></li>
+<li><code>send_to_vendors($id, $data)</code></li>
+<li><code>get_pur_request_by_status($status)</code></li>
+<li><code>create_quotation_row_template($name = '', $item_name = '', $quantity = '', $unit_name = '', $unit_price = '', $taxname = '', $item_code = '', $unit_id = '', $tax_rate = '', $total_money = '', $discount = '', $discount_money = '', $total = '', $into_money = '', $tax_id = '', $tax_value = '', $item_key = '', $is_edit = false, $currency_rate = 1, $to_currency = '')</code></li>
+<li><code>get_items_by_vendor_variation($vendor)</code></li>
+<li><code>item_to_variation($array_value)</code></li>
+<li><code>estimate_by_vendor($vendor)</code></li>
+<li><code>add_estimate($data)</code></li>
+<li><code>map_shipping_columns($data)</code></li>
+<li><code>get_estimate($id = '', $where = [])</code></li>
+<li><code>get_html_tax_pur_estimate($id)</code></li>
+<li><code>get_pur_estimate_detail($pur_request)</code></li>
+<li><code>update_estimate($data, $id)</code></li>
+<li><code>get_purchase_estimate_attachments($id)</code></li>
+<li><code>change_status_pur_estimate($status, $id)</code></li>
+<li><code>get_pur_request_detail_in_estimate($pur_request)</code></li>
+<li><code>delete_pur_estimate($id)</code></li>
+<li><code>delete_estimate_attachment($id)</code></li>
+<li><code>get_estimate_attachments($surope, $id = '')</code></li>
+<li><code>get_estimates_by_status($status)</code></li>
+<li><code>create_purchase_order_row_template($name = '', $item_name = '', $item_description = '', $quantity = '', $unit_name = '', $unit_price = '', $taxname = '', $item_code = '', $unit_id = '', $tax_rate = '', $total_money = '', $discount = '', $discount_money = '', $total = '', $into_money = '', $tax_id = '', $tax_value = '', $item_key = '', $is_edit = false, $currency_rate = 1, $to_currency = '')</code></li>
+<li><code>add_pur_order($data)</code></li>
+<li><code>update_pur_order($data, $id)</code></li>
+<li><code>get_pur_order_detail($pur_request)</code></li>
+<li><code>get_pur_order($id)</code></li>
+<li><code>get_html_tax_pur_order($id)</code></li>
+<li><code>get_purchase_order_attachments($id)</code></li>
+<li><code>delete_purorder_attachment($id)</code></li>
+<li><code>get_purorder_attachments($surope, $id = '')</code></li>
+<li><code>change_status_pur_order($status, $id)</code></li>
+<li><code>change_delivery_status_pur_order($status, $id)</code></li>
+<li><code>mark_pur_order_as($status, $pur_order)</code></li>
+<li><code>delete_pur_order($id)</code></li>
+<li><code>mark_converted_purchase_order($pur_order_id, $expense_id)</code></li>
+<li><code>get_pur_request_detail_in_po($pur_request)</code></li>
+<li><code>get_estimate_html_by_pr_vendor($pur_request, $vendor = '')</code></li>
+<li><code>get_pur_estimate_detail_in_order($pur_estimate)</code></li>
+<li><code>get_list_pur_orders()</code></li>
+<li><code>get_pur_order_approved()</code></li>
+<li><code>get_pur_invoice($id = '')</code></li>
+<li><code>get_pur_invoice_detail($pur_request)</code></li>
+<li><code>get_pur_order_approved_for_inv()</code></li>
+<li><code>create_purchase_invoice_row_template($name = '', $item_name = '', $item_description = '', $quantity = '', $unit_name = '', $unit_price = '', $taxname = '', $item_code = '', $unit_id = '', $tax_rate = '', $total_money = '', $discount = '', $discount_money = '', $total = '', $into_money = '', $tax_id = '', $tax_value = '', $item_key = '', $is_edit = false, $currency_rate = 1, $to_currency = '')</code></li>
+<li><code>add_pur_invoice($data)</code></li>
+<li><code>update_pur_invoice($id, $data)</code></li>
+<li><code>get_html_tax_pur_invoice($id)</code></li>
+<li><code>get_purchase_invoice_attachments($id)</code></li>
+<li><code>get_payment_invoice($invoice)</code></li>
+<li><code>get_purinv_attachments($surope, $id = '')</code></li>
+<li><code>delete_purinv_attachment($id)</code></li>
+<li><code>get_pur_order_approved_for_inv_by_vendor($vendor)</code></li>
+<li><code>add_invoice_payment($data, $invoice)</code></li>
+<li><code>get_payment_pur_invoice($id = '')</code></li>
+<li><code>delete_pur_invoice($id)</code></li>
+<li><code>delete_payment_pur_invoice($id)</code></li>
+<li><code>update_invoice_after_approve($id)</code></li>
+<li><code>get_inv_payment_purchase_order($pur_order)</code></li>
+<li><code>get_payment_invoices_by_vendor($vendor)</code></li>
+<li><code>get_invoices_by_vendor($vendor)</code></li>
+<li><code>get_unit_add_commodity()</code></li>
+<li><code>get_contact($id)</code></li>
+<li><code>add_contact($data, $customer_id, $not_manual_request = false)</code></li>
+<li><code>update_contact($data, $id, $client_request = false)</code></li>
+<li><code>delete_vendor_contact($id)</code></li>
+<li><code>get_vendor_item($vendorid)</code></li>
+<li><code>get_item_by_vendor($vendor)</code></li>
+<li><code>get_item_of_vendor($item_id)</code></li>
+<li><code>add_vendor_item($data, $vendor_id)</code></li>
+<li><code>create_vendor_item_sku_code($commodity_group, $sub_group)</code></li>
+<li><code>update_vendor_item($data, $id)</code></li>
+<li><code>get_vendor_item_file($item_id)</code></li>
+<li><code>share_vendor_item($item_id)</code></li>
+<li><code>delete_vendor_item($item_id, $vendor_id)</code></li>
+<li><code>get_primary_contact_name_of_vendor($vendorid)</code></li>
+<li><code>get_primary_contact_email_of_vendor($vendorid)</code></li>
+<li><code>get_purchase_request_by_vendor($vendorid)</code></li>
+<li><code>get_pur_order_by_vendor($vendor)</code></li>
+<li><code>get_pur_order_approved_by_vendor($vendor)</code></li>
+<li><code>get_contact_details($options = [])</code></li>
+<li><code>get_all_purchase_request($query)</code></li>
+<li><code>get_pur_request_with_items($query)</code></li>
+<li><code>get_pur_request_items($pur_request_id)</code></li>
+<li><code>get_project_po_total($project_id)</code></li>
+</ul>
+</body></html>

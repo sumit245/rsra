@@ -1,0 +1,101 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Test\ControllerTester.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Test\ControllerTester.php</h1>
+
+<ul>
+<li>Path: <code>system\Test\ControllerTester.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 6782 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>ControllerTester Trait</p>
+<p>Provides features that make testing controllers simple and fluent.</p>
+<p>Example:</p>
+<p> $this->withRequest($request)</p>
+<p>      ->withResponse($response)</p>
+<p>      ->withURI($uri)</p>
+<p>      ->withBody($body)</p>
+<p>      ->controller('App\Controllers\Home')</p>
+<p>      ->execute('methodName');</p>
+<p>@deprecated Use ControllerTestTrait instead</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Controller configuration.</p>
+<p>@var App</p>
+
+<p>Request.</p>
+<p>@var IncomingRequest</p>
+
+<p>Response.</p>
+<p>@var Response</p>
+
+<p>Message logger.</p>
+<p>@var LoggerInterface</p>
+
+<p>Initialized controller.</p>
+<p>@var Controller</p>
+
+<p>URI of this request.</p>
+<p>@var string</p>
+
+<p>Request or response body.</p>
+<p>@var string|null</p>
+
+<p>Initializes required components.</p>
+
+<p>Loads the specified controller, and generates any needed dependencies.</p>
+<p>@return mixed</p>
+
+<p>Runs the specified method on the controller and returns the results.</p>
+<p>@param array $params</p>
+<p>@throws InvalidArgumentException</p>
+<p>@return ControllerResponse</p>
+
+<p>Set controller's config, with method chaining.</p>
+<p>@param mixed $appConfig</p>
+<p>@return mixed</p>
+
+<p>Set controller's request, with method chaining.</p>
+<p>@param mixed $request</p>
+<p>@return mixed</p>
+
+<p>Set controller's response, with method chaining.</p>
+<p>@param mixed $response</p>
+<p>@return mixed</p>
+
+<p>Set controller's logger, with method chaining.</p>
+<p>@param mixed $logger</p>
+<p>@return mixed</p>
+
+<p>Set the controller's URI, with method chaining.</p>
+<p>@return mixed</p>
+
+<p>Set the method's body, with method chaining.</p>
+<p>@param string|null $body</p>
+<p>@return mixed</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Test\ControllerTester.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>setUpControllerTester()</code></li>
+<li><code>controller(string $name)</code></li>
+<li><code>execute(string $method, ...$params)</code></li>
+<li><code>withConfig($appConfig)</code></li>
+<li><code>withRequest($request)</code></li>
+<li><code>withResponse($response)</code></li>
+<li><code>withLogger($logger)</code></li>
+<li><code>withUri(string $uri)</code></li>
+<li><code>withBody($body)</code></li>
+</ul>
+</body></html>

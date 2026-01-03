@@ -1,0 +1,113 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\Config\Cache.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\Config\Cache.php</h1>
+
+<ul>
+<li>Path: <code>app\Config\Cache.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 6279 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Primary Handler</p>
+<p>--------------------------------------------------------------------------</p>
+<p>The name of the preferred handler that should be used. If for some reason</p>
+<p>it is not available, the $backupHandler will be used in its place.</p>
+<p>@var string</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Backup Handler</p>
+<p>--------------------------------------------------------------------------</p>
+<p>The name of the handler that will be used in case the first one is</p>
+<p>unreachable. Often, 'file' is used here since the filesystem is</p>
+<p>always available, though that's not always practical for the app.</p>
+<p>@var string</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Cache Directory Path</p>
+<p>--------------------------------------------------------------------------</p>
+<p>The path to where cache files should be stored, if using a file-based</p>
+<p>system.</p>
+<p>@var string</p>
+<p>@deprecated Use the driver-specific variant under $file</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Cache Include Query String</p>
+<p>--------------------------------------------------------------------------</p>
+<p>Whether to take the URL query string into consideration when generating</p>
+<p>output cache files. Valid options are:</p>
+<p>   false      = Disabled</p>
+<p>   true       = Enabled, take all query parameters into account.</p>
+<p>                Please be aware that this may result in numerous cache</p>
+<p>                files generated for the same page over and over again.</p>
+<p>   array('q') = Enabled, but only take into account the specified list</p>
+<p>                of query parameters.</p>
+<p>@var bool|string[]</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Key Prefix</p>
+<p>--------------------------------------------------------------------------</p>
+<p>This string is added to all cache item names to help avoid collisions</p>
+<p>if you run multiple applications with the same cache engine.</p>
+<p>@var string</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Default TTL</p>
+<p>--------------------------------------------------------------------------</p>
+<p>The default number of seconds to save items when none is specified.</p>
+<p>WARNING: This is not used by framework handlers where 60 seconds is</p>
+<p>hard-coded, but may be useful to projects and modules. This will replace</p>
+<p>the hard-coded value in a future release.</p>
+<p>@var int</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Reserved Characters</p>
+<p>--------------------------------------------------------------------------</p>
+<p>A string of reserved characters that will not be allowed in keys or tags.</p>
+<p>Strings that violate this restriction will cause handlers to throw.</p>
+<p>Default: {}()/\@:</p>
+<p>Note: The default set is required for PSR-6 compliance.</p>
+<p>@var string</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>File settings</p>
+<p>--------------------------------------------------------------------------</p>
+<p>Your file storage preferences can be specified below, if you are using</p>
+<p>the File driver.</p>
+<p>@var array<string, int|string|null></p>
+
+<p>-------------------------------------------------------------------------</p>
+<p>Memcached settings</p>
+<p>-------------------------------------------------------------------------</p>
+<p>Your Memcached servers can be specified below, if you are using</p>
+<p>the Memcached drivers.</p>
+<p>@see https://codeigniter.com/user_guide/libraries/caching.html#memcached</p>
+<p>@var array<string, boolean|int|string></p>
+
+<p>-------------------------------------------------------------------------</p>
+<p>Redis settings</p>
+<p>-------------------------------------------------------------------------</p>
+<p>Your Redis server can be specified below, if you are using</p>
+<p>the Redis or Predis drivers.</p>
+<p>@var array<string, int|string|null></p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Available Cache Handlers</p>
+<p>--------------------------------------------------------------------------</p>
+<p>This is an array of cache engine alias' and class names. Only engines</p>
+<p>that are listed here are allowed to be used.</p>
+<p>@var array<string, string></p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\Config\Cache.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Config\Cache extends BaseConfig</code></li>
+<li><code>Config\names</code></li>
+</ul>
+</body></html>

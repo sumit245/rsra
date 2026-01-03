@@ -1,0 +1,109 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\AddressConsumer.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\AddressConsumer.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\AddressConsumer.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4894 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Parses a single part of an address header.</p>
+
+<p>Represents a single part of a list of addresses.  A part could be one email</p>
+<p>address, or one 'group' containing multiple addresses.  The consumer ends on</p>
+<p>finding either a comma token, representing a separation between addresses, or</p>
+<p>a semi-colon token representing the end of a group.</p>
+
+<p>A single email address may consist of just an email, or a name and an email</p>
+<p>address.  Both of these are valid examples of a From header:</p>
+<p> - From: jonsnow@winterfell.com</p>
+<p> - From: Jon Snow <jonsnow@winterfell.com></p>
+
+<p>Groups must be named, for example:</p>
+<p> - To: Winterfell: jonsnow@winterfell.com, Arya Stark <arya@winterfell.com>;</p>
+<p>Addresses may contain quoted parts and comments, and names may be mime-header</p>
+<p>encoded.</p>
+
+<p>@author Zaahid Bateson</p>
+
+<p>Returns the following as sub-consumers:</p>
+<p> - \ZBateson\MailMimeParser\Header\Consumer\AddressGroupConsumer</p>
+<p> - \ZBateson\MailMimeParser\Header\Consumer\CommentConsumer</p>
+<p> - \ZBateson\MailMimeParser\Header\Consumer\QuotedStringConsumer</p>
+
+<p>@return AbstractConsumer[] the sub-consumers</p>
+
+<p>Overridden to return patterns matching the beginning part of an address</p>
+<p>in a name/address part ("<" and ">" chars), end tokens ("," and ";"), and</p>
+<p>whitespace.</p>
+
+<p>@return string[] the patterns</p>
+
+<p>Returns true for commas and semi-colons.</p>
+
+<p>Although the semi-colon is not strictly the end token of an</p>
+<p>AddressConsumer, it could end a parent AddressGroupConsumer. I can't</p>
+<p>think of a valid scenario where this would be an issue, but additional</p>
+<p>thought may be needed (and documented here).</p>
+
+<p>@param string $token</p>
+<p>@return boolean false</p>
+
+<p>AddressConsumer is "greedy", so this always returns true.</p>
+
+<p>@param string $token</p>
+<p>@return boolean false</p>
+
+<p>Checks if the passed part represents the beginning or end of an address</p>
+<p>part (less than/greater than characters) and either appends the value of</p>
+<p>the part to the passed $strValue, or sets up $strName</p>
+
+<p>@param HeaderPart $part</p>
+<p>@param string $strName</p>
+<p>@param string $strValue</p>
+
+<p>Performs final processing on parsed parts.</p>
+
+<p>AddressConsumer's implementation looks for tokens representing the</p>
+<p>beginning of an address part, to create a Part\AddressPart out of a</p>
+<p>name/address pair, or assign the name part to a parsed Part\AddressGroupPart</p>
+<p>returned from its AddressGroupConsumer sub-consumer.</p>
+
+<p>The returned array consists of a single element - either a</p>
+<p>Part\AddressPart or a Part\AddressGroupPart.</p>
+
+<p>@param \ZBateson\MailMimeParser\Header\Part\HeaderPart[] $parts</p>
+<p>@return \ZBateson\MailMimeParser\Header\Part\HeaderPart[]|array</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>header</code></li>
+<li><code>its</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\AddressConsumer.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Header\Consumer\AddressConsumer extends AbstractConsumer</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getSubConsumers()</code></li>
+<li><code>getTokenSeparators()</code></li>
+<li><code>isEndToken($token)</code></li>
+<li><code>isStartToken($token)</code></li>
+<li><code>processSinglePart(HeaderPart $part, &$strName, &$strValue)</code></li>
+<li><code>processParts(array $parts)</code></li>
+</ul>
+</body></html>

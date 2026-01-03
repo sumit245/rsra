@@ -1,0 +1,62 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Filters\InvalidChars.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Filters\InvalidChars.php</h1>
+
+<ul>
+<li>Path: <code>system\Filters\InvalidChars.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2889 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>InvalidChars filter.</p>
+<p>Check if user input data ($_GET, $_POST, $_COOKIE, php://input) do not contain</p>
+<p>invalid characters:</p>
+<p>  - invalid UTF-8 characters</p>
+<p>  - control characters except line break and tab code</p>
+
+<p>Data source</p>
+<p>@var string</p>
+
+<p>Regular expressions for valid control codes</p>
+<p>@var string</p>
+
+<p>Check invalid characters.</p>
+<p>@param array|null $arguments</p>
+<p>@return void</p>
+
+<p>We don't have anything to do here.</p>
+<p>@param array|null $arguments</p>
+<p>@return void</p>
+
+<p>Check the character encoding is valid UTF-8.</p>
+<p>@param array|string $value</p>
+<p>@return array|string</p>
+
+<p>Check for the presence of control characters except line breaks and tabs.</p>
+<p>@param array|string $value</p>
+<p>@return array|string</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Filters\InvalidChars.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Filters\InvalidChars implements FilterInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>before(RequestInterface $request, $arguments = null)</code></li>
+<li><code>after(RequestInterface $request, ResponseInterface $response, $arguments = null)</code></li>
+<li><code>checkEncoding($value)</code></li>
+<li><code>checkControl($value)</code></li>
+</ul>
+</body></html>

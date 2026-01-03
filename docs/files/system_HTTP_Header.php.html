@@ -1,0 +1,84 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\HTTP\Header.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\HTTP\Header.php</h1>
+
+<ul>
+<li>Path: <code>system\HTTP\Header.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4287 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Class Header</p>
+<p>Represents a single HTTP header.</p>
+
+<p>The name of the header.</p>
+<p>@var string</p>
+
+<p>The value of the header. May have more than one</p>
+<p>value. If so, will be an array of strings.</p>
+<p>@var array|string</p>
+
+<p>Header constructor. name is mandatory, if a value is provided, it will be set.</p>
+<p>@param array|string|null $value</p>
+
+<p>Returns the name of the header, in the same case it was set.</p>
+
+<p>Gets the raw value of the header. This may return either a string</p>
+<p>of an array, depending on whether the header has multiple values or not.</p>
+<p>@return array|string</p>
+
+<p>Sets the name of the header, overwriting any previous value.</p>
+<p>@return $this</p>
+
+<p>Sets the value of the header, overwriting any previous value(s).</p>
+<p>@param array|string|null $value</p>
+<p>@return $this</p>
+
+<p>Appends a value to the list of values for this header. If the</p>
+<p>header is a single value string, it will be converted to an array.</p>
+<p>@param array|string|null $value</p>
+<p>@return $this</p>
+
+<p>Prepends a value to the list of values for this header. If the</p>
+<p>header is a single value string, it will be converted to an array.</p>
+<p>@param array|string|null $value</p>
+<p>@return $this</p>
+
+<p>Retrieves a comma-separated string of the values for a single header.</p>
+<p>NOTE: Not all header values may be appropriately represented using</p>
+<p>comma concatenation. For such headers, use getHeader() instead</p>
+<p>and supply your own delimiter when concatenating.</p>
+<p>@see https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2</p>
+
+<p>Returns a representation of the entire header string, including</p>
+<p>the header name and all values converted to the proper format.</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\HTTP\Header.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\HTTP\Header</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(string $name, $value = null)</code></li>
+<li><code>getName()</code></li>
+<li><code>getValue()</code></li>
+<li><code>setName(string $name)</code></li>
+<li><code>setValue($value = null)</code></li>
+<li><code>appendValue($value = null)</code></li>
+<li><code>prependValue($value = null)</code></li>
+<li><code>getValueLine()</code></li>
+<li><code>__toString()</code></li>
+</ul>
+</body></html>

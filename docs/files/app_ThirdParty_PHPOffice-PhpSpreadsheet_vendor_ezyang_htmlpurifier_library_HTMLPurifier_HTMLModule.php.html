@@ -1,0 +1,160 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\HTMLModule.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\HTMLModule.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\HTMLModule.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 10195 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Represents an XHTML 1.1 module, with information on elements, tags</p>
+<p>and attributes.</p>
+<p>@note Even though this is technically XHTML 1.1, it is also used for</p>
+<p>      regular HTML parsing. We are using modulization as a convenient</p>
+<p>      way to represent the internals of HTMLDefinition, and our</p>
+<p>      implementation is by no means conforming and does not directly</p>
+<p>      use the normative DTDs or XML schemas.</p>
+<p>@note The public variables in a module should almost directly</p>
+<p>      correspond to the variables in HTMLPurifier_HTMLDefinition.</p>
+<p>      However, the prefix info carries no special meaning in these</p>
+<p>      objects (include it anyway if that's the correspondence though).</p>
+<p>@todo Consider making some member functions protected</p>
+
+<p>Short unique string identifier of the module.</p>
+<p>@type string</p>
+
+<p>Informally, a list of elements this module changes.</p>
+<p>Not used in any significant way.</p>
+<p>@type array</p>
+
+<p>Associative array of element names to element definitions.</p>
+<p>Some definitions may be incomplete, to be merged in later</p>
+<p>with the full definition.</p>
+<p>@type array</p>
+
+<p>Associative array of content set names to content set additions.</p>
+<p>This is commonly used to, say, add an A element to the Inline</p>
+<p>content set. This corresponds to an internal variable $content_sets</p>
+<p>and NOT info_content_sets member variable of HTMLDefinition.</p>
+<p>@type array</p>
+
+<p>Associative array of attribute collection names to attribute</p>
+<p>collection additions. More rarely used for adding attributes to</p>
+<p>the global collections. Example is the StyleAttribute module adding</p>
+<p>the style attribute to the Core. Corresponds to HTMLDefinition's</p>
+<p>attr_collections->info, since the object's data is only info,</p>
+<p>with extra behavior associated with it.</p>
+<p>@type array</p>
+
+<p>Associative array of deprecated tag name to HTMLPurifier_TagTransform.</p>
+<p>@type array</p>
+
+<p>List of HTMLPurifier_AttrTransform to be performed before validation.</p>
+<p>@type array</p>
+
+<p>List of HTMLPurifier_AttrTransform to be performed after validation.</p>
+<p>@type array</p>
+
+<p>List of HTMLPurifier_Injector to be performed during well-formedness fixing.</p>
+<p>An injector will only be invoked if all of it's pre-requisites are met;</p>
+<p>if an injector fails setup, there will be no error; it will simply be</p>
+<p>silently disabled.</p>
+<p>@type array</p>
+
+<p>Boolean flag that indicates whether or not getChildDef is implemented.</p>
+<p>For optimization reasons: may save a call to a function. Be sure</p>
+<p>to set it if you do implement getChildDef(), otherwise it will have</p>
+<p>no effect!</p>
+<p>@type bool</p>
+
+<p>Boolean flag whether or not this module is safe. If it is not safe, all</p>
+<p>of its members are unsafe. Modules are safe by default (this might be</p>
+<p>slightly dangerous, but it doesn't make much sense to force HTML Purifier,</p>
+<p>which is based off of safe HTML, to explicitly say, "This is safe," even</p>
+<p>though there are modules which are "unsafe")</p>
+<p>@type bool</p>
+<p>@note Previously, safety could be applied at an element level granularity.</p>
+<p>      We've removed this ability, so in order to add "unsafe" elements</p>
+<p>      or attributes, a dedicated module with this property set to false</p>
+<p>      must be used.</p>
+
+<p>Retrieves a proper HTMLPurifier_ChildDef subclass based on</p>
+<p>content_model and content_model_type member variables of</p>
+<p>the HTMLPurifier_ElementDef class. There is a similar function</p>
+<p>in HTMLPurifier_HTMLDefinition.</p>
+<p>@param HTMLPurifier_ElementDef $def</p>
+<p>@return HTMLPurifier_ChildDef subclass</p>
+
+<p>Convenience function that sets up a new element</p>
+<p>@param string $element Name of element to add</p>
+<p>@param string|bool $type What content set should element be registered to?</p>
+<p>             Set as false to skip this step.</p>
+<p>@param string|HTMLPurifier_ChildDef $contents Allowed children in form of:</p>
+<p>             "$content_model_type: $content_model"</p>
+<p>@param array|string $attr_includes What attribute collections to register to</p>
+<p>             element?</p>
+<p>@param array $attr What unique attributes does the element define?</p>
+<p>@see HTMLPurifier_ElementDef:: for in-depth descriptions of these parameters.</p>
+<p>@return HTMLPurifier_ElementDef Created element definition object, so you</p>
+<p>        can set advanced parameters</p>
+
+<p>Convenience function that creates a totally blank, non-standalone</p>
+<p>element.</p>
+<p>@param string $element Name of element to create</p>
+<p>@return HTMLPurifier_ElementDef Created element</p>
+
+<p>Convenience function that registers an element to a content set</p>
+<p>@param string $element Element to register</p>
+<p>@param string $type Name content set (warning: case sensitive, usually upper-case</p>
+<p>       first letter)</p>
+
+<p>Convenience function that transforms single-string contents</p>
+<p>into separate content model and content model type</p>
+<p>@param string $contents Allowed children in form of:</p>
+<p>                 "$content_model_type: $content_model"</p>
+<p>@return array</p>
+<p>@note If contents is an object, an array of two nulls will be</p>
+<p>      returned, and the callee needs to take the original $contents</p>
+<p>      and use it directly.</p>
+
+<p>Convenience function that merges a list of attribute includes into</p>
+<p>an attribute array.</p>
+<p>@param array $attr Reference to attr array to modify</p>
+<p>@param array $attr_includes Array of includes / string include to merge in</p>
+
+<p>Convenience function that generates a lookup table with boolean</p>
+<p>true as value.</p>
+<p>@param string $list List of values to turn into a lookup</p>
+<p>@note You can also pass an arbitrary number of arguments in</p>
+<p>      place of the regular argument</p>
+<p>@return array array equivalent of list</p>
+
+<p>Lazy load construction of the module after determining whether</p>
+<p>or not it's needed, and also when a finalized configuration object</p>
+<p>is available.</p>
+<p>@param HTMLPurifier_Config $config</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\HTMLModule.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>HTMLPurifier_HTMLModule</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getChildDef($def)</code></li>
+<li><code>addElement($element, $type, $contents, $attr_includes = array()</code></li>
+<li><code>addBlankElement($element)</code></li>
+<li><code>addElementToContentSet($element, $type)</code></li>
+<li><code>parseContents($contents)</code></li>
+<li><code>mergeInAttrIncludes(&$attr, $attr_includes)</code></li>
+<li><code>makeLookup($list)</code></li>
+<li><code>setup($config)</code></li>
+</ul>
+</body></html>

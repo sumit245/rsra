@@ -1,0 +1,81 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Handler\CurlFactory.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Handler\CurlFactory.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Handler\CurlFactory.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 20601 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Creates curl resources from a request</p>
+
+<p>@var array</p>
+
+<p>@var int Total number of idle handles to keep in cache</p>
+
+<p>@param int $maxHandles Maximum number of idle handles.</p>
+
+<p>Completes a cURL transaction, either returning a response promise or a</p>
+<p>rejected promise.</p>
+<p>@param callable             $handler</p>
+<p>@param EasyHandle           $easy</p>
+<p>@param CurlFactoryInterface $factory Dictates how the handle is released</p>
+<p>@return \GuzzleHttp\Promise\PromiseInterface</p>
+
+<p>Remove a header from the options array.</p>
+<p>@param string $name    Case-insensitive header to remove</p>
+<p>@param array  $options Array of options to modify</p>
+
+<p>This function ensures that a response was set on a transaction. If one</p>
+<p>was not set, then the request is retried if possible. This error</p>
+<p>typically means you are sending a payload, curl encountered a</p>
+<p>"Connection died, retrying a fresh connect" error, tried to rewind the</p>
+<p>stream, and then encountered a "necessary data rewind wasn't possible"</p>
+<p>error, causing the request to be sent through curl_multi_info_read()</p>
+<p>without an error status.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+<li><code>the</code></li>
+<li><code>adding</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Handler\CurlFactory.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>GuzzleHttp\Handler\CurlFactory implements CurlFactoryInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($maxHandles)</code></li>
+<li><code>create(RequestInterface $request, array $options)</code></li>
+<li><code>release(EasyHandle $easy)</code></li>
+<li>`finish(callable $handler,</li>
+<p>        EasyHandle $easy,</p>
+<p>        CurlFactoryInterface $factory)`</p>
+<li><code>invokeStats(EasyHandle $easy)</code></li>
+<li>`finishError(callable $handler,</li>
+<p>        EasyHandle $easy,</p>
+<p>        CurlFactoryInterface $factory)`</p>
+<li><code>createRejection(EasyHandle $easy, array $ctx)</code></li>
+<li><code>getDefaultConf(EasyHandle $easy)</code></li>
+<li><code>applyMethod(EasyHandle $easy, array &$conf)</code></li>
+<li><code>applyBody(RequestInterface $request, array $options, array &$conf)</code></li>
+<li><code>applyHeaders(EasyHandle $easy, array &$conf)</code></li>
+<li><code>removeHeader($name, array &$options)</code></li>
+<li><code>applyHandlerOptions(EasyHandle $easy, array &$conf)</code></li>
+<li>`retryFailedRewind(callable $handler,</li>
+<p>        EasyHandle $easy,</p>
+<p>        array $ctx)`</p>
+<li><code>createHeaderFn(EasyHandle $easy)</code></li>
+</ul>
+</body></html>

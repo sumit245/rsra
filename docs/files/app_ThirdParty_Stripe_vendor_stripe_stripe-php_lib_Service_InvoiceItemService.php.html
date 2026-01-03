@@ -1,0 +1,77 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\InvoiceItemService.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\InvoiceItemService.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\InvoiceItemService.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3051 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Returns a list of your invoice items. Invoice items are returned sorted by</p>
+<p>creation date, with the most recently created invoice items appearing first.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\InvoiceItem></p>
+
+<p>Creates an item to be added to a draft invoice (up to 250 items per invoice). If</p>
+<p>no invoice is specified, the item will be on the next invoice created for the</p>
+<p>customer specified.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\InvoiceItem</p>
+
+<p>Deletes an invoice item, removing it from an invoice. Deleting invoice items is</p>
+<p>only possible when they’re not attached to invoices, or if it’s attached to a</p>
+<p>draft invoice.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\InvoiceItem</p>
+
+<p>Retrieves the invoice item with the given ID.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\InvoiceItem</p>
+
+<p>Updates the amount or description of an invoice item on an upcoming invoice.</p>
+<p>Updating an invoice item is only possible before the invoice it’s attached to is</p>
+<p>closed.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\InvoiceItem</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+<li><code>an</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\InvoiceItemService.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Service\InvoiceItemService extends \Stripe\Service\AbstractService</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>all($params = null, $opts = null)</code></li>
+<li><code>create($params = null, $opts = null)</code></li>
+<li><code>delete($id, $params = null, $opts = null)</code></li>
+<li><code>retrieve($id, $params = null, $opts = null)</code></li>
+<li><code>update($id, $params = null, $opts = null)</code></li>
+</ul>
+</body></html>

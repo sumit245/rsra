@@ -1,0 +1,96 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\DefinitionCache\Serializer.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\DefinitionCache\Serializer.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\DefinitionCache\Serializer.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9346 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@param HTMLPurifier_Definition $def</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@return int|bool</p>
+
+<p>@param HTMLPurifier_Definition $def</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@return int|bool</p>
+
+<p>@param HTMLPurifier_Definition $def</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@return int|bool</p>
+
+<p>@param HTMLPurifier_Config $config</p>
+<p>@return bool|HTMLPurifier_Config</p>
+
+<p>@param HTMLPurifier_Config $config</p>
+<p>@return bool</p>
+
+<p>@param HTMLPurifier_Config $config</p>
+<p>@return bool</p>
+
+<p>@param HTMLPurifier_Config $config</p>
+<p>@return bool</p>
+
+<p>Generates the file path to the serial file corresponding to</p>
+<p>the configuration and definition name</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@return string</p>
+<p>@todo Make protected</p>
+
+<p>Generates the path to the directory contain this cache's serial files</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@return string</p>
+<p>@note No trailing slash</p>
+<p>@todo Make protected</p>
+
+<p>Generates path to base directory that contains all definition type</p>
+<p>serials</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@return mixed|string</p>
+<p>@todo Make protected</p>
+
+<p>Convenience wrapper function for file_put_contents</p>
+<p>@param string $file File name to write to</p>
+<p>@param string $data Data to write into file</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@return int|bool Number of bytes written if success, or false if failure.</p>
+
+<p>Prepares the directory that this type stores the serials in</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@return bool True if successful</p>
+
+<p>Tests permissions on a directory and throws out friendly</p>
+<p>error messages and attempts to chmod it itself if possible</p>
+<p>@param string $dir Directory path</p>
+<p>@param int $chmod Permissions</p>
+<p>@return bool True if directory is writable</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\DefinitionCache\Serializer.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>HTMLPurifier_DefinitionCache_Serializer extends HTMLPurifier_DefinitionCache</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>add($def, $config)</code></li>
+<li><code>set($def, $config)</code></li>
+<li><code>replace($def, $config)</code></li>
+<li><code>get($config)</code></li>
+<li><code>remove($config)</code></li>
+<li><code>flush($config)</code></li>
+<li><code>cleanup($config)</code></li>
+<li><code>generateFilePath($config)</code></li>
+<li><code>generateDirectoryPath($config)</code></li>
+<li><code>generateBaseDirectoryPath($config)</code></li>
+<li><code>_write($file, $data, $config)</code></li>
+<li><code>_prepareDir($config)</code></li>
+<li><code>_testPermissions($dir, $chmod)</code></li>
+</ul>
+</body></html>

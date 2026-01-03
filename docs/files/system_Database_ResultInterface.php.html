@@ -1,0 +1,128 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Database\ResultInterface.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Database\ResultInterface.php</h1>
+
+<ul>
+<li>Path: <code>system\Database\ResultInterface.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4006 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Interface ResultInterface</p>
+
+<p>Retrieve the results of the query. Typically an array of</p>
+<p>individual data rows, which can be either an 'array', an</p>
+<p>'object', or a custom class name.</p>
+<p>@param string $type The row type. Either 'array', 'object', or a class name to use</p>
+
+<p>Returns the results as an array of custom objects.</p>
+<p>@param string $className The name of the class to use.</p>
+<p>@return mixed</p>
+
+<p>Returns the results as an array of arrays.</p>
+<p>If no results, an empty array is returned.</p>
+
+<p>Returns the results as an array of objects.</p>
+<p>If no results, an empty array is returned.</p>
+
+<p>Wrapper object to return a row as either an array, an object, or</p>
+<p>a custom class.</p>
+<p>If row doesn't exist, returns null.</p>
+<p>@param mixed  $n    The index of the results to return</p>
+<p>@param string $type The type of result object. 'array', 'object' or class name.</p>
+<p>@return mixed</p>
+
+<p>Returns a row as a custom class instance.</p>
+<p>If row doesn't exists, returns null.</p>
+<p>@return mixed</p>
+
+<p>Returns a single row from the results as an array.</p>
+<p>If row doesn't exist, returns null.</p>
+<p>@return mixed</p>
+
+<p>Returns a single row from the results as an object.</p>
+<p>If row doesn't exist, returns null.</p>
+<p>@return mixed</p>
+
+<p>Assigns an item into a particular column slot.</p>
+<p>@param string $key</p>
+<p>@param mixed  $value</p>
+<p>@return mixed</p>
+
+<p>Returns the "first" row of the current results.</p>
+<p>@return mixed</p>
+
+<p>Returns the "last" row of the current results.</p>
+<p>@return mixed</p>
+
+<p>Returns the "next" row of the current results.</p>
+<p>@return mixed</p>
+
+<p>Returns the "previous" row of the current results.</p>
+<p>@return mixed</p>
+
+<p>Returns an unbuffered row and move the pointer to the next row.</p>
+<p>@return mixed</p>
+
+<p>Gets the number of fields in the result set.</p>
+
+<p>Generates an array of column names in the result set.</p>
+
+<p>Generates an array of objects representing field meta-data.</p>
+
+<p>Frees the current result.</p>
+
+<p>Moves the internal pointer to the desired offset. This is called</p>
+<p>internally before fetching results to make sure the result set</p>
+<p>starts at zero.</p>
+<p>@return mixed</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Database\ResultInterface.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Database\name</code></li>
+<li><code>CodeIgniter\Database\name</code></li>
+<li><code>CodeIgniter\Database\to</code></li>
+<li><code>CodeIgniter\Database\name</code></li>
+<li><code>CodeIgniter\Database\instance</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getResult(string $type = 'object')</code></li>
+<li><code>getCustomResultObject(string $className)</code></li>
+<li><code>getResultArray()</code></li>
+<li><code>getResultObject()</code></li>
+<li><code>getRow($n = 0, string $type = 'object')</code></li>
+<li><code>getCustomRowObject(int $n, string $className)</code></li>
+<li><code>getRowArray(int $n = 0)</code></li>
+<li><code>getRowObject(int $n = 0)</code></li>
+<li><code>setRow($key, $value = null)</code></li>
+<li><code>getFirstRow(string $type = 'object')</code></li>
+<li><code>getLastRow(string $type = 'object')</code></li>
+<li><code>getNextRow(string $type = 'object')</code></li>
+<li><code>getPreviousRow(string $type = 'object')</code></li>
+<li><code>getUnbufferedRow(string $type = 'object')</code></li>
+<li><code>getFieldCount()</code></li>
+<li><code>getFieldNames()</code></li>
+<li><code>getFieldData()</code></li>
+<li><code>freeResult()</code></li>
+<li><code>dataSeek(int $n = 0)</code></li>
+</ul>
+</body></html>

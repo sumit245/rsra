@@ -1,0 +1,195 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\Coupons.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\Coupons.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\Coupons.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 18585 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>COUPDAYBS.</p>
+<p>Returns the number of days from the beginning of the coupon period to the settlement date.</p>
+<p>Excel Function:</p>
+<p>       COUPDAYBS(settlement,maturity,frequency[,basis])</p>
+<p>@param mixed $settlement The security's settlement date.</p>
+<p>                             The security settlement date is the date after the issue</p>
+<p>                                 date when the security is traded to the buyer.</p>
+<p>@param mixed $maturity The security's maturity date.</p>
+<p>                           The maturity date is the date when the security expires.</p>
+<p>@param mixed $frequency The number of coupon payments per year (int).</p>
+<p>                            Valid frequency values are:</p>
+<p>                              1    Annual</p>
+<p>                              2    Semi-Annual</p>
+<p>                              4    Quarterly</p>
+<p>@param mixed $basis The type of day count to use (int).</p>
+<p>                        0 or omitted    US (NASD) 30/360</p>
+<p>                        1               Actual/actual</p>
+<p>                        2               Actual/360</p>
+<p>                        3               Actual/365</p>
+<p>                        4               European 30/360</p>
+<p>@return float|string</p>
+
+<p>COUPDAYS.</p>
+<p>Returns the number of days in the coupon period that contains the settlement date.</p>
+<p>Excel Function:</p>
+<p>       COUPDAYS(settlement,maturity,frequency[,basis])</p>
+<p>@param mixed $settlement The security's settlement date.</p>
+<p>                             The security settlement date is the date after the issue</p>
+<p>                                 date when the security is traded to the buyer.</p>
+<p>@param mixed $maturity The security's maturity date.</p>
+<p>                           The maturity date is the date when the security expires.</p>
+<p>@param mixed $frequency The number of coupon payments per year.</p>
+<p>                            Valid frequency values are:</p>
+<p>                              1    Annual</p>
+<p>                              2    Semi-Annual</p>
+<p>                              4    Quarterly</p>
+<p>@param mixed $basis The type of day count to use (int).</p>
+<p>                        0 or omitted    US (NASD) 30/360</p>
+<p>                        1               Actual/actual</p>
+<p>                        2               Actual/360</p>
+<p>                        3               Actual/365</p>
+<p>                        4               European 30/360</p>
+<p>@return float|string</p>
+
+<p>COUPDAYSNC.</p>
+<p>Returns the number of days from the settlement date to the next coupon date.</p>
+<p>Excel Function:</p>
+<p>       COUPDAYSNC(settlement,maturity,frequency[,basis])</p>
+<p>@param mixed $settlement The security's settlement date.</p>
+<p>                             The security settlement date is the date after the issue</p>
+<p>                                 date when the security is traded to the buyer.</p>
+<p>@param mixed $maturity The security's maturity date.</p>
+<p>                           The maturity date is the date when the security expires.</p>
+<p>@param mixed $frequency The number of coupon payments per year.</p>
+<p>                            Valid frequency values are:</p>
+<p>                              1    Annual</p>
+<p>                              2    Semi-Annual</p>
+<p>                              4    Quarterly</p>
+<p>@param mixed $basis The type of day count to use (int) .</p>
+<p>                        0 or omitted    US (NASD) 30/360</p>
+<p>                        1               Actual/actual</p>
+<p>                        2               Actual/360</p>
+<p>                        3               Actual/365</p>
+<p>                        4               European 30/360</p>
+<p>@return float|string</p>
+
+<p>@var int</p>
+
+<p>COUPNCD.</p>
+<p>Returns the next coupon date after the settlement date.</p>
+<p>Excel Function:</p>
+<p>       COUPNCD(settlement,maturity,frequency[,basis])</p>
+<p>@param mixed $settlement The security's settlement date.</p>
+<p>                             The security settlement date is the date after the issue</p>
+<p>                                 date when the security is traded to the buyer.</p>
+<p>@param mixed $maturity The security's maturity date.</p>
+<p>                           The maturity date is the date when the security expires.</p>
+<p>@param mixed $frequency The number of coupon payments per year.</p>
+<p>                            Valid frequency values are:</p>
+<p>                              1    Annual</p>
+<p>                              2    Semi-Annual</p>
+<p>                              4    Quarterly</p>
+<p>@param mixed $basis The type of day count to use (int).</p>
+<p>                        0 or omitted    US (NASD) 30/360</p>
+<p>                        1               Actual/actual</p>
+<p>                        2               Actual/360</p>
+<p>                        3               Actual/365</p>
+<p>                        4               European 30/360</p>
+<p>@return mixed Excel date/time serial value, PHP date/time serial value or PHP date/time object,</p>
+<p>                    depending on the value of the ReturnDateType flag</p>
+
+<p>COUPNUM.</p>
+<p>Returns the number of coupons payable between the settlement date and maturity date,</p>
+<p>rounded up to the nearest whole coupon.</p>
+<p>Excel Function:</p>
+<p>       COUPNUM(settlement,maturity,frequency[,basis])</p>
+<p>@param mixed $settlement The security's settlement date.</p>
+<p>                             The security settlement date is the date after the issue</p>
+<p>                                 date when the security is traded to the buyer.</p>
+<p>@param mixed $maturity The security's maturity date.</p>
+<p>                           The maturity date is the date when the security expires.</p>
+<p>@param mixed $frequency The number of coupon payments per year.</p>
+<p>                            Valid frequency values are:</p>
+<p>                              1    Annual</p>
+<p>                              2    Semi-Annual</p>
+<p>                              4    Quarterly</p>
+<p>@param mixed $basis The type of day count to use (int).</p>
+<p>                        0 or omitted    US (NASD) 30/360</p>
+<p>                        1               Actual/actual</p>
+<p>                        2               Actual/360</p>
+<p>                        3               Actual/365</p>
+<p>                        4               European 30/360</p>
+<p>@return int|string</p>
+
+<p>COUPPCD.</p>
+<p>Returns the previous coupon date before the settlement date.</p>
+<p>Excel Function:</p>
+<p>       COUPPCD(settlement,maturity,frequency[,basis])</p>
+<p>@param mixed $settlement The security's settlement date.</p>
+<p>                             The security settlement date is the date after the issue</p>
+<p>                             date when the security is traded to the buyer.</p>
+<p>@param mixed $maturity The security's maturity date.</p>
+<p>                           The maturity date is the date when the security expires.</p>
+<p>@param mixed $frequency The number of coupon payments per year.</p>
+<p>                            Valid frequency values are:</p>
+<p>                              1    Annual</p>
+<p>                              2    Semi-Annual</p>
+<p>                              4    Quarterly</p>
+<p>@param mixed $basis The type of day count to use (int).</p>
+<p>                        0 or omitted    US (NASD) 30/360</p>
+<p>                        1               Actual/actual</p>
+<p>                        2               Actual/360</p>
+<p>                        3               Actual/365</p>
+<p>                        4               European 30/360</p>
+<p>@return mixed Excel date/time serial value, PHP date/time serial value or PHP date/time object,</p>
+<p>                    depending on the value of the ReturnDateType flag</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\Coupons.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\Financial\Coupons</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`COUPDAYBS($settlement,</li>
+<p>        $maturity,</p>
+<p>        $frequency,</p>
+<p>        $basis = FinancialConstants::BASIS_DAYS_PER_YEAR_NASD)`</p>
+<li>`COUPDAYS($settlement,</li>
+<p>        $maturity,</p>
+<p>        $frequency,</p>
+<p>        $basis = FinancialConstants::BASIS_DAYS_PER_YEAR_NASD)`</p>
+<li>`COUPDAYSNC($settlement,</li>
+<p>        $maturity,</p>
+<p>        $frequency,</p>
+<p>        $basis = FinancialConstants::BASIS_DAYS_PER_YEAR_NASD)`</p>
+<li>`COUPNCD($settlement,</li>
+<p>        $maturity,</p>
+<p>        $frequency,</p>
+<p>        $basis = FinancialConstants::BASIS_DAYS_PER_YEAR_NASD)`</p>
+<li>`COUPNUM($settlement,</li>
+<p>        $maturity,</p>
+<p>        $frequency,</p>
+<p>        $basis = FinancialConstants::BASIS_DAYS_PER_YEAR_NASD)`</p>
+<li>`COUPPCD($settlement,</li>
+<p>        $maturity,</p>
+<p>        $frequency,</p>
+<p>        $basis = FinancialConstants::BASIS_DAYS_PER_YEAR_NASD)`</p>
+<li><code>monthsDiff(DateTime $result, int $months, string $plusOrMinus, int $day, bool $lastDayFlag)</code></li>
+<li><code>couponFirstPeriodDate(float $settlement, float $maturity, int $frequency, bool $next)</code></li>
+<li><code>validateCouponPeriod(float $settlement, float $maturity)</code></li>
+</ul>
+</body></html>

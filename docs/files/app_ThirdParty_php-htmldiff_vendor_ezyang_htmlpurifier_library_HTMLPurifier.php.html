@@ -1,0 +1,113 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 10187 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Facade that coordinates HTML Purifier's subsystems in order to purify HTML.</p>
+<p>@note There are several points in which configuration can be specified</p>
+<p>      for HTML Purifier.  The precedence of these (from lowest to</p>
+<p>      highest) is as follows:</p>
+<p>         -# Instance: new HTMLPurifier($config)</p>
+<p>         -# Invocation: purify($html, $config)</p>
+<p>      These configurations are entirely independent of each other and</p>
+<p>      are *not* merged (this behavior may change in the future).</p>
+<p>@todo We need an easier way to inject strategies using the configuration</p>
+<p>      object.</p>
+
+<p>Version of HTML Purifier.</p>
+<p>@type string</p>
+
+<p>Constant with version of HTML Purifier.</p>
+
+<p>Global configuration object.</p>
+<p>@type HTMLPurifier_Config</p>
+
+<p>Array of extra filter objects to run on HTML,</p>
+<p>for backwards compatibility.</p>
+<p>@type HTMLPurifier_Filter[]</p>
+
+<p>Single instance of HTML Purifier.</p>
+<p>@type HTMLPurifier</p>
+
+<p>@type HTMLPurifier_Strategy_Core</p>
+
+<p>@type HTMLPurifier_Generator</p>
+
+<p>Resultant context of last run purification.</p>
+<p>Is an array of contexts if the last called method was purifyArray().</p>
+<p>@type HTMLPurifier_Context</p>
+
+<p>Initializes the purifier.</p>
+<p>@param HTMLPurifier_Config|mixed $config Optional HTMLPurifier_Config object</p>
+<p>               for all instances of the purifier, if omitted, a default</p>
+<p>               configuration is supplied (which can be overridden on a</p>
+<p>               per-use basis).</p>
+<p>               The parameter can also be any type that</p>
+<p>               HTMLPurifier_Config::create() supports.</p>
+
+<p>Adds a filter to process the output. First come first serve</p>
+<p>@param HTMLPurifier_Filter $filter HTMLPurifier_Filter object</p>
+
+<p>Filters an HTML snippet/document to be XSS-free and standards-compliant.</p>
+<p>@param string $html String of HTML to purify</p>
+<p>@param HTMLPurifier_Config $config Config object for this operation,</p>
+<p>               if omitted, defaults to the config object specified during this</p>
+<p>               object's construction. The parameter can also be any type</p>
+<p>               that HTMLPurifier_Config::create() supports.</p>
+<p>@return string Purified HTML</p>
+
+<p>Filters an array of HTML snippets</p>
+<p>@param string[] $array_of_html Array of html snippets</p>
+<p>@param HTMLPurifier_Config $config Optional config object for this operation.</p>
+<p>               See HTMLPurifier::purify() for more details.</p>
+<p>@return string[] Array of purified HTML</p>
+
+<p>Singleton for enforcing just one HTML Purifier in your system</p>
+<p>@param HTMLPurifier|HTMLPurifier_Config $prototype Optional prototype</p>
+<p>                  HTMLPurifier instance to overload singleton with,</p>
+<p>                  or HTMLPurifier_Config instance to configure the</p>
+<p>                  generated version with.</p>
+<p>@return HTMLPurifier</p>
+
+<p>Singleton for enforcing just one HTML Purifier in your system</p>
+<p>@param HTMLPurifier|HTMLPurifier_Config $prototype Optional prototype</p>
+<p>                  HTMLPurifier instance to overload singleton with,</p>
+<p>                  or HTMLPurifier_Config instance to configure the</p>
+<p>                  generated version with.</p>
+<p>@return HTMLPurifier</p>
+<p>@note Backwards compatibility, see instance()</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>lowest</code></li>
+<li><code>many</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>HTMLPurifier</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($config = null)</code></li>
+<li><code>addFilter($filter)</code></li>
+<li><code>purify($html, $config = null)</code></li>
+<li><code>purifyArray($array_of_html, $config = null)</code></li>
+<li><code>instance($prototype = null)</code></li>
+<li><code>getInstance($prototype = null)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,166 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\HTTP\Files\UploadedFile.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\HTTP\Files\UploadedFile.php</h1>
+
+<ul>
+<li>Path: <code>system\HTTP\Files\UploadedFile.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 10978 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Value object representing a single file uploaded through an</p>
+<p>HTTP request. Used by the IncomingRequest class to</p>
+<p>provide files.</p>
+<p>Typically, implementors will extend the SplFileInfo class.</p>
+
+<p>The path to the temporary file.</p>
+<p>@var string</p>
+
+<p>The original filename as provided by the client.</p>
+<p>@var string</p>
+
+<p>The filename given to a file during a move.</p>
+<p>@var string</p>
+
+<p>The type of file as provided by PHP</p>
+<p>@var string</p>
+
+<p>The error constant of the upload</p>
+<p>(one of PHP's UPLOADERRXXX constants)</p>
+<p>@var int</p>
+
+<p>Whether the file has been moved already or not.</p>
+<p>@var bool</p>
+
+<p>Accepts the file information as would be filled in from the $_FILES array.</p>
+<p>@param string $path         The temporary location of the uploaded file.</p>
+<p>@param string $originalName The client-provided filename.</p>
+<p>@param string $mimeType     The type of file as provided by PHP</p>
+<p>@param int    $size         The size of the file, in bytes</p>
+<p>@param int    $error        The error constant of the upload (one of PHP's UPLOADERRXXX constants)</p>
+
+<p>Move the uploaded file to a new location.</p>
+<p>$targetPath may be an absolute path, or a relative path. If it is a</p>
+<p>relative path, resolution should be the same as used by PHP's rename()</p>
+<p>function.</p>
+<p>The original file MUST be removed on completion.</p>
+<p>If this method is called more than once, any subsequent calls MUST raise</p>
+<p>an exception.</p>
+<p>When used in an SAPI environment where $_FILES is populated, when writing</p>
+<p>files via moveTo(), is_uploaded_file() and move_uploaded_file() SHOULD be</p>
+<p>used to ensure permissions and upload status are verified correctly.</p>
+<p>If you wish to move to a stream, use getStream(), as SAPI operations</p>
+<p>cannot guarantee writing to stream destinations.</p>
+<p>@see http://php.net/is_uploaded_file</p>
+<p>@see http://php.net/move_uploaded_file</p>
+<p>@param string $targetPath Path to which to move the uploaded file.</p>
+<p>@param string $name       the name to rename the file to.</p>
+<p>@param bool   $overwrite  State for indicating whether to overwrite the previously generated file with the same</p>
+<p>                          name or not.</p>
+<p>@throws InvalidArgumentException if the $path specified is invalid.</p>
+<p>@throws RuntimeException         on any error during the move operation.</p>
+<p>@throws RuntimeException         on the second or subsequent call to the method.</p>
+<p>@return bool</p>
+
+<p>create file target path if</p>
+<p>the set path does not exist</p>
+<p>@return string The path set or created.</p>
+
+<p>Returns whether the file has been moved or not. If it has,</p>
+<p>the move() method will not work and certain properties, like</p>
+<p>the tempName, will no longer be available.</p>
+
+<p>Retrieve the error associated with the uploaded file.</p>
+<p>The return value MUST be one of PHP's UPLOAD_ERR_XXX constants.</p>
+<p>If the file was uploaded successfully, this method MUST return</p>
+<p>UPLOAD_ERR_OK.</p>
+<p>Implementations SHOULD return the value stored in the "error" key of</p>
+<p>the file in the $_FILES array.</p>
+<p>@see    http://php.net/manual/en/features.file-upload.errors.php</p>
+<p>@return int One of PHP's UPLOAD_ERR_XXX constants.</p>
+
+<p>Get error string</p>
+
+<p>Returns the mime type as provided by the client.</p>
+<p>This is NOT a trusted value.</p>
+<p>For a trusted version, use getMimeType() instead.</p>
+<p>@return string The media type sent by the client or null if none was provided.</p>
+
+<p>Retrieve the filename. This will typically be the filename sent</p>
+<p>by the client, and should not be trusted. If the file has been</p>
+<p>moved, this will return the final name of the moved file.</p>
+<p>@return string The filename sent by the client or null if none was provided.</p>
+
+<p>Returns the name of the file as provided by the client during upload.</p>
+
+<p>Gets the temporary filename where the file was uploaded to.</p>
+
+<p>Overrides SPLFileInfo's to work with uploaded files, since</p>
+<p>the temp file that's been uploaded doesn't have an extension.</p>
+<p>This method tries to guess the extension from the files mime</p>
+<p>type but will return the clientExtension if it fails to do so.</p>
+<p>This method will always return a more or less helpfull extension</p>
+<p>but might be insecure if the mime type is not machted. Consider</p>
+<p>using guessExtension for a more safe version.</p>
+
+<p>Attempts to determine the best file extension from the file's</p>
+<p>mime type. In contrast to getExtension, this method will return</p>
+<p>an empty string if it fails to determine an extension instead of</p>
+<p>falling back to the unsecure clientExtension.</p>
+
+<p>Returns the original file extension, based on the file name that</p>
+<p>was uploaded. This is NOT a trusted source.</p>
+<p>For a trusted version, use guessExtension() instead.</p>
+
+<p>Returns whether the file was uploaded successfully, based on whether</p>
+<p>it was uploaded via HTTP and has no errors.</p>
+
+<p>Save the uploaded file to a new location.</p>
+<p>By default, upload files are saved in writable/uploads directory. The YYYYMMDD folder</p>
+<p>and random file name will be created.</p>
+<p>@param string $folderName the folder name to writable/uploads directory.</p>
+<p>@param string $fileName   the name to rename the file to.</p>
+<p>@return string file full path</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\HTTP\Files\UploadedFile.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\HTTP\Files\to</code></li>
+<li><code>CodeIgniter\HTTP\Files\UploadedFile extends File implements UploadedFileInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(string $path, string $originalName, ?string $mimeType = null, ?int $size = null, ?int $error = null)</code></li>
+<li><code>move(string $targetPath, ?string $name = null, bool $overwrite = false)</code></li>
+<li><code>setPath(string $path)</code></li>
+<li><code>hasMoved()</code></li>
+<li><code>getError()</code></li>
+<li><code>getErrorString()</code></li>
+<li><code>getClientMimeType()</code></li>
+<li><code>getName()</code></li>
+<li><code>getClientName()</code></li>
+<li><code>getTempName()</code></li>
+<li><code>getExtension()</code></li>
+<li><code>guessExtension()</code></li>
+<li><code>getClientExtension()</code></li>
+<li><code>isValid()</code></li>
+<li><code>store(?string $folderName = null, ?string $fileName = null)</code></li>
+</ul>
+</body></html>

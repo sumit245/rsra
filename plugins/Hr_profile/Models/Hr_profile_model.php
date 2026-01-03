@@ -3745,10 +3745,12 @@ class Hr_profile_model extends Crud_model
 			//user added, now add the job info for the user
 			$job_data = array(
 				"user_id" => $user_id,
-				"salary" => 0,
-				"salary_term" => '',
-				"date_of_hire" => null
+				"salary" => 0,             // or set a default salary if required
+				"salary_term" => '',       // set your salary term here if applicable
+				"date_of_hire" => null,    // or set to current date if required
+				"deleted" => 0             // assuming default is active (not deleted)
 			);
+
 
 			if ($Users_model->save_job_info($job_data)) {
 				$affectedRows++;
@@ -7634,10 +7636,12 @@ class Hr_profile_model extends Crud_model
 			//user added, now add the job info for the user
 			$job_data = array(
 				"user_id" => $user_id,
-				"salary" => 0,
-				"salary_term" => '',
-				"date_of_hire" => null
+				"salary" => 0,             // or set a default salary if required
+				"salary_term" => '',       // set your salary term here if applicable
+				"date_of_hire" => null,    // or set to current date if required
+				"deleted" => 0             // assuming default is active (not deleted)
 			);
+
 
 			if ($Users_model->save_job_info($job_data)) {
 				$affectedRows++;
@@ -7654,22 +7658,22 @@ class Hr_profile_model extends Crud_model
 			}
 
 			//send login details to user
-			if (isset($data['email_login_details']) && null !== $data['email_login_details']) {
+			// if (isset($data['email_login_details']) && null !== $data['email_login_details']) {
 
-				//get the login details template
-				$email_template = $Email_templates_model->get_final_template("login_info");
+			// 	//get the login details template
+			// 	$email_template = $Email_templates_model->get_final_template("login_info");
 
-				$parser_data["SIGNATURE"] = $email_template->signature;
-				$parser_data["USER_FIRST_NAME"] = $user_data["first_name"];
-				$parser_data["USER_LAST_NAME"] = $user_data["last_name"];
-				$parser_data["USER_LOGIN_EMAIL"] = $user_data["email"];
-				$parser_data["USER_LOGIN_PASSWORD"] = $data['password'];
-				$parser_data["DASHBOARD_URL"] = base_url();
-				$parser_data["LOGO_URL"] = get_logo_url();
+			// 	$parser_data["SIGNATURE"] = $email_template->signature;
+			// 	$parser_data["USER_FIRST_NAME"] = $user_data["first_name"];
+			// 	$parser_data["USER_LAST_NAME"] = $user_data["last_name"];
+			// 	$parser_data["USER_LOGIN_EMAIL"] = $user_data["email"];
+			// 	$parser_data["USER_LOGIN_PASSWORD"] = $data['password'];
+			// 	$parser_data["DASHBOARD_URL"] = base_url();
+			// 	$parser_data["LOGO_URL"] = get_logo_url();
 
-				$message = $ci->parser->setData($parser_data)->renderString($email_template->message);
-				send_app_mail($data['email'], $email_template->subject, $message);
-			}
+			// 	$message = $ci->parser->setData($parser_data)->renderString($email_template->message);
+			// 	send_app_mail($data['email'], $email_template->subject, $message);
+			// }
 		}
 
 		if ($affectedRows > 0) {

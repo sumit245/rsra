@@ -1,0 +1,393 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\PageSetup.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\PageSetup.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\PageSetup.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 27821 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p><code></p>
+<p>Paper size taken from Office Open XML Part 4 - Markup Language Reference, page 1988:.</p>
+<p>1 = Letter paper (8.5 in. by 11 in.)</p>
+<p>2 = Letter small paper (8.5 in. by 11 in.)</p>
+<p>3 = Tabloid paper (11 in. by 17 in.)</p>
+<p>4 = Ledger paper (17 in. by 11 in.)</p>
+<p>5 = Legal paper (8.5 in. by 14 in.)</p>
+<p>6 = Statement paper (5.5 in. by 8.5 in.)</p>
+<p>7 = Executive paper (7.25 in. by 10.5 in.)</p>
+<p>8 = A3 paper (297 mm by 420 mm)</p>
+<p>9 = A4 paper (210 mm by 297 mm)</p>
+<p>10 = A4 small paper (210 mm by 297 mm)</p>
+<p>11 = A5 paper (148 mm by 210 mm)</p>
+<p>12 = B4 paper (250 mm by 353 mm)</p>
+<p>13 = B5 paper (176 mm by 250 mm)</p>
+<p>14 = Folio paper (8.5 in. by 13 in.)</p>
+<p>15 = Quarto paper (215 mm by 275 mm)</p>
+<p>16 = Standard paper (10 in. by 14 in.)</p>
+<p>17 = Standard paper (11 in. by 17 in.)</p>
+<p>18 = Note paper (8.5 in. by 11 in.)</p>
+<p>19 = #9 envelope (3.875 in. by 8.875 in.)</p>
+<p>20 = #10 envelope (4.125 in. by 9.5 in.)</p>
+<p>21 = #11 envelope (4.5 in. by 10.375 in.)</p>
+<p>22 = #12 envelope (4.75 in. by 11 in.)</p>
+<p>23 = #14 envelope (5 in. by 11.5 in.)</p>
+<p>24 = C paper (17 in. by 22 in.)</p>
+<p>25 = D paper (22 in. by 34 in.)</p>
+<p>26 = E paper (34 in. by 44 in.)</p>
+<p>27 = DL envelope (110 mm by 220 mm)</p>
+<p>28 = C5 envelope (162 mm by 229 mm)</p>
+<p>29 = C3 envelope (324 mm by 458 mm)</p>
+<p>30 = C4 envelope (229 mm by 324 mm)</p>
+<p>31 = C6 envelope (114 mm by 162 mm)</p>
+<p>32 = C65 envelope (114 mm by 229 mm)</p>
+<p>33 = B4 envelope (250 mm by 353 mm)</p>
+<p>34 = B5 envelope (176 mm by 250 mm)</p>
+<p>35 = B6 envelope (176 mm by 125 mm)</p>
+<p>36 = Italy envelope (110 mm by 230 mm)</p>
+<p>37 = Monarch envelope (3.875 in. by 7.5 in.).</p>
+<p>38 = 6 3/4 envelope (3.625 in. by 6.5 in.)</p>
+<p>39 = US standard fanfold (14.875 in. by 11 in.)</p>
+<p>40 = German standard fanfold (8.5 in. by 12 in.)</p>
+<p>41 = German legal fanfold (8.5 in. by 13 in.)</p>
+<p>42 = ISO B4 (250 mm by 353 mm)</p>
+<p>43 = Japanese double postcard (200 mm by 148 mm)</p>
+<p>44 = Standard paper (9 in. by 11 in.)</p>
+<p>45 = Standard paper (10 in. by 11 in.)</p>
+<p>46 = Standard paper (15 in. by 11 in.)</p>
+<p>47 = Invite envelope (220 mm by 220 mm)</p>
+<p>50 = Letter extra paper (9.275 in. by 12 in.)</p>
+<p>51 = Legal extra paper (9.275 in. by 15 in.)</p>
+<p>52 = Tabloid extra paper (11.69 in. by 18 in.)</p>
+<p>53 = A4 extra paper (236 mm by 322 mm)</p>
+<p>54 = Letter transverse paper (8.275 in. by 11 in.)</p>
+<p>55 = A4 transverse paper (210 mm by 297 mm)</p>
+<p>56 = Letter extra transverse paper (9.275 in. by 12 in.)</p>
+<p>57 = SuperA/SuperA/A4 paper (227 mm by 356 mm)</p>
+<p>58 = SuperB/SuperB/A3 paper (305 mm by 487 mm)</p>
+<p>59 = Letter plus paper (8.5 in. by 12.69 in.)</p>
+<p>60 = A4 plus paper (210 mm by 330 mm)</p>
+<p>61 = A5 transverse paper (148 mm by 210 mm)</p>
+<p>62 = JIS B5 transverse paper (182 mm by 257 mm)</p>
+<p>63 = A3 extra paper (322 mm by 445 mm)</p>
+<p>64 = A5 extra paper (174 mm by 235 mm)</p>
+<p>65 = ISO B5 extra paper (201 mm by 276 mm)</p>
+<p>66 = A2 paper (420 mm by 594 mm)</p>
+<p>67 = A3 transverse paper (297 mm by 420 mm)</p>
+<p>68 = A3 extra transverse paper (322 mm by 445 mm)</p>
+<p></code></p>
+
+<p>Paper size default.</p>
+<p>@var int</p>
+
+<p>Paper size.</p>
+<p>@var ?int</p>
+
+<p>Orientation default.</p>
+<p>@var string</p>
+
+<p>Orientation.</p>
+<p>@var string</p>
+
+<p>Scale (Print Scale).</p>
+<p>Print scaling. Valid values range from 10 to 400</p>
+<p>This setting is overridden when fitToWidth and/or fitToHeight are in use</p>
+<p>@var null|int</p>
+
+<p>Fit To Page</p>
+<p>Whether scale or fitToWith / fitToHeight applies.</p>
+<p>@var bool</p>
+
+<p>Fit To Height</p>
+<p>Number of vertical pages to fit on.</p>
+<p>@var null|int</p>
+
+<p>Fit To Width</p>
+<p>Number of horizontal pages to fit on.</p>
+<p>@var null|int</p>
+
+<p>Columns to repeat at left.</p>
+<p>@var array Containing start column and end column, empty array if option unset</p>
+
+<p>Rows to repeat at top.</p>
+<p>@var array Containing start row number and end row number, empty array if option unset</p>
+
+<p>Center page horizontally.</p>
+<p>@var bool</p>
+
+<p>Center page vertically.</p>
+<p>@var bool</p>
+
+<p>Print area.</p>
+<p>@var null|string</p>
+
+<p>First page number.</p>
+<p>@var int</p>
+
+<p>Create a new PageSetup.</p>
+
+<p>Get Paper Size.</p>
+<p>@return int</p>
+
+<p>Set Paper Size.</p>
+<p>@param int $paperSize see self::PAPERSIZE_*</p>
+<p>@return $this</p>
+
+<p>Get Paper Size default.</p>
+
+<p>Set Paper Size Default.</p>
+
+<p>Get Orientation.</p>
+<p>@return string</p>
+
+<p>Set Orientation.</p>
+<p>@param string $orientation see self::ORIENTATION_*</p>
+<p>@return $this</p>
+
+<p>Get Scale.</p>
+<p>@return null|int</p>
+
+<p>Set Scale.</p>
+<p>Print scaling. Valid values range from 10 to 400</p>
+<p>This setting is overridden when fitToWidth and/or fitToHeight are in use.</p>
+<p>@param null|int $scale</p>
+<p>@param bool $update Update fitToPage so scaling applies rather than fitToHeight / fitToWidth</p>
+<p>@return $this</p>
+
+<p>Get Fit To Page.</p>
+<p>@return bool</p>
+
+<p>Set Fit To Page.</p>
+<p>@param bool $fitToPage</p>
+<p>@return $this</p>
+
+<p>Get Fit To Height.</p>
+<p>@return null|int</p>
+
+<p>Set Fit To Height.</p>
+<p>@param null|int $fitToHeight</p>
+<p>@param bool $update Update fitToPage so it applies rather than scaling</p>
+<p>@return $this</p>
+
+<p>Get Fit To Width.</p>
+<p>@return null|int</p>
+
+<p>Set Fit To Width.</p>
+<p>@param null|int $value</p>
+<p>@param bool $update Update fitToPage so it applies rather than scaling</p>
+<p>@return $this</p>
+
+<p>Is Columns to repeat at left set?</p>
+<p>@return bool</p>
+
+<p>Get Columns to repeat at left.</p>
+<p>@return array Containing start column and end column, empty array if option unset</p>
+
+<p>Set Columns to repeat at left.</p>
+<p>@param array $columnsToRepeatAtLeft Containing start column and end column, empty array if option unset</p>
+<p>@return $this</p>
+
+<p>Set Columns to repeat at left by start and end.</p>
+<p>@param string $start eg: 'A'</p>
+<p>@param string $end eg: 'B'</p>
+<p>@return $this</p>
+
+<p>Is Rows to repeat at top set?</p>
+<p>@return bool</p>
+
+<p>Get Rows to repeat at top.</p>
+<p>@return array Containing start column and end column, empty array if option unset</p>
+
+<p>Set Rows to repeat at top.</p>
+<p>@param array $rowsToRepeatAtTop Containing start column and end column, empty array if option unset</p>
+<p>@return $this</p>
+
+<p>Set Rows to repeat at top by start and end.</p>
+<p>@param int $start eg: 1</p>
+<p>@param int $end eg: 1</p>
+<p>@return $this</p>
+
+<p>Get center page horizontally.</p>
+<p>@return bool</p>
+
+<p>Set center page horizontally.</p>
+<p>@param bool $value</p>
+<p>@return $this</p>
+
+<p>Get center page vertically.</p>
+<p>@return bool</p>
+
+<p>Set center page vertically.</p>
+<p>@param bool $value</p>
+<p>@return $this</p>
+
+<p>Get print area.</p>
+<p>@param int $index Identifier for a specific print area range if several ranges have been set</p>
+<p>                           Default behaviour, or a index value of 0, will return all ranges as a comma-separated string</p>
+<p>                           Otherwise, the specific range identified by the value of $index will be returned</p>
+<p>                           Print areas are numbered from 1</p>
+<p>@return string</p>
+
+<p>@phpstan-ignore-next-line</p>
+
+<p>Is print area set?</p>
+<p>@param int $index Identifier for a specific print area range if several ranges have been set</p>
+<p>                           Default behaviour, or an index value of 0, will identify whether any print range is set</p>
+<p>                           Otherwise, existence of the range identified by the value of $index will be returned</p>
+<p>                           Print areas are numbered from 1</p>
+<p>@return bool</p>
+
+<p>@phpstan-ignore-next-line</p>
+
+<p>Clear a print area.</p>
+<p>@param int $index Identifier for a specific print area range if several ranges have been set</p>
+<p>                           Default behaviour, or an index value of 0, will clear all print ranges that are set</p>
+<p>                           Otherwise, the range identified by the value of $index will be removed from the series</p>
+<p>                           Print areas are numbered from 1</p>
+<p>@return $this</p>
+
+<p>@phpstan-ignore-next-line</p>
+
+<p>Set print area. e.g. 'A1:D10' or 'A1:D10,G5:M20'.</p>
+<p>@param string $value</p>
+<p>@param int $index Identifier for a specific print area range allowing several ranges to be set</p>
+<p>                           When the method is "O"verwrite, then a positive integer index will overwrite that indexed</p>
+<p>                               entry in the print areas list; a negative index value will identify which entry to</p>
+<p>                               overwrite working bacward through the print area to the list, with the last entry as -1.</p>
+<p>                               Specifying an index value of 0, will overwrite <b>all</b> existing print ranges.</p>
+<p>                           When the method is "I"nsert, then a positive index will insert after that indexed entry in</p>
+<p>                               the print areas list, while a negative index will insert before the indexed entry.</p>
+<p>                               Specifying an index value of 0, will always append the new print range at the end of the</p>
+<p>                               list.</p>
+<p>                           Print areas are numbered from 1</p>
+<p>@param string $method Determines the method used when setting multiple print areas</p>
+<p>                           Default behaviour, or the "O" method, overwrites existing print area</p>
+<p>                           The "I" method, inserts the new print area before any specified index, or at the end of the list</p>
+<p>@return $this</p>
+
+<p>@phpstan-ignore-next-line</p>
+
+<p>@phpstan-ignore-next-line</p>
+
+<p>Add a new print area (e.g. 'A1:D10' or 'A1:D10,G5:M20') to the list of print areas.</p>
+<p>@param string $value</p>
+<p>@param int $index Identifier for a specific print area range allowing several ranges to be set</p>
+<p>                           A positive index will insert after that indexed entry in the print areas list, while a</p>
+<p>                               negative index will insert before the indexed entry.</p>
+<p>                               Specifying an index value of 0, will always append the new print range at the end of the</p>
+<p>                               list.</p>
+<p>                           Print areas are numbered from 1</p>
+<p>@return $this</p>
+
+<p>Set print area.</p>
+<p>@param int $column1 Column 1</p>
+<p>@param int $row1 Row 1</p>
+<p>@param int $column2 Column 2</p>
+<p>@param int $row2 Row 2</p>
+<p>@param int $index Identifier for a specific print area range allowing several ranges to be set</p>
+<p>                               When the method is "O"verwrite, then a positive integer index will overwrite that indexed</p>
+<p>                                   entry in the print areas list; a negative index value will identify which entry to</p>
+<p>                                   overwrite working backward through the print area to the list, with the last entry as -1.</p>
+<p>                                   Specifying an index value of 0, will overwrite <b>all</b> existing print ranges.</p>
+<p>                               When the method is "I"nsert, then a positive index will insert after that indexed entry in</p>
+<p>                                   the print areas list, while a negative index will insert before the indexed entry.</p>
+<p>                                   Specifying an index value of 0, will always append the new print range at the end of the</p>
+<p>                                   list.</p>
+<p>                               Print areas are numbered from 1</p>
+<p>@param string $method Determines the method used when setting multiple print areas</p>
+<p>                               Default behaviour, or the "O" method, overwrites existing print area</p>
+<p>                               The "I" method, inserts the new print area before any specified index, or at the end of the list</p>
+<p>@return $this</p>
+
+<p>Add a new print area to the list of print areas.</p>
+<p>@param int $column1 Start Column for the print area</p>
+<p>@param int $row1 Start Row for the print area</p>
+<p>@param int $column2 End Column for the print area</p>
+<p>@param int $row2 End Row for the print area</p>
+<p>@param int $index Identifier for a specific print area range allowing several ranges to be set</p>
+<p>                               A positive index will insert after that indexed entry in the print areas list, while a</p>
+<p>                                   negative index will insert before the indexed entry.</p>
+<p>                                   Specifying an index value of 0, will always append the new print range at the end of the</p>
+<p>                                   list.</p>
+<p>                               Print areas are numbered from 1</p>
+<p>@return $this</p>
+
+<p>Get first page number.</p>
+<p>@return int</p>
+
+<p>Set first page number.</p>
+<p>@param int $value</p>
+<p>@return $this</p>
+
+<p>Reset first page number.</p>
+<p>@return $this</p>
+
+<p>Implement PHP __clone to create a deep clone, not just a shallow copy.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>Office</code></li>
+<li><code>10</code></li>
+<li><code>1</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\PageSetup.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Worksheet\PageSetup</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>getPaperSize()</code></li>
+<li><code>setPaperSize($paperSize)</code></li>
+<li><code>getPaperSizeDefault()</code></li>
+<li><code>setPaperSizeDefault(int $paperSize)</code></li>
+<li><code>getOrientation()</code></li>
+<li><code>setOrientation($orientation)</code></li>
+<li><code>getOrientationDefault()</code></li>
+<li><code>setOrientationDefault(string $orientation)</code></li>
+<li><code>getScale()</code></li>
+<li><code>setScale($scale, $update = true)</code></li>
+<li><code>getFitToPage()</code></li>
+<li><code>setFitToPage($fitToPage)</code></li>
+<li><code>getFitToHeight()</code></li>
+<li><code>setFitToHeight($fitToHeight, $update = true)</code></li>
+<li><code>getFitToWidth()</code></li>
+<li><code>setFitToWidth($value, $update = true)</code></li>
+<li><code>isColumnsToRepeatAtLeftSet()</code></li>
+<li><code>getColumnsToRepeatAtLeft()</code></li>
+<li><code>setColumnsToRepeatAtLeft(array $columnsToRepeatAtLeft)</code></li>
+<li><code>setColumnsToRepeatAtLeftByStartAndEnd($start, $end)</code></li>
+<li><code>isRowsToRepeatAtTopSet()</code></li>
+<li><code>getRowsToRepeatAtTop()</code></li>
+<li><code>setRowsToRepeatAtTop(array $rowsToRepeatAtTop)</code></li>
+<li><code>setRowsToRepeatAtTopByStartAndEnd($start, $end)</code></li>
+<li><code>getHorizontalCentered()</code></li>
+<li><code>setHorizontalCentered($value)</code></li>
+<li><code>getVerticalCentered()</code></li>
+<li><code>setVerticalCentered($value)</code></li>
+<li><code>getPrintArea($index = 0)</code></li>
+<li><code>isPrintAreaSet($index = 0)</code></li>
+<li><code>clearPrintArea($index = 0)</code></li>
+<li><code>setPrintArea($value, $index = 0, $method = self::SETPRINTRANGE_OVERWRITE)</code></li>
+<li><code>addPrintArea($value, $index = -1)</code></li>
+<li><code>setPrintAreaByColumnAndRow($column1, $row1, $column2, $row2, $index = 0, $method = self::SETPRINTRANGE_OVERWRITE)</code></li>
+<li><code>addPrintAreaByColumnAndRow($column1, $row1, $column2, $row2, $index = -1)</code></li>
+<li><code>getFirstPageNumber()</code></li>
+<li><code>setFirstPageNumber($value)</code></li>
+<li><code>resetFirstPageNumber()</code></li>
+<li><code>getPageOrder()</code></li>
+<li><code>setPageOrder(?string $pageOrder)</code></li>
+<li><code>__clone()</code></li>
+</ul>
+</body></html>

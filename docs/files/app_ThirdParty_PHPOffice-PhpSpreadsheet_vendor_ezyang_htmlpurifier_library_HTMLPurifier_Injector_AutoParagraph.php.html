@@ -1,0 +1,74 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Injector\AutoParagraph.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Injector\AutoParagraph.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Injector\AutoParagraph.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 13796 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Injector that auto paragraphs text in the root node based on</p>
+<p>double-spacing.</p>
+<p>@todo Ensure all states are unit tested, including variations as well.</p>
+<p>@todo Make a graph of the flow control for this Injector.</p>
+
+<p>@type string</p>
+
+<p>@type array</p>
+
+<p>@return HTMLPurifier_Token_Start</p>
+
+<p>@param HTMLPurifier_Token_Text $token</p>
+
+<p>@param HTMLPurifier_Token $token</p>
+
+<p>Splits up a text in paragraph tokens and appends them</p>
+<p>to the result stream that will replace the original</p>
+<p>@param string $data String text data that will be processed</p>
+<p>   into paragraphs</p>
+<p>@param HTMLPurifier_Token[] $result Reference to array of tokens that the</p>
+<p>   tags will be appended onto</p>
+
+<p>Returns true if passed token is inline (and, ergo, allowed in</p>
+<p>paragraph tags)</p>
+<p>@param HTMLPurifier_Token $token</p>
+<p>@return bool</p>
+
+<p>Looks ahead in the token list and determines whether or not we need</p>
+<p>to insert a <p> tag.</p>
+<p>@return bool</p>
+
+<p>Determines if a particular token requires an earlier inline token</p>
+<p>to get a paragraph. This should be used with _forwardUntilEndToken</p>
+<p>@param HTMLPurifier_Token $current</p>
+<p>@return bool</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>needing</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Injector\AutoParagraph.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>HTMLPurifier_Injector_AutoParagraph extends HTMLPurifier_Injector</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>_pStart()</code></li>
+<li><code>handleText(&$token)</code></li>
+<li><code>handleElement(&$token)</code></li>
+<li><code>_splitText($data, &$result)</code></li>
+<li><code>_isInline($token)</code></li>
+<li><code>_pLookAhead()</code></li>
+<li><code>_checkNeedsP($current)</code></li>
+</ul>
+</body></html>

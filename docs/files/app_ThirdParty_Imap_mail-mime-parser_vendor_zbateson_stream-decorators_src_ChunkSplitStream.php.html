@@ -1,0 +1,71 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\stream-decorators\src\ChunkSplitStream.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\stream-decorators\src\ChunkSplitStream.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\stream-decorators\src\ChunkSplitStream.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3403 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\StreamDecorators project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Inserts line ending characters after the set number of characters have been</p>
+<p>written to the underlying stream.</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var int Number of bytes written, and importantly, if non-zero, writes a</p>
+<p>     final $lineEnding on close (and so maintained instead of using</p>
+<p>     tell() directly)</p>
+
+<p>@var int The number of characters in a line before inserting $lineEnding.</p>
+
+<p>@var string The line ending characters to insert.</p>
+
+<p>@var int The strlen() of $lineEnding</p>
+
+<p>@param StreamInterface $stream</p>
+<p>@param int $lineLength</p>
+<p>@param string $lineEnding</p>
+
+<p>Inserts the line ending character after each line length characters in</p>
+<p>the passed string, making sure previously written bytes are taken into</p>
+<p>account.</p>
+<p>@param string $string</p>
+<p>@return string</p>
+
+<p>Writes the passed string to the underlying stream, ensuring line endings</p>
+<p>are inserted every "line length" characters in the string.</p>
+<p>@param string $string</p>
+<p>@return number of bytes written</p>
+
+<p>Inserts a final line ending character.</p>
+
+<p>Closes the stream after ensuring a final line ending character is</p>
+<p>inserted.</p>
+
+<p>Detaches the stream after ensuring a final line ending character is</p>
+<p>inserted.</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\stream-decorators\src\ChunkSplitStream.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\StreamDecorators\ChunkSplitStream implements StreamInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(StreamInterface $stream, $lineLength = 76, $lineEnding = "\r\n")</code></li>
+<li><code>getChunkedString($string)</code></li>
+<li><code>write($string)</code></li>
+<li><code>beforeClose()</code></li>
+<li><code>close()</code></li>
+<li><code>detach()</code></li>
+</ul>
+</body></html>

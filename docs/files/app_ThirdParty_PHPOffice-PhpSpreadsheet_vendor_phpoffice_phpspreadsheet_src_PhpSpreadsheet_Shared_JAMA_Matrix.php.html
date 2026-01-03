@@ -1,0 +1,217 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\JAMA\Matrix.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\JAMA\Matrix.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\JAMA\Matrix.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 36559 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Matrix class.</p>
+<p>@author Paul Meagher</p>
+<p>@author Michael Bommarito</p>
+<p>@author Lukasz Karapuda</p>
+<p>@author Bartek Matosiuk</p>
+<p>@version 1.8</p>
+<p>@see https://math.nist.gov/javanumerics/jama/</p>
+
+<p>Matrix storage.</p>
+<p>@var array</p>
+
+<p>Matrix row dimension.</p>
+<p>@var int</p>
+
+<p>Matrix column dimension.</p>
+<p>@var int</p>
+
+<p>Polymorphic constructor.</p>
+<p>As PHP has no support for polymorphic constructors, we use tricks to make our own sort of polymorphism using func_num_args, func_get_arg, and gettype. In essence, we're just implementing a simple RTTI filter and calling the appropriate constructor.</p>
+
+<p>getArray.</p>
+<p>@return array Matrix array</p>
+
+<p>getRowDimension.</p>
+<p>@return int Row dimension</p>
+
+<p>getColumnDimension.</p>
+<p>@return int Column dimension</p>
+
+<p>get.</p>
+<p>Get the i,j-th element of the matrix.</p>
+<p>@param int $i Row position</p>
+<p>@param int $j Column position</p>
+<p>@return float|int</p>
+
+<p>getMatrix.</p>
+<p>   Get a submatrix</p>
+<p>@return Matrix Submatrix</p>
+
+<p>checkMatrixDimensions.</p>
+<p>   Is matrix B the same size?</p>
+<p>@param Matrix $B Matrix B</p>
+<p>@return bool</p>
+
+<p>set.</p>
+<p>Set the i,j-th element of the matrix.</p>
+<p>@param int $i Row position</p>
+<p>@param int $j Column position</p>
+<p>@param float|int $c value</p>
+
+<p>identity.</p>
+<p>Generate an identity matrix.</p>
+<p>@param int $m Row dimension</p>
+<p>@param int $n Column dimension</p>
+<p>@return Matrix Identity matrix</p>
+
+<p>diagonal.</p>
+<p>   Generate a diagonal matrix</p>
+<p>@param int $m Row dimension</p>
+<p>@param int $n Column dimension</p>
+<p>@param mixed $c Diagonal value</p>
+<p>@return Matrix Diagonal matrix</p>
+
+<p>getMatrixByRow.</p>
+<p>   Get a submatrix by row index/range</p>
+<p>@param int $i0 Initial row index</p>
+<p>@param int $iF Final row index</p>
+<p>@return Matrix Submatrix</p>
+
+<p>getMatrixByCol.</p>
+<p>   Get a submatrix by column index/range</p>
+<p>@param int $j0 Initial column index</p>
+<p>@param int $jF Final column index</p>
+<p>@return Matrix Submatrix</p>
+
+<p>transpose.</p>
+<p>   Tranpose matrix</p>
+<p>@return Matrix Transposed matrix</p>
+
+<p>trace.</p>
+<p>   Sum of diagonal elements</p>
+<p>@return float Sum of diagonal elements</p>
+
+<p>plus.</p>
+<p>   A + B</p>
+<p>@return Matrix Sum</p>
+
+<p>plusEquals.</p>
+<p>   A = A + B</p>
+<p>@return $this</p>
+
+<p>minus.</p>
+<p>   A - B</p>
+<p>@return Matrix Sum</p>
+
+<p>minusEquals.</p>
+<p>   A = A - B</p>
+<p>@return $this</p>
+
+<p>arrayTimes.</p>
+<p>   Element-by-element multiplication</p>
+<p>   Cij = Aij * Bij</p>
+<p>@return Matrix Matrix Cij</p>
+
+<p>arrayTimesEquals.</p>
+<p>   Element-by-element multiplication</p>
+<p>   Aij = Aij * Bij</p>
+<p>@return $this</p>
+
+<p>arrayRightDivide.</p>
+<p>   Element-by-element right division</p>
+<p>   A / B</p>
+<p>@return Matrix Division result</p>
+
+<p>arrayRightDivideEquals.</p>
+<p>   Element-by-element right division</p>
+<p>   Aij = Aij / Bij</p>
+<p>@return Matrix Matrix Aij</p>
+
+<p>arrayLeftDivide.</p>
+<p>   Element-by-element Left division</p>
+<p>   A / B</p>
+<p>@return Matrix Division result</p>
+
+<p>arrayLeftDivideEquals.</p>
+<p>   Element-by-element Left division</p>
+<p>   Aij = Aij / Bij</p>
+<p>@return Matrix Matrix Aij</p>
+
+<p>times.</p>
+<p>   Matrix multiplication</p>
+<p>@return Matrix Product</p>
+
+<p>power.</p>
+<p>   A = A ^ B</p>
+<p>@return $this</p>
+
+<p>concat.</p>
+<p>   A = A & B</p>
+<p>@return $this</p>
+
+<p>Solve A*X = B.</p>
+<p>@param Matrix $B Right hand side</p>
+<p>@return Matrix ... Solution if A is square, least squares solution otherwise</p>
+
+<p>Matrix inverse or pseudoinverse.</p>
+<p>@return Matrix ... Inverse(A) if A is square, pseudoinverse otherwise.</p>
+
+<p>det.</p>
+<p>   Calculate determinant</p>
+<p>@return float Determinant</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>2D</code></li>
+<li><code>packed</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\JAMA\Matrix.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Shared\JAMA\Matrix</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(...$args)</code></li>
+<li><code>getArray()</code></li>
+<li><code>getRowDimension()</code></li>
+<li><code>getColumnDimension()</code></li>
+<li><code>get($i = null, $j = null)</code></li>
+<li><code>getMatrix(...$args)</code></li>
+<li><code>checkMatrixDimensions($B = null)</code></li>
+<li><code>checkMatrixDimensions()</code></li>
+<li><code>set($i = null, $j = null, $c = null)</code></li>
+<li><code>set()</code></li>
+<li><code>identity($m = null, $n = null)</code></li>
+<li><code>diagonal($m = null, $n = null, $c = 1)</code></li>
+<li><code>getMatrixByRow($i0 = null, $iF = null)</code></li>
+<li><code>getMatrixByCol($j0 = null, $jF = null)</code></li>
+<li><code>transpose()</code></li>
+<li><code>transpose()</code></li>
+<li><code>trace()</code></li>
+<li><code>plus(...$args)</code></li>
+<li><code>plusEquals(...$args)</code></li>
+<li><code>minus(...$args)</code></li>
+<li><code>minusEquals(...$args)</code></li>
+<li><code>arrayTimes(...$args)</code></li>
+<li><code>arrayTimesEquals(...$args)</code></li>
+<li><code>arrayRightDivide(...$args)</code></li>
+<li><code>arrayRightDivideEquals(...$args)</code></li>
+<li><code>arrayLeftDivide(...$args)</code></li>
+<li><code>arrayLeftDivideEquals(...$args)</code></li>
+<li><code>times(...$args)</code></li>
+<li><code>power(...$args)</code></li>
+<li><code>concat(...$args)</code></li>
+<li><code>solve(self $B)</code></li>
+<li><code>inverse()</code></li>
+<li><code>det()</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,75 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\Config\Toolbar.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\Config\Toolbar.php</h1>
+
+<ul>
+<li>Path: <code>app\Config\Toolbar.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3491 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Debug Toolbar</p>
+<p>--------------------------------------------------------------------------</p>
+<p>The Debug Toolbar provides a way to see information about the performance</p>
+<p>and state of your application during that page display. By default it will</p>
+<p>NOT be displayed under production environments, and will only display if</p>
+<p><code>CI_DEBUG</code> is true, since if it's not, there's not much to display anyway.</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Toolbar Collectors</p>
+<p>--------------------------------------------------------------------------</p>
+<p>List of toolbar collectors that will be called when Debug Toolbar</p>
+<p>fires up and collects data from.</p>
+<p>@var string[]</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Collect Var Data</p>
+<p>--------------------------------------------------------------------------</p>
+<p>If set to false var data from the views will not be colleted. Usefull to</p>
+<p>avoid high memory usage when there are lots of data passed to the view.</p>
+<p>@var bool</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Max History</p>
+<p>--------------------------------------------------------------------------</p>
+<p><code>$maxHistory</code> sets a limit on the number of past requests that are stored,</p>
+<p>helping to conserve file space used to store them. You can set it to</p>
+<p>0 (zero) to not have any history stored, or -1 for unlimited history.</p>
+<p>@var int</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Toolbar Views Path</p>
+<p>--------------------------------------------------------------------------</p>
+<p>The full path to the the views that are used by the toolbar.</p>
+<p>This MUST have a trailing slash.</p>
+<p>@var string</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Max Queries</p>
+<p>--------------------------------------------------------------------------</p>
+<p>If the Database Collector is enabled, it will log every query that the</p>
+<p>the system generates so they can be displayed on the toolbar's timeline</p>
+<p>and in the query log. This can lead to memory issues in some instances</p>
+<p>with hundreds of queries.</p>
+<p><code>$maxQueries</code> defines the maximum amount of queries that will be stored.</p>
+<p>@var int</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\Config\Toolbar.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Config\Toolbar extends BaseConfig</code></li>
+</ul>
+</body></html>

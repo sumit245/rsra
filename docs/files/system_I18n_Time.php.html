@@ -1,0 +1,421 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\I18n\Time.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\I18n\Time.php</h1>
+
+<ul>
+<li>Path: <code>system\I18n\Time.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 31041 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>A localized date/time package inspired</p>
+<p>by Nesbot/Carbon and CakePHP/Chronos.</p>
+<p>Requires the intl PHP extension.</p>
+<p>@property string $date</p>
+
+<p>@var DateTimeZone</p>
+
+<p>@var string</p>
+
+<p>Format to use when displaying datetime through __toString</p>
+<p>@var string</p>
+
+<p>Used to check time string to determine if it is relative time or not....</p>
+<p>@var string</p>
+
+<p>@var DateTimeInterface|static|null</p>
+
+<p>Time constructor.</p>
+<p>@param DateTimeZone|string|null $timezone</p>
+<p>@throws Exception</p>
+
+<p>Returns a new Time instance with the timezone set.</p>
+<p>@param DateTimeZone|string|null $timezone</p>
+<p>@throws Exception</p>
+<p>@return Time</p>
+
+<p>Returns a new Time instance while parsing a datetime string.</p>
+<p>Example:</p>
+<p> $time = Time::parse('first day of December 2008');</p>
+<p>@param DateTimeZone|string|null $timezone</p>
+<p>@throws Exception</p>
+<p>@return Time</p>
+
+<p>Return a new time with the time set to midnight.</p>
+<p>@param DateTimeZone|string|null $timezone</p>
+<p>@throws Exception</p>
+<p>@return Time</p>
+
+<p>Returns an instance set to midnight yesterday morning.</p>
+<p>@param DateTimeZone|string|null $timezone</p>
+<p>@throws Exception</p>
+<p>@return Time</p>
+
+<p>Returns an instance set to midnight tomorrow morning.</p>
+<p>@param DateTimeZone|string|null $timezone</p>
+<p>@throws Exception</p>
+<p>@return Time</p>
+
+<p>Returns a new instance based on the year, month and day. If any of those three</p>
+<p>are left empty, will default to the current value.</p>
+<p>@param DateTimeZone|string|null $timezone</p>
+<p>@throws Exception</p>
+<p>@return Time</p>
+
+<p>Returns a new instance with the date set to today, and the time set to the values passed in.</p>
+<p>@param DateTimeZone|string|null $timezone</p>
+<p>@throws Exception</p>
+<p>@return Time</p>
+
+<p>Returns a new instance with the date time values individually set.</p>
+<p>@param DateTimeZone|string|null $timezone</p>
+<p>@throws Exception</p>
+<p>@return Time</p>
+
+<p>Provides a replacement for DateTime's own createFromFormat function, that provides</p>
+<p>more flexible timeZone handling</p>
+<p>@param string                   $format</p>
+<p>@param string                   $datetime</p>
+<p>@param DateTimeZone|string|null $timezone</p>
+<p>@throws Exception</p>
+<p>@return Time</p>
+
+<p>Returns a new instance with the datetime set based on the provided UNIX timestamp.</p>
+<p>@param DateTimeZone|string|null $timezone</p>
+<p>@throws Exception</p>
+<p>@return Time</p>
+
+<p>Takes an instance of DateTimeInterface and returns an instance of Time with it's same values.</p>
+<p>@throws Exception</p>
+<p>@return Time</p>
+
+<p>Takes an instance of DateTime and returns an instance of Time with it's same values.</p>
+<p>@throws Exception</p>
+<p>@return Time</p>
+<p>@deprecated         Use createFromInstance() instead</p>
+<p>@codeCoverageIgnore</p>
+
+<p>Converts the current instance to a mutable DateTime object.</p>
+<p>@throws Exception</p>
+<p>@return DateTime</p>
+
+<p>Creates an instance of Time that will be returned during testing</p>
+<p>when calling 'Time::now' instead of the current time.</p>
+<p>@param DateTimeInterface|string|Time|null $datetime</p>
+<p>@param DateTimeZone|string|null           $timezone</p>
+<p>@throws Exception</p>
+
+<p>Returns whether we have a testNow instance saved.</p>
+
+<p>Returns the localized Year</p>
+<p>@throws Exception</p>
+
+<p>Returns the localized Month</p>
+<p>@throws Exception</p>
+
+<p>Return the localized day of the month.</p>
+<p>@throws Exception</p>
+
+<p>Return the localized hour (in 24-hour format).</p>
+<p>@throws Exception</p>
+
+<p>Return the localized minutes in the hour.</p>
+<p>@throws Exception</p>
+
+<p>Return the localized seconds</p>
+<p>@throws Exception</p>
+
+<p>Return the index of the day of the week</p>
+<p>@throws Exception</p>
+
+<p>Return the index of the day of the year</p>
+<p>@throws Exception</p>
+
+<p>Return the index of the week in the month</p>
+<p>@throws Exception</p>
+
+<p>Return the index of the week in the year</p>
+<p>@throws Exception</p>
+
+<p>Returns the age in years from the "current" date and 'now'</p>
+<p>@throws Exception</p>
+<p>@return int</p>
+
+<p>Returns the number of the current quarter for the year.</p>
+<p>@throws Exception</p>
+
+<p>Are we in daylight savings time currently?</p>
+
+<p>Returns boolean whether the passed timezone is the same as</p>
+<p>the local timezone.</p>
+
+<p>Returns boolean whether object is in UTC.</p>
+
+<p>Returns the name of the current timezone.</p>
+
+<p>Sets the current year for this instance.</p>
+<p>@param int|string $value</p>
+<p>@throws Exception</p>
+<p>@return Time</p>
+
+<p>Sets the month of the year.</p>
+<p>@param int|string $value</p>
+<p>@throws Exception</p>
+<p>@return Time</p>
+
+<p>Sets the day of the month.</p>
+<p>@param int|string $value</p>
+<p>@throws Exception</p>
+<p>@return Time</p>
+
+<p>Sets the hour of the day (24 hour cycle)</p>
+<p>@param int|string $value</p>
+<p>@throws Exception</p>
+<p>@return Time</p>
+
+<p>Sets the minute of the hour</p>
+<p>@param int|string $value</p>
+<p>@throws Exception</p>
+<p>@return Time</p>
+
+<p>Sets the second of the minute.</p>
+<p>@param int|string $value</p>
+<p>@throws Exception</p>
+<p>@return Time</p>
+
+<p>Helper method to do the heavy lifting of the 'setX' methods.</p>
+<p>@param int $value</p>
+<p>@throws Exception</p>
+<p>@return Time</p>
+
+<p>Returns a new instance with the revised timezone.</p>
+<p>@param DateTimeZone|string $timezone</p>
+<p>@throws Exception</p>
+<p>@return Time</p>
+
+<p>Returns a new instance with the date set to the new timestamp.</p>
+<p>@param int $timestamp</p>
+<p>@throws Exception</p>
+<p>@return Time</p>
+
+<p>Returns a new Time instance with $seconds added to the time.</p>
+<p>@return static</p>
+
+<p>Returns a new Time instance with $minutes added to the time.</p>
+<p>@return static</p>
+
+<p>Returns a new Time instance with $hours added to the time.</p>
+<p>@return static</p>
+
+<p>Returns a new Time instance with $days added to the time.</p>
+<p>@return static</p>
+
+<p>Returns a new Time instance with $months added to the time.</p>
+<p>@return static</p>
+
+<p>Returns a new Time instance with $years added to the time.</p>
+<p>@return static</p>
+
+<p>Returns a new Time instance with $seconds subtracted from the time.</p>
+<p>@return static</p>
+
+<p>Returns a new Time instance with $minutes subtracted from the time.</p>
+<p>@return static</p>
+
+<p>Returns a new Time instance with $hours subtracted from the time.</p>
+<p>@return static</p>
+
+<p>Returns a new Time instance with $days subtracted from the time.</p>
+<p>@return static</p>
+
+<p>Returns a new Time instance with $months subtracted from the time.</p>
+<p>@return static</p>
+
+<p>Returns a new Time instance with $hours subtracted from the time.</p>
+<p>@return static</p>
+
+<p>Returns the localized value of the date in the format 'Y-m-d H:i:s'</p>
+<p>@throws Exception</p>
+
+<p>Returns a localized version of the date in Y-m-d format.</p>
+<p>@throws Exception</p>
+<p>@return string</p>
+
+<p>Returns a localized version of the date in nicer date format:</p>
+<p> i.e. Apr 1, 2017</p>
+<p>@throws Exception</p>
+<p>@return string</p>
+
+<p>Returns a localized version of the time in nicer date format:</p>
+<p> i.e. 13:20:33</p>
+<p>@throws Exception</p>
+<p>@return string</p>
+
+<p>Returns the localized value of this instance in $format.</p>
+<p>@throws Exception</p>
+<p>@return bool|string</p>
+
+<p>Determines if the datetime passed in is equal to the current instance.</p>
+<p>Equal in this case means that they represent the same moment in time,</p>
+<p>and are not required to be in the same timezone, as both times are</p>
+<p>converted to UTC and compared that way.</p>
+<p>@param DateTimeInterface|string|Time $testTime</p>
+<p>@throws Exception</p>
+
+<p>Ensures that the times are identical, taking timezone into account.</p>
+<p>@param DateTimeInterface|string|Time $testTime</p>
+<p>@throws Exception</p>
+
+<p>Determines if the current instance's time is before $testTime,</p>
+<p>after converting to UTC.</p>
+<p>@param mixed $testTime</p>
+<p>@throws Exception</p>
+
+<p>Determines if the current instance's time is after $testTime,</p>
+<p>after converting in UTC.</p>
+<p>@param mixed $testTime</p>
+<p>@throws Exception</p>
+
+<p>Returns a text string that is easily readable that describes</p>
+<p>how long ago, or how long from now, a date is, like:</p>
+<p> - 3 weeks ago</p>
+<p> - in 4 days</p>
+<p> - 6 hours ago</p>
+<p>@throws Exception</p>
+<p>@return mixed</p>
+
+<p>@param mixed $testTime</p>
+<p>@throws Exception</p>
+<p>@return TimeDifference</p>
+
+<p>Returns a Time instance with the timezone converted to UTC.</p>
+<p>@param mixed $time</p>
+<p>@throws Exception</p>
+<p>@return DateTime|static</p>
+
+<p>Returns the IntlCalendar object used for this object,</p>
+<p>taking into account the locale, date, etc.</p>
+<p>Primarily used internally to provide the difference and comparison functions,</p>
+<p>but available for public consumption if they need it.</p>
+<p>@throws Exception</p>
+<p>@return IntlCalendar</p>
+
+<p>Check a time string to see if it includes a relative date (like 'next Tuesday').</p>
+
+<p>Outputs a short format version of the datetime.</p>
+<p>@throws Exception</p>
+
+<p>Allow for property-type access to any getX method...</p>
+<p>Note that we cannot use this for any of our setX methods,</p>
+<p>as they return new Time objects, but the __set ignores</p>
+<p>return values.</p>
+<p>See http://php.net/manual/en/language.oop5.overloading.php</p>
+<p>@param string $name</p>
+<p>@return mixed</p>
+
+<p>Allow for property-type checking to any getX method...</p>
+<p>@param string $name</p>
+
+<p>This is called when we unserialize the Time object.</p>
+
+<p>Prior to unserialization, this is a string.</p>
+<p>@var string $timezone</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>now</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\I18n\Time.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\I18n\Time extends DateTime</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(?string $time = null, $timezone = null, ?string $locale = null)</code></li>
+<li><code>now($timezone = null, ?string $locale = null)</code></li>
+<li><code>parse(string $datetime, $timezone = null, ?string $locale = null)</code></li>
+<li><code>today($timezone = null, ?string $locale = null)</code></li>
+<li><code>yesterday($timezone = null, ?string $locale = null)</code></li>
+<li><code>tomorrow($timezone = null, ?string $locale = null)</code></li>
+<li><code>createFromDate(?int $year = null, ?int $month = null, ?int $day = null, $timezone = null, ?string $locale = null)</code></li>
+<li><code>createFromTime(?int $hour = null, ?int $minutes = null, ?int $seconds = null, $timezone = null, ?string $locale = null)</code></li>
+<li><code>create(?int $year = null, ?int $month = null, ?int $day = null, ?int $hour = null, ?int $minutes = null, ?int $seconds = null, $timezone = null, ?string $locale = null)</code></li>
+<li><code>createFromFormat($format, $datetime, $timezone = null)</code></li>
+<li><code>createFromTimestamp(int $timestamp, $timezone = null, ?string $locale = null)</code></li>
+<li><code>createFromInstance(DateTimeInterface $dateTime, ?string $locale = null)</code></li>
+<li><code>instance(DateTime $dateTime, ?string $locale = null)</code></li>
+<li><code>toDateTime()</code></li>
+<li><code>setTestNow($datetime = null, $timezone = null, ?string $locale = null)</code></li>
+<li><code>hasTestNow()</code></li>
+<li><code>getYear()</code></li>
+<li><code>getMonth()</code></li>
+<li><code>getDay()</code></li>
+<li><code>getHour()</code></li>
+<li><code>getMinute()</code></li>
+<li><code>getSecond()</code></li>
+<li><code>getDayOfWeek()</code></li>
+<li><code>getDayOfYear()</code></li>
+<li><code>getWeekOfMonth()</code></li>
+<li><code>getWeekOfYear()</code></li>
+<li><code>getAge()</code></li>
+<li><code>getQuarter()</code></li>
+<li><code>getDst()</code></li>
+<li><code>getLocal()</code></li>
+<li><code>getUtc()</code></li>
+<li><code>getTimezoneName()</code></li>
+<li><code>setYear($value)</code></li>
+<li><code>setMonth($value)</code></li>
+<li><code>setDay($value)</code></li>
+<li><code>setHour($value)</code></li>
+<li><code>setMinute($value)</code></li>
+<li><code>setSecond($value)</code></li>
+<li><code>setValue(string $name, $value)</code></li>
+<li><code>setTimezone($timezone)</code></li>
+<li><code>setTimestamp($timestamp)</code></li>
+<li><code>addSeconds(int $seconds)</code></li>
+<li><code>addMinutes(int $minutes)</code></li>
+<li><code>addHours(int $hours)</code></li>
+<li><code>addDays(int $days)</code></li>
+<li><code>addMonths(int $months)</code></li>
+<li><code>addYears(int $years)</code></li>
+<li><code>subSeconds(int $seconds)</code></li>
+<li><code>subMinutes(int $minutes)</code></li>
+<li><code>subHours(int $hours)</code></li>
+<li><code>subDays(int $days)</code></li>
+<li><code>subMonths(int $months)</code></li>
+<li><code>subYears(int $years)</code></li>
+<li><code>toDateTimeString()</code></li>
+<li><code>toDateString()</code></li>
+<li><code>toFormattedDateString()</code></li>
+<li><code>toTimeString()</code></li>
+<li><code>toLocalizedString(?string $format = null)</code></li>
+<li><code>equals($testTime, ?string $timezone = null)</code></li>
+<li><code>sameAs($testTime, ?string $timezone = null)</code></li>
+<li><code>isBefore($testTime, ?string $timezone = null)</code></li>
+<li><code>isAfter($testTime, ?string $timezone = null)</code></li>
+<li><code>humanize()</code></li>
+<li><code>difference($testTime, ?string $timezone = null)</code></li>
+<li><code>getUTCObject($time, ?string $timezone = null)</code></li>
+<li><code>getCalendar()</code></li>
+<li><code>hasRelativeKeywords(string $time)</code></li>
+<li><code>__toString()</code></li>
+<li><code>__get($name)</code></li>
+<li><code>__isset($name)</code></li>
+<li><code>__wakeup()</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,179 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\markbaker\matrix\classes\src\Matrix.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\markbaker\matrix\classes\src\Matrix.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\markbaker\matrix\classes\src\Matrix.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 11560 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Class for the management of Matrices</p>
+<p>@copyright  Copyright (c) 2018 Mark Baker (https://github.com/MarkBaker/PHPMatrix)</p>
+<p>@license    https://opensource.org/licenses/MIT    MIT</p>
+
+<p>Matrix object.</p>
+<p>@package Matrix</p>
+<p>@property-read int $rows The number of rows in the matrix</p>
+<p>@property-read int $columns The number of columns in the matrix</p>
+<p>@method Matrix antidiagonal()</p>
+<p>@method Matrix adjoint()</p>
+<p>@method Matrix cofactors()</p>
+<p>@method float determinant()</p>
+<p>@method Matrix diagonal()</p>
+<p>@method Matrix identity()</p>
+<p>@method Matrix inverse()</p>
+<p>@method Matrix minors()</p>
+<p>@method float trace()</p>
+<p>@method Matrix transpose()</p>
+<p>@method Matrix add(...$matrices)</p>
+<p>@method Matrix subtract(...$matrices)</p>
+<p>@method Matrix multiply(...$matrices)</p>
+<p>@method Matrix divideby(...$matrices)</p>
+<p>@method Matrix divideinto(...$matrices)</p>
+<p>@method Matrix directsum(...$matrices)</p>
+
+<p>Validate that a row number is a positive integer</p>
+<p>@param int $row</p>
+<p>@return int</p>
+<p>@throws Exception</p>
+
+<p>Validate that a column number is a positive integer</p>
+<p>@param int $column</p>
+<p>@return int</p>
+<p>@throws Exception</p>
+
+<p>Validate that a row number falls within the set of rows for this matrix</p>
+<p>@param int $row</p>
+<p>@return int</p>
+<p>@throws Exception</p>
+
+<p>Validate that a column number falls within the set of columns for this matrix</p>
+<p>@param int $column</p>
+<p>@return int</p>
+<p>@throws Exception</p>
+
+<p>Return a new matrix as a subset of rows from this matrix, starting at row number $row, and $rowCount rows</p>
+<p>A $rowCount value of 0 will return all rows of the matrix from $row</p>
+<p>A negative $rowCount value will return rows until that many rows from the end of the matrix</p>
+<p>Note that row numbers start from 1, not from 0</p>
+<p>@param int $row</p>
+<p>@param int $rowCount</p>
+<p>@return static</p>
+<p>@throws Exception</p>
+
+<p>Return a new matrix as a subset of columns from this matrix, starting at column number $column, and $columnCount columns</p>
+<p>A $columnCount value of 0 will return all columns of the matrix from $column</p>
+<p>A negative $columnCount value will return columns until that many columns from the end of the matrix</p>
+<p>Note that column numbers start from 1, not from 0</p>
+<p>@param int $column</p>
+<p>@param int $columnCount</p>
+<p>@return Matrix</p>
+<p>@throws Exception</p>
+
+<p>Return a new matrix as a subset of rows from this matrix, dropping rows starting at row number $row,</p>
+<p>    and $rowCount rows</p>
+<p>A negative $rowCount value will drop rows until that many rows from the end of the matrix</p>
+<p>A $rowCount value of 0 will remove all rows of the matrix from $row</p>
+<p>Note that row numbers start from 1, not from 0</p>
+<p>@param int $row</p>
+<p>@param int $rowCount</p>
+<p>@return static</p>
+<p>@throws Exception</p>
+
+<p>Return a new matrix as a subset of columns from this matrix, dropping columns starting at column number $column,</p>
+<p>    and $columnCount columns</p>
+<p>A negative $columnCount value will drop columns until that many columns from the end of the matrix</p>
+<p>A $columnCount value of 0 will remove all columns of the matrix from $column</p>
+<p>Note that column numbers start from 1, not from 0</p>
+<p>@param int $column</p>
+<p>@param int $columnCount</p>
+<p>@return static</p>
+<p>@throws Exception</p>
+
+<p>Return a value from this matrix, from the "cell" identified by the row and column numbers</p>
+<p>Note that row and column numbers start from 1, not from 0</p>
+<p>@param int $row</p>
+<p>@param int $column</p>
+<p>@return mixed</p>
+<p>@throws Exception</p>
+
+<p>Returns a Generator that will yield each row of the matrix in turn as a vector matrix</p>
+<p>    or the value of each cell if the matrix is a column vector</p>
+<p>@return Generator|Matrix[]|mixed[]</p>
+
+<p>Returns a Generator that will yield each column of the matrix in turn as a vector matrix</p>
+<p>    or the value of each cell if the matrix is a row vector</p>
+<p>@return Generator|Matrix[]|mixed[]</p>
+
+<p>Identify if the row and column dimensions of this matrix are equal,</p>
+<p>    i.e. if it is a "square" matrix</p>
+<p>@return bool</p>
+
+<p>Identify if this matrix is a vector</p>
+<p>    i.e. if it comprises only a single row or a single column</p>
+<p>@return bool</p>
+
+<p>Return the matrix as a 2-dimensional array</p>
+<p>@return array</p>
+
+<p>Solve A*X = B.</p>
+<p>@param Matrix $B Right hand side</p>
+<p>@throws Exception</p>
+<p>@return Matrix ... Solution if A is square, least squares solution otherwise</p>
+
+<p>Access specific properties as read-only (no setters)</p>
+<p>@param string $propertyName</p>
+<p>@return mixed</p>
+<p>@throws Exception</p>
+
+<p>Returns the result of the function call or operation</p>
+<p>@param string $functionName</p>
+<p>@param mixed[] $arguments</p>
+<p>@return Matrix|float</p>
+<p>@throws Exception</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>an</code></li>
+<li><code>this</code></li>
+<li><code>the</code></li>
+<li><code>1</code></li>
+<li><code>0</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\markbaker\matrix\classes\src\Matrix.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Matrix\Matrix</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(array $grid)</code></li>
+<li><code>buildFromArray(array $grid)</code></li>
+<li><code>validateRow(int $row)</code></li>
+<li><code>validateColumn(int $column)</code></li>
+<li><code>validateRowInRange(int $row)</code></li>
+<li><code>validateColumnInRange(int $column)</code></li>
+<li><code>getRows(int $row, int $rowCount = 1)</code></li>
+<li><code>getColumns(int $column, int $columnCount = 1)</code></li>
+<li><code>dropRows(int $row, int $rowCount = 1)</code></li>
+<li><code>dropColumns(int $column, int $columnCount = 1)</code></li>
+<li><code>getValue(int $row, int $column)</code></li>
+<li><code>rows()</code></li>
+<li><code>columns()</code></li>
+<li><code>isSquare()</code></li>
+<li><code>isVector()</code></li>
+<li><code>toArray()</code></li>
+<li><code>solve(Matrix $B)</code></li>
+<li><code>__get(string $propertyName)</code></li>
+<li><code>__call(string $functionName, $arguments)</code></li>
+</ul>
+</body></html>

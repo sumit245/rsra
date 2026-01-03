@@ -1,0 +1,118 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Cache\Handlers\FileHandler.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Cache\Handlers\FileHandler.php</h1>
+
+<ul>
+<li>Path: <code>system\Cache\Handlers\FileHandler.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 11861 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>File system cache handler</p>
+
+<p>Maximum key length.</p>
+
+<p>Where to store cached files on the disk.</p>
+<p>@var string</p>
+
+<p>Mode for the stored files.</p>
+<p>Must be chmod-safe (octal).</p>
+<p>@var int</p>
+<p>@see https://www.php.net/manual/en/function.chmod.php</p>
+
+<p>@throws CacheException</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>Does the heavy lifting of actually retrieving the file and</p>
+<p>verifying it's age.</p>
+<p>@return mixed</p>
+
+<p>Writes a file to disk, or returns false if not successful.</p>
+<p>@param string $path</p>
+<p>@param string $data</p>
+<p>@param string $mode</p>
+<p>@return bool</p>
+
+<p>Deletes all files contained in the supplied directory path.</p>
+<p>Files must be writable or owned by the system in order to be deleted.</p>
+<p>If the second parameter is set to TRUE, any directories contained</p>
+<p>within the supplied base directory will be nuked as well.</p>
+<p>@param string $path   File path</p>
+<p>@param bool   $delDir Whether to delete any directories found in the path</p>
+<p>@param bool   $htdocs Whether to skip deleting .htaccess and index page files</p>
+<p>@param int    $_level Current directory depth level (default: 0; internal use only)</p>
+
+<p>Reads the specified directory and builds an array containing the filenames,</p>
+<p>filesize, dates, and permissions</p>
+<p>Any sub-folders contained within the specified path are read as well.</p>
+<p>@param string $sourceDir    Path to source</p>
+<p>@param bool   $topLevelOnly Look only at the top level directory specified?</p>
+<p>@param bool   $_recursion   Internal variable to determine recursion status - do not use in calls</p>
+<p>@return array|false</p>
+
+<p>Given a file and path, returns the name, path, size, date modified</p>
+<p>Second parameter allows you to explicitly declare what information you want returned</p>
+<p>Options are: name, server_path, size, date, readable, writable, executable, fileperms</p>
+<p>Returns FALSE if the file cannot be found.</p>
+<p>@param string $file           Path to file</p>
+<p>@param mixed  $returnedValues Array or comma separated string of information returned</p>
+<p>@return array|false</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Cache\Handlers\FileHandler.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Cache\Handlers\FileHandler extends BaseHandler</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(Cache $config)</code></li>
+<li><code>initialize()</code></li>
+<li><code>get(string $key)</code></li>
+<li><code>save(string $key, $value, int $ttl = 60)</code></li>
+<li><code>delete(string $key)</code></li>
+<li><code>deleteMatching(string $pattern)</code></li>
+<li><code>increment(string $key, int $offset = 1)</code></li>
+<li><code>decrement(string $key, int $offset = 1)</code></li>
+<li><code>clean()</code></li>
+<li><code>getCacheInfo()</code></li>
+<li><code>getMetaData(string $key)</code></li>
+<li><code>isSupported()</code></li>
+<li><code>getItem(string $filename)</code></li>
+<li><code>writeFile($path, $data, $mode = 'wb')</code></li>
+<li><code>deleteFiles(string $path, bool $delDir = false, bool $htdocs = false, int $_level = 0)</code></li>
+<li><code>getDirFileInfo(string $sourceDir, bool $topLevelOnly = true, bool $_recursion = false)</code></li>
+<li><code>getFileInfo(string $file, $returnedValues = ['name', 'server_path', 'size', 'date'])</code></li>
+</ul>
+</body></html>

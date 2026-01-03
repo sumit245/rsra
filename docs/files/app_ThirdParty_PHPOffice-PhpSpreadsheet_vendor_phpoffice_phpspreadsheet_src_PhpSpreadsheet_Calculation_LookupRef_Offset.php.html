@@ -1,0 +1,62 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\LookupRef\Offset.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\LookupRef\Offset.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\LookupRef\Offset.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 6108 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>OFFSET.</p>
+<p>Returns a reference to a range that is a specified number of rows and columns from a cell or range of cells.</p>
+<p>The reference that is returned can be a single cell or a range of cells. You can specify the number of rows and</p>
+<p>the number of columns to be returned.</p>
+<p>Excel Function:</p>
+<p>       =OFFSET(cellAddress, rows, cols, [height], [width])</p>
+<p>@param null|string $cellAddress The reference from which you want to base the offset.</p>
+<p>                                    Reference must refer to a cell or range of adjacent cells;</p>
+<p>                                    otherwise, OFFSET returns the #VALUE! error value.</p>
+<p>@param mixed $rows The number of rows, up or down, that you want the upper-left cell to refer to.</p>
+<p>                       Using 5 as the rows argument specifies that the upper-left cell in the</p>
+<p>                       reference is five rows below reference. Rows can be positive (which means</p>
+<p>                       below the starting reference) or negative (which means above the starting</p>
+<p>                       reference).</p>
+<p>@param mixed $columns The number of columns, to the left or right, that you want the upper-left cell</p>
+<p>                          of the result to refer to. Using 5 as the cols argument specifies that the</p>
+<p>                          upper-left cell in the reference is five columns to the right of reference.</p>
+<p>                          Cols can be positive (which means to the right of the starting reference)</p>
+<p>                          or negative (which means to the left of the starting reference).</p>
+<p>@param mixed $height The height, in number of rows, that you want the returned reference to be.</p>
+<p>                         Height must be a positive number.</p>
+<p>@param mixed $width The width, in number of columns, that you want the returned reference to be.</p>
+<p>                        Width must be a positive number.</p>
+<p>@return array|int|string An array containing a cell or range of cells, or a string on error</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+<li><code>which</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\LookupRef\Offset.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\LookupRef\Offset</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>OFFSET($cellAddress = null, $rows = 0, $columns = 0, $height = null, $width = null, ?Cell $cell = null)</code></li>
+<li><code>extractRequiredCells(?Worksheet $worksheet, string $cellAddress)</code></li>
+<li><code>extractWorksheet($cellAddress, Cell $cell)</code></li>
+<li><code>adjustEndCellColumnForWidth(string $endCellColumn, $width, int $startCellColumn, $columns)</code></li>
+<li><code>adustEndCellRowForHeight($height, int $startCellRow, $rows, $endCellRow)</code></li>
+</ul>
+</body></html>

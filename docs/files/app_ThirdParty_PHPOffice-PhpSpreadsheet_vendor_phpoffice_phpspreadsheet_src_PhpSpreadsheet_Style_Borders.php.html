@@ -1,0 +1,172 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Style\Borders.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Style\Borders.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Style\Borders.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 10769 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Left.</p>
+<p>@var Border</p>
+
+<p>Right.</p>
+<p>@var Border</p>
+
+<p>Top.</p>
+<p>@var Border</p>
+
+<p>Bottom.</p>
+<p>@var Border</p>
+
+<p>Diagonal.</p>
+<p>@var Border</p>
+
+<p>DiagonalDirection.</p>
+<p>@var int</p>
+
+<p>All borders pseudo-border. Only applies to supervisor.</p>
+<p>@var Border</p>
+
+<p>Outline pseudo-border. Only applies to supervisor.</p>
+<p>@var Border</p>
+
+<p>Inside pseudo-border. Only applies to supervisor.</p>
+<p>@var Border</p>
+
+<p>Vertical pseudo-border. Only applies to supervisor.</p>
+<p>@var Border</p>
+
+<p>Horizontal pseudo-border. Only applies to supervisor.</p>
+<p>@var Border</p>
+
+<p>Create a new Borders.</p>
+<p>@param bool $isSupervisor Flag indicating if this is a supervisor or not</p>
+<p>                                   Leave this value at default unless you understand exactly what</p>
+<p>                                       its ramifications are</p>
+
+<p>Get the shared style component for the currently active cell in currently active sheet.</p>
+<p>Only used for style supervisor.</p>
+<p>@return Borders</p>
+
+<p>@var Style</p>
+
+<p>Build style array from subcomponents.</p>
+<p>@param array $array</p>
+<p>@return array</p>
+
+<p>Apply styles from array.</p>
+<p><code></p>
+<p>$spreadsheet->getActiveSheet()->getStyle('B2')->getBorders()->applyFromArray(</p>
+<p>        [</p>
+<p>            'bottom' => [</p>
+<p>                'borderStyle' => Border::BORDER_DASHDOT,</p>
+<p>                'color' => [</p>
+<p>                    'rgb' => '808080'</p>
+<p>                ]</p>
+<p>            ],</p>
+<p>            'top' => [</p>
+<p>                'borderStyle' => Border::BORDER_DASHDOT,</p>
+<p>                'color' => [</p>
+<p>                    'rgb' => '808080'</p>
+<p>                ]</p>
+<p>            ]</p>
+<p>        ]</p>
+<p>);</p>
+<p></code></p>
+<p><code></p>
+<p>$spreadsheet->getActiveSheet()->getStyle('B2')->getBorders()->applyFromArray(</p>
+<p>        [</p>
+<p>            'allBorders' => [</p>
+<p>                'borderStyle' => Border::BORDER_DASHDOT,</p>
+<p>                'color' => [</p>
+<p>                    'rgb' => '808080'</p>
+<p>                ]</p>
+<p>            ]</p>
+<p>        ]</p>
+<p>);</p>
+<p></code></p>
+<p>@param array $styleArray Array containing style information</p>
+<p>@return $this</p>
+
+<p>Get Left.</p>
+<p>@return Border</p>
+
+<p>Get Right.</p>
+<p>@return Border</p>
+
+<p>Get Top.</p>
+<p>@return Border</p>
+
+<p>Get Bottom.</p>
+<p>@return Border</p>
+
+<p>Get Diagonal.</p>
+<p>@return Border</p>
+
+<p>Get AllBorders (pseudo-border). Only applies to supervisor.</p>
+<p>@return Border</p>
+
+<p>Get Outline (pseudo-border). Only applies to supervisor.</p>
+<p>@return Border</p>
+
+<p>Get Inside (pseudo-border). Only applies to supervisor.</p>
+<p>@return Border</p>
+
+<p>Get Vertical (pseudo-border). Only applies to supervisor.</p>
+<p>@return Border</p>
+
+<p>Get Horizontal (pseudo-border). Only applies to supervisor.</p>
+<p>@return Border</p>
+
+<p>Get DiagonalDirection.</p>
+<p>@return int</p>
+
+<p>Set DiagonalDirection.</p>
+<p>@param int $direction see self::DIAGONAL_*</p>
+<p>@return $this</p>
+
+<p>Get hash code.</p>
+<p>@return string Hash code</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>subcomponents</code></li>
+<li><code>array</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Style\Borders.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Style\Borders extends Supervisor</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($isSupervisor = false)</code></li>
+<li><code>getSharedComponent()</code></li>
+<li><code>getStyleArray($array)</code></li>
+<li><code>applyFromArray(array $styleArray)</code></li>
+<li><code>getLeft()</code></li>
+<li><code>getRight()</code></li>
+<li><code>getTop()</code></li>
+<li><code>getBottom()</code></li>
+<li><code>getDiagonal()</code></li>
+<li><code>getAllBorders()</code></li>
+<li><code>getOutline()</code></li>
+<li><code>getInside()</code></li>
+<li><code>getVertical()</code></li>
+<li><code>getHorizontal()</code></li>
+<li><code>getDiagonalDirection()</code></li>
+<li><code>setDiagonalDirection($direction)</code></li>
+<li><code>getHashCode()</code></li>
+<li><code>exportArray1()</code></li>
+</ul>
+</body></html>

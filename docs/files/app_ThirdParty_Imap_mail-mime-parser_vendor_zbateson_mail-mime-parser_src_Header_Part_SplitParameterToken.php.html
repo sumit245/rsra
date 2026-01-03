@@ -1,0 +1,112 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Part\SplitParameterToken.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Part\SplitParameterToken.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Part\SplitParameterToken.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5246 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Holds a running value for an RFC-2231 split header parameter.</p>
+
+<p>ParameterConsumer creates SplitParameterTokens when a split header parameter</p>
+<p>is first found, and adds subsequent split parts to an already created one if</p>
+<p>the parameter name matches.</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var string name of the parameter.</p>
+
+<p>@var string[] keeps encoded parts values that need to be decoded.  Keys</p>
+<p>     are set to the index part of the split parameter and used for</p>
+<p>     sorting before decoding/concatenating.</p>
+
+<p>@var string[] contains literal parts that don't require any decoding (and</p>
+<p>     are therefore ISO-8859-1 (technically should be 7bit US-ASCII but</p>
+<p>     allowing 8bit shouldn't be an issue as elsewhere in MMP).</p>
+
+<p>@var string RFC-1766 (or subset) language code with optional subtags,</p>
+<p>     regions, etc...</p>
+
+<p>@var string charset of content in $encodedParts.</p>
+
+<p>Initializes a SplitParameterToken.</p>
+
+<p>@param MbWrapper $charsetConverter</p>
+<p>@param string $name the parameter's name</p>
+
+<p>Extracts charset and language from an encoded value, setting them on the</p>
+<p>current object if $index is 0 and adds the value part to the encodedParts</p>
+<p>array.</p>
+
+<p>@param string $value</p>
+<p>@param int $index</p>
+
+<p>Adds the passed part to the running array of values.</p>
+
+<p>If $isEncoded is true, language and charset info is extracted from the</p>
+<p>value, and the value is decoded before returning in getValue.</p>
+
+<p>The value of the parameter is sorted based on the passed $index</p>
+<p>arguments when adding before concatenating when re-constructing the</p>
+<p>value.</p>
+
+<p>@param string $value</p>
+<p>@param boolean $isEncoded</p>
+<p>@param int $index</p>
+
+<p>Traverses $this->encodedParts until a non-sequential key is found, or the</p>
+<p>end of the array is found.</p>
+
+<p>This allows encoded parts of a split parameter to be split anywhere and</p>
+<p>reconstructed.</p>
+
+<p>The returned string is converted to UTF-8 before being returned.</p>
+
+<p>@return string</p>
+
+<p>Reconstructs the value of the split parameter into a single UTF-8 string</p>
+<p>and returns it.</p>
+
+<p>@return string</p>
+
+<p>Returns the name of the parameter.</p>
+
+<p>@return string</p>
+
+<p>Returns the language of the parameter if set, or null if not.</p>
+
+<p>@return string</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>an</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Part\SplitParameterToken.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Header\Part\SplitParameterToken extends HeaderPart</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(MbWrapper $charsetConverter, $name)</code></li>
+<li><code>extractMetaInformationAndValue($value, $index)</code></li>
+<li><code>addPart($value, $isEncoded, $index)</code></li>
+<li><code>getNextEncodedValue()</code></li>
+<li><code>getValue()</code></li>
+<li><code>getName()</code></li>
+<li><code>getLanguage()</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,47 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\promises\src\TaskQueue.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\promises\src\TaskQueue.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\promises\src\TaskQueue.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 1928 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>A task queue that executes tasks in a FIFO order.</p>
+<p>This task queue class is used to settle promises asynchronously and</p>
+<p>maintains a constant stack size. You can use the task queue asynchronously</p>
+<p>by calling the <code>run()</code> function of the global task queue in an event loop.</p>
+<p>    GuzzleHttp\Promise\queue()->run();</p>
+
+<p>@var callable $task</p>
+
+<p>The task queue will be run and exhausted by default when the process</p>
+<p>exits IFF the exit is not the result of a PHP E_ERROR error.</p>
+<p>You can disable running the automatic shutdown of the queue by calling</p>
+<p>this function. If you disable the task queue shutdown process, then you</p>
+<p>MUST either run the task queue (as a result of running your event loop</p>
+<p>or manually using the run() method) or wait on each outstanding promise.</p>
+<p>Note: This shutdown will occur before any destructors are triggered.</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\promises\src\TaskQueue.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>GuzzleHttp\Promise\is</code></li>
+<li><code>GuzzleHttp\Promise\TaskQueue implements TaskQueueInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($withShutdown = true)</code></li>
+<li><code>isEmpty()</code></li>
+<li><code>add(callable $task)</code></li>
+<li><code>run()</code></li>
+<li><code>disableShutdown()</code></li>
+</ul>
+</body></html>

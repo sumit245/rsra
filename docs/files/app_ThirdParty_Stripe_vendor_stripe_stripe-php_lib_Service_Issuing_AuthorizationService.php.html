@@ -1,0 +1,80 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\Issuing\AuthorizationService.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\Issuing\AuthorizationService.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\Issuing\AuthorizationService.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3360 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Returns a list of Issuing <code>Authorization</code> objects. The objects are</p>
+<p>sorted in descending order by creation date, with the most recently created</p>
+<p>object appearing first.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\Issuing\Authorization></p>
+
+<p>Approves a pending Issuing <code>Authorization</code> object. This request</p>
+<p>should be made within the timeout window of the <a</p>
+<p>href="/docs/issuing/controls/real-time-authorizations">real-time</p>
+<p>authorization</a> flow.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Issuing\Authorization</p>
+
+<p>Declines a pending Issuing <code>Authorization</code> object. This request</p>
+<p>should be made within the timeout window of the <a</p>
+<p>href="/docs/issuing/controls/real-time-authorizations">real time</p>
+<p>authorization</a> flow.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Issuing\Authorization</p>
+
+<p>Retrieves an Issuing <code>Authorization</code> object.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Issuing\Authorization</p>
+
+<p>Updates the specified Issuing <code>Authorization</code> object by setting the</p>
+<p>values of the parameters passed. Any parameters not provided will be left</p>
+<p>unchanged.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Issuing\Authorization</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\Issuing\AuthorizationService.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Service\Issuing\AuthorizationService extends \Stripe\Service\AbstractService</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>all($params = null, $opts = null)</code></li>
+<li><code>approve($id, $params = null, $opts = null)</code></li>
+<li><code>decline($id, $params = null, $opts = null)</code></li>
+<li><code>retrieve($id, $params = null, $opts = null)</code></li>
+<li><code>update($id, $params = null, $opts = null)</code></li>
+</ul>
+</body></html>

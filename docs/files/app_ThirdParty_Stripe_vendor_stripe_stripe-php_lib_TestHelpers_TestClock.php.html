@@ -1,0 +1,52 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\TestHelpers\TestClock.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\TestHelpers\TestClock.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\TestHelpers\TestClock.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2202 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>A test clock enables deterministic control over objects in testmode. With a test</p>
+<p>clock, you can create objects at a frozen time in the past or future, and</p>
+<p>advance to a specific future time to observe webhooks and state changes. After</p>
+<p>the clock advances, you can either validate the current state of your scenario</p>
+<p>(and test your assumptions), change the current state of your scenario (and test</p>
+<p>more complex scenarios), or keep advancing forward in time.</p>
+<p>@property string $id Unique identifier for the object.</p>
+<p>@property string $object String representing the object's type. Objects of the same type share the same value.</p>
+<p>@property int $created Time at which the object was created. Measured in seconds since the Unix epoch.</p>
+<p>@property int $deletes_after Time at which this clock is scheduled to auto delete.</p>
+<p>@property int $frozen_time Time at which all objects belonging to this clock are frozen.</p>
+<p>@property bool $livemode Has the value <code>true</code> if the object exists in live mode or the value <code>false</code> if the object exists in test mode.</p>
+<p>@property null|string $name The custom name supplied at creation.</p>
+<p>@property string $status The status of the Test Clock.</p>
+
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\TestHelpers\TestClock the advanced test clock</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\TestHelpers\TestClock.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\TestHelpers\TestClock extends \Stripe\ApiResource</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>advance($params = null, $opts = null)</code></li>
+</ul>
+</body></html>

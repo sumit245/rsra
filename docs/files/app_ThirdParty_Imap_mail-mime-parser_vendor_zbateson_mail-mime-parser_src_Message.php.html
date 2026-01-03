@@ -1,0 +1,258 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 17287 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>A parsed mime message with optional mime parts depending on its type.</p>
+<p>A mime message may have any number of mime parts, and each part may have any</p>
+<p>number of sub-parts, etc...</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var MessageHelperService helper class with various message manipulation</p>
+<p>     routines.</p>
+
+<p>Constructor</p>
+<p>@param PartStreamFilterManager $partStreamFilterManager</p>
+<p>@param StreamFactory $streamFactory</p>
+<p>@param PartFilterFactory $partFilterFactory</p>
+<p>@param PartBuilder $partBuilder</p>
+<p>@param MessageHelperService $messageHelperService</p>
+<p>@param StreamInterface $stream</p>
+<p>@param StreamInterface $contentStream</p>
+
+<p>Convenience method to parse a handle or string into a Message without</p>
+<p>requiring including MailMimeParser, instantiating it, and calling parse.</p>
+<p>@param resource|string $handleOrString the resource handle to the input</p>
+<p>       stream of the mime message, or a string containing a mime message</p>
+<p>@return Message</p>
+
+<p>Returns the text/plain part at the given index (or null if not found.)</p>
+<p>@param int $index</p>
+<p>@return MessagePart</p>
+
+<p>Returns the number of text/plain parts in this message.</p>
+<p>@return int</p>
+
+<p>Returns the text/html part at the given index (or null if not found.)</p>
+<p>@param int $index</p>
+<p>@return MessagePart</p>
+
+<p>Returns the number of text/html parts in this message.</p>
+<p>@return int</p>
+
+<p>Returns the attachment part at the given 0-based index, or null if none</p>
+<p>is set.</p>
+<p>@param int $index</p>
+<p>@return MessagePart</p>
+
+<p>Returns all attachment parts.</p>
+<p>"Attachments" are any non-multipart, non-signature and any text or html</p>
+<p>html part witha Content-Disposition set to  'attachment'.</p>
+<p>@return MessagePart[]</p>
+
+<p>Returns the number of attachments available.</p>
+<p>@return int</p>
+
+<p>Returns a Psr7 Stream for the 'inline' text/plain content at the passed</p>
+<p>$index, or null if unavailable.</p>
+<p>@param int $index</p>
+<p>@param string $charset</p>
+<p>@return StreamInterface</p>
+
+<p>Returns a resource handle for the 'inline' text/plain content at the</p>
+<p>passed $index, or null if unavailable.</p>
+<p>Note: this method should *not* be used and has been deprecated. Instead,</p>
+<p>use Psr7 streams with getTextStream.  Multibyte chars will not be read</p>
+<p>correctly with getTextResourceHandle/fread.</p>
+<p>@param int $index</p>
+<p>@param string $charset</p>
+<p>@deprecated since version 1.2.1</p>
+<p>@return resource</p>
+
+<p>Returns the content of the inline text/plain part at the given index.</p>
+<p>Reads the entire stream content into a string and returns it.  Returns</p>
+<p>null if the message doesn't have an inline text part.</p>
+<p>@param int $index</p>
+<p>@param string $charset</p>
+<p>@return string</p>
+
+<p>Returns a Psr7 Stream for the 'inline' text/html content at the passed</p>
+<p>$index, or null if unavailable.</p>
+<p>@param int $index</p>
+<p>@param string $charset</p>
+<p>@return StreamInterface</p>
+
+<p>Returns a resource handle for the 'inline' text/html content at the</p>
+<p>passed $index, or null if unavailable.</p>
+<p>Note: this method should *not* be used and has been deprecated. Instead,</p>
+<p>use Psr7 streams with getHtmlStream.  Multibyte chars will not be read</p>
+<p>correctly with getHtmlResourceHandle/fread.</p>
+<p>@param int $index</p>
+<p>@param string $charset</p>
+<p>@deprecated since version 1.2.1</p>
+<p>@return resource</p>
+
+<p>Returns the content of the inline text/html part at the given index.</p>
+<p>Reads the entire stream content into a string and returns it.  Returns</p>
+<p>null if the message doesn't have an inline html part.</p>
+<p>@param int $index</p>
+<p>@param string $charset</p>
+<p>@return string</p>
+
+<p>Returns true if either a Content-Type or Mime-Version header are defined</p>
+<p>in this Message.</p>
+<p>@return bool</p>
+
+<p>Sets the text/plain part of the message to the passed $stringOrHandle,</p>
+<p>either creating a new part if one doesn't exist for text/plain, or</p>
+<p>assigning the value of $stringOrHandle to an existing text/plain part.</p>
+<p>The optional $charset parameter is the charset for saving to.</p>
+<p>$stringOrHandle is expected to be in UTF-8 regardless of the target</p>
+<p>charset.</p>
+<p>@param string|resource|StreamInterface $resource</p>
+<p>@param string $charset</p>
+
+<p>Sets the text/html part of the message to the passed $stringOrHandle,</p>
+<p>either creating a new part if one doesn't exist for text/html, or</p>
+<p>assigning the value of $stringOrHandle to an existing text/html part.</p>
+<p>The optional $charset parameter is the charset for saving to.</p>
+<p>$stringOrHandle is expected to be in UTF-8 regardless of the target</p>
+<p>charset.</p>
+<p>@param string|resource|StreamInterface $resource</p>
+<p>@param string $charset</p>
+
+<p>Removes the text/plain part of the message at the passed index if one</p>
+<p>exists.  Returns true on success.</p>
+<p>@param int $index</p>
+<p>@return bool true on success</p>
+
+<p>Removes all text/plain inline parts in this message, optionally keeping</p>
+<p>other inline parts as attachments on the main message (defaults to</p>
+<p>keeping them).</p>
+<p>@param bool $keepOtherPartsAsAttachments</p>
+<p>@return bool true on success</p>
+
+<p>Removes the html part of the message if one exists.  Returns true on</p>
+<p>success.</p>
+<p>@param int $index</p>
+<p>@return bool true on success</p>
+
+<p>Removes all text/html inline parts in this message, optionally keeping</p>
+<p>other inline parts as attachments on the main message (defaults to</p>
+<p>keeping them).</p>
+<p>@param bool $keepOtherPartsAsAttachments</p>
+<p>@return bool true on success</p>
+
+<p>Adds an attachment part for the passed raw data string or handle and</p>
+<p>given parameters.</p>
+<p>@param string|resource|StreamInterface $resource</p>
+<p>@param string $mimeType</p>
+<p>@param string $filename</p>
+<p>@param string $disposition</p>
+<p>@param string $encoding defaults to 'base64', only applied for a mime</p>
+<p>       email</p>
+
+<p>Adds an attachment part using the passed file.</p>
+<p>Essentially creates a file stream and uses it.</p>
+<p>@param string $filePath</p>
+<p>@param string $mimeType</p>
+<p>@param string $filename</p>
+<p>@param string $disposition</p>
+
+<p>Removes the attachment with the given index</p>
+<p>@param int $index</p>
+
+<p>Returns a stream that can be used to read the content part of a signed</p>
+<p>message, which can be used to sign an email or verify a signature.</p>
+<p>The method simply returns the stream for the first child.  No</p>
+<p>verification of whether the message is in fact a signed message is</p>
+<p>performed.</p>
+<p>Note that unlike getSignedMessageAsString, getSignedMessageStream doesn't</p>
+<p>replace new lines.</p>
+<p>@return StreamInterface or null if the message doesn't have any children</p>
+
+<p>Returns a string containing the entire body of a signed message for</p>
+<p>verification or calculating a signature.</p>
+<p>Non-CRLF new lines are replaced to always be CRLF.</p>
+<p>@return string or null if the message doesn't have any children</p>
+
+<p>Returns the signature part of a multipart/signed message or null.</p>
+<p>The signature part is determined to always be the 2nd child of a</p>
+<p>multipart/signed message, the first being the 'body'.</p>
+<p>Using the 'protocol' parameter of the Content-Type header is unreliable</p>
+<p>in some instances (for instance a difference of x-pgp-signature versus</p>
+<p>pgp-signature).</p>
+<p>@return MimePart</p>
+
+<p>Turns the message into a multipart/signed message, moving the actual</p>
+<p>message into a child part, sets the content-type of the main message to</p>
+<p>multipart/signed and adds an empty signature part as well.</p>
+<p>After calling setAsMultipartSigned, call getSignedMessageAsString to</p>
+<p>return a</p>
+<p>@param string $micalg The Message Integrity Check algorithm being used</p>
+<p>@param string $protocol The mime-type of the signature body</p>
+
+<p>Sets the signature body of the message to the passed $body for a</p>
+<p>multipart/signed message.</p>
+<p>@param string $body</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Message extends MimePart</code></li>
+<li><code>ZBateson\MailMimeParser\with</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`__construct(PartStreamFilterManager $partStreamFilterManager,</li>
+<p>        StreamFactory $streamFactory,</p>
+<p>        PartFilterFactory $partFilterFactory,</p>
+<p>        PartBuilder $partBuilder,</p>
+<p>        MessageHelperService $messageHelperService,</p>
+<p>        StreamInterface $stream = null,</p>
+<p>        StreamInterface $contentStream = null)`</p>
+<li><code>from($handleOrString)</code></li>
+<li><code>getTextPart($index = 0)</code></li>
+<li><code>getTextPartCount()</code></li>
+<li><code>getHtmlPart($index = 0)</code></li>
+<li><code>getHtmlPartCount()</code></li>
+<li><code>getAttachmentPart($index)</code></li>
+<li><code>getAllAttachmentParts()</code></li>
+<li><code>getAttachmentCount()</code></li>
+<li><code>getTextStream($index = 0, $charset = MailMimeParser::DEFAULT_CHARSET)</code></li>
+<li><code>getTextResourceHandle($index = 0, $charset = MailMimeParser::DEFAULT_CHARSET)</code></li>
+<li><code>getTextContent($index = 0, $charset = MailMimeParser::DEFAULT_CHARSET)</code></li>
+<li><code>getHtmlStream($index = 0, $charset = MailMimeParser::DEFAULT_CHARSET)</code></li>
+<li><code>getHtmlResourceHandle($index = 0, $charset = MailMimeParser::DEFAULT_CHARSET)</code></li>
+<li><code>getHtmlContent($index = 0, $charset = MailMimeParser::DEFAULT_CHARSET)</code></li>
+<li><code>isMime()</code></li>
+<li><code>setTextPart($resource, $charset = 'UTF-8')</code></li>
+<li><code>setHtmlPart($resource, $charset = 'UTF-8')</code></li>
+<li><code>removeTextPart($index = 0)</code></li>
+<li><code>removeAllTextParts($keepOtherPartsAsAttachments = true)</code></li>
+<li><code>removeHtmlPart($index = 0)</code></li>
+<li><code>removeAllHtmlParts($keepOtherPartsAsAttachments = true)</code></li>
+<li><code>addAttachmentPart($resource, $mimeType, $filename = null, $disposition = 'attachment', $encoding = 'base64')</code></li>
+<li><code>addAttachmentPartFromFile($filePath, $mimeType, $filename = null, $disposition = 'attachment', $encoding = 'base64')</code></li>
+<li><code>removeAttachmentPart($index)</code></li>
+<li><code>getSignedMessageStream()</code></li>
+<li><code>getSignedMessageAsString()</code></li>
+<li><code>getSignaturePart()</code></li>
+<li><code>setAsMultipartSigned($micalg, $protocol)</code></li>
+<li><code>setSignature($body)</code></li>
+</ul>
+</body></html>

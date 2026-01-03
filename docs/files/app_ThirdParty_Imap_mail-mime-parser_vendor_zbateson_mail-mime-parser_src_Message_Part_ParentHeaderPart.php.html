@@ -1,0 +1,155 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Part\ParentHeaderPart.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Part\ParentHeaderPart.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Part\ParentHeaderPart.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7772 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>A parent part containing headers.</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var HeaderContainer Contains headers for this part.</p>
+
+<p>Constructor</p>
+<p>@param PartStreamFilterManager $partStreamFilterManager</p>
+<p>@param StreamFactory $streamFactory</p>
+<p>@param PartFilterFactory $partFilterFactory</p>
+<p>@param PartBuilder $partBuilder</p>
+<p>@param StreamInterface $stream</p>
+<p>@param StreamInterface $contentStream</p>
+
+<p>Returns the AbstractHeader object for the header with the given $name.</p>
+<p>If the optional $offset is passed, and multiple headers exist with the</p>
+<p>same name, the one at the passed offset is returned.</p>
+<p>Note that mime headers aren't case sensitive.</p>
+<p>@param string $name</p>
+<p>@param int $offset</p>
+<p>@return \ZBateson\MailMimeParser\Header\AbstractHeader|</p>
+<p>        \ZBateson\MailMimeParser\Header\AddressHeader|</p>
+<p>        \ZBateson\MailMimeParser\Header\DateHeader|</p>
+<p>        \ZBateson\MailMimeParser\Header\GenericHeader|</p>
+<p>        \ZBateson\MailMimeParser\Header\IdHeader|</p>
+<p>        \ZBateson\MailMimeParser\Header\ParameterHeader|</p>
+<p>        \ZBateson\MailMimeParser\Header\ReceivedHeader|</p>
+<p>        \ZBateson\MailMimeParser\Header\SubjectHeader</p>
+
+<p>Returns an array of headers in this part.</p>
+<p>@return \ZBateson\MailMimeParser\Header\AbstractHeader[]</p>
+
+<p>Returns an array of headers that match the passed name.</p>
+<p>@param string $name</p>
+<p>@return \ZBateson\MailMimeParser\Header\AbstractHeader[]</p>
+
+<p>Returns an array of all headers for the mime part with the first element</p>
+<p>holding the name, and the second its value.</p>
+<p>@return string[][]</p>
+
+<p>Returns an iterator to the headers in this collection.  Each returned</p>
+<p>element is an array with its first element set to the header's name, and</p>
+<p>the second to its raw value:</p>
+<p>[ 'Header-Name', 'Header Value' ]</p>
+<p>@return \Iterator</p>
+
+<p>Returns the string value for the header with the given $name.</p>
+<p>Note that mime headers aren't case sensitive.</p>
+<p>@param string $name</p>
+<p>@param string $defaultValue</p>
+<p>@return string</p>
+
+<p>Returns a parameter of the header $header, given the parameter named</p>
+<p>$param.</p>
+<p>Only headers of type</p>
+<p>\ZBateson\MailMimeParser\Header\ParameterHeader have parameters.</p>
+<p>Content-Type and Content-Disposition are examples of headers with</p>
+<p>parameters. "Charset" is a common parameter of Content-Type.</p>
+<p>@param string $header</p>
+<p>@param string $param</p>
+<p>@param string $defaultValue</p>
+<p>@return string</p>
+
+<p>Adds a header with the given $name and $value.  An optional $offset may</p>
+<p>be passed, which will overwrite a header if one exists with the given</p>
+<p>name and offset. Otherwise a new header is added.  The passed $offset may</p>
+<p>be ignored in that case if it doesn't represent the next insert position</p>
+<p>for the header with the passed name... instead it would be 'pushed' on at</p>
+<p>the next position.</p>
+<p>```php</p>
+<p>$part = $myParentHeaderPart;</p>
+<p>$part->setRawHeader('New-Header', 'value');</p>
+<p>echo $part->getHeaderValue('New-Header');        // 'value'</p>
+<p>$part->setRawHeader('New-Header', 'second', 4);</p>
+<p>echo is_null($part->getHeader('New-Header', 4)); // '1' (true)</p>
+<p>echo $part->getHeader('New-Header', 1)</p>
+<p>     ->getValue();                               // 'second'</p>
+<p>```</p>
+<p>A new \ZBateson\MailMimeParser\Header\AbstractHeader object is created</p>
+<p>from the passed value.  No processing on the passed string is performed,</p>
+<p>and so the passed name and value must be formatted correctly according to</p>
+<p>related RFCs.  In particular, be careful to encode non-ascii data, to</p>
+<p>keep lines under 998 characters in length, and to follow any special</p>
+<p>formatting required for the type of header.</p>
+<p>@param string $name</p>
+<p>@param string $value</p>
+<p>@param int $offset</p>
+
+<p>Adds a header with the given $name and $value.</p>
+<p>Note: If a header with the passed name already exists, a new header is</p>
+<p>created with the same name.  This should only be used when that is</p>
+<p>intentional - in most cases setRawHeader should be called.</p>
+<p>Creates a new \ZBateson\MailMimeParser\Header\AbstractHeader object and</p>
+<p>registers it as a header.</p>
+<p>@param string $name</p>
+<p>@param string $value</p>
+
+<p>Removes all headers from this part with the passed name.</p>
+<p>@param string $name</p>
+
+<p>Removes a single header with the passed name (in cases where more than</p>
+<p>one may exist, and others should be preserved).</p>
+<p>@param string $name</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>this</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Part\ParentHeaderPart.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Message\Part\ParentHeaderPart extends ParentPart</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`__construct(PartStreamFilterManager $partStreamFilterManager,</li>
+<p>        StreamFactory $streamFactory,</p>
+<p>        PartFilterFactory $partFilterFactory,</p>
+<p>        PartBuilder $partBuilder,</p>
+<p>        StreamInterface $stream = null,</p>
+<p>        StreamInterface $contentStream = null)`</p>
+<li><code>getHeader($name, $offset = 0)</code></li>
+<li><code>getAllHeaders()</code></li>
+<li><code>getAllHeadersByName($name)</code></li>
+<li><code>getRawHeaders()</code></li>
+<li><code>getRawHeaderIterator()</code></li>
+<li><code>getHeaderValue($name, $defaultValue = null)</code></li>
+<li><code>getHeaderParameter($header, $param, $defaultValue = null)</code></li>
+<li><code>setRawHeader($name, $value, $offset = 0)</code></li>
+<li><code>addRawHeader($name, $value)</code></li>
+<li><code>removeHeader($name)</code></li>
+<li><code>removeSingleHeader($name, $offset = 0)</code></li>
+</ul>
+</body></html>

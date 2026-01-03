@@ -1,0 +1,201 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\RC2.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\RC2.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\RC2.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 22544 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Pure-PHP implementation of RC2.</p>
+<p>Uses mcrypt, if available, and an internal implementation, otherwise.</p>
+<p>PHP version 5</p>
+<p>Useful resources are as follows:</p>
+<p> - {@link http://tools.ietf.org/html/rfc2268}</p>
+<p>Here's a short example of how to use this library:</p>
+<p><code></p>
+<p><?php</p>
+<p>   include 'vendor/autoload.php';</p>
+<p>   $rc2 = new \phpseclib\Crypt\RC2();</p>
+<p>   $rc2->setKey('abcdefgh');</p>
+<p>   $plaintext = str_repeat('a', 1024);</p>
+<p>   echo $rc2->decrypt($rc2->encrypt($plaintext));</p>
+<p>?></p>
+<p></code></p>
+<p>@category Crypt</p>
+<p>@package  RC2</p>
+<p>@author   Patrick Monnerat <pm@datasphere.ch></p>
+<p>@license  http://www.opensource.org/licenses/mit-license.html  MIT License</p>
+<p>@link     http://phpseclib.sourceforge.net</p>
+
+<p>Pure-PHP implementation of RC2.</p>
+<p>@package RC2</p>
+<p>@access  public</p>
+
+<p>Block Length of the cipher</p>
+<p>@see \phpseclib\Crypt\Base::block_size</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>The Key</p>
+<p>@see \phpseclib\Crypt\Base::key</p>
+<p>@see self::setKey()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>The Original (unpadded) Key</p>
+<p>@see \phpseclib\Crypt\Base::key</p>
+<p>@see self::setKey()</p>
+<p>@see self::encrypt()</p>
+<p>@see self::decrypt()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Don't truncate / null pad key</p>
+<p>@see \phpseclib\Crypt\Base::_clearBuffers()</p>
+<p>@var bool</p>
+<p>@access private</p>
+
+<p>Key Length (in bytes)</p>
+<p>@see \phpseclib\Crypt\RC2::setKeyLength()</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>The mcrypt specific name of the cipher</p>
+<p>@see \phpseclib\Crypt\Base::cipher_name_mcrypt</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Optimizing value while CFB-encrypting</p>
+<p>@see \phpseclib\Crypt\Base::cfb_init_len</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>The key length in bits.</p>
+<p>@see self::setKeyLength()</p>
+<p>@see self::setKey()</p>
+<p>@var int</p>
+<p>@access private</p>
+<p>@internal Should be in range [1..1024].</p>
+<p>@internal Changing this value after setting the key has no effect.</p>
+
+<p>The key length in bits.</p>
+<p>@see self::isValidEnine()</p>
+<p>@see self::setKey()</p>
+<p>@var int</p>
+<p>@access private</p>
+<p>@internal Should be in range [1..1024].</p>
+
+<p>The Key Schedule</p>
+<p>@see self::_setupKey()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Key expansion randomization table.</p>
+<p>Twice the same 256-value sequence to save a modulus in key expansion.</p>
+<p>@see self::setKey()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Inverse key expansion randomization table.</p>
+<p>@see self::setKey()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Test for engine validity</p>
+<p>This is mainly just a wrapper to set things up for \phpseclib\Crypt\Base::isValidEngine()</p>
+<p>@see \phpseclib\Crypt\Base::__construct()</p>
+<p>@param int $engine</p>
+<p>@access public</p>
+<p>@return bool</p>
+
+<p>Sets the key length.</p>
+<p>Valid key lengths are 8 to 1024.</p>
+<p>Calling this function after setting the key has no effect until the next</p>
+<p> \phpseclib\Crypt\RC2::setKey() call.</p>
+<p>@access public</p>
+<p>@param int $length in bits</p>
+
+<p>Returns the current key length</p>
+<p>@access public</p>
+<p>@return int</p>
+
+<p>Sets the key.</p>
+<p>Keys can be of any length. RC2, itself, uses 8 to 1024 bit keys (eg.</p>
+<p>strlen($key) <= 128), however, we only use the first 128 bytes if $key</p>
+<p>has more then 128 bytes in it, and set $key to a single null byte if</p>
+<p>it is empty.</p>
+<p>If the key is not explicitly set, it'll be assumed to be a single</p>
+<p>null byte.</p>
+<p>@see \phpseclib\Crypt\Base::setKey()</p>
+<p>@access public</p>
+<p>@param string $key</p>
+<p>@param int $t1 optional Effective key length in bits.</p>
+
+<p>Encrypts a message.</p>
+<p>Mostly a wrapper for \phpseclib\Crypt\Base::encrypt, with some additional OpenSSL handling code</p>
+<p>@see self::decrypt()</p>
+<p>@access public</p>
+<p>@param string $plaintext</p>
+<p>@return string $ciphertext</p>
+
+<p>Decrypts a message.</p>
+<p>Mostly a wrapper for \phpseclib\Crypt\Base::decrypt, with some additional OpenSSL handling code</p>
+<p>@see self::encrypt()</p>
+<p>@access public</p>
+<p>@param string $ciphertext</p>
+<p>@return string $plaintext</p>
+
+<p>Encrypts a block</p>
+<p>@see \phpseclib\Crypt\Base::_encryptBlock()</p>
+<p>@see \phpseclib\Crypt\Base::encrypt()</p>
+<p>@access private</p>
+<p>@param string $in</p>
+<p>@return string</p>
+
+<p>Decrypts a block</p>
+<p>@see \phpseclib\Crypt\Base::_decryptBlock()</p>
+<p>@see \phpseclib\Crypt\Base::decrypt()</p>
+<p>@access private</p>
+<p>@param string $in</p>
+<p>@return string</p>
+
+<p>Setup the \phpseclib\Crypt\Base::ENGINE_MCRYPT $engine</p>
+<p>@see \phpseclib\Crypt\Base::_setupMcrypt()</p>
+<p>@access private</p>
+
+<p>Creates the key schedule</p>
+<p>@see \phpseclib\Crypt\Base::_setupKey()</p>
+<p>@access private</p>
+
+<p>Setup the performance-optimized function for de/encrypt()</p>
+<p>@see \phpseclib\Crypt\Base::_setupInlineCrypt()</p>
+<p>@access private</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\RC2.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>phpseclib\Crypt\RC2 extends Base</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>isValidEngine($engine)</code></li>
+<li><code>setKeyLength($length)</code></li>
+<li><code>getKeyLength()</code></li>
+<li><code>setKey($key, $t1 = 0)</code></li>
+<li><code>encrypt($plaintext)</code></li>
+<li><code>decrypt($ciphertext)</code></li>
+<li><code>_encryptBlock($in)</code></li>
+<li><code>_decryptBlock($in)</code></li>
+<li><code>_setupMcrypt()</code></li>
+<li><code>_setupKey()</code></li>
+<li><code>_setupInlineCrypt()</code></li>
+</ul>
+</body></html>

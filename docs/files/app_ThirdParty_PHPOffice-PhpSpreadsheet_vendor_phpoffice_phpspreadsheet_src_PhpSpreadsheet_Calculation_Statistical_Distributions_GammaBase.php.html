@@ -1,0 +1,78 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Statistical\Distributions\GammaBase.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Statistical\Distributions\GammaBase.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Statistical\Distributions\GammaBase.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 11469 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>logGamma function.</p>
+<p>@version 1.1</p>
+<p>@author Jaco van Kooten</p>
+<p>Original author was Jaco van Kooten. Ported to PHP by Paul Meagher.</p>
+<p>The natural logarithm of the gamma function. <br /></p>
+<p>Based on public domain NETLIB (Fortran) code by W. J. Cody and L. Stoltz <br /></p>
+<p>Applied Mathematics Division <br /></p>
+<p>Argonne National Laboratory <br /></p>
+<p>Argonne, IL 60439 <br /></p>
+<p><p></p>
+<p>References:</p>
+<p><ol></p>
+<p><li>W. J. Cody and K. E. Hillstrom, 'Chebyshev Approximations for the Natural</p>
+<p>    Logarithm of the Gamma Function,' Math. Comp. 21, 1967, pp. 198-203.</li></p>
+<p><li>K. E. Hillstrom, ANL/AMD Program ANLC366S, DGAMMA/DLGAMA, May, 1969.</li></p>
+<p><li>Hart, Et. Al., Computer Approximations, Wiley and sons, New York, 1968.</li></p>
+<p></ol></p>
+<p></p></p>
+<p><p></p>
+<p>From the original documentation:</p>
+<p></p></p>
+<p><p></p>
+<p>This routine calculates the LOG(GAMMA) function for a positive real argument X.</p>
+<p>Computation is based on an algorithm outlined in references 1 and 2.</p>
+<p>The program uses rational functions that theoretically approximate LOG(GAMMA)</p>
+<p>to at least 18 significant decimal digits. The approximation for X > 12 is from</p>
+<p>reference 3, while approximations for X < 12.0 are similar to those in reference</p>
+<p>1, but are unpublished. The accuracy achieved depends on the arithmetic system,</p>
+<p>the compiler, the intrinsic functions, and proper selection of the</p>
+<p>machine-dependent constants.</p>
+<p></p></p>
+<p><p></p>
+<p>Error returns: <br /></p>
+<p>The program returns the value XINF for X .LE. 0.0 or when overflow would occur.</p>
+<p>The computation is believed to be free of underflow and overflow.</p>
+<p></p></p>
+<p>@return float MAX_VALUE for x < 0.0 or when overflow would occur, i.e. x > 2.55E305</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Statistical\Distributions\GammaBase.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\Statistical\Distributions\GammaBase</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>calculateDistribution(float $value, float $a, float $b, bool $cumulative)</code></li>
+<li><code>calculateInverse(float $probability, float $alpha, float $beta)</code></li>
+<li><code>incompleteGamma(float $a, float $x)</code></li>
+<li><code>gammaValue(float $value)</code></li>
+<li><code>logGamma(float $x)</code></li>
+<li><code>logGamma1(float $y)</code></li>
+<li><code>logGamma2(float $y)</code></li>
+<li><code>logGamma3(float $y)</code></li>
+<li><code>logGamma4(float $y)</code></li>
+</ul>
+</body></html>

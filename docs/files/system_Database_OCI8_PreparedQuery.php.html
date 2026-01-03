@@ -1,0 +1,58 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Database\OCI8\PreparedQuery.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Database\OCI8\PreparedQuery.php</h1>
+
+<ul>
+<li>Path: <code>system\Database\OCI8\PreparedQuery.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2979 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Prepared query for OCI8</p>
+
+<p>A reference to the db connection to use.</p>
+<p>@var Connection</p>
+
+<p>Latest inserted table name.</p>
+
+<p>Prepares the query against the database, and saves the connection</p>
+<p>info necessary to execute the query later.</p>
+<p>NOTE: This version is based on SQL code. Child classes should</p>
+<p>override this method.</p>
+<p>@param array $options Passed to the connection's prepare statement.</p>
+<p>                      Unused in the OCI8 driver.</p>
+<p>@return mixed</p>
+
+<p>Takes a new set of data and runs it against the currently</p>
+<p>prepared query. Upon success, will return a Results object.</p>
+
+<p>Returns the result object for the prepared query.</p>
+<p>@return mixed</p>
+
+<p>Replaces the ? placeholders with :0, :1, etc parameters for use</p>
+<p>within the prepared query.</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Database\OCI8\PreparedQuery.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Database\OCI8\PreparedQuery extends BasePreparedQuery implements PreparedQueryInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>_prepare(string $sql, array $options = [])</code></li>
+<li><code>_execute(array $data)</code></li>
+<li><code>_getResult()</code></li>
+<li><code>parameterize(string $sql)</code></li>
+</ul>
+</body></html>

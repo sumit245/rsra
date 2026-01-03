@@ -1,0 +1,142 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\HTMLDefinition.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\HTMLDefinition.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\HTMLDefinition.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 17747 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Definition of the purified HTML that describes allowed children,</p>
+<p>attributes, and many other things.</p>
+<p>Conventions:</p>
+<p>All member variables that are prefixed with info</p>
+<p>(including the main $info array) are used by HTML Purifier internals</p>
+<p>and should not be directly edited when customizing the HTMLDefinition.</p>
+<p>They can usually be set via configuration directives or custom</p>
+<p>modules.</p>
+<p>On the other hand, member variables without the info prefix are used</p>
+<p>internally by the HTMLDefinition and MUST NOT be used by other HTML</p>
+<p>Purifier internals. Many of them, however, are public, and may be</p>
+<p>edited by userspace code to tweak the behavior of HTMLDefinition.</p>
+<p>@note This class is inspected by Printer_HTMLDefinition; please</p>
+<p>      update that class if things here change.</p>
+<p>@warning Directives that change this object's structure must be in</p>
+<p>         the HTML or Attr namespace!</p>
+
+<p>Associative array of element names to HTMLPurifier_ElementDef.</p>
+<p>@type HTMLPurifier_ElementDef[]</p>
+
+<p>Associative array of global attribute name to attribute definition.</p>
+<p>@type array</p>
+
+<p>String name of parent element HTML will be going into.</p>
+<p>@type string</p>
+
+<p>Definition for parent element, allows parent element to be a</p>
+<p>tag that's not allowed inside the HTML fragment.</p>
+<p>@type HTMLPurifier_ElementDef</p>
+
+<p>String name of element used to wrap inline elements in block context.</p>
+<p>@type string</p>
+<p>@note This is rarely used except for BLOCKQUOTEs in strict mode</p>
+
+<p>Associative array of deprecated tag name to HTMLPurifier_TagTransform.</p>
+<p>@type array</p>
+
+<p>Indexed list of HTMLPurifier_AttrTransform to be performed before validation.</p>
+<p>@type HTMLPurifier_AttrTransform[]</p>
+
+<p>Indexed list of HTMLPurifier_AttrTransform to be performed after validation.</p>
+<p>@type HTMLPurifier_AttrTransform[]</p>
+
+<p>Nested lookup array of content set name (Block, Inline) to</p>
+<p>element name to whether or not it belongs in that content set.</p>
+<p>@type array</p>
+
+<p>Indexed list of HTMLPurifier_Injector to be used.</p>
+<p>@type HTMLPurifier_Injector[]</p>
+
+<p>Doctype object</p>
+<p>@type HTMLPurifier_Doctype</p>
+
+<p>Adds a custom attribute to a pre-existing element</p>
+<p>@note This is strictly convenience, and does not have a corresponding</p>
+<p>      method in HTMLPurifier_HTMLModule</p>
+<p>@param string $element_name Element name to add attribute to</p>
+<p>@param string $attr_name Name of attribute</p>
+<p>@param mixed $def Attribute definition, can be string or object, see</p>
+<p>            HTMLPurifier_AttrTypes for details</p>
+
+<p>Adds a custom element to your HTML definition</p>
+<p>@see HTMLPurifier_HTMLModule::addElement() for detailed</p>
+<p>      parameter and return value descriptions.</p>
+
+<p>Adds a blank element to your HTML definition, for overriding</p>
+<p>existing behavior</p>
+<p>@param string $element_name</p>
+<p>@return HTMLPurifier_ElementDef</p>
+<p>@see HTMLPurifier_HTMLModule::addBlankElement() for detailed</p>
+<p>      parameter and return value descriptions.</p>
+
+<p>Retrieves a reference to the anonymous module, so you can</p>
+<p>bust out advanced features without having to make your own</p>
+<p>module.</p>
+<p>@return HTMLPurifier_HTMLModule</p>
+
+<p>@type string</p>
+
+<p>@type HTMLPurifier_HTMLModuleManager</p>
+
+<p>Performs low-cost, preliminary initialization.</p>
+
+<p>@param HTMLPurifier_Config $config</p>
+
+<p>Extract out the information from the manager</p>
+<p>@param HTMLPurifier_Config $config</p>
+
+<p>Sets up stuff based on config. We need a better way of doing this.</p>
+<p>@param HTMLPurifier_Config $config</p>
+
+<p>Parses a TinyMCE-flavored Allowed Elements and Attributes list into</p>
+<p>separate lists for processing. Format is element[attr1|attr2],element2...</p>
+<p>@warning Although it's largely drawn from TinyMCE's implementation,</p>
+<p>     it is different, and you'll probably have to modify your lists</p>
+<p>@param array $list String list to parse</p>
+<p>@return array</p>
+<p>@todo Give this its own class, probably static interface</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>TinyMCE</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\HTMLDefinition.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>is</code></li>
+<li><code>if</code></li>
+<li><code>HTMLPurifier_HTMLDefinition extends HTMLPurifier_Definition</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>addAttribute($element_name, $attr_name, $def)</code></li>
+<li><code>addElement($element_name, $type, $contents, $attr_collections, $attributes = array()</code></li>
+<li><code>addBlankElement($element_name)</code></li>
+<li><code>getAnonymousModule()</code></li>
+<li><code>__construct()</code></li>
+<li><code>doSetup($config)</code></li>
+<li><code>processModules($config)</code></li>
+<li><code>setupConfigStuff($config)</code></li>
+<li><code>parseTinyMCEAllowedList($list)</code></li>
+</ul>
+</body></html>

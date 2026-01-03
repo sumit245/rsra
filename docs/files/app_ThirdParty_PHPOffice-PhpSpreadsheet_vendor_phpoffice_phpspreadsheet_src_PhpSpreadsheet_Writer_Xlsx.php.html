@@ -1,0 +1,164 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xlsx.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xlsx.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xlsx.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 25493 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Office2003 compatibility.</p>
+<p>@var bool</p>
+
+<p>Private Spreadsheet.</p>
+<p>@var Spreadsheet</p>
+
+<p>Private string table.</p>
+<p>@var string[]</p>
+
+<p>Private unique Conditional HashTable.</p>
+<p>@var HashTable<Conditional></p>
+
+<p>Private unique Style HashTable.</p>
+<p>@var HashTable<\PhpOffice\PhpSpreadsheet\Style\Style></p>
+
+<p>Private unique Fill HashTable.</p>
+<p>@var HashTable<Fill></p>
+
+<p>Private unique \PhpOffice\PhpSpreadsheet\Style\Font HashTable.</p>
+<p>@var HashTable<Font></p>
+
+<p>Private unique Borders HashTable.</p>
+<p>@var HashTable<Borders></p>
+
+<p>Private unique NumberFormat HashTable.</p>
+<p>@var HashTable<NumberFormat></p>
+
+<p>Private unique \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet\BaseDrawing HashTable.</p>
+<p>@var HashTable<BaseDrawing></p>
+
+<p>Private handle for zip stream.</p>
+<p>@var ZipStream</p>
+
+<p>@var Chart</p>
+
+<p>@var Comments</p>
+
+<p>@var ContentTypes</p>
+
+<p>@var DocProps</p>
+
+<p>@var Drawing</p>
+
+<p>@var Rels</p>
+
+<p>@var RelsRibbon</p>
+
+<p>@var RelsVBA</p>
+
+<p>@var StringTable</p>
+
+<p>@var Style</p>
+
+<p>@var Theme</p>
+
+<p>@var Table</p>
+
+<p>@var Workbook</p>
+
+<p>@var Worksheet</p>
+
+<p>Create a new Xlsx Writer.</p>
+
+<p>Save PhpSpreadsheet to file.</p>
+<p>@param resource|string $filename</p>
+
+<p>@var callable</p>
+
+<p>Get Spreadsheet object.</p>
+<p>@return Spreadsheet</p>
+
+<p>Set Spreadsheet object.</p>
+<p>@param Spreadsheet $spreadsheet PhpSpreadsheet object</p>
+<p>@return $this</p>
+
+<p>Get string table.</p>
+<p>@return string[]</p>
+
+<p>Get Style HashTable.</p>
+<p>@return HashTable<\PhpOffice\PhpSpreadsheet\Style\Style></p>
+
+<p>Get Conditional HashTable.</p>
+<p>@return HashTable<Conditional></p>
+
+<p>Get Fill HashTable.</p>
+<p>@return HashTable<Fill></p>
+
+<p>Get \PhpOffice\PhpSpreadsheet\Style\Font HashTable.</p>
+<p>@return HashTable<Font></p>
+
+<p>Get Borders HashTable.</p>
+<p>@return HashTable<Borders></p>
+
+<p>Get NumberFormat HashTable.</p>
+<p>@return HashTable<NumberFormat></p>
+
+<p>Get \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet\BaseDrawing HashTable.</p>
+<p>@return HashTable<BaseDrawing></p>
+
+<p>Get Office2003 compatibility.</p>
+<p>@return bool</p>
+
+<p>Set Office2003 compatibility.</p>
+<p>@param bool $office2003compatibility Office2003 compatibility?</p>
+<p>@return $this</p>
+
+<p>@return mixed</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xlsx.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Writer\Xlsx extends BaseWriter</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(Spreadsheet $spreadsheet)</code></li>
+<li><code>getWriterPartChart()</code></li>
+<li><code>getWriterPartComments()</code></li>
+<li><code>getWriterPartContentTypes()</code></li>
+<li><code>getWriterPartDocProps()</code></li>
+<li><code>getWriterPartDrawing()</code></li>
+<li><code>getWriterPartRels()</code></li>
+<li><code>getWriterPartRelsRibbon()</code></li>
+<li><code>getWriterPartRelsVBA()</code></li>
+<li><code>getWriterPartStringTable()</code></li>
+<li><code>getWriterPartStyle()</code></li>
+<li><code>getWriterPartTheme()</code></li>
+<li><code>getWriterPartTable()</code></li>
+<li><code>getWriterPartWorkbook()</code></li>
+<li><code>getWriterPartWorksheet()</code></li>
+<li><code>save($filename, int $flags = 0)</code></li>
+<li><code>getSpreadsheet()</code></li>
+<li><code>setSpreadsheet(Spreadsheet $spreadsheet)</code></li>
+<li><code>getStringTable()</code></li>
+<li><code>getStyleHashTable()</code></li>
+<li><code>getStylesConditionalHashTable()</code></li>
+<li><code>getFillHashTable()</code></li>
+<li><code>getFontHashTable()</code></li>
+<li><code>getBordersHashTable()</code></li>
+<li><code>getNumFmtHashTable()</code></li>
+<li><code>getDrawingHashTable()</code></li>
+<li><code>getOffice2003Compatibility()</code></li>
+<li><code>setOffice2003Compatibility($office2003compatibility)</code></li>
+<li><code>addZipFile(string $path, string $content)</code></li>
+<li><code>addZipFiles(array $zipContent)</code></li>
+<li><code>processDrawing(WorksheetDrawing $drawing)</code></li>
+</ul>
+</body></html>

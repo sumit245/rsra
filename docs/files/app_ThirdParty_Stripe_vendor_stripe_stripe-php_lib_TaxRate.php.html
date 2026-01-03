@@ -1,0 +1,51 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\TaxRate.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\TaxRate.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\TaxRate.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3008 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Tax rates can be applied to <a</p>
+<p>href="https://stripe.com/docs/billing/invoices/tax-rates">invoices</a>, <a</p>
+<p>href="https://stripe.com/docs/billing/subscriptions/taxes">subscriptions</a> and</p>
+<p><a</p>
+<p>href="https://stripe.com/docs/payments/checkout/set-up-a-subscription#tax-rates">Checkout</p>
+<p>Sessions</a> to collect tax.</p>
+<p>Related guide: <a href="https://stripe.com/docs/billing/taxes/tax-rates">Tax</p>
+<p>Rates</a>.</p>
+<p>@property string $id Unique identifier for the object.</p>
+<p>@property string $object String representing the object's type. Objects of the same type share the same value.</p>
+<p>@property bool $active Defaults to <code>true</code>. When set to <code>false</code>, this tax rate cannot be used with new applications or Checkout Sessions, but will still work for subscriptions and invoices that already have it set.</p>
+<p>@property null|string $country Two-letter country code (<a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>).</p>
+<p>@property int $created Time at which the object was created. Measured in seconds since the Unix epoch.</p>
+<p>@property null|string $description An arbitrary string attached to the tax rate for your internal use only. It will not be visible to your customers.</p>
+<p>@property string $display_name The display name of the tax rates as it will appear to your customer on their receipt email, PDF, and the hosted invoice page.</p>
+<p>@property bool $inclusive This specifies if the tax rate is inclusive or exclusive.</p>
+<p>@property null|string $jurisdiction The jurisdiction for the tax rate. You can use this label field for tax reporting purposes. It also appears on your customer’s invoice.</p>
+<p>@property bool $livemode Has the value <code>true</code> if the object exists in live mode or the value <code>false</code> if the object exists in test mode.</p>
+<p>@property null|\Stripe\StripeObject $metadata Set of <a href="https://stripe.com/docs/api/metadata">key-value pairs</a> that you can attach to an object. This can be useful for storing additional information about the object in a structured format.</p>
+<p>@property float $percentage This represents the tax rate percent out of 100.</p>
+<p>@property null|string $state <a href="https://en.wikipedia.org/wiki/ISO_3166-2:US">ISO 3166-2 subdivision code</a>, without country prefix. For example, &quot;NY&quot; for New York, United States.</p>
+<p>@property null|string $tax_type The high-level tax type, such as <code>vat</code> or <code>sales_tax</code>.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\TaxRate.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\TaxRate extends ApiResource</code></li>
+</ul>
+</body></html>

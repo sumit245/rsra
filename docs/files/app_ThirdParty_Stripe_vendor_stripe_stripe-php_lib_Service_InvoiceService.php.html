@@ -1,0 +1,198 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\InvoiceService.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\InvoiceService.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\InvoiceService.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 11568 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>You can list all invoices, or list the invoices for a specific customer. The</p>
+<p>invoices are returned sorted by creation date, with the most recently created</p>
+<p>invoices appearing first.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\Invoice></p>
+
+<p>When retrieving an invoice, you’ll get a <strong>lines</strong> property</p>
+<p>containing the total count of line items and the first handful of those items.</p>
+<p>There is also a URL where you can retrieve the full (paginated) list of line</p>
+<p>items.</p>
+<p>@param string $parentId</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\InvoiceLineItem></p>
+
+<p>This endpoint creates a draft invoice for a given customer. The invoice remains</p>
+<p>a draft until you <a href="#finalize_invoice">finalize</a> the invoice, which</p>
+<p>allows you to <a href="#pay_invoice">pay</a> or <a href="#send_invoice">send</a></p>
+<p>the invoice to your customers.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Invoice</p>
+
+<p>Permanently deletes a one-off invoice draft. This cannot be undone. Attempts to</p>
+<p>delete invoices that are no longer in a draft state will fail; once an invoice</p>
+<p>has been finalized or if an invoice is for a subscription, it must be <a</p>
+<p>href="#void_invoice">voided</a>.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Invoice</p>
+
+<p>Stripe automatically finalizes drafts before sending and attempting payment on</p>
+<p>invoices. However, if you’d like to finalize a draft invoice manually, you can</p>
+<p>do so using this method.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Invoice</p>
+
+<p>Marking an invoice as uncollectible is useful for keeping track of bad debts</p>
+<p>that can be written off for accounting purposes.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Invoice</p>
+
+<p>Stripe automatically creates and then attempts to collect payment on invoices</p>
+<p>for customers on subscriptions according to your <a</p>
+<p>href="https://dashboard.stripe.com/account/billing/automatic">subscriptions</p>
+<p>settings</a>. However, if you’d like to attempt payment on an invoice out of the</p>
+<p>normal collection schedule or for some other reason, you can do so.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Invoice</p>
+
+<p>Retrieves the invoice with the given ID.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Invoice</p>
+
+<p>Search for invoices you’ve previously created using Stripe’s <a</p>
+<p>href="/docs/search#search-query-language">Search Query Language</a>. Don’t use</p>
+<p>search in read-after-write flows where strict consistency is necessary. Under</p>
+<p>normal operating conditions, data is searchable in less than a minute.</p>
+<p>Occasionally, propagation of new or updated data can be up to an hour behind</p>
+<p>during outages. Search functionality is not available to merchants in India.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\SearchResult<\Stripe\Invoice></p>
+
+<p>Stripe will automatically send invoices to customers according to your <a</p>
+<p>href="https://dashboard.stripe.com/account/billing/automatic">subscriptions</p>
+<p>settings</a>. However, if you’d like to manually send an invoice to your</p>
+<p>customer out of the normal schedule, you can do so. When sending invoices that</p>
+<p>have already been paid, there will be no reference to the payment in the email.</p>
+<p>Requests made in test-mode result in no emails being sent, despite sending an</p>
+<p><code>invoice.sent</code> event.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Invoice</p>
+
+<p>At any time, you can preview the upcoming invoice for a customer. This will show</p>
+<p>you all the charges that are pending, including subscription renewal charges,</p>
+<p>invoice item charges, etc. It will also show you any discounts that are</p>
+<p>applicable to the invoice.</p>
+<p>Note that when you are viewing an upcoming invoice, you are simply viewing a</p>
+<p>preview – the invoice has not yet been created. As such, the upcoming invoice</p>
+<p>will not show up in invoice listing calls, and you cannot use the API to pay or</p>
+<p>edit the invoice. If you want to change the amount that your customer will be</p>
+<p>billed, you can add, remove, or update pending invoice items, or update the</p>
+<p>customer’s discount.</p>
+<p>You can preview the effects of updating a subscription, including a preview of</p>
+<p>what proration will take place. To ensure that the actual proration is</p>
+<p>calculated exactly the same as the previewed proration, you should pass a</p>
+<p><code>proration_date</code> parameter when doing the actual subscription update.</p>
+<p>The value passed in should be the same as the</p>
+<p><code>subscription_proration_date</code> returned on the upcoming invoice</p>
+<p>resource. The recommended way to get only the prorations being previewed is to</p>
+<p>consider only proration line items where <code>period[start]</code> is equal to</p>
+<p>the <code>subscription_proration_date</code> on the upcoming invoice resource.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Invoice</p>
+
+<p>When retrieving an upcoming invoice, you’ll get a <strong>lines</strong></p>
+<p>property containing the total count of line items and the first handful of those</p>
+<p>items. There is also a URL where you can retrieve the full (paginated) list of</p>
+<p>line items.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\InvoiceLineItem></p>
+
+<p>Draft invoices are fully editable. Once an invoice is <a</p>
+<p>href="/docs/billing/invoices/workflow#finalized">finalized</a>, monetary values,</p>
+<p>as well as <code>collection_method</code>, become uneditable.</p>
+<p>If you would like to stop the Stripe Billing engine from automatically</p>
+<p>finalizing, reattempting payments on, sending reminders for, or <a</p>
+<p>href="/docs/billing/invoices/reconciliation">automatically reconciling</a></p>
+<p>invoices, pass <code>auto_advance=false</code>.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Invoice</p>
+
+<p>Mark a finalized invoice as void. This cannot be undone. Voiding an invoice is</p>
+<p>similar to <a href="#delete_invoice">deletion</a>, however it only applies to</p>
+<p>finalized invoices and maintains a papertrail where the invoice can still be</p>
+<p>found.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Invoice</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+<li><code>automatically</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\InvoiceService.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Service\InvoiceService extends \Stripe\Service\AbstractService</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>all($params = null, $opts = null)</code></li>
+<li><code>allLines($parentId, $params = null, $opts = null)</code></li>
+<li><code>create($params = null, $opts = null)</code></li>
+<li><code>delete($id, $params = null, $opts = null)</code></li>
+<li><code>finalizeInvoice($id, $params = null, $opts = null)</code></li>
+<li><code>markUncollectible($id, $params = null, $opts = null)</code></li>
+<li><code>pay($id, $params = null, $opts = null)</code></li>
+<li><code>retrieve($id, $params = null, $opts = null)</code></li>
+<li><code>search($params = null, $opts = null)</code></li>
+<li><code>sendInvoice($id, $params = null, $opts = null)</code></li>
+<li><code>upcoming($params = null, $opts = null)</code></li>
+<li><code>upcomingLines($params = null, $opts = null)</code></li>
+<li><code>update($id, $params = null, $opts = null)</code></li>
+<li><code>voidInvoice($id, $params = null, $opts = null)</code></li>
+</ul>
+</body></html>

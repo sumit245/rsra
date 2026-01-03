@@ -1,0 +1,187 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\ReferenceHelper.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\ReferenceHelper.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\ReferenceHelper.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 51624 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Constants</p>
+
+<p>Regular Expressions</p>
+
+<p>Instance of this class.</p>
+<p>@var ?ReferenceHelper</p>
+
+<p>@var CellReferenceHelper</p>
+
+<p>Get an instance of this class.</p>
+<p>@return ReferenceHelper</p>
+
+<p>Create a new ReferenceHelper.</p>
+
+<p>Compare two column addresses</p>
+<p>Intended for use as a Callback function for sorting column addresses by column.</p>
+<p>@param string $a First column to test (e.g. 'AA')</p>
+<p>@param string $b Second column to test (e.g. 'Z')</p>
+<p>@return int</p>
+
+<p>Compare two column addresses</p>
+<p>Intended for use as a Callback function for reverse sorting column addresses by column.</p>
+<p>@param string $a First column to test (e.g. 'AA')</p>
+<p>@param string $b Second column to test (e.g. 'Z')</p>
+<p>@return int</p>
+
+<p>Compare two cell addresses</p>
+<p>Intended for use as a Callback function for sorting cell addresses by column and row.</p>
+<p>@param string $a First cell to test (e.g. 'AA1')</p>
+<p>@param string $b Second cell to test (e.g. 'Z1')</p>
+<p>@return int</p>
+
+<p>Compare two cell addresses</p>
+<p>Intended for use as a Callback function for sorting cell addresses by column and row.</p>
+<p>@param string $a First cell to test (e.g. 'AA1')</p>
+<p>@param string $b Second cell to test (e.g. 'Z1')</p>
+<p>@return int</p>
+
+<p>Update page breaks when inserting/deleting rows/columns.</p>
+<p>@param Worksheet $worksheet The worksheet that we're editing</p>
+<p>@param int $numberOfColumns Number of columns to insert/delete (negative values indicate deletion)</p>
+<p>@param int $numberOfRows Number of rows to insert/delete (negative values indicate deletion)</p>
+
+<p>Update cell comments when inserting/deleting rows/columns.</p>
+<p>@param Worksheet $worksheet The worksheet that we're editing</p>
+
+<p>Update hyperlinks when inserting/deleting rows/columns.</p>
+<p>@param Worksheet $worksheet The worksheet that we're editing</p>
+<p>@param int $numberOfColumns Number of columns to insert/delete (negative values indicate deletion)</p>
+<p>@param int $numberOfRows Number of rows to insert/delete (negative values indicate deletion)</p>
+
+<p>Update conditional formatting styles when inserting/deleting rows/columns.</p>
+<p>@param Worksheet $worksheet The worksheet that we're editing</p>
+<p>@param int $numberOfColumns Number of columns to insert/delete (negative values indicate deletion)</p>
+<p>@param int $numberOfRows Number of rows to insert/delete (negative values indicate deletion)</p>
+
+<p>@var Conditional $cfRule</p>
+
+<p>Update data validations when inserting/deleting rows/columns.</p>
+<p>@param Worksheet $worksheet The worksheet that we're editing</p>
+<p>@param int $numberOfColumns Number of columns to insert/delete (negative values indicate deletion)</p>
+<p>@param int $numberOfRows Number of rows to insert/delete (negative values indicate deletion)</p>
+
+<p>Update merged cells when inserting/deleting rows/columns.</p>
+<p>@param Worksheet $worksheet The worksheet that we're editing</p>
+
+<p>Update protected cells when inserting/deleting rows/columns.</p>
+<p>@param Worksheet $worksheet The worksheet that we're editing</p>
+<p>@param int $numberOfColumns Number of columns to insert/delete (negative values indicate deletion)</p>
+<p>@param int $numberOfRows Number of rows to insert/delete (negative values indicate deletion)</p>
+
+<p>Update column dimensions when inserting/deleting rows/columns.</p>
+<p>@param Worksheet $worksheet The worksheet that we're editing</p>
+
+<p>Update row dimensions when inserting/deleting rows/columns.</p>
+<p>@param Worksheet $worksheet The worksheet that we're editing</p>
+<p>@param int $beforeRow Number of the row we're inserting/deleting before</p>
+<p>@param int $numberOfRows Number of rows to insert/delete (negative values indicate deletion)</p>
+
+<p>Insert a new column or row, updating all possible related data.</p>
+<p>@param string $beforeCellAddress Insert before this cell address (e.g. 'A1')</p>
+<p>@param int $numberOfColumns Number of columns to insert/delete (negative values indicate deletion)</p>
+<p>@param int $numberOfRows Number of rows to insert/delete (negative values indicate deletion)</p>
+<p>@param Worksheet $worksheet The worksheet that we're editing</p>
+
+<p>Update references within formulas.</p>
+<p>@param string $formula Formula to update</p>
+<p>@param string $beforeCellAddress Insert before this one</p>
+<p>@param int $numberOfColumns Number of columns to insert</p>
+<p>@param int $numberOfRows Number of rows to insert</p>
+<p>@param string $worksheetName Worksheet name/title</p>
+<p>@return string Updated formula</p>
+
+<p>Update all cell references within a formula, irrespective of worksheet.</p>
+
+<p>Update cell reference.</p>
+<p>@param string $cellReference Cell address or range of addresses</p>
+<p>@return string Updated cell range</p>
+
+<p>Update named formulas (i.e. containing worksheet references / named ranges).</p>
+<p>@param Spreadsheet $spreadsheet Object to update</p>
+<p>@param string $oldName Old name (name to replace)</p>
+<p>@param string $newName New name</p>
+
+<p>Update cell range.</p>
+<p>@param string $cellRange Cell range    (e.g. 'B2:D4', 'B:C' or '2:3')</p>
+<p>@return string Updated cell range</p>
+
+<p>__clone implementation. Cloning should not be allowed in a Singleton!</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>one</code></li>
+<li><code>beginning</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\ReferenceHelper.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\ReferenceHelper</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getInstance()</code></li>
+<li><code>__construct()</code></li>
+<li><code>columnSort($a, $b)</code></li>
+<li><code>columnReverseSort($a, $b)</code></li>
+<li><code>cellSort($a, $b)</code></li>
+<li><code>cellReverseSort($a, $b)</code></li>
+<li><code>adjustPageBreaks(Worksheet $worksheet, $numberOfColumns, $numberOfRows)</code></li>
+<li><code>adjustComments($worksheet)</code></li>
+<li><code>adjustHyperlinks($worksheet, $numberOfColumns, $numberOfRows)</code></li>
+<li><code>adjustConditionalFormatting($worksheet, $numberOfColumns, $numberOfRows)</code></li>
+<li><code>adjustDataValidations(Worksheet $worksheet, $numberOfColumns, $numberOfRows)</code></li>
+<li><code>adjustMergeCells(Worksheet $worksheet)</code></li>
+<li><code>adjustProtectedCells(Worksheet $worksheet, $numberOfColumns, $numberOfRows)</code></li>
+<li><code>adjustColumnDimensions(Worksheet $worksheet)</code></li>
+<li><code>adjustRowDimensions(Worksheet $worksheet, $beforeRow, $numberOfRows)</code></li>
+<li>`insertNewBefore(string $beforeCellAddress,</li>
+<p>        int $numberOfColumns,</p>
+<p>        int $numberOfRows,</p>
+<p>        Worksheet $worksheet)`</p>
+<li>`updateFormulaReferences($formula = '',</li>
+<p>        $beforeCellAddress = 'A1',</p>
+<p>        $numberOfColumns = 0,</p>
+<p>        $numberOfRows = 0,</p>
+<p>        $worksheetName = '',</p>
+<p>        bool $includeAbsoluteReferences = false)`</p>
+<li><code>updateFormulaReferencesAnyWorksheet(string $formula = '', int $numberOfColumns = 0, int $numberOfRows = 0)</code></li>
+<li><code>updateCellReferencesAllWorksheets(string $formula, int $numberOfColumns, int $numberOfRows)</code></li>
+<li><code>updateColumnRangesAllWorksheets(string $formula, int $numberOfColumns)</code></li>
+<li><code>updateRowRangesAllWorksheets(string $formula, int $numberOfRows)</code></li>
+<li><code>updateCellReference($cellReference = 'A1', bool $includeAbsoluteReferences = false)</code></li>
+<li><code>updateNamedFormulas(Spreadsheet $spreadsheet, $oldName = '', $newName = '')</code></li>
+<li><code>updateCellRange(string $cellRange = 'A1:A1', bool $includeAbsoluteReferences = false)</code></li>
+<li><code>clearColumnStrips(int $highestRow, int $beforeColumn, int $numberOfColumns, Worksheet $worksheet)</code></li>
+<li><code>clearRowStrips(string $highestColumn, int $beforeColumn, int $beforeRow, int $numberOfRows, Worksheet $worksheet)</code></li>
+<li><code>adjustAutoFilter(Worksheet $worksheet, string $beforeCellAddress, int $numberOfColumns)</code></li>
+<li><code>adjustAutoFilterDeleteRules(int $columnIndex, int $numberOfColumns, array $autoFilterColumns, AutoFilter $autoFilter)</code></li>
+<li><code>adjustAutoFilterInsert(int $startCol, int $numberOfColumns, int $rangeEnd, AutoFilter $autoFilter)</code></li>
+<li><code>adjustAutoFilterDelete(int $startCol, int $numberOfColumns, int $rangeEnd, AutoFilter $autoFilter)</code></li>
+<li><code>adjustTable(Worksheet $worksheet, string $beforeCellAddress, int $numberOfColumns)</code></li>
+<li><code>adjustTableDeleteRules(int $columnIndex, int $numberOfColumns, array $tableColumns, Table $table)</code></li>
+<li><code>adjustTableInsert(int $startCol, int $numberOfColumns, int $rangeEnd, Table $table)</code></li>
+<li><code>adjustTableDelete(int $startCol, int $numberOfColumns, int $rangeEnd, Table $table)</code></li>
+<li><code>duplicateStylesByColumn(Worksheet $worksheet, int $beforeColumn, int $beforeRow, int $highestRow, int $numberOfColumns)</code></li>
+<li><code>duplicateStylesByRow(Worksheet $worksheet, int $beforeColumn, int $beforeRow, string $highestColumn, int $numberOfRows)</code></li>
+<li><code>__clone()</code></li>
+</ul>
+</body></html>

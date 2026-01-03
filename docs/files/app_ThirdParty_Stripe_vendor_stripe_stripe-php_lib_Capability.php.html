@@ -1,0 +1,59 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Capability.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Capability.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Capability.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2992 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This is an object representing a capability for a Stripe account.</p>
+<p>Related guide: <a</p>
+<p>href="https://stripe.com/docs/connect/account-capabilities">Account</p>
+<p>capabilities</a>.</p>
+<p>@property string $id The identifier for the capability.</p>
+<p>@property string $object String representing the object's type. Objects of the same type share the same value.</p>
+<p>@property string|\Stripe\Account $account The account for which the capability enables functionality.</p>
+<p>@property \Stripe\StripeObject $future_requirements</p>
+<p>@property bool $requested Whether the capability has been requested.</p>
+<p>@property null|int $requested_at Time at which the capability was requested. Measured in seconds since the Unix epoch.</p>
+<p>@property \Stripe\StripeObject $requirements</p>
+<p>@property string $status The status of the capability. Can be <code>active</code>, <code>inactive</code>, <code>pending</code>, or <code>unrequested</code>.</p>
+
+<p>@return string the API URL for this Stripe account reversal</p>
+
+<p>@param array|string $_id</p>
+<p>@param null|array|string $_opts</p>
+<p>@throws \Stripe\Exception\BadMethodCallException</p>
+
+<p>@param string $_id</p>
+<p>@param null|array $_params</p>
+<p>@param null|array|string $_options</p>
+<p>@throws \Stripe\Exception\BadMethodCallException</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Capability.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Capability extends ApiResource</code></li>
+<li><code>Stripe\instance</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>instanceUrl()</code></li>
+<li><code>retrieve($_id, $_opts = null)</code></li>
+<li><code>update($_id, $_params = null, $_options = null)</code></li>
+</ul>
+</body></html>

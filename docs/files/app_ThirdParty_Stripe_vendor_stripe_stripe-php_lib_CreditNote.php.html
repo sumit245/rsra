@@ -1,0 +1,88 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\CreditNote.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\CreditNote.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\CreditNote.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 6798 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Issue a credit note to adjust an invoice's amount after the invoice is</p>
+<p>finalized.</p>
+<p>Related guide: <a</p>
+<p>href="https://stripe.com/docs/billing/invoices/credit-notes">Credit Notes</a>.</p>
+<p>@property string $id Unique identifier for the object.</p>
+<p>@property string $object String representing the object's type. Objects of the same type share the same value.</p>
+<p>@property int $amount The integer amount in %s representing the total amount of the credit note, including tax.</p>
+<p>@property int $created Time at which the object was created. Measured in seconds since the Unix epoch.</p>
+<p>@property string $currency Three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO currency code</a>, in lowercase. Must be a <a href="https://stripe.com/docs/currencies">supported currency</a>.</p>
+<p>@property string|\Stripe\Customer $customer ID of the customer.</p>
+<p>@property null|string|\Stripe\CustomerBalanceTransaction $customer_balance_transaction Customer balance transaction related to this credit note.</p>
+<p>@property int $discount_amount The integer amount in %s representing the total amount of discount that was credited.</p>
+<p>@property \Stripe\StripeObject[] $discount_amounts The aggregate amounts calculated per discount for all line items.</p>
+<p>@property string|\Stripe\Invoice $invoice ID of the invoice.</p>
+<p>@property \Stripe\Collection<\Stripe\CreditNoteLineItem> $lines Line items that make up the credit note</p>
+<p>@property bool $livemode Has the value <code>true</code> if the object exists in live mode or the value <code>false</code> if the object exists in test mode.</p>
+<p>@property null|string $memo Customer-facing text that appears on the credit note PDF.</p>
+<p>@property null|\Stripe\StripeObject $metadata Set of <a href="https://stripe.com/docs/api/metadata">key-value pairs</a> that you can attach to an object. This can be useful for storing additional information about the object in a structured format.</p>
+<p>@property string $number A unique number that identifies this particular credit note and appears on the PDF of the credit note and its associated invoice.</p>
+<p>@property null|int $out_of_band_amount Amount that was credited outside of Stripe.</p>
+<p>@property string $pdf The link to download the PDF of the credit note.</p>
+<p>@property null|string $reason Reason for issuing this credit note, one of <code>duplicate</code>, <code>fraudulent</code>, <code>order_change</code>, or <code>product_unsatisfactory</code></p>
+<p>@property null|string|\Stripe\Refund $refund Refund related to this credit note.</p>
+<p>@property string $status Status of this credit note, one of <code>issued</code> or <code>void</code>. Learn more about <a href="https://stripe.com/docs/billing/invoices/credit-notes#voiding">voiding credit notes</a>.</p>
+<p>@property int $subtotal The integer amount in %s representing the amount of the credit note, excluding exclusive tax and invoice level discounts.</p>
+<p>@property null|int $subtotal_excluding_tax The integer amount in %s representing the amount of the credit note, excluding all tax and invoice level discounts.</p>
+<p>@property \Stripe\StripeObject[] $tax_amounts The aggregate amounts calculated per tax rate for all line items.</p>
+<p>@property int $total The integer amount in %s representing the total amount of the credit note, including tax and all discount.</p>
+<p>@property null|int $total_excluding_tax The integer amount in %s representing the total amount of the credit note, excluding tax, but including discounts.</p>
+<p>@property string $type Type of this credit note, one of <code>pre_payment</code> or <code>post_payment</code>. A <code>pre_payment</code> credit note means it was issued when the invoice was open. A <code>post_payment</code> credit note means it was issued when the invoice was paid.</p>
+<p>@property null|int $voided_at The time that the credit note was voided.</p>
+
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\CreditNote the previewed credit note</p>
+
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\CreditNoteLineItem> list of CreditNoteLineItems</p>
+
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\CreditNote the voided credit note</p>
+
+<p>@param string $id the ID of the credit note on which to retrieve the credit note line items</p>
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\CreditNoteLineItem> the list of credit note line items</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\CreditNote.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\CreditNote extends ApiResource</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>preview($params = null, $opts = null)</code></li>
+<li><code>previewLines($params = null, $opts = null)</code></li>
+<li><code>voidCreditNote($params = null, $opts = null)</code></li>
+<li><code>allLines($id, $params = null, $opts = null)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,139 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\tcpdf\include\barcodes\pdf417.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\tcpdf\include\barcodes\pdf417.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\tcpdf\include\barcodes\pdf417.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 53865 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@file</p>
+<p>Class to create PDF417 barcode arrays for TCPDF class.</p>
+<p>PDF417 (ISO/IEC 15438:2006) is a 2-dimensional stacked bar code created by Symbol Technologies in 1991.</p>
+<p>(requires PHP bcmath extension)</p>
+<p>@package com.tecnick.tcpdf</p>
+<p>@author Nicola Asuni</p>
+<p>@version 1.0.005</p>
+
+<p>Indicate that definitions for this class are set</p>
+
+<p>Row height respect X dimension of single module</p>
+
+<p>Horizontal quiet zone in modules</p>
+
+<p>Vertical quiet zone in modules</p>
+
+<p>@class PDF417</p>
+<p>Class to create PDF417 barcode arrays for TCPDF class.</p>
+<p>PDF417 (ISO/IEC 15438:2006) is a 2-dimensional stacked bar code created by Symbol Technologies in 1991.</p>
+<p>@package com.tecnick.tcpdf</p>
+<p>@author Nicola Asuni</p>
+<p>@version 1.0.003</p>
+
+<p>Barcode array to be returned which is readable by TCPDF.</p>
+<p>@protected</p>
+
+<p>Start pattern.</p>
+<p>@protected</p>
+
+<p>Stop pattern.</p>
+<p>@protected</p>
+
+<p>Array of text Compaction Sub-Modes (values 0xFB - 0xFF are used for submode changers).</p>
+<p>@protected</p>
+
+<p>Array of switching codes for Text Compaction Sub-Modes.</p>
+<p>@protected</p>
+
+<p>Clusters of codewords (0, 3, 6)<br/></p>
+<p>Values are hex equivalents of binary representation of bars (1 = bar, 0 = space).<br/></p>
+<p>The codewords numbered from 900 to 928 have special meaning, some enable to switch between modes in order to optimise the code:<ul></p>
+<p><li>900 : Switch to "Text" mode</li></p>
+<p><li>901 : Switch to "Byte" mode</li></p>
+<p><li>902 : Switch to "Numeric" mode</li></p>
+<p><li>903 - 912 : Reserved</li></p>
+<p><li>913 : Switch to "Octet" only for the next codeword</li></p>
+<p><li>914 - 920 : Reserved</li></p>
+<p><li>921 : Initialization</li></p>
+<p><li>922 : Terminator codeword for Macro PDF control block</li></p>
+<p><li>923 : Sequence tag to identify the beginning of optional fields in the Macro PDF control block</li></p>
+<p><li>924 : Switch to "Byte" mode (If the total number of byte is multiple of 6)</li></p>
+<p><li>925 : Identifier for a user defined Extended Channel Interpretation (ECI)</li></p>
+<p><li>926 : Identifier for a general purpose ECI format</li></p>
+<p><li>927 : Identifier for an ECI of a character set or code page</li></p>
+<p><li>928 : Macro marker codeword to indicate the beginning of a Macro PDF Control Block</li></p>
+<p></ul></p>
+<p>@protected</p>
+
+<p>Array of factors of the Reed-Solomon polynomial equations used for error correction; one sub array for each correction level (0-8).</p>
+<p>@protected</p>
+
+<p>This is the class constructor.</p>
+<p>Creates a PDF417 object</p>
+<p>@param string $code code to represent using PDF417</p>
+<p>@param int $ecl error correction level (0-8); default -1 = automatic correction level</p>
+<p>@param float $aspectratio the width to height of the symbol (excluding quiet zones)</p>
+<p>@param array $macro information for macro block</p>
+<p>@public</p>
+
+<p>Returns a barcode array which is readable by TCPDF</p>
+<p>@return array barcode array readable by TCPDF;</p>
+<p>@public</p>
+
+<p>Returns the error correction level (0-8) to be used</p>
+<p>@param int $ecl error correction level</p>
+<p>@param int $numcw number of data codewords</p>
+<p>@return int error correction level</p>
+<p>@protected</p>
+
+<p>Returns the error correction codewords</p>
+<p>@param array $cw array of codewords including Symbol Length Descriptor and pad</p>
+<p>@param int $ecl error correction level 0-8</p>
+<p>@return array of error correction codewords</p>
+<p>@protected</p>
+
+<p>Create array of sequences from input</p>
+<p>@param string $code code</p>
+<p>@return array bi-dimensional array containing characters and classification</p>
+<p>@protected</p>
+
+<p>Compact data by mode.</p>
+<p>@param int $mode compaction mode number</p>
+<p>@param string $code data to compact</p>
+<p>@param boolean $addmode if true add the mode codeword at first position</p>
+<p>@return array of codewords</p>
+<p>@protected</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>900</code></li>
+<li><code>input</code></li>
+<li><code>lower</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\tcpdf\include\barcodes\pdf417.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>are</code></li>
+<li><code>PDF417</code></li>
+<li><code>PDF417</code></li>
+<li><code>constructor</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($code, $ecl=-1, $aspectratio=2, $macro=array()</code></li>
+<li><code>getBarcodeArray()</code></li>
+<li><code>getErrorCorrectionLevel($ecl, $numcw)</code></li>
+<li><code>getErrorCorrection($cw, $ecl)</code></li>
+<li><code>getInputSequences($code)</code></li>
+<li><code>getCompaction($mode, $code, $addmode=true)</code></li>
+</ul>
+</body></html>

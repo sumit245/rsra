@@ -1,0 +1,61 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\SlackWebhookHandler.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\SlackWebhookHandler.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\SlackWebhookHandler.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3737 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Sends notifications through Slack Webhooks</p>
+<p>@author Haralan Dobrev <hkdobrev@gmail.com></p>
+<p>@see    https://api.slack.com/incoming-webhooks</p>
+
+<p>Slack Webhook token</p>
+<p>@var string</p>
+
+<p>Instance of the SlackRecord util class preparing data for Slack API.</p>
+<p>@var SlackRecord</p>
+
+<p>@param  string      $webhookUrl             Slack Webhook URL</p>
+<p>@param  string|null $channel                Slack channel (encoded ID or name)</p>
+<p>@param  string|null $username               Name of a bot</p>
+<p>@param  bool        $useAttachment          Whether the message should be added to Slack as attachment (plain text otherwise)</p>
+<p>@param  string|null $iconEmoji              The emoji name to use (or null)</p>
+<p>@param  bool        $useShortAttachment     Whether the the context/extra messages added to Slack as attachments are in a short style</p>
+<p>@param  bool        $includeContextAndExtra Whether the attachment should include context and extra data</p>
+<p>@param  int         $level                  The minimum logging level at which this handler will be triggered</p>
+<p>@param  bool        $bubble                 Whether the messages that are handled can bubble up the stack or not</p>
+<p>@param  array       $excludeFields          Dot separated list of fields to exclude from slack message. E.g. ['context.field1', 'extra.field2']</p>
+
+<p>{@inheritdoc}</p>
+<p>@param array $record</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>slack</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Handler\SlackWebhookHandler.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Monolog\Handler\SlackWebhookHandler extends AbstractProcessingHandler</code></li>
+<li><code>Monolog\Handler\preparing</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($webhookUrl, $channel = null, $username = null, $useAttachment = true, $iconEmoji = null, $useShortAttachment = false, $includeContextAndExtra = false, $level = Logger::CRITICAL, $bubble = true, array $excludeFields = array()</code></li>
+<li><code>getSlackRecord()</code></li>
+<li><code>write(array $record)</code></li>
+<li><code>setFormatter(FormatterInterface $formatter)</code></li>
+<li><code>getFormatter()</code></li>
+</ul>
+</body></html>

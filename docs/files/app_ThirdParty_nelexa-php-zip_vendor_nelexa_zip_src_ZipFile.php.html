@@ -1,0 +1,610 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\ZipFile.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\ZipFile.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\ZipFile.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 59506 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Create, open .ZIP files, modify, get info and extract files.</p>
+<p>Implemented support traditional PKWARE encryption and WinZip AES encryption.</p>
+<p>Implemented support ZIP64.</p>
+<p>@see https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT .ZIP File Format Specification</p>
+
+<p>@var array default mime types</p>
+
+<p>@param resource $inputStream</p>
+
+<p>Open zip archive from file.</p>
+<p>@throws ZipException if can't open file</p>
+<p>@return ZipFile</p>
+
+<p>@psalm-suppress InvalidArgument</p>
+
+<p>Open zip archive from raw string data.</p>
+<p>@throws ZipException if can't open temp stream</p>
+<p>@return ZipFile</p>
+
+<p>Open zip archive from stream resource.</p>
+<p>@param resource $handle</p>
+<p>@throws ZipException</p>
+<p>@return ZipFile</p>
+
+<p>@return string[] returns the list files</p>
+
+<p>@return int returns the number of entries in this ZIP file</p>
+
+<p>Returns the file comment.</p>
+<p>@return string|null the file comment</p>
+
+<p>Set archive comment.</p>
+<p>@param ?string $comment</p>
+<p>@return ZipFile</p>
+
+<p>Checks if there is an entry in the archive.</p>
+
+<p>Returns ZipEntry object.</p>
+<p>@throws ZipEntryNotFoundException</p>
+
+<p>Checks that the entry in the archive is a directory.</p>
+<p>Returns true if and only if this ZIP entry represents a directory entry</p>
+<p>(i.e. end with '/').</p>
+<p>@throws ZipEntryNotFoundException</p>
+
+<p>Returns entry comment.</p>
+<p>@throws ZipEntryNotFoundException</p>
+<p>@throws ZipException</p>
+
+<p>Set entry comment.</p>
+<p>@param ?string $comment</p>
+<p>@throws ZipEntryNotFoundException</p>
+<p>@throws ZipException</p>
+<p>@return ZipFile</p>
+
+<p>Returns the entry contents.</p>
+<p>@throws ZipException</p>
+<p>@throws ZipEntryNotFoundException</p>
+
+<p>@throws ZipEntryNotFoundException</p>
+<p>@throws ZipException</p>
+<p>@return resource</p>
+
+<p>Returns an array of zip records (ex. for modify time).</p>
+<p>@return ZipEntry[] array of raw zip entries</p>
+
+<p>Extract the archive contents (unzip).</p>
+<p>Extract the complete archive or the given files to the specified destination.</p>
+<p>@param string     $destDir          location where to extract the files</p>
+<p>@param mixed      $entries          entries to extract (array, string or null)</p>
+<p>@param array      $options          extract options</p>
+<p>@param array|null $extractedEntries if the extractedEntries argument is present,</p>
+<p>                                    then the specified array will be filled with</p>
+<p>                                    information about the extracted entries</p>
+<p>@throws ZipException</p>
+<p>@return ZipFile</p>
+
+<p>@noinspection AdditionOperationOnArraysInspection</p>
+
+<p>@var int[] $lastModDirs</p>
+
+<p>@psalm-suppress InvalidArgument</p>
+
+<p>@noinspection PotentialMalwareInspection</p>
+
+<p>Add entry from the string.</p>
+<p>@param string   $entryName         zip entry name</p>
+<p>@param string   $contents          string contents</p>
+<p>@param int|null $compressionMethod Compression method.</p>
+<p>                                   Use {@see ZipCompressionMethod::STORED},</p>
+<p>                                   {@see ZipCompressionMethod::DEFLATED} or</p>
+<p>                                   {@see ZipCompressionMethod::BZIP2}.</p>
+<p>                                   If null, then auto choosing method.</p>
+<p>@throws ZipException</p>
+<p>@return ZipFile</p>
+
+<p>@throws ZipException</p>
+<p>@return ZipEntry[]</p>
+
+<p>@noinspection AdditionOperationOnArraysInspection</p>
+
+<p>@param ?string $entryName</p>
+<p>@throws ZipException</p>
+
+<p>@noinspection AdditionOperationOnArraysInspection</p>
+
+<p>Add entry from the file.</p>
+<p>@param string      $filename          destination file</p>
+<p>@param string|null $entryName         zip Entry name</p>
+<p>@param int|null    $compressionMethod Compression method.</p>
+<p>                                      Use {@see ZipCompressionMethod::STORED},</p>
+<p>                                      {@see ZipCompressionMethod::DEFLATED} or</p>
+<p>                                      {@see ZipCompressionMethod::BZIP2}.</p>
+<p>                                      If null, then auto choosing method.</p>
+<p>@throws ZipException</p>
+<p>@return ZipFile</p>
+
+<p>Add entry from the stream.</p>
+<p>@param resource $stream            stream resource</p>
+<p>@param string   $entryName         zip Entry name</p>
+<p>@param int|null $compressionMethod Compression method.</p>
+<p>                                   Use {@see ZipCompressionMethod::STORED},</p>
+<p>                                   {@see ZipCompressionMethod::DEFLATED} or</p>
+<p>                                   {@see ZipCompressionMethod::BZIP2}.</p>
+<p>                                   If null, then auto choosing method.</p>
+<p>@throws ZipException</p>
+<p>@return ZipFile</p>
+
+<p>Add an empty directory in the zip archive.</p>
+<p>@throws ZipException</p>
+<p>@return ZipFile</p>
+
+<p>Add directory not recursively to the zip archive.</p>
+<p>@param string   $inputDir          Input directory</p>
+<p>@param string   $localPath         add files to this directory, or the root</p>
+<p>@param int|null $compressionMethod Compression method.</p>
+<p>                                   Use {@see ZipCompressionMethod::STORED},</p>
+<p>                                   {@see ZipCompressionMethod::DEFLATED} or</p>
+<p>                                   {@see ZipCompressionMethod::BZIP2}.</p>
+<p>                                   If null, then auto choosing method.</p>
+<p>@throws ZipException</p>
+<p>@return ZipFile</p>
+
+<p>Add recursive directory to the zip archive.</p>
+<p>@param string   $inputDir          Input directory</p>
+<p>@param string   $localPath         add files to this directory, or the root</p>
+<p>@param int|null $compressionMethod Compression method.</p>
+<p>                                   Use {@see ZipCompressionMethod::STORED}, {@see</p>
+<p>                                   ZipCompressionMethod::DEFLATED} or</p>
+<p>                                   {@see ZipCompressionMethod::BZIP2}.</p>
+<p>                                   If null, then auto choosing method.</p>
+<p>@throws ZipException</p>
+<p>@return ZipFile</p>
+<p>@see ZipCompressionMethod::STORED</p>
+<p>@see ZipCompressionMethod::DEFLATED</p>
+<p>@see ZipCompressionMethod::BZIP2</p>
+
+<p>Add directories from directory iterator.</p>
+<p>@param \Iterator $iterator          directory iterator</p>
+<p>@param string    $localPath         add files to this directory, or the root</p>
+<p>@param int|null  $compressionMethod Compression method.</p>
+<p>                                    Use {@see ZipCompressionMethod::STORED}, {@see</p>
+<p>                                    ZipCompressionMethod::DEFLATED} or</p>
+<p>                                    {@see ZipCompressionMethod::BZIP2}.</p>
+<p>                                    If null, then auto choosing method.</p>
+<p>@throws ZipException</p>
+<p>@return ZipFile</p>
+<p>@see ZipCompressionMethod::STORED</p>
+<p>@see ZipCompressionMethod::DEFLATED</p>
+<p>@see ZipCompressionMethod::BZIP2</p>
+
+<p>@var string[] $files</p>
+<p>@var string   $path</p>
+
+<p>Add files from glob pattern.</p>
+<p>@param string   $inputDir          Input directory</p>
+<p>@param string   $globPattern       glob pattern</p>
+<p>@param string   $localPath         add files to this directory, or the root</p>
+<p>@param int|null $compressionMethod Compression method.</p>
+<p>                                   Use {@see ZipCompressionMethod::STORED},</p>
+<p>                                   {@see ZipCompressionMethod::DEFLATED} or</p>
+<p>                                   {@see ZipCompressionMethod::BZIP2}.</p>
+<p>                                   If null, then auto choosing method.</p>
+<p>@throws ZipException</p>
+<p>@return ZipFile</p>
+<p>@sse https://en.wikipedia.org/wiki/Glob_(programming) Glob pattern syntax</p>
+
+<p>Add files from glob pattern.</p>
+<p>@param string   $inputDir          Input directory</p>
+<p>@param string   $globPattern       glob pattern</p>
+<p>@param string   $localPath         add files to this directory, or the root</p>
+<p>@param bool     $recursive         recursive search</p>
+<p>@param int|null $compressionMethod Compression method.</p>
+<p>                                   Use {@see ZipCompressionMethod::STORED},</p>
+<p>                                   {@see ZipCompressionMethod::DEFLATED} or</p>
+<p>                                   {@see ZipCompressionMethod::BZIP2}.</p>
+<p>                                   If null, then auto choosing method.</p>
+<p>@throws ZipException</p>
+<p>@return ZipFile</p>
+<p>@sse https://en.wikipedia.org/wiki/Glob_(programming) Glob pattern syntax</p>
+
+<p>Add files recursively from glob pattern.</p>
+<p>@param string   $inputDir          Input directory</p>
+<p>@param string   $globPattern       glob pattern</p>
+<p>@param string   $localPath         add files to this directory, or the root</p>
+<p>@param int|null $compressionMethod Compression method.</p>
+<p>                                   Use {@see ZipCompressionMethod::STORED},</p>
+<p>                                   {@see ZipCompressionMethod::DEFLATED} or</p>
+<p>                                   {@see ZipCompressionMethod::BZIP2}.</p>
+<p>                                   If null, then auto choosing method.</p>
+<p>@throws ZipException</p>
+<p>@return ZipFile</p>
+<p>@sse https://en.wikipedia.org/wiki/Glob_(programming) Glob pattern syntax</p>
+
+<p>Add files from regex pattern.</p>
+<p>@param string   $inputDir          search files in this directory</p>
+<p>@param string   $regexPattern      regex pattern</p>
+<p>@param string   $localPath         add files to this directory, or the root</p>
+<p>@param int|null $compressionMethod Compression method.</p>
+<p>                                   Use {@see ZipCompressionMethod::STORED},</p>
+<p>                                   {@see ZipCompressionMethod::DEFLATED} or</p>
+<p>                                   {@see ZipCompressionMethod::BZIP2}.</p>
+<p>                                   If null, then auto choosing method.</p>
+<p>@throws ZipException</p>
+<p>@return ZipFile</p>
+<p>@internal param bool $recursive Recursive search</p>
+
+<p>Add files from regex pattern.</p>
+<p>@param string   $inputDir          search files in this directory</p>
+<p>@param string   $regexPattern      regex pattern</p>
+<p>@param string   $localPath         add files to this directory, or the root</p>
+<p>@param bool     $recursive         recursive search</p>
+<p>@param int|null $compressionMethod Compression method.</p>
+<p>                                   Use {@see ZipCompressionMethod::STORED},</p>
+<p>                                   {@see ZipCompressionMethod::DEFLATED} or</p>
+<p>                                   {@see ZipCompressionMethod::BZIP2}.</p>
+<p>                                   If null, then auto choosing method.</p>
+<p>@throws ZipException</p>
+<p>@return ZipFile</p>
+
+<p>@param ?int $compressionMethod</p>
+<p>@throws ZipException</p>
+
+<p>@var string $file</p>
+
+<p>Add files recursively from regex pattern.</p>
+<p>@param string   $inputDir          search files in this directory</p>
+<p>@param string   $regexPattern      regex pattern</p>
+<p>@param string   $localPath         add files to this directory, or the root</p>
+<p>@param int|null $compressionMethod Compression method.</p>
+<p>                                   Use {@see ZipCompressionMethod::STORED},</p>
+<p>                                   {@see ZipCompressionMethod::DEFLATED} or</p>
+<p>                                   {@see ZipCompressionMethod::BZIP2}.</p>
+<p>                                   If null, then auto choosing method.</p>
+<p>@throws ZipException</p>
+<p>@return ZipFile</p>
+<p>@internal param bool $recursive Recursive search</p>
+
+<p>Add array data to archive.</p>
+<p>Keys is local names.</p>
+<p>Values is contents.</p>
+<p>@param array $mapData associative array for added to zip</p>
+
+<p>Rename the entry.</p>
+<p>@param string $oldName old entry name</p>
+<p>@param string $newName new entry name</p>
+<p>@throws ZipException</p>
+<p>@return ZipFile</p>
+
+<p>Delete entry by name.</p>
+<p>@param string $entryName zip Entry name</p>
+<p>@throws ZipEntryNotFoundException if entry not found</p>
+<p>@return ZipFile</p>
+
+<p>Delete entries by glob pattern.</p>
+<p>@param string $globPattern Glob pattern</p>
+<p>@return ZipFile</p>
+<p>@sse https://en.wikipedia.org/wiki/Glob_(programming) Glob pattern syntax</p>
+
+<p>Delete entries by regex pattern.</p>
+<p>@param string $regexPattern Regex pattern</p>
+<p>@return ZipFile</p>
+
+<p>Delete all entries.</p>
+<p>@return ZipFile</p>
+
+<p>Set compression level for new entries.</p>
+<p>@return ZipFile</p>
+<p>@see ZipCompressionLevel::NORMAL</p>
+<p>@see ZipCompressionLevel::SUPER_FAST</p>
+<p>@see ZipCompressionLevel::FAST</p>
+<p>@see ZipCompressionLevel::MAXIMUM</p>
+
+<p>@throws ZipException</p>
+<p>@return ZipFile</p>
+<p>@see ZipCompressionLevel::NORMAL</p>
+<p>@see ZipCompressionLevel::SUPER_FAST</p>
+<p>@see ZipCompressionLevel::FAST</p>
+<p>@see ZipCompressionLevel::MAXIMUM</p>
+
+<p>@param int $compressionMethod Compression method.</p>
+<p>                              Use {@see ZipCompressionMethod::STORED},</p>
+<p>                              {@see ZipCompressionMethod::DEFLATED} or</p>
+<p>                              {@see ZipCompressionMethod::BZIP2}.</p>
+<p>                              If null, then auto choosing method.</p>
+<p>@throws ZipException</p>
+<p>@return ZipFile</p>
+<p>@see ZipCompressionMethod::STORED</p>
+<p>@see ZipCompressionMethod::DEFLATED</p>
+<p>@see ZipCompressionMethod::BZIP2</p>
+
+<p>Set password to all input encrypted entries.</p>
+<p>@param string $password Password</p>
+<p>@return ZipFile</p>
+
+<p>Set password to concrete input entry.</p>
+<p>@param string $password Password</p>
+<p>@throws ZipException</p>
+<p>@return ZipFile</p>
+
+<p>Sets a new password for all files in the archive.</p>
+<p>@param string   $password         Password</p>
+<p>@param int|null $encryptionMethod Encryption method</p>
+<p>@throws ZipEntryNotFoundException</p>
+<p>@return ZipFile</p>
+
+<p>Sets a new password of an entry defined by its name.</p>
+<p>@param ?int $encryptionMethod</p>
+<p>@throws ZipException</p>
+<p>@return ZipFile</p>
+
+<p>Disable encryption for all entries that are already in the archive.</p>
+<p>@throws ZipEntryNotFoundException</p>
+<p>@return ZipFile</p>
+
+<p>Disable encryption of an entry defined by its name.</p>
+<p>@throws ZipEntryNotFoundException</p>
+<p>@return ZipFile</p>
+
+<p>Undo all changes done in the archive.</p>
+<p>@return ZipFile</p>
+
+<p>Undo change archive comment.</p>
+<p>@return ZipFile</p>
+
+<p>Revert all changes done to an entry with the given name.</p>
+<p>@param string|ZipEntry $entry Entry name or ZipEntry</p>
+<p>@return ZipFile</p>
+
+<p>Save as file.</p>
+<p>@param string $filename Output filename</p>
+<p>@throws ZipException</p>
+<p>@return ZipFile</p>
+
+<p>@psalm-suppress InvalidArgument</p>
+
+<p>Save as stream.</p>
+<p>@param resource $handle Output stream resource</p>
+<p>@throws ZipException</p>
+<p>@return ZipFile</p>
+
+<p>Output .ZIP archive as attachment.</p>
+<p>Die after output.</p>
+<p>@param string      $outputFilename Output filename</p>
+<p>@param string|null $mimeType       Mime-Type</p>
+<p>@param bool        $attachment     Http Header 'Content-Disposition' if true then attachment otherwise inline</p>
+<p>@throws ZipException</p>
+
+<p>@param ?string $mimeType</p>
+<p>@throws ZipException</p>
+
+<p>Output .ZIP archive as PSR-7 Response.</p>
+<p>@param ResponseInterface $response       Instance PSR-7 Response</p>
+<p>@param string            $outputFilename Output filename</p>
+<p>@param string|null       $mimeType       Mime-Type</p>
+<p>@param bool              $attachment     Http Header 'Content-Disposition' if true then attachment otherwise inline</p>
+<p>@throws ZipException</p>
+<p>@deprecated deprecated since version 2.0, replace to {@see ZipFile::outputAsPsr7Response}</p>
+
+<p>Output .ZIP archive as PSR-7 Response.</p>
+<p>@param ResponseInterface $response       Instance PSR-7 Response</p>
+<p>@param string            $outputFilename Output filename</p>
+<p>@param string|null       $mimeType       Mime-Type</p>
+<p>@param bool              $attachment     Http Header 'Content-Disposition' if true then attachment otherwise inline</p>
+<p>@throws ZipException</p>
+<p>@since 4.0.0</p>
+
+<p>@noinspection CallableParameterUseCaseInTypeContextInspection</p>
+
+<p>Output .ZIP archive as Symfony Response.</p>
+<p>@param string      $outputFilename Output filename</p>
+<p>@param string|null $mimeType       Mime-Type</p>
+<p>@param bool        $attachment     Http Header 'Content-Disposition' if true then attachment otherwise inline</p>
+<p>@throws ZipException</p>
+<p>@since 4.0.0</p>
+
+<p>@param resource $handle</p>
+<p>@throws ZipException</p>
+
+<p>Returns the zip archive as a string.</p>
+<p>@throws ZipException</p>
+
+<p>Event before save or output.</p>
+
+<p>Close zip archive and release input stream.</p>
+
+<p>Save and reopen zip archive.</p>
+<p>@throws ZipException</p>
+<p>@return ZipFile</p>
+
+<p>Release all resources.</p>
+
+<p>Offset to set.</p>
+<p>@see http://php.net/manual/en/arrayaccess.offsetset.php</p>
+<p>@param mixed                                           $offset the offset to assign the value to</p>
+<p>@param string|\DirectoryIterator|\SplFileInfo|resource $value  the value to set</p>
+<p>@throws ZipException</p>
+<p>@see ZipFile::addFromString</p>
+<p>@see ZipFile::addEmptyDir</p>
+<p>@see ZipFile::addFile</p>
+<p>@see ZipFile::addFilesFromIterator</p>
+
+<p>Offset to unset.</p>
+<p>@see http://php.net/manual/en/arrayaccess.offsetunset.php</p>
+<p>@param mixed $offset zip entry name</p>
+<p>@throws ZipEntryNotFoundException</p>
+
+<p>Return the current element.</p>
+<p>@see http://php.net/manual/en/iterator.current.php</p>
+<p>@throws ZipException</p>
+
+<p>Offset to retrieve.</p>
+<p>@see http://php.net/manual/en/arrayaccess.offsetget.php</p>
+<p>@param mixed $offset zip entry name</p>
+<p>@throws ZipException</p>
+
+<p>Return the key of the current element.</p>
+<p>@see http://php.net/manual/en/iterator.key.php</p>
+<p>@return string|null scalar on success, or null on failure</p>
+
+<p>Move forward to next element.</p>
+<p>@see http://php.net/manual/en/iterator.next.php</p>
+
+<p>Checks if current position is valid.</p>
+<p>@see http://php.net/manual/en/iterator.valid.php</p>
+<p>@return bool The return value will be casted to boolean and then evaluated.</p>
+<p>             Returns true on success or false on failure.</p>
+
+<p>Whether a offset exists.</p>
+<p>@see http://php.net/manual/en/arrayaccess.offsetexists.php</p>
+<p>@param mixed $offset an offset to check for</p>
+<p>@return bool true on success or false on failure.</p>
+<p>             The return value will be casted to boolean if non-boolean was returned.</p>
+
+<p>Rewind the Iterator to the first element.</p>
+<p>@see http://php.net/manual/en/iterator.rewind.php</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>file</code></li>
+<li><code>raw</code></li>
+<li><code>stream</code></li>
+<li><code>the</code></li>
+<li><code>directory</code></li>
+<li><code>glob</code></li>
+<li><code>regex</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\nelexa-php-zip\vendor\nelexa\zip\src\ZipFile.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpZip\ZipFile implements \Countable, \ArrayAccess, \Iterator</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>createZipReader($inputStream, array $options = [])</code></li>
+<li><code>createZipWriter()</code></li>
+<li><code>createZipContainer(?ImmutableZipContainer $sourceContainer = null)</code></li>
+<li><code>openFile(string $filename, array $options = [])</code></li>
+<li><code>openFromString(string $data, array $options = [])</code></li>
+<li><code>openFromStream($handle, array $options = [])</code></li>
+<li><code>getListFiles()</code></li>
+<li><code>count()</code></li>
+<li><code>getArchiveComment()</code></li>
+<li><code>setArchiveComment(?string $comment = null)</code></li>
+<li><code>hasEntry(string $entryName)</code></li>
+<li><code>getEntry(string $entryName)</code></li>
+<li><code>isDirectory(string $entryName)</code></li>
+<li><code>getEntryComment(string $entryName)</code></li>
+<li><code>setEntryComment(string $entryName, ?string $comment = null)</code></li>
+<li><code>getEntryContents(string $entryName)</code></li>
+<li><code>getEntryStream(string $entryName)</code></li>
+<li><code>matcher()</code></li>
+<li><code>getEntries()</code></li>
+<li>`extractTo(string $destDir,</li>
+<p>        $entries = null,</p>
+<p>        array $options = [],</p>
+<p>        ?array &$extractedEntries = [])`</p>
+<li><code>addFromString(string $entryName, string $contents, ?int $compressionMethod = null)</code></li>
+<li><code>normalizeEntryName(string $entryName)</code></li>
+<li><code>addFromFinder(Finder $finder, array $options = [])</code></li>
+<li><code>addSplFile(\SplFileInfo $file, ?string $entryName = null, array $options = [])</code></li>
+<li><code>addZipEntry(ZipEntry $zipEntry)</code></li>
+<li><code>addFile(string $filename, ?string $entryName = null, ?int $compressionMethod = null)</code></li>
+<li><code>addFromStream($stream, string $entryName, ?int $compressionMethod = null)</code></li>
+<li><code>addEmptyDir(string $dirName)</code></li>
+<li><code>addDir(string $inputDir, string $localPath = '/', ?int $compressionMethod = null)</code></li>
+<li><code>addDirRecursive(string $inputDir, string $localPath = '/', ?int $compressionMethod = null)</code></li>
+<li>`addFilesFromIterator(\Iterator $iterator,</li>
+<p>        string $localPath = '/',</p>
+<p>        ?int $compressionMethod = null)`</p>
+<li>`addFilesFromGlob(string $inputDir,</li>
+<p>        string $globPattern,</p>
+<p>        string $localPath = '/',</p>
+<p>        ?int $compressionMethod = null)`</p>
+<li>`addGlob(string $inputDir,</li>
+<p>        string $globPattern,</p>
+<p>        string $localPath = '/',</p>
+<p>        bool $recursive = true,</p>
+<p>        ?int $compressionMethod = null)`</p>
+<li>`addFilesFromGlobRecursive(string $inputDir,</li>
+<p>        string $globPattern,</p>
+<p>        string $localPath = '/',</p>
+<p>        ?int $compressionMethod = null)`</p>
+<li>`addFilesFromRegex(string $inputDir,</li>
+<p>        string $regexPattern,</p>
+<p>        string $localPath = '/',</p>
+<p>        ?int $compressionMethod = null)`</p>
+<li>`addRegex(string $inputDir,</li>
+<p>        string $regexPattern,</p>
+<p>        string $localPath = '/',</p>
+<p>        bool $recursive = true,</p>
+<p>        ?int $compressionMethod = null)`</p>
+<li>`doAddFiles(string $fileSystemDir,</li>
+<p>        array $files,</p>
+<p>        string $zipPath,</p>
+<p>        ?int $compressionMethod = null)`</p>
+<li>`addFilesFromRegexRecursive(string $inputDir,</li>
+<p>        string $regexPattern,</p>
+<p>        string $localPath = '/',</p>
+<p>        ?int $compressionMethod = null)`</p>
+<li><code>addAll(array $mapData)</code></li>
+<li><code>rename(string $oldName, string $newName)</code></li>
+<li><code>deleteFromName(string $entryName)</code></li>
+<li><code>deleteFromGlob(string $globPattern)</code></li>
+<li><code>deleteFromRegex(string $regexPattern)</code></li>
+<li><code>deleteAll()</code></li>
+<li><code>setCompressionLevel(int $compressionLevel = ZipCompressionLevel::NORMAL)</code></li>
+<li><code>setCompressionLevelEntry(string $entryName, int $compressionLevel)</code></li>
+<li><code>setCompressionMethodEntry(string $entryName, int $compressionMethod)</code></li>
+<li><code>setReadPassword(string $password)</code></li>
+<li><code>setReadPasswordEntry(string $entryName, string $password)</code></li>
+<li><code>setPassword(string $password, ?int $encryptionMethod = ZipEncryptionMethod::WINZIP_AES_256)</code></li>
+<li><code>setPasswordEntry(string $entryName, string $password, ?int $encryptionMethod = null)</code></li>
+<li><code>disableEncryption()</code></li>
+<li><code>disableEncryptionEntry(string $entryName)</code></li>
+<li><code>unchangeAll()</code></li>
+<li><code>unchangeArchiveComment()</code></li>
+<li><code>unchangeEntry($entry)</code></li>
+<li><code>saveAsFile(string $filename)</code></li>
+<li><code>saveAsStream($handle)</code></li>
+<li><code>outputAsAttachment(string $outputFilename, ?string $mimeType = null, bool $attachment = true)</code></li>
+<li><code>getOutputData(string $outputFilename, ?string $mimeType = null, bool $attachment = true)</code></li>
+<li><code>getMimeTypeByFilename(string $outputFilename)</code></li>
+<li>`outputAsResponse(ResponseInterface $response,</li>
+<p>        string $outputFilename,</p>
+<p>        ?string $mimeType = null,</p>
+<p>        bool $attachment = true)`</p>
+<li>`outputAsPsr7Response(ResponseInterface $response,</li>
+<p>        string $outputFilename,</p>
+<p>        ?string $mimeType = null,</p>
+<p>        bool $attachment = true)`</p>
+<li>`outputAsSymfonyResponse(string $outputFilename,</li>
+<p>        ?string $mimeType = null,</p>
+<p>        bool $attachment = true)`</p>
+<li><code>writeZipToStream($handle)</code></li>
+<li><code>outputAsString()</code></li>
+<li><code>onBeforeSave()</code></li>
+<li><code>close()</code></li>
+<li><code>rewrite()</code></li>
+<li><code>__destruct()</code></li>
+<li><code>offsetSet($offset, $value)</code></li>
+<li><code>offsetUnset($offset)</code></li>
+<li><code>current()</code></li>
+<li><code>offsetGet($offset)</code></li>
+<li><code>key()</code></li>
+<li><code>next()</code></li>
+<li><code>valid()</code></li>
+<li><code>offsetExists($offset)</code></li>
+<li><code>rewind()</code></li>
+</ul>
+</body></html>

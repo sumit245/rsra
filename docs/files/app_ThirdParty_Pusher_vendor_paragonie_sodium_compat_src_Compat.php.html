@@ -1,0 +1,1084 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\Compat.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\Compat.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\Compat.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 134516 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Libsodium compatibility layer</p>
+<p>This is the only class you should be interfacing with, as a user of</p>
+<p>sodium_compat.</p>
+<p>If the PHP extension for libsodium is installed, it will always use that</p>
+<p>instead of our implementations. You get better performance and stronger</p>
+<p>guarantees against side-channels that way.</p>
+<p>However, if your users don't have the PHP extension installed, we offer a</p>
+<p>compatible interface here. It will give you the correct results as if the</p>
+<p>PHP extension was installed. It won't be as fast, of course.</p>
+<p>CAUTION * CAUTION * CAUTION * CAUTION * CAUTION * CAUTION * CAUTION * CAUTION *</p>
+<p>                                                                              *</p>
+<p>    Until audited, this is probably not safe to use! DANGER WILL ROBINSON     *</p>
+<p>                                                                              *</p>
+<p>CAUTION * CAUTION * CAUTION * CAUTION * CAUTION * CAUTION * CAUTION * CAUTION *</p>
+
+<p>This parameter prevents the use of the PECL extension.</p>
+<p>It should only be used for unit testing.</p>
+<p>@var bool</p>
+
+<p>Use fast multiplication rather than our constant-time multiplication</p>
+<p>implementation. Can be enabled at runtime. Only enable this if you</p>
+<p>are absolutely certain that there is no timing leak on your platform.</p>
+<p>@var bool</p>
+
+<p>Add two numbers (little-endian unsigned), storing the value in the first</p>
+<p>parameter.</p>
+<p>This mutates $val.</p>
+<p>@param string $val</p>
+<p>@param string $addv</p>
+<p>@return void</p>
+<p>@throws SodiumException</p>
+
+<p>@param string $encoded</p>
+<p>@param int $variant</p>
+<p>@param string $ignore</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+
+<p>@var string $encoded</p>
+
+<p>@param string $decoded</p>
+<p>@param int $variant</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+
+<p>@var string $decoded</p>
+
+<p>Cache-timing-safe implementation of bin2hex().</p>
+<p>@param string $string A string (probably raw binary)</p>
+<p>@return string        A hexadecimal-encoded string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Compare two strings, in constant-time.</p>
+<p>Compared to memcmp(), compare() is more useful for sorting.</p>
+<p>@param string $left  The left operand; must be a string</p>
+<p>@param string $right The right operand; must be a string</p>
+<p>@return int          If < 0 if the left operand is less than the right</p>
+<p>                     If = 0 if both strings are equal</p>
+<p>                     If > 0 if the right operand is less than the left</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Is AES-256-GCM even available to use?</p>
+<p>@return bool</p>
+<p>@psalm-suppress UndefinedFunction</p>
+<p>@psalm-suppress MixedInferredReturnType</p>
+<p>@psalm-suppress MixedReturnStatement</p>
+
+<p>Authenticated Encryption with Associated Data: Decryption</p>
+<p>Algorithm:</p>
+<p>    AES-256-GCM</p>
+<p>This mode uses a 64-bit random nonce with a 64-bit counter.</p>
+<p>IETF mode uses a 96-bit random nonce with a 32-bit counter.</p>
+<p>@param string $ciphertext Encrypted message (with Poly1305 MAC appended)</p>
+<p>@param string $assocData  Authenticated Associated Data (unencrypted)</p>
+<p>@param string $nonce      Number to be used only Once; must be 8 bytes</p>
+<p>@param string $key        Encryption key</p>
+<p>@return string|bool       The original plaintext message</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+<p>@psalm-suppress MixedInferredReturnType</p>
+<p>@psalm-suppress MixedReturnStatement</p>
+
+<p>@var string $ctext</p>
+
+<p>@var string $authTag</p>
+
+<p>Authenticated Encryption with Associated Data: Encryption</p>
+<p>Algorithm:</p>
+<p>    AES-256-GCM</p>
+<p>@param string $plaintext Message to be encrypted</p>
+<p>@param string $assocData Authenticated Associated Data (unencrypted)</p>
+<p>@param string $nonce     Number to be used only Once; must be 8 bytes</p>
+<p>@param string $key       Encryption key</p>
+<p>@return string           Ciphertext with a 16-byte GCM message</p>
+<p>                         authentication code appended</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Return a secure random key for use with the AES-256-GCM</p>
+<p>symmetric AEAD interface.</p>
+<p>@return string</p>
+<p>@throws Exception</p>
+<p>@throws Error</p>
+
+<p>Authenticated Encryption with Associated Data: Decryption</p>
+<p>Algorithm:</p>
+<p>    ChaCha20-Poly1305</p>
+<p>This mode uses a 64-bit random nonce with a 64-bit counter.</p>
+<p>IETF mode uses a 96-bit random nonce with a 32-bit counter.</p>
+<p>@param string $ciphertext Encrypted message (with Poly1305 MAC appended)</p>
+<p>@param string $assocData  Authenticated Associated Data (unencrypted)</p>
+<p>@param string $nonce      Number to be used only Once; must be 8 bytes</p>
+<p>@param string $key        Encryption key</p>
+<p>@return string            The original plaintext message</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+<p>@psalm-suppress MixedInferredReturnType</p>
+<p>@psalm-suppress MixedReturnStatement</p>
+
+<p>@psalm-suppress InvalidReturnStatement</p>
+<p>@psalm-suppress FalsableReturnStatement</p>
+
+<p>Authenticated Encryption with Associated Data</p>
+<p>Algorithm:</p>
+<p>    ChaCha20-Poly1305</p>
+<p>This mode uses a 64-bit random nonce with a 64-bit counter.</p>
+<p>IETF mode uses a 96-bit random nonce with a 32-bit counter.</p>
+<p>@param string $plaintext Message to be encrypted</p>
+<p>@param string $assocData Authenticated Associated Data (unencrypted)</p>
+<p>@param string $nonce     Number to be used only Once; must be 8 bytes</p>
+<p>@param string $key       Encryption key</p>
+<p>@return string           Ciphertext with a 16-byte Poly1305 message</p>
+<p>                         authentication code appended</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Authenticated Encryption with Associated Data: Decryption</p>
+<p>Algorithm:</p>
+<p>    ChaCha20-Poly1305</p>
+<p>IETF mode uses a 96-bit random nonce with a 32-bit counter.</p>
+<p>Regular mode uses a 64-bit random nonce with a 64-bit counter.</p>
+<p>@param string $ciphertext Encrypted message (with Poly1305 MAC appended)</p>
+<p>@param string $assocData  Authenticated Associated Data (unencrypted)</p>
+<p>@param string $nonce      Number to be used only Once; must be 12 bytes</p>
+<p>@param string $key        Encryption key</p>
+<p>@return string            The original plaintext message</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+<p>@psalm-suppress MixedInferredReturnType</p>
+<p>@psalm-suppress MixedReturnStatement</p>
+
+<p>@psalm-suppress InvalidReturnStatement</p>
+<p>@psalm-suppress FalsableReturnStatement</p>
+
+<p>Return a secure random key for use with the ChaCha20-Poly1305</p>
+<p>symmetric AEAD interface.</p>
+<p>@return string</p>
+<p>@throws Exception</p>
+<p>@throws Error</p>
+
+<p>Authenticated Encryption with Associated Data</p>
+<p>Algorithm:</p>
+<p>    ChaCha20-Poly1305</p>
+<p>IETF mode uses a 96-bit random nonce with a 32-bit counter.</p>
+<p>Regular mode uses a 64-bit random nonce with a 64-bit counter.</p>
+<p>@param string $plaintext Message to be encrypted</p>
+<p>@param string $assocData Authenticated Associated Data (unencrypted)</p>
+<p>@param string $nonce Number to be used only Once; must be 8 bytes</p>
+<p>@param string $key Encryption key</p>
+<p>@return string           Ciphertext with a 16-byte Poly1305 message</p>
+<p>                         authentication code appended</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Return a secure random key for use with the ChaCha20-Poly1305</p>
+<p>symmetric AEAD interface. (IETF version)</p>
+<p>@return string</p>
+<p>@throws Exception</p>
+<p>@throws Error</p>
+
+<p>Authenticated Encryption with Associated Data: Decryption</p>
+<p>Algorithm:</p>
+<p>    XChaCha20-Poly1305</p>
+<p>This mode uses a 64-bit random nonce with a 64-bit counter.</p>
+<p>IETF mode uses a 96-bit random nonce with a 32-bit counter.</p>
+<p>@param string $ciphertext   Encrypted message (with Poly1305 MAC appended)</p>
+<p>@param string $assocData    Authenticated Associated Data (unencrypted)</p>
+<p>@param string $nonce        Number to be used only Once; must be 8 bytes</p>
+<p>@param string $key          Encryption key</p>
+<p>@param bool   $dontFallback Don't fallback to ext/sodium</p>
+<p>@return string|bool         The original plaintext message</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Authenticated Encryption with Associated Data</p>
+<p>Algorithm:</p>
+<p>    XChaCha20-Poly1305</p>
+<p>This mode uses a 64-bit random nonce with a 64-bit counter.</p>
+<p>IETF mode uses a 96-bit random nonce with a 32-bit counter.</p>
+<p>@param string $plaintext    Message to be encrypted</p>
+<p>@param string $assocData    Authenticated Associated Data (unencrypted)</p>
+<p>@param string $nonce        Number to be used only Once; must be 8 bytes</p>
+<p>@param string $key          Encryption key</p>
+<p>@param bool   $dontFallback Don't fallback to ext/sodium</p>
+<p>@return string           Ciphertext with a 16-byte Poly1305 message</p>
+<p>                         authentication code appended</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Return a secure random key for use with the XChaCha20-Poly1305</p>
+<p>symmetric AEAD interface.</p>
+<p>@return string</p>
+<p>@throws Exception</p>
+<p>@throws Error</p>
+
+<p>Authenticate a message. Uses symmetric-key cryptography.</p>
+<p>Algorithm:</p>
+<p>    HMAC-SHA512-256. Which is HMAC-SHA-512 truncated to 256 bits.</p>
+<p>    Not to be confused with HMAC-SHA-512/256 which would use the</p>
+<p>    SHA-512/256 hash function (uses different initial parameters</p>
+<p>    but still truncates to 256 bits to sidestep length-extension</p>
+<p>    attacks).</p>
+<p>@param string $message Message to be authenticated</p>
+<p>@param string $key Symmetric authentication key</p>
+<p>@return string         Message authentication code</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>@return string</p>
+<p>@throws Exception</p>
+<p>@throws Error</p>
+
+<p>Verify the MAC of a message previously authenticated with crypto_auth.</p>
+<p>@param string $mac Message authentication code</p>
+<p>@param string $message Message whose authenticity you are attempting to</p>
+<p>                       verify (with a given MAC and key)</p>
+<p>@param string $key Symmetric authentication key</p>
+<p>@return bool           TRUE if authenticated, FALSE otherwise</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Authenticated asymmetric-key encryption. Both the sender and recipient</p>
+<p>may decrypt messages.</p>
+<p>Algorithm: X25519-XSalsa20-Poly1305.</p>
+<p>    X25519: Elliptic-Curve Diffie Hellman over Curve25519.</p>
+<p>    XSalsa20: Extended-nonce variant of salsa20.</p>
+<p>    Poyl1305: Polynomial MAC for one-time message authentication.</p>
+<p>@param string $plaintext The message to be encrypted</p>
+<p>@param string $nonce A Number to only be used Once; must be 24 bytes</p>
+<p>@param string $keypair Your secret key and your recipient's public key</p>
+<p>@return string           Ciphertext with 16-byte Poly1305 MAC</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Anonymous public-key encryption. Only the recipient may decrypt messages.</p>
+<p>Algorithm: X25519-XSalsa20-Poly1305, as with crypto_box.</p>
+<p>    The sender's X25519 keypair is ephemeral.</p>
+<p>    Nonce is generated from the BLAKE2b hash of both public keys.</p>
+<p>This provides ciphertext integrity.</p>
+<p>@param string $plaintext Message to be sealed</p>
+<p>@param string $publicKey Your recipient's public key</p>
+<p>@return string           Sealed message that only your recipient can</p>
+<p>                         decrypt</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Opens a message encrypted with crypto_box_seal(). Requires</p>
+<p>the recipient's keypair (sk || pk) to decrypt successfully.</p>
+<p>This validates ciphertext integrity.</p>
+<p>@param string $ciphertext Sealed message to be opened</p>
+<p>@param string $keypair    Your crypto_box keypair</p>
+<p>@return string            The original plaintext message</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+<p>@psalm-suppress MixedInferredReturnType</p>
+<p>@psalm-suppress MixedReturnStatement</p>
+
+<p>@psalm-suppress InvalidReturnStatement</p>
+<p>@psalm-suppress FalsableReturnStatement</p>
+
+<p>Generate a new random X25519 keypair.</p>
+<p>@return string A 64-byte string; the first 32 are your secret key, while</p>
+<p>               the last 32 are your public key. crypto_box_secretkey()</p>
+<p>               and crypto_box_publickey() exist to separate them so you</p>
+<p>               don't accidentally get them mixed up!</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Combine two keys into a keypair for use in library methods that expect</p>
+<p>a keypair. This doesn't necessarily have to be the same person's keys.</p>
+<p>@param string $secretKey Secret key</p>
+<p>@param string $publicKey Public key</p>
+<p>@return string    Keypair</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Decrypt a message previously encrypted with crypto_box().</p>
+<p>@param string $ciphertext Encrypted message</p>
+<p>@param string $nonce      Number to only be used Once; must be 24 bytes</p>
+<p>@param string $keypair    Your secret key and the sender's public key</p>
+<p>@return string            The original plaintext message</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+<p>@psalm-suppress MixedInferredReturnType</p>
+<p>@psalm-suppress MixedReturnStatement</p>
+
+<p>@psalm-suppress InvalidReturnStatement</p>
+<p>@psalm-suppress FalsableReturnStatement</p>
+
+<p>Extract the public key from a crypto_box keypair.</p>
+<p>@param string $keypair Keypair containing secret and public key</p>
+<p>@return string         Your crypto_box public key</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Calculate the X25519 public key from a given X25519 secret key.</p>
+<p>@param string $secretKey Any X25519 secret key</p>
+<p>@return string           The corresponding X25519 public key</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Extract the secret key from a crypto_box keypair.</p>
+<p>@param string $keypair</p>
+<p>@return string         Your crypto_box secret key</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Generate an X25519 keypair from a seed.</p>
+<p>@param string $seed</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+<p>@psalm-suppress UndefinedFunction</p>
+
+<p>Calculates a BLAKE2b hash, with an optional key.</p>
+<p>@param string      $message The message to be hashed</p>
+<p>@param string|null $key     If specified, must be a string between 16</p>
+<p>                            and 64 bytes long</p>
+<p>@param int         $length  Output length in bytes; must be between 16</p>
+<p>                            and 64 (default = 32)</p>
+<p>@return string              Raw binary</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Get the final BLAKE2b hash output for a given context.</p>
+<p>@param string $ctx BLAKE2 hashing context. Generated by crypto_generichash_init().</p>
+<p>@param int $length Hash output size.</p>
+<p>@return string     Final BLAKE2b hash.</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+<p>@psalm-suppress ReferenceConstraintViolation</p>
+<p>@psalm-suppress ConflictingReferenceConstraint</p>
+
+<p>Initialize a BLAKE2b hashing context, for use in a streaming interface.</p>
+<p>@param string|null $key If specified must be a string between 16 and 64 bytes</p>
+<p>@param int $length      The size of the desired hash output</p>
+<p>@return string          A BLAKE2 hashing context, encoded as a string</p>
+<p>                        (To be 100% compatible with ext/libsodium)</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Initialize a BLAKE2b hashing context, for use in a streaming interface.</p>
+<p>@param string|null $key If specified must be a string between 16 and 64 bytes</p>
+<p>@param int $length      The size of the desired hash output</p>
+<p>@param string $salt     Salt (up to 16 bytes)</p>
+<p>@param string $personal Personalization string (up to 16 bytes)</p>
+<p>@return string          A BLAKE2 hashing context, encoded as a string</p>
+<p>                        (To be 100% compatible with ext/libsodium)</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Update a BLAKE2b hashing context with additional data.</p>
+<p>@param string $ctx    BLAKE2 hashing context. Generated by crypto_generichash_init().</p>
+<p>                      $ctx is passed by reference and gets updated in-place.</p>
+<p>@param-out string $ctx</p>
+<p>@param string $message The message to append to the existing hash state.</p>
+<p>@return void</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+<p>@psalm-suppress ReferenceConstraintViolation</p>
+
+<p>@return string</p>
+<p>@throws Exception</p>
+<p>@throws Error</p>
+
+<p>@param int $subkey_len</p>
+<p>@param int $subkey_id</p>
+<p>@param string $context</p>
+<p>@param string $key</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+
+<p>@return string</p>
+<p>@throws Exception</p>
+<p>@throws Error</p>
+
+<p>Perform a key exchange, between a designated client and a server.</p>
+<p>Typically, you would designate one machine to be the client and the</p>
+<p>other to be the server. The first two keys are what you'd expect for</p>
+<p>scalarmult() below, but the latter two public keys don't swap places.</p>
+<table>
+<tr><td>ALICE</td><td>BOB</td></tr>
+<tr><td>Client</td><td>Server</td></tr>
+<tr><td>shared = crypto_kx(</td><td>shared = crypto_kx(</td></tr>
+</table>
+<p>|     alice_sk,                  |     bob_sk,                         | <- contextual</p>
+<p>|     bob_pk,                    |     alice_pk,                       | <- contextual</p>
+<p>|     alice_pk,                  |     alice_pk,                       | <----- static</p>
+<p>|     bob_pk                     |     bob_pk                          | <----- static</p>
+<table>
+<tr><td>)</td><td>)</td></tr>
+</table>
+<p>They are used along with the scalarmult product to generate a 256-bit</p>
+<p>BLAKE2b hash unique to the client and server keys.</p>
+<p>@param string $my_secret</p>
+<p>@param string $their_public</p>
+<p>@param string $client_public</p>
+<p>@param string $server_public</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>@param string $seed</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+
+<p>@return string</p>
+<p>@throws Exception</p>
+
+<p>@param string $keypair</p>
+<p>@param string $serverPublicKey</p>
+<p>@return array{0: string, 1: string}</p>
+<p>@throws SodiumException</p>
+
+<p>@param string $keypair</p>
+<p>@param string $clientPublicKey</p>
+<p>@return array{0: string, 1: string}</p>
+<p>@throws SodiumException</p>
+
+<p>@param string $kp</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+
+<p>@param string $kp</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+
+<p>@param int $outlen</p>
+<p>@param string $passwd</p>
+<p>@param string $salt</p>
+<p>@param int $opslimit</p>
+<p>@param int $memlimit</p>
+<p>@param int|null $alg</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>!Exclusive to sodium_compat!</p>
+<p>This returns TRUE if the native crypto_pwhash API is available by libsodium.</p>
+<p>This returns FALSE if only sodium_compat is available.</p>
+<p>@return bool</p>
+
+<p>@param string $passwd</p>
+<p>@param int $opslimit</p>
+<p>@param int $memlimit</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Do we need to rehash this password?</p>
+<p>@param string $hash</p>
+<p>@param int $opslimit</p>
+<p>@param int $memlimit</p>
+<p>@return bool</p>
+<p>@throws SodiumException</p>
+
+<p>@var int $ops</p>
+
+<p>@var int $mem</p>
+
+<p>@param string $passwd</p>
+<p>@param string $hash</p>
+<p>@return bool</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>@param int $outlen</p>
+<p>@param string $passwd</p>
+<p>@param string $salt</p>
+<p>@param int $opslimit</p>
+<p>@param int $memlimit</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>!Exclusive to sodium_compat!</p>
+<p>This returns TRUE if the native crypto_pwhash API is available by libsodium.</p>
+<p>This returns FALSE if only sodium_compat is available.</p>
+<p>@return bool</p>
+
+<p>@param string $passwd</p>
+<p>@param int $opslimit</p>
+<p>@param int $memlimit</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@param string $passwd</p>
+<p>@param string $hash</p>
+<p>@return bool</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>Calculate the shared secret between your secret key and your</p>
+<p>recipient's public key.</p>
+<p>Algorithm: X25519 (ECDH over Curve25519)</p>
+<p>@param string $secretKey</p>
+<p>@param string $publicKey</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Calculate an X25519 public key from an X25519 secret key.</p>
+<p>@param string $secretKey</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress TooFewArguments</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Authenticated symmetric-key encryption.</p>
+<p>Algorithm: XSalsa20-Poly1305</p>
+<p>@param string $plaintext The message you're encrypting</p>
+<p>@param string $nonce A Number to be used Once; must be 24 bytes</p>
+<p>@param string $key Symmetric encryption key</p>
+<p>@return string           Ciphertext with Poly1305 MAC</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Decrypts a message previously encrypted with crypto_secretbox().</p>
+<p>@param string $ciphertext Ciphertext with Poly1305 MAC</p>
+<p>@param string $nonce      A Number to be used Once; must be 24 bytes</p>
+<p>@param string $key        Symmetric encryption key</p>
+<p>@return string            Original plaintext message</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+<p>@psalm-suppress MixedInferredReturnType</p>
+<p>@psalm-suppress MixedReturnStatement</p>
+
+<p>@psalm-suppress InvalidReturnStatement</p>
+<p>@psalm-suppress FalsableReturnStatement</p>
+
+<p>Return a secure random key for use with crypto_secretbox</p>
+<p>@return string</p>
+<p>@throws Exception</p>
+<p>@throws Error</p>
+
+<p>Authenticated symmetric-key encryption.</p>
+<p>Algorithm: XChaCha20-Poly1305</p>
+<p>@param string $plaintext The message you're encrypting</p>
+<p>@param string $nonce     A Number to be used Once; must be 24 bytes</p>
+<p>@param string $key       Symmetric encryption key</p>
+<p>@return string           Ciphertext with Poly1305 MAC</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Decrypts a message previously encrypted with crypto_secretbox_xchacha20poly1305().</p>
+<p>@param string $ciphertext Ciphertext with Poly1305 MAC</p>
+<p>@param string $nonce      A Number to be used Once; must be 24 bytes</p>
+<p>@param string $key        Symmetric encryption key</p>
+<p>@return string            Original plaintext message</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>@param string $key</p>
+<p>@return array<int, string> Returns a state and a header.</p>
+<p>@throws Exception</p>
+<p>@throws SodiumException</p>
+
+<p>@param string $header</p>
+<p>@param string $key</p>
+<p>@return string Returns a state.</p>
+<p>@throws Exception</p>
+
+<p>@param string $state</p>
+<p>@param string $msg</p>
+<p>@param string $aad</p>
+<p>@param int $tag</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+
+<p>@param string $state</p>
+<p>@param string $msg</p>
+<p>@param string $aad</p>
+<p>@return bool|array{0: string, 1: int}</p>
+<p>@throws SodiumException</p>
+
+<p>@return string</p>
+<p>@throws Exception</p>
+
+<p>@param string $state</p>
+<p>@return void</p>
+<p>@throws SodiumException</p>
+
+<p>Calculates a SipHash-2-4 hash of a message for a given key.</p>
+<p>@param string $message Input message</p>
+<p>@param string $key SipHash-2-4 key</p>
+<p>@return string         Hash</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+<p>@psalm-suppress MixedInferredReturnType</p>
+<p>@psalm-suppress MixedReturnStatement</p>
+
+<p>Return a secure random key for use with crypto_shorthash</p>
+<p>@return string</p>
+<p>@throws Exception</p>
+<p>@throws Error</p>
+
+<p>Returns a signed message. You probably want crypto_sign_detached()</p>
+<p>instead, which only returns the signature.</p>
+<p>Algorithm: Ed25519 (EdDSA over Curve25519)</p>
+<p>@param string $message Message to be signed.</p>
+<p>@param string $secretKey Secret signing key.</p>
+<p>@return string           Signed message (signature is prefixed).</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+<p>@psalm-suppress MixedInferredReturnType</p>
+<p>@psalm-suppress MixedReturnStatement</p>
+
+<p>Validates a signed message then returns the message.</p>
+<p>@param string $signedMessage A signed message</p>
+<p>@param string $publicKey A public key</p>
+<p>@return string               The original message (if the signature is</p>
+<p>                             valid for this public key)</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+<p>@psalm-suppress MixedInferredReturnType</p>
+<p>@psalm-suppress MixedReturnStatement</p>
+
+<p>@psalm-suppress InvalidReturnStatement</p>
+<p>@psalm-suppress FalsableReturnStatement</p>
+
+<p>Generate a new random Ed25519 keypair.</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@param string $sk</p>
+<p>@param string $pk</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+
+<p>Generate an Ed25519 keypair from a seed.</p>
+<p>@param string $seed Input seed</p>
+<p>@return string      Keypair</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Extract an Ed25519 public key from an Ed25519 keypair.</p>
+<p>@param string $keypair Keypair</p>
+<p>@return string         Public key</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Calculate an Ed25519 public key from an Ed25519 secret key.</p>
+<p>@param string $secretKey Your Ed25519 secret key</p>
+<p>@return string           The corresponding Ed25519 public key</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Extract an Ed25519 secret key from an Ed25519 keypair.</p>
+<p>@param string $keypair Keypair</p>
+<p>@return string         Secret key</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Calculate the Ed25519 signature of a message and return ONLY the signature.</p>
+<p>Algorithm: Ed25519 (EdDSA over Curve25519)</p>
+<p>@param string $message Message to be signed</p>
+<p>@param string $secretKey Secret signing key</p>
+<p>@return string           Digital signature</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Verify the Ed25519 signature of a message.</p>
+<p>@param string $signature Digital sginature</p>
+<p>@param string $message Message to be verified</p>
+<p>@param string $publicKey Public key</p>
+<p>@return bool             TRUE if this signature is good for this public key;</p>
+<p>                         FALSE otherwise</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Convert an Ed25519 public key to a Curve25519 public key</p>
+<p>@param string $pk</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Convert an Ed25519 secret key to a Curve25519 secret key</p>
+<p>@param string $sk</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Expand a key and nonce into a keystream of pseudorandom bytes.</p>
+<p>@param int $len Number of bytes desired</p>
+<p>@param string $nonce Number to be used Once; must be 24 bytes</p>
+<p>@param string $key XSalsa20 key</p>
+<p>@return string       Pseudorandom stream that can be XORed with messages</p>
+<p>                     to provide encryption (but not authentication; see</p>
+<p>                     Poly1305 or crypto_auth() for that, which is not</p>
+<p>                     optional for security)</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>DANGER! UNAUTHENTICATED ENCRYPTION!</p>
+<p>Unless you are following expert advice, do not used this feature.</p>
+<p>Algorithm: XSalsa20</p>
+<p>This DOES NOT provide ciphertext integrity.</p>
+<p>@param string $message Plaintext message</p>
+<p>@param string $nonce Number to be used Once; must be 24 bytes</p>
+<p>@param string $key Encryption key</p>
+<p>@return string         Encrypted text which is vulnerable to chosen-</p>
+<p>                       ciphertext attacks unless you implement some</p>
+<p>                       other mitigation to the ciphertext (i.e.</p>
+<p>                       Encrypt then MAC)</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Return a secure random key for use with crypto_stream</p>
+<p>@return string</p>
+<p>@throws Exception</p>
+<p>@throws Error</p>
+
+<p>Cache-timing-safe implementation of hex2bin().</p>
+<p>@param string $string Hexadecimal string</p>
+<p>@return string        Raw binary string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress TooFewArguments</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>Increase a string (little endian)</p>
+<p>@param string $var</p>
+<p>@return void</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>The equivalent to the libsodium minor version we aim to be compatible</p>
+<p>with (sans pwhash and memzero).</p>
+<p>@return int</p>
+
+<p>@psalm-suppress UndefinedFunction</p>
+
+<p>The equivalent to the libsodium minor version we aim to be compatible</p>
+<p>with (sans pwhash and memzero).</p>
+<p>@return int</p>
+
+<p>@psalm-suppress UndefinedFunction</p>
+
+<p>Compare two strings.</p>
+<p>@param string $left</p>
+<p>@param string $right</p>
+<p>@return int</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>@var string $left</p>
+
+<p>@var string $right</p>
+
+<p>It's actually not possible to zero memory buffers in PHP. You need the</p>
+<p>native library for that.</p>
+<p>@param string|null $var</p>
+<p>@param-out string|null $var</p>
+<p>@return void</p>
+<p>@throws SodiumException (Unless libsodium is installed)</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress TooFewArguments</p>
+
+<p>@psalm-suppress MixedArgument</p>
+
+<p>@param string $unpadded</p>
+<p>@param int $blockSize</p>
+<p>@param bool $dontFallback</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+
+<p>@var int $k</p>
+
+<p>@param string $padded</p>
+<p>@param int $blockSize</p>
+<p>@param bool $dontFallback</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+
+<p>Will sodium_compat run fast on the current hardware and PHP configuration?</p>
+<p>@return bool</p>
+
+<p>Generate a string of bytes from the kernel's CSPRNG.</p>
+<p>Proudly uses /dev/urandom (if getrandom(2) is not available).</p>
+<p>@param int $numBytes</p>
+<p>@return string</p>
+<p>@throws Exception</p>
+<p>@throws TypeError</p>
+
+<p>Generate an integer between 0 and $range (non-inclusive).</p>
+<p>@param int $range</p>
+<p>@return int</p>
+<p>@throws Exception</p>
+<p>@throws Error</p>
+<p>@throws TypeError</p>
+
+<p>Generate a random 16-bit integer.</p>
+<p>@return int</p>
+<p>@throws Exception</p>
+<p>@throws Error</p>
+<p>@throws TypeError</p>
+
+<p>Runtime testing method for 32-bit platforms.</p>
+<p>Usage: If runtime_speed_test() returns FALSE, then our 32-bit</p>
+<p>       implementation is to slow to use safely without risking timeouts.</p>
+<p>       If this happens, install sodium from PECL to get acceptable</p>
+<p>       performance.</p>
+<p>@param int $iterations Number of multiplications to attempt</p>
+<p>@param int $maxTimeout Milliseconds</p>
+<p>@return bool           TRUE if we're fast enough, FALSE is not</p>
+<p>@throws SodiumException</p>
+
+<p>@var float $end</p>
+
+<p>@var float $start</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $a</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $b</p>
+
+<p>@var float $end</p>
+
+<p>@var int $diff</p>
+
+<p>This emulates libsodium's version_string() function, except ours is</p>
+<p>prefixed with 'polyfill-'.</p>
+<p>@return string</p>
+<p>@psalm-suppress MixedInferredReturnType</p>
+<p>@psalm-suppress UndefinedFunction</p>
+
+<p>Should we use the libsodium core function instead?</p>
+<p>This is always a good idea, if it's available. (Unless we're in the</p>
+<p>middle of running our unit test suite.)</p>
+<p>If ext/libsodium is available, use it. Return TRUE.</p>
+<p>Otherwise, we have to use the code provided herein. Return FALSE.</p>
+<p>@param string $sodium_func_name</p>
+<p>@return bool</p>
+
+<p>Libsodium as implemented in PHP 7.2</p>
+<p>and/or ext/sodium (via PECL)</p>
+<p>@ref https://wiki.php.net/rfc/libsodium</p>
+<p>@return bool</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>libsodium</code></li>
+<li><code>the</code></li>
+<li><code>a</code></li>
+<li><code>an</code></li>
+<li><code>PHP</code></li>
+<li><code>PECL</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\Compat.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>you</code></li>
+<li><code>ParagonIE_Sodium_Compat</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>add(&$val, $addv)</code></li>
+<li><code>base642bin($encoded, $variant, $ignore = '')</code></li>
+<li><code>bin2base64($decoded, $variant)</code></li>
+<li><code>bin2hex($string)</code></li>
+<li><code>compare($left, $right)</code></li>
+<li><code>crypto_aead_aes256gcm_is_available()</code></li>
+<li>`crypto_aead_aes256gcm_decrypt($ciphertext = '',</li>
+<p>        $assocData = '',</p>
+<p>        $nonce = '',</p>
+<p>        $key = '')`</p>
+<li>`crypto_aead_aes256gcm_encrypt($plaintext = '',</li>
+<p>        $assocData = '',</p>
+<p>        $nonce = '',</p>
+<p>        $key = '')`</p>
+<li><code>crypto_aead_aes256gcm_keygen()</code></li>
+<li>`crypto_aead_chacha20poly1305_decrypt($ciphertext = '',</li>
+<p>        $assocData = '',</p>
+<p>        $nonce = '',</p>
+<p>        $key = '')`</p>
+<li>`crypto_aead_chacha20poly1305_encrypt($plaintext = '',</li>
+<p>        $assocData = '',</p>
+<p>        $nonce = '',</p>
+<p>        $key = '')`</p>
+<li>`crypto_aead_chacha20poly1305_ietf_decrypt($ciphertext = '',</li>
+<p>        $assocData = '',</p>
+<p>        $nonce = '',</p>
+<p>        $key = '')`</p>
+<li><code>crypto_aead_chacha20poly1305_keygen()</code></li>
+<li>`crypto_aead_chacha20poly1305_ietf_encrypt($plaintext = '',</li>
+<p>        $assocData = '',</p>
+<p>        $nonce = '',</p>
+<p>        $key = '')`</p>
+<li><code>crypto_aead_chacha20poly1305_ietf_keygen()</code></li>
+<li>`crypto_aead_xchacha20poly1305_ietf_decrypt($ciphertext = '',</li>
+<p>        $assocData = '',</p>
+<p>        $nonce = '',</p>
+<p>        $key = '',</p>
+<p>        $dontFallback = false)`</p>
+<li>`crypto_aead_xchacha20poly1305_ietf_encrypt($plaintext = '',</li>
+<p>        $assocData = '',</p>
+<p>        $nonce = '',</p>
+<p>        $key = '',</p>
+<p>        $dontFallback = false)`</p>
+<li><code>crypto_aead_xchacha20poly1305_ietf_keygen()</code></li>
+<li><code>crypto_auth($message, $key)</code></li>
+<li><code>crypto_auth_keygen()</code></li>
+<li><code>crypto_auth_verify($mac, $message, $key)</code></li>
+<li><code>crypto_box($plaintext, $nonce, $keypair)</code></li>
+<li><code>crypto_box_seal($plaintext, $publicKey)</code></li>
+<li><code>crypto_box_seal_open($ciphertext, $keypair)</code></li>
+<li><code>crypto_box_keypair()</code></li>
+<li><code>crypto_box_keypair_from_secretkey_and_publickey($secretKey, $publicKey)</code></li>
+<li><code>crypto_box_open($ciphertext, $nonce, $keypair)</code></li>
+<li><code>crypto_box_publickey($keypair)</code></li>
+<li><code>crypto_box_publickey_from_secretkey($secretKey)</code></li>
+<li><code>crypto_box_secretkey($keypair)</code></li>
+<li><code>crypto_box_seed_keypair($seed)</code></li>
+<li><code>crypto_generichash($message, $key = '', $length = self::CRYPTO_GENERICHASH_BYTES)</code></li>
+<li><code>crypto_generichash_final(&$ctx, $length = self::CRYPTO_GENERICHASH_BYTES)</code></li>
+<li><code>crypto_generichash_init($key = '', $length = self::CRYPTO_GENERICHASH_BYTES)</code></li>
+<li>`crypto_generichash_init_salt_personal($key = '',</li>
+<p>        $length = self::CRYPTO_GENERICHASH_BYTES,</p>
+<p>        $salt = '',</p>
+<p>        $personal = '')`</p>
+<li><code>crypto_generichash_update(&$ctx, $message)</code></li>
+<li><code>crypto_generichash_keygen()</code></li>
+<li>`crypto_kdf_derive_from_key($subkey_len,</li>
+<p>        $subkey_id,</p>
+<p>        $context,</p>
+<p>        $key)`</p>
+<li><code>crypto_kdf_keygen()</code></li>
+<li><code>crypto_kx($my_secret, $their_public, $client_public, $server_public)</code></li>
+<li><code>crypto_kx_seed_keypair($seed)</code></li>
+<li><code>crypto_kx_keypair()</code></li>
+<li><code>crypto_kx_client_session_keys($keypair, $serverPublicKey)</code></li>
+<li><code>crypto_kx_server_session_keys($keypair, $clientPublicKey)</code></li>
+<li><code>crypto_kx_secretkey($kp)</code></li>
+<li><code>crypto_kx_publickey($kp)</code></li>
+<li><code>crypto_pwhash($outlen, $passwd, $salt, $opslimit, $memlimit, $alg = null)</code></li>
+<li><code>crypto_pwhash_is_available()</code></li>
+<li><code>crypto_pwhash_str($passwd, $opslimit, $memlimit)</code></li>
+<li><code>crypto_pwhash_str_needs_rehash($hash, $opslimit, $memlimit)</code></li>
+<li><code>crypto_pwhash_str_verify($passwd, $hash)</code></li>
+<li><code>crypto_pwhash_scryptsalsa208sha256($outlen, $passwd, $salt, $opslimit, $memlimit)</code></li>
+<li><code>crypto_pwhash_scryptsalsa208sha256_is_available()</code></li>
+<li><code>crypto_pwhash_scryptsalsa208sha256_str($passwd, $opslimit, $memlimit)</code></li>
+<li><code>crypto_pwhash_scryptsalsa208sha256_str_verify($passwd, $hash)</code></li>
+<li><code>crypto_scalarmult($secretKey, $publicKey)</code></li>
+<li><code>crypto_scalarmult_base($secretKey)</code></li>
+<li><code>crypto_secretbox($plaintext, $nonce, $key)</code></li>
+<li><code>crypto_secretbox_open($ciphertext, $nonce, $key)</code></li>
+<li><code>crypto_secretbox_keygen()</code></li>
+<li><code>crypto_secretbox_xchacha20poly1305($plaintext, $nonce, $key)</code></li>
+<li><code>crypto_secretbox_xchacha20poly1305_open($ciphertext, $nonce, $key)</code></li>
+<li><code>crypto_secretstream_xchacha20poly1305_init_push($key)</code></li>
+<li><code>crypto_secretstream_xchacha20poly1305_init_pull($header, $key)</code></li>
+<li><code>crypto_secretstream_xchacha20poly1305_push(&$state, $msg, $aad = '', $tag = 0)</code></li>
+<li><code>crypto_secretstream_xchacha20poly1305_pull(&$state, $msg, $aad = '')</code></li>
+<li><code>crypto_secretstream_xchacha20poly1305_keygen()</code></li>
+<li><code>crypto_secretstream_xchacha20poly1305_rekey(&$state)</code></li>
+<li><code>crypto_shorthash($message, $key)</code></li>
+<li><code>crypto_shorthash_keygen()</code></li>
+<li><code>crypto_sign($message, $secretKey)</code></li>
+<li><code>crypto_sign_open($signedMessage, $publicKey)</code></li>
+<li><code>crypto_sign_keypair()</code></li>
+<li><code>crypto_sign_keypair_from_secretkey_and_publickey($sk, $pk)</code></li>
+<li><code>crypto_sign_seed_keypair($seed)</code></li>
+<li><code>crypto_sign_publickey($keypair)</code></li>
+<li><code>crypto_sign_publickey_from_secretkey($secretKey)</code></li>
+<li><code>crypto_sign_secretkey($keypair)</code></li>
+<li><code>crypto_sign_detached($message, $secretKey)</code></li>
+<li><code>crypto_sign_verify_detached($signature, $message, $publicKey)</code></li>
+<li><code>crypto_sign_ed25519_pk_to_curve25519($pk)</code></li>
+<li><code>crypto_sign_ed25519_sk_to_curve25519($sk)</code></li>
+<li><code>crypto_stream($len, $nonce, $key)</code></li>
+<li><code>crypto_stream_xor($message, $nonce, $key)</code></li>
+<li><code>crypto_stream_keygen()</code></li>
+<li><code>hex2bin($string)</code></li>
+<li><code>increment(&$var)</code></li>
+<li><code>library_version_major()</code></li>
+<li><code>library_version_minor()</code></li>
+<li><code>memcmp($left, $right)</code></li>
+<li><code>memzero(&$var)</code></li>
+<li><code>pad($unpadded, $blockSize, $dontFallback = false)</code></li>
+<li><code>unpad($padded, $blockSize, $dontFallback = false)</code></li>
+<li><code>polyfill_is_fast()</code></li>
+<li><code>randombytes_buf($numBytes)</code></li>
+<li><code>randombytes_uniform($range)</code></li>
+<li><code>randombytes_random16()</code></li>
+<li><code>runtime_speed_test($iterations, $maxTimeout)</code></li>
+<li><code>version_string()</code></li>
+<li><code>use_fallback($sodium_func_name = '')</code></li>
+<li><code>useNewSodiumAPI()</code></li>
+</ul>
+</body></html>

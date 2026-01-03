@@ -1,0 +1,386 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Calendar\Resource\Events.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Calendar\Resource\Events.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Calendar\Resource\Events.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 26632 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>The "events" collection of methods.</p>
+<p>Typical usage is:</p>
+<p> <code></p>
+<p>  $calendarService = new Google_Service_Calendar(...);</p>
+<p>  $events = $calendarService->events;</p>
+<p> </code></p>
+
+<p>Deletes an event. (events.delete)</p>
+<p>@param string $calendarId Calendar identifier. To retrieve calendar IDs call</p>
+<p>the calendarList.list method. If you want to access the primary calendar of</p>
+<p>the currently logged in user, use the "primary" keyword.</p>
+<p>@param string $eventId Event identifier.</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@opt_param bool sendNotifications Whether to send notifications about the</p>
+<p>deletion of the event. Optional. The default is False.</p>
+
+<p>Returns an event. (events.get)</p>
+<p>@param string $calendarId Calendar identifier. To retrieve calendar IDs call</p>
+<p>the calendarList.list method. If you want to access the primary calendar of</p>
+<p>the currently logged in user, use the "primary" keyword.</p>
+<p>@param string $eventId Event identifier.</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@opt_param bool alwaysIncludeEmail Whether to always include a value in the</p>
+<p>email field for the organizer, creator and attendees, even if no real email</p>
+<p>is available (i.e. a generated, non-working value will be provided). The use</p>
+<p>of this option is discouraged and should only be used by clients which cannot</p>
+<p>handle the absence of an email address value in the mentioned places.</p>
+<p>Optional. The default is False.</p>
+<p>@opt_param int maxAttendees The maximum number of attendees to include in the</p>
+<p>response. If there are more than the specified number of attendees, only the</p>
+<p>participant is returned. Optional.</p>
+<p>@opt_param string timeZone Time zone used in the response. Optional. The</p>
+<p>default is the time zone of the calendar.</p>
+<p>@return Google_Service_Calendar_Event</p>
+
+<p>Imports an event. This operation is used to add a private copy of an existing</p>
+<p>event to a calendar. (events.import)</p>
+<p>@param string $calendarId Calendar identifier. To retrieve calendar IDs call</p>
+<p>the calendarList.list method. If you want to access the primary calendar of</p>
+<p>the currently logged in user, use the "primary" keyword.</p>
+<p>@param Google_Service_Calendar_Event $postBody</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@opt_param int conferenceDataVersion Version number of conference data</p>
+<p>supported by the API client. Version 0 assumes no conference data support and</p>
+<p>ignores conference data in the event's body. Version 1 enables support for</p>
+<p>copying of ConferenceData as well as for creating new conferences using the</p>
+<p>createRequest field of conferenceData. The default is 0.</p>
+<p>@opt_param bool supportsAttachments Whether API client performing operation</p>
+<p>supports event attachments. Optional. The default is False.</p>
+<p>@return Google_Service_Calendar_Event</p>
+
+<p>Creates an event. (events.insert)</p>
+<p>@param string $calendarId Calendar identifier. To retrieve calendar IDs call</p>
+<p>the calendarList.list method. If you want to access the primary calendar of</p>
+<p>the currently logged in user, use the "primary" keyword.</p>
+<p>@param Google_Service_Calendar_Event $postBody</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@opt_param int conferenceDataVersion Version number of conference data</p>
+<p>supported by the API client. Version 0 assumes no conference data support and</p>
+<p>ignores conference data in the event's body. Version 1 enables support for</p>
+<p>copying of ConferenceData as well as for creating new conferences using the</p>
+<p>createRequest field of conferenceData. The default is 0.</p>
+<p>@opt_param int maxAttendees The maximum number of attendees to include in the</p>
+<p>response. If there are more than the specified number of attendees, only the</p>
+<p>participant is returned. Optional.</p>
+<p>@opt_param bool sendNotifications Whether to send notifications about the</p>
+<p>creation of the new event. Optional. The default is False.</p>
+<p>@opt_param bool supportsAttachments Whether API client performing operation</p>
+<p>supports event attachments. Optional. The default is False.</p>
+<p>@return Google_Service_Calendar_Event</p>
+
+<p>Returns instances of the specified recurring event. (events.instances)</p>
+<p>@param string $calendarId Calendar identifier. To retrieve calendar IDs call</p>
+<p>the calendarList.list method. If you want to access the primary calendar of</p>
+<p>the currently logged in user, use the "primary" keyword.</p>
+<p>@param string $eventId Recurring event identifier.</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@opt_param bool alwaysIncludeEmail Whether to always include a value in the</p>
+<p>email field for the organizer, creator and attendees, even if no real email</p>
+<p>is available (i.e. a generated, non-working value will be provided). The use</p>
+<p>of this option is discouraged and should only be used by clients which cannot</p>
+<p>handle the absence of an email address value in the mentioned places.</p>
+<p>Optional. The default is False.</p>
+<p>@opt_param int maxAttendees The maximum number of attendees to include in the</p>
+<p>response. If there are more than the specified number of attendees, only the</p>
+<p>participant is returned. Optional.</p>
+<p>@opt_param int maxResults Maximum number of events returned on one result</p>
+<p>page. By default the value is 250 events. The page size can never be larger</p>
+<p>than 2500 events. Optional.</p>
+<p>@opt_param string originalStart The original start time of the instance in</p>
+<p>the result. Optional.</p>
+<p>@opt_param string pageToken Token specifying which result page to return.</p>
+<p>Optional.</p>
+<p>@opt_param bool showDeleted Whether to include deleted events (with status</p>
+<p>equals "cancelled") in the result. Cancelled instances of recurring events</p>
+<p>will still be included if singleEvents is False. Optional. The default is</p>
+<p>False.</p>
+<p>@opt_param string timeMax Upper bound (exclusive) for an event's start time</p>
+<p>to filter by. Optional. The default is not to filter by start time. Must be</p>
+<p>an RFC3339 timestamp with mandatory time zone offset.</p>
+<p>@opt_param string timeMin Lower bound (inclusive) for an event's end time to</p>
+<p>filter by. Optional. The default is not to filter by end time. Must be an</p>
+<p>RFC3339 timestamp with mandatory time zone offset.</p>
+<p>@opt_param string timeZone Time zone used in the response. Optional. The</p>
+<p>default is the time zone of the calendar.</p>
+<p>@return Google_Service_Calendar_Events</p>
+
+<p>Returns events on the specified calendar. (events.listEvents)</p>
+<p>@param string $calendarId Calendar identifier. To retrieve calendar IDs call</p>
+<p>the calendarList.list method. If you want to access the primary calendar of</p>
+<p>the currently logged in user, use the "primary" keyword.</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@opt_param bool alwaysIncludeEmail Whether to always include a value in the</p>
+<p>email field for the organizer, creator and attendees, even if no real email</p>
+<p>is available (i.e. a generated, non-working value will be provided). The use</p>
+<p>of this option is discouraged and should only be used by clients which cannot</p>
+<p>handle the absence of an email address value in the mentioned places.</p>
+<p>Optional. The default is False.</p>
+<p>@opt_param string iCalUID Specifies event ID in the iCalendar format to be</p>
+<p>included in the response. Optional.</p>
+<p>@opt_param int maxAttendees The maximum number of attendees to include in the</p>
+<p>response. If there are more than the specified number of attendees, only the</p>
+<p>participant is returned. Optional.</p>
+<p>@opt_param int maxResults Maximum number of events returned on one result</p>
+<p>page. The number of events in the resulting page may be less than this value,</p>
+<p>or none at all, even if there are more events matching the query. Incomplete</p>
+<p>pages can be detected by a non-empty nextPageToken field in the response. By</p>
+<p>default the value is 250 events. The page size can never be larger than 2500</p>
+<p>events. Optional.</p>
+<p>@opt_param string orderBy The order of the events returned in the result.</p>
+<p>Optional. The default is an unspecified, stable order.</p>
+<p>@opt_param string pageToken Token specifying which result page to return.</p>
+<p>Optional.</p>
+<p>@opt_param string privateExtendedProperty Extended properties constraint</p>
+<p>specified as propertyName=value. Matches only private properties. This</p>
+<p>parameter might be repeated multiple times to return events that match all</p>
+<p>given constraints.</p>
+<p>@opt_param string q Free text search terms to find events that match these</p>
+<p>terms in any field, except for extended properties. Optional.</p>
+<p>@opt_param string sharedExtendedProperty Extended properties constraint</p>
+<p>specified as propertyName=value. Matches only shared properties. This</p>
+<p>parameter might be repeated multiple times to return events that match all</p>
+<p>given constraints.</p>
+<p>@opt_param bool showDeleted Whether to include deleted events (with status</p>
+<p>equals "cancelled") in the result. Cancelled instances of recurring events</p>
+<p>(but not the underlying recurring event) will still be included if</p>
+<p>showDeleted and singleEvents are both False. If showDeleted and singleEvents</p>
+<p>are both True, only single instances of deleted events (but not the</p>
+<p>underlying recurring events) are returned. Optional. The default is False.</p>
+<p>@opt_param bool showHiddenInvitations Whether to include hidden invitations</p>
+<p>in the result. Optional. The default is False.</p>
+<p>@opt_param bool singleEvents Whether to expand recurring events into</p>
+<p>instances and only return single one-off events and instances of recurring</p>
+<p>events, but not the underlying recurring events themselves. Optional. The</p>
+<p>default is False.</p>
+<p>@opt_param string syncToken Token obtained from the nextSyncToken field</p>
+<p>returned on the last page of results from the previous list request. It makes</p>
+<p>the result of this list request contain only entries that have changed since</p>
+<p>then. All events deleted since the previous list request will always be in</p>
+<p>the result set and it is not allowed to set showDeleted to False. There are</p>
+<p>several query parameters that cannot be specified together with nextSyncToken</p>
+<p>to ensure consistency of the client state.</p>
+<p>These are:  - iCalUID  - orderBy  - privateExtendedProperty  - q  -</p>
+<p>sharedExtendedProperty  - timeMin  - timeMax  - updatedMin If the syncToken</p>
+<p>expires, the server will respond with a 410 GONE response code and the client</p>
+<p>should clear its storage and perform a full synchronization without any</p>
+<p>syncToken. Learn more about incremental synchronization. Optional. The</p>
+<p>default is to return all entries.</p>
+<p>@opt_param string timeMax Upper bound (exclusive) for an event's start time</p>
+<p>to filter by. Optional. The default is not to filter by start time. Must be</p>
+<p>an RFC3339 timestamp with mandatory time zone offset, e.g.,</p>
+<p>2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided</p>
+<p>but will be ignored. If timeMin is set, timeMax must be greater than timeMin.</p>
+<p>@opt_param string timeMin Lower bound (inclusive) for an event's end time to</p>
+<p>filter by. Optional. The default is not to filter by end time. Must be an</p>
+<p>RFC3339 timestamp with mandatory time zone offset, e.g.,</p>
+<p>2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided</p>
+<p>but will be ignored. If timeMax is set, timeMin must be smaller than timeMax.</p>
+<p>@opt_param string timeZone Time zone used in the response. Optional. The</p>
+<p>default is the time zone of the calendar.</p>
+<p>@opt_param string updatedMin Lower bound for an event's last modification</p>
+<p>time (as a RFC3339 timestamp) to filter by. When specified, entries deleted</p>
+<p>since this time will always be included regardless of showDeleted. Optional.</p>
+<p>The default is not to filter by last modification time.</p>
+<p>@return Google_Service_Calendar_Events</p>
+
+<p>Moves an event to another calendar, i.e. changes an event's organizer.</p>
+<p>(events.move)</p>
+<p>@param string $calendarId Calendar identifier of the source calendar where</p>
+<p>the event currently is on.</p>
+<p>@param string $eventId Event identifier.</p>
+<p>@param string $destination Calendar identifier of the target calendar where</p>
+<p>the event is to be moved to.</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@opt_param bool sendNotifications Whether to send notifications about the</p>
+<p>change of the event's organizer. Optional. The default is False.</p>
+<p>@return Google_Service_Calendar_Event</p>
+
+<p>Updates an event. This method supports patch semantics. (events.patch)</p>
+<p>@param string $calendarId Calendar identifier. To retrieve calendar IDs call</p>
+<p>the calendarList.list method. If you want to access the primary calendar of</p>
+<p>the currently logged in user, use the "primary" keyword.</p>
+<p>@param string $eventId Event identifier.</p>
+<p>@param Google_Service_Calendar_Event $postBody</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@opt_param bool alwaysIncludeEmail Whether to always include a value in the</p>
+<p>email field for the organizer, creator and attendees, even if no real email</p>
+<p>is available (i.e. a generated, non-working value will be provided). The use</p>
+<p>of this option is discouraged and should only be used by clients which cannot</p>
+<p>handle the absence of an email address value in the mentioned places.</p>
+<p>Optional. The default is False.</p>
+<p>@opt_param int conferenceDataVersion Version number of conference data</p>
+<p>supported by the API client. Version 0 assumes no conference data support and</p>
+<p>ignores conference data in the event's body. Version 1 enables support for</p>
+<p>copying of ConferenceData as well as for creating new conferences using the</p>
+<p>createRequest field of conferenceData. The default is 0.</p>
+<p>@opt_param int maxAttendees The maximum number of attendees to include in the</p>
+<p>response. If there are more than the specified number of attendees, only the</p>
+<p>participant is returned. Optional.</p>
+<p>@opt_param bool sendNotifications Whether to send notifications about the</p>
+<p>event update (e.g. attendee's responses, title changes, etc.). Optional. The</p>
+<p>default is False.</p>
+<p>@opt_param bool supportsAttachments Whether API client performing operation</p>
+<p>supports event attachments. Optional. The default is False.</p>
+<p>@return Google_Service_Calendar_Event</p>
+
+<p>Creates an event based on a simple text string. (events.quickAdd)</p>
+<p>@param string $calendarId Calendar identifier. To retrieve calendar IDs call</p>
+<p>the calendarList.list method. If you want to access the primary calendar of</p>
+<p>the currently logged in user, use the "primary" keyword.</p>
+<p>@param string $text The text describing the event to be created.</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@opt_param bool sendNotifications Whether to send notifications about the</p>
+<p>creation of the event. Optional. The default is False.</p>
+<p>@return Google_Service_Calendar_Event</p>
+
+<p>Updates an event. (events.update)</p>
+<p>@param string $calendarId Calendar identifier. To retrieve calendar IDs call</p>
+<p>the calendarList.list method. If you want to access the primary calendar of</p>
+<p>the currently logged in user, use the "primary" keyword.</p>
+<p>@param string $eventId Event identifier.</p>
+<p>@param Google_Service_Calendar_Event $postBody</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@opt_param bool alwaysIncludeEmail Whether to always include a value in the</p>
+<p>email field for the organizer, creator and attendees, even if no real email</p>
+<p>is available (i.e. a generated, non-working value will be provided). The use</p>
+<p>of this option is discouraged and should only be used by clients which cannot</p>
+<p>handle the absence of an email address value in the mentioned places.</p>
+<p>Optional. The default is False.</p>
+<p>@opt_param int conferenceDataVersion Version number of conference data</p>
+<p>supported by the API client. Version 0 assumes no conference data support and</p>
+<p>ignores conference data in the event's body. Version 1 enables support for</p>
+<p>copying of ConferenceData as well as for creating new conferences using the</p>
+<p>createRequest field of conferenceData. The default is 0.</p>
+<p>@opt_param int maxAttendees The maximum number of attendees to include in the</p>
+<p>response. If there are more than the specified number of attendees, only the</p>
+<p>participant is returned. Optional.</p>
+<p>@opt_param bool sendNotifications Whether to send notifications about the</p>
+<p>event update (e.g. attendee's responses, title changes, etc.). Optional. The</p>
+<p>default is False.</p>
+<p>@opt_param bool supportsAttachments Whether API client performing operation</p>
+<p>supports event attachments. Optional. The default is False.</p>
+<p>@return Google_Service_Calendar_Event</p>
+
+<p>Watch for changes to Events resources. (events.watch)</p>
+<p>@param string $calendarId Calendar identifier. To retrieve calendar IDs call</p>
+<p>the calendarList.list method. If you want to access the primary calendar of</p>
+<p>the currently logged in user, use the "primary" keyword.</p>
+<p>@param Google_Service_Calendar_Channel $postBody</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@opt_param bool alwaysIncludeEmail Whether to always include a value in the</p>
+<p>email field for the organizer, creator and attendees, even if no real email</p>
+<p>is available (i.e. a generated, non-working value will be provided). The use</p>
+<p>of this option is discouraged and should only be used by clients which cannot</p>
+<p>handle the absence of an email address value in the mentioned places.</p>
+<p>Optional. The default is False.</p>
+<p>@opt_param string iCalUID Specifies event ID in the iCalendar format to be</p>
+<p>included in the response. Optional.</p>
+<p>@opt_param int maxAttendees The maximum number of attendees to include in the</p>
+<p>response. If there are more than the specified number of attendees, only the</p>
+<p>participant is returned. Optional.</p>
+<p>@opt_param int maxResults Maximum number of events returned on one result</p>
+<p>page. The number of events in the resulting page may be less than this value,</p>
+<p>or none at all, even if there are more events matching the query. Incomplete</p>
+<p>pages can be detected by a non-empty nextPageToken field in the response. By</p>
+<p>default the value is 250 events. The page size can never be larger than 2500</p>
+<p>events. Optional.</p>
+<p>@opt_param string orderBy The order of the events returned in the result.</p>
+<p>Optional. The default is an unspecified, stable order.</p>
+<p>@opt_param string pageToken Token specifying which result page to return.</p>
+<p>Optional.</p>
+<p>@opt_param string privateExtendedProperty Extended properties constraint</p>
+<p>specified as propertyName=value. Matches only private properties. This</p>
+<p>parameter might be repeated multiple times to return events that match all</p>
+<p>given constraints.</p>
+<p>@opt_param string q Free text search terms to find events that match these</p>
+<p>terms in any field, except for extended properties. Optional.</p>
+<p>@opt_param string sharedExtendedProperty Extended properties constraint</p>
+<p>specified as propertyName=value. Matches only shared properties. This</p>
+<p>parameter might be repeated multiple times to return events that match all</p>
+<p>given constraints.</p>
+<p>@opt_param bool showDeleted Whether to include deleted events (with status</p>
+<p>equals "cancelled") in the result. Cancelled instances of recurring events</p>
+<p>(but not the underlying recurring event) will still be included if</p>
+<p>showDeleted and singleEvents are both False. If showDeleted and singleEvents</p>
+<p>are both True, only single instances of deleted events (but not the</p>
+<p>underlying recurring events) are returned. Optional. The default is False.</p>
+<p>@opt_param bool showHiddenInvitations Whether to include hidden invitations</p>
+<p>in the result. Optional. The default is False.</p>
+<p>@opt_param bool singleEvents Whether to expand recurring events into</p>
+<p>instances and only return single one-off events and instances of recurring</p>
+<p>events, but not the underlying recurring events themselves. Optional. The</p>
+<p>default is False.</p>
+<p>@opt_param string syncToken Token obtained from the nextSyncToken field</p>
+<p>returned on the last page of results from the previous list request. It makes</p>
+<p>the result of this list request contain only entries that have changed since</p>
+<p>then. All events deleted since the previous list request will always be in</p>
+<p>the result set and it is not allowed to set showDeleted to False. There are</p>
+<p>several query parameters that cannot be specified together with nextSyncToken</p>
+<p>to ensure consistency of the client state.</p>
+<p>These are:  - iCalUID  - orderBy  - privateExtendedProperty  - q  -</p>
+<p>sharedExtendedProperty  - timeMin  - timeMax  - updatedMin If the syncToken</p>
+<p>expires, the server will respond with a 410 GONE response code and the client</p>
+<p>should clear its storage and perform a full synchronization without any</p>
+<p>syncToken. Learn more about incremental synchronization. Optional. The</p>
+<p>default is to return all entries.</p>
+<p>@opt_param string timeMax Upper bound (exclusive) for an event's start time</p>
+<p>to filter by. Optional. The default is not to filter by start time. Must be</p>
+<p>an RFC3339 timestamp with mandatory time zone offset, e.g.,</p>
+<p>2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided</p>
+<p>but will be ignored. If timeMin is set, timeMax must be greater than timeMin.</p>
+<p>@opt_param string timeMin Lower bound (inclusive) for an event's end time to</p>
+<p>filter by. Optional. The default is not to filter by end time. Must be an</p>
+<p>RFC3339 timestamp with mandatory time zone offset, e.g.,</p>
+<p>2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided</p>
+<p>but will be ignored. If timeMax is set, timeMin must be smaller than timeMax.</p>
+<p>@opt_param string timeZone Time zone used in the response. Optional. The</p>
+<p>default is the time zone of the calendar.</p>
+<p>@opt_param string updatedMin Lower bound for an event's last modification</p>
+<p>time (as a RFC3339 timestamp) to filter by. When specified, entries deleted</p>
+<p>since this time will always be included regardless of showDeleted. Optional.</p>
+<p>The default is not to filter by last modification time.</p>
+<p>@return Google_Service_Calendar_Channel</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Calendar\Resource\Events.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Google_Service_Calendar_Resource_Events extends Google_Service_Resource</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>delete($calendarId, $eventId, $optParams = array()</code></li>
+<li><code>get($calendarId, $eventId, $optParams = array()</code></li>
+<li><code>import($calendarId, Google_Service_Calendar_Event $postBody, $optParams = array()</code></li>
+<li><code>insert($calendarId, Google_Service_Calendar_Event $postBody, $optParams = array()</code></li>
+<li><code>instances($calendarId, $eventId, $optParams = array()</code></li>
+<li><code>listEvents($calendarId, $optParams = array()</code></li>
+<li><code>move($calendarId, $eventId, $destination, $optParams = array()</code></li>
+<li><code>patch($calendarId, $eventId, Google_Service_Calendar_Event $postBody, $optParams = array()</code></li>
+<li><code>quickAdd($calendarId, $text, $optParams = array()</code></li>
+<li><code>update($calendarId, $eventId, Google_Service_Calendar_Event $postBody, $optParams = array()</code></li>
+<li><code>watch($calendarId, Google_Service_Calendar_Channel $postBody, $optParams = array()</code></li>
+</ul>
+</body></html>

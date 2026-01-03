@@ -1,0 +1,176 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\RC4.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\RC4.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\RC4.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 8754 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Pure-PHP implementation of RC4.</p>
+<p>Uses mcrypt, if available, and an internal implementation, otherwise.</p>
+<p>PHP version 5</p>
+<p>Useful resources are as follows:</p>
+<p> - {@link http://www.mozilla.org/projects/security/pki/nss/draft-kaukonen-cipher-arcfour-03.txt ARCFOUR Algorithm}</p>
+<p> - {@link http://en.wikipedia.org/wiki/RC4 - Wikipedia: RC4}</p>
+<p>RC4 is also known as ARCFOUR or ARC4.  The reason is elaborated upon at Wikipedia.  This class is named RC4 and not</p>
+<p>ARCFOUR or ARC4 because RC4 is how it is referred to in the SSH1 specification.</p>
+<p>Here's a short example of how to use this library:</p>
+<p><code></p>
+<p><?php</p>
+<p>   include 'vendor/autoload.php';</p>
+<p>   $rc4 = new \phpseclib\Crypt\RC4();</p>
+<p>   $rc4->setKey('abcdefgh');</p>
+<p>   $size = 10 * 1024;</p>
+<p>   $plaintext = '';</p>
+<p>   for ($i = 0; $i < $size; $i++) {</p>
+<p>       $plaintext.= 'a';</p>
+<p>   }</p>
+<p>   echo $rc4->decrypt($rc4->encrypt($plaintext));</p>
+<p>?></p>
+<p></code></p>
+<p>@category  Crypt</p>
+<p>@package   RC4</p>
+<p>@author    Jim Wigginton <terrafrost@php.net></p>
+<p>@copyright 2007 Jim Wigginton</p>
+<p>@license   http://www.opensource.org/licenses/mit-license.html  MIT License</p>
+<p>@link      http://phpseclib.sourceforge.net</p>
+
+<p>Pure-PHP implementation of RC4.</p>
+<p>@package RC4</p>
+<p>@author  Jim Wigginton <terrafrost@php.net></p>
+<p>@access  public</p>
+
+<p>#@+</p>
+<p>@access private</p>
+<p>@see \phpseclib\Crypt\RC4::_crypt()</p>
+
+<p>#@-</p>
+
+<p>Block Length of the cipher</p>
+<p>RC4 is a stream cipher</p>
+<p>so we the block_size to 0</p>
+<p>@see \phpseclib\Crypt\Base::block_size</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>Key Length (in bytes)</p>
+<p>@see \phpseclib\Crypt\RC4::setKeyLength()</p>
+<p>@var int</p>
+<p>@access private</p>
+
+<p>The mcrypt specific name of the cipher</p>
+<p>@see \phpseclib\Crypt\Base::cipher_name_mcrypt</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>Holds whether performance-optimized $inline_crypt() can/should be used.</p>
+<p>@see \phpseclib\Crypt\Base::inline_crypt</p>
+<p>@var mixed</p>
+<p>@access private</p>
+
+<p>The Key</p>
+<p>@see self::setKey()</p>
+<p>@var string</p>
+<p>@access private</p>
+
+<p>The Key Stream for decryption and encryption</p>
+<p>@see self::setKey()</p>
+<p>@var array</p>
+<p>@access private</p>
+
+<p>Default Constructor.</p>
+<p>Determines whether or not the mcrypt extension should be used.</p>
+<p>@see \phpseclib\Crypt\Base::__construct()</p>
+<p>@return \phpseclib\Crypt\RC4</p>
+<p>@access public</p>
+
+<p>Test for engine validity</p>
+<p>This is mainly just a wrapper to set things up for \phpseclib\Crypt\Base::isValidEngine()</p>
+<p>@see \phpseclib\Crypt\Base::__construct()</p>
+<p>@param int $engine</p>
+<p>@access public</p>
+<p>@return bool</p>
+
+<p>Dummy function.</p>
+<p>Some protocols, such as WEP, prepend an "initialization vector" to the key, effectively creating a new key [1].</p>
+<p>If you need to use an initialization vector in this manner, feel free to prepend it to the key, yourself, before</p>
+<p>calling setKey().</p>
+<p>[1] WEP's initialization vectors (IV's) are used in a somewhat insecure way.  Since, in that protocol,</p>
+<p>the IV's are relatively easy to predict, an attack described by</p>
+<p>{@link http://www.drizzle.com/~aboba/IEEE/rc4_ksaproc.pdf Scott Fluhrer, Itsik Mantin, and Adi Shamir}</p>
+<p>can be used to quickly guess at the rest of the key.  The following links elaborate:</p>
+<p>{@link http://www.rsa.com/rsalabs/node.asp?id=2009 http://www.rsa.com/rsalabs/node.asp?id=2009}</p>
+<p>{@link http://en.wikipedia.org/wiki/Related_key_attack http://en.wikipedia.org/wiki/Related_key_attack}</p>
+<p>@param string $iv</p>
+<p>@see self::setKey()</p>
+<p>@access public</p>
+
+<p>Sets the key length</p>
+<p>Keys can be between 1 and 256 bytes long.</p>
+<p>@access public</p>
+<p>@param int $length</p>
+
+<p>Encrypts a message.</p>
+<p>@see \phpseclib\Crypt\Base::decrypt()</p>
+<p>@see self::_crypt()</p>
+<p>@access public</p>
+<p>@param string $plaintext</p>
+<p>@return string $ciphertext</p>
+
+<p>Decrypts a message.</p>
+<p>$this->decrypt($this->encrypt($plaintext)) == $this->encrypt($this->encrypt($plaintext)).</p>
+<p>At least if the continuous buffer is disabled.</p>
+<p>@see \phpseclib\Crypt\Base::encrypt()</p>
+<p>@see self::_crypt()</p>
+<p>@access public</p>
+<p>@param string $ciphertext</p>
+<p>@return string $plaintext</p>
+
+<p>Encrypts a block</p>
+<p>@access private</p>
+<p>@param string $in</p>
+
+<p>Decrypts a block</p>
+<p>@access private</p>
+<p>@param string $in</p>
+
+<p>Setup the key (expansion)</p>
+<p>@see \phpseclib\Crypt\Base::_setupKey()</p>
+<p>@access private</p>
+
+<p>Encrypts or decrypts a message.</p>
+<p>@see self::encrypt()</p>
+<p>@see self::decrypt()</p>
+<p>@access private</p>
+<p>@param string $text</p>
+<p>@param int $mode</p>
+<p>@return string $text</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\phpseclib\phpseclib\phpseclib\Crypt\RC4.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>phpseclib\Crypt\is</code></li>
+<li><code>phpseclib\Crypt\RC4 extends Base</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>isValidEngine($engine)</code></li>
+<li><code>setIV($iv)</code></li>
+<li><code>setKeyLength($length)</code></li>
+<li><code>encrypt($plaintext)</code></li>
+<li><code>decrypt($ciphertext)</code></li>
+<li><code>_encryptBlock($in)</code></li>
+<li><code>_decryptBlock($in)</code></li>
+<li><code>_setupKey()</code></li>
+<li><code>_crypt($text, $mode)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,146 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Part\ParentPart.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Part\ParentPart.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Part\ParentPart.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 8810 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>A MessagePart that contains children.</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var PartFilterFactory factory object responsible for create PartFilters</p>
+
+<p>@var MessagePart[] array of child parts</p>
+
+<p>Constructor</p>
+
+<p>@param PartStreamFilterManager $partStreamFilterManager</p>
+<p>@param StreamFactory $streamFactory</p>
+<p>@param PartFilterFactory $partFilterFactory</p>
+<p>@param PartBuilder $partBuilder</p>
+<p>@param StreamInterface $stream</p>
+<p>@param StreamInterface $contentStream</p>
+
+<p>Returns all parts, including the current object, and all children below</p>
+<p>it (including children of children, etc...)</p>
+<p>@return MessagePart[]</p>
+
+<p>Returns the part at the given 0-based index, or null if none is set.</p>
+<p>Note that the first part returned is the current part itself.  This is</p>
+<p>often desirable for queries with a PartFilter, e.g. looking for a</p>
+<p>MessagePart with a specific Content-Type that may be satisfied by the</p>
+<p>current part.</p>
+<p>@param int $index</p>
+<p>@param PartFilter $filter</p>
+<p>@return MessagePart</p>
+
+<p>Returns the current part, all child parts, and child parts of all</p>
+<p>children optionally filtering them with the provided PartFilter.</p>
+<p>The first part returned is always the current MimePart.  This is often</p>
+<p>desirable as it may be a valid MimePart for the provided PartFilter.</p>
+<p>@param PartFilter $filter an optional filter</p>
+<p>@return MessagePart[]</p>
+
+<p>Returns the total number of parts in this and all children.</p>
+<p>Note that the current part is considered, so the minimum getPartCount is</p>
+<p>1 without a filter.</p>
+<p>@param PartFilter $filter</p>
+<p>@return int</p>
+
+<p>Returns the direct child at the given 0-based index, or null if none is</p>
+<p>set.</p>
+<p>@param int $index</p>
+<p>@param PartFilter $filter</p>
+<p>@return MessagePart</p>
+
+<p>Returns all direct child parts.</p>
+<p>If a PartFilter is provided, the PartFilter is applied before returning.</p>
+<p>@param PartFilter $filter</p>
+<p>@return MessagePart[]</p>
+
+<p>Returns the number of direct children under this part.</p>
+<p>@param PartFilter $filter</p>
+<p>@return int</p>
+
+<p>Returns the part associated with the passed mime type, at the passed</p>
+<p>index, if it exists.</p>
+<p>@param string $mimeType</p>
+<p>@param int $index</p>
+<p>@return MessagePart|null</p>
+
+<p>Returns an array of all parts associated with the passed mime type if any</p>
+<p>exist or null otherwise.</p>
+<p>@param string $mimeType</p>
+<p>@return MessagePart[] or null</p>
+
+<p>Returns the number of parts matching the passed $mimeType</p>
+<p>@param string $mimeType</p>
+<p>@return int</p>
+
+<p>Registers the passed part as a child of the current part.</p>
+<p>If the $position parameter is non-null, adds the part at the passed</p>
+<p>position index.</p>
+<p>@param MessagePart $part</p>
+<p>@param int $position</p>
+
+<p>Removes the child part from this part and returns its position or</p>
+<p>null if it wasn't found.</p>
+<p>Note that if the part is not a direct child of this part, the returned</p>
+<p>position is its index within its parent (calls removePart on its direct</p>
+<p>parent).</p>
+<p>@param MessagePart $part</p>
+<p>@return int or null if not found</p>
+
+<p>Removes all parts that are matched by the passed PartFilter.</p>
+<p>Note: the current part will not be removed.  Although the function naming</p>
+<p>matches getAllParts, which returns the current part, it also doesn't only</p>
+<p>remove direct children like getChildParts.  Internally this function uses</p>
+<p>getAllParts but the current part is filtered out if returned.</p>
+<p>@param \ZBateson\MailMimeParser\Message\PartFilter $filter</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>this</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Part\ParentPart.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Message\Part\ParentPart extends MessagePart</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`__construct(PartStreamFilterManager $partStreamFilterManager,</li>
+<p>        StreamFactory $streamFactory,</p>
+<p>        PartFilterFactory $partFilterFactory,</p>
+<p>        PartBuilder $partBuilder,</p>
+<p>        StreamInterface $stream = null,</p>
+<p>        StreamInterface $contentStream = null)`</p>
+<li><code>getAllNonFilteredParts()</code></li>
+<li><code>getPart($index, PartFilter $filter = null)</code></li>
+<li><code>getAllParts(PartFilter $filter = null)</code></li>
+<li><code>getPartCount(PartFilter $filter = null)</code></li>
+<li><code>getChild($index, PartFilter $filter = null)</code></li>
+<li><code>getChildParts(PartFilter $filter = null)</code></li>
+<li><code>getChildCount(PartFilter $filter = null)</code></li>
+<li><code>getPartByMimeType($mimeType, $index = 0)</code></li>
+<li><code>getAllPartsByMimeType($mimeType)</code></li>
+<li><code>getCountOfPartsByMimeType($mimeType)</code></li>
+<li><code>addChild(MessagePart $part, $position = null)</code></li>
+<li><code>removePart(MessagePart $part)</code></li>
+<li><code>removeAllParts(PartFilter $filter = null)</code></li>
+</ul>
+</body></html>

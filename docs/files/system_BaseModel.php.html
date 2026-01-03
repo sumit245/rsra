@@ -1,0 +1,608 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\BaseModel.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\BaseModel.php</h1>
+
+<ul>
+<li>Path: <code>system\BaseModel.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 48750 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>The BaseModel class provides a number of convenient features that</p>
+<p>makes working with a databases less painful. Extending this class</p>
+<p>provide means of implementing various database systems</p>
+<p>It will:</p>
+<p>     - simplifies pagination</p>
+<p>     - allow specifying the return type (array, object, etc) with each call</p>
+<p>     - automatically set and update timestamps</p>
+<p>     - handle soft deletes</p>
+<p>     - ensure validation is run against objects when saving items</p>
+<p>     - process various callbacks</p>
+<p>     - allow intermingling calls to the db connection</p>
+
+<p>Pager instance.</p>
+<p>Populated after calling $this->paginate()</p>
+<p>@var Pager</p>
+
+<p>Last insert ID</p>
+<p>@var int|string</p>
+
+<p>The Database connection group that</p>
+<p>should be instantiated.</p>
+<p>@var string</p>
+
+<p>The format that the results should be returned as.</p>
+<p>Will be overridden if the as* methods are used.</p>
+<p>@var string</p>
+
+<p>If this model should use "softDeletes" and</p>
+<p>simply set a date when rows are deleted, or</p>
+<p>do hard deletes.</p>
+<p>@var bool</p>
+
+<p>An array of field names that are allowed</p>
+<p>to be set by the user in inserts/updates.</p>
+<p>@var array</p>
+
+<p>If true, will set created_at, and updated_at</p>
+<p>values during insert and update routines.</p>
+<p>@var bool</p>
+
+<p>The type of column that created_at and updated_at</p>
+<p>are expected to.</p>
+<p>Allowed: 'datetime', 'date', 'int'</p>
+<p>@var string</p>
+
+<p>The column used for insert timestamps</p>
+<p>@var string</p>
+
+<p>The column used for update timestamps</p>
+<p>@var string</p>
+
+<p>Used by withDeleted to override the</p>
+<p>model's softDelete setting.</p>
+<p>@var bool</p>
+
+<p>The column used to save soft delete state</p>
+<p>@var string</p>
+
+<p>Used by asArray and asObject to provide</p>
+<p>temporary overrides of model default.</p>
+<p>@var string</p>
+
+<p>Whether we should limit fields in inserts</p>
+<p>and updates to those available in $allowedFields or not.</p>
+<p>@var bool</p>
+
+<p>Database Connection</p>
+<p>@var BaseConnection</p>
+
+<p>Rules used to validate data in insert, update, and save methods.</p>
+<p>The array must match the format of data passed to the Validation</p>
+<p>library.</p>
+<p>@var array|string</p>
+
+<p>Contains any custom error messages to be</p>
+<p>used during data validation.</p>
+<p>@var array</p>
+
+<p>Skip the model's validation. Used in conjunction with skipValidation()</p>
+<p>to skip data validation for any future calls.</p>
+<p>@var bool</p>
+
+<p>Whether rules should be removed that do not exist</p>
+<p>in the passed in data. Used between inserts/updates.</p>
+<p>@var bool</p>
+
+<p>Our validator instance.</p>
+<p>@var Validation</p>
+
+<p>Whether to trigger the defined callbacks</p>
+<p>@var bool</p>
+
+<p>Used by allowCallbacks() to override the</p>
+<p>model's allowCallbacks setting.</p>
+<p>@var bool</p>
+
+<p>Callbacks for beforeInsert</p>
+<p>@var array</p>
+
+<p>Callbacks for afterInsert</p>
+<p>@var array</p>
+
+<p>Callbacks for beforeUpdate</p>
+<p>@var array</p>
+
+<p>Callbacks for afterUpdate</p>
+<p>@var array</p>
+
+<p>Callbacks for beforeFind</p>
+<p>@var array</p>
+
+<p>Callbacks for afterFind</p>
+<p>@var array</p>
+
+<p>Callbacks for beforeDelete</p>
+<p>@var array</p>
+
+<p>Callbacks for afterDelete</p>
+<p>@var array</p>
+
+<p>@var Validation|null $validation</p>
+
+<p>Initializes the instance with any additional steps.</p>
+<p>Optionally implemented by child classes.</p>
+
+<p>Fetches the row of database</p>
+<p>This methods works only with dbCalls</p>
+<p>@param bool                  $singleton Single or multiple results</p>
+<p>@param array|int|string|null $id        One primary key or an array of primary keys</p>
+<p>@return array|object|null The resulting row of data, or null.</p>
+
+<p>Fetches the column of database</p>
+<p>This methods works only with dbCalls</p>
+<p>@param string $columnName Column Name</p>
+<p>@throws DataException</p>
+<p>@return array|null The resulting row of data, or null if no data found.</p>
+
+<p>Fetches all results, while optionally limiting them.</p>
+<p>This methods works only with dbCalls</p>
+<p>@param int $limit  Limit</p>
+<p>@param int $offset Offset</p>
+<p>@return array</p>
+
+<p>Returns the first row of the result set.</p>
+<p>This methods works only with dbCalls</p>
+<p>@return array|object|null</p>
+
+<p>Inserts data into the current database</p>
+<p>This methods works only with dbCalls</p>
+<p>@param array $data Data</p>
+<p>@return bool|int|string</p>
+
+<p>Compiles batch insert and runs the queries, validating each row prior.</p>
+<p>This methods works only with dbCalls</p>
+<p>@param array|null $set       An associative array of insert values</p>
+<p>@param bool|null  $escape    Whether to escape values</p>
+<p>@param int        $batchSize The size of the batch to run</p>
+<p>@param bool       $testing   True means only number of records is returned, false will execute the query</p>
+<p>@return bool|int Number of rows inserted or FALSE on failure</p>
+
+<p>Updates a single record in the database.</p>
+<p>This methods works only with dbCalls</p>
+<p>@param array|int|string|null $id   ID</p>
+<p>@param array|null            $data Data</p>
+
+<p>Compiles an update and runs the query</p>
+<p>This methods works only with dbCalls</p>
+<p>@param array|null  $set       An associative array of update values</p>
+<p>@param string|null $index     The where key</p>
+<p>@param int         $batchSize The size of the batch to run</p>
+<p>@param bool        $returnSQL True means SQL is returned, false will execute the query</p>
+<p>@throws DatabaseException</p>
+<p>@return mixed Number of rows affected or FALSE on failure</p>
+
+<p>Deletes a single record from the database where $id matches</p>
+<p>This methods works only with dbCalls</p>
+<p>@param array|int|string|null $id    The rows primary key(s)</p>
+<p>@param bool                  $purge Allows overriding the soft deletes setting.</p>
+<p>@throws DatabaseException</p>
+<p>@return bool|string</p>
+
+<p>Permanently deletes all rows that have been marked as deleted</p>
+<p>through soft deletes (deleted = 1)</p>
+<p>This methods works only with dbCalls</p>
+<p>@return bool|mixed</p>
+
+<p>Works with the find* methods to return only the rows that</p>
+<p>have been deleted.</p>
+<p>This methods works only with dbCalls</p>
+
+<p>Compiles a replace and runs the query</p>
+<p>This methods works only with dbCalls</p>
+<p>@param array|null $data      Data</p>
+<p>@param bool       $returnSQL Set to true to return Query String</p>
+<p>@return mixed</p>
+
+<p>Grabs the last error(s) that occurred from the Database connection.</p>
+<p>This methods works only with dbCalls</p>
+<p>@return array|null</p>
+
+<p>Returns the id value for the data array or object</p>
+<p>@param array|object $data Data</p>
+<p>@return array|int|string|null</p>
+<p>@deprecated Add an override on getIdValue() instead. Will be removed in version 5.0.</p>
+
+<p>Public getter to return the id value using the idValue() method</p>
+<p>For example with SQL this will return $data->$this->primaryKey</p>
+<p>@param array|object $data</p>
+<p>@return array|int|string|null</p>
+<p>@todo: Make abstract in version 5.0</p>
+
+<p>Override countAllResults to account for soft deleted accounts.</p>
+<p>This methods works only with dbCalls</p>
+<p>@param bool $reset Reset</p>
+<p>@param bool $test  Test</p>
+<p>@return mixed</p>
+
+<p>Loops over records in batches, allowing you to operate on them.</p>
+<p>This methods works only with dbCalls</p>
+<p>@param int     $size     Size</p>
+<p>@param Closure $userFunc Callback Function</p>
+<p>@throws DataException</p>
+
+<p>Fetches the row of database</p>
+<p>@param array|int|string|null $id One primary key or an array of primary keys</p>
+<p>@return array|object|null The resulting row of data, or null.</p>
+
+<p>Fetches the column of database</p>
+<p>@param string $columnName Column Name</p>
+<p>@throws DataException</p>
+<p>@return array|null The resulting row of data, or null if no data found.</p>
+
+<p>Fetches all results, while optionally limiting them.</p>
+<p>@param int $limit  Limit</p>
+<p>@param int $offset Offset</p>
+<p>@return array</p>
+
+<p>Returns the first row of the result set.</p>
+<p>@return array|object|null</p>
+
+<p>A convenience method that will attempt to determine whether the</p>
+<p>data should be inserted or updated. Will work with either</p>
+<p>an array or object. When using with custom class objects,</p>
+<p>you must ensure that the class will provide access to the class</p>
+<p>variables, even if through a magic method.</p>
+<p>@param array|object $data Data</p>
+<p>@throws ReflectionException</p>
+
+<p>This method is called on save to determine if entry have to be updated</p>
+<p>If this method return false insert operation will be executed</p>
+<p>@param array|object $data Data</p>
+
+<p>Returns last insert ID or 0.</p>
+<p>@return int|string</p>
+
+<p>Inserts data into the database. If an object is provided,</p>
+<p>it will attempt to convert it to an array.</p>
+<p>@param array|object|null $data     Data</p>
+<p>@param bool              $returnID Whether insert ID should be returned or not.</p>
+<p>@throws ReflectionException</p>
+<p>@return bool|int|string</p>
+
+<p>Compiles batch insert runs the queries, validating each row prior.</p>
+<p>@param array|null $set       an associative array of insert values</p>
+<p>@param bool|null  $escape    Whether to escape values</p>
+<p>@param int        $batchSize The size of the batch to run</p>
+<p>@param bool       $testing   True means only number of records is returned, false will execute the query</p>
+<p>@throws ReflectionException</p>
+<p>@return bool|int Number of rows inserted or FALSE on failure</p>
+
+<p>Updates a single record in the database. If an object is provided,</p>
+<p>it will attempt to convert it into an array.</p>
+<p>@param array|int|string|null $id</p>
+<p>@param array|object|null     $data</p>
+<p>@throws ReflectionException</p>
+
+<p>Compiles an update and runs the query</p>
+<p>@param array|null  $set       An associative array of update values</p>
+<p>@param string|null $index     The where key</p>
+<p>@param int         $batchSize The size of the batch to run</p>
+<p>@param bool        $returnSQL True means SQL is returned, false will execute the query</p>
+<p>@throws DatabaseException</p>
+<p>@throws ReflectionException</p>
+<p>@return mixed Number of rows affected or FALSE on failure</p>
+
+<p>Deletes a single record from the database where $id matches</p>
+<p>@param array|int|string|null $id    The rows primary key(s)</p>
+<p>@param bool                  $purge Allows overriding the soft deletes setting.</p>
+<p>@throws DatabaseException</p>
+<p>@return BaseResult|bool</p>
+
+<p>Permanently deletes all rows that have been marked as deleted</p>
+<p>through soft deletes (deleted = 1)</p>
+<p>@return mixed</p>
+
+<p>Sets $useSoftDeletes value so that we can temporarily override</p>
+<p>the soft deletes settings. Can be used for all find* methods.</p>
+<p>@param bool $val Value</p>
+<p>@return $this</p>
+
+<p>Works with the find* methods to return only the rows that</p>
+<p>have been deleted.</p>
+<p>@return $this</p>
+
+<p>Compiles a replace and runs the query</p>
+<p>@param array|null $data      Data</p>
+<p>@param bool       $returnSQL Set to true to return Query String</p>
+<p>@return mixed</p>
+
+<p>Grabs the last error(s) that occurred. If data was validated,</p>
+<p>it will first check for errors there, otherwise will try to</p>
+<p>grab the last error from the Database connection.</p>
+<p>The return array should be in the following format:</p>
+<p> ['source' => 'message']</p>
+<p>@param bool $forceDB Always grab the db error, not validation</p>
+<p>@return array<string,string></p>
+
+<p>Works with Pager to get the size and offset parameters.</p>
+<p>Expects a GET variable (?page=2) that specifies the page of results</p>
+<p>to display.</p>
+<p>@param int|null $perPage Items per page</p>
+<p>@param string   $group   Will be used by the pagination library to identify a unique pagination set.</p>
+<p>@param int|null $page    Optional page number (useful when the page number is provided in different way)</p>
+<p>@param int      $segment Optional URI segment number (if page number is provided by URI segment)</p>
+<p>@return array|null</p>
+
+<p>It could be used when you have to change default or override current allowed fields.</p>
+<p>@param array $allowedFields Array with names of fields</p>
+<p>@return $this</p>
+
+<p>Sets whether or not we should whitelist data set during</p>
+<p>updates or inserts against $this->availableFields.</p>
+<p>@param bool $protect Value</p>
+<p>@return $this</p>
+
+<p>Ensures that only the fields that are allowed to be updated</p>
+<p>are in the data array.</p>
+<p>Used by insert() and update() to protect against mass assignment</p>
+<p>vulnerabilities.</p>
+<p>@param array $data Data</p>
+<p>@throws DataException</p>
+
+<p>Sets the date or current date if null value is passed</p>
+<p>@param int|null $userData An optional PHP timestamp to be converted.</p>
+<p>@throws ModelException</p>
+<p>@return mixed</p>
+
+<p>A utility function to allow child models to use the type of</p>
+<p>date/time format that they prefer. This is primarily used for</p>
+<p>setting created_at, updated_at and deleted_at values, but can be</p>
+<p>used by inheriting classes.</p>
+<p>The available time formats are:</p>
+<p> - 'int'      - Stores the date as an integer timestamp</p>
+<p> - 'datetime' - Stores the data in the SQL datetime format</p>
+<p> - 'date'     - Stores the date (only) in the SQL date format.</p>
+<p>@param int $value value</p>
+<p>@throws ModelException</p>
+<p>@return int|string</p>
+
+<p>Converts Time value to string using $this->dateFormat</p>
+<p>The available time formats are:</p>
+<p> - 'int'      - Stores the date as an integer timestamp</p>
+<p> - 'datetime' - Stores the data in the SQL datetime format</p>
+<p> - 'date'     - Stores the date (only) in the SQL date format.</p>
+<p>@param Time $value value</p>
+<p>@return int|string</p>
+
+<p>Set the value of the skipValidation flag.</p>
+<p>@param bool $skip Value</p>
+<p>@return $this</p>
+
+<p>Allows to set validation messages.</p>
+<p>It could be used when you have to change default or override current validate messages.</p>
+<p>@param array $validationMessages Value</p>
+<p>@return $this</p>
+
+<p>Allows to set field wise validation message.</p>
+<p>It could be used when you have to change default or override current validate messages.</p>
+<p>@param string $field         Field Name</p>
+<p>@param array  $fieldMessages Validation messages</p>
+<p>@return $this</p>
+
+<p>Allows to set validation rules.</p>
+<p>It could be used when you have to change default or override current validate rules.</p>
+<p>@param array $validationRules Value</p>
+<p>@return $this</p>
+
+<p>Allows to set field wise validation rules.</p>
+<p>It could be used when you have to change default or override current validate rules.</p>
+<p>@param string       $field      Field Name</p>
+<p>@param array|string $fieldRules Validation rules</p>
+<p>@return $this</p>
+
+<p>Should validation rules be removed before saving?</p>
+<p>Most handy when doing updates.</p>
+<p>@param bool $choice Value</p>
+<p>@return $this</p>
+
+<p>Validate the data against the validation rules (or the validation group)</p>
+<p>specified in the class property, $validationRules.</p>
+<p>@param array|object $data Data</p>
+
+<p>Returns the model's defined validation rules so that they</p>
+<p>can be used elsewhere, if needed.</p>
+<p>@param array $options Options</p>
+
+<p>Returns the model's define validation messages so they</p>
+<p>can be used elsewhere, if needed.</p>
+
+<p>Removes any rules that apply to fields that have not been set</p>
+<p>currently so that rules don't block updating when only updating</p>
+<p>a partial row.</p>
+<p>@param array      $rules Array containing field name and rule</p>
+<p>@param array|null $data  Data</p>
+
+<p>Sets $tempAllowCallbacks value so that we can temporarily override</p>
+<p>the setting. Resets after the next method that uses triggers.</p>
+<p>@param bool $val value</p>
+<p>@return $this</p>
+
+<p>A simple event trigger for Model Events that allows additional</p>
+<p>data manipulation within the model. Specifically intended for</p>
+<p>usage by child models this can be used to format data,</p>
+<p>save/load related classes, etc.</p>
+<p>It is the responsibility of the callback methods to return</p>
+<p>the data itself.</p>
+<p>Each $eventData array MUST have a 'data' key with the relevant</p>
+<p>data for callback methods (like an array of key/value pairs to insert</p>
+<p>or update, an array of results, etc)</p>
+<p>If callbacks are not allowed then returns $eventData immediately.</p>
+<p>@param string $event     Event</p>
+<p>@param array  $eventData Event Data</p>
+<p>@throws DataException</p>
+<p>@return mixed</p>
+
+<p>Sets the return type of the results to be as an associative array.</p>
+<p>@return $this</p>
+
+<p>Sets the return type to be of the specified type of object.</p>
+<p>Defaults to a simple object, but can be any class that has</p>
+<p>class vars with the same name as the collection columns,</p>
+<p>or at least allows them to be created.</p>
+<p>@param string $class Class Name</p>
+<p>@return $this</p>
+
+<p>Takes a class and returns an array of it's public and protected</p>
+<p>properties as an array suitable for use in creates and updates.</p>
+<p>This method uses objectToRawArray() internally and does conversion</p>
+<p>to string on all Time instances</p>
+<p>@param object|string $data        Data</p>
+<p>@param bool          $onlyChanged Only Changed Property</p>
+<p>@param bool          $recursive   If true, inner entities will be casted as array as well</p>
+<p>@throws ReflectionException</p>
+<p>@return array Array</p>
+
+<p>Takes a class and returns an array of its public and protected</p>
+<p>properties as an array with raw values.</p>
+<p>@param object|string $data        Data</p>
+<p>@param bool          $onlyChanged Only Changed Property</p>
+<p>@param bool          $recursive   If true, inner entities will be casted as array as well</p>
+<p>@throws ReflectionException</p>
+<p>@return array|null Array</p>
+
+<p>Transform data to array</p>
+<p>@param array|object|null $data Data</p>
+<p>@param string            $type Type of data (insert|update)</p>
+<p>@throws DataException</p>
+<p>@throws InvalidArgumentException</p>
+<p>@throws ReflectionException</p>
+
+<p>Provides the db connection and model's properties.</p>
+<p>@param string $name Name</p>
+<p>@return mixed</p>
+
+<p>Checks for the existence of properties across this model, and db connection.</p>
+<p>@param string $name Name</p>
+
+<p>Provides direct access to method in the database connection.</p>
+<p>@param string $name   Name</p>
+<p>@param array  $params Params</p>
+<p>@return $this|null</p>
+
+<p>Replace any placeholders within the rules with the values that</p>
+<p>match the 'key' of any properties being set. For example, if</p>
+<p>we had the following $data array:</p>
+<p>[ 'id' => 13 ]</p>
+<p>and the following rule:</p>
+<p> 'required|is_unique[users,email,id,{id}]'</p>
+<p>The value of {id} would be replaced with the actual id in the form data:</p>
+<p> 'required|is_unique[users,email,id,13]'</p>
+<p>@param array $rules Validation rules</p>
+<p>@param array $data  Data</p>
+<p>@codeCoverageIgnore</p>
+<p>@deprecated use fillPlaceholders($rules, $data) from Validation instead</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>Validation</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\BaseModel.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\provides</code></li>
+<li><code>CodeIgniter\BaseModel</code></li>
+<li><code>CodeIgniter\objects</code></li>
+<li><code>CodeIgniter\will</code></li>
+<li><code>CodeIgniter\with</code></li>
+<li><code>CodeIgniter\with</code></li>
+<li><code>CodeIgniter\property</code></li>
+<li><code>CodeIgniter\that</code></li>
+<li><code>CodeIgniter\vars</code></li>
+<li><code>CodeIgniter\Class</code></li>
+<li><code>CodeIgniter\and</code></li>
+<li><code>CodeIgniter\and</code></li>
+<li><code>CodeIgniter\with</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(?ValidationInterface $validation = null)</code></li>
+<li><code>initialize()</code></li>
+<li><code>doFind(bool $singleton, $id = null)</code></li>
+<li><code>doFindColumn(string $columnName)</code></li>
+<li><code>doFindAll(int $limit = 0, int $offset = 0)</code></li>
+<li><code>doFirst()</code></li>
+<li><code>doInsert(array $data)</code></li>
+<li><code>doInsertBatch(?array $set = null, ?bool $escape = null, int $batchSize = 100, bool $testing = false)</code></li>
+<li><code>doUpdate($id = null, $data = null)</code></li>
+<li><code>doUpdateBatch(?array $set = null, ?string $index = null, int $batchSize = 100, bool $returnSQL = false)</code></li>
+<li><code>doDelete($id = null, bool $purge = false)</code></li>
+<li><code>doPurgeDeleted()</code></li>
+<li><code>doOnlyDeleted()</code></li>
+<li><code>doReplace(?array $data = null, bool $returnSQL = false)</code></li>
+<li><code>doErrors()</code></li>
+<li><code>idValue($data)</code></li>
+<li><code>getIdValue($data)</code></li>
+<li><code>countAllResults(bool $reset = true, bool $test = false)</code></li>
+<li><code>chunk(int $size, Closure $userFunc)</code></li>
+<li><code>find($id = null)</code></li>
+<li><code>findColumn(string $columnName)</code></li>
+<li><code>findAll(int $limit = 0, int $offset = 0)</code></li>
+<li><code>first()</code></li>
+<li><code>save($data)</code></li>
+<li><code>shouldUpdate($data)</code></li>
+<li><code>getInsertID()</code></li>
+<li><code>insert($data = null, bool $returnID = true)</code></li>
+<li><code>insertBatch(?array $set = null, ?bool $escape = null, int $batchSize = 100, bool $testing = false)</code></li>
+<li><code>update($id = null, $data = null)</code></li>
+<li><code>updateBatch(?array $set = null, ?string $index = null, int $batchSize = 100, bool $returnSQL = false)</code></li>
+<li><code>delete($id = null, bool $purge = false)</code></li>
+<li><code>purgeDeleted()</code></li>
+<li><code>withDeleted(bool $val = true)</code></li>
+<li><code>onlyDeleted()</code></li>
+<li><code>replace(?array $data = null, bool $returnSQL = false)</code></li>
+<li><code>errors(bool $forceDB = false)</code></li>
+<li><code>paginate(?int $perPage = null, string $group = 'default', ?int $page = null, int $segment = 0)</code></li>
+<li><code>setAllowedFields(array $allowedFields)</code></li>
+<li><code>protect(bool $protect = true)</code></li>
+<li><code>doProtectFields(array $data)</code></li>
+<li><code>setDate(?int $userData = null)</code></li>
+<li><code>intToDate(int $value)</code></li>
+<li><code>timeToDate(Time $value)</code></li>
+<li><code>skipValidation(bool $skip = true)</code></li>
+<li><code>setValidationMessages(array $validationMessages)</code></li>
+<li><code>setValidationMessage(string $field, array $fieldMessages)</code></li>
+<li><code>setValidationRules(array $validationRules)</code></li>
+<li><code>setValidationRule(string $field, $fieldRules)</code></li>
+<li><code>cleanRules(bool $choice = false)</code></li>
+<li><code>validate($data)</code></li>
+<li><code>getValidationRules(array $options = [])</code></li>
+<li><code>getValidationMessages()</code></li>
+<li><code>cleanValidationRules(array $rules, ?array $data = null)</code></li>
+<li><code>allowCallbacks(bool $val = true)</code></li>
+<li><code>trigger(string $event, array $eventData)</code></li>
+<li><code>asArray()</code></li>
+<li><code>asObject(string $class = 'object')</code></li>
+<li><code>objectToArray($data, bool $onlyChanged = true, bool $recursive = false)</code></li>
+<li><code>objectToRawArray($data, bool $onlyChanged = true, bool $recursive = false)</code></li>
+<li><code>transformDataToArray($data, string $type)</code></li>
+<li><code>__get(string $name)</code></li>
+<li><code>__isset(string $name)</code></li>
+<li><code>__call(string $name, array $params)</code></li>
+<li><code>fillPlaceholders(array $rules, array $data)</code></li>
+</ul>
+</body></html>

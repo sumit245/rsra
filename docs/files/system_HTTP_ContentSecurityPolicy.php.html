@@ -1,0 +1,329 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\HTTP\ContentSecurityPolicy.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\HTTP\ContentSecurityPolicy.php</h1>
+
+<ul>
+<li>Path: <code>system\HTTP\ContentSecurityPolicy.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 20845 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Provides tools for working with the Content-Security-Policy header</p>
+<p>to help defeat XSS attacks.</p>
+<p>@see http://www.w3.org/TR/CSP/</p>
+<p>@see http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p>
+<p>@see http://content-security-policy.com/</p>
+<p>@see https://www.owasp.org/index.php/Content_Security_Policy</p>
+
+<p>Used for security enforcement</p>
+<p>@var array|string</p>
+
+<p>Used for security enforcement</p>
+<p>@var array|string</p>
+
+<p>Used for security enforcement</p>
+<p>@var array</p>
+
+<p>Used for security enforcement</p>
+<p>@var array|string</p>
+
+<p>Used for security enforcement</p>
+<p>@var array|string</p>
+
+<p>Used for security enforcement</p>
+<p>@var array|string</p>
+
+<p>Used for security enforcement</p>
+<p>@var array|string</p>
+
+<p>Used for security enforcement</p>
+<p>@var array|string</p>
+
+<p>Used for security enforcement</p>
+<p>@var array|string</p>
+
+<p>Used for security enforcement</p>
+<p>@var array|string</p>
+
+<p>Used for security enforcement</p>
+<p>@var array|string</p>
+
+<p>Used for security enforcement</p>
+<p>@var array|string</p>
+
+<p>Used for security enforcement</p>
+<p>@var string</p>
+
+<p>Used for security enforcement</p>
+<p>@var array|string</p>
+
+<p>Used for security enforcement</p>
+<p>@var array|string</p>
+
+<p>Used for security enforcement</p>
+<p>@var array|string</p>
+
+<p>Used for security enforcement</p>
+<p>@var array|string</p>
+
+<p>Used for security enforcement</p>
+<p>@var bool</p>
+
+<p>Used for security enforcement</p>
+<p>@var bool</p>
+
+<p>Used for security enforcement</p>
+<p>@var array</p>
+
+<p>Used for security enforcement</p>
+<p>@var array</p>
+
+<p>Nonce for style</p>
+<p>@var string</p>
+
+<p>Nonce for script</p>
+<p>@var string</p>
+
+<p>Nonce tag for style</p>
+<p>@var string</p>
+
+<p>Nonce tag for script</p>
+<p>@var string</p>
+
+<p>Replace nonce tag automatically</p>
+<p>@var bool</p>
+
+<p>An array of header info since we have</p>
+<p>to build ourself before passing to Response.</p>
+<p>@var array</p>
+
+<p>An array of header info to build</p>
+<p>that should only be reported.</p>
+<p>@var array</p>
+
+<p>Whether Content Security Policy is being enforced.</p>
+<p>@var bool</p>
+
+<p>Constructor.</p>
+<p>Stores our default values from the Config file.</p>
+
+<p>Whether Content Security Policy is being enforced.</p>
+
+<p>Get the nonce for the style tag.</p>
+
+<p>Get the nonce for the script tag.</p>
+
+<p>Compiles and sets the appropriate headers in the request.</p>
+<p>Should be called just prior to sending the response to the user agent.</p>
+
+<p>If TRUE, nothing will be restricted. Instead all violations will</p>
+<p>be reported to the reportURI for monitoring. This is useful when</p>
+<p>you are just starting to implement the policy, and will help</p>
+<p>determine what errors need to be addressed before you turn on</p>
+<p>all filtering.</p>
+<p>@return $this</p>
+
+<p>Adds a new base_uri value. Can be either a URI class or a simple string.</p>
+<p>base_uri restricts the URLs that can appear in a page’s <base> element.</p>
+<p>@see http://www.w3.org/TR/CSP/#directive-base-uri</p>
+<p>@param array|string $uri</p>
+<p>@return $this</p>
+
+<p>Adds a new valid endpoint for a form's action. Can be either</p>
+<p>a URI class or a simple string.</p>
+<p>child-src lists the URLs for workers and embedded frame contents.</p>
+<p>For example: child-src https://youtube.com would enable embedding</p>
+<p>videos from YouTube but not from other origins.</p>
+<p>@see http://www.w3.org/TR/CSP/#directive-child-src</p>
+<p>@param array|string $uri</p>
+<p>@return $this</p>
+
+<p>Adds a new valid endpoint for a form's action. Can be either</p>
+<p>a URI class or a simple string.</p>
+<p>connect-src limits the origins to which you can connect</p>
+<p>(via XHR, WebSockets, and EventSource).</p>
+<p>@see http://www.w3.org/TR/CSP/#directive-connect-src</p>
+<p>@param array|string $uri</p>
+<p>@return $this</p>
+
+<p>Adds a new valid endpoint for a form's action. Can be either</p>
+<p>a URI class or a simple string.</p>
+<p>default_src is the URI that is used for many of the settings when</p>
+<p>no other source has been set.</p>
+<p>@see http://www.w3.org/TR/CSP/#directive-default-src</p>
+<p>@param array|string $uri</p>
+<p>@return $this</p>
+
+<p>Adds a new valid endpoint for a form's action. Can be either</p>
+<p>a URI class or a simple string.</p>
+<p>font-src specifies the origins that can serve web fonts.</p>
+<p>@see http://www.w3.org/TR/CSP/#directive-font-src</p>
+<p>@param array|string $uri</p>
+<p>@return $this</p>
+
+<p>Adds a new valid endpoint for a form's action. Can be either</p>
+<p>a URI class or a simple string.</p>
+<p>@see http://www.w3.org/TR/CSP/#directive-form-action</p>
+<p>@param array|string $uri</p>
+<p>@return $this</p>
+
+<p>Adds a new resource that should allow embedding the resource using</p>
+<p><frame>, <iframe>, <object>, <embed>, or <applet></p>
+<p>@see http://www.w3.org/TR/CSP/#directive-frame-ancestors</p>
+<p>@param array|string $uri</p>
+<p>@return $this</p>
+
+<p>Adds a new valid endpoint for valid frame sources. Can be either</p>
+<p>a URI class or a simple string.</p>
+<p>@see http://www.w3.org/TR/CSP/#directive-frame-src</p>
+<p>@param array|string $uri</p>
+<p>@return $this</p>
+
+<p>Adds a new valid endpoint for valid image sources. Can be either</p>
+<p>a URI class or a simple string.</p>
+<p>@see http://www.w3.org/TR/CSP/#directive-img-src</p>
+<p>@param array|string $uri</p>
+<p>@return $this</p>
+
+<p>Adds a new valid endpoint for valid video and audio. Can be either</p>
+<p>a URI class or a simple string.</p>
+<p>@see http://www.w3.org/TR/CSP/#directive-media-src</p>
+<p>@param array|string $uri</p>
+<p>@return $this</p>
+
+<p>Adds a new valid endpoint for manifest sources. Can be either</p>
+<p>a URI class or simple string.</p>
+<p>@see https://www.w3.org/TR/CSP/#directive-manifest-src</p>
+<p>@param array|string $uri</p>
+<p>@return $this</p>
+
+<p>Adds a new valid endpoint for Flash and other plugin sources. Can be either</p>
+<p>a URI class or a simple string.</p>
+<p>@see http://www.w3.org/TR/CSP/#directive-object-src</p>
+<p>@param array|string $uri</p>
+<p>@return $this</p>
+
+<p>Limits the types of plugins that can be used. Can be either</p>
+<p>a URI class or a simple string.</p>
+<p>@see http://www.w3.org/TR/CSP/#directive-plugin-types</p>
+<p>@param array|string $mime One or more plugin mime types, separate by spaces</p>
+<p>@return $this</p>
+
+<p>Specifies a URL where a browser will send reports when a content</p>
+<p>security policy is violated. Can be either a URI class or a simple string.</p>
+<p>@see http://www.w3.org/TR/CSP/#directive-report-uri</p>
+<p>@return $this</p>
+
+<p>specifies an HTML sandbox policy that the user agent applies to</p>
+<p>the protected resource.</p>
+<p>@see http://www.w3.org/TR/CSP/#directive-sandbox</p>
+<p>@param array|string $flags An array of sandbox flags that can be added to the directive.</p>
+<p>@return $this</p>
+
+<p>Adds a new valid endpoint for javascript file sources. Can be either</p>
+<p>a URI class or a simple string.</p>
+<p>@see http://www.w3.org/TR/CSP/#directive-connect-src</p>
+<p>@param array|string $uri</p>
+<p>@return $this</p>
+
+<p>Adds a new valid endpoint for CSS file sources. Can be either</p>
+<p>a URI class or a simple string.</p>
+<p>@see http://www.w3.org/TR/CSP/#directive-connect-src</p>
+<p>@param array|string $uri</p>
+<p>@return $this</p>
+
+<p>Sets whether the user agents should rewrite URL schemes, changing</p>
+<p>HTTP to HTTPS.</p>
+<p>@return $this</p>
+
+<p>DRY method to add an string or array to a class property.</p>
+<p>@param array|string $options</p>
+
+<p>Scans the body of the request message and replaces any nonce</p>
+<p>placeholders with actual nonces, that we'll then add to our</p>
+<p>headers.</p>
+
+<p>Based on the current state of the elements, will add the appropriate</p>
+<p>Content-Security-Policy and Content-Security-Policy-Report-Only headers</p>
+<p>with their values to the response object.</p>
+
+<p>Ensure both headers are available and arrays...</p>
+<p>@var Response $response</p>
+
+<p>Adds a directive and it's options to the appropriate header. The $values</p>
+<p>array might have options that are geared toward either the regular or the</p>
+<p>reportOnly header, since it's viable to have both simultaneously.</p>
+<p>@param array|string|null $values</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>YouTube</code></li>
+<li><code>other</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\HTTP\ContentSecurityPolicy.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\HTTP\ContentSecurityPolicy</code></li>
+<li><code>CodeIgniter\HTTP\or</code></li>
+<li><code>CodeIgniter\HTTP\or</code></li>
+<li><code>CodeIgniter\HTTP\or</code></li>
+<li><code>CodeIgniter\HTTP\or</code></li>
+<li><code>CodeIgniter\HTTP\or</code></li>
+<li><code>CodeIgniter\HTTP\or</code></li>
+<li><code>CodeIgniter\HTTP\or</code></li>
+<li><code>CodeIgniter\HTTP\or</code></li>
+<li><code>CodeIgniter\HTTP\or</code></li>
+<li><code>CodeIgniter\HTTP\or</code></li>
+<li><code>CodeIgniter\HTTP\or</code></li>
+<li><code>CodeIgniter\HTTP\or</code></li>
+<li><code>CodeIgniter\HTTP\or</code></li>
+<li><code>CodeIgniter\HTTP\or</code></li>
+<li><code>CodeIgniter\HTTP\or</code></li>
+<li><code>CodeIgniter\HTTP\property</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(ContentSecurityPolicyConfig $config)</code></li>
+<li><code>enabled()</code></li>
+<li><code>getStyleNonce()</code></li>
+<li><code>getScriptNonce()</code></li>
+<li><code>finalize(ResponseInterface $response)</code></li>
+<li><code>reportOnly(bool $value = true)</code></li>
+<li><code>addBaseURI($uri, ?bool $explicitReporting = null)</code></li>
+<li><code>addChildSrc($uri, ?bool $explicitReporting = null)</code></li>
+<li><code>addConnectSrc($uri, ?bool $explicitReporting = null)</code></li>
+<li><code>setDefaultSrc($uri, ?bool $explicitReporting = null)</code></li>
+<li><code>addFontSrc($uri, ?bool $explicitReporting = null)</code></li>
+<li><code>addFormAction($uri, ?bool $explicitReporting = null)</code></li>
+<li><code>addFrameAncestor($uri, ?bool $explicitReporting = null)</code></li>
+<li><code>addFrameSrc($uri, ?bool $explicitReporting = null)</code></li>
+<li><code>addImageSrc($uri, ?bool $explicitReporting = null)</code></li>
+<li><code>addMediaSrc($uri, ?bool $explicitReporting = null)</code></li>
+<li><code>addManifestSrc($uri, ?bool $explicitReporting = null)</code></li>
+<li><code>addObjectSrc($uri, ?bool $explicitReporting = null)</code></li>
+<li><code>addPluginType($mime, ?bool $explicitReporting = null)</code></li>
+<li><code>setReportURI(string $uri)</code></li>
+<li><code>addSandbox($flags, ?bool $explicitReporting = null)</code></li>
+<li><code>addScriptSrc($uri, ?bool $explicitReporting = null)</code></li>
+<li><code>addStyleSrc($uri, ?bool $explicitReporting = null)</code></li>
+<li><code>upgradeInsecureRequests(bool $value = true)</code></li>
+<li><code>addOption($options, string $target, ?bool $explicitReporting = null)</code></li>
+<li><code>generateNonces(ResponseInterface $response)</code></li>
+<li><code>buildHeaders(ResponseInterface $response)</code></li>
+<li><code>addToHeader(string $name, $values = null)</code></li>
+</ul>
+</body></html>

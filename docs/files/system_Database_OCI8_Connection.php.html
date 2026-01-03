@@ -1,0 +1,184 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Database\OCI8\Connection.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Database\OCI8\Connection.php</h1>
+
+<ul>
+<li>Path: <code>system\Database\OCI8\Connection.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 21255 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Connection for OCI8</p>
+
+<p>Database driver</p>
+<p>@var string</p>
+
+<p>Identifier escape character</p>
+<p>@var string</p>
+
+<p>List of reserved identifiers</p>
+<p>Identifiers that must NOT be escaped.</p>
+<p>@var array</p>
+
+<p>Reset $stmtId flag</p>
+<p>Used by storedProcedure() to prevent execute() from</p>
+<p>re-setting the statement ID.</p>
+
+<p>Statement ID</p>
+<p>@var resource</p>
+
+<p>Commit mode flag</p>
+<p>@used-by PreparedQuery::_execute()</p>
+<p>@var int</p>
+
+<p>Cursor ID</p>
+<p>@var resource</p>
+
+<p>Latest inserted table name.</p>
+<p>@used-by PreparedQuery::_execute()</p>
+<p>@var string|null</p>
+
+<p>confirm DNS format.</p>
+
+<p>Connect to the database.</p>
+<p>@return mixed</p>
+
+<p>Keep or establish the connection if no queries have been sent for</p>
+<p>a length of time exceeding the server's idle timeout.</p>
+<p>@return void</p>
+
+<p>Close the database connection.</p>
+<p>@return void</p>
+
+<p>Select a specific database table to use.</p>
+
+<p>Returns a string containing the version of the database being used.</p>
+
+<p>Executes the query against the database.</p>
+<p>@return false|resource</p>
+
+<p>Get the table name for the insert statement from sql.</p>
+
+<p>Returns the total number of rows affected by this query.</p>
+
+<p>Generates the SQL for listing tables in a platform-dependent manner.</p>
+
+<p>Generates a platform-specific query string so that the column names can be fetched.</p>
+
+<p>Returns an array of objects with field data</p>
+<p>@throws DatabaseException</p>
+<p>@return stdClass[]</p>
+
+<p>Returns an array of objects with index data</p>
+<p>@throws DatabaseException</p>
+<p>@return stdClass[]</p>
+
+<p>Returns an array of objects with Foreign key data</p>
+<p>@throws DatabaseException</p>
+<p>@return stdClass[]</p>
+
+<p>Returns platform-specific SQL to disable foreign key checks.</p>
+<p>@return string</p>
+
+<p>Returns platform-specific SQL to enable foreign key checks.</p>
+<p>@return string</p>
+
+<p>Get cursor. Returns a cursor from the database</p>
+<p>@return resource</p>
+
+<p>Executes a stored procedure</p>
+<p>@param string $procedureName procedure name to execute</p>
+<p>@param array  $params        params array keys</p>
+<p>                             KEY      OPTIONAL  NOTES</p>
+<p>                             name     no        the name of the parameter should be in :<param_name> format</p>
+<p>                             value    no        the value of the parameter.  If this is an OUT or IN OUT parameter,</p>
+<p>                             this should be a reference to a variable</p>
+<p>                             type     yes       the type of the parameter</p>
+<p>                             length   yes       the max size of the parameter</p>
+<p>@return bool|Query|Result</p>
+
+<p>Bind parameters</p>
+<p>@param array $params</p>
+<p>@return void</p>
+
+<p>Returns the last error code and message.</p>
+<p>Must return an array with keys 'code' and 'message':</p>
+<p> return ['code' => null, 'message' => null);</p>
+
+<p>Build a DSN from the provided parameters</p>
+<p>@return void</p>
+
+<p>Begin Transaction</p>
+
+<p>Commit Transaction</p>
+
+<p>Rollback Transaction</p>
+
+<p>Returns the name of the current database being used.</p>
+
+<p>Get the prefix of the function to access the DB.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>sql</code></li>
+<li><code>ALL_TAB_COLUMNS</code></li>
+<li><code>ALL_IND_COLUMNS</code></li>
+<li><code>USER_CONSTRAINTS</code></li>
+<li><code>all_cons_columns</code></li>
+<li><code>all_constraints</code></li>
+<li><code>user_constraints</code></li>
+<li><code>the</code></li>
+<li><code>USER_TAB_COLUMNS</code></li>
+<li><code>DUAL</code></li>
+<li><code>these</code></li>
+<li><code>USER_USERS</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Database\OCI8\Connection.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Database\OCI8\Connection extends BaseConnection implements ConnectionInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>isValidDSN()</code></li>
+<li><code>connect(bool $persistent = false)</code></li>
+<li><code>reconnect()</code></li>
+<li><code>_close()</code></li>
+<li><code>setDatabase(string $databaseName)</code></li>
+<li><code>getVersion()</code></li>
+<li><code>execute(string $sql)</code></li>
+<li><code>parseInsertTableName(string $sql)</code></li>
+<li><code>affectedRows()</code></li>
+<li><code>_listTables(bool $prefixLimit = false)</code></li>
+<li><code>_listColumns(string $table = '')</code></li>
+<li><code>_fieldData(string $table)</code></li>
+<li><code>_indexData(string $table)</code></li>
+<li><code>_foreignKeyData(string $table)</code></li>
+<li><code>_disableForeignKeyChecks()</code></li>
+<li><code>_enableForeignKeyChecks()</code></li>
+<li><code>getCursor()</code></li>
+<li><code>storedProcedure(string $procedureName, array $params)</code></li>
+<li><code>bindParams($params)</code></li>
+<li><code>error()</code></li>
+<li><code>insertID()</code></li>
+<li><code>buildDSN()</code></li>
+<li><code>_transBegin()</code></li>
+<li><code>_transCommit()</code></li>
+<li><code>_transRollback()</code></li>
+<li><code>getDatabase()</code></li>
+<li><code>getDriverFunctionPrefix()</code></li>
+</ul>
+</body></html>

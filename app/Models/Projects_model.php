@@ -2,16 +2,19 @@
 
 namespace App\Models;
 
-class Projects_model extends Crud_model {
+class Projects_model extends Crud_model
+{
 
     protected $table = null;
 
-    function __construct() {
+    function __construct()
+    {
         $this->table = 'projects';
         parent::__construct($this->table);
     }
 
-    function get_details($options = array()) {
+    function get_details($options = array())
+    {
         $projects_table = $this->db->prefixTable('projects');
         $project_members_table = $this->db->prefixTable('project_members');
         $clients_table = $this->db->prefixTable('clients');
@@ -66,6 +69,11 @@ class Projects_model extends Crud_model {
             }
         }
 
+        $expense = $this->_get_clean_value($options, "expense");
+        if ($expense) {
+            $where .= " AND (FIND_IN_SET('$expense',$projects_table.expense)) ";
+        }
+
 
         $extra_join = "";
         $extra_where = "";
@@ -105,7 +113,8 @@ class Projects_model extends Crud_model {
         return $this->db->query($sql);
     }
 
-    function get_label_suggestions() {
+    function get_label_suggestions()
+    {
         $projects_table = $this->db->prefixTable('projects');
         $sql = "SELECT GROUP_CONCAT(labels) as label_groups
         FROM $projects_table
@@ -113,7 +122,8 @@ class Projects_model extends Crud_model {
         return $this->db->query($sql)->getRow()->label_groups;
     }
 
-    function count_project_status($options = array()) {
+    function count_project_status($options = array())
+    {
         $projects_table = $this->db->prefixTable('projects');
         $project_members_table = $this->db->prefixTable('project_members');
 
@@ -143,7 +153,8 @@ class Projects_model extends Crud_model {
         return $info;
     }
 
-    function get_gantt_data($options = array()) {
+    function get_gantt_data($options = array())
+    {
         $tasks_table = $this->db->prefixTable('tasks');
         $milestones_table = $this->db->prefixTable('milestones');
         $users_table = $this->db->prefixTable('users');
@@ -214,7 +225,8 @@ class Projects_model extends Crud_model {
         return $this->db->query($sql)->getResult();
     }
 
-    function add_remove_star($project_id, $user_id, $type = "add") {
+    function add_remove_star($project_id, $user_id, $type = "add")
+    {
         $projects_table = $this->db->prefixTable('projects');
 
         $action = " CONCAT($projects_table.starred_by,',',':$user_id:') ";
@@ -230,7 +242,8 @@ class Projects_model extends Crud_model {
         return $this->db->query($sql);
     }
 
-    function get_starred_projects($user_id) {
+    function get_starred_projects($user_id)
+    {
         $projects_table = $this->db->prefixTable('projects');
 
         $sql = "SELECT $projects_table.*
@@ -240,7 +253,8 @@ class Projects_model extends Crud_model {
         return $this->db->query($sql);
     }
 
-    function delete_project_and_sub_items($project_id) {
+    function delete_project_and_sub_items($project_id)
+    {
         $projects_table = $this->db->prefixTable('projects');
         $tasks_table = $this->db->prefixTable('tasks');
         $milestones_table = $this->db->prefixTable('milestones');
@@ -301,7 +315,8 @@ class Projects_model extends Crud_model {
         return true;
     }
 
-    function get_search_suggestion($search = "", $options = array()) {
+    function get_search_suggestion($search = "", $options = array())
+    {
         $projects_table = $this->db->prefixTable('projects');
         $project_members_table = $this->db->prefixTable('project_members');
 
@@ -328,7 +343,8 @@ class Projects_model extends Crud_model {
         return $this->db->query($sql);
     }
 
-    function count_task_points($options = array()) {
+    function count_task_points($options = array())
+    {
         $projects_table = $this->db->prefixTable('projects');
         $project_members_table = $this->db->prefixTable('project_members');
         $tasks_table = $this->db->prefixTable('tasks');
@@ -350,5 +366,4 @@ class Projects_model extends Crud_model {
         WHERE $projects_table.deleted=0 AND status='open' $where";
         return $this->db->query($sql)->getRow();
     }
-
 }

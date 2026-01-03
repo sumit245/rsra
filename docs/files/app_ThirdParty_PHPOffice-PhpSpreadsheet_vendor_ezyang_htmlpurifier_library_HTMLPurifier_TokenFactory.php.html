@@ -1,0 +1,75 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\TokenFactory.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\TokenFactory.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\TokenFactory.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3099 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Factory for token generation.</p>
+<p>@note Doing some benchmarking indicates that the new operator is much</p>
+<p>      slower than the clone operator (even discounting the cost of the</p>
+<p>      constructor).  This class is for that optimization.</p>
+<p>      Other then that, there's not much point as we don't</p>
+<p>      maintain parallel HTMLPurifier_Token hierarchies (the main reason why</p>
+<p>      you'd want to use an abstract factory).</p>
+<p>@todo Port DirectLex to use this</p>
+
+<p>@type HTMLPurifier_Token_Start</p>
+
+<p>@type HTMLPurifier_Token_End</p>
+
+<p>@type HTMLPurifier_Token_Empty</p>
+
+<p>@type HTMLPurifier_Token_Text</p>
+
+<p>@type HTMLPurifier_Token_Comment</p>
+
+<p>Generates blank prototypes for cloning.</p>
+
+<p>Creates a HTMLPurifier_Token_Start.</p>
+<p>@param string $name Tag name</p>
+<p>@param array $attr Associative array of attributes</p>
+<p>@return HTMLPurifier_Token_Start Generated HTMLPurifier_Token_Start</p>
+
+<p>Creates a HTMLPurifier_Token_End.</p>
+<p>@param string $name Tag name</p>
+<p>@return HTMLPurifier_Token_End Generated HTMLPurifier_Token_End</p>
+
+<p>Creates a HTMLPurifier_Token_Empty.</p>
+<p>@param string $name Tag name</p>
+<p>@param array $attr Associative array of attributes</p>
+<p>@return HTMLPurifier_Token_Empty Generated HTMLPurifier_Token_Empty</p>
+
+<p>Creates a HTMLPurifier_Token_Text.</p>
+<p>@param string $data Data of text token</p>
+<p>@return HTMLPurifier_Token_Text Generated HTMLPurifier_Token_Text</p>
+
+<p>Creates a HTMLPurifier_Token_Comment.</p>
+<p>@param string $data Data of comment token</p>
+<p>@return HTMLPurifier_Token_Comment Generated HTMLPurifier_Token_Comment</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\TokenFactory.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>is</code></li>
+<li><code>HTMLPurifier_TokenFactory</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>createStart($name, $attr = array()</code></li>
+<li><code>createEnd($name)</code></li>
+<li><code>createEmpty($name, $attr = array()</code></li>
+<li><code>createText($data)</code></li>
+<li><code>createComment($data)</code></li>
+</ul>
+</body></html>

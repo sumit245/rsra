@@ -1,0 +1,201 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\Helpers\app_files_helper.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\Helpers\app_files_helper.php</h1>
+
+<ul>
+<li>Path: <code>app\Helpers\app_files_helper.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 27777 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>get a human readable file size format from bytes </p>
+
+<p>@param string $bytes</p>
+<p>@return fise size</p>
+
+<p>get some predefined icons for some known file types </p>
+
+<p>@param string $file_ext</p>
+<p>@return fontawesome icon class</p>
+
+<p>check the file is a image</p>
+
+<p>@param string $file_name</p>
+<p>@return true/false</p>
+
+<p>check the file preview supported by google</p>
+
+<p>@param string $file_name</p>
+<p>@return true/false</p>
+
+<p>check the file format priview is available or not</p>
+
+<p>@param string $file_name</p>
+<p>@return true/false</p>
+
+<p>check the file format for video priview is available or not</p>
+
+<p>@param string $file_name</p>
+<p>@return true/false</p>
+
+<p>upload a file to temp folder when using dropzone autoque=true</p>
+
+<p>@param file $_FILES</p>
+<p>@return void</p>
+
+<p>this method process 3 types of files</p>
+<p>1. direct upload</p>
+<p>2. move a uploaded file which has been uploaded in temp folder</p>
+<p>3. copy a text based image</p>
+
+<p>@param string $file_name</p>
+<p>@param string $target_path</p>
+<p>@param string $source_path </p>
+<p>@param string $static_file_name </p>
+<p>@return filename</p>
+
+<p>Get drive folder name</p>
+<p>@param string $target_path</p>
+<p>@return string folder name</p>
+
+<p>Get source url of file</p>
+
+<p>@param string $file_path</p>
+<p>@param array $file_info</p>
+<p>@return source url of file</p>
+
+<p>Get google drive files source url</p>
+<p>@param string $file_id</p>
+<p>@return source url</p>
+
+<p>Convert to a file from text based image</p>
+
+<p>@param string $source_path </p>
+<p>@param string $target_path</p>
+<p>@return file size</p>
+
+<p>remove file name prefix which was added by move_temp_file() method</p>
+
+<p>@param string $file_name</p>
+<p>@return filename</p>
+
+<p>copy a directory to another directoryformat_to_datetime</p>
+
+<p>@param string $src</p>
+<p>@param string $dst</p>
+<p>@return void</p>
+
+<p>move file to a parmanent direnctory from the temp dirctory</p>
+
+<p>dropzone file post data example</p>
+<p>the input should be named as file_names and file_sizes</p>
+
+<p>for old borwsers which doesn't supports dropzone the files will be handaled using manual process</p>
+<p>the post data should be named as manualFiles</p>
+
+<p>@param string $target_path</p>
+<p>@param string $name</p>
+
+<p>@return array of file ids</p>
+
+<p>check post file is valid or not</p>
+
+<p>@param string $file_name</p>
+<p>@return json data of success or error message</p>
+
+<p>check the file type is valid for upload</p>
+
+<p>@param string $file_name</p>
+<p>@return true/false</p>
+
+<p>delete file </p>
+<p>@param String file_path</p>
+<p>@return void</p>
+
+<p>delete files</p>
+<p>@param String $directory_path</p>
+<p>@param Array $files</p>
+
+<p>Make array of file</p>
+<p>@param $file_info stdClass object</p>
+<p>@return array of file</p>
+
+<p>Get system files setting value</p>
+<p>@param string $setting_name</p>
+<p>@return array/string setting value</p>
+
+<p>get file path</p>
+
+<p>@param string $file_path</p>
+<p>@param string $serialized_file_data </p>
+<p>@return array</p>
+
+<p>delete save files/ include new files</p>
+
+<p>@param string $file_path</p>
+<p>@param string $serialized_file_data </p>
+<p>@return remaining files array</p>
+
+<p>return a file path of general files based on context</p>
+
+<p>@param string $context   client/team_member/...</p>
+<p>@param integer $context_id   client_id/team_member_id/...</p>
+<p>@return string of file path</p>
+
+<p>return a list of language by scanning the files from language directory.</p>
+<p>@return array</p>
+
+<p>check the file is pdf or text</p>
+
+<p>@param string $file_name</p>
+<p>@return true/false</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>bytes</code></li>
+<li><code>the</code></li>
+<li><code>text</code></li>
+<li><code>directory</code></li>
+<li><code>language</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\Helpers\app_files_helper.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>convert_file_size($bytes)</code></li>
+<li><code>get_file_icon($file_ext = "")</code></li>
+<li><code>is_image_file($file_name = "")</code></li>
+<li><code>is_google_preview_available($file_name = "")</code></li>
+<li><code>is_viewable_image_file($file_name = "")</code></li>
+<li><code>is_viewable_video_file($file_name = "")</code></li>
+<li><code>upload_file_to_temp($upload_to_local = false)</code></li>
+<li><code>move_temp_file($file_name, $target_path, $related_to = "", $source_path = NULL, $static_file_name = "", $file_content = "")</code></li>
+<li><code>get_drive_folder_name($target_path = "")</code></li>
+<li><code>get_source_url_of_file($file_info = array()</code></li>
+<li><code>get_source_url_of_google_drive_file($file_id = "", $view_type = "", $show_full_size_thumbnail = false)</code></li>
+<li><code>copy_text_based_image($source_path, $target_path)</code></li>
+<li><code>remove_file_prefix($file_name = "")</code></li>
+<li><code>copy_recursively($src, $dst)</code></li>
+<li><code>move_files_from_temp_dir_to_permanent_dir($target_path = "", $related_to = "")</code></li>
+<li><code>validate_post_file($file_name = "")</code></li>
+<li><code>is_valid_file_to_upload($file_name = "")</code></li>
+<li><code>delete_file_from_directory($file_path = "")</code></li>
+<li><code>delete_app_files($directory_path = "", $files = array()</code></li>
+<li><code>make_array_of_file($file_info)</code></li>
+<li><code>get_system_files_setting_value($setting_name = "")</code></li>
+<li><code>prepare_attachment_of_files($directory_path, $serialized_file_data)</code></li>
+<li><code>update_saved_files($file_path, $serialized_file_data, $new_files_array)</code></li>
+<li><code>get_general_file_path($context, $context_id)</code></li>
+<li><code>get_language_list($type = "")</code></li>
+<li><code>update_file_indexes($old_files = "", $new_files_array = array()</code></li>
+<li><code>get_store_item_image($files)</code></li>
+<li><code>is_iframe_preview_available($file_name = "")</code></li>
+</ul>
+</body></html>

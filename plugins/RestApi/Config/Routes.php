@@ -22,6 +22,18 @@ $routes->post('restapi/remove/(:num)', 'Api_settings_Controller::delete_user/$1'
 
 //For all kind of api get request
 $routes->group('api', $rest_api_namespace, function ($routes) {
+    // Auth endpoints (no token required for login)
+    $routes->post('auth/login', 'AuthController::login');
+    $routes->get('auth/debug', 'AuthController::debug');
+});
+
+$routes->group('api', $rest_api_namespace, function ($routes) {
+    // Authenticated profile endpoints (token required)
+    $routes->post('auth/profile', 'AuthController::updateProfile');
+    $routes->post('auth/change-password', 'AuthController::changePassword');
+});
+
+$routes->group('api', $rest_api_namespace, function ($routes) {
 	$routes->add('client_groups', 'UtilitiesController::getClientGroups');
 	$routes->add('project_labels', 'UtilitiesController::getProejctLabels');
 	$routes->add('invoice_labels', 'UtilitiesController::getInvoiceLabels');
@@ -75,13 +87,5 @@ $routes->group('api', $rest_api_namespace, function ($routes) {
 	$routes->delete('invoices/(:segment)', 'InvoicesController::delete/$1'); //delete
 });
 
-//Override 404 and give response in JSON format
-$routes->set404Override(function ($a) {
-	header('Content-Type: application/json');
-	echo json_encode([
-				"status"  => false,
-				"code"    => 404,
-				"message" => "Route not found",
-			], JSON_PRETTY_PRINT);
-	die();
-});
+// Note: 404 override removed to prevent route conflicts
+// Let CodeIgniter handle 404s normally

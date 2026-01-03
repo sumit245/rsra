@@ -1,0 +1,54 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Strategy\FixNesting.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Strategy\FixNesting.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Strategy\FixNesting.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7557 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Takes a well formed list of tokens and fixes their nesting.</p>
+<p>HTML elements dictate which elements are allowed to be their children,</p>
+<p>for example, you can't have a p tag in a span tag.  Other elements have</p>
+<p>much more rigorous definitions: tables, for instance, require a specific</p>
+<p>order for their elements.  There are also constraints not expressible by</p>
+<p>document type definitions, such as the chameleon nature of ins/del</p>
+<p>tags and global child exclusions.</p>
+<p>The first major objective of this strategy is to iterate through all</p>
+<p>the nodes and determine whether or not their children conform to the</p>
+<p>element's definition.  If they do not, the child definition may</p>
+<p>optionally supply an amended list of elements that is valid or</p>
+<p>require that the entire node be deleted (and the previous node</p>
+<p>rescanned).</p>
+<p>The second objective is to ensure that explicitly excluded elements of</p>
+<p>an element do not appear in its children.  Code that accomplishes this</p>
+<p>task is pervasive through the strategy, though the two are distinct tasks</p>
+<p>and could, theoretically, be seperated (although it's not recommended).</p>
+<p>@note Whether or not unrecognized children are silently dropped or</p>
+<p>      translated into text depends on the child definitions.</p>
+<p>@todo Enable nodes to be bubbled out of the structure.  This is</p>
+<p>      easier with our new algorithm.</p>
+
+<p>@param HTMLPurifier_Token[] $tokens</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@param HTMLPurifier_Context $context</p>
+<p>@return array|HTMLPurifier_Token[]</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Strategy\FixNesting.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>HTMLPurifier_Strategy_FixNesting extends HTMLPurifier_Strategy</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>execute($tokens, $config, $context)</code></li>
+<li><code>f($node)</code></li>
+</ul>
+</body></html>

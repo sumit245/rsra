@@ -1,0 +1,63 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xlsx\Rels.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xlsx\Rels.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xlsx\Rels.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 17762 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Write relationships to XML format.</p>
+<p>@return string XML Output</p>
+
+<p>Write workbook relationships to XML format.</p>
+<p>@return string XML Output</p>
+
+<p>Write worksheet relationships to XML format.</p>
+<p>Numbering is as follows:</p>
+<p>    rId1                 - Drawings</p>
+<p> rId_hyperlink_x     - Hyperlinks</p>
+<p>@param int $worksheetId</p>
+<p>@param bool $includeCharts Flag indicating if we should write charts</p>
+<p>@param int $tableRef Table ID</p>
+<p>@return string XML Output</p>
+
+<p>Write drawing relationships to XML format.</p>
+<p>@param int $chartRef Chart ID</p>
+<p>@param bool $includeCharts Flag indicating if we should write charts</p>
+<p>@return string XML Output</p>
+
+<p>Write header/footer drawing relationships to XML format.</p>
+<p>@return string XML Output</p>
+
+<p>Write Override content type.</p>
+<p>@param int $id Relationship ID. rId will be prepended!</p>
+<p>@param string $type Relationship type</p>
+<p>@param string $target Relationship target</p>
+<p>@param string $targetMode Relationship target mode</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xlsx\Rels.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Writer\Xlsx\Rels extends WriterPart</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>writeRelationships(Spreadsheet $spreadsheet)</code></li>
+<li><code>writeWorkbookRelationships(Spreadsheet $spreadsheet)</code></li>
+<li><code>writeWorksheetRelationships(\PhpOffice\PhpSpreadsheet\Worksheet\Worksheet $worksheet, $worksheetId = 1, $includeCharts = false, $tableRef = 1)</code></li>
+<li><code>writeUnparsedRelationship(\PhpOffice\PhpSpreadsheet\Worksheet\Worksheet $worksheet, XMLWriter $objWriter, $relationship, $type)</code></li>
+<li><code>writeDrawingRelationships(\PhpOffice\PhpSpreadsheet\Worksheet\Worksheet $worksheet, &$chartRef, $includeCharts = false)</code></li>
+<li><code>writeHeaderFooterDrawingRelationships(\PhpOffice\PhpSpreadsheet\Worksheet\Worksheet $worksheet)</code></li>
+<li><code>writeVMLDrawingRelationships(\PhpOffice\PhpSpreadsheet\Worksheet\Worksheet $worksheet)</code></li>
+<li><code>writeRelationship(XMLWriter $objWriter, $id, $type, $target, $targetMode = '')</code></li>
+<li><code>writeDrawingHyperLink(XMLWriter $objWriter, BaseDrawing $drawing, int $i)</code></li>
+</ul>
+</body></html>

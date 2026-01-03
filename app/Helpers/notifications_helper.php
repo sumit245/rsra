@@ -9,9 +9,11 @@ use App\Controllers\App_Controller;
  * team_members, team,
  * project_members, client_primary_contact, client_all_contacts, task_assignee, task_collaborators, comment_creator, leave_applicant, ticket_creator, ticket_assignee, post_creator
  */
+
 if (!function_exists('get_notification_config')) {
 
-    function get_notification_config($event = "", $key = "", $info_options = array()) {
+    function get_notification_config($event = "", $key = "", $info_options = array())
+    {
 
         $task_link = function ($options) {
 
@@ -490,7 +492,6 @@ if (!function_exists('get_notification_config')) {
             return $events;
         }
     }
-
 }
 
 
@@ -500,7 +501,8 @@ if (!function_exists('get_notification_config')) {
  */
 if (!function_exists('send_notification_emails')) {
 
-    function send_notification_emails($notification_id, $email_notify_to = array(), $extra_data = array()) {
+    function send_notification_emails($notification_id, $email_notify_to = array(), $extra_data = array())
+    {
 
         $ci = new App_Controller();
 
@@ -857,7 +859,6 @@ if (!function_exists('send_notification_emails')) {
             unlink($attachement_url);
         }
     }
-
 }
 
 /*
@@ -865,7 +866,8 @@ if (!function_exists('send_notification_emails')) {
  */
 if (!function_exists('send_push_notifications')) {
 
-    function send_push_notifications($event, $push_notify_to, $user_id = 0, $notification_id = 0) {
+    function send_push_notifications($event, $push_notify_to, $user_id = 0, $notification_id = 0)
+    {
         $ci = new App_Controller();
 
         //get credentials
@@ -884,7 +886,10 @@ if (!function_exists('send_push_notifications')) {
 
             //authorize pusher
             $pusher = new Pusher\Pusher(
-                    $pusher_key, $pusher_secret, $pusher_app_id, $options
+                $pusher_key,
+                $pusher_secret,
+                $pusher_app_id,
+                $options
             );
 
             //get notification message
@@ -931,7 +936,6 @@ if (!function_exists('send_push_notifications')) {
             return false;
         }
     }
-
 }
 
 /*
@@ -939,7 +943,8 @@ if (!function_exists('send_push_notifications')) {
  */
 if (!function_exists('get_notification_url_attributes')) {
 
-    function get_notification_url_attributes($notification) {
+    function get_notification_url_attributes($notification)
+    {
         $url = "#";
         $url_attributes = "href='$url'";
 
@@ -965,7 +970,6 @@ if (!function_exists('get_notification_url_attributes')) {
 
         return array("url_attributes" => $url_attributes, "url" => $url);
     }
-
 }
 
 /*
@@ -973,7 +977,8 @@ if (!function_exists('get_notification_url_attributes')) {
  */
 if (!function_exists('get_notification_multiple_tasks_data')) {
 
-    function get_notification_multiple_tasks_data($tasks, $event) {
+    function get_notification_multiple_tasks_data($tasks, $event)
+    {
         $ci = new App_Controller();
         $user_wise_tasks = array();
 
@@ -1029,12 +1034,12 @@ if (!function_exists('get_notification_multiple_tasks_data')) {
             "notify_to_user_ids" => $notify_to_user_ids
         );
     }
-
 }
 
 if (!function_exists('send_slack_notification')) {
 
-    function send_slack_notification($event, $user_id = 0, $notification_id = 0, $webhook_url = "") {
+    function send_slack_notification($event, $user_id = 0, $notification_id = 0, $webhook_url = "")
+    {
         if ($webhook_url) {
             $ci = new App_Controller();
 
@@ -1106,5 +1111,4 @@ if (!function_exists('send_slack_notification')) {
             }
         }
     }
-
 }

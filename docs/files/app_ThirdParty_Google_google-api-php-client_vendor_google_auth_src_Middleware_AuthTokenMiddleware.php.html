@@ -1,0 +1,70 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\google\auth\src\Middleware\AuthTokenMiddleware.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\google\auth\src\Middleware\AuthTokenMiddleware.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\google\auth\src\Middleware\AuthTokenMiddleware.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3930 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>AuthTokenMiddleware is a Guzzle Middleware that adds an Authorization header</p>
+<p>provided by an object implementing FetchAuthTokenInterface.</p>
+<p>The FetchAuthTokenInterface#fetchAuthToken is used to obtain a hash; one of</p>
+<p>the values value in that hash is added as the authorization header.</p>
+<p>Requests will be accessed with the authorization header:</p>
+<p>'authorization' 'Bearer <value of auth_token>'</p>
+
+<p>@var callback</p>
+
+<p>@var FetchAuthTokenInterface</p>
+
+<p>@var callable</p>
+
+<p>Creates a new AuthTokenMiddleware.</p>
+<p>@param FetchAuthTokenInterface $fetcher is used to fetch the auth token</p>
+<p>@param callable $httpHandler (optional) callback which delivers psr7 request</p>
+<p>@param callable $tokenCallback (optional) function to be called when a new token is fetched.</p>
+
+<p>Updates the request with an Authorization header when auth is 'google_auth'.</p>
+<p>  use Google\Auth\Middleware\AuthTokenMiddleware;</p>
+<p>  use Google\Auth\OAuth2;</p>
+<p>  use GuzzleHttp\Client;</p>
+<p>  use GuzzleHttp\HandlerStack;</p>
+<p>  $config = [..<oauth config param>.];</p>
+<p>  $oauth2 = new OAuth2($config)</p>
+<p>  $middleware = new AuthTokenMiddleware($oauth2);</p>
+<p>  $stack = HandlerStack::create();</p>
+<p>  $stack->push($middleware);</p>
+<p>  $client = new Client([</p>
+<p>      'handler' => $stack,</p>
+<p>      'base_uri' => 'https://www.googleapis.com/taskqueue/v1beta2/projects/',</p>
+<p>      'auth' => 'google_auth' // authorize all requests</p>
+<p>  ]);</p>
+<p>  $res = $client->get('myproject/taskqueues/myqueue');</p>
+<p>@param callable $handler</p>
+<p>@return \Closure</p>
+
+<p>Call fetcher to fetch the token.</p>
+<p>@return string</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\google\auth\src\Middleware\AuthTokenMiddleware.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Google\Auth\Middleware\AuthTokenMiddleware</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`__construct(FetchAuthTokenInterface $fetcher,</li>
+<p>        callable $httpHandler = null,</p>
+<p>        callable $tokenCallback = null)`</p>
+<li><code>__invoke(callable $handler)</code></li>
+<li><code>fetchToken()</code></li>
+</ul>
+</body></html>

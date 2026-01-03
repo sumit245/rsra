@@ -1,0 +1,119 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Cookie\CookieInterface.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Cookie\CookieInterface.php</h1>
+
+<ul>
+<li>Path: <code>system\Cookie\CookieInterface.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4285 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Interface for a value object representation of an HTTP cookie.</p>
+<p>@see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie</p>
+
+<p>Cookies will be sent in all contexts, i.e in responses to both</p>
+<p>first-party and cross-origin requests. If <code>SameSite=None</code> is set,</p>
+<p>the cookie <code>Secure</code> attribute must also be set (or the cookie will be blocked).</p>
+
+<p>Cookies are not sent on normal cross-site subrequests (for example to</p>
+<p>load images or frames into a third party site), but are sent when a</p>
+<p>user is navigating to the origin site (i.e. when following a link).</p>
+
+<p>Cookies will only be sent in a first-party context and not be sent</p>
+<p>along with requests initiated by third party websites.</p>
+
+<p>RFC 6265 allowed values for the "SameSite" attribute.</p>
+<p>@see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite</p>
+
+<p>Expires date format.</p>
+<p>@see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Date</p>
+<p>@see https://tools.ietf.org/html/rfc7231#section-7.1.1.2</p>
+
+<p>Returns a unique identifier for the cookie consisting</p>
+<p>of its prefixed name, path, and domain.</p>
+
+<p>Gets the cookie prefix.</p>
+
+<p>Gets the cookie name.</p>
+
+<p>Gets the cookie name prepended with the prefix, if any.</p>
+
+<p>Gets the cookie value.</p>
+
+<p>Gets the time in Unix timestamp the cookie expires.</p>
+
+<p>Gets the formatted expires time.</p>
+
+<p>Checks if the cookie is expired.</p>
+
+<p>Gets the "Max-Age" cookie attribute.</p>
+
+<p>Gets the "Path" cookie attribute.</p>
+
+<p>Gets the "Domain" cookie attribute.</p>
+
+<p>Gets the "Secure" cookie attribute.</p>
+<p>Checks if the cookie is only sent to the server when a request is made</p>
+<p>with the <code>https:</code> scheme (except on <code>localhost</code>), and therefore is more</p>
+<p>resistent to man-in-the-middle attacks.</p>
+
+<p>Gets the "HttpOnly" cookie attribute.</p>
+<p>Checks if JavaScript is forbidden from accessing the cookie.</p>
+
+<p>Gets the "SameSite" cookie attribute.</p>
+
+<p>Checks if the cookie should be sent with no URL encoding.</p>
+
+<p>Gets the options that are passable to the <code>setcookie</code> variant</p>
+<p>available on PHP 7.3+</p>
+<p>@return array<string, mixed></p>
+
+<p>Returns the Cookie as a header value.</p>
+
+<p>Returns the string representation of the Cookie object.</p>
+<p>@return string</p>
+
+<p>Returns the array representation of the Cookie object.</p>
+<p>@return array<string, mixed></p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>accessing</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Cookie\CookieInterface.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getId()</code></li>
+<li><code>getPrefix()</code></li>
+<li><code>getName()</code></li>
+<li><code>getPrefixedName()</code></li>
+<li><code>getValue()</code></li>
+<li><code>getExpiresTimestamp()</code></li>
+<li><code>getExpiresString()</code></li>
+<li><code>isExpired()</code></li>
+<li><code>getMaxAge()</code></li>
+<li><code>getPath()</code></li>
+<li><code>getDomain()</code></li>
+<li><code>isSecure()</code></li>
+<li><code>isHTTPOnly()</code></li>
+<li><code>getSameSite()</code></li>
+<li><code>isRaw()</code></li>
+<li><code>getOptions()</code></li>
+<li><code>toHeaderString()</code></li>
+<li><code>__toString()</code></li>
+<li><code>toArray()</code></li>
+</ul>
+</body></html>

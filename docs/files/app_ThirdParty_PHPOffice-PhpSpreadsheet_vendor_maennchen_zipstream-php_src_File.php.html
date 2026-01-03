@@ -1,0 +1,99 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\maennchen\zipstream-php\src\File.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\maennchen\zipstream-php\src\File.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\maennchen\zipstream-php\src\File.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 14460 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@var string</p>
+
+<p>@var FileOptions</p>
+
+<p>@var Bigint</p>
+
+<p>@var Bigint</p>
+
+<p>@var  int</p>
+
+<p>@var Bigint</p>
+
+<p>@var Bigint</p>
+
+<p>@var int</p>
+
+<p>@var Version</p>
+
+<p>@var ZipStream</p>
+
+<p>@var resource</p>
+
+<p>@var resource</p>
+
+<p>@var Method</p>
+
+<p>@var Bigint</p>
+
+<p>Create and send zip header for this file.</p>
+<p>@return void</p>
+<p>@throws \ZipStream\Exception\EncodingException</p>
+
+<p>Strip characters that are not legal in Windows filenames</p>
+<p>to prevent compatibility issues</p>
+<p>@param string $filename Unprocessed filename</p>
+<p>@return string</p>
+
+<p>Convert a UNIX timestamp to a DOS timestamp.</p>
+<p>@param int $when</p>
+<p>@return int DOS Timestamp</p>
+
+<p>Create and send data descriptor footer for this file.</p>
+<p>@return void</p>
+
+<p>Send CDR record for specified file.</p>
+<p>@return string</p>
+
+<p>@return Bigint</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>file</code></li>
+<li><code>1980</code></li>
+<li><code>PHP</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\maennchen\zipstream-php\src\File.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZipStream\File</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(ZipStream $zip, string $name, ?FileOptions $opt = null)</code></li>
+<li><code>processPath(string $path)</code></li>
+<li><code>processData(string $data)</code></li>
+<li><code>addFileHeader()</code></li>
+<li><code>filterFilename(string $filename)</code></li>
+<li><code>dosTime(int $when)</code></li>
+<li><code>buildZip64ExtraBlock(bool $force = false)</code></li>
+<li><code>addFileFooter()</code></li>
+<li><code>processStream(StreamInterface $stream)</code></li>
+<li><code>processStreamWithZeroHeader(StreamInterface $stream)</code></li>
+<li><code>readStream(StreamInterface $stream, ?int $options = null)</code></li>
+<li><code>deflateInit()</code></li>
+<li><code>deflateData(StreamInterface $stream, string &$data, ?int $options = null)</code></li>
+<li><code>deflateFinish(?int $options = null)</code></li>
+<li><code>processStreamWithComputedHeader(StreamInterface $stream)</code></li>
+<li><code>getCdrFile()</code></li>
+<li><code>getTotalLength()</code></li>
+</ul>
+</body></html>

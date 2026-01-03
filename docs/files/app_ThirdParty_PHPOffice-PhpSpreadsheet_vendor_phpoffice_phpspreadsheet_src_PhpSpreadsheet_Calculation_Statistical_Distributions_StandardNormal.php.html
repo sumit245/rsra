@@ -1,0 +1,102 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Statistical\Distributions\StandardNormal.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Statistical\Distributions\StandardNormal.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Statistical\Distributions\StandardNormal.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 6070 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>NORMSDIST.</p>
+<p>Returns the standard normal cumulative distribution function. The distribution has</p>
+<p>a mean of 0 (zero) and a standard deviation of one. Use this function in place of a</p>
+<p>table of standard normal curve areas.</p>
+<p>NOTE: We don't need to check for arrays to array-enable this function, because that is already</p>
+<p>      handled by the logic in Normal::distribution()</p>
+<p>      All we need to do is pass the value through as scalar or as array.</p>
+<p>@param mixed $value Float value for which we want the probability</p>
+<p>                     Or can be an array of values</p>
+<p>@return array|float|string The result, or a string containing an error</p>
+<p>        If an array of numbers is passed as an argument, then the returned result will also be an array</p>
+<p>           with the same dimensions</p>
+
+<p>NORM.S.DIST.</p>
+<p>Returns the standard normal cumulative distribution function. The distribution has</p>
+<p>a mean of 0 (zero) and a standard deviation of one. Use this function in place of a</p>
+<p>table of standard normal curve areas.</p>
+<p>NOTE: We don't need to check for arrays to array-enable this function, because that is already</p>
+<p>      handled by the logic in Normal::distribution()</p>
+<p>      All we need to do is pass the value and cumulative through as scalar or as array.</p>
+<p>@param mixed $value Float value for which we want the probability</p>
+<p>                     Or can be an array of values</p>
+<p>@param mixed $cumulative Boolean value indicating if we want the cdf (true) or the pdf (false)</p>
+<p>                     Or can be an array of values</p>
+<p>@return array|float|string The result, or a string containing an error</p>
+<p>        If an array of numbers is passed as an argument, then the returned result will also be an array</p>
+<p>           with the same dimensions</p>
+
+<p>NORMSINV.</p>
+<p>Returns the inverse of the standard normal cumulative distribution</p>
+<p>@param mixed $value float probability for which we want the value</p>
+<p>                     Or can be an array of values</p>
+<p>NOTE: We don't need to check for arrays to array-enable this function, because that is already</p>
+<p>      handled by the logic in Normal::inverse()</p>
+<p>      All we need to do is pass the value through as scalar or as array</p>
+<p>@return array|float|string The result, or a string containing an error</p>
+<p>        If an array of numbers is passed as an argument, then the returned result will also be an array</p>
+<p>           with the same dimensions</p>
+
+<p>GAUSS.</p>
+<p>Calculates the probability that a member of a standard normal population will fall between</p>
+<p>    the mean and z standard deviations from the mean.</p>
+<p>@param mixed $value</p>
+<p>                     Or can be an array of values</p>
+<p>@return array|float|string The result, or a string containing an error</p>
+<p>        If an array of numbers is passed as an argument, then the returned result will also be an array</p>
+<p>           with the same dimensions</p>
+
+<p>@var float</p>
+
+<p>ZTEST.</p>
+<p>Returns the one-tailed P-value of a z-test.</p>
+<p>For a given hypothesized population mean, x, Z.TEST returns the probability that the sample mean would be</p>
+<p>    greater than the average of observations in the data set (array) — that is, the observed sample mean.</p>
+<p>@param mixed $dataSet The dataset should be an array of float values for the observations</p>
+<p>@param mixed $m0 Alpha Parameter</p>
+<p>                     Or can be an array of values</p>
+<p>@param mixed $sigma A null or float value for the Beta (Standard Deviation) Parameter;</p>
+<p>                      if null, we use the standard deviation of the dataset</p>
+<p>                     Or can be an array of values</p>
+<p>@return array|float|string (string if result is an error)</p>
+<p>        If an array of numbers is passed as an argument, then the returned result will also be an array</p>
+<p>           with the same dimensions</p>
+
+<p>@var float</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Statistical\Distributions\StandardNormal.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\Statistical\Distributions\StandardNormal</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>cumulative($value)</code></li>
+<li><code>distribution($value, $cumulative)</code></li>
+<li><code>inverse($value)</code></li>
+<li><code>gauss($value)</code></li>
+<li><code>zTest($dataSet, $m0, $sigma = null)</code></li>
+</ul>
+</body></html>

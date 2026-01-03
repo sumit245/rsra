@@ -1,0 +1,681 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\lib\php72compat.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\lib\php72compat.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\lib\php72compat.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 41569 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file will monkey patch the pure-PHP implementation in place of the</p>
+<p>PECL functions and constants, but only if they do not already exist.</p>
+<p>Thus, the functions or constants just proxy to the appropriate</p>
+<p>ParagonIE_Sodium_Compat method or class constant, respectively.</p>
+
+<p>@see ParagonIE_Sodium_Compat::add()</p>
+<p>@param string $val</p>
+<p>@param string $addv</p>
+<p>@return void</p>
+<p>@throws SodiumException</p>
+
+<p>@see ParagonIE_Sodium_Compat::bin2base64()</p>
+<p>@param string $string</p>
+<p>@param int $variant</p>
+<p>@param string $ignore</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::bin2base64()</p>
+<p>@param string $string</p>
+<p>@param int $variant</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::hex2bin()</p>
+<p>@param string $string</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::compare()</p>
+<p>@param string $a</p>
+<p>@param string $b</p>
+<p>@return int</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_aead_aes256gcm_decrypt()</p>
+<p>@param string $message</p>
+<p>@param string $assocData</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@return string|bool</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_aead_aes256gcm_encrypt()</p>
+<p>@param string $message</p>
+<p>@param string $assocData</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_aead_aes256gcm_is_available()</p>
+<p>@return bool</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_aead_chacha20poly1305_decrypt()</p>
+<p>@param string $message</p>
+<p>@param string $assocData</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@return string|bool</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_aead_chacha20poly1305_encrypt()</p>
+<p>@param string $message</p>
+<p>@param string $assocData</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_aead_chacha20poly1305_keygen()</p>
+<p>@return string</p>
+<p>@throws Exception</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_aead_chacha20poly1305_ietf_decrypt()</p>
+<p>@param string $message</p>
+<p>@param string $assocData</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@return string|bool</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_aead_chacha20poly1305_ietf_encrypt()</p>
+<p>@param string $message</p>
+<p>@param string $assocData</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_aead_chacha20poly1305_ietf_keygen()</p>
+<p>@return string</p>
+<p>@throws Exception</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_aead_xchacha20poly1305_ietf_decrypt()</p>
+<p>@param string $message</p>
+<p>@param string $assocData</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@return string|bool</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_aead_xchacha20poly1305_ietf_encrypt()</p>
+<p>@param string $message</p>
+<p>@param string $assocData</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_aead_xchacha20poly1305_ietf_keygen()</p>
+<p>@return string</p>
+<p>@throws Exception</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_auth()</p>
+<p>@param string $message</p>
+<p>@param string $key</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_auth_keygen()</p>
+<p>@return string</p>
+<p>@throws Exception</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_auth_verify()</p>
+<p>@param string $mac</p>
+<p>@param string $message</p>
+<p>@param string $key</p>
+<p>@return bool</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_box()</p>
+<p>@param string $message</p>
+<p>@param string $nonce</p>
+<p>@param string $kp</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_box_keypair()</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_box_keypair_from_secretkey_and_publickey()</p>
+<p>@param string $sk</p>
+<p>@param string $pk</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_box_open()</p>
+<p>@param string $message</p>
+<p>@param string $nonce</p>
+<p>@param string $kp</p>
+<p>@return string|bool</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_box_publickey()</p>
+<p>@param string $keypair</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_box_publickey_from_secretkey()</p>
+<p>@param string $sk</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_box_seal()</p>
+<p>@param string $message</p>
+<p>@param string $publicKey</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_box_seal_open()</p>
+<p>@param string $message</p>
+<p>@param string $kp</p>
+<p>@return string|bool</p>
+<p>@throws SodiumException</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_box_secretkey()</p>
+<p>@param string $keypair</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_box_seed_keypair()</p>
+<p>@param string $seed</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_generichash()</p>
+<p>@param string $message</p>
+<p>@param string|null $key</p>
+<p>@param int $outLen</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_generichash_final()</p>
+<p>@param string|null $ctx</p>
+<p>@param int $outputLength</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_generichash_init()</p>
+<p>@param string|null $key</p>
+<p>@param int $outLen</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_generichash_keygen()</p>
+<p>@return string</p>
+<p>@throws Exception</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_generichash_update()</p>
+<p>@param string|null $ctx</p>
+<p>@param string $message</p>
+<p>@return void</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_kdf_keygen()</p>
+<p>@return string</p>
+<p>@throws Exception</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_kdf_derive_from_key()</p>
+<p>@param int $subkey_len</p>
+<p>@param int $subkey_id</p>
+<p>@param string $context</p>
+<p>@param string $key</p>
+<p>@return string</p>
+<p>@throws Exception</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_kx()</p>
+<p>@param string $my_secret</p>
+<p>@param string $their_public</p>
+<p>@param string $client_public</p>
+<p>@param string $server_public</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@param string $seed</p>
+<p>@return string</p>
+<p>@throws Exception</p>
+
+<p>@return string</p>
+<p>@throws Exception</p>
+
+<p>@param string $keypair</p>
+<p>@param string $serverPublicKey</p>
+<p>@return array{0: string, 1: string}</p>
+<p>@throws SodiumException</p>
+
+<p>@param string $keypair</p>
+<p>@param string $clientPublicKey</p>
+<p>@return array{0: string, 1: string}</p>
+<p>@throws SodiumException</p>
+
+<p>@param string $keypair</p>
+<p>@return string</p>
+<p>@throws Exception</p>
+
+<p>@param string $keypair</p>
+<p>@return string</p>
+<p>@throws Exception</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_pwhash()</p>
+<p>@param int $outlen</p>
+<p>@param string $passwd</p>
+<p>@param string $salt</p>
+<p>@param int $opslimit</p>
+<p>@param int $memlimit</p>
+<p>@param int|null $algo</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_pwhash_str()</p>
+<p>@param string $passwd</p>
+<p>@param int $opslimit</p>
+<p>@param int $memlimit</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_pwhash_str_needs_rehash()</p>
+<p>@param string $hash</p>
+<p>@param int $opslimit</p>
+<p>@param int $memlimit</p>
+<p>@return bool</p>
+<p>@throws SodiumException</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_pwhash_str_verify()</p>
+<p>@param string $passwd</p>
+<p>@param string $hash</p>
+<p>@return bool</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_pwhash_scryptsalsa208sha256()</p>
+<p>@param int $outlen</p>
+<p>@param string $passwd</p>
+<p>@param string $salt</p>
+<p>@param int $opslimit</p>
+<p>@param int $memlimit</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_pwhash_scryptsalsa208sha256_str()</p>
+<p>@param string $passwd</p>
+<p>@param int $opslimit</p>
+<p>@param int $memlimit</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_pwhash_scryptsalsa208sha256_str_verify()</p>
+<p>@param string $passwd</p>
+<p>@param string $hash</p>
+<p>@return bool</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_scalarmult()</p>
+<p>@param string $n</p>
+<p>@param string $p</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_scalarmult_base()</p>
+<p>@param string $n</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_secretbox()</p>
+<p>@param string $message</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_secretbox_keygen()</p>
+<p>@return string</p>
+<p>@throws Exception</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_secretbox_open()</p>
+<p>@param string $message</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@return string|bool</p>
+
+<p>@param string $key</p>
+<p>@return array<int, string></p>
+<p>@throws SodiumException</p>
+
+<p>@param string $state</p>
+<p>@param string $msg</p>
+<p>@param string $aad</p>
+<p>@param int $tag</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+
+<p>@param string $header</p>
+<p>@param string $key</p>
+<p>@return string</p>
+<p>@throws Exception</p>
+
+<p>@param string $state</p>
+<p>@param string $cipher</p>
+<p>@param string $aad</p>
+<p>@return bool|array{0: string, 1: int}</p>
+<p>@throws SodiumException</p>
+
+<p>@param string $state</p>
+<p>@return void</p>
+<p>@throws SodiumException</p>
+
+<p>@return string</p>
+<p>@throws Exception</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_shorthash()</p>
+<p>@param string $message</p>
+<p>@param string $key</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_shorthash_keygen()</p>
+<p>@return string</p>
+<p>@throws Exception</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_sign()</p>
+<p>@param string $message</p>
+<p>@param string $sk</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_sign_detached()</p>
+<p>@param string $message</p>
+<p>@param string $sk</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_sign_keypair_from_secretkey_and_publickey()</p>
+<p>@param string $sk</p>
+<p>@param string $pk</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_sign_keypair()</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_sign_open()</p>
+<p>@param string $signedMessage</p>
+<p>@param string $pk</p>
+<p>@return string|bool</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_sign_publickey()</p>
+<p>@param string $keypair</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_sign_publickey_from_secretkey()</p>
+<p>@param string $sk</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_sign_secretkey()</p>
+<p>@param string $keypair</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_sign_seed_keypair()</p>
+<p>@param string $seed</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_sign_verify_detached()</p>
+<p>@param string $signature</p>
+<p>@param string $message</p>
+<p>@param string $pk</p>
+<p>@return bool</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_sign_ed25519_pk_to_curve25519()</p>
+<p>@param string $pk</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_sign_ed25519_sk_to_curve25519()</p>
+<p>@param string $sk</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_stream()</p>
+<p>@param int $len</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_stream_keygen()</p>
+<p>@return string</p>
+<p>@throws Exception</p>
+
+<p>@see ParagonIE_Sodium_Compat::crypto_stream_xor()</p>
+<p>@param string $message</p>
+<p>@param string $nonce</p>
+<p>@param string $key</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::hex2bin()</p>
+<p>@param string $string</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::increment()</p>
+<p>@param string $string</p>
+<p>@return void</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::library_version_major()</p>
+<p>@return int</p>
+
+<p>@see ParagonIE_Sodium_Compat::library_version_minor()</p>
+<p>@return int</p>
+
+<p>@see ParagonIE_Sodium_Compat::version_string()</p>
+<p>@return string</p>
+
+<p>@see ParagonIE_Sodium_Compat::memcmp()</p>
+<p>@param string $a</p>
+<p>@param string $b</p>
+<p>@return int</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::memzero()</p>
+<p>@param string $str</p>
+<p>@return void</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::pad()</p>
+<p>@param string $unpadded</p>
+<p>@param int $blockSize</p>
+<p>@return int</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::pad()</p>
+<p>@param string $padded</p>
+<p>@param int $blockSize</p>
+<p>@return int</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@see ParagonIE_Sodium_Compat::randombytes_buf()</p>
+<p>@param int $amount</p>
+<p>@return string</p>
+<p>@throws Exception</p>
+
+<p>@see ParagonIE_Sodium_Compat::randombytes_uniform()</p>
+<p>@param int $upperLimit</p>
+<p>@return int</p>
+<p>@throws Exception</p>
+
+<p>@see ParagonIE_Sodium_Compat::randombytes_random16()</p>
+<p>@return int</p>
+<p>@throws Exception</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\lib\php72compat.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>constant</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>sodium_add(&$val, $addv)</code></li>
+<li><code>sodium_base642bin($string, $variant, $ignore ='')</code></li>
+<li><code>sodium_bin2base64($string, $variant)</code></li>
+<li><code>sodium_bin2hex($string)</code></li>
+<li><code>sodium_compare($a, $b)</code></li>
+<li><code>sodium_crypto_aead_aes256gcm_decrypt($message, $assocData, $nonce, $key)</code></li>
+<li><code>sodium_crypto_aead_aes256gcm_encrypt($message, $assocData, $nonce, $key)</code></li>
+<li><code>sodium_crypto_aead_aes256gcm_is_available()</code></li>
+<li><code>sodium_crypto_aead_chacha20poly1305_decrypt($message, $assocData, $nonce, $key)</code></li>
+<li><code>sodium_crypto_aead_chacha20poly1305_encrypt($message, $assocData, $nonce, $key)</code></li>
+<li><code>sodium_crypto_aead_chacha20poly1305_keygen()</code></li>
+<li><code>sodium_crypto_aead_chacha20poly1305_ietf_decrypt($message, $assocData, $nonce, $key)</code></li>
+<li><code>sodium_crypto_aead_chacha20poly1305_ietf_encrypt($message, $assocData, $nonce, $key)</code></li>
+<li><code>sodium_crypto_aead_chacha20poly1305_ietf_keygen()</code></li>
+<li><code>sodium_crypto_aead_xchacha20poly1305_ietf_decrypt($message, $assocData, $nonce, $key)</code></li>
+<li><code>sodium_crypto_aead_xchacha20poly1305_ietf_encrypt($message, $assocData, $nonce, $key)</code></li>
+<li><code>sodium_crypto_aead_xchacha20poly1305_ietf_keygen()</code></li>
+<li><code>sodium_crypto_auth($message, $key)</code></li>
+<li><code>sodium_crypto_auth_keygen()</code></li>
+<li><code>sodium_crypto_auth_verify($mac, $message, $key)</code></li>
+<li><code>sodium_crypto_box($message, $nonce, $kp)</code></li>
+<li><code>sodium_crypto_box_keypair()</code></li>
+<li><code>sodium_crypto_box_keypair_from_secretkey_and_publickey($sk, $pk)</code></li>
+<li><code>sodium_crypto_box_open($message, $nonce, $kp)</code></li>
+<li><code>sodium_crypto_box_publickey($keypair)</code></li>
+<li><code>sodium_crypto_box_publickey_from_secretkey($sk)</code></li>
+<li><code>sodium_crypto_box_seal($message, $publicKey)</code></li>
+<li><code>sodium_crypto_box_seal_open($message, $kp)</code></li>
+<li><code>sodium_crypto_box_secretkey($keypair)</code></li>
+<li><code>sodium_crypto_box_seed_keypair($seed)</code></li>
+<li><code>sodium_crypto_generichash($message, $key = null, $outLen = 32)</code></li>
+<li><code>sodium_crypto_generichash_final(&$ctx, $outputLength = 32)</code></li>
+<li><code>sodium_crypto_generichash_init($key = null, $outLen = 32)</code></li>
+<li><code>sodium_crypto_generichash_keygen()</code></li>
+<li><code>sodium_crypto_generichash_update(&$ctx, $message = '')</code></li>
+<li><code>sodium_crypto_kdf_keygen()</code></li>
+<li><code>sodium_crypto_kdf_derive_from_key($subkey_len, $subkey_id, $context, $key)</code></li>
+<li><code>sodium_crypto_kx($my_secret, $their_public, $client_public, $server_public)</code></li>
+<li><code>sodium_crypto_kx_seed_keypair($seed)</code></li>
+<li><code>sodium_crypto_kx_keypair()</code></li>
+<li><code>sodium_crypto_kx_client_session_keys($keypair, $serverPublicKey)</code></li>
+<li><code>sodium_crypto_kx_server_session_keys($keypair, $clientPublicKey)</code></li>
+<li><code>sodium_crypto_kx_secretkey($keypair)</code></li>
+<li><code>sodium_crypto_kx_publickey($keypair)</code></li>
+<li><code>sodium_crypto_pwhash($outlen, $passwd, $salt, $opslimit, $memlimit, $algo = null)</code></li>
+<li><code>sodium_crypto_pwhash_str($passwd, $opslimit, $memlimit)</code></li>
+<li><code>sodium_crypto_pwhash_str_needs_rehash($hash, $opslimit, $memlimit)</code></li>
+<li><code>sodium_crypto_pwhash_str_verify($passwd, $hash)</code></li>
+<li><code>sodium_crypto_pwhash_scryptsalsa208sha256($outlen, $passwd, $salt, $opslimit, $memlimit)</code></li>
+<li><code>sodium_crypto_pwhash_scryptsalsa208sha256_str($passwd, $opslimit, $memlimit)</code></li>
+<li><code>sodium_crypto_pwhash_scryptsalsa208sha256_str_verify($passwd, $hash)</code></li>
+<li><code>sodium_crypto_scalarmult($n, $p)</code></li>
+<li><code>sodium_crypto_scalarmult_base($n)</code></li>
+<li><code>sodium_crypto_secretbox($message, $nonce, $key)</code></li>
+<li><code>sodium_crypto_secretbox_keygen()</code></li>
+<li><code>sodium_crypto_secretbox_open($message, $nonce, $key)</code></li>
+<li><code>sodium_crypto_secretstream_xchacha20poly1305_init_push($key)</code></li>
+<li><code>sodium_crypto_secretstream_xchacha20poly1305_push(&$state, $msg, $aad = '', $tag = 0)</code></li>
+<li><code>sodium_crypto_secretstream_xchacha20poly1305_init_pull($header, $key)</code></li>
+<li><code>sodium_crypto_secretstream_xchacha20poly1305_pull(&$state, $cipher, $aad = '')</code></li>
+<li><code>sodium_crypto_secretstream_xchacha20poly1305_rekey(&$state)</code></li>
+<li><code>sodium_crypto_secretstream_xchacha20poly1305_keygen()</code></li>
+<li><code>sodium_crypto_shorthash($message, $key = '')</code></li>
+<li><code>sodium_crypto_shorthash_keygen()</code></li>
+<li><code>sodium_crypto_sign($message, $sk)</code></li>
+<li><code>sodium_crypto_sign_detached($message, $sk)</code></li>
+<li><code>sodium_crypto_sign_keypair_from_secretkey_and_publickey($sk, $pk)</code></li>
+<li><code>sodium_crypto_sign_keypair()</code></li>
+<li><code>sodium_crypto_sign_open($signedMessage, $pk)</code></li>
+<li><code>sodium_crypto_sign_publickey($keypair)</code></li>
+<li><code>sodium_crypto_sign_publickey_from_secretkey($sk)</code></li>
+<li><code>sodium_crypto_sign_secretkey($keypair)</code></li>
+<li><code>sodium_crypto_sign_seed_keypair($seed)</code></li>
+<li><code>sodium_crypto_sign_verify_detached($signature, $message, $pk)</code></li>
+<li><code>sodium_crypto_sign_ed25519_pk_to_curve25519($pk)</code></li>
+<li><code>sodium_crypto_sign_ed25519_sk_to_curve25519($sk)</code></li>
+<li><code>sodium_crypto_stream($len, $nonce, $key)</code></li>
+<li><code>sodium_crypto_stream_keygen()</code></li>
+<li><code>sodium_crypto_stream_xor($message, $nonce, $key)</code></li>
+<li><code>sodium_hex2bin($string)</code></li>
+<li><code>sodium_increment(&$string)</code></li>
+<li><code>sodium_library_version_major()</code></li>
+<li><code>sodium_library_version_minor()</code></li>
+<li><code>sodium_version_string()</code></li>
+<li><code>sodium_memcmp($a, $b)</code></li>
+<li><code>sodium_memzero(&$str)</code></li>
+<li><code>sodium_pad($unpadded, $blockSize)</code></li>
+<li><code>sodium_unpad($padded, $blockSize)</code></li>
+<li><code>sodium_randombytes_buf($amount)</code></li>
+<li><code>sodium_randombytes_uniform($upperLimit)</code></li>
+<li><code>sodium_randombytes_random16()</code></li>
+</ul>
+</body></html>

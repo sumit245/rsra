@@ -1,0 +1,150 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\tcpdf\tcpdf_parser.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\tcpdf\tcpdf_parser.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\tcpdf\tcpdf_parser.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 27600 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@file</p>
+<p>This is a PHP class for parsing PDF documents.<br></p>
+<p>@package com.tecnick.tcpdf</p>
+<p>@author Nicola Asuni</p>
+<p>@version 1.0.15</p>
+
+<p>@class TCPDF_PARSER</p>
+<p>This is a PHP class for parsing PDF documents.<br></p>
+<p>@package com.tecnick.tcpdf</p>
+<p>@brief This is a PHP class for parsing PDF documents..</p>
+<p>@version 1.0.15</p>
+<p>@author Nicola Asuni - info@tecnick.com</p>
+
+<p>Raw content of the PDF document.</p>
+<p>@private</p>
+
+<p>XREF data.</p>
+<p>@protected</p>
+
+<p>Array of PDF objects.</p>
+<p>@protected</p>
+
+<p>Class object for decoding filters.</p>
+<p>@private</p>
+
+<p>Array of configuration parameters.</p>
+<p>@private</p>
+
+<p>Parse a PDF document an return an array of objects.</p>
+<p>@param string $data PDF data to parse.</p>
+<p>@param array $cfg Array of configuration parameters:</p>
+<p>			'die_for_errors' : if true termitate the program execution in case of error, otherwise thows an exception;</p>
+<p>			'ignore_filter_decoding_errors' : if true ignore filter decoding errors;</p>
+<p>			'ignore_missing_filter_decoders' : if true ignore missing filter decoding errors.</p>
+<p>@public</p>
+<p>@since 1.0.000 (2011-05-24)</p>
+
+<p>Set the configuration parameters.</p>
+<p>@param array $cfg Array of configuration parameters:</p>
+<p>			'die_for_errors' : if true termitate the program execution in case of error, otherwise thows an exception;</p>
+<p>			'ignore_filter_decoding_errors' : if true ignore filter decoding errors;</p>
+<p>			'ignore_missing_filter_decoders' : if true ignore missing filter decoding errors.</p>
+<p>@public</p>
+
+<p>Return an array of parsed PDF document objects.</p>
+<p>@return array Array of parsed PDF document objects.</p>
+<p>@public</p>
+<p>@since 1.0.000 (2011-06-26)</p>
+
+<p>Get Cross-Reference (xref) table and trailer data from PDF document data.</p>
+<p>@param int $offset xref offset (if know).</p>
+<p>@param array $xref previous xref array (if any).</p>
+<p>@return array containing xref and trailer data.</p>
+<p>@protected</p>
+<p>@since 1.0.000 (2011-05-24)</p>
+
+<p>Decode the Cross-Reference section</p>
+<p>@param int $startxref Offset at which the xref section starts (position of the 'xref' keyword).</p>
+<p>@param array $xref Previous xref array (if any).</p>
+<p>@return array containing xref and trailer data.</p>
+<p>@protected</p>
+<p>@since 1.0.000 (2011-06-20)</p>
+
+<p>Decode the Cross-Reference Stream section</p>
+<p>@param int $startxref Offset at which the xref section starts.</p>
+<p>@param array $xref Previous xref array (if any).</p>
+<p>@return array containing xref and trailer data.</p>
+<p>@protected</p>
+<p>@since 1.0.003 (2013-03-16)</p>
+
+<p>Get object type, raw value and offset to next object</p>
+<p>@param int $offset Object offset.</p>
+<p>@return array containing object type, raw value and offset to next object</p>
+<p>@protected</p>
+<p>@since 1.0.000 (2011-06-20)</p>
+
+<p>Get content of indirect object.</p>
+<p>@param string $obj_ref Object number and generation number separated by underscore character.</p>
+<p>@param int $offset Object offset.</p>
+<p>@param boolean $decoding If true decode streams.</p>
+<p>@return array containing object data.</p>
+<p>@protected</p>
+<p>@since 1.0.000 (2011-05-24)</p>
+
+<p>Get the content of object, resolving indect object reference if necessary.</p>
+<p>@param string $obj Object value.</p>
+<p>@return array containing object data.</p>
+<p>@protected</p>
+<p>@since 1.0.000 (2011-06-26)</p>
+
+<p>Decode the specified stream.</p>
+<p>@param array $sdic Stream's dictionary array.</p>
+<p>@param string $stream Stream to decode.</p>
+<p>@return array containing decoded stream data and remaining filters.</p>
+<p>@protected</p>
+<p>@since 1.0.000 (2011-06-22)</p>
+
+<p>Throw an exception or print an error message and die if the K_TCPDF_PARSER_THROW_EXCEPTION_ERROR constant is set to true.</p>
+<p>@param string $msg The error message</p>
+<p>@public</p>
+<p>@since 1.0.000 (2011-05-23)</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>PDF</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\tcpdf\tcpdf_parser.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>for</code></li>
+<li><code>for</code></li>
+<li><code>for</code></li>
+<li><code>TCPDF_PARSER</code></li>
+<li><code>for</code></li>
+<li><code>for</code></li>
+<li><code>TCPDF_PARSER</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($data, $cfg=array()</code></li>
+<li><code>setConfig($cfg)</code></li>
+<li><code>getParsedData()</code></li>
+<li><code>getXrefData($offset=0, $xref=array()</code></li>
+<li><code>decodeXref($startxref, $xref=array()</code></li>
+<li><code>decodeXrefStream($startxref, $xref=array()</code></li>
+<li><code>getRawObject($offset=0)</code></li>
+<li><code>getIndirectObject($obj_ref, $offset=0, $decoding=true)</code></li>
+<li><code>getObjectVal($obj)</code></li>
+<li><code>decodeStream($sdic, $stream)</code></li>
+<li><code>Error($msg)</code></li>
+</ul>
+</body></html>

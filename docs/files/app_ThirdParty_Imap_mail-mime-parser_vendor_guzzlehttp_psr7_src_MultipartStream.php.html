@@ -1,0 +1,55 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\guzzlehttp\psr7\src\MultipartStream.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\guzzlehttp\psr7\src\MultipartStream.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\guzzlehttp\psr7\src\MultipartStream.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4693 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Stream that when read returns bytes for a streaming multipart or</p>
+<p>multipart/form-data stream.</p>
+
+<p>@param array  $elements Array of associative arrays, each containing a</p>
+<p>                        required "name" key mapping to the form field,</p>
+<p>                        name, a required "contents" key mapping to a</p>
+<p>                        StreamInterface/resource/string, an optional</p>
+<p>                        "headers" associative array of custom headers,</p>
+<p>                        and an optional "filename" key mapping to a</p>
+<p>                        string to send as the filename in the part.</p>
+<p>@param string $boundary You can optionally provide a specific boundary</p>
+<p>@throws \InvalidArgumentException</p>
+
+<p>Get the boundary</p>
+<p>@return string</p>
+
+<p>Get the headers needed before transferring the content of a POST file</p>
+
+<p>Create the aggregate stream that will be used to upload the POST data</p>
+
+<p>@return array</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\guzzlehttp\psr7\src\MultipartStream.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>GuzzleHttp\Psr7\MultipartStream implements StreamInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(array $elements = [], $boundary = null)</code></li>
+<li><code>getBoundary()</code></li>
+<li><code>isWritable()</code></li>
+<li><code>getHeaders(array $headers)</code></li>
+<li><code>createStream(array $elements)</code></li>
+<li><code>addElement(AppendStream $stream, array $element)</code></li>
+<li><code>createElement($name, StreamInterface $stream, $filename, array $headers)</code></li>
+<li><code>getHeader(array $headers, $key)</code></li>
+</ul>
+</body></html>

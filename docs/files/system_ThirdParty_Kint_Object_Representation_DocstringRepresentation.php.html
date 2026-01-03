@@ -1,0 +1,38 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\ThirdParty\Kint\Object\Representation\DocstringRepresentation.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\ThirdParty\Kint\Object\Representation\DocstringRepresentation.php</h1>
+
+<ul>
+<li>Path: <code>system\ThirdParty\Kint\Object\Representation\DocstringRepresentation.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2611 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Returns the representation's docstring without surrounding comments.</p>
+<p>Note that this will not work flawlessly.</p>
+<p>On comments with whitespace after the stars the lines will begin with</p>
+<p>whitespace, since we can't accurately guess how much of an indentation</p>
+<p>is required.</p>
+<p>And on lines without stars on the left this may eat bullet points.</p>
+<p>Long story short: If you want the docstring read the contents. If you</p>
+<p>absolutely must have it without comments (ie renderValueShort) this will</p>
+<p>probably do.</p>
+<p>@return null|string Docstring with comments stripped</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\ThirdParty\Kint\Object\Representation\DocstringRepresentation.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Kint\Object\Representation\DocstringRepresentation extends Representation</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($docstring, $file, $line, $class = null)</code></li>
+<li><code>getDocstringWithoutComments()</code></li>
+</ul>
+</body></html>

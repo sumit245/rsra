@@ -5,6 +5,7 @@ namespace App\Models;
 use CodeIgniter\Model;
 
 //extend from this model to execute basic db operations
+#[\AllowDynamicProperties]
 class Crud_model extends Model
 {
 

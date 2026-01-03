@@ -1,0 +1,71 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\URIFilter.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\URIFilter.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\URIFilter.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2365 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Chainable filters for custom URI processing.</p>
+<p>These filters can perform custom actions on a URI filter object,</p>
+<p>including transformation or blacklisting.  A filter named Foo</p>
+<p>must have a corresponding configuration directive %URI.Foo,</p>
+<p>unless always_load is specified to be true.</p>
+<p>The following contexts may be available while URIFilters are being</p>
+<p>processed:</p>
+<p>     - EmbeddedURI: true if URI is an embedded resource that will</p>
+<p>       be loaded automatically on page load</p>
+<p>     - CurrentToken: a reference to the token that is currently</p>
+<p>       being processed</p>
+<p>     - CurrentAttr: the name of the attribute that is currently being</p>
+<p>       processed</p>
+<p>     - CurrentCSSProperty: the name of the CSS property that is</p>
+<p>       currently being processed (if applicable)</p>
+<p>@warning This filter is called before scheme object validation occurs.</p>
+<p>         Make sure, if you require a specific scheme object, you</p>
+<p>         you check that it exists. This allows filters to convert</p>
+<p>         proprietary URI schemes into regular ones.</p>
+
+<p>Unique identifier of filter.</p>
+<p>@type string</p>
+
+<p>True if this filter should be run after scheme validation.</p>
+<p>@type bool</p>
+
+<p>True if this filter should always be loaded.</p>
+<p>This permits a filter to be named Foo without the corresponding</p>
+<p>%URI.Foo directive existing.</p>
+<p>@type bool</p>
+
+<p>Performs initialization for the filter.  If the filter returns</p>
+<p>false, this means that it shouldn't be considered active.</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@return bool</p>
+
+<p>Filter a URI object</p>
+<p>@param HTMLPurifier_URI $uri Reference to URI object variable</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@param HTMLPurifier_Context $context</p>
+<p>@return bool Whether or not to continue processing: false indicates</p>
+<p>        URL is no good, true indicates continue processing. Note that</p>
+<p>        all changes are committed directly on the URI object</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\URIFilter.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>HTMLPurifier_URIFilter</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>prepare($config)</code></li>
+<li><code>filter(&$uri, $config, $context)</code></li>
+</ul>
+</body></html>

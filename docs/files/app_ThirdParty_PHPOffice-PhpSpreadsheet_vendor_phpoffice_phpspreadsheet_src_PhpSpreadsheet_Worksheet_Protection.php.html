@@ -1,0 +1,273 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\Protection.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\Protection.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\Protection.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 11913 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Sheet.</p>
+<p>@var bool</p>
+
+<p>Objects.</p>
+<p>@var bool</p>
+
+<p>Scenarios.</p>
+<p>@var bool</p>
+
+<p>Format cells.</p>
+<p>@var bool</p>
+
+<p>Format columns.</p>
+<p>@var bool</p>
+
+<p>Format rows.</p>
+<p>@var bool</p>
+
+<p>Insert columns.</p>
+<p>@var bool</p>
+
+<p>Insert rows.</p>
+<p>@var bool</p>
+
+<p>Insert hyperlinks.</p>
+<p>@var bool</p>
+
+<p>Delete columns.</p>
+<p>@var bool</p>
+
+<p>Delete rows.</p>
+<p>@var bool</p>
+
+<p>Select locked cells.</p>
+<p>@var bool</p>
+
+<p>Sort.</p>
+<p>@var bool</p>
+
+<p>AutoFilter.</p>
+<p>@var bool</p>
+
+<p>Pivot tables.</p>
+<p>@var bool</p>
+
+<p>Select unlocked cells.</p>
+<p>@var bool</p>
+
+<p>Hashed password.</p>
+<p>@var string</p>
+
+<p>Algorithm name.</p>
+<p>@var string</p>
+
+<p>Salt value.</p>
+<p>@var string</p>
+
+<p>Spin count.</p>
+<p>@var int</p>
+
+<p>Create a new Protection.</p>
+
+<p>Is some sort of protection enabled?</p>
+<p>@return bool</p>
+
+<p>Get Sheet.</p>
+<p>@return bool</p>
+
+<p>Set Sheet.</p>
+<p>@param bool $sheet</p>
+<p>@return $this</p>
+
+<p>Get Objects.</p>
+<p>@return bool</p>
+
+<p>Set Objects.</p>
+<p>@param bool $objects</p>
+<p>@return $this</p>
+
+<p>Get Scenarios.</p>
+<p>@return bool</p>
+
+<p>Set Scenarios.</p>
+<p>@param bool $scenarios</p>
+<p>@return $this</p>
+
+<p>Get FormatCells.</p>
+<p>@return bool</p>
+
+<p>Set FormatCells.</p>
+<p>@param bool $formatCells</p>
+<p>@return $this</p>
+
+<p>Get FormatColumns.</p>
+<p>@return bool</p>
+
+<p>Set FormatColumns.</p>
+<p>@param bool $formatColumns</p>
+<p>@return $this</p>
+
+<p>Get FormatRows.</p>
+<p>@return bool</p>
+
+<p>Set FormatRows.</p>
+<p>@param bool $formatRows</p>
+<p>@return $this</p>
+
+<p>Get InsertColumns.</p>
+<p>@return bool</p>
+
+<p>Set InsertColumns.</p>
+<p>@param bool $insertColumns</p>
+<p>@return $this</p>
+
+<p>Get InsertRows.</p>
+<p>@return bool</p>
+
+<p>Set InsertRows.</p>
+<p>@param bool $insertRows</p>
+<p>@return $this</p>
+
+<p>Get InsertHyperlinks.</p>
+<p>@return bool</p>
+
+<p>Set InsertHyperlinks.</p>
+<p>@param bool $insertHyperLinks</p>
+<p>@return $this</p>
+
+<p>Get DeleteColumns.</p>
+<p>@return bool</p>
+
+<p>Set DeleteColumns.</p>
+<p>@param bool $deleteColumns</p>
+<p>@return $this</p>
+
+<p>Get DeleteRows.</p>
+<p>@return bool</p>
+
+<p>Set DeleteRows.</p>
+<p>@param bool $deleteRows</p>
+<p>@return $this</p>
+
+<p>Get SelectLockedCells.</p>
+<p>@return bool</p>
+
+<p>Set SelectLockedCells.</p>
+<p>@param bool $selectLockedCells</p>
+<p>@return $this</p>
+
+<p>Get Sort.</p>
+<p>@return bool</p>
+
+<p>Set Sort.</p>
+<p>@param bool $sort</p>
+<p>@return $this</p>
+
+<p>Get AutoFilter.</p>
+<p>@return bool</p>
+
+<p>Set AutoFilter.</p>
+<p>@param bool $autoFilter</p>
+<p>@return $this</p>
+
+<p>Get PivotTables.</p>
+<p>@return bool</p>
+
+<p>Set PivotTables.</p>
+<p>@param bool $pivotTables</p>
+<p>@return $this</p>
+
+<p>Get SelectUnlockedCells.</p>
+<p>@return bool</p>
+
+<p>Set SelectUnlockedCells.</p>
+<p>@param bool $selectUnlockedCells</p>
+<p>@return $this</p>
+
+<p>Get hashed password.</p>
+<p>@return string</p>
+
+<p>Set Password.</p>
+<p>@param string $password</p>
+<p>@param bool $alreadyHashed If the password has already been hashed, set this to true</p>
+<p>@return $this</p>
+
+<p>Create a pseudorandom string.</p>
+
+<p>Get algorithm name.</p>
+
+<p>Set algorithm name.</p>
+
+<p>Get salt value.</p>
+
+<p>Set salt value.</p>
+
+<p>Get spin count.</p>
+
+<p>Set spin count.</p>
+
+<p>Verify that the given non-hashed password can "unlock" the protection.</p>
+
+<p>Implement PHP __clone to create a deep clone, not just a shallow copy.</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\Protection.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Worksheet\Protection</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>isProtectionEnabled()</code></li>
+<li><code>getSheet()</code></li>
+<li><code>setSheet($sheet)</code></li>
+<li><code>getObjects()</code></li>
+<li><code>setObjects($objects)</code></li>
+<li><code>getScenarios()</code></li>
+<li><code>setScenarios($scenarios)</code></li>
+<li><code>getFormatCells()</code></li>
+<li><code>setFormatCells($formatCells)</code></li>
+<li><code>getFormatColumns()</code></li>
+<li><code>setFormatColumns($formatColumns)</code></li>
+<li><code>getFormatRows()</code></li>
+<li><code>setFormatRows($formatRows)</code></li>
+<li><code>getInsertColumns()</code></li>
+<li><code>setInsertColumns($insertColumns)</code></li>
+<li><code>getInsertRows()</code></li>
+<li><code>setInsertRows($insertRows)</code></li>
+<li><code>getInsertHyperlinks()</code></li>
+<li><code>setInsertHyperlinks($insertHyperLinks)</code></li>
+<li><code>getDeleteColumns()</code></li>
+<li><code>setDeleteColumns($deleteColumns)</code></li>
+<li><code>getDeleteRows()</code></li>
+<li><code>setDeleteRows($deleteRows)</code></li>
+<li><code>getSelectLockedCells()</code></li>
+<li><code>setSelectLockedCells($selectLockedCells)</code></li>
+<li><code>getSort()</code></li>
+<li><code>setSort($sort)</code></li>
+<li><code>getAutoFilter()</code></li>
+<li><code>setAutoFilter($autoFilter)</code></li>
+<li><code>getPivotTables()</code></li>
+<li><code>setPivotTables($pivotTables)</code></li>
+<li><code>getSelectUnlockedCells()</code></li>
+<li><code>setSelectUnlockedCells($selectUnlockedCells)</code></li>
+<li><code>getPassword()</code></li>
+<li><code>setPassword($password, $alreadyHashed = false)</code></li>
+<li><code>generateSalt()</code></li>
+<li><code>getAlgorithm()</code></li>
+<li><code>setAlgorithm(string $algorithm)</code></li>
+<li><code>getSalt()</code></li>
+<li><code>setSalt(string $salt)</code></li>
+<li><code>getSpinCount()</code></li>
+<li><code>setSpinCount(int $spinCount)</code></li>
+<li><code>verify(string $password)</code></li>
+<li><code>__clone()</code></li>
+</ul>
+</body></html>

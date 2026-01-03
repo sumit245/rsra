@@ -88,3 +88,23 @@ $routes->post("Updates/(:any)", "Updates::$1");
 if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
+
+// Load plugin routes - define PLUGINPATH if not already defined
+if (!defined('PLUGINPATH')) {
+    define('PLUGINPATH', ROOTPATH . 'plugins/');
+}
+
+// Load activated plugins to determine which route files to include
+$activated_plugins_file = APPPATH . 'Config/activated_plugins.json';
+if (file_exists($activated_plugins_file)) {
+    $activated_plugins = json_decode(file_get_contents($activated_plugins_file), true);
+
+    if (is_array($activated_plugins)) {
+        foreach ($activated_plugins as $plugin) {
+            $plugin_route_file = PLUGINPATH . $plugin . '/Config/Routes.php';
+            if (file_exists($plugin_route_file)) {
+                require $plugin_route_file;
+            }
+        }
+    }
+}

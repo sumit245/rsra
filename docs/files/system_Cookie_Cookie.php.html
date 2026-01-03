@@ -1,0 +1,233 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Cookie\Cookie.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Cookie\Cookie.php</h1>
+
+<ul>
+<li>Path: <code>system\Cookie\Cookie.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 19403 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>A <code>Cookie</code> class represents an immutable HTTP cookie value object.</p>
+<p>Being immutable, modifying one or more of its attributes will return</p>
+<p>a new <code>Cookie</code> instance, rather than modifying itself. Users should</p>
+<p>reassign this new instance to a new variable to capture it.</p>
+<p>```php</p>
+<p>$cookie = new Cookie('test_cookie', 'test_value');</p>
+<p>$cookie->getName(); // test_cookie</p>
+<p>$cookie->withName('prod_cookie');</p>
+<p>$cookie->getName(); // test_cookie</p>
+<p>$cookie2 = $cookie->withName('prod_cookie');</p>
+<p>$cookie2->getName(); // prod_cookie</p>
+<p>```</p>
+
+<p>@var string</p>
+
+<p>@var string</p>
+
+<p>@var string</p>
+
+<p>@var int</p>
+
+<p>@var string</p>
+
+<p>@var string</p>
+
+<p>@var bool</p>
+
+<p>@var bool</p>
+
+<p>@var string</p>
+
+<p>@var bool</p>
+
+<p>Default attributes for a Cookie object. The keys here are the</p>
+<p>lowercase attribute names. Do not camelCase!</p>
+<p>@var array<string, mixed></p>
+
+<p>A cookie name can be any US-ASCII characters, except control characters,</p>
+<p>spaces, tabs, or separator characters.</p>
+<p>@see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#attributes</p>
+<p>@see https://tools.ietf.org/html/rfc2616#section-2.2</p>
+
+<p>Set the default attributes to a Cookie instance by injecting</p>
+<p>the values from the <code>CookieConfig</code> config or an array.</p>
+<p>This method is called from Response::__construct().</p>
+<p>@param array<string, mixed>|CookieConfig $config</p>
+<p>@return array<string, mixed> The old defaults array. Useful for resetting.</p>
+
+<p>Create a new Cookie instance from a <code>Set-Cookie</code> header.</p>
+<p>@throws CookieException</p>
+<p>@return static</p>
+
+<p>Construct a new Cookie instance.</p>
+<p>@param string               $name    The cookie's name</p>
+<p>@param string               $value   The cookie's value</p>
+<p>@param array<string, mixed> $options The cookie's options</p>
+<p>@throws CookieException</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>Whether an offset exists.</p>
+<p>@param mixed $offset</p>
+
+<p>Offset to retrieve.</p>
+<p>@param mixed $offset</p>
+<p>@throws InvalidArgumentException</p>
+<p>@return mixed</p>
+
+<p>Offset to set.</p>
+<p>@param mixed $offset</p>
+<p>@param mixed $value</p>
+<p>@throws LogicException</p>
+
+<p>Offset to unset.</p>
+<p>@param mixed $offset</p>
+<p>@throws LogicException</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>{@inheritDoc}</p>
+
+<p>Converts expires time to Unix format.</p>
+<p>@param DateTimeInterface|int|string $expires</p>
+
+<p>Validates the cookie name per RFC 2616.</p>
+<p>If <code>$raw</code> is true, names should not contain invalid characters</p>
+<p>as <code>setrawcookie()</code> will reject this.</p>
+<p>@throws CookieException</p>
+
+<p>Validates the special prefixes if some attribute requirements are met.</p>
+<p>@throws CookieException</p>
+
+<p>Validates the <code>SameSite</code> to be within the allowed types.</p>
+<p>@throws CookieException</p>
+<p>@see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>Response</code></li>
+<li><code>a</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Cookie\Cookie.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Cookie\represents</code></li>
+<li><code>CodeIgniter\Cookie\Cookie implements ArrayAccess, CloneableCookieInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>setDefaults($config = [])</code></li>
+<li><code>fromHeaderString(string $cookie, bool $raw = false)</code></li>
+<li><code>__construct(string $name, string $value = '', array $options = [])</code></li>
+<li><code>getId()</code></li>
+<li><code>getPrefix()</code></li>
+<li><code>getName()</code></li>
+<li><code>getPrefixedName()</code></li>
+<li><code>getValue()</code></li>
+<li><code>getExpiresTimestamp()</code></li>
+<li><code>getExpiresString()</code></li>
+<li><code>isExpired()</code></li>
+<li><code>getMaxAge()</code></li>
+<li><code>getPath()</code></li>
+<li><code>getDomain()</code></li>
+<li><code>isSecure()</code></li>
+<li><code>isHTTPOnly()</code></li>
+<li><code>getSameSite()</code></li>
+<li><code>isRaw()</code></li>
+<li><code>getOptions()</code></li>
+<li><code>withPrefix(string $prefix = '')</code></li>
+<li><code>withName(string $name)</code></li>
+<li><code>withValue(string $value)</code></li>
+<li><code>withExpires($expires)</code></li>
+<li><code>withExpired()</code></li>
+<li><code>withNeverExpiring()</code></li>
+<li><code>withPath(?string $path)</code></li>
+<li><code>withDomain(?string $domain)</code></li>
+<li><code>withSecure(bool $secure = true)</code></li>
+<li><code>withHTTPOnly(bool $httponly = true)</code></li>
+<li><code>withSameSite(string $samesite)</code></li>
+<li><code>withRaw(bool $raw = true)</code></li>
+<li><code>offsetExists($offset)</code></li>
+<li><code>offsetGet($offset)</code></li>
+<li><code>offsetSet($offset, $value)</code></li>
+<li><code>offsetUnset($offset)</code></li>
+<li><code>toHeaderString()</code></li>
+<li><code>__toString()</code></li>
+<li><code>toArray()</code></li>
+<li><code>convertExpiresTimestamp($expires = 0)</code></li>
+<li><code>validateName(string $name, bool $raw)</code></li>
+<li><code>validatePrefix(string $prefix, bool $secure, string $path, string $domain)</code></li>
+<li><code>validateSameSite(string $samesite, bool $secure)</code></li>
+</ul>
+</body></html>

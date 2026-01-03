@@ -1,0 +1,92 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Statistical\Distributions\Beta.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Statistical\Distributions\Beta.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Statistical\Distributions\Beta.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9567 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>BETADIST.</p>
+<p>Returns the beta distribution.</p>
+<p>@param mixed $value Float value at which you want to evaluate the distribution</p>
+<p>                     Or can be an array of values</p>
+<p>@param mixed $alpha Parameter to the distribution as a float</p>
+<p>                     Or can be an array of values</p>
+<p>@param mixed $beta Parameter to the distribution as a float</p>
+<p>                     Or can be an array of values</p>
+<p>@param mixed $rMin as an float</p>
+<p>                     Or can be an array of values</p>
+<p>@param mixed $rMax as an float</p>
+<p>                     Or can be an array of values</p>
+<p>@return array|float|string</p>
+<p>        If an array of numbers is passed as an argument, then the returned result will also be an array</p>
+<p>           with the same dimensions</p>
+
+<p>BETAINV.</p>
+<p>Returns the inverse of the Beta distribution.</p>
+<p>@param mixed $probability Float probability at which you want to evaluate the distribution</p>
+<p>                     Or can be an array of values</p>
+<p>@param mixed $alpha Parameter to the distribution as a float</p>
+<p>                     Or can be an array of values</p>
+<p>@param mixed $beta Parameter to the distribution as a float</p>
+<p>                     Or can be an array of values</p>
+<p>@param mixed $rMin Minimum value as a float</p>
+<p>                     Or can be an array of values</p>
+<p>@param mixed $rMax Maximum value as a float</p>
+<p>                     Or can be an array of values</p>
+<p>@return array|float|string</p>
+<p>        If an array of numbers is passed as an argument, then the returned result will also be an array</p>
+<p>           with the same dimensions</p>
+
+<p>@return float|string</p>
+
+<p>Incomplete beta function.</p>
+<p>@author Jaco van Kooten</p>
+<p>@author Paul Meagher</p>
+<p>The computation is based on formulas from Numerical Recipes, Chapter 6.4 (W.H. Press et al, 1992).</p>
+<p>@param float $x require 0<=x<=1</p>
+<p>@param float $p require p>0</p>
+<p>@param float $q require q>0</p>
+<p>@return float 0 if x<0, p<=0, q<=0 or p+q>2.55E305 and 1 if x>1 to avoid errors and over/underflow</p>
+
+<p>The natural logarithm of the beta function.</p>
+<p>@param float $p require p>0</p>
+<p>@param float $q require q>0</p>
+<p>@return float 0 if p<=0, q<=0 or p+q>2.55E305 to avoid errors and over/underflow</p>
+<p>@author Jaco van Kooten</p>
+
+<p>Evaluates of continued fraction part of incomplete beta function.</p>
+<p>Based on an idea from Numerical Recipes (W.H. Press et al, 1992).</p>
+<p>@author Jaco van Kooten</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>Numerical</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Statistical\Distributions\Beta.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\Statistical\Distributions\Beta</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>distribution($value, $alpha, $beta, $rMin = 0.0, $rMax = 1.0)</code></li>
+<li><code>inverse($probability, $alpha, $beta, $rMin = 0.0, $rMax = 1.0)</code></li>
+<li><code>calculateInverse(float $probability, float $alpha, float $beta, float $rMin, float $rMax)</code></li>
+<li><code>incompleteBeta(float $x, float $p, float $q)</code></li>
+<li><code>logBeta(float $p, float $q)</code></li>
+<li><code>betaFraction(float $x, float $p, float $q)</code></li>
+<li><code>betaValue(float $a, float $b)</code></li>
+<li><code>regularizedIncompleteBeta(float $value, float $a, float $b)</code></li>
+</ul>
+</body></html>

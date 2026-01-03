@@ -1,0 +1,308 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\Core32\Int32.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\Core32\Int32.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\Core32\Int32.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 24542 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Class ParagonIE_Sodium_Core32_Int32</p>
+<p>Encapsulates a 32-bit integer.</p>
+<p>These are immutable. It always returns a new instance.</p>
+
+<p>@var array<int, int> - two 16-bit integers</p>
+<p>0 is the higher 16 bits</p>
+<p>1 is the lower 16 bits</p>
+
+<p>@var int</p>
+
+<p>@var bool</p>
+
+<p>ParagonIE_Sodium_Core32_Int32 constructor.</p>
+<p>@param array $array</p>
+<p>@param bool $unsignedInt</p>
+
+<p>Adds two int32 objects</p>
+<p>@param ParagonIE_Sodium_Core32_Int32 $addend</p>
+<p>@return ParagonIE_Sodium_Core32_Int32</p>
+
+<p>Adds a normal integer to an int32 object</p>
+<p>@param int $int</p>
+<p>@return ParagonIE_Sodium_Core32_Int32</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var int $int</p>
+
+<p>@param int $b</p>
+<p>@return int</p>
+
+<p>@var int $x1</p>
+
+<p>@var int $x2</p>
+
+<p>@var int $gt</p>
+
+<p>@var int $eq</p>
+
+<p>@param int $m</p>
+<p>@return ParagonIE_Sodium_Core32_Int32</p>
+
+<p>@var int $hi</p>
+
+<p>@var int $lo</p>
+
+<p>@param array<int, int> $a</p>
+<p>@param array<int, int> $b</p>
+<p>@param int $baseLog2</p>
+<p>@return array<int, int></p>
+
+<p>@var array<int, int> $r</p>
+
+<p>@param int $int</p>
+<p>@return ParagonIE_Sodium_Core32_Int32</p>
+
+<p>@param ParagonIE_Sodium_Core32_Int32 $right</p>
+<p>@return ParagonIE_Sodium_Core32_Int32</p>
+
+<p>@param int $int</p>
+<p>@param int $size</p>
+<p>@return ParagonIE_Sodium_Core32_Int32</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var int $int</p>
+
+<p>@var int $size</p>
+
+<p>@var int $size</p>
+
+<p>@var int $size</p>
+
+<p>@var int $i</p>
+
+<p>@param ParagonIE_Sodium_Core32_Int32 $int</p>
+<p>@param int $size</p>
+<p>@return ParagonIE_Sodium_Core32_Int32</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var int $size</p>
+
+<p>@var int $size</p>
+
+<p>@var int $i</p>
+
+<p>OR this 32-bit integer with another.</p>
+<p>@param ParagonIE_Sodium_Core32_Int32 $b</p>
+<p>@return ParagonIE_Sodium_Core32_Int32</p>
+
+<p>@var int overflow</p>
+
+<p>@param int $b</p>
+<p>@return bool</p>
+
+<p>@param int $b</p>
+<p>@return bool</p>
+
+<p>@param int $c</p>
+<p>@return ParagonIE_Sodium_Core32_Int32</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArrayAccess</p>
+
+<p>@var int $c</p>
+
+<p>@var int $c</p>
+
+<p>@var int $idx_shift</p>
+
+<p>@var int $sub_shift</p>
+
+<p>@var array<int, int> $limbs</p>
+
+<p>@var array<int, int> $myLimbs</p>
+
+<p>@var int $j</p>
+
+<p>@var int $k</p>
+
+<p>Rotate to the right</p>
+<p>@param int $c</p>
+<p>@return ParagonIE_Sodium_Core32_Int32</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArrayAccess</p>
+
+<p>@var int $c</p>
+
+<p>@var int $c</p>
+
+<p>@var int $c</p>
+
+<p>@var int $idx_shift</p>
+
+<p>@var int $sub_shift</p>
+
+<p>@var array<int, int> $limbs</p>
+
+<p>@var array<int, int> $myLimbs</p>
+
+<p>@var int $j</p>
+
+<p>@var int $k</p>
+
+<p>@param bool $bool</p>
+<p>@return self</p>
+
+<p>@param int $c</p>
+<p>@return ParagonIE_Sodium_Core32_Int32</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var int $c</p>
+
+<p>@var int $c</p>
+
+<p>@var int $c</p>
+
+<p>@var int $c</p>
+
+<p>@var int $tmp</p>
+
+<p>@var int $carry</p>
+
+<p>@var int $tmp</p>
+
+<p>@param int $c</p>
+<p>@return ParagonIE_Sodium_Core32_Int32</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedAssignment</p>
+<p>@psalm-suppress MixedOperand</p>
+
+<p>@var int $c</p>
+
+<p>@var int $c</p>
+
+<p>@var int $c</p>
+
+<p>@var int $c</p>
+
+<p>Subtract a normal integer from an int32 object.</p>
+<p>@param int $int</p>
+<p>@return ParagonIE_Sodium_Core32_Int32</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var int $int</p>
+
+<p>@var int $tmp</p>
+
+<p>@var int $carry</p>
+
+<p>@var int $tmp</p>
+
+<p>Subtract two int32 objects from each other</p>
+<p>@param ParagonIE_Sodium_Core32_Int32 $b</p>
+<p>@return ParagonIE_Sodium_Core32_Int32</p>
+
+<p>@var int $tmp</p>
+
+<p>@var int $carry</p>
+
+<p>@var int $tmp</p>
+
+<p>XOR this 32-bit integer with another.</p>
+<p>@param ParagonIE_Sodium_Core32_Int32 $b</p>
+<p>@return ParagonIE_Sodium_Core32_Int32</p>
+
+<p>@param int $signed</p>
+<p>@return self</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var int $signed</p>
+
+<p>@param string $string</p>
+<p>@return self</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@param string $string</p>
+<p>@return self</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@return array<int, int></p>
+
+<p>@return string</p>
+<p>@throws TypeError</p>
+
+<p>@return int</p>
+
+<p>@return ParagonIE_Sodium_Core32_Int32</p>
+
+<p>@return ParagonIE_Sodium_Core32_Int64</p>
+
+<p>@return string</p>
+<p>@throws TypeError</p>
+
+<p>@return string</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>an</code></li>
+<li><code>each</code></li>
+<li><code>__toString</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\Core32\Int32.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ParagonIE_Sodium_Core32_Int32</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($array = array(0, 0)</code></li>
+<li><code>addInt32(ParagonIE_Sodium_Core32_Int32 $addend)</code></li>
+<li><code>addInt($int)</code></li>
+<li><code>compareInt($b = 0)</code></li>
+<li><code>mask($m = 0)</code></li>
+<li><code>multiplyLong(array $a, array $b, $baseLog2 = 16)</code></li>
+<li><code>mulIntFast($int)</code></li>
+<li><code>mulInt32Fast(ParagonIE_Sodium_Core32_Int32 $right)</code></li>
+<li><code>mulInt($int = 0, $size = 0)</code></li>
+<li><code>mulInt32(ParagonIE_Sodium_Core32_Int32 $int, $size = 0)</code></li>
+<li><code>orInt32(ParagonIE_Sodium_Core32_Int32 $b)</code></li>
+<li><code>isGreaterThan($b = 0)</code></li>
+<li><code>isLessThanInt($b = 0)</code></li>
+<li><code>rotateLeft($c = 0)</code></li>
+<li><code>rotateRight($c = 0)</code></li>
+<li><code>setUnsignedInt($bool = false)</code></li>
+<li><code>shiftLeft($c = 0)</code></li>
+<li><code>shiftRight($c = 0)</code></li>
+<li><code>subInt($int)</code></li>
+<li><code>subInt32(ParagonIE_Sodium_Core32_Int32 $b)</code></li>
+<li><code>xorInt32(ParagonIE_Sodium_Core32_Int32 $b)</code></li>
+<li><code>fromInt($signed)</code></li>
+<li><code>fromString($string)</code></li>
+<li><code>fromReverseString($string)</code></li>
+<li><code>toArray()</code></li>
+<li><code>toString()</code></li>
+<li><code>toInt()</code></li>
+<li><code>toInt32()</code></li>
+<li><code>toInt64()</code></li>
+<li><code>toReverseString()</code></li>
+<li><code>__toString()</code></li>
+</ul>
+</body></html>

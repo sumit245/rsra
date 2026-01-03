@@ -1,0 +1,130 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Container.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Container.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Container.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7770 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Dependency injection container for use by ZBateson\MailMimeParser - because a</p>
+<p>more complex one seems like overkill.</p>
+
+<p>Constructs objects and whatever dependencies they require.</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var PartBuilderFactory The PartBuilderFactory instance</p>
+
+<p>@var PartFactoryService The PartFactoryService instance</p>
+
+<p>@var PartFilterFactory The PartFilterFactory instance</p>
+
+<p>@var PartStreamFilterManagerFactory The PartStreamFilterManagerFactory</p>
+<p>     instance</p>
+
+<p>@var \ZBateson\MailMimeParser\Header\HeaderFactory singleton 'service'</p>
+<p>instance</p>
+
+<p>@var \ZBateson\MailMimeParser\Header\Part\HeaderPartFactory singleton</p>
+<p>'service' instance</p>
+
+<p>@var \ZBateson\MailMimeParser\Header\Part\MimeLiteralPartFactory</p>
+<p>singleton 'service' instance</p>
+
+<p>@var \ZBateson\MailMimeParser\Header\Consumer\ConsumerService singleton</p>
+<p>'service' instance</p>
+
+<p>@var MessageHelperService Used to get MessageHelper singletons</p>
+
+<p>@var StreamFactory</p>
+
+<p>Constructs a Container - call singleton() to invoke</p>
+
+<p>Returns a singleton 'service' instance for the given service named $var</p>
+<p>with a class type of $class.</p>
+
+<p>@param string $var the name of the service</p>
+<p>@param string $class the name of the class</p>
+<p>@return mixed the service object</p>
+
+<p>Constructs and returns a new MessageParser object.</p>
+
+<p>@return \ZBateson\MailMimeParser\Message\MessageParser</p>
+
+<p>Returns a MessageHelperService instance.</p>
+
+<p>@return MessageHelperService</p>
+
+<p>Returns a PartFilterFactory instance</p>
+<p>@return PartFilterFactory</p>
+
+<p>Returns a PartFactoryService singleton.</p>
+
+<p>@return PartFactoryService</p>
+
+<p>Returns a PartBuilderFactory instance.</p>
+
+<p>@return PartBuilderFactory</p>
+
+<p>Returns the header factory service instance.</p>
+
+<p>@return \ZBateson\MailMimeParser\Header\HeaderFactory</p>
+
+<p>Returns a StreamFactory.</p>
+<p>@return StreamFactory</p>
+
+<p>Returns a PartStreamFilterManagerFactory.</p>
+
+<p>@return PartStreamFilterManagerFactory</p>
+
+<p>Returns a MbWrapper.</p>
+
+<p>@return MbWrapper</p>
+
+<p>Returns the part factory service</p>
+
+<p>@return \ZBateson\MailMimeParser\Header\Part\HeaderPartFactory</p>
+
+<p>Returns the MimeLiteralPartFactory service</p>
+
+<p>@return \ZBateson\MailMimeParser\Header\Part\MimeLiteralPartFactory</p>
+
+<p>Returns the header consumer service</p>
+
+<p>@return \ZBateson\MailMimeParser\Header\Consumer\ConsumerService</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Container.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Container</code></li>
+<li><code>ZBateson\MailMimeParser\type</code></li>
+<li><code>ZBateson\MailMimeParser\the</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>getInstance($var, $class)</code></li>
+<li><code>newMessageParser()</code></li>
+<li><code>getMessageHelperService()</code></li>
+<li><code>getPartFilterFactory()</code></li>
+<li><code>getPartFactoryService()</code></li>
+<li><code>getPartBuilderFactory()</code></li>
+<li><code>getHeaderFactory()</code></li>
+<li><code>getStreamFactory()</code></li>
+<li><code>getPartStreamFilterManagerFactory()</code></li>
+<li><code>getCharsetConverter()</code></li>
+<li><code>getHeaderPartFactory()</code></li>
+<li><code>getMimeLiteralPartFactory()</code></li>
+<li><code>getConsumerService()</code></li>
+</ul>
+</body></html>

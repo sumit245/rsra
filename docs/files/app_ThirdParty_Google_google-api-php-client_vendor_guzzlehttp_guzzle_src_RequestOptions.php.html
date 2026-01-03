@@ -1,0 +1,187 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\RequestOptions.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\RequestOptions.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\RequestOptions.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 10025 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This class contains a list of built-in Guzzle request options.</p>
+<p>More documentation for each option can be found at http://guzzlephp.org/.</p>
+<p>@link http://docs.guzzlephp.org/en/v6/request-options.html</p>
+
+<p>allow_redirects: (bool|array) Controls redirect behavior. Pass false</p>
+<p>to disable redirects, pass true to enable redirects, pass an</p>
+<p>associative to provide custom redirect settings. Defaults to "false".</p>
+<p>This option only works if your handler has the RedirectMiddleware. When</p>
+<p>passing an associative array, you can provide the following key value</p>
+<p>pairs:</p>
+<ul>
+<li>max: (int, default=5) maximum number of allowed redirects.</li>
+<li>strict: (bool, default=false) Set to true to use strict redirects</li>
+<p>  meaning redirect POST requests with POST requests vs. doing what most</p>
+<p>  browsers do which is redirect POST requests with GET requests</p>
+<li>referer: (bool, default=true) Set to false to disable the Referer</li>
+<p>  header.</p>
+<li>protocols: (array, default=['http', 'https']) Allowed redirect</li>
+<p>  protocols.</p>
+<li>on_redirect: (callable) PHP callable that is invoked when a redirect</li>
+<p>  is encountered. The callable is invoked with the request, the redirect</p>
+<p>  response that was received, and the effective URI. Any return value</p>
+<p>  from the on_redirect function is ignored.</p>
+</ul>
+<p>auth: (array) Pass an array of HTTP authentication parameters to use</p>
+<p>with the request. The array must contain the username in index [0],</p>
+<p>the password in index [1], and you can optionally provide a built-in</p>
+<p>authentication type in index [2]. Pass null to disable authentication</p>
+<p>for a request.</p>
+
+<p>body: (resource|string|null|int|float|StreamInterface|callable|\Iterator)</p>
+<p>Body to send in the request.</p>
+
+<p>cert: (string|array) Set to a string to specify the path to a file</p>
+<p>containing a PEM formatted SSL client side certificate. If a password</p>
+<p>is required, then set cert to an array containing the path to the PEM</p>
+<p>file in the first array element followed by the certificate password</p>
+<p>in the second array element.</p>
+
+<p>cookies: (bool|GuzzleHttp\Cookie\CookieJarInterface, default=false)</p>
+<p>Specifies whether or not cookies are used in a request or what cookie</p>
+<p>jar to use or what cookies to send. This option only works if your</p>
+<p>handler has the <code>cookie</code> middleware. Valid values are <code>false</code> and</p>
+<p>an instance of {@see GuzzleHttp\Cookie\CookieJarInterface}.</p>
+
+<p>connect_timeout: (float, default=0) Float describing the number of</p>
+<p>seconds to wait while trying to connect to a server. Use 0 to wait</p>
+<p>indefinitely (the default behavior).</p>
+
+<p>debug: (bool|resource) Set to true or set to a PHP stream returned by</p>
+<p>fopen()  enable debug output with the HTTP handler used to send a</p>
+<p>request.</p>
+
+<p>decode_content: (bool, default=true) Specify whether or not</p>
+<p>Content-Encoding responses (gzip, deflate, etc.) are automatically</p>
+<p>decoded.</p>
+
+<p>delay: (int) The amount of time to delay before sending in milliseconds.</p>
+
+<p>expect: (bool|integer) Controls the behavior of the</p>
+<p>"Expect: 100-Continue" header.</p>
+<p>Set to <code>true</code> to enable the "Expect: 100-Continue" header for all</p>
+<p>requests that sends a body. Set to <code>false</code> to disable the</p>
+<p>"Expect: 100-Continue" header for all requests. Set to a number so that</p>
+<p>the size of the payload must be greater than the number in order to send</p>
+<p>the Expect header. Setting to a number will send the Expect header for</p>
+<p>all requests in which the size of the payload cannot be determined or</p>
+<p>where the body is not rewindable.</p>
+<p>By default, Guzzle will add the "Expect: 100-Continue" header when the</p>
+<p>size of the body of a request is greater than 1 MB and a request is</p>
+<p>using HTTP/1.1.</p>
+
+<p>form_params: (array) Associative array of form field names to values</p>
+<p>where each value is a string or array of strings. Sets the Content-Type</p>
+<p>header to application/x-www-form-urlencoded when no Content-Type header</p>
+<p>is already present.</p>
+
+<p>headers: (array) Associative array of HTTP headers. Each value MUST be</p>
+<p>a string or array of strings.</p>
+
+<p>http_errors: (bool, default=true) Set to false to disable exceptions</p>
+<p>when a non- successful HTTP response is received. By default,</p>
+<p>exceptions will be thrown for 4xx and 5xx responses. This option only</p>
+<p>works if your handler has the <code>httpErrors</code> middleware.</p>
+
+<p>json: (mixed) Adds JSON data to a request. The provided value is JSON</p>
+<p>encoded and a Content-Type header of application/json will be added to</p>
+<p>the request if no Content-Type header is already present.</p>
+
+<p>multipart: (array) Array of associative arrays, each containing a</p>
+<p>required "name" key mapping to the form field, name, a required</p>
+<p>"contents" key mapping to a StreamInterface|resource|string, an</p>
+<p>optional "headers" associative array of custom headers, and an</p>
+<p>optional "filename" key mapping to a string to send as the filename in</p>
+<p>the part. If no "filename" key is present, then no "filename" attribute</p>
+<p>will be added to the part.</p>
+
+<p>on_headers: (callable) A callable that is invoked when the HTTP headers</p>
+<p>of the response have been received but the body has not yet begun to</p>
+<p>download.</p>
+
+<p>on_stats: (callable) allows you to get access to transfer statistics of</p>
+<p>a request and access the lower level transfer details of the handler</p>
+<p>associated with your client. `<code>on_stats</code>` is a callable that is invoked</p>
+<p>when a handler has finished sending a request. The callback is invoked</p>
+<p>with transfer statistics about the request, the response received, or</p>
+<p>the error encountered. Included in the data is the total amount of time</p>
+<p>taken to send the request.</p>
+
+<p>progress: (callable) Defines a function to invoke when transfer</p>
+<p>progress is made. The function accepts the following positional</p>
+<p>arguments: the total number of bytes expected to be downloaded, the</p>
+<p>number of bytes downloaded so far, the number of bytes expected to be</p>
+<p>uploaded, the number of bytes uploaded so far.</p>
+
+<p>proxy: (string|array) Pass a string to specify an HTTP proxy, or an</p>
+<p>array to specify different proxies for different protocols (where the</p>
+<p>key is the protocol and the value is a proxy string).</p>
+
+<p>query: (array|string) Associative array of query string values to add</p>
+<p>to the request. This option uses PHP's http_build_query() to create</p>
+<p>the string representation. Pass a string value if you need more</p>
+<p>control than what this method provides</p>
+
+<p>sink: (resource|string|StreamInterface) Where the data of the</p>
+<p>response is written to. Defaults to a PHP temp stream. Providing a</p>
+<p>string will write data to a file by the given name.</p>
+
+<p>synchronous: (bool) Set to true to inform HTTP handlers that you intend</p>
+<p>on waiting on the response. This can be useful for optimizations. Note</p>
+<p>that a promise is still returned if you are using one of the async</p>
+<p>client methods.</p>
+
+<p>ssl_key: (array|string) Specify the path to a file containing a private</p>
+<p>SSL key in PEM format. If a password is required, then set to an array</p>
+<p>containing the path to the SSL key in the first array element followed</p>
+<p>by the password required for the certificate in the second element.</p>
+
+<p>stream: Set to true to attempt to stream a response rather than</p>
+<p>download it all up-front.</p>
+
+<p>verify: (bool|string, default=true) Describes the SSL certificate</p>
+<p>verification behavior of a request. Set to true to enable SSL</p>
+<p>certificate verification using the system CA bundle when available</p>
+<p>(the default). Set to false to disable certificate verification (this</p>
+<p>is insecure!). Set to a string to provide the path to a CA bundle on</p>
+<p>disk to enable verification using a custom certificate.</p>
+
+<p>timeout: (float, default=0) Float describing the timeout of the</p>
+<p>request in seconds. Use 0 to wait indefinitely (the default behavior).</p>
+
+<p>read_timeout: (float, default=default_socket_timeout ini setting) Float describing</p>
+<p>the body read timeout, for stream requests.</p>
+
+<p>version: (float) Specifies the HTTP protocol version to attempt to use.</p>
+
+<p>force_ip_resolve: (bool) Force client to use only ipv4 or ipv6 protocol</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\RequestOptions.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>GuzzleHttp\contains</code></li>
+<li><code>GuzzleHttp\RequestOptions</code></li>
+</ul>
+</body></html>

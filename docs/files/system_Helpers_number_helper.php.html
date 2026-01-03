@@ -1,0 +1,58 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Helpers\number_helper.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Helpers\number_helper.php</h1>
+
+<ul>
+<li>Path: <code>system\Helpers\number_helper.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7062 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Formats a numbers as bytes, based on size, and adds the appropriate suffix</p>
+<p>@param mixed  $num    Will be cast as int</p>
+<p>@param string $locale</p>
+<p>@return bool|string</p>
+
+<p>Converts numbers to a more readable representation</p>
+<p>when dealing with very large numbers (in the thousands or above),</p>
+<p>up to the quadrillions, because you won't often deal with numbers</p>
+<p>larger than that.</p>
+<p>It uses the "short form" numbering system as this is most commonly</p>
+<p>used within most English-speaking countries today.</p>
+<p>@see https://simple.wikipedia.org/wiki/Names_for_large_numbers</p>
+<p>@param string $num</p>
+<p>@return bool|string</p>
+
+<p>A general purpose, locale-aware, number_format method.</p>
+<p>Used by all of the functions of the number_helper.</p>
+
+<p>Convert a number to a roman numeral.</p>
+<p>@param string $num it will convert to int</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Helpers\number_helper.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>number_to_size($num, int $precision = 1, ?string $locale = null)</code></li>
+<li><code>number_to_amount($num, int $precision = 0, ?string $locale = null)</code></li>
+<li><code>number_to_currency(float $num, string $currency, ?string $locale = null, int $fraction = 0)</code></li>
+<li><code>format_number(float $num, int $precision = 1, ?string $locale = null, array $options = [])</code></li>
+<li><code>number_to_roman(string $num)</code></li>
+</ul>
+</body></html>

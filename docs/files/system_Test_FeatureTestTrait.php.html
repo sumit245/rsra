@@ -1,0 +1,141 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Test\FeatureTestTrait.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Test\FeatureTestTrait.php</h1>
+
+<ul>
+<li>Path: <code>system\Test\FeatureTestTrait.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 10330 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Trait FeatureTestTrait</p>
+<p>Provides additional utilities for doing full HTTP testing</p>
+<p>against your application in trait format.</p>
+
+<p>Sets a RouteCollection that will override</p>
+<p>the application's route collection.</p>
+<p>Example routes:</p>
+<p>[</p>
+<p>   ['get', 'home', 'Home::index']</p>
+<p>]</p>
+<p>@param array $routes</p>
+<p>@return $this</p>
+
+<p>Sets any values that should exist during this session.</p>
+<p>@param array|null $values Array of values, or null to use the current $_SESSION</p>
+<p>@return $this</p>
+
+<p>Set request's headers</p>
+<p>Example of use</p>
+<p>withHeaders([</p>
+<p> 'Authorization' => 'Token'</p>
+<p>])</p>
+<p>@param array $headers Array of headers</p>
+<p>@return $this</p>
+
+<p>Set the format the request's body should have.</p>
+<p>@param string $format The desired format. Currently supported formats: xml, json</p>
+<p>@return $this</p>
+
+<p>Set the raw body for the request</p>
+<p>@param mixed $body</p>
+<p>@return $this</p>
+
+<p>Don't run any events while running this test.</p>
+<p>@return $this</p>
+
+<p>Calls a single URI, executes it, and returns a TestResponse</p>
+<p>instance that can be used to run many assertions against.</p>
+<p>@throws RedirectException</p>
+<p>@throws Exception</p>
+<p>@return TestResponse</p>
+
+<p>@var RouteCollection $routes</p>
+
+<p>Performs a GET request.</p>
+<p>@throws RedirectException</p>
+<p>@throws Exception</p>
+<p>@return TestResponse</p>
+
+<p>Performs a POST request.</p>
+<p>@throws RedirectException</p>
+<p>@throws Exception</p>
+<p>@return TestResponse</p>
+
+<p>Performs a PUT request</p>
+<p>@throws RedirectException</p>
+<p>@throws Exception</p>
+<p>@return TestResponse</p>
+
+<p>Performss a PATCH request</p>
+<p>@throws RedirectException</p>
+<p>@throws Exception</p>
+<p>@return TestResponse</p>
+
+<p>Performs a DELETE request.</p>
+<p>@throws RedirectException</p>
+<p>@throws Exception</p>
+<p>@return TestResponse</p>
+
+<p>Performs an OPTIONS request.</p>
+<p>@throws RedirectException</p>
+<p>@throws Exception</p>
+<p>@return TestResponse</p>
+
+<p>Setup a Request object to use so that CodeIgniter</p>
+<p>won't try to auto-populate some of the items.</p>
+
+<p>Setup the custom request's headers</p>
+<p>@return IncomingRequest</p>
+
+<p>Populates the data of our Request with "global" data</p>
+<p>relevant to the request, like $_POST data.</p>
+<p>Always populate the GET vars based on the URI.</p>
+<p>@throws ReflectionException</p>
+<p>@return Request</p>
+
+<p>Set the request's body formatted according to the value in $this->bodyFormat.</p>
+<p>This allows the body to be formatted in a way that the controller is going to</p>
+<p>expect as in the case of testing a JSON or XML API.</p>
+<p>@param array|null $params The parameters to be formatted and put in the body. If this is empty, it will get the</p>
+<p>                          what has been loaded into the request global of the request class.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Test\FeatureTestTrait.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>withRoutes(?array $routes = null)</code></li>
+<li><code>withSession(?array $values = null)</code></li>
+<li><code>withHeaders(array $headers = [])</code></li>
+<li><code>withBodyFormat(string $format)</code></li>
+<li><code>withBody($body)</code></li>
+<li><code>skipEvents()</code></li>
+<li><code>call(string $method, string $path, ?array $params = null)</code></li>
+<li><code>get(string $path, ?array $params = null)</code></li>
+<li><code>post(string $path, ?array $params = null)</code></li>
+<li><code>put(string $path, ?array $params = null)</code></li>
+<li><code>patch(string $path, ?array $params = null)</code></li>
+<li><code>delete(string $path, ?array $params = null)</code></li>
+<li><code>options(string $path, ?array $params = null)</code></li>
+<li><code>setupRequest(string $method, ?string $path = null)</code></li>
+<li><code>setupHeaders(IncomingRequest $request)</code></li>
+<li><code>populateGlobals(string $method, Request $request, ?array $params = null)</code></li>
+<li><code>setRequestBody(Request $request, ?array $params = null)</code></li>
+</ul>
+</body></html>

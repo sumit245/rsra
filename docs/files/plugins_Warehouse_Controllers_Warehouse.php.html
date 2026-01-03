@@ -1,0 +1,1265 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\Warehouse\Controllers\Warehouse.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\Warehouse\Controllers\Warehouse.php</h1>
+
+<ul>
+<li>Path: <code>plugins\Warehouse\Controllers\Warehouse.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 308192 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>table commodity list</p>
+<p>@return [type]</p>
+
+<p>modal form</p>
+<p>@return [type]</p>
+
+<p>general</p>
+<p>@return [type]</p>
+
+<p>commodity types</p>
+<p>@return [type]</p>
+
+<p>list commodity type data</p>
+<p>@return [type]</p>
+
+<p>_make commodity type row</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>commodity type modal form</p>
+<p>@return [type]</p>
+
+<p>commodity type</p>
+<p>@param  integer $id</p>
+<p>@return redirect</p>
+
+<p>delete commodity type</p>
+<p>@param  integer $id</p>
+<p>@return redirect</p>
+
+<p>units</p>
+<p>@return [type]</p>
+
+<p>list commodity type data</p>
+<p>@return [type]</p>
+
+<p>_make commodity type row</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>commodity type modal form</p>
+<p>@return [type]</p>
+
+<p>unit type</p>
+<p>@param  integer $id</p>
+<p>@return redirect</p>
+
+<p>delete unit type</p>
+<p>@param  integer $id</p>
+<p>@return redirect</p>
+
+<p>sizes</p>
+<p>@return [type]</p>
+
+<p>list size type data</p>
+<p>@return [type]</p>
+
+<p>_make_size_type_row</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>size_type_modal_form</p>
+<p>@return [type]</p>
+
+<p>size type</p>
+<p>@param  integer $id</p>
+<p>@return redirect</p>
+
+<p>delete size type</p>
+<p>@param  integer $id</p>
+<p>@return redirect</p>
+
+<p>styles</p>
+<p>@return [type]</p>
+
+<p>list_style_type_data</p>
+<p>@return [type]</p>
+
+<p>_make_style_type_row</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>style_type_modal_form</p>
+<p>@return [type]</p>
+
+<p>style type</p>
+<p>@param  integer $id</p>
+<p>@return redirect</p>
+
+<p>delete style type</p>
+<p>@param  integer $id</p>
+<p>@return redirect</p>
+
+<p>body_types</p>
+<p>@return [type]</p>
+
+<p>list body type data</p>
+<p>@return [type]</p>
+
+<p>make body type row</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>body type modal form</p>
+<p>@return [type]</p>
+
+<p>body type</p>
+<p>@param  integer $id</p>
+<p>@return redirect</p>
+
+<p>delete body type</p>
+<p>@param  integer $id</p>
+<p>@return redirect</p>
+
+<p>commodity types</p>
+<p>@return [type]</p>
+
+<p>list commodity type data</p>
+<p>@return [type]</p>
+
+<p>_make commodity type row</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>commodity type modal form</p>
+<p>@return [type]</p>
+
+<p>commodty group type</p>
+<p>@param  integer $id</p>
+<p>@return redirect</p>
+
+<p>delete commodity group type</p>
+<p>@param  integer $id</p>
+<p>@return redirect</p>
+
+<p>warehouses</p>
+<p>@return [type]</p>
+
+<p>list_warehouse_data</p>
+<p>@return [type]</p>
+
+<p>_make_warehouse_row</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>commodity type modal form</p>
+<p>@return [type]</p>
+
+<p>warehouse_</p>
+<p>@param  integer $id</p>
+<p>@return redirect</p>
+
+<p>delete warehouse</p>
+<p>@param  integer $id</p>
+<p>@return redirect</p>
+
+<p>get commodity data ajax</p>
+<p>@param  integer $id</p>
+<p>@return view</p>
+
+<p>add commodity list</p>
+<p>@param  integer $id</p>
+<p>@return redirect</p>
+
+<p>delete commodity</p>
+<p>@param  integer $id</p>
+<p>@return redirect</p>
+
+<p>table manage goods receipt</p>
+<p>@param  integer $id</p>
+<p>@return array</p>
+
+<p>manage purchase</p>
+<p>@param  integer $id</p>
+<p>@return view</p>
+
+<p>manage goods receipt</p>
+<p>@param  integer $id</p>
+<p>@return view</p>
+
+<p>copy pur request</p>
+<p>@param  integer $pur request</p>
+<p>@return json encode</p>
+
+<p>copy pur vender</p>
+<p>@param  integer $pủ request</p>
+<p>@return json encode</p>
+
+<p>view purchase</p>
+<p>@param  integer $id</p>
+<p>@return view</p>
+
+<p>edit purchase</p>
+<p>@param  integer $id</p>
+<p>@return view</p>
+
+<p>commodity code change</p>
+<p>@param  integer $val</p>
+<p>@return json encode</p>
+
+<p>update inventory min</p>
+<p>@param  integer $id</p>
+<p>@return redirect</p>
+
+<p>table warehouse history</p>
+<p>@return array</p>
+
+<p>warehouse history</p>
+<p>@return view</p>
+
+<p>approval setting</p>
+<p>@return redirect</p>
+
+<p>delete approval setting</p>
+<p>@param  integer $id</p>
+<p>@return redirect</p>
+
+<p>get html approval setting</p>
+<p>@param  integer $id</p>
+<p>@return html</p>
+
+<p>send request approve</p>
+<p>@return json</p>
+
+<p>approve request</p>
+<p>@param  integer $id</p>
+<p>@return json</p>
+
+<p>stock import pdf</p>
+<p>@param  integer $id</p>
+<p>@return pdf file view</p>
+
+<p>send mail</p>
+<p>@param  integer $id</p>
+<p>@return json</p>
+
+<p>manage delivery</p>
+<p>@param  integer $id</p>
+<p>@return view</p>
+
+<p>goods delivery</p>
+<p>@return view</p>
+
+<p>commodity goods delivery change</p>
+<p>@param  integer $val</p>
+<p>@return json</p>
+
+<p>table manage delivery</p>
+<p>@return array</p>
+
+<p>edit delivery</p>
+<p>@param  integer $id</p>
+<p>@return view</p>
+
+<p>stock export pdf</p>
+<p>@param  integer $id</p>
+<p>@return pdf file view</p>
+
+<p>manage report</p>
+<p>@return view</p>
+
+<p>get data stock summary report</p>
+<p>@return json</p>
+
+<p>stock summary report pdf</p>
+<p>@return pdf view file</p>
+
+<p>view delivery</p>
+<p>@param  integer $id</p>
+<p>@return view</p>
+
+<p>check quantity inventory</p>
+<p>@return json</p>
+
+<p>quantity inventory</p>
+<p>@return json</p>
+
+<p>check quantity inventory onsubmit</p>
+<p>@return json</p>
+
+<p>manage stock take</p>
+<p>@param  integer $id</p>
+<p>@return view</p>
+
+<p>table manage stock table</p>
+<p>@return array</p>
+
+<p>stock take</p>
+<p>@param  integer $id</p>
+<p>@return view</p>
+
+<p>commodity list add edit</p>
+<p>@param  integer $id</p>
+<p>@return json</p>
+
+<p>get commodity file url</p>
+<p>@param  integer $commodity_id</p>
+<p>@return json</p>
+
+<p>sub group</p>
+<p>@param  integer $id</p>
+<p>@return redirect</p>
+
+<p>delete sub group</p>
+<p>@param  integer $id</p>
+<p>@return redirect</p>
+
+<p>add commodity attachment</p>
+<p>@param  integer $id</p>
+<p>@return json</p>
+
+<p>import xlsx commodity</p>
+<p>@param  integer $id</p>
+<p>@return view</p>
+
+<p>import file xlsx commodity</p>
+<p>@return json</p>
+
+<p>delete commodity file</p>
+<p>@param  integer $attachment_id</p>
+<p>@return json</p>
+
+<p>colors</p>
+<p>@return [type]</p>
+
+<p>list commodity type data</p>
+<p>@return [type]</p>
+
+<p>_make commodity type row</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>commodity type modal form</p>
+<p>@return [type]</p>
+
+<p>[colors_setting description]</p>
+<p>@param  string $id [description]</p>
+<p>@return [type]     [description]</p>
+
+<p>[delete_color description]</p>
+<p>@param  [type] $id [description]</p>
+<p>@return [type]     [description]</p>
+
+<p>{ loss adjustment }</p>
+
+<p>{ loss adjustment table }</p>
+
+<p>add loss adjustment</p>
+<p>@param string $id</p>
+<p>@return view</p>
+
+<p>adjust</p>
+<p>@param  [integer] $id </p>
+<p>@return json</p>
+
+<p>{ delete loss adjustment }</p>
+<p>@param      <type>  $id     The identifier</p>
+
+<p>{ get data inventory valuation report }</p>
+<p>@return json</p>
+
+<p>table out of stock</p>
+<p>@return [type]</p>
+
+<p>table expired</p>
+<p>@return [type]</p>
+
+<p>view commodity detail</p>
+<p>@param  [integer] $commodity_id</p>
+<p>@return [type]</p>
+
+<p>table view commodity detail</p>
+<p>@return [type]</p>
+
+<p>delete goods receipt</p>
+<p>@param  [integer] $id</p>
+<p>@return redirect</p>
+
+<p>delete_goods_delivery</p>
+<p>@param  [integer] $id</p>
+<p>@return [redirect]</p>
+
+<p>Gets the commodity barcode.</p>
+
+<p>table inventory stock</p>
+<p>@return [type]</p>
+
+<p>{ tax change event }</p>
+<p>@param      <type>  $tax    The tax</p>
+<p>@return   json</p>
+
+<p>tax change v2</p>
+<p>@param  [type] $tax </p>
+<p>@return [type]</p>
+<p>this funtion used when $tax like 4|3</p>
+
+<p>get invoices fill data</p>
+<p>@return json</p>
+
+<p>manage delivery filter</p>
+<p>@param  integer $id</p>
+<p>@return view</p>
+
+<p>warehouse delete bulk action</p>
+<p>@return</p>
+
+<p>get subgroup fill data</p>
+<p>@return html</p>
+
+<p>warehouse selling price profif ratio</p>
+<p>@return boolean</p>
+
+<p>warehouse the fractional part</p>
+<p>@return boolean</p>
+
+<p>warehouse integer part</p>
+<p>@return boolean</p>
+
+<p>warehouse profit rate by purchase price sale</p>
+<p>@return boolean</p>
+
+<p>setting rules for rounding prices</p>
+<p>@return boolean</p>
+
+<p>caculator sale price</p>
+<p>@return float</p>
+
+<p>table inventory inside</p>
+<p>@return array</p>
+
+<p>{ purchase order setting }</p>
+<p>@return  json</p>
+
+<p>update goods receipt warehouse</p>
+<p>@return json</p>
+
+<p>coppy invoices</p>
+<p>@param  integer $invoice_id </p>
+<p>@return json</p>
+
+<p>caculator purchase price</p>
+<p>@return json</p>
+
+<p>warehouse delete bulk action</p>
+<p>@return</p>
+
+<p>get list job position training</p>
+<p>@param  integer $id </p>
+<p>@return json</p>
+
+<p>revert goods receipt</p>
+<p>@param  integer $id </p>
+<p>@return redirect</p>
+
+<p>revert goods delivery</p>
+<p>@param  integer $id </p>
+<p>@return redirect</p>
+
+<p>import xlsx opening stock</p>
+<p>@param  integer $id</p>
+<p>@return view</p>
+
+<p>import file xlsx opening stock</p>
+<p>@return json</p>
+
+<p>unserializeForm</p>
+<p>@param  [type] $str </p>
+<p>@return [type]</p>
+
+<p>delete item tags</p>
+<p>@param  integer $tag_id </p>
+<p>@return [type]</p>
+
+<p>check warehouse onsubmit</p>
+
+<p>view lost adjustment</p>
+<p>@param  integer $id </p>
+<p>@return view</p>
+
+<p>check lost adjustment before save</p>
+<p>@return json</p>
+
+<p>[inventory_setting</p>
+<p>@return redirect</p>
+
+<p>manage internal delivery</p>
+<p>@param  string $id </p>
+<p>@return view</p>
+
+<p>table internal delivery</p>
+<p>@return table</p>
+
+<p>add update internal delivery</p>
+<p>@param string $id</p>
+
+<p>get quantity inventory</p>
+<p>@return [type]</p>
+
+<p>delete internal delivery</p>
+<p>@param  interger $id </p>
+<p>@return redirect</p>
+
+<p>view internal delivery</p>
+<p>@param  integer $id </p>
+<p>@return view</p>
+
+<p>check internal delivery onsubmit</p>
+
+<p>@return view</p>
+
+<p>check approval sign</p>
+<p>@return json</p>
+
+<p>manage warehouse</p>
+<p>@param  string $id </p>
+<p>@return [type]</p>
+
+<p>table warehouse name</p>
+<p>@return array</p>
+
+<p>warehouse setting</p>
+<p>@param  string $id </p>
+<p>@return [type]</p>
+
+<p>get item by id ajax</p>
+<p>@param  integer $id </p>
+<p>@return [type]</p>
+
+<p>get warehouse custom fields html</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>view warehouse detail</p>
+<p>@param  integer $warehouse_id </p>
+<p>@return view</p>
+
+<p>goods delivery copy pur order</p>
+<p>@param  integer $pur request</p>
+<p>@return json encode</p>
+
+<p>Uploads a proposal attachment.</p>
+<p>@param      string  $id  The purchase order</p>
+<p>@return redirect</p>
+
+<p>{ preview obgy partograph file }</p>
+<p>@param      <type>  $id      The identifier</p>
+<p>@param      <type>  $rel_id  The relative identifier</p>
+<p>@return  view</p>
+
+<p>{ delete proposal attachment }</p>
+<p>@param      <type>  $id     The identifier</p>
+
+<p>brands setting</p>
+<p>@param  string $id </p>
+<p>@return [type]</p>
+
+<p>[delete_color</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>brands setting</p>
+<p>@param  string $id </p>
+<p>@return [type]</p>
+
+<p>[delete_color</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>[delete_color description]</p>
+<p>@param  [type] $id  </p>
+<p>@return [type]</p>
+
+<p>check warehouse custom fields</p>
+<p>@param  [type] $id</p>
+<p>@return [type]</p>
+
+<p>send goods delivery</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>get primary contact</p>
+<p>@return [type]</p>
+
+<p>send_goods_delivery</p>
+<p>@return [type]</p>
+
+<p>check sku duplicate</p>
+<p>@return [type]</p>
+
+<p>stock internal delivery pdf</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>item print barcode</p>
+<p>@return [type]</p>
+
+<p>save and send request send mail</p>
+<p>@return [type]</p>
+
+<p>reset data</p>
+<p>@return [type]</p>
+
+<p>get variation html add</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>get variation from parent item</p>
+<p>@return [type]</p>
+
+<p>update unchecked inventory numbers</p>
+<p>@return [type]</p>
+
+<p>maximum minimum inventory filter</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>{ warehouse setting }</p>
+<p>@return  json</p>
+
+<p>add opening stock modal</p>
+
+<p>add opening stock</p>
+
+<p>add activity</p>
+
+<p>delete activitylog</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>copy product image</p>
+<p>@param  [type] $id       </p>
+<p>@param  [type] $rel_type </p>
+<p>@return [type]</p>
+
+<p>delete product attachment</p>
+<p>@param  [type] $attachment_id </p>
+<p>@param  [type] $rel_type      </p>
+<p>@return [type]</p>
+
+<p>caculator purchase price</p>
+<p>@return [type]</p>
+
+<p>wh parent item search</p>
+<p>@return [type]</p>
+
+<p>wh commodity code search</p>
+<p>@return [type]</p>
+
+<p>get receipt note row template</p>
+<p>@return [type]</p>
+
+<p>get internal delivery row template</p>
+<p>@return [type]</p>
+
+<p>get loss adjustment row template</p>
+<p>@return [type]</p>
+
+<p>get good delivery row template</p>
+<p>@return [type]</p>
+
+<p>manage packing list</p>
+<p>@param  string $id </p>
+<p>@return [type]</p>
+
+<p>packing list</p>
+<p>@return view</p>
+
+<p>table manage packing list</p>
+<p>@return [type]</p>
+
+<p>get packing list row template</p>
+<p>@return [type]</p>
+
+<p>packing list copy delivery note</p>
+<p>@param  string $delivery_id </p>
+<p>@return [type]</p>
+
+<p>wh client change data</p>
+<p>@param  [type] $customer_id     </p>
+<p>@param  string $current_invoice </p>
+<p>@return [type]</p>
+
+<p>delete packing list</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>view packing list</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>packing list check before approval</p>
+<p>@return [type]</p>
+
+<p>packing list pdf</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>delivery status mark as</p>
+<p>@param  [type] $status </p>
+<p>@param  [type] $id     </p>
+<p>@param  [type] $type   </p>
+<p>@return [type]</p>
+
+<p>shipment detail</p>
+<p>@param  string $id </p>
+<p>@return [type]</p>
+
+<p>shipment activity log modal</p>
+<p>@return [type]</p>
+
+<p>shipment add edit activity log</p>
+<p>@return [type]</p>
+
+<p>update shipment status</p>
+<p>@param  [type] $status      </p>
+<p>@param  [type] $shipment_id </p>
+<p>@param  [type] $cart_id     </p>
+<p>@return [type]</p>
+
+<p>update return policies information</p>
+<p>@return [type]</p>
+
+<p>manage order return</p>
+<p>@param  string $id </p>
+<p>@return [type]</p>
+
+<p>sales order manage order return</p>
+<p>@param  string $id </p>
+<p>@return [type]</p>
+
+<p>purchasing manage order return</p>
+<p>@param  string $id </p>
+<p>@return [type]</p>
+
+<p>order return</p>
+<p>@param  string $id                </p>
+<p>@param  string $order_retrun_type : have 3 type "manual"; "sales_return_order"; "purchasing_return_order"</p>
+<p>@return [type]</p>
+
+<p>table manage packing list</p>
+<p>@return [type]</p>
+
+<p>get order return row template</p>
+<p>@return [type]</p>
+
+<p>wh client data</p>
+<p>@param  [type] $customer_id </p>
+<p>@return [type]</p>
+
+<p>order return get item data</p>
+<p>@param  string $delivery_id </p>
+<p>@return [type]</p>
+
+<p>delete order return</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>view order return</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>order return check before approval</p>
+<p>@return [type]</p>
+
+<p>order return pdf</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>wh get item by barcode</p>
+<p>@param  [type] $barcode </p>
+<p>@return [type]</p>
+
+<p>order return create import stock</p>
+<p>@param  [type] $order_return_id </p>
+<p>@return [type]</p>
+
+<p>order return get related data</p>
+<p>@return [type]</p>
+
+<p>open warehouse modal</p>
+<p>@return [type]</p>
+
+<p>order return create stock export</p>
+<p>@param  [type] $order_return_id </p>
+<p>@return [type]</p>
+
+<p>fill multiple serial number modal</p>
+<p>@return [type]</p>
+
+<p>loss fill multiple serial number modal</p>
+<p>@return [type]</p>
+
+<p>adjustment fill multiple serial number modal</p>
+<p>@return [type]</p>
+
+<p>import_serial_number</p>
+<p>@return [type]</p>
+
+<p>serial number table commodity list</p>
+<p>@return [type]</p>
+
+<p>warehouse export item serial number checked</p>
+<p>@return [type]</p>
+
+<p>import_serial_number</p>
+<p>@return [type]</p>
+
+<p>table warranty period</p>
+<p>@return [type]</p>
+
+<p>warranty period pdf</p>
+<p>@return [type]</p>
+
+<p>inventory</p>
+<p>@return [type]</p>
+
+<p>inventory_settings</p>
+<p>@return [type]</p>
+
+<p>colors</p>
+<p>@return [type]</p>
+
+<p>list commodity type data</p>
+<p>@return [type]</p>
+
+<p>_make commodity type row</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>commodity type modal form</p>
+<p>@return [type]</p>
+
+<p>delete modal form</p>
+<p>@return [type]</p>
+
+<p>delete goods receipt modal form</p>
+<p>@return [type]</p>
+
+<p>wh_create_notification</p>
+<p>@param  array  $data </p>
+<p>@return [type]</p>
+
+<p>print goods receipt</p>
+<p>@param  integer $goods_receipt_id </p>
+<p>@return [type]</p>
+
+<p>download pdf</p>
+<p>@param  integer $goods_receipt_id </p>
+<p>@param  string  $mode             </p>
+<p>@return [type]</p>
+
+<p>print goods receipt</p>
+<p>@param  integer $goods_receipt_id </p>
+<p>@return [type]</p>
+
+<p>download pdf</p>
+<p>@param  integer $internal_delivery_id </p>
+<p>@param  string  $mode             </p>
+<p>@return [type]</p>
+
+<p>table_loss_adjustment</p>
+<p>@return [type]</p>
+
+<p>delete loss adjustment modal form</p>
+<p>@return [type]</p>
+
+<p>get serial number</p>
+<p>@return [type]</p>
+
+<p>load serial number modal</p>
+<p>@return [type]</p>
+
+<p>load change serial number modal</p>
+<p>@return [type]</p>
+
+<p>delete goods receipt modal form</p>
+<p>@return [type]</p>
+
+<p>print goods receipt</p>
+<p>@param  integer $goods_receipt_id </p>
+<p>@return [type]</p>
+
+<p>download pdf</p>
+<p>@param  integer $goods_delivery_id </p>
+<p>@param  string  $mode             </p>
+<p>@return [type]</p>
+
+<p>delete packing list modal form</p>
+<p>@return [type]</p>
+
+<p>print goods receipt</p>
+<p>@param  integer $goods_receipt_id </p>
+<p>@return [type]</p>
+
+<p>download pdf</p>
+<p>@param  integer $packing_list_id </p>
+<p>@param  string  $mode             </p>
+<p>@return [type]</p>
+
+<p>print goods receipt</p>
+<p>@param  integer $goods_receipt_id </p>
+<p>@return [type]</p>
+
+<p>download pdf</p>
+<p>@param  integer $order_return_id </p>
+<p>@param  string  $mode             </p>
+<p>@return [type]</p>
+
+<p>delete order return modal form</p>
+<p>@return [type]</p>
+
+<p>download_barcode</p>
+<p>@return [type]</p>
+
+<p>print_barcode</p>
+<p>@return [type]</p>
+
+<p>stock summary report</p>
+<p>@return [type]</p>
+
+<p>delete internal delivery modal form</p>
+<p>@return [type]</p>
+
+<p>warehouse fee return order</p>
+<p>@return [type]</p>
+
+<p>stock summary report</p>
+<p>@return [type]</p>
+
+<p>warranty period reports</p>
+<p>@return [type]</p>
+
+<p>download warranty period pdf</p>
+<p>@param  string $mode </p>
+<p>@return [type]</p>
+
+<p>inventory valuation reports</p>
+<p>@return [type]</p>
+
+<h2>References</h2>
+
+<p><strong>Models Used</strong></p>
+<ul>
+<li><code>warehouse_model</code></li>
+<li><code>Items_model</code></li>
+<li><code>Item_categories_model</code></li>
+<li><code>Taxes_model</code></li>
+<li><code>purchase_model</code></li>
+<li><code>projects_model</code></li>
+<li><code>staff_model</code></li>
+<li><code>departments_model</code></li>
+<li><code>Users_model</code></li>
+<li><code>currencies_model</code></li>
+<li><code>Clients_model</code></li>
+<li><code>clients_model</code></li>
+<li><code>misc_model</code></li>
+<li><code>omni_sales_model</code></li>
+</ul>
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>parent</code></li>
+<li><code>plugin</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\Warehouse\Controllers\Warehouse.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Warehouse\Controllers\Warehouse extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>commodity_list($id = '')</code></li>
+<li><code>table_commodity_list()</code></li>
+<li><code>item_modal_form()</code></li>
+<li><code>wh_commodity_code_search_all($type = 'rate', $can_be = '', $search_all = 'true')</code></li>
+<li><code>general()</code></li>
+<li><code>commodity_types()</code></li>
+<li><code>list_commodity_type_data()</code></li>
+<li><code>_make_commodity_type_row($data)</code></li>
+<li><code>commodity_type_modal_form()</code></li>
+<li><code>commodity_type($id = '')</code></li>
+<li><code>delete_commodity_type($id)</code></li>
+<li><code>units()</code></li>
+<li><code>unit_type_data()</code></li>
+<li><code>_make_unit_row($data)</code></li>
+<li><code>unit_type_modal_form()</code></li>
+<li><code>unit_type($id = '')</code></li>
+<li><code>delete_unit_type($id)</code></li>
+<li><code>sizes()</code></li>
+<li><code>list_size_type_data()</code></li>
+<li><code>_make_size_type_row($data)</code></li>
+<li><code>size_type_modal_form()</code></li>
+<li><code>size_type($id = '')</code></li>
+<li><code>delete_size_type($id)</code></li>
+<li><code>styles()</code></li>
+<li><code>list_style_type_data()</code></li>
+<li><code>_make_style_type_row($data)</code></li>
+<li><code>style_type_modal_form()</code></li>
+<li><code>style_type($id = '')</code></li>
+<li><code>delete_style_type($id)</code></li>
+<li><code>models()</code></li>
+<li><code>list_body_type_data()</code></li>
+<li><code>_make_body_type_row($data)</code></li>
+<li><code>body_type_modal_form()</code></li>
+<li><code>body_type($id = '')</code></li>
+<li><code>delete_body_type($id)</code></li>
+<li><code>commodity_groups()</code></li>
+<li><code>list_commodity_group_data()</code></li>
+<li><code>_make_commodity_group_row($data)</code></li>
+<li><code>commodity_group_modal_form()</code></li>
+<li><code>commodity_group_type($id = '')</code></li>
+<li><code>delete_commodity_group_type($id)</code></li>
+<li><code>warehouses()</code></li>
+<li><code>list_warehouse_data()</code></li>
+<li><code>_make_warehouse_row($data)</code></li>
+<li><code>warehouse_modal_form()</code></li>
+<li><code>create_warehouse($id = '')</code></li>
+<li><code>delete_warehouse($id)</code></li>
+<li><code>get_commodity_data_ajax($id)</code></li>
+<li><code>add_commodity_list($id = '')</code></li>
+<li><code>delete_commodity()</code></li>
+<li><code>table_manage_goods_receipt()</code></li>
+<li><code>manage_purchase($id = '')</code></li>
+<li><code>manage_goods_receipt($id = '')</code></li>
+<li><code>coppy_pur_request($pur_request = '')</code></li>
+<li><code>copy_pur_vender($pur_request)</code></li>
+<li><code>goods_receipt_detail($id)</code></li>
+<li><code>edit_purchase($id)</code></li>
+<li><code>add_goods_receipt()</code></li>
+<li><code>commodity_code_change($val='')</code></li>
+<li><code>update_inventory_min($id = '')</code></li>
+<li><code>table_warehouse_history()</code></li>
+<li><code>warehouse_history()</code></li>
+<li><code>approval_setting($id = '')</code></li>
+<li><code>delete_approval_setting($id)</code></li>
+<li><code>get_html_approval_setting($id = '')</code></li>
+<li><code>send_request_approve()</code></li>
+<li><code>approve_request()</code></li>
+<li><code>stock_import_pdf($id)</code></li>
+<li><code>send_mail()</code></li>
+<li><code>manage_delivery($id = '')</code></li>
+<li><code>goods_delivery($id ='', $edit_approval = false)</code></li>
+<li><code>commodity_goods_delivery_change($val='')</code></li>
+<li><code>table_manage_delivery()</code></li>
+<li><code>edit_delivery($id)</code></li>
+<li><code>stock_export_pdf($id)</code></li>
+<li><code>manage_report()</code></li>
+<li><code>get_data_stock_summary_report()</code></li>
+<li><code>stock_summary_report_pdf()</code></li>
+<li><code>view_delivery($id)</code></li>
+<li><code>check_quantity_inventory()</code></li>
+<li><code>quantity_inventory()</code></li>
+<li><code>check_quantity_inventory_onsubmit()</code></li>
+<li><code>manage_stock_take($id = '')</code></li>
+<li><code>table_manage_stock_take()</code></li>
+<li><code>stock_take()</code></li>
+<li><code>commodity_list_add_edit($id = '')</code></li>
+<li><code>get_commodity_file_url($commodity_id)</code></li>
+<li><code>sub_group($id = '')</code></li>
+<li><code>delete_sub_group($id)</code></li>
+<li><code>add_commodity_attachment($id, $add_variant='')</code></li>
+<li><code>import_xlsx_commodity()</code></li>
+<li><code>import_file_xlsx_commodity()</code></li>
+<li><code>delete_commodity_file($attachment_id)</code></li>
+<li><code>colors()</code></li>
+<li><code>list_color_data()</code></li>
+<li><code>_make_color_row($data)</code></li>
+<li><code>color_modal_form()</code></li>
+<li><code>colors_setting($id = '')</code></li>
+<li><code>delete_color($id)</code></li>
+<li><code>loss_adjustment()</code></li>
+<li><code>loss_adjustment_table()</code></li>
+<li><code>add_loss_adjustment($id = '')</code></li>
+<li><code>adjust($id)</code></li>
+<li><code>delete_loss_adjustment()</code></li>
+<li><code>get_data_inventory_valuation_report()</code></li>
+<li><code>table_out_of_stock()</code></li>
+<li><code>table_expired()</code></li>
+<li><code>view_commodity_detail($commodity_id)</code></li>
+<li><code>table_view_commodity_detail()</code></li>
+<li><code>delete_goods_receipt()</code></li>
+<li><code>delete_goods_delivery()</code></li>
+<li><code>get_commodity_barcode()</code></li>
+<li><code>table_inventory_stock()</code></li>
+<li><code>tax_change($tax)</code></li>
+<li><code>tax_change_v2()</code></li>
+<li><code>get_invoices_fill_data()</code></li>
+<li><code>manage_delivery_filter($id = '')</code></li>
+<li><code>warehouse_delete_bulk_action()</code></li>
+<li><code>get_subgroup_fill_data()</code></li>
+<li><code>warehouse_selling_price_profif_ratio()</code></li>
+<li><code>warehouse_the_fractional_part()</code></li>
+<li><code>warehouse_integer_part()</code></li>
+<li><code>warehouse_profit_rate_by_purchase_price_sale()</code></li>
+<li><code>setting_rules_for_rounding_prices()</code></li>
+<li><code>caculator_sale_price()</code></li>
+<li><code>table_inventory_inside()</code></li>
+<li><code>auto_create_goods_received_delivery_setting()</code></li>
+<li><code>update_goods_receipt_warehouse()</code></li>
+<li><code>copy_invoices($invoice_id = '')</code></li>
+<li><code>caculator_profit_rate()</code></li>
+<li><code>warehouse_export_item_checked()</code></li>
+<li><code>get_item_longdescriptions($id)</code></li>
+<li><code>revert_goods_receipt($id)</code></li>
+<li><code>revert_goods_delivery($id)</code></li>
+<li><code>import_opening_stock()</code></li>
+<li><code>import_file_xlsx_opening_stock()</code></li>
+<li><code>unserializeForm($str)</code></li>
+<li><code>delete_item_tags($tag_id)</code></li>
+<li><code>check_warehouse_onsubmit()</code></li>
+<li><code>view_lost_adjustment($id)</code></li>
+<li><code>check_lost_adjustment_before_save()</code></li>
+<li><code>inventory_setting()</code></li>
+<li><code>manage_internal_delivery($id = '')</code></li>
+<li><code>table_internal_delivery()</code></li>
+<li><code>add_update_internal_delivery($id ='')</code></li>
+<li><code>get_quantity_inventory()</code></li>
+<li><code>get_quantity_inventory_t()</code></li>
+<li><code>delete_internal_delivery()</code></li>
+<li><code>view_internal_delivery($id)</code></li>
+<li><code>check_internal_delivery_onsubmit()</code></li>
+<li><code>check_approval_sign()</code></li>
+<li><code>warehouse_mange($id = '')</code></li>
+<li><code>table_warehouse_name()</code></li>
+<li><code>add_warehouse($id = '')</code></li>
+<li><code>get_warehouse_by_id($id)</code></li>
+<li><code>get_warehouse_custom_fields_html($id)</code></li>
+<li><code>view_warehouse_detail($warehouse_id)</code></li>
+<li><code>goods_delivery_copy_pur_order($pur_order = '')</code></li>
+<li><code>wh_proposal_attachment($id)</code></li>
+<li><code>file_proposal($id, $rel_id)</code></li>
+<li><code>delete_proposal_attachment($id)</code></li>
+<li><code>brands_setting($id = '')</code></li>
+<li><code>delete_brand($id)</code></li>
+<li><code>models_setting($id = '')</code></li>
+<li><code>delete_model($id)</code></li>
+<li><code>custom_fields_setting($id = '')</code></li>
+<li><code>delete_custom_fields_warehouse($id)</code></li>
+<li><code>check_warehouse_custom_fields()</code></li>
+<li><code>get_delivery_ajax()</code></li>
+<li><code>get_primary_contact()</code></li>
+<li><code>send_goods_delivery()</code></li>
+<li><code>check_sku_duplicate()</code></li>
+<li><code>stock_internal_delivery_pdf($id)</code></li>
+<li><code>item_print_barcode()</code></li>
+<li><code>save_and_send_request_send_mail($data ='')</code></li>
+<li><code>reset_datas()</code></li>
+<li><code>reset_data()</code></li>
+<li><code>get_variation_html_add()</code></li>
+<li><code>get_variation_from_parent_item()</code></li>
+<li><code>update_unchecked_inventory_numbers()</code></li>
+<li><code>maximum_minimum_inventory_filter()</code></li>
+<li><code>show_item_cf_on_pdf()</code></li>
+<li><code>add_opening_stock_modal()</code></li>
+<li><code>add_opening_stock()</code></li>
+<li><code>wh_add_activity()</code></li>
+<li><code>delete_activitylog($id)</code></li>
+<li><code>copy_product_image($id)</code></li>
+<li><code>delete_product_attachment($attachment_id, $rel_type)</code></li>
+<li><code>caculator_purchase_price()</code></li>
+<li><code>wh_parent_item_search()</code></li>
+<li><code>wh_commodity_code_search($type = 'purchase_price', $can_be = 'can_be_inventory')</code></li>
+<li><code>get_item_by_id($id, $get_warehouse = false, $warehouse_id = false)</code></li>
+<li><code>get_good_receipt_row_template()</code></li>
+<li><code>get_internal_delivery_row_template()</code></li>
+<li><code>get_loss_adjustment_row_template()</code></li>
+<li><code>get_good_delivery_row_template()</code></li>
+<li><code>manage_packing_list($id = '')</code></li>
+<li><code>packing_list($id ='', $edit_approval = false)</code></li>
+<li><code>table_manage_packing_list()</code></li>
+<li><code>get_packing_list_row_template()</code></li>
+<li><code>packing_list_copy_delivery_note($delivery_id = 0)</code></li>
+<li><code>wh_client_change_data($customer_id = '', $current_invoice = '')</code></li>
+<li><code>delete_packing_list()</code></li>
+<li><code>view_packing_list($id)</code></li>
+<li><code>packing_list_check_before_approval()</code></li>
+<li><code>packing_list_pdf($id)</code></li>
+<li><code>delivery_status_mark_as($status, $id, $type)</code></li>
+<li><code>shipment_detail($id = '')</code></li>
+<li><code>shipment_activity_log_modal()</code></li>
+<li><code>shipment_add_edit_activity_log()</code></li>
+<li><code>update_shipment_status($status, $shipment_id, $cart_id)</code></li>
+<li><code>update_return_policies_information()</code></li>
+<li><code>manage_order_return($id = '')</code></li>
+<li><code>sales_order_manage_order_return($id = '')</code></li>
+<li><code>purchasing_manage_order_return($id = '')</code></li>
+<li><code>order_return($receipt_delivery_type = 'manual', $id ='')</code></li>
+<li><code>table_manage_order_return()</code></li>
+<li><code>get_order_return_row_template()</code></li>
+<li><code>wh_client_data($customer_id, $rel_type)</code></li>
+<li><code>order_return_get_item_data()</code></li>
+<li><code>delete_order_return()</code></li>
+<li><code>view_order_return($id)</code></li>
+<li><code>order_return_check_before_approval()</code></li>
+<li><code>order_return_pdf($id)</code></li>
+<li><code>wh_get_item_by_barcode($barcode)</code></li>
+<li><code>order_return_create_stock_import_export($order_return_id)</code></li>
+<li><code>order_return_get_related_data()</code></li>
+<li><code>open_warehouse_modal()</code></li>
+<li><code>order_return_create_stock_export()</code></li>
+<li><code>fill_multiple_serial_number_modal()</code></li>
+<li><code>loss_fill_multiple_serial_number_modal()</code></li>
+<li><code>adjustment_fill_multiple_serial_number_modal()</code></li>
+<li><code>import_serial_number()</code></li>
+<li><code>serial_number_table_commodity_list()</code></li>
+<li><code>warehouse_export_item_serial_number_checked()</code></li>
+<li><code>import_serial_number_excel()</code></li>
+<li><code>table_warranty_period()</code></li>
+<li><code>warranty_period_pdf()</code></li>
+<li><code>inventory()</code></li>
+<li><code>inventory_settings()</code></li>
+<li><code>approval_settings()</code></li>
+<li><code>list_approval_setting_data()</code></li>
+<li><code>_make_approval_setting_row($data)</code></li>
+<li><code>approval_setting_modal_form()</code></li>
+<li><code>get_approval_setting_row_template()</code></li>
+<li><code>delete_modal_form()</code></li>
+<li><code>delete_goods_receipt_modal_form()</code></li>
+<li><code>wh_create_notification($data = array()</code></li>
+<li><code>print_goods_receipt($goods_receipt_id = 0)</code></li>
+<li><code>download_goods_receipt_pdf($goods_receipt_id = 0, $mode = "download")</code></li>
+<li><code>print_internal_delivery($internal_delivery_id = 0)</code></li>
+<li><code>download_internal_delivery_pdf($internal_delivery_id = 0, $mode = "download")</code></li>
+<li><code>table_loss_adjustment()</code></li>
+<li><code>delete_loss_adjustment_modal_form()</code></li>
+<li><code>get_serial_number()</code></li>
+<li><code>load_serial_number_modal()</code></li>
+<li><code>load_change_serial_number_modal()</code></li>
+<li><code>get_serial_number_for_change_modal()</code></li>
+<li><code>delete_goods_delivery_modal_form()</code></li>
+<li><code>print_goods_delivery($goods_delivery_id = 0)</code></li>
+<li><code>download_goods_delivery_pdf($goods_delivery_id = 0, $mode = "download")</code></li>
+<li><code>delete_packing_list_modal_form()</code></li>
+<li><code>print_packing_list($packing_list_id = 0)</code></li>
+<li><code>download_packing_list_pdf($packing_list_id = 0, $mode = "download")</code></li>
+<li><code>print_order_return($order_return_id = 0)</code></li>
+<li><code>download_order_return_pdf($order_return_id = 0, $mode = "download")</code></li>
+<li><code>delete_order_return_modal_form()</code></li>
+<li><code>download_barcode()</code></li>
+<li><code>print_barcode()</code></li>
+<li><code>stock_summary_report()</code></li>
+<li><code>delete_internal_delivery_modal_form()</code></li>
+<li><code>warehouse_fee_return_order()</code></li>
+<li><code>inventory_analytics()</code></li>
+<li><code>warranty_period_reports()</code></li>
+<li><code>download_warranty_period_pdf($mode = "view")</code></li>
+<li><code>inventory_valuation_reports()</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,52 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Node.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Node.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Node.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 1280 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Abstract base node class that all others inherit from.</p>
+<p>Why do we not use the DOM extension?  (1) It is not always available,</p>
+<p>(2) it has funny constraints on the data it can represent,</p>
+<p>whereas we want a maximally flexible representation, and (3) its</p>
+<p>interface is a bit cumbersome.</p>
+
+<p>Line number of the start token in the source document</p>
+<p>@type int</p>
+
+<p>Column number of the start token in the source document. Null if unknown.</p>
+<p>@type int</p>
+
+<p>Lookup array of processing that this token is exempt from.</p>
+<p>Currently, valid values are "ValidateAttributes".</p>
+<p>@type array</p>
+
+<p>When true, this node should be ignored as non-existent.</p>
+<p>Who is responsible for ignoring dead nodes?  FixNesting is</p>
+<p>responsible for removing them before passing on to child</p>
+<p>validators.</p>
+
+<p>Returns a pair of start and end tokens, where the end token</p>
+<p>is null if it is not necessary. Does not include children.</p>
+<p>@type array</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Node.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>that</code></li>
+<li><code>HTMLPurifier_Node</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>toTokenPair()</code></li>
+</ul>
+</body></html>

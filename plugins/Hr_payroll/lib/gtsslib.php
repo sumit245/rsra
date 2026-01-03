@@ -31,7 +31,7 @@ if((@ini_get('max_execution_time')!=='0')&&(@ini_get('max_execution_time'))<600)
 	@ini_set('max_execution_time', 600);
 }
 @ini_set('memory_limit', '256M');
-
+#[\AllowDynamicProperties]
 class HRPayrollLic{
 
 	private $product_id;

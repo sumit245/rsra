@@ -1,0 +1,138 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\psr7\src\ServerRequest.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\psr7\src\ServerRequest.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\psr7\src\ServerRequest.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9407 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Server-side HTTP request</p>
+<p>Extends the Request definition to add methods for accessing incoming data,</p>
+<p>specifically server parameters, cookies, matched path parameters, query</p>
+<p>string arguments, body parameters, and upload file information.</p>
+<p>"Attributes" are discovered via decomposing the request (and usually</p>
+<p>specifically the URI path), and typically will be injected by the application.</p>
+<p>Requests are considered immutable; all methods that might change state are</p>
+<p>implemented such that they retain the internal state of the current</p>
+<p>message and return a new instance that contains the changed state.</p>
+
+<p>@var array</p>
+
+<p>@var array</p>
+
+<p>@var null|array|object</p>
+
+<p>@var array</p>
+
+<p>@var array</p>
+
+<p>@var array</p>
+
+<p>@param string                               $method       HTTP method</p>
+<p>@param string|UriInterface                  $uri          URI</p>
+<p>@param array                                $headers      Request headers</p>
+<p>@param string|null|resource|StreamInterface $body         Request body</p>
+<p>@param string                               $version      Protocol version</p>
+<p>@param array                                $serverParams Typically the $_SERVER superglobal</p>
+
+<p>Return an UploadedFile instance array.</p>
+<p>@param array $files A array which respect $_FILES structure</p>
+<p>@throws InvalidArgumentException for unrecognized values</p>
+<p>@return array</p>
+
+<p>Create and return an UploadedFile instance from a $_FILES specification.</p>
+<p>If the specification represents an array of values, this method will</p>
+<p>delegate to normalizeNestedFileSpec() and return that return value.</p>
+<p>@param array $value $_FILES struct</p>
+<p>@return array|UploadedFileInterface</p>
+
+<p>Normalize an array of file specifications.</p>
+<p>Loops through all nested files and returns a normalized array of</p>
+<p>UploadedFileInterface instances.</p>
+<p>@param array $files</p>
+<p>@return UploadedFileInterface[]</p>
+
+<p>Return a ServerRequest populated with superglobals:</p>
+<p>$_GET</p>
+<p>$_POST</p>
+<p>$_COOKIE</p>
+<p>$_FILES</p>
+<p>$_SERVER</p>
+<p>@return ServerRequestInterface</p>
+
+<p>Get a Uri populated with values from $_SERVER.</p>
+<p>@return UriInterface</p>
+
+<p>{@inheritdoc}</p>
+
+<p>{@inheritdoc}</p>
+
+<p>{@inheritdoc}</p>
+
+<p>{@inheritdoc}</p>
+
+<p>{@inheritdoc}</p>
+
+<p>{@inheritdoc}</p>
+
+<p>{@inheritdoc}</p>
+
+<p>{@inheritdoc}</p>
+
+<p>{@inheritdoc}</p>
+
+<p>{@inheritdoc}</p>
+
+<p>{@inheritdoc}</p>
+
+<p>{@inheritdoc}</p>
+
+<p>{@inheritdoc}</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\psr7\src\ServerRequest.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>GuzzleHttp\Psr7\ServerRequest extends Request implements ServerRequestInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`__construct($method,</li>
+<p>        $uri,</p>
+<p>        array $headers = [],</p>
+<p>        $body = null,</p>
+<p>        $version = '1.1',</p>
+<p>        array $serverParams = [])`</p>
+<li><code>normalizeFiles(array $files)</code></li>
+<li><code>createUploadedFileFromSpec(array $value)</code></li>
+<li><code>normalizeNestedFileSpec(array $files = [])</code></li>
+<li><code>fromGlobals()</code></li>
+<li><code>getUriFromGlobals()</code></li>
+<li><code>getServerParams()</code></li>
+<li><code>getUploadedFiles()</code></li>
+<li><code>withUploadedFiles(array $uploadedFiles)</code></li>
+<li><code>getCookieParams()</code></li>
+<li><code>withCookieParams(array $cookies)</code></li>
+<li><code>getQueryParams()</code></li>
+<li><code>withQueryParams(array $query)</code></li>
+<li><code>getParsedBody()</code></li>
+<li><code>withParsedBody($data)</code></li>
+<li><code>getAttributes()</code></li>
+<li><code>getAttribute($attribute, $default = null)</code></li>
+<li><code>withAttribute($attribute, $value)</code></li>
+<li><code>withoutAttribute($attribute)</code></li>
+</ul>
+</body></html>

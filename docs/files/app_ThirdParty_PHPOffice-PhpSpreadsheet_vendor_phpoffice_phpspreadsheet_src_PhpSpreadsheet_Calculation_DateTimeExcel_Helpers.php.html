@@ -1,0 +1,87 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\DateTimeExcel\Helpers.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\DateTimeExcel\Helpers.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\DateTimeExcel\Helpers.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9293 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Identify if a year is a leap year or not.</p>
+<p>@param int|string $year The year to test</p>
+<p>@return bool TRUE if the year is a leap year, otherwise FALSE</p>
+
+<p>getDateValue.</p>
+<p>@param mixed $dateValue</p>
+<p>@return float Excel date/time serial value</p>
+
+<p>getTimeValue.</p>
+<p>@param string $timeValue</p>
+<p>@return mixed Excel date/time serial value, or string if error</p>
+
+<p>Adjust date by given months.</p>
+<p>@param mixed $dateValue</p>
+
+<p>Help reduce perceived complexity of some tests.</p>
+<p>@param mixed $value</p>
+<p>@param mixed $altValue</p>
+
+<p>Adjust year in ambiguous situations.</p>
+
+<p>Return result in one of three formats.</p>
+<p>@return mixed</p>
+
+<p>Return result in one of three formats.</p>
+<p>@return mixed</p>
+
+<p>Return result in one of three formats.</p>
+<p>@return mixed</p>
+
+<p>Many functions accept null/false/true argument treated as 0/0/1.</p>
+<p>@param mixed $number</p>
+
+<p>Many functions accept null argument treated as 0.</p>
+<p>@param mixed $number</p>
+<p>@return float|int</p>
+
+<p>Many functions accept null/false/true argument treated as 0/0/1.</p>
+<p>@param mixed $number</p>
+<p>@return float</p>
+
+<p>Despite documentation, date_parse probably never returns false.</p>
+<p>Just in case, this routine helps guarantee it.</p>
+<p>@param array|false $dateArray</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\DateTimeExcel\Helpers.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\DateTimeExcel\Helpers</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>isLeapYear($year)</code></li>
+<li><code>getDateValue($dateValue, bool $allowBool = true)</code></li>
+<li><code>getTimeValue($timeValue)</code></li>
+<li><code>adjustDateByMonths($dateValue = 0, float $adjustmentMonths = 0)</code></li>
+<li><code>replaceIfEmpty(&$value, $altValue)</code></li>
+<li><code>adjustYear(string $testVal1, string $testVal2, string &$testVal3)</code></li>
+<li><code>returnIn3FormatsArray(array $dateArray, bool $noFrac = false)</code></li>
+<li><code>returnIn3FormatsFloat(float $excelDateValue)</code></li>
+<li><code>returnIn3FormatsObject(DateTime $PHPDateObject)</code></li>
+<li><code>baseDate()</code></li>
+<li><code>nullFalseTrueToNumber(&$number, bool $allowBool = true)</code></li>
+<li><code>validateNumericNull($number)</code></li>
+<li><code>validateNotNegative($number)</code></li>
+<li><code>silly1900(DateTime $PHPDateObject, string $mod = '-1 day')</code></li>
+<li><code>dateParse(string $string)</code></li>
+<li><code>dateParseSucceeded(array $dateArray)</code></li>
+<li><code>forceArray($dateArray)</code></li>
+</ul>
+</body></html>

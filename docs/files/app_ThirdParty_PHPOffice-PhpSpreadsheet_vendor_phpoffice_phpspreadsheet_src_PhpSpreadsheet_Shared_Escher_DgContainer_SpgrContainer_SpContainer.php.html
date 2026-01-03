@@ -1,0 +1,169 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\Escher\DgContainer\SpgrContainer\SpContainer.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\Escher\DgContainer\SpgrContainer\SpContainer.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\Escher\DgContainer\SpgrContainer\SpContainer.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7465 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Parent Shape Group Container.</p>
+<p>@var SpgrContainer</p>
+
+<p>Is this a group shape?</p>
+<p>@var bool</p>
+
+<p>Shape type.</p>
+<p>@var int</p>
+
+<p>Shape flag.</p>
+<p>@var int</p>
+
+<p>Shape index (usually group shape has index 0, and the rest: 1,2,3...).</p>
+<p>@var int</p>
+
+<p>Array of options.</p>
+<p>@var array</p>
+
+<p>Cell coordinates of upper-left corner of shape, e.g. 'A1'.</p>
+<p>@var string</p>
+
+<p>Horizontal offset of upper-left corner of shape measured in 1/1024 of column width.</p>
+<p>@var int</p>
+
+<p>Vertical offset of upper-left corner of shape measured in 1/256 of row height.</p>
+<p>@var int</p>
+
+<p>Cell coordinates of bottom-right corner of shape, e.g. 'B2'.</p>
+<p>@var string</p>
+
+<p>Horizontal offset of bottom-right corner of shape measured in 1/1024 of column width.</p>
+<p>@var int</p>
+
+<p>Vertical offset of bottom-right corner of shape measured in 1/256 of row height.</p>
+<p>@var int</p>
+
+<p>Set parent Shape Group Container.</p>
+<p>@param SpgrContainer $parent</p>
+
+<p>Get the parent Shape Group Container.</p>
+<p>@return SpgrContainer</p>
+
+<p>Set whether this is a group shape.</p>
+<p>@param bool $value</p>
+
+<p>Get whether this is a group shape.</p>
+<p>@return bool</p>
+
+<p>Set the shape type.</p>
+<p>@param int $value</p>
+
+<p>Get the shape type.</p>
+<p>@return int</p>
+
+<p>Set the shape flag.</p>
+<p>@param int $value</p>
+
+<p>Get the shape flag.</p>
+<p>@return int</p>
+
+<p>Set the shape index.</p>
+<p>@param int $value</p>
+
+<p>Get the shape index.</p>
+<p>@return int</p>
+
+<p>Set an option for the Shape Group Container.</p>
+<p>@param int $property The number specifies the option</p>
+<p>@param mixed $value</p>
+
+<p>Get an option for the Shape Group Container.</p>
+<p>@param int $property The number specifies the option</p>
+<p>@return mixed</p>
+
+<p>Get the collection of options.</p>
+<p>@return array</p>
+
+<p>Set cell coordinates of upper-left corner of shape.</p>
+<p>@param string $value eg: 'A1'</p>
+
+<p>Get cell coordinates of upper-left corner of shape.</p>
+<p>@return string</p>
+
+<p>Set offset in x-direction of upper-left corner of shape measured in 1/1024 of column width.</p>
+<p>@param int $startOffsetX</p>
+
+<p>Get offset in x-direction of upper-left corner of shape measured in 1/1024 of column width.</p>
+<p>@return int</p>
+
+<p>Set offset in y-direction of upper-left corner of shape measured in 1/256 of row height.</p>
+<p>@param int $startOffsetY</p>
+
+<p>Get offset in y-direction of upper-left corner of shape measured in 1/256 of row height.</p>
+<p>@return int</p>
+
+<p>Set cell coordinates of bottom-right corner of shape.</p>
+<p>@param string $value eg: 'A1'</p>
+
+<p>Get cell coordinates of bottom-right corner of shape.</p>
+<p>@return string</p>
+
+<p>Set offset in x-direction of bottom-right corner of shape measured in 1/1024 of column width.</p>
+<p>@param int $endOffsetX</p>
+
+<p>Get offset in x-direction of bottom-right corner of shape measured in 1/1024 of column width.</p>
+<p>@return int</p>
+
+<p>Set offset in y-direction of bottom-right corner of shape measured in 1/256 of row height.</p>
+<p>@param int $endOffsetY</p>
+
+<p>Get offset in y-direction of bottom-right corner of shape measured in 1/256 of row height.</p>
+<p>@return int</p>
+
+<p>Get the nesting level of this spContainer. This is the number of spgrContainers between this spContainer and</p>
+<p>the dgContainer. A value of 1 = immediately within first spgrContainer</p>
+<p>Higher nesting level occurs if and only if spContainer is part of a shape group.</p>
+<p>@return int Nesting level</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\Escher\DgContainer\SpgrContainer\SpContainer.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Shared\Escher\DgContainer\SpgrContainer\SpContainer</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>setParent($parent)</code></li>
+<li><code>getParent()</code></li>
+<li><code>setSpgr($value)</code></li>
+<li><code>getSpgr()</code></li>
+<li><code>setSpType($value)</code></li>
+<li><code>getSpType()</code></li>
+<li><code>setSpFlag($value)</code></li>
+<li><code>getSpFlag()</code></li>
+<li><code>setSpId($value)</code></li>
+<li><code>getSpId()</code></li>
+<li><code>setOPT($property, $value)</code></li>
+<li><code>getOPT($property)</code></li>
+<li><code>getOPTCollection()</code></li>
+<li><code>setStartCoordinates($value)</code></li>
+<li><code>getStartCoordinates()</code></li>
+<li><code>setStartOffsetX($startOffsetX)</code></li>
+<li><code>getStartOffsetX()</code></li>
+<li><code>setStartOffsetY($startOffsetY)</code></li>
+<li><code>getStartOffsetY()</code></li>
+<li><code>setEndCoordinates($value)</code></li>
+<li><code>getEndCoordinates()</code></li>
+<li><code>setEndOffsetX($endOffsetX)</code></li>
+<li><code>getEndOffsetX()</code></li>
+<li><code>setEndOffsetY($endOffsetY)</code></li>
+<li><code>getEndOffsetY()</code></li>
+<li><code>getNestingLevel()</code></li>
+</ul>
+</body></html>

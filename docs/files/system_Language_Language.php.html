@@ -1,0 +1,89 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Language\Language.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Language\Language.php</h1>
+
+<ul>
+<li>Path: <code>system\Language\Language.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 6811 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Handle system messages and localization.</p>
+<p>Locale-based, built on top of PHP internationalization.</p>
+
+<p>Stores the retrieved language lines</p>
+<p>from files for faster retrieval on</p>
+<p>second use.</p>
+<p>@var array</p>
+
+<p>The current language/locale to work with.</p>
+<p>@var string</p>
+
+<p>Boolean value whether the intl</p>
+<p>libraries exist on the system.</p>
+<p>@var bool</p>
+
+<p>Stores filenames that have been</p>
+<p>loaded so that we don't load them again.</p>
+<p>@var array</p>
+
+<p>Sets the current locale to use when performing string lookups.</p>
+<p>@return $this</p>
+
+<p>Parses the language string for a file, loads the file, if necessary,</p>
+<p>getting the line.</p>
+<p>@return string|string[]</p>
+
+<p>@return array|string|null</p>
+
+<p>Parses the language string which should include the</p>
+<p>filename as the first segment (separated by period).</p>
+
+<p>Advanced message formatting.</p>
+<p>@param array|string $message</p>
+<p>@param string[]     $args</p>
+<p>@return array|string</p>
+
+<p>Loads a language file in the current locale. If $return is true,</p>
+<p>will return the file's contents, otherwise will merge with</p>
+<p>the existing language lines.</p>
+<p>@return array|void</p>
+
+<p>A simple method for including files that can be</p>
+<p>overridden during testing.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>files</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Language\Language.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Language\Language</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(string $locale)</code></li>
+<li><code>setLocale(?string $locale = null)</code></li>
+<li><code>getLocale()</code></li>
+<li><code>getLine(string $line, array $args = [])</code></li>
+<li><code>getTranslationOutput(string $locale, string $file, string $parsedLine)</code></li>
+<li><code>parseLine(string $line, string $locale)</code></li>
+<li><code>formatMessage($message, array $args = [])</code></li>
+<li><code>load(string $file, string $locale, bool $return = false)</code></li>
+<li><code>requireFile(string $path)</code></li>
+</ul>
+</body></html>

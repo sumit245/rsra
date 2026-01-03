@@ -1,0 +1,78 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Formatter\JsonFormatter.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Formatter\JsonFormatter.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Formatter\JsonFormatter.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5482 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Encodes whatever record data is passed to it as json</p>
+<p>This can be useful to log to databases or remote APIs</p>
+<p>@author Jordi Boggiano <j.boggiano@seld.be></p>
+
+<p>@var bool</p>
+
+<p>@param int $batchMode</p>
+<p>@param bool $appendNewline</p>
+
+<p>The batch mode option configures the formatting style for</p>
+<p>multiple records. By default, multiple records will be</p>
+<p>formatted as a JSON-encoded array. However, for</p>
+<p>compatibility with some API endpoints, alternative styles</p>
+<p>are available.</p>
+<p>@return int</p>
+
+<p>True if newlines are appended to every formatted record</p>
+<p>@return bool</p>
+
+<p>{@inheritdoc}</p>
+
+<p>{@inheritdoc}</p>
+
+<p>@param bool $include</p>
+
+<p>Return a JSON-encoded array of records.</p>
+<p>@param  array  $records</p>
+<p>@return string</p>
+
+<p>Use new lines to separate records instead of a</p>
+<p>JSON-encoded array.</p>
+<p>@param  array  $records</p>
+<p>@return string</p>
+
+<p>Normalizes given $data.</p>
+<p>@param mixed $data</p>
+<p>@return mixed</p>
+
+<p>Normalizes given exception with or without its own stack trace based on</p>
+<p><code>includeStacktraces</code> property.</p>
+<p>@param Exception|Throwable $e</p>
+<p>@return array</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Formatter\JsonFormatter.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Monolog\Formatter\JsonFormatter extends NormalizerFormatter</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($batchMode = self::BATCH_MODE_JSON, $appendNewline = true)</code></li>
+<li><code>getBatchMode()</code></li>
+<li><code>isAppendingNewlines()</code></li>
+<li><code>format(array $record)</code></li>
+<li><code>formatBatch(array $records)</code></li>
+<li><code>includeStacktraces($include = true)</code></li>
+<li><code>formatBatchJson(array $records)</code></li>
+<li><code>formatBatchNewlines(array $records)</code></li>
+<li><code>normalize($data)</code></li>
+<li><code>normalizeException($e)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,305 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Logger.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Logger.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Logger.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 19304 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Monolog log channel</p>
+<p>It contains a stack of Handlers and a stack of Processors,</p>
+<p>and uses them to store records that are added to it.</p>
+<p>@author Jordi Boggiano <j.boggiano@seld.be></p>
+
+<p>Detailed debug information</p>
+
+<p>Interesting events</p>
+<p>Examples: User logs in, SQL logs.</p>
+
+<p>Uncommon events</p>
+
+<p>Exceptional occurrences that are not errors</p>
+<p>Examples: Use of deprecated APIs, poor use of an API,</p>
+<p>undesirable things that are not necessarily wrong.</p>
+
+<p>Runtime errors</p>
+
+<p>Critical conditions</p>
+<p>Example: Application component unavailable, unexpected exception.</p>
+
+<p>Action must be taken immediately</p>
+<p>Example: Entire website down, database unavailable, etc.</p>
+<p>This should trigger the SMS alerts and wake you up.</p>
+
+<p>Urgent alert.</p>
+
+<p>Monolog API version</p>
+<p>This is only bumped when API breaks are done and should</p>
+<p>follow the major version of the library</p>
+<p>@var int</p>
+
+<p>Logging levels from syslog protocol defined in RFC 5424</p>
+<p>@var array $levels Logging levels</p>
+
+<p>@var \DateTimeZone</p>
+
+<p>@var string</p>
+
+<p>The handler stack</p>
+<p>@var HandlerInterface[]</p>
+
+<p>Processors that will process all log records</p>
+<p>To process records of a single handler instead, add the processor on that specific handler</p>
+<p>@var callable[]</p>
+
+<p>@var bool</p>
+
+<p>@param string             $name       The logging channel</p>
+<p>@param HandlerInterface[] $handlers   Optional stack of handlers, the first one in the array is called first, etc.</p>
+<p>@param callable[]         $processors Optional array of processors</p>
+
+<p>@return string</p>
+
+<p>Return a new cloned instance with the name changed</p>
+<p>@return static</p>
+
+<p>Pushes a handler on to the stack.</p>
+<p>@param  HandlerInterface $handler</p>
+<p>@return $this</p>
+
+<p>Pops a handler from the stack</p>
+<p>@return HandlerInterface</p>
+
+<p>Set handlers, replacing all existing ones.</p>
+<p>If a map is passed, keys will be ignored.</p>
+<p>@param  HandlerInterface[] $handlers</p>
+<p>@return $this</p>
+
+<p>@return HandlerInterface[]</p>
+
+<p>Adds a processor on to the stack.</p>
+<p>@param  callable $callback</p>
+<p>@return $this</p>
+
+<p>Removes the processor on top of the stack and returns it.</p>
+<p>@return callable</p>
+
+<p>@return callable[]</p>
+
+<p>Control the use of microsecond resolution timestamps in the 'datetime'</p>
+<p>member of new records.</p>
+<p>Generating microsecond resolution timestamps by calling</p>
+<p>microtime(true), formatting the result via sprintf() and then parsing</p>
+<p>the resulting string via \DateTime::createFromFormat() can incur</p>
+<p>a measurable runtime overhead vs simple usage of DateTime to capture</p>
+<p>a second resolution timestamp in systems which generate a large number</p>
+<p>of log events.</p>
+<p>@param bool $micro True to use microtime() to create timestamps</p>
+
+<p>Adds a log record.</p>
+<p>@param  int     $level   The logging level</p>
+<p>@param  string  $message The log message</p>
+<p>@param  array   $context The log context</p>
+<p>@return Boolean Whether the record has been processed</p>
+
+<p>Adds a log record at the DEBUG level.</p>
+<p>@param  string  $message The log message</p>
+<p>@param  array   $context The log context</p>
+<p>@return Boolean Whether the record has been processed</p>
+
+<p>Adds a log record at the INFO level.</p>
+<p>@param  string  $message The log message</p>
+<p>@param  array   $context The log context</p>
+<p>@return Boolean Whether the record has been processed</p>
+
+<p>Adds a log record at the NOTICE level.</p>
+<p>@param  string  $message The log message</p>
+<p>@param  array   $context The log context</p>
+<p>@return Boolean Whether the record has been processed</p>
+
+<p>Adds a log record at the WARNING level.</p>
+<p>@param  string  $message The log message</p>
+<p>@param  array   $context The log context</p>
+<p>@return Boolean Whether the record has been processed</p>
+
+<p>Adds a log record at the ERROR level.</p>
+<p>@param  string  $message The log message</p>
+<p>@param  array   $context The log context</p>
+<p>@return Boolean Whether the record has been processed</p>
+
+<p>Adds a log record at the CRITICAL level.</p>
+<p>@param  string  $message The log message</p>
+<p>@param  array   $context The log context</p>
+<p>@return Boolean Whether the record has been processed</p>
+
+<p>Adds a log record at the ALERT level.</p>
+<p>@param  string  $message The log message</p>
+<p>@param  array   $context The log context</p>
+<p>@return Boolean Whether the record has been processed</p>
+
+<p>Adds a log record at the EMERGENCY level.</p>
+<p>@param  string  $message The log message</p>
+<p>@param  array   $context The log context</p>
+<p>@return Boolean Whether the record has been processed</p>
+
+<p>Gets all supported logging levels.</p>
+<p>@return array Assoc array with human-readable level names => level codes.</p>
+
+<p>Gets the name of the logging level.</p>
+<p>@param  int    $level</p>
+<p>@return string</p>
+
+<p>Converts PSR-3 levels to Monolog ones if necessary</p>
+<p>@param string|int Level number (monolog) or name (PSR-3)</p>
+<p>@return int</p>
+
+<p>Checks whether the Logger has a handler that listens on the given level</p>
+<p>@param  int     $level</p>
+<p>@return Boolean</p>
+
+<p>Adds a log record at an arbitrary level.</p>
+<p>This method allows for compatibility with common interfaces.</p>
+<p>@param  mixed   $level   The log level</p>
+<p>@param  string  $message The log message</p>
+<p>@param  array   $context The log context</p>
+<p>@return Boolean Whether the record has been processed</p>
+
+<p>Adds a log record at the DEBUG level.</p>
+<p>This method allows for compatibility with common interfaces.</p>
+<p>@param  string  $message The log message</p>
+<p>@param  array   $context The log context</p>
+<p>@return Boolean Whether the record has been processed</p>
+
+<p>Adds a log record at the INFO level.</p>
+<p>This method allows for compatibility with common interfaces.</p>
+<p>@param  string  $message The log message</p>
+<p>@param  array   $context The log context</p>
+<p>@return Boolean Whether the record has been processed</p>
+
+<p>Adds a log record at the NOTICE level.</p>
+<p>This method allows for compatibility with common interfaces.</p>
+<p>@param  string  $message The log message</p>
+<p>@param  array   $context The log context</p>
+<p>@return Boolean Whether the record has been processed</p>
+
+<p>Adds a log record at the WARNING level.</p>
+<p>This method allows for compatibility with common interfaces.</p>
+<p>@param  string  $message The log message</p>
+<p>@param  array   $context The log context</p>
+<p>@return Boolean Whether the record has been processed</p>
+
+<p>Adds a log record at the WARNING level.</p>
+<p>This method allows for compatibility with common interfaces.</p>
+<p>@param  string  $message The log message</p>
+<p>@param  array   $context The log context</p>
+<p>@return Boolean Whether the record has been processed</p>
+
+<p>Adds a log record at the ERROR level.</p>
+<p>This method allows for compatibility with common interfaces.</p>
+<p>@param  string  $message The log message</p>
+<p>@param  array   $context The log context</p>
+<p>@return Boolean Whether the record has been processed</p>
+
+<p>Adds a log record at the ERROR level.</p>
+<p>This method allows for compatibility with common interfaces.</p>
+<p>@param  string  $message The log message</p>
+<p>@param  array   $context The log context</p>
+<p>@return Boolean Whether the record has been processed</p>
+
+<p>Adds a log record at the CRITICAL level.</p>
+<p>This method allows for compatibility with common interfaces.</p>
+<p>@param  string  $message The log message</p>
+<p>@param  array   $context The log context</p>
+<p>@return Boolean Whether the record has been processed</p>
+
+<p>Adds a log record at the CRITICAL level.</p>
+<p>This method allows for compatibility with common interfaces.</p>
+<p>@param  string  $message The log message</p>
+<p>@param  array   $context The log context</p>
+<p>@return Boolean Whether the record has been processed</p>
+
+<p>Adds a log record at the ALERT level.</p>
+<p>This method allows for compatibility with common interfaces.</p>
+<p>@param  string  $message The log message</p>
+<p>@param  array   $context The log context</p>
+<p>@return Boolean Whether the record has been processed</p>
+
+<p>Adds a log record at the EMERGENCY level.</p>
+<p>This method allows for compatibility with common interfaces.</p>
+<p>@param  string  $message The log message</p>
+<p>@param  array   $context The log context</p>
+<p>@return Boolean Whether the record has been processed</p>
+
+<p>Adds a log record at the EMERGENCY level.</p>
+<p>This method allows for compatibility with common interfaces.</p>
+<p>@param  string  $message The log message</p>
+<p>@param  array   $context The log context</p>
+<p>@return Boolean Whether the record has been processed</p>
+
+<p>Set the timezone to be used for the timestamp of log records.</p>
+<p>This is stored globally for all Logger instances</p>
+<p>@param \DateTimeZone $tz Timezone object</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>syslog</code></li>
+<li><code>the</code></li>
+<li><code>an</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\monolog\monolog\src\Monolog\Logger.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Monolog\Logger implements LoggerInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($name, array $handlers = array()</code></li>
+<li><code>getName()</code></li>
+<li><code>withName($name)</code></li>
+<li><code>pushHandler(HandlerInterface $handler)</code></li>
+<li><code>popHandler()</code></li>
+<li><code>setHandlers(array $handlers)</code></li>
+<li><code>getHandlers()</code></li>
+<li><code>pushProcessor($callback)</code></li>
+<li><code>popProcessor()</code></li>
+<li><code>getProcessors()</code></li>
+<li><code>useMicrosecondTimestamps($micro)</code></li>
+<li><code>addRecord($level, $message, array $context = array()</code></li>
+<li><code>addDebug($message, array $context = array()</code></li>
+<li><code>addInfo($message, array $context = array()</code></li>
+<li><code>addNotice($message, array $context = array()</code></li>
+<li><code>addWarning($message, array $context = array()</code></li>
+<li><code>addError($message, array $context = array()</code></li>
+<li><code>addCritical($message, array $context = array()</code></li>
+<li><code>addAlert($message, array $context = array()</code></li>
+<li><code>addEmergency($message, array $context = array()</code></li>
+<li><code>getLevels()</code></li>
+<li><code>getLevelName($level)</code></li>
+<li><code>toMonologLevel($level)</code></li>
+<li><code>isHandling($level)</code></li>
+<li><code>log($level, $message, array $context = array()</code></li>
+<li><code>debug($message, array $context = array()</code></li>
+<li><code>info($message, array $context = array()</code></li>
+<li><code>notice($message, array $context = array()</code></li>
+<li><code>warn($message, array $context = array()</code></li>
+<li><code>warning($message, array $context = array()</code></li>
+<li><code>err($message, array $context = array()</code></li>
+<li><code>error($message, array $context = array()</code></li>
+<li><code>crit($message, array $context = array()</code></li>
+<li><code>critical($message, array $context = array()</code></li>
+<li><code>alert($message, array $context = array()</code></li>
+<li><code>emerg($message, array $context = array()</code></li>
+<li><code>emergency($message, array $context = array()</code></li>
+<li><code>setTimezone(\DateTimeZone $tz)</code></li>
+</ul>
+</body></html>

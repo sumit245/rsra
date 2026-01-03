@@ -1,0 +1,152 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\ThirdParty\Kint\Kint.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\ThirdParty\Kint\Kint.php</h1>
+
+<ul>
+<li>Path: <code>system\ThirdParty\Kint\Kint.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 21842 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@var mixed Kint mode</p>
+<p>false: Disabled</p>
+<p>true: Enabled, default mode selection</p>
+<p>other: Manual mode selection</p>
+
+<p>Default mode.</p>
+<p>@var string</p>
+
+<p>Default mode in CLI with cli_detection on.</p>
+<p>@var string</p>
+
+<p>@var bool Return output instead of echoing</p>
+
+<p>@var string format of the link to the source file in trace entries.</p>
+<p>Use %f for file path, %l for line number.</p>
+<p>[!] EXAMPLE (works with for phpStorm and RemoteCall Plugin):</p>
+<p>Kint::$file_link_format = 'http://localhost:8091/?message=%f:%l';</p>
+
+<p>@var bool whether to display where kint was called from</p>
+
+<p>@var array base directories of your application that will be displayed instead of the full path.</p>
+<p>Keys are paths, values are replacement strings</p>
+<p>[!] EXAMPLE (for Laravel 5):</p>
+<p>Kint::$app_root_dirs = [</p>
+<p>    base_path() => '<BASE>',</p>
+<p>    app_path() => '<APP>',</p>
+<p>    config_path() => '<CONFIG>',</p>
+<p>    database_path() => '<DATABASE>',</p>
+<p>    public_path() => '<PUBLIC>',</p>
+<p>    resource_path() => '<RESOURCE>',</p>
+<p>    storage_path() => '<STORAGE>',</p>
+<p>];</p>
+<p>Defaults to [$_SERVER['DOCUMENT_ROOT'] => '<ROOT>']</p>
+
+<p>@var int depth limit for array/object traversal. 0 for no limit</p>
+
+<p>@var bool expand all trees by default for rich view</p>
+
+<p>@var bool enable detection when Kint is command line.</p>
+<p>Formats output with whitespace only; does not HTML-escape it</p>
+
+<p>@var array Kint aliases. Add debug functions in Kint wrappers here to fix modifiers and backtraces</p>
+
+<p>@var array<mixed, string> Array of modes to renderer class names</p>
+
+<p>@psalm-suppress UnsafeInstantiation</p>
+
+<p>Renders a list of vars including the pre and post renders.</p>
+<p>@param array $vars Data to dump</p>
+<p>@param array $base Base Zval\Value objects</p>
+<p>@return string</p>
+
+<p>Dumps and renders a var.</p>
+<p>@param mixed $var  Data to dump</p>
+<p>@param Value $base Base object</p>
+<p>@return string</p>
+
+<p>Gets all static settings at once.</p>
+<p>@return array Current static settings</p>
+
+<p>Creates a Kint instances based on static settings.</p>
+<p>Also calls setStatesFromStatics for you</p>
+<p>@param array $statics array of statics as returned by getStatics</p>
+<p>@return null|\Kint\Kint</p>
+
+<p>@var Renderer</p>
+
+<p>@psalm-suppress UnsafeInstantiation</p>
+
+<p>Creates base objects given parameter info.</p>
+<p>@param array $params Parameters as returned from getCallInfo</p>
+<p>@param int   $argc   Number of arguments the helper was called with</p>
+<p>@return Value[] Base objects for the arguments</p>
+
+<p>Gets call info from the backtrace, alias, and argument count.</p>
+<p>Aliases must be normalized beforehand (Utils::normalizeAliases)</p>
+<p>@param array   $aliases Call aliases as found in Kint::$aliases</p>
+<p>@param array[] $trace   Backtrace</p>
+<p>@param int     $argc    Number of arguments</p>
+<p>@return array{params:null|array, modifiers:array, callee:null|array, caller:null|array, trace:array[]} Call info</p>
+
+<p>Dumps a backtrace.</p>
+<p>Functionally equivalent to Kint::dump(1) or Kint::dump(debug_backtrace(true))</p>
+<p>@return int|string</p>
+
+<p>Dumps some data.</p>
+<p>Functionally equivalent to Kint::dump(1) or Kint::dump(debug_backtrace())</p>
+<p>@param mixed ...$args</p>
+<p>@return int|string</p>
+
+<p>generic path display callback, can be configured in app_root_dirs; purpose is</p>
+<p>to show relevant path info and hide as much of the path as possible.</p>
+<p>@param string $file</p>
+<p>@return string</p>
+
+<p>Returns specific function call info from a stack trace frame, or null if no match could be found.</p>
+<p>@param array $frame The stack trace frame in question</p>
+<p>@param int   $argc  The amount of arguments received</p>
+<p>@return null|array{parameters:array, modifiers:array} params and modifiers, or null if a specific call could not be determined</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>getCallInfo</code></li>
+<li><code>the</code></li>
+<li><code>a</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\ThirdParty\Kint\Kint.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Kint\Kint</code></li>
+<li><code>Kint\names</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(Parser $p, Renderer $r)</code></li>
+<li><code>setParser(Parser $p)</code></li>
+<li><code>getParser()</code></li>
+<li><code>setRenderer(Renderer $r)</code></li>
+<li><code>getRenderer()</code></li>
+<li><code>setStatesFromStatics(array $statics)</code></li>
+<li><code>setStatesFromCallInfo(array $info)</code></li>
+<li><code>dumpAll(array $vars, array $base)</code></li>
+<li><code>dumpVar(&$var, Value $base)</code></li>
+<li><code>getStatics()</code></li>
+<li><code>createFromStatics(array $statics)</code></li>
+<li><code>getBasesFromParamInfo(array $params, $argc)</code></li>
+<li><code>getCallInfo(array $aliases, array $trace, $argc)</code></li>
+<li><code>trace()</code></li>
+<li><code>dump(...$args)</code></li>
+<li><code>shortenPath($file)</code></li>
+<li><code>getIdeLink($file, $line)</code></li>
+<li><code>getSingleCall(array $frame, $argc)</code></li>
+</ul>
+</body></html>

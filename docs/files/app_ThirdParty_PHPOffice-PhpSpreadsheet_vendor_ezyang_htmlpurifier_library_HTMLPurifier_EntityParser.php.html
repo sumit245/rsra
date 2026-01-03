@@ -1,0 +1,96 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\EntityParser.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\EntityParser.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\EntityParser.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9980 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Handles referencing and derefencing character entities</p>
+
+<p>Reference to entity lookup table.</p>
+<p>@type HTMLPurifier_EntityLookup</p>
+
+<p>Callback regex string for entities in text.</p>
+<p>@type string</p>
+
+<p>Callback regex string for entities in attributes.</p>
+<p>@type string</p>
+
+<p>Tests if the beginning of a string is a semi-optional regex</p>
+
+<p>Substitute entities with the parsed equivalents.  Use this on</p>
+<p>textual data in an HTML document (as opposed to attributes.)</p>
+<p>@param string $string String to have entities parsed.</p>
+<p>@return string Parsed string.</p>
+
+<p>Substitute entities with the parsed equivalents.  Use this on</p>
+<p>attribute contents in documents.</p>
+<p>@param string $string String to have entities parsed.</p>
+<p>@return string Parsed string.</p>
+
+<p>Callback function for substituteNonSpecialEntities() that does the work.</p>
+<p>@param array $matches  PCRE matches array, with 0 the entire match, and</p>
+<p>                 either index 1, 2 or 3 set with a hex value, dec value,</p>
+<p>                 or string (respectively).</p>
+<p>@return string Replacement string.</p>
+
+<p>Callback regex string for parsing entities.</p>
+<p>@type string</p>
+
+<p>Decimal to parsed string conversion table for special entities.</p>
+<p>@type array</p>
+
+<p>Stripped entity names to decimal conversion table for special entities.</p>
+<p>@type array</p>
+
+<p>Substitutes non-special entities with their parsed equivalents. Since</p>
+<p>running this whenever you have parsed character is t3h 5uck, we run</p>
+<p>it before everything else.</p>
+<p>@param string $string String to have non-special entities parsed.</p>
+<p>@return string Parsed string.</p>
+
+<p>Callback function for substituteNonSpecialEntities() that does the work.</p>
+<p>@param array $matches  PCRE matches array, with 0 the entire match, and</p>
+<p>                 either index 1, 2 or 3 set with a hex value, dec value,</p>
+<p>                 or string (respectively).</p>
+<p>@return string Replacement string.</p>
+
+<p>Substitutes only special entities with their parsed equivalents.</p>
+<p>@notice We try to avoid calling this function because otherwise, it</p>
+<p>would have to be called a lot (for every parsed section).</p>
+<p>@param string $string String to have non-special entities parsed.</p>
+<p>@return string Parsed string.</p>
+
+<p>Callback function for substituteSpecialEntities() that does the work.</p>
+<p>This callback has same syntax as nonSpecialEntityCallback().</p>
+<p>@param array $matches  PCRE-style matches array, with 0 the entire match, and</p>
+<p>                 either index 1, 2 or 3 set with a hex value, dec value,</p>
+<p>                 or string (respectively).</p>
+<p>@return string Replacement string.</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\EntityParser.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>HTMLPurifier_EntityParser</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>substituteTextEntities($string)</code></li>
+<li><code>substituteAttrEntities($string)</code></li>
+<li><code>entityCallback($matches)</code></li>
+<li><code>substituteNonSpecialEntities($string)</code></li>
+<li><code>nonSpecialEntityCallback($matches)</code></li>
+<li><code>substituteSpecialEntities($string)</code></li>
+<li><code>specialEntityCallback($matches)</code></li>
+</ul>
+</body></html>

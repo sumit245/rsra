@@ -2,16 +2,19 @@
 
 namespace App\Models;
 
-class Custom_fields_model extends Crud_model {
+class Custom_fields_model extends Crud_model
+{
 
     protected $table = null;
 
-    function __construct() {
+    function __construct()
+    {
         $this->table = 'custom_fields';
         parent::__construct($this->table);
     }
 
-    function get_details($options = array()) {
+    function get_details($options = array())
+    {
         $custom_fields_table = $this->db->prefixTable('custom_fields');
 
         $where = "";
@@ -73,7 +76,8 @@ class Custom_fields_model extends Crud_model {
         return $this->db->query($sql);
     }
 
-    function get_max_sort_value($related_to = "") {
+    function get_max_sort_value($related_to = "")
+    {
         $custom_fields_table = $this->db->prefixTable('custom_fields');
 
         $sql = "SELECT MAX($custom_fields_table.sort) as sort
@@ -87,7 +91,8 @@ class Custom_fields_model extends Crud_model {
         }
     }
 
-    function get_combined_details($related_to, $related_to_id = 0, $is_admin = 0, $user_type = "") {
+    function get_combined_details($related_to, $related_to_id = 0, $is_admin = 0, $user_type = "")
+    {
         $custom_fields_table = $this->db->prefixTable('custom_fields');
         $custom_field_values_table = $this->db->prefixTable('custom_field_values');
 
@@ -120,7 +125,8 @@ class Custom_fields_model extends Crud_model {
         return $this->db->query($sql);
     }
 
-    function get_custom_field_headers_for_table($related_to, $is_admin = 0, $user_type = "") {
+    function get_custom_field_headers_for_table($related_to, $is_admin = 0, $user_type = "")
+    {
         $custom_fields_for_table = $this->get_available_fields_for_table($related_to, $is_admin, $user_type);
 
         $json_string = "";
@@ -131,7 +137,8 @@ class Custom_fields_model extends Crud_model {
         return $json_string;
     }
 
-    function get_available_fields_for_table($related_to, $is_admin = 0, $user_type = "") {
+    function get_available_fields_for_table($related_to, $is_admin = 0, $user_type = "")
+    {
         $custom_fields_table = $this->db->prefixTable('custom_fields');
 
         $where = "";
@@ -156,7 +163,8 @@ class Custom_fields_model extends Crud_model {
         return $this->db->query($sql)->getResult();
     }
 
-    function get_custom_field_filters($related_to, $is_admin = 0, $user_type = "") {
+    function get_custom_field_filters($related_to, $is_admin = 0, $user_type = "")
+    {
         $custom_fields_for_filter = $this->get_available_filters($related_to, $is_admin, $user_type);
 
         $json_string = "";
@@ -171,7 +179,8 @@ class Custom_fields_model extends Crud_model {
         return $json_string;
     }
 
-    private function prepare_custom_field_filter_dropdown($title = "", $options = "") {
+    private function prepare_custom_field_filter_dropdown($title = "", $options = "")
+    {
         $groups_dropdown = array(array("id" => "", "text" => "- " . $title . " -"));
 
         $options = explode(',', $options);
@@ -182,7 +191,8 @@ class Custom_fields_model extends Crud_model {
         return json_encode($groups_dropdown);
     }
 
-    function get_available_filters($related_to, $is_admin = 0, $user_type = "") {
+    function get_available_filters($related_to, $is_admin = 0, $user_type = "")
+    {
         $custom_fields_table = $this->db->prefixTable('custom_fields');
 
         $where = "";
@@ -207,7 +217,8 @@ class Custom_fields_model extends Crud_model {
         return $this->db->query($sql)->getResult();
     }
 
-    function get_email_template_variables_array($related_to, $related_to_id = 0, $is_admin = 0, $user_type = "") {
+    function get_email_template_variables_array($related_to, $related_to_id = 0, $is_admin = 0, $user_type = "")
+    {
         $tickets_template_variables = $this->get_combined_details($related_to, $related_to_id, $is_admin, $user_type)->getResult();
         $variables_array = array();
 
@@ -219,5 +230,4 @@ class Custom_fields_model extends Crud_model {
 
         return $variables_array;
     }
-
 }

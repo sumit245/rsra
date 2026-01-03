@@ -1,0 +1,89 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Freebase.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Freebase.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Freebase.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9061 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Service definition for Freebase (v1).</p>
+<p><p></p>
+<p>Find Freebase entities using textual queries and other constraints.</p></p>
+<p><p></p>
+<p>For more information about this service, see the API</p>
+<p><a href="https://developers.google.com/freebase/" target="_blank">Documentation</a></p>
+<p></p></p>
+<p>@author Google, Inc.</p>
+
+<p>Constructs the internal representation of the Freebase service.</p>
+<p>@param Google_Client $client</p>
+
+<p>Reconcile entities to Freebase open data. (reconcile)</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@opt_param float confidence Required confidence for a candidate to match.</p>
+<p>Must be between .5 and 1.0</p>
+<p>@opt_param string kind Classifications of entity e.g. type, category, title.</p>
+<p>@opt_param string lang Languages for names and values. First language is used</p>
+<p>for display. Default is 'en'.</p>
+<p>@opt_param int limit Maximum number of candidates to return.</p>
+<p>@opt_param string name Name of entity.</p>
+<p>@opt_param string prop Property values for entity formatted as :</p>
+<p>@return Google_Service_Freebase_ReconcileGet</p>
+
+<p>Search Freebase open data. (search)</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@opt_param string as_of_time A mql as_of_time value to use with mql_output</p>
+<p>queries.</p>
+<p>@opt_param string callback JS method name for JSONP callbacks.</p>
+<p>@opt_param int cursor The cursor value to use for the next page of results.</p>
+<p>@opt_param string domain Restrict to topics with this Freebase domain id.</p>
+<p>@opt_param string encode The encoding of the response. You can use this</p>
+<p>parameter to enable html encoding.</p>
+<p>@opt_param bool exact Query on exact name and keys only.</p>
+<p>@opt_param string filter A filter to apply to the query.</p>
+<p>@opt_param string format Structural format of the json response.</p>
+<p>@opt_param string help The keyword to request help on.</p>
+<p>@opt_param bool indent Whether to indent the json results or not.</p>
+<p>@opt_param string lang The code of the language to run the query with.</p>
+<p>Default is 'en'.</p>
+<p>@opt_param int limit Maximum number of results to return.</p>
+<p>@opt_param string mid A mid to use instead of a query.</p>
+<p>@opt_param string mql_output The MQL query to run againist the results to</p>
+<p>extract more data.</p>
+<p>@opt_param string output An output expression to request data from matches.</p>
+<p>@opt_param bool prefixed Prefix match against names and aliases.</p>
+<p>@opt_param string query Query term to search for.</p>
+<p>@opt_param string scoring Relevance scoring algorithm to use.</p>
+<p>@opt_param string spell Request 'did you mean' suggestions</p>
+<p>@opt_param bool stemmed Query on stemmed names and aliases. May not be used</p>
+<p>with prefixed.</p>
+<p>@opt_param string type Restrict to topics with this Freebase type id.</p>
+<p>@opt_param string with A rule to match against.</p>
+<p>@opt_param string without A rule to not match against.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>matches</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Freebase.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Google_Service_Freebase extends Google_Service</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(Google_Client $client)</code></li>
+<li><code>reconcile($optParams = array()</code></li>
+<li><code>search($optParams = array()</code></li>
+</ul>
+</body></html>

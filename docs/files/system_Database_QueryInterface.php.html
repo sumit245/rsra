@@ -1,0 +1,70 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Database\QueryInterface.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Database\QueryInterface.php</h1>
+
+<ul>
+<li>Path: <code>system\Database\QueryInterface.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2262 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Interface QueryInterface</p>
+<p>Represents a single statement that can be executed against the database.</p>
+<p>Statements are platform-specific and can handle binding of binds.</p>
+
+<p>Sets the raw query string to use for this statement.</p>
+<p>@param mixed $binds</p>
+<p>@return mixed</p>
+
+<p>Returns the final, processed query string after binding, etal</p>
+<p>has been performed.</p>
+<p>@return mixed</p>
+
+<p>Records the execution time of the statement using microtime(true)</p>
+<p>for it's start and end values. If no end value is present, will</p>
+<p>use the current time to determine total duration.</p>
+<p>@return mixed</p>
+
+<p>Returns the duration of this query during execution, or null if</p>
+<p>the query has not been executed yet.</p>
+<p>@param int $decimals The accuracy of the returned time.</p>
+
+<p>Stores the error description that happened for this query.</p>
+
+<p>Reports whether this statement created an error not.</p>
+
+<p>Returns the error code created while executing this statement.</p>
+
+<p>Returns the error message created while executing this statement.</p>
+
+<p>Determines if the statement is a write-type query or not.</p>
+
+<p>Swaps out one table prefix for a new one.</p>
+<p>@return mixed</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Database\QueryInterface.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>setQuery(string $sql, $binds = null, bool $setEscape = true)</code></li>
+<li><code>getQuery()</code></li>
+<li><code>setDuration(float $start, ?float $end = null)</code></li>
+<li><code>getDuration(int $decimals = 6)</code></li>
+<li><code>setError(int $code, string $error)</code></li>
+<li><code>hasError()</code></li>
+<li><code>getErrorCode()</code></li>
+<li><code>getErrorMessage()</code></li>
+<li><code>isWriteType()</code></li>
+<li><code>swapPrefix(string $orig, string $swap)</code></li>
+</ul>
+</body></html>

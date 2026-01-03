@@ -1,0 +1,64 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Handler\CurlMultiHandler.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Handler\CurlMultiHandler.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Handler\CurlMultiHandler.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5618 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Returns an asynchronous response using curl_multi_* functions.</p>
+<p>When using the CurlMultiHandler, custom curl options can be specified as an</p>
+<p>associative array of curl option constants mapping to values in the</p>
+<p><strong>curl</strong> key of the provided request options.</p>
+<p>@property resource $_mh Internal use only. Lazy loaded multi-handle.</p>
+
+<p>@var CurlFactoryInterface</p>
+
+<p>This handler accepts the following options:</p>
+<ul>
+<li>handle_factory: An optional factory  used to create curl handles</li>
+<li>select_timeout: Optional timeout (in seconds) to block before timing</li>
+<p>  out while selecting curl handles. Defaults to 1 second.</p>
+<p>@param array $options</p>
+</ul>
+<p>Ticks the curl event loop.</p>
+
+<p>Runs until all outstanding connections have completed.</p>
+
+<p>Cancels a handle from sending and removes references to it.</p>
+<p>@param int $id Handle ID to cancel and remove.</p>
+<p>@return bool True on success, false on failure.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>sending</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\guzzlehttp\guzzle\src\Handler\CurlMultiHandler.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>GuzzleHttp\Handler\CurlMultiHandler</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(array $options = [])</code></li>
+<li><code>__get($name)</code></li>
+<li><code>__destruct()</code></li>
+<li><code>__invoke(RequestInterface $request, array $options)</code></li>
+<li><code>tick()</code></li>
+<li><code>execute()</code></li>
+<li><code>addRequest(array $entry)</code></li>
+<li><code>cancel($id)</code></li>
+<li><code>processMessages()</code></li>
+<li><code>timeToNext()</code></li>
+</ul>
+</body></html>

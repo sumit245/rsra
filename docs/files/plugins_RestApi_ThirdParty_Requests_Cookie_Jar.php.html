@@ -1,0 +1,98 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\RestApi\ThirdParty\Requests\Cookie\Jar.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\RestApi\ThirdParty\Requests\Cookie\Jar.php</h1>
+
+<ul>
+<li>Path: <code>plugins\RestApi\ThirdParty\Requests\Cookie\Jar.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3865 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Cookie holder object</p>
+<p>@package Requests</p>
+<p>@subpackage Cookies</p>
+
+<p>Cookie holder object</p>
+<p>@package Requests</p>
+<p>@subpackage Cookies</p>
+
+<p>Actual item data</p>
+<p>@var array</p>
+
+<p>Create a new jar</p>
+<p>@param array $cookies Existing cookie values</p>
+
+<p>Normalise cookie data into a Requests_Cookie</p>
+<p>@param string|Requests_Cookie $cookie</p>
+<p>@return Requests_Cookie</p>
+
+<p>Normalise cookie data into a Requests_Cookie</p>
+<p>@codeCoverageIgnore</p>
+<p>@deprecated Use {@see Requests_Cookie_Jar::normalize_cookie}</p>
+<p>@return Requests_Cookie</p>
+
+<p>Check if the given item exists</p>
+<p>@param string $key Item key</p>
+<p>@return boolean Does the item exist?</p>
+
+<p>Get the value for the item</p>
+<p>@param string $key Item key</p>
+<p>@return string|null Item value (null if offsetExists is false)</p>
+
+<p>Set the given item</p>
+<p>@throws Requests_Exception On attempting to use dictionary as list (<code>invalidset</code>)</p>
+<p>@param string $key Item name</p>
+<p>@param string $value Item value</p>
+
+<p>Unset the given header</p>
+<p>@param string $key</p>
+
+<p>Get an iterator for the data</p>
+<p>@return ArrayIterator</p>
+
+<p>Register the cookie handler with the request's hooking system</p>
+<p>@param Requests_Hooker $hooks Hooking system</p>
+
+<p>Add Cookie header to a request if we have any</p>
+<p>As per RFC 6265, cookies are separated by '; '</p>
+<p>@param string $url</p>
+<p>@param array $headers</p>
+<p>@param array $data</p>
+<p>@param string $type</p>
+<p>@param array $options</p>
+
+<p>Parse all cookies from a response and attach them to the response</p>
+<p>@var Requests_Response $response</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\RestApi\ThirdParty\Requests\Cookie\Jar.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Requests_Cookie_Jar implements ArrayAccess, IteratorAggregate</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($cookies = array()</code></li>
+<li><code>normalize_cookie($cookie, $key = null)</code></li>
+<li><code>normalizeCookie($cookie, $key = null)</code></li>
+<li><code>offsetExists($key)</code></li>
+<li><code>offsetGet($key)</code></li>
+<li><code>offsetSet($key, $value)</code></li>
+<li><code>offsetUnset($key)</code></li>
+<li><code>getIterator()</code></li>
+<li><code>register(Requests_Hooker $hooks)</code></li>
+<li><code>before_request($url, &$headers, &$data, &$type, &$options)</code></li>
+<li><code>before_redirect_check(Requests_Response $return)</code></li>
+</ul>
+</body></html>

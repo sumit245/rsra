@@ -1,0 +1,1788 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\Warehouse\Models\Warehouse_model.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\Warehouse\Models\Warehouse_model.php</h1>
+
+<ul>
+<li>Path: <code>plugins\Warehouse\Models\Warehouse_model.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 676117 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>get unit add commodity</p>
+<p>@return [type]</p>
+
+<p>wh get grouped</p>
+<p>@param  string  $can_be     </p>
+<p>@param  boolean $search_all </p>
+<p>@return [type]</p>
+
+<p>count items</p>
+<p>@return [type]</p>
+
+<p>Function that will parse table data from the tables folder for amin area</p>
+<p>@param  string $table  table filename</p>
+<p>@param  array  $params additional params</p>
+<p>@return void</p>
+
+<p>add commodity type</p>
+<p>@param array  $data</p>
+<p>@param boolean $id</p>
+<p>return boolean</p>
+
+<p>get commodity type</p>
+<p>@param  boolean $id</p>
+<p>@return array or object</p>
+
+<p>get commodity type add commodity</p>
+<p>@return array</p>
+
+<p>delete commodity type</p>
+<p>@param  integer $id</p>
+<p>@return boolean</p>
+
+<p>add unit type</p>
+<p>@param array  $data</p>
+<p>@param boolean $id</p>
+<p>return boolean</p>
+
+<p>get unit type</p>
+<p>@param  boolean $id</p>
+<p>@return array or object</p>
+
+<p>get unit code name</p>
+<p>@return array</p>
+
+<p>get warehouse code name</p>
+<p>@return array</p>
+
+<p>delete unit type</p>
+<p>@param  integer $id</p>
+<p>@return boolean</p>
+
+<p>add size type</p>
+<p>@param array  $data</p>
+<p>@param boolean $id</p>
+<p>return boolean</p>
+
+<p>get size type</p>
+<p>@param  boolean $id</p>
+<p>@return array or object</p>
+
+<p>get size add commodity</p>
+<p>@return array</p>
+
+<p>delete size type</p>
+<p>@param  integer $id</p>
+<p>@return boolean</p>
+
+<p>add style type</p>
+<p>@param array  $data</p>
+<p>@param boolean $id</p>
+<p>return boolean</p>
+
+<p>get style type</p>
+<p>@param  boolean $id</p>
+<p>@return array or object</p>
+
+<p>get style add commodity</p>
+<p>@return array</p>
+
+<p>delete style type</p>
+<p>@param  integer $id</p>
+<p>@return boolean</p>
+
+<p>add body type</p>
+<p>@param array  $data</p>
+<p>@param boolean $id</p>
+<p>return boolean</p>
+
+<p>get body type</p>
+<p>@param  boolean $id</p>
+<p>@return row or array</p>
+
+<p>get body add commodity</p>
+<p>@return array</p>
+
+<p>delete body type</p>
+<p>@param  integer $id</p>
+<p>@return boolean</p>
+
+<p>add commodity group type</p>
+<p>@param array  $data</p>
+<p>@param boolean $id</p>
+<p>return boolean</p>
+
+<p>get commodity group type</p>
+<p>@param  boolean $id</p>
+<p>@return array or object</p>
+
+<p>get commodity group add commodity</p>
+<p>@return array</p>
+
+<p>delete commodity group type</p>
+<p>@param  integer $id</p>
+<p>@return boolean</p>
+
+<p>add warehouse</p>
+<p>@param array  $data</p>
+<p>@param boolean $id</p>
+<p>return boolean</p>
+
+<p>get warehouse</p>
+<p>@param  boolean $id</p>
+<p>@return array or object</p>
+
+<p>get all warehouse</p>
+<p>@param  boolean $id </p>
+<p>@return [type]</p>
+
+<p>get warehouse add commodity</p>
+<p>@return array</p>
+
+<p>delete warehouse</p>
+<p>@param  integer $id</p>
+<p>@return boolean</p>
+
+<p>add commodity</p>
+<p>@param array $data</p>
+<p>@param boolean $id</p>
+<p>return boolean</p>
+
+<p>get commodity</p>
+<p>@param  boolean $id</p>
+<p>@return array or object</p>
+
+<p>get commodity code name</p>
+<p>@return array</p>
+
+<p>get items code name</p>
+<p>@return array</p>
+
+<p>delete commodity</p>
+<p>@param  integer $id</p>
+<p>@return boolean</p>
+
+<p>get commodity hansometable</p>
+<p>@param  boolean $id</p>
+<p>@return object</p>
+
+<p>get commodity hansometable by barcode</p>
+<p>@param  [type] $commodity barcode </p>
+<p>@return [type]</p>
+
+<p>create goods code</p>
+<p>@return	string</p>
+
+<p>add goods</p>
+<p>@param array $data</p>
+<p>@param boolean $id</p>
+<p>return boolean</p>
+
+<p>Gets the tax rate by identifier.</p>
+
+<p>get goods receipt</p>
+<p>@param  integer $id</p>
+<p>@return array or object</p>
+
+<p>get goods receipt detail</p>
+<p>@param  integer $id</p>
+<p>@return array</p>
+
+<p>get purchase request</p>
+<p>@param  integer $pur_order</p>
+<p>@return array</p>
+
+<p>get staff</p>
+<p>@param  string $id</p>
+<p>@param  array  $where</p>
+<p>@return array or object</p>
+
+<p>update status goods</p>
+<p>@param  integer $pur_orders_id</p>
+<p>@return boolean</p>
+
+<p>add goods transaction detail</p>
+<p>@param array $data</p>
+<p>@param string $status</p>
+
+<p>add inventory manage</p>
+<p>@param array $data</p>
+<p>@param string $status</p>
+
+<p>check commodity exist inventory</p>
+<p>@param  integer $warehouse_id</p>
+<p>@param  integer $commodity_id</p>
+<p>@return boolean</p>
+
+<p>get inventory commodity</p>
+<p>@param  integer $commodity_id</p>
+<p>@return array</p>
+
+<p>add inventory min</p>
+<p>@param array $data</p>
+<p>return boolean</p>
+
+<p>get inventory min</p>
+<p>@param  boolean $id</p>
+<p>@return array or object</p>
+
+<p>setting get inventory min</p>
+<p>@param  boolean $id </p>
+<p>@return [type]</p>
+
+<p>get inventory min by commodity id</p>
+<p>@param  boolean $id </p>
+<p>@return [type]</p>
+
+<p>update inventory min</p>
+<p>@param  array $data</p>
+<p>@return boolean</p>
+
+<p>get commodity warehouse</p>
+<p>@param  boolean $id</p>
+<p>@return array</p>
+
+<p>get total inventory commodity</p>
+<p>@param  boolean $id</p>
+<p>@return object</p>
+
+<p>add approval setting</p>
+<p>@param  array $data</p>
+<p>@return boolean</p>
+
+<p>edit approval setting</p>
+<p>@param  integer $id</p>
+<p>@param   array $data</p>
+<p>@return    boolean</p>
+
+<p>delete approval setting</p>
+<p>@param  integer $id</p>
+<p>@return boolean</p>
+
+<p>get approval setting</p>
+<p>@param  boolean $id</p>
+<p>@return array or object</p>
+
+<p>get staff sign</p>
+<p>@param   integer $rel_id</p>
+<p>@param   string $rel_type</p>
+<p>@return  array</p>
+
+<p>check approval detail</p>
+<p>@param   integer $rel_id</p>
+<p>@param   string $rel_type</p>
+<p>@return  boolean</p>
+
+<p>get list approval detail</p>
+<p>@param   integer $rel_id</p>
+<p>@param   string $rel_type</p>
+<p>@return  array</p>
+
+<p>add activity log</p>
+<p>@param array $data</p>
+<p>return boolean</p>
+
+<p>get activity log</p>
+<p>@param   integer $rel_id</p>
+<p>@param   string $rel_type</p>
+<p>@return  array</p>
+
+<p>delete activiti log</p>
+<p>@param   integer $rel_id</p>
+<p>@param   string $rel_type</p>
+<p>@return  boolean</p>
+
+<p>send request approve</p>
+<p>@param  array $data</p>
+<p>@return boolean</p>
+
+<p>get approve setting</p>
+<p>@param  integer] $type</p>
+<p>@param  string $status</p>
+<p>@return object</p>
+
+<p>delete approval details</p>
+<p>@param  integer $rel_id</p>
+<p>@param  string $rel_type</p>
+<p>@return  boolean</p>
+
+<p>get staff id by approve value</p>
+<p>@param  array $data</p>
+<p>@param  integer $approve_value</p>
+<p>@return boolean</p>
+
+<p>update approval details</p>
+<p>@param  integer $id</p>
+<p>@param  array $data</p>
+<p>@return boolean</p>
+
+<p>update approve request</p>
+<p>@param  integer $rel_ids</p>
+<p>@param  string $rel_type</p>
+<p>@param  integer $status</p>
+<p>@return boolean</p>
+
+<p>invoice delivery partial or total</p>
+<p>@param  [type] $invoice_id            </p>
+<p>@param  [type] $goods_delivery_detail </p>
+<p>@return [type]</p>
+
+<p>stock import pdf</p>
+<p>@param  integer $purchase</p>
+<p>@return  pdf view</p>
+
+<p>get stock import pdf_html</p>
+<p>@param  integer $goods_receipt_id</p>
+<p>@return html</p>
+
+<p>send mail</p>
+<p>@param  array $data</p>
+<p>@return</p>
+
+<p>create goods delivery code</p>
+<p>@return string</p>
+
+<p>add goods delivery</p>
+<p>@param array  $data</p>
+<p>@param boolean $id</p>
+<p>return boolean</p>
+
+<p>commodity goods delivery change</p>
+<p>@param  boolean $id</p>
+<p>@return  array</p>
+
+<p>get goods delivery</p>
+<p>@param  integer $id</p>
+<p>@return array or object</p>
+
+<p>get goods delivery detail</p>
+<p>@param  integer $id</p>
+<p>@return array</p>
+
+<p>get vendor</p>
+<p>@param  string $id</p>
+<p>@param  array  $where</p>
+<p>@return array or object</p>
+
+<p>get vendor ajax</p>
+<p>@param  integer $pur_orders_id</p>
+<p>@return object</p>
+
+<p>stock export pdf</p>
+<p>@param  integer $delivery</p>
+<p>@return pdf view</p>
+
+<p>get stock export pdf_html</p>
+<p>@param  integer $goods_delivery_id</p>
+<p>@return string</p>
+
+<p>get stock summary report</p>
+<p>@param  array $data</p>
+<p>@return string</p>
+
+<p>stock summary report pdf</p>
+<p>@param  string $stock_report</p>
+<p>@return pdf view</p>
+
+<p>get stock summary report view</p>
+<p>@param  array $data</p>
+<p>@return string</p>
+
+<p>get quantity inventory</p>
+<p>@param  integer $warehouse_id</p>
+<p>@param  integer $commodity_id</p>
+<p>@return object</p>
+
+<p>get warehourse attachments</p>
+<p>@param  integer $commodity_id</p>
+<p>@return array</p>
+
+<p>add commodity one item</p>
+<p>@param array $data</p>
+<p>@return integer</p>
+
+<p>create variant product</p>
+<p>@param  [type] $parent_id </p>
+<p>@param  [type] $data      </p>
+<p>@return [type]</p>
+
+<p>variant generator</p>
+<p>@param  [type]  $variants </p>
+<p>@param  integer $i        </p>
+<p>@return [type]</p>
+
+<p>update commodity one item</p>
+<p>@param  array $data</p>
+<p>@param  integer $id</p>
+<p>@return boolean</p>
+
+<p>get sub group</p>
+<p>@param  boolean $id</p>
+<p>@return array  or object</p>
+
+<p>add sub group</p>
+<p>@param array  $data</p>
+<p>@param boolean $id</p>
+<p>@return boolean</p>
+
+<p>delete_sub_group</p>
+<p>@param  integer $id</p>
+<p>@return boolean</p>
+
+<p>import xlsx commodity</p>
+<p>@param  array $data</p>
+<p>@return integer</p>
+
+<p>get commodity attachments delete</p>
+<p>@param  integer $id</p>
+<p>@return object</p>
+
+<p>delete commodity file</p>
+<p>@param  integer $attachment_id</p>
+<p>@return boolean</p>
+
+<p>get color</p>
+<p>@param  boolean $id</p>
+<p>@return array or object</p>
+
+<p>create sku code</p>
+<p>@param  int commodity_group</p>
+<p>@param  int sub_group</p>
+<p>@return string</p>
+
+<p>add color</p>
+<p>@param array $data</p>
+<p>@return integer</p>
+
+<p>update color</p>
+<p>@param  array $data</p>
+<p>@param  integer $id</p>
+<p>@return boolean</p>
+
+<p>delete color</p>
+<p>@param  integer $id</p>
+<p>@return boolean</p>
+
+<p>get color add commodity</p>
+<p>@return array</p>
+
+<p>Adds a loss adjustment.</p>
+<p>@param      <type>  $data   The data</p>
+<p>@return     <type>  (id loss addjustment) )</p>
+
+<p>{ update loss adjustment }</p>
+<p>@param      <type>   $data   The data</p>
+<p>@return     boolean</p>
+
+<p>{ delete loss adjustment }</p>
+<p>@param      <type>   $id     The identifier</p>
+<p>@return     boolean</p>
+
+<p>Gets the loss adjustment.</p>
+<p>@param      string  $id     The identifier</p>
+<p>@return     <type>  The loss adjustment.</p>
+
+<p>Gets the loss adjustment detailt by masterid.</p>
+<p>@param      string  $id     The identifier</p>
+<p>@return     <type>  The loss adjustment detailt by masterid.</p>
+
+<p>{ change adjust }</p>
+<p>@param      <type>  $id     The identifier</p>
+
+<p>@param array data</p>
+
+<p>generate commodity barcode</p>
+<p>@return     string</p>
+
+<p>delete goods receipt</p>
+<p>@param  [integer] $id</p>
+<p>@return [redirect]</p>
+
+<p>delete goods delivery</p>
+<p>@param  [integer] $id</p>
+<p>@return [redirect]</p>
+
+<p>check format date Y-m-d</p>
+<p>@param      String   $date   The date</p>
+<p>@return     boolean</p>
+
+<p>Gets the taxes.</p>
+<p>@return     <array>  The taxes.</p>
+
+<p>get invoice by customer</p>
+<p>@param  [type] $data </p>
+<p>@return array</p>
+
+<p>Gets the taxes.</p>
+<p>@return     <array>  The taxes.</p>
+
+<p>get goods delivery from invoice</p>
+<p>@param  [integer] $invoice_id </p>
+<p>@return array</p>
+
+<p>get invoices</p>
+<p>@param  boolean $id </p>
+<p>@return array</p>
+
+<p>update goods delivery</p>
+<p>@param [type]  $data </p>
+<p>@param boolean $id</p>
+
+<p>update goods receipt</p>
+<p>@param  array  $data </p>
+<p>@param  boolean $id   </p>
+<p>@return [type]</p>
+
+<p>get commodity in_warehouse</p>
+<p>@param  array $warehouse </p>
+<p>@return array</p>
+
+<p>get commodity alert</p>
+<p>@param  integer $status </p>
+<p>@return array</p>
+
+<p>get inventory by commodity</p>
+<p>@param  integer $commodity_id </p>
+<p>@return object</p>
+
+<p>check inventory min</p>
+<p>@param  integer $commodity_id </p>
+<p>@return boolean</p>
+
+<p>get item group</p>
+<p>@return array</p>
+
+<p>list subgroup by group</p>
+<p>@param  integer $group </p>
+<p>@return string</p>
+
+<p>update warehouse selling price profif ratio</p>
+<p>@param  array $data </p>
+<p>@return boolean</p>
+
+<p>update profit rate by purchase price sale</p>
+<p>@param  array $data </p>
+<p>@return boolean</p>
+
+<p>update rules for rounding prices</p>
+<p>@param  array $data </p>
+<p>@return boolean</p>
+
+<p>get average price inventory</p>
+<p>@param  integer $commodity_id     </p>
+<p>@param  integer $sale_price       </p>
+<p>@param  integer $profif_ratio_old </p>
+<p>@return array</p>
+
+<p>{ update purchase setting }</p>
+<p>@param      <type>   $data   The data</p>
+<p>@return     boolean</p>
+
+<p>auto create goods receipt with purchase order</p>
+<p>@param  array $data</p>
+
+<p>update goods receipt warehouse</p>
+<p>@param  array $data </p>
+<p>@return boolean</p>
+
+<p>get itemid from name</p>
+<p>@param  string $name </p>
+<p>@return integer</p>
+
+<p>get tax id from taxname taxrate</p>
+<p>@param  string $taxname </p>
+<p>@param  string $taxrate </p>
+<p>@return integer</p>
+
+<p>auto_create_goods_delivery_with_invoice</p>
+<p>@param  integer $invoice_id</p>
+
+<p>add goods delivery from invoice</p>
+<p>@param array $data_insert</p>
+
+<p>add inventory from invoices</p>
+<p>@param array $data</p>
+
+<p>copyinvoice</p>
+<p>@param  integer $invoice_id </p>
+<p>@return array</p>
+
+<p>get commodity active</p>
+<p>@return array</p>
+
+<p>get job position training de</p>
+<p>@param  integer $id </p>
+<p>@return object</p>
+
+<p>revert goods receipt</p>
+<p>@param  string $value </p>
+<p>@return [type]</p>
+
+<p>revert goods delivery</p>
+<p>@param  integer $goods_delivery </p>
+<p>@return</p>
+
+<p>revert inventory manage</p>
+<p>@param  string $value </p>
+<p>@return [type]</p>
+
+<p>revert_goods_transaction_detail</p>
+<p>@param  string $value </p>
+<p>@return [type]</p>
+
+<p>update goods delivery approval</p>
+<p>@param  array  $data </p>
+<p>@param  boolean $id</p>
+
+<p>get unitid from commodity name</p>
+<p>@param  string $name </p>
+<p>@return integer</p>
+
+<p>get warranty from commodity name</p>
+<p>@param  string $name </p>
+<p>@return string</p>
+
+<p>get unitid from commodity id</p>
+<p>@param  integer $id </p>
+<p>@return integer</p>
+
+<p>get warranty from commodity id</p>
+<p>@param  integer $id </p>
+<p>@return string</p>
+
+<p>get shipping address from invoice</p>
+<p>@param  integer $invoice_id </p>
+<p>@return string</p>
+
+<p>check item without checking warehouse</p>
+<p>@param  integer $id </p>
+<p>@return boolean</p>
+
+<p>import xlsx opening stock</p>
+<p>@param  array $data </p>
+<p>@return integer</p>
+
+<p>caculator purchase price</p>
+<p>@return json</p>
+
+<p>caculator sale price</p>
+<p>@return float</p>
+
+<p>caculator purchase price model</p>
+<p>@return float</p>
+
+<p>get list item tags</p>
+<p>@param  integer $id </p>
+<p>@return [type]</p>
+
+<p>delete tag item</p>
+<p>@param  integer $tag_id </p>
+<p>@return [type]</p>
+
+<p>inventory_cancel_invoice</p>
+<p>@param  integer $invoice_id</p>
+
+<p>items send notification inventory warning</p>
+<p>@return boolean</p>
+
+<p>get item tag filter</p>
+<p>@return array</p>
+
+<p>check inventory delivery voucher</p>
+<p>@param  array $data </p>
+<p>@return string</p>
+
+<p>update po detail quantity</p>
+<p>@param  integer $po_id                </p>
+<p>@param  array $goods_receipt_detail</p>
+
+<p>array commodity id active</p>
+<p>@return array</p>
+
+<p>get inventory min cron</p>
+<p>@param  integer $id </p>
+<p>@return [type]</p>
+
+<p>check lost adjustment before save</p>
+<p>@param  array $data </p>
+<p>@return boolean</p>
+
+<p>update inventory setting</p>
+<p>@param  array $data </p>
+<p>@return boolean</p>
+
+<p>invoice update delete goods delivery detail</p>
+<p>@param  integer $invoice_id </p>
+<p>@return</p>
+
+<p>revert goods delivery from invoice update</p>
+<p>@param  integer $goods_delivery </p>
+<p>@return [type]</p>
+
+<p>add_goods delivery from invoice update</p>
+<p>@param array $data_insert</p>
+
+<p>add internal delivery</p>
+<p>@param array $data</p>
+
+<p>create internal delivery code</p>
+<p>@return [type]</p>
+
+<p>get internal delivery</p>
+<p>@param  integer $id </p>
+<p>@return array</p>
+
+<p>get internal delivery detail</p>
+<p>@param  integer $id</p>
+<p>@return array</p>
+
+<p>delete internal delivery</p>
+<p>@param  integer $id </p>
+<p>@return boolean</p>
+
+<p>update internal delivery</p>
+<p>@param  array $data </p>
+<p>@param  integer $id   </p>
+<p>@return boolean</p>
+
+<p>approval internal delivery detail</p>
+<p>@param  array $data </p>
+<p>@return [type]</p>
+
+<p>add one warehouse</p>
+<p>@param [type] $data</p>
+
+<p>update color</p>
+<p>@param  array $data</p>
+<p>@param  integer $id</p>
+<p>@return boolean</p>
+
+<p>get inventory by warehouse</p>
+<p>@param  integer $warehouse_id </p>
+<p>@return array</p>
+
+<p>get invoices goods delivery</p>
+<p>@return mixed</p>
+
+<p>get purchase request</p>
+<p>@param  integer $pur_order</p>
+<p>@return array</p>
+
+<p>get pr order delivered</p>
+<p>@return [type]</p>
+
+<p>get client lead</p>
+<p>@param  string $id    </p>
+<p>@param  array  $where </p>
+<p>@return array</p>
+
+<p>wh search leads</p>
+<p>@param  string  $q     </p>
+<p>@param  integer $limit </p>
+<p>@param  array   $where </p>
+<p>@return array</p>
+
+<p>wh get client</p>
+<p>@param  string $id    </p>
+<p>@param  array  $where </p>
+<p>@return array</p>
+
+<p>Gets the file.</p>
+<p>@param      <type>   $id      The file id</p>
+<p>@param      boolean  $rel_id  The relative identifier</p>
+<p>@return     boolean  The file.</p>
+
+<p>get custom fields warehouse</p>
+<p>@param  boolean $id </p>
+<p>@return [type]</p>
+
+<p>add custom fields warehouse</p>
+<p>@param array $data</p>
+
+<p>update custom fields warehouse</p>
+<p>@param  array $data </p>
+<p>@param  integer $id   </p>
+<p>@return [type]</p>
+
+<p>delete custom fields warehouse</p>
+<p>@param integer $id </p>
+<p>@return [type]</p>
+
+<p>check warehouse custom fields</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>check warehouse custom fields one</p>
+<p>@param  integer $custom_fields_id </p>
+<p>@return [type]</p>
+
+<p>get adjustment stock quantity</p>
+<p>@param  [type] $warehouse_id </p>
+<p>@param  [type] $commodity_id </p>
+<p>@param  [type] $lot_number   </p>
+<p>@param  [type] $expiry_date  </p>
+<p>@return [type]</p>
+
+<p>delivery note get data send mail</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>get tags name</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>send delivery note</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>check sku duplicate</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>stock internal delivery pdf</p>
+<p>@param  [type] $internal </p>
+<p>@return [type]</p>
+
+<p>get stock internal delivery pdf_html</p>
+<p>@param  [type] $internal_delivery_id </p>
+<p>@return [type]</p>
+
+<p>get stock internal delivery pdf_html</p>
+<p>@param  [type] $internal_delivery_id </p>
+<p>@return [type]</p>
+
+<p>getBarcode</p>
+<p>@param  [type] $sample </p>
+<p>@return [type]</p>
+
+<p>get purchase price from commodity id</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>get list parent item</p>
+<p>@return [type]</p>
+
+<p>get variation html</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>parent variation sample html</p>
+<p>@return [type]</p>
+
+<p>get variation from parent item</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>item to variation</p>
+<p>@param  [type] $array_value </p>
+<p>@return [type]</p>
+
+<p>row item to variation</p>
+<p>@param  [type] $item_value </p>
+<p>@return [type]</p>
+
+<p>get commodity id from barcode</p>
+<p>@param  [type] $barcode </p>
+<p>@return [type]</p>
+
+<p>get parent variation html</p>
+<p>@param  [type] $variation_value </p>
+<p>@return [type]</p>
+
+<p>{ update warehouse setting }</p>
+<p>@param         $data   The data</p>
+<p>@return     boolean</p>
+
+<p>Gets the product by parent identifier.</p>
+<p>@param        $parent_id  The parent identifier</p>
+<p>@return       The product by parent identifier.</p>
+
+<p>get inventory quantity by warehouse variant</p>
+<p>@param  [type] $commodity_id </p>
+<p>@return [type]</p>
+
+<p>get inventory quantity by warehouse</p>
+<p>@param  [type] $commodity_id </p>
+<p>@return [type]</p>
+
+<p>get quantity inventory group by</p>
+<p>@param  [type] $warehouse_id </p>
+<p>@param  [type] $commodity_id </p>
+<p>@return [type]</p>
+
+<p>add opening stock</p>
+<p>@param [type] $data</p>
+
+<p>wh get activity log</p>
+<p>@param  [type] $id   </p>
+<p>@param  [type] $type </p>
+<p>@return [type]</p>
+
+<p>log wh activity</p>
+<p>@param  [type] $id              </p>
+<p>@param  [type] $description     </p>
+<p>@param  string $additional_data </p>
+<p>@return [type]</p>
+
+<p>delete activitylog</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>get taxe value by ids</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>copy product image</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>delete attachment file</p>
+<p>@param  [type] $attachment_id </p>
+<p>@param  [type] $folder_name   </p>
+<p>@return [type]</p>
+
+<p>Gets the html tax receip.</p>
+
+<p>Gets the tax name.</p>
+<p>@param        $tax    The tax</p>
+<p>@return     string  The tax name.</p>
+
+<p>{ tax rate by id }</p>
+<p>@param        $tax_id  The tax identifier</p>
+
+<p>get purchase price from commodity code</p>
+<p>@param  [type]  $commodity_code </p>
+<p>@param  boolean $sale_price     </p>
+<p>@return [type]</p>
+
+<p>commodity udpate profit rate</p>
+<p>@param  [type] $id      </p>
+<p>@param  [type] $percent </p>
+<p>@param  [type] $type    </p>
+<p>@return [type]</p>
+
+<p>get warehourse attachments</p>
+<p>@param  integer $commodity_id </p>
+<p>@return array</p>
+
+<p>{ clone_item }</p>
+
+<p>add commodity one item</p>
+<p>@param array $data</p>
+<p>@return integer</p>
+
+<p>item_attachments</p>
+<p>@return [type]</p>
+
+<p>arr inventory min</p>
+<p>@param  [type] $commodity_id </p>
+<p>@return [type]</p>
+
+<p>arr commodity group</p>
+<p>@return [type]</p>
+
+<p>arr warehouse by item</p>
+<p>@return [type]</p>
+
+<p>arr_warehouse_id</p>
+<p>@return [type]</p>
+
+<p>arr inventory number by item</p>
+<p>@return [type]</p>
+
+<p>ar item have variation</p>
+<p>@return [type]</p>
+
+<p>get parent item</p>
+<p>@return [type]</p>
+
+<p>wh parent item search</p>
+<p>@param  [type] $q </p>
+<p>@return [type]</p>
+
+<p>create goods receipt row template</p>
+<p>@param  array   $warehouse_data   </p>
+<p>@param  string  $name             </p>
+<p>@param  string  $commodity_name   </p>
+<p>@param  string  $warehouse_id     </p>
+<p>@param  string  $quantities       </p>
+<p>@param  string  $unit_name        </p>
+<p>@param  string  $unit_price       </p>
+<p>@param  string  $taxname          </p>
+<p>@param  string  $lot_number       </p>
+<p>@param  string  $date_manufacture </p>
+<p>@param  string  $expiry_date      </p>
+<p>@param  string  $commodity_code   </p>
+<p>@param  string  $unit_id          </p>
+<p>@param  string  $tax_rate         </p>
+<p>@param  string  $tax_money        </p>
+<p>@param  string  $goods_money      </p>
+<p>@param  string  $note             </p>
+<p>@param  string  $item_key         </p>
+<p>@param  string  $sub_total        </p>
+<p>@param  string  $tax_name         </p>
+<p>@param  string  $tax_id           </p>
+<p>@param  boolean $is_edit          </p>
+<p>@return [type]</p>
+
+<p>get taxes dropdown template</p>
+<p>@param  [type]  $name     </p>
+<p>@param  [type]  $taxname  </p>
+<p>@param  string  $type     </p>
+<p>@param  string  $item_key </p>
+<p>@param  boolean $is_edit  </p>
+<p>@param  boolean $manual   </p>
+<p>@return [type]</p>
+
+<p>[get taxes dropdown template v2</p>
+<p>@param  [type]  $name     </p>
+<p>@param  [type]  $taxname  </p>
+<p>@param  string  $type     </p>
+<p>@param  string  $item_key </p>
+<p>@param  boolean $is_edit  </p>
+<p>@param  boolean $manual   </p>
+<p>@return [type]</p>
+
+<p>wh get tax rate</p>
+<p>@param  [type] $taxname </p>
+<p>@return [type]</p>
+
+<p>create internal delivery row template</p>
+<p>@param  array   $warehouse_data     </p>
+<p>@param  string  $name               </p>
+<p>@param  string  $commodity_name     </p>
+<p>@param  string  $from_stock_name    </p>
+<p>@param  string  $to_stock_name      </p>
+<p>@param  string  $available_quantity </p>
+<p>@param  string  $quantities         </p>
+<p>@param  string  $unit_name          </p>
+<p>@param  string  $unit_price         </p>
+<p>@param  string  $commodity_code     </p>
+<p>@param  string  $unit_id            </p>
+<p>@param  string  $into_money         </p>
+<p>@param  string  $note               </p>
+<p>@param  string  $item_key           </p>
+<p>@param  boolean $is_edit            </p>
+<p>@return [type]</p>
+
+<p>wh uniqueByKey</p>
+<p>@param  [type] $array </p>
+<p>@param  [type] $key   </p>
+<p>@return [type]</p>
+
+<p>create goods delivery row template</p>
+<p>@param  array   $warehouse_data       </p>
+<p>@param  string  $name                 </p>
+<p>@param  string  $commodity_name       </p>
+<p>@param  string  $warehouse_id         </p>
+<p>@param  string  $available_quantity   </p>
+<p>@param  string  $quantities           </p>
+<p>@param  string  $unit_name            </p>
+<p>@param  string  $unit_price           </p>
+<p>@param  string  $taxname              </p>
+<p>@param  string  $commodity_code       </p>
+<p>@param  string  $unit_id              </p>
+<p>@param  string  $tax_rate             </p>
+<p>@param  string  $total_money          </p>
+<p>@param  string  $discount             </p>
+<p>@param  string  $discount_money       </p>
+<p>@param  string  $total_after_discount </p>
+<p>@param  string  $guarantee_period     </p>
+<p>@param  string  $expiry_date          </p>
+<p>@param  string  $lot_number           </p>
+<p>@param  string  $note                 </p>
+<p>@param  string  $sub_total            </p>
+<p>@param  string  $tax_name             </p>
+<p>@param  string  $tax_id               </p>
+<p>@param  string  $item_key             </p>
+<p>@param  boolean $is_edit              </p>
+<p>@return [type]</p>
+
+<p>get html tax delivery</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>packing list get goods delivery</p>
+<p>@return [type]</p>
+
+<p>packing list get delivery note</p>
+<p>@param  [type] $delivery_id </p>
+<p>@return [type]</p>
+
+<p>create packing list code</p>
+<p>@return [type]</p>
+
+<p>add packing list</p>
+<p>@param [type]  $data </p>
+<p>@param boolean $id</p>
+
+<p>get packing list</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>get goods delivery detail</p>
+<p>@param  integer $id</p>
+<p>@return array</p>
+
+<p>update packing list</p>
+<p>@param  [type]  $data </p>
+<p>@param  boolean $id   </p>
+<p>@return [type]</p>
+
+<p>delete packing list</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>filter arr inventory min max</p>
+<p>@return [type]</p>
+
+<p>packing list partial or total</p>
+<p>@param  [type] $delivery_id          </p>
+<p>@param  [type] $packing_list_details </p>
+<p>@return [type]</p>
+
+<p>get html tax packing list</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>check packing list send request</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>packing list pdf</p>
+<p>@param  [type] $packing_list </p>
+<p>@return [type]</p>
+
+<p>get packing list by deivery note</p>
+<p>@param  [type] $delivery_id </p>
+<p>@return [type]</p>
+
+<p>delivery status mark as</p>
+<p>@param  [type] $status </p>
+<p>@param  [type] $id     </p>
+<p>@param  [type] $type   </p>
+<p>@return [type]</p>
+
+<p>get shipment by order</p>
+<p>@param  [type] $order_id </p>
+<p>@return [type]</p>
+
+<p>wh get shipment activity log</p>
+<p>@param  [type] $shipment_id </p>
+<p>@return [type]</p>
+
+<p>create shipment from order</p>
+<p>@param  [type] $order_id </p>
+<p>@return [type]</p>
+
+<p>update shipment status</p>
+<p>@param  [type] $id   </p>
+<p>@param  array  $data </p>
+<p>@return [type]</p>
+
+<p>check update shipment when delivery note approval</p>
+<p>@param  [type] $delivery_id </p>
+<p>@return [type]</p>
+
+<p>wh get activity log by id</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>update activity log</p>
+<p>@param  [type] $id   </p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>create order return code</p>
+<p>@return [type]</p>
+
+<p>get order return</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>get order return detail</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>delete order return</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>get omni sale order list</p>
+<p>@return array</p>
+
+<p>omni sale detail order return</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>[add add order return</p>
+<p>@param [type] $data     </p>
+<p>@param [type] $rel_type</p>
+
+<p>update order return</p>
+<p>@param  [type]  $data     </p>
+<p>@param  [type]  $rel_type </p>
+<p>@param  boolean $id       </p>
+<p>@return [type]</p>
+
+<p>get html tax order return</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>order return pdf</p>
+<p>@param  [type] $order_return </p>
+<p>@return [type]</p>
+
+<p>order return create stock import</p>
+<p>@param  [type] $order_return_id </p>
+<p>@return [type]</p>
+
+<p>order return create stock export</p>
+<p>@param  [type] $order_return_id </p>
+<p>@return [type]</p>
+
+<p>purchasing return order create stock export</p>
+<p>@param  [type] $order_return_id </p>
+<p>@return [type]</p>
+
+<p>order return get inventory receipt</p>
+<p>@return [type]</p>
+
+<p>order return get purchasing order</p>
+<p>@return [type]</p>
+
+<p>order return get inventory delivery</p>
+<p>@return [type]</p>
+
+<p>order return get sale order</p>
+<p>@return [type]</p>
+
+<p>order return get related data</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>order return get related data detail</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>create delivery order return code</p>
+<p>@return [type]</p>
+
+<p>order return render warehouse modal</p>
+<p>@param  [type] $id </p>
+<p>@return [type]</p>
+
+<p>add serial number</p>
+<p>@param [type] $commodity_id        </p>
+<p>@param [type] $warehouse_id        </p>
+<p>@param [type] $inventory_manage_id </p>
+<p>@param [type] $str_serial_number</p>
+
+<p>revert serial number</p>
+<p>@param  [type] $commodity_id        </p>
+<p>@param  [type] $warehouse_id        </p>
+<p>@param  [type] $inventory_manage_id </p>
+<p>@param  [type] $str_serial_number   </p>
+<p>@return [type]</p>
+
+<p>get serial number for delivery note</p>
+<p>@param  [type] $commodity_id        </p>
+<p>@param  [type] $warehouse_id        </p>
+<p>@param  [type] $inventory_manage_id </p>
+<p>@param  [type] $quantity            </p>
+<p>@return [type]</p>
+
+<p>get list temporaty serial numbers</p>
+<p>@param  [type] $commodity_id </p>
+<p>@param  [type] $warehouse_id </p>
+<p>@param  [type] $quantity     </p>
+<p>@return [type]</p>
+
+<p>get serial number for internal delivery note</p>
+<p>@param  [type] $commodity_id             </p>
+<p>@param  [type] $warehouse_id             </p>
+<p>@param  [type] $inventory_manage_id      </p>
+<p>@param  [type] $quantity                 </p>
+<p>@param  [type] $serial_number            </p>
+<p>@param  [type] $goods_delivery_detail_id </p>
+<p>@param  [type] $commodity_name           </p>
+<p>@return [type]</p>
+
+<p>loss adjustment delete serial number</p>
+<p>@param  [type] $commodity_id                </p>
+<p>@param  [type] $warehouse_id                </p>
+<p>@param  [type] $inventory_manage_id         </p>
+<p>@param  [type] $quantity                    </p>
+<p>@param  [type] $serial_number               </p>
+<p>@param  [type] $internal_delivery_detail_id </p>
+<p>@param  [type] $commodity_name              </p>
+<p>@return [type]</p>
+
+<p>get inventory warehouse by commodity</p>
+<p>@param  boolean $commodity_id </p>
+<p>@return [type]</p>
+
+<p>create shipment from delivery note</p>
+<p>@param  [type] $delivery_id </p>
+<p>@return [type]</p>
+
+<p>warehouse check update shipment when delivery note approval</p>
+<p>@param  [type]  $rel_id      </p>
+<p>@param  string  $status      </p>
+<p>@param  string  $rel_type    </p>
+<p>@param  integer $delivery_id </p>
+<p>@return [type]</p>
+
+<p>get shipment by delivery</p>
+<p>@param  [type] $delivery_id </p>
+<p>@return [type]</p>
+
+<p>get shipment by client</p>
+<p>@param  [type] $client_id </p>
+<p>@return [type]</p>
+
+<p>wh client get shipment activity log</p>
+<p>@param  [type] $shipment_id </p>
+<p>@return [type]</p>
+
+<p>warranty period pdf</p>
+<p>@param  [type] $warranty_period </p>
+<p>@return [type]</p>
+
+<p>get warranty period data</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>notify customer shipment status</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>email content from shipment status</p>
+<p>@param  [type] $status        </p>
+<p>@param  [type] $companyname   </p>
+<p>@param  [type] $shipment_code </p>
+<p>@param  [type] $shipment_id   </p>
+<p>@return [type]</p>
+
+<p>get shipment by hash</p>
+<p>@param  [type] $hash </p>
+<p>@return [type]</p>
+
+<p>update warehouse return polices</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>create_approval_setting_row_template</p>
+<p>@param  array  $staff_data </p>
+<p>@param  string $name       </p>
+<p>@param  string $approver   </p>
+<p>@param  string $staff      </p>
+<p>@param  string $action     </p>
+<p>@param  string $item_key   </p>
+<p>@return [type]</p>
+
+<p>wh_create_notification</p>
+<p>@param  [type]  $event      </p>
+<p>@param  [type]  $user_id    </p>
+<p>@param  array   $options    </p>
+<p>@param  integer $to_user_id </p>
+<p>@return [type]</p>
+
+<p>update fee return order</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<h2>References</h2>
+
+<p><strong>Models Used</strong></p>
+<ul>
+<li><code>purchase_model</code></li>
+<li><code>departments_model</code></li>
+<li><code>staff_model</code></li>
+<li><code>currencies_model</code></li>
+<li><code>clients_model</code></li>
+<li><code>caculator_profit_rate_model</code></li>
+<li><code>caculator_purchase_price_model</code></li>
+<li><code>caculator_sale_price_model</code></li>
+<li><code>Users_model</code></li>
+<li><code>invoices_model</code></li>
+<li><code>misc_model</code></li>
+<li><code>omni_sales_model</code></li>
+<li><code>emails_model</code></li>
+</ul>
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>supplier</code></li>
+<li><code>PO</code></li>
+<li><code>purchase</code></li>
+<li><code>delivery</code></li>
+<li><code>id</code></li>
+<li><code>fomular</code></li>
+<li><code>subsequent</code></li>
+<li><code>tmp</code></li>
+<li><code>sku</code></li>
+<li><code>invoice</code></li>
+<li><code>name</code></li>
+<li><code>taxname</code></li>
+<li><code>invoices</code></li>
+<li><code>inventory</code></li>
+<li><code>commodity</code></li>
+<li><code>parent</code></li>
+<li><code>barcode</code></li>
+<li><code>default</code></li>
+<li><code>order</code></li>
+<li><code>Purchase</code></li>
+<li><code>Sales</code></li>
+<li><code>omni_sales</code></li>
+<li><code>shipment</code></li>
+<li><code>plugin</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\Warehouse\Models\Warehouse_model.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Warehouse\Models\Warehouse_model extends Crud_model</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>prefixed_table_fields_wildcard($table, $alias, $field)</code></li>
+<li><code>warehouse_run_query($query_string)</code></li>
+<li><code>get_unit_add_commodity()</code></li>
+<li><code>wh_get_grouped($can_be = '', $search_all = false)</code></li>
+<li><code>count_all_items($where = '')</code></li>
+<li><code>get_table_data($table, $dataPost, $params = [])</code></li>
+<li><code>wh_commodity_code_search($q, $type, $can_be = '', $search_all = false)</code></li>
+<li><code>add_commodity_type($data, $id = false)</code></li>
+<li><code>get_commodity_type($id = false)</code></li>
+<li><code>get_commodity_type_add_commodity()</code></li>
+<li><code>delete_commodity_type($id)</code></li>
+<li><code>add_unit_type($data, $id = false)</code></li>
+<li><code>get_unit_type($id = false)</code></li>
+<li><code>get_units_code_name()</code></li>
+<li><code>get_warehouse_code_name()</code></li>
+<li><code>delete_unit_type($id)</code></li>
+<li><code>add_size_type($data, $id = false)</code></li>
+<li><code>get_size_type($id = false)</code></li>
+<li><code>get_size_add_commodity()</code></li>
+<li><code>delete_size_type($id)</code></li>
+<li><code>add_style_type($data, $id = false)</code></li>
+<li><code>get_style_type($id = false)</code></li>
+<li><code>get_style_add_commodity()</code></li>
+<li><code>delete_style_type($id)</code></li>
+<li><code>add_body_type($data, $id = false)</code></li>
+<li><code>get_body_type($id = false)</code></li>
+<li><code>get_body_add_commodity()</code></li>
+<li><code>delete_body_type($id)</code></li>
+<li><code>add_commodity_group_type($data, $id = false)</code></li>
+<li><code>get_commodity_group_type($id = false)</code></li>
+<li><code>get_commodity_group_add_commodity()</code></li>
+<li><code>delete_commodity_group_type($id)</code></li>
+<li><code>add_warehouse($data, $id = false)</code></li>
+<li><code>get_warehouse($id = false)</code></li>
+<li><code>get_all_warehouse($id = false)</code></li>
+<li><code>get_warehouse_add_commodity()</code></li>
+<li><code>delete_warehouse($id)</code></li>
+<li><code>add_commodity($data, $id = false)</code></li>
+<li><code>get_commodity($id = false, $where = '')</code></li>
+<li><code>get_commodity_code_name()</code></li>
+<li><code>get_items_code_name()</code></li>
+<li><code>delete_commodity($id)</code></li>
+<li><code>get_commodity_hansometable($id = false)</code></li>
+<li><code>get_commodity_hansometable_by_barcode($commodity_barcode)</code></li>
+<li><code>create_goods_code()</code></li>
+<li><code>add_goods_receipt($data, $user_id)</code></li>
+<li><code>get_tax_rate_by_id($tax_ids)</code></li>
+<li><code>get_goods_receipt($id)</code></li>
+<li><code>get_goods_receipt_detail($id)</code></li>
+<li><code>get_pur_request($pur_order)</code></li>
+<li><code>get_staff($id = '', $where = [])</code></li>
+<li><code>update_status_goods($pur_orders_id)</code></li>
+<li><code>add_goods_transaction_detail($data, $status)</code></li>
+<li><code>add_inventory_manage($data, $status)</code></li>
+<li><code>check_commodity_exist_inventory($warehouse_id, $commodity_id, $lot_number, $expiry_date)</code></li>
+<li><code>get_inventory_commodity($commodity_id)</code></li>
+<li><code>add_inventory_min($data)</code></li>
+<li><code>get_inventory_min($id = false)</code></li>
+<li><code>setting_get_inventory_min()</code></li>
+<li><code>get_inventory_min_by_commodity_id($id = false)</code></li>
+<li><code>update_inventory_min($data)</code></li>
+<li><code>get_commodity_warehouse($commodity_id = false)</code></li>
+<li><code>get_total_inventory_commodity($commodity_id = false)</code></li>
+<li><code>add_approval_setting($data)</code></li>
+<li><code>edit_approval_setting($id, $data)</code></li>
+<li><code>delete_approval_setting($id)</code></li>
+<li><code>get_approval_setting($id = '')</code></li>
+<li><code>get_staff_sign($rel_id, $rel_type)</code></li>
+<li><code>check_approval_details($rel_id, $rel_type)</code></li>
+<li><code>get_list_approval_details($rel_id, $rel_type)</code></li>
+<li><code>add_activity_log($data)</code></li>
+<li><code>get_activity_log($rel_id, $rel_type)</code></li>
+<li><code>delete_activity_log($rel_id, $rel_type)</code></li>
+<li><code>send_request_approve($data)</code></li>
+<li><code>get_approve_setting($type, $status = '')</code></li>
+<li><code>delete_approval_details($rel_id, $rel_type)</code></li>
+<li><code>get_staff_id_by_approve_value($data, $approve_value)</code></li>
+<li><code>update_approval_details($id, $data)</code></li>
+<li><code>update_approve_request($rel_id, $rel_type, $status)</code></li>
+<li><code>invoice_delivery_partial_or_total($invoice_id, $goods_delivery_detail)</code></li>
+<li><code>stock_import_pdf($purchase)</code></li>
+<li><code>get_stock_import_pdf_html($goods_receipt_id)</code></li>
+<li><code>send_mail($data ,$staffid = '')</code></li>
+<li><code>create_goods_delivery_code()</code></li>
+<li><code>add_goods_delivery($data, $id = false)</code></li>
+<li><code>commodity_goods_delivery_change($id = false)</code></li>
+<li><code>get_commodity_delivery_hansometable_by_barcode($commodity_barcode)</code></li>
+<li><code>get_goods_delivery($id)</code></li>
+<li><code>get_goods_delivery_detail($id)</code></li>
+<li><code>get_vendor($id = '', $where = [])</code></li>
+<li><code>get_vendor_ajax($pur_orders_id)</code></li>
+<li><code>stock_export_pdf($delivery)</code></li>
+<li><code>get_stock_export_pdf_html($goods_delivery_id)</code></li>
+<li><code>get_stock_summary_report($data)</code></li>
+<li><code>stock_summary_report_pdf($stock_report)</code></li>
+<li><code>get_stock_summary_report_view($data)</code></li>
+<li><code>get_quantity_inventory($warehouse_id, $commodity_id)</code></li>
+<li><code>get_warehourse_attachments($commodity_id)</code></li>
+<li><code>add_commodity_one_item($data)</code></li>
+<li><code>create_variant_product($parent_id, $data, $variant)</code></li>
+<li><code>variant_generator($variants, $i = 0)</code></li>
+<li><code>update_commodity_one_item($data, $id)</code></li>
+<li><code>get_sub_group($id = false)</code></li>
+<li><code>add_sub_group($data, $id = false)</code></li>
+<li><code>delete_sub_group($id)</code></li>
+<li><code>import_xlsx_commodity($data, $flag_insert_id)</code></li>
+<li><code>get_commodity_attachments_delete($id)</code></li>
+<li><code>delete_commodity_file($attachment_id)</code></li>
+<li><code>get_color($id = false)</code></li>
+<li><code>create_sku_code($commodity_group, $sub_group, $flag_insert_id = false)</code></li>
+<li><code>add_color($data)</code></li>
+<li><code>update_color($data, $id)</code></li>
+<li><code>delete_color($id)</code></li>
+<li><code>get_color_add_commodity()</code></li>
+<li><code>add_loss_adjustment($data)</code></li>
+<li><code>update_loss_adjustment($data)</code></li>
+<li><code>delete_loss_adjustment($id)</code></li>
+<li><code>get_loss_adjustment($id = '')</code></li>
+<li><code>get_loss_adjustment_detailt_by_masterid($id = '')</code></li>
+<li><code>change_adjust($id)</code></li>
+<li><code>get_inventory_valuation_report_view($data)</code></li>
+<li><code>generate_commodity_barcode()</code></li>
+<li><code>delete_goods_receipt($id)</code></li>
+<li><code>delete_goods_delivery($id)</code></li>
+<li><code>check_format_date($date)</code></li>
+<li><code>get_taxes()</code></li>
+<li><code>get_invoices_by_customer($data)</code></li>
+<li><code>get_taxe_value($id)</code></li>
+<li><code>get_goods_delivery_from_invoice($invoice_id)</code></li>
+<li><code>get_invoices($id = false)</code></li>
+<li><code>update_goods_delivery($data, $id = false)</code></li>
+<li><code>update_goods_receipt($data, $user_id)</code></li>
+<li><code>get_commodity_in_warehouse($warehouse)</code></li>
+<li><code>get_commodity_alert($status)</code></li>
+<li><code>get_inventory_by_commodity($commodity_id)</code></li>
+<li><code>check_inventory_min($commodity_id)</code></li>
+<li><code>get_item_group()</code></li>
+<li><code>list_subgroup_by_group($group)</code></li>
+<li><code>update_warehouse_selling_price_profif_ratio($data)</code></li>
+<li><code>update_profit_rate_by_purchase_price_sale($data)</code></li>
+<li><code>update_rules_for_rounding_prices($data)</code></li>
+<li><code>get_average_price_inventory($commodity_id, $sale_price, $profif_ratio_old, $warehouse_filter='')</code></li>
+<li><code>update_auto_create_received_delivery_setting($data)</code></li>
+<li><code>auto_create_goods_receipt_with_purchase_order($data)</code></li>
+<li><code>update_goods_receipt_warehouse($data)</code></li>
+<li><code>add_goods_receipt_from_purchase_order($data_insert)</code></li>
+<li><code>get_itemid_from_name($name)</code></li>
+<li><code>get_tax_id_from_taxname_taxrate($taxname, $taxrate)</code></li>
+<li><code>auto_create_goods_delivery_with_invoice($invoice_id, $invoice_update='')</code></li>
+<li><code>add_goods_delivery_from_invoice($data_insert, $invoice_id ='')</code></li>
+<li><code>add_inventory_from_invoices($data)</code></li>
+<li><code>copy_invoice($invoice_id)</code></li>
+<li><code>get_commodity_active()</code></li>
+<li><code>get_item_longdescriptions($id)</code></li>
+<li><code>revert_goods_receipt($goods_receipt)</code></li>
+<li><code>revert_goods_delivery($goods_delivery)</code></li>
+<li><code>revert_inventory_manage($data, $status, $invoice = false)</code></li>
+<li><code>revert_goods_transaction_detail($data, $status)</code></li>
+<li><code>update_goods_delivery_approval($data, $id = false)</code></li>
+<li><code>get_unitid_from_commodity_name($name)</code></li>
+<li><code>get_warranty_from_commodity_name($name)</code></li>
+<li><code>get_unitid_from_commodity_id($id)</code></li>
+<li><code>get_warranty_from_commodity_id($id)</code></li>
+<li><code>get_shipping_address_from_invoice($invoice_id)</code></li>
+<li><code>check_item_without_checking_warehouse($id)</code></li>
+<li><code>import_xlsx_opening_stock($data)</code></li>
+<li><code>caculator_profit_rate_model($purchase_price, $sale_price)</code></li>
+<li><code>caculator_sale_price_model($purchase_price, $profit_rate)</code></li>
+<li><code>caculator_purchase_price_model($profit_rate, $sale_price)</code></li>
+<li><code>get_list_item_tags($id)</code></li>
+<li><code>delete_tag_item($tag_id)</code></li>
+<li><code>inventory_cancel_invoice($invoice_id)</code></li>
+<li><code>items_send_notification_inventory_warning()</code></li>
+<li><code>get_item_tag_filter()</code></li>
+<li><code>check_inventory_delivery_voucher($data)</code></li>
+<li><code>update_po_detail_quantity($po_id, $goods_receipt_detail)</code></li>
+<li><code>array_commodity_id_active()</code></li>
+<li><code>get_inventory_min_cron($id)</code></li>
+<li><code>check_lost_adjustment_before_save($data)</code></li>
+<li><code>update_inventory_setting($data)</code></li>
+<li><code>invoice_update_delete_goods_delivery_detail($invoice_id)</code></li>
+<li><code>revert_goods_delivery_from_invoice_update($goods_delivery)</code></li>
+<li><code>add_goods_delivery_from_invoice_update($invoice_id, $data_insert)</code></li>
+<li><code>add_internal_delivery($data)</code></li>
+<li><code>create_internal_delivery_code()</code></li>
+<li><code>get_internal_delivery($id)</code></li>
+<li><code>get_internal_delivery_detail($id)</code></li>
+<li><code>delete_internal_delivery($id)</code></li>
+<li><code>update_internal_delivery($data, $id)</code></li>
+<li><code>approval_internal_delivery_detail($data)</code></li>
+<li><code>check_internal_delivery_note_send_request($data)</code></li>
+<li><code>add_one_warehouse($data)</code></li>
+<li><code>update_one_warehouse($data, $id)</code></li>
+<li><code>get_inventory_by_warehouse($warehouse_id)</code></li>
+<li><code>get_invoices_goods_delivery($type)</code></li>
+<li><code>goods_delivery_get_pur_order($pur_order)</code></li>
+<li><code>get_pr_order_delivered()</code></li>
+<li><code>get_client_lead($q, $id = '')</code></li>
+<li><code>wh_search_leads($q, $limit = 0, $where = [])</code></li>
+<li><code>wh_get_client($where = [])</code></li>
+<li><code>get_file($id, $rel_id = false)</code></li>
+<li><code>get_custom_fields_warehouse($id = false)</code></li>
+<li><code>add_custom_fields_warehouse($data)</code></li>
+<li><code>update_custom_fields_warehouse($data, $id)</code></li>
+<li><code>delete_custom_fields_warehouse($id)</code></li>
+<li><code>check_warehouse_custom_fields($data)</code></li>
+<li><code>check_warehouse_custom_fields_one($custom_fields_id)</code></li>
+<li><code>get_adjustment_stock_quantity($warehouse_id, $commodity_id, $lot_number, $expiry_date)</code></li>
+<li><code>delivery_note_get_data_send_mail($id)</code></li>
+<li><code>get_tags_name($id)</code></li>
+<li><code>send_delivery_note($data)</code></li>
+<li><code>check_sku_duplicate($data)</code></li>
+<li><code>stock_internal_delivery_pdf($internal)</code></li>
+<li><code>get_stock_internal_delivery_pdf_html($internal_delivery_id)</code></li>
+<li><code>print_barcode_pdf($print_barcode)</code></li>
+<li><code>get_print_barcode_pdf_html($data)</code></li>
+<li><code>getBarcode($sample)</code></li>
+<li><code>get_purchase_price_from_commodity_id($id, $sale_price = false)</code></li>
+<li><code>get_list_parent_item($data)</code></li>
+<li><code>get_variation_html($id)</code></li>
+<li><code>parent_variation_sample_html()</code></li>
+<li><code>parent_attributes_sample_html($parent_variation)</code></li>
+<li><code>get_variation_from_parent_item($data)</code></li>
+<li><code>item_to_variation($array_value)</code></li>
+<li><code>row_item_to_variation($item_value)</code></li>
+<li><code>get_commodity_id_from_barcode($barcode)</code></li>
+<li><code>get_parent_variation_html($variation_value)</code></li>
+<li><code>update_pc_options_setting($data)</code></li>
+<li><code>get_product_by_parent_id($parent_id)</code></li>
+<li><code>get_inventory_quantity_by_warehouse_variant($commodity_id)</code></li>
+<li><code>get_inventory_quantity_by_warehouse($commodity_id)</code></li>
+<li><code>get_quantity_inventory_group_by($warehouse_id, $commodity_id)</code></li>
+<li><code>add_opening_stock($data)</code></li>
+<li><code>wh_get_activity_log($id, $rel_type)</code></li>
+<li><code>log_wh_activity($id, $rel_type, $description, $date = '')</code></li>
+<li><code>delete_activitylog($id)</code></li>
+<li><code>get_taxe_value_by_ids($id)</code></li>
+<li><code>copy_product_image($id)</code></li>
+<li><code>delete_attachment_file($attachment_id, $folder_name)</code></li>
+<li><code>get_html_tax_receip($id)</code></li>
+<li><code>get_tax_name($tax)</code></li>
+<li><code>tax_rate_by_id($tax_id)</code></li>
+<li><code>get_purchase_price_from_commodity_code($commodity_code, $sale_price = false)</code></li>
+<li><code>commodity_udpate_profit_rate($id, $percent, $type)</code></li>
+<li><code>get_item_attachments($commodity_id)</code></li>
+<li><code>clone_item($id)</code></li>
+<li><code>add_commodity_one_item_clone($data)</code></li>
+<li><code>item_attachments()</code></li>
+<li><code>arr_inventory_min($inventory = false)</code></li>
+<li><code>arr_commodity_group()</code></li>
+<li><code>arr_warehouse_by_item()</code></li>
+<li><code>arr_warehouse_id()</code></li>
+<li><code>arr_inventory_number_by_item()</code></li>
+<li><code>arr_item_have_variation()</code></li>
+<li><code>get_parent_item_grouped($id = false)</code></li>
+<li><code>wh_parent_item_search($q)</code></li>
+<li><code>get_item_v2($id = '')</code></li>
+<li><code>create_goods_receipt_row_template($warehouse_data = [], $name = '', $commodity_name = '', $warehouse_id = '', $quantities = '', $unit_name = '', $unit_price = '', $taxname = '', $lot_number = '', $date_manufacture = '', $expiry_date = '', $commodity_code = '', $unit_id = '', $tax_rate = '', $tax_money = '', $goods_money = '', $note = '', $item_key = '', $sub_total = '', $tax_name = '', $tax_id = '', $is_edit = false, $serial_number = '')</code></li>
+<li><code>get_taxes_dropdown_template($name, $taxname, $type = '', $item_key = '', $is_edit = false, $manual = false)</code></li>
+<li><code>get_taxes_dropdown_template_v2($name, $taxname, $type = '', $item_key = '', $is_edit = false, $manual = false)</code></li>
+<li><code>wh_get_tax_rate($taxname)</code></li>
+<li><code>create_internal_delivery_row_template($warehouse_data = [], $name = '', $commodity_name = '', $from_stock_name = '', $to_stock_name = '', $available_quantity = '', $quantities = '', $unit_name = '', $unit_price = '', $commodity_code = '', $unit_id = '', $into_money = '', $note = '', $item_key = '', $is_edit = false, $serial_number = '')</code></li>
+<li><code>create_loss_adjustment_row_template($name = '', $commodity_name = '', $available_quantity = '', $quantities = '', $unit_name = '', $expiry_date = '', $lot_number = '', $commodity_code = '', $unit_id = '', $item_key = '', $is_edit = false, $serial_number = '')</code></li>
+<li><code>wh_uniqueByKey($array, $key)</code></li>
+<li><code>create_goods_delivery_row_template($warehouse_data = [], $name = '', $commodity_name = '', $warehouse_id = '', $available_quantity = '', $quantities = '', $unit_name = '', $unit_price = '', $taxname = '',  $commodity_code = '', $unit_id = '', $tax_rate = '', $total_money = '', $discount = '', $discount_money = '', $total_after_discount = '', $guarantee_period = '', $expiry_date = '', $lot_number = '', $note = '',  $sub_total = '', $tax_name = '', $tax_id = '', $item_key = '',$is_edit = false, $is_purchase_order = false, $serial_number = '')</code></li>
+<li><code>get_html_tax_delivery($id)</code></li>
+<li><code>packing_list_get_goods_delivery()</code></li>
+<li><code>create_packing_list_row_template($delivery_detail_id = '', $name = '', $commodity_name = '', $quantities = '', $unit_name = '', $unit_price = '', $taxname = '',  $commodity_code = '', $unit_id = '', $tax_rate = '', $total_amount = '', $discount = '', $discount_total = '', $total_after_discount = '', $sub_total = '', $tax_name = '', $tax_id = '', $item_key = '',$is_edit = false, $max_qty = false, $serial_number = '')</code></li>
+<li><code>packing_list_get_delivery_note($delivery_id)</code></li>
+<li><code>create_packing_list_code()</code></li>
+<li><code>add_packing_list($data, $id = false)</code></li>
+<li><code>get_packing_list($id)</code></li>
+<li><code>get_packing_list_detail($id)</code></li>
+<li><code>update_packing_list($data, $id = false)</code></li>
+<li><code>delete_packing_list($id)</code></li>
+<li><code>filter_arr_inventory_min_max()</code></li>
+<li><code>packing_list_partial_or_total($delivery_id, $packing_list_details)</code></li>
+<li><code>get_html_tax_packing_list($id)</code></li>
+<li><code>check_packing_list_send_request($data)</code></li>
+<li><code>packing_list_pdf($packing_list)</code></li>
+<li><code>get_packing_list_by_deivery_note($delivery_id)</code></li>
+<li><code>delivery_status_mark_as($status, $id, $type)</code></li>
+<li><code>get_shipment_by_order($order_id)</code></li>
+<li><code>wh_get_shipment_activity_log($shipment_id)</code></li>
+<li><code>create_shipment_from_order($order_id)</code></li>
+<li><code>update_shipment_status($id, $data = [])</code></li>
+<li><code>check_update_shipment_when_delivery_note_approval($rel_id, $status = 'quality_check', $rel_type = 'delivery_approval', $delivery_id = 0)</code></li>
+<li><code>wh_get_activity_log_by_id($id)</code></li>
+<li><code>update_activity_log($id, $data)</code></li>
+<li><code>create_order_return_code()</code></li>
+<li><code>get_order_return($id)</code></li>
+<li><code>get_order_return_detail($id)</code></li>
+<li><code>delete_order_return($id)</code></li>
+<li><code>create_order_return_row_template($rel_type, $rel_type_detail_id = '', $name = '', $commodity_name = '', $quantities = '', $unit_name = '', $unit_price = '', $taxname = '',  $commodity_code = '', $unit_id = '', $tax_rate = '', $total_amount = '', $discount = '', $discount_total = '', $total_after_discount = '', $reason_return = '', $sub_total = '', $tax_name = '', $tax_id = '', $item_key = '',$is_edit = false, $max_qty = false)</code></li>
+<li><code>get_omni_sale_order_list()</code></li>
+<li><code>omni_sale_detail_order_return($id)</code></li>
+<li><code>add_order_return($data, $rel_type)</code></li>
+<li><code>update_order_return($data, $rel_type,  $id = false)</code></li>
+<li><code>get_html_tax_order_return($id)</code></li>
+<li><code>order_return_pdf($order_return)</code></li>
+<li><code>order_return_create_stock_import($order_return_id)</code></li>
+<li><code>sales_return_order_create_stock_import($order_return_id)</code></li>
+<li><code>purchasing_return_order_create_stock_export($order_return_id, $data_item_warehouse)</code></li>
+<li><code>order_return_get_inventory_receipt()</code></li>
+<li><code>order_return_get_purchasing_order()</code></li>
+<li><code>order_return_get_inventory_delivery()</code></li>
+<li><code>order_return_get_sale_order()</code></li>
+<li><code>order_return_get_related_data($data)</code></li>
+<li><code>order_return_get_related_data_detail($data)</code></li>
+<li><code>create_delivery_order_return_code()</code></li>
+<li><code>order_return_render_warehouse_modal($id)</code></li>
+<li><code>add_serial_number($commodity_id, $warehouse_id, $inventory_manage_id, $str_serial_number)</code></li>
+<li><code>revert_serial_number($commodity_id, $warehouse_id, $inventory_manage_id, $str_serial_number)</code></li>
+<li><code>get_serial_number_for_delivery_note($commodity_id, $warehouse_id, $inventory_manage_id, $quantity, $serial_number, $goods_delivery_detail_id, $commodity_name)</code></li>
+<li><code>get_list_temporaty_serial_numbers($commodity_id, $warehouse_id, $quantity = '', $where = [])</code></li>
+<li><code>get_serial_number_for_internal_delivery_note($commodity_id, $warehouse_id, $inventory_manage_id, $quantity, $serial_number, $internal_delivery_detail_id, $commodity_name)</code></li>
+<li><code>loss_adjustment_delete_serial_number($commodity_id, $warehouse_id, $inventory_manage_id, $quantity, $serial_number)</code></li>
+<li><code>get_inventory_warehouse_by_commodity($commodity_id = false)</code></li>
+<li><code>create_shipment_from_delivery_note($delivery_id)</code></li>
+<li><code>warehouse_check_update_shipment_when_delivery_note_approval($rel_id, $status = 'quality_check', $rel_type = 'delivery_approval', $delivery_id = 0)</code></li>
+<li><code>get_shipment_by_delivery($delivery_id)</code></li>
+<li><code>get_shipment_by_client($client_id)</code></li>
+<li><code>wh_client_get_shipment_activity_log($shipment_id)</code></li>
+<li><code>warranty_period_pdf($warranty_period)</code></li>
+<li><code>get_warranty_period_data($data)</code></li>
+<li><code>notify_customer_shipment_status($delivery_id)</code></li>
+<li><code>email_content_from_shipment_status($status, $companyname, $shipment_code, $shipment_id)</code></li>
+<li><code>get_shipment_by_hash($hash)</code></li>
+<li><code>update_warehouse_return_polices($data)</code></li>
+<li><code>create_approval_setting_row_template($staff_data = [], $name = '', $approver = 'staff', $staff = '', $action = '', $item_key = '')</code></li>
+<li><code>wh_create_notification($event, $user_id, $options = array()</code></li>
+<li><code>update_fee_return_order($data)</code></li>
+</ul>
+</body></html>

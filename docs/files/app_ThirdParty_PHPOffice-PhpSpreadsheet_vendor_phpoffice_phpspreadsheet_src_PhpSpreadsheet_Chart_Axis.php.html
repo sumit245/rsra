@@ -1,0 +1,222 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Chart\Axis.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Chart\Axis.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Chart\Axis.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 15140 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Created by PhpStorm.</p>
+<p>User: Wiktor Trzonkowski</p>
+<p>Date: 6/17/14</p>
+<p>Time: 12:11 PM.</p>
+
+<p>Axis Number.</p>
+<p>@var mixed[]</p>
+
+<p>Axis Options.</p>
+<p>@var mixed[]</p>
+
+<p>Fill Properties.</p>
+<p>@var mixed[]</p>
+
+<p>Line Properties.</p>
+<p>@var mixed[]</p>
+
+<p>Line Style Properties.</p>
+<p>@var mixed[]</p>
+
+<p>Shadow Properties.</p>
+<p>@var mixed[]</p>
+
+<p>Glow Properties.</p>
+<p>@var mixed[]</p>
+
+<p>Soft Edge Properties.</p>
+<p>@var mixed[]</p>
+
+<p>Get Series Data Type.</p>
+<p>@param mixed $format_code</p>
+
+<p>Get Axis Number Format Data Type.</p>
+<p>@return string</p>
+
+<p>Get Axis Number Source Linked.</p>
+<p>@return string</p>
+
+<p>Set Axis Options Properties.</p>
+<p>@param string $axisLabels</p>
+<p>@param string $horizontalCrossesValue</p>
+<p>@param string $horizontalCrosses</p>
+<p>@param string $axisOrientation</p>
+<p>@param string $majorTmt</p>
+<p>@param string $minorTmt</p>
+<p>@param string $minimum</p>
+<p>@param string $maximum</p>
+<p>@param string $majorUnit</p>
+<p>@param string $minorUnit</p>
+
+<p>Get Axis Options Property.</p>
+<p>@param string $property</p>
+<p>@return string</p>
+
+<p>Set Axis Orientation Property.</p>
+<p>@param string $orientation</p>
+
+<p>Set Fill Property.</p>
+<p>@param string $color</p>
+<p>@param int $alpha</p>
+<p>@param string $AlphaType</p>
+
+<p>Set Line Property.</p>
+<p>@param string $color</p>
+<p>@param int $alpha</p>
+<p>@param string $alphaType</p>
+
+<p>Get Fill Property.</p>
+<p>@param string $property</p>
+<p>@return string</p>
+
+<p>Get Line Property.</p>
+<p>@param string $property</p>
+<p>@return string</p>
+
+<p>Set Line Style Properties.</p>
+<p>@param float $lineWidth</p>
+<p>@param string $compoundType</p>
+<p>@param string $dashType</p>
+<p>@param string $capType</p>
+<p>@param string $joinType</p>
+<p>@param string $headArrowType</p>
+<p>@param string $headArrowSize</p>
+<p>@param string $endArrowType</p>
+<p>@param string $endArrowSize</p>
+
+<p>Get Line Style Property.</p>
+<p>@param array|string $elements</p>
+<p>@return string</p>
+
+<p>Get Line Style Arrow Excel Width.</p>
+<p>@param string $arrow</p>
+<p>@return string</p>
+
+<p>Get Line Style Arrow Excel Length.</p>
+<p>@param string $arrow</p>
+<p>@return string</p>
+
+<p>Set Shadow Properties.</p>
+<p>@param int $shadowPresets</p>
+<p>@param string $colorValue</p>
+<p>@param string $colorType</p>
+<p>@param string $colorAlpha</p>
+<p>@param float $blur</p>
+<p>@param int $angle</p>
+<p>@param float $distance</p>
+
+<p>Set Shadow Color.</p>
+<p>@param int $presets</p>
+<p>@return $this</p>
+
+<p>Set Shadow Properties from Mapped Values.</p>
+<p>@param mixed $reference</p>
+<p>@return $this</p>
+
+<p>Set Shadow Color.</p>
+<p>@param string $color</p>
+<p>@param int $alpha</p>
+<p>@param string $alphaType</p>
+<p>@return $this</p>
+
+<p>Set Shadow Blur.</p>
+<p>@param float $blur</p>
+<p>@return $this</p>
+
+<p>Set Shadow Angle.</p>
+<p>@param int $angle</p>
+<p>@return $this</p>
+
+<p>Set Shadow Distance.</p>
+<p>@param float $distance</p>
+<p>@return $this</p>
+
+<p>Get Shadow Property.</p>
+<p>@param string|string[] $elements</p>
+<p>@return null|array|int|string</p>
+
+<p>Set Glow Properties.</p>
+<p>@param float $size</p>
+<p>@param string $colorValue</p>
+<p>@param int $colorAlpha</p>
+<p>@param string $colorType</p>
+
+<p>Get Glow Property.</p>
+<p>@param array|string $property</p>
+<p>@return string</p>
+
+<p>Set Glow Color.</p>
+<p>@param float $size</p>
+<p>@return $this</p>
+
+<p>Set Glow Color.</p>
+<p>@param string $color</p>
+<p>@param int $alpha</p>
+<p>@param string $colorType</p>
+<p>@return $this</p>
+
+<p>Set Soft Edges Size.</p>
+<p>@param float $size</p>
+
+<p>Get Soft Edges Size.</p>
+<p>@return string</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>Mapped</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Chart\Axis.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Chart\Axis extends Properties</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>setAxisNumberProperties($format_code)</code></li>
+<li><code>getAxisNumberFormat()</code></li>
+<li><code>getAxisNumberSourceLinked()</code></li>
+<li><code>setAxisOptionsProperties($axisLabels, $horizontalCrossesValue = null, $horizontalCrosses = null, $axisOrientation = null, $majorTmt = null, $minorTmt = null, $minimum = null, $maximum = null, $majorUnit = null, $minorUnit = null)</code></li>
+<li><code>getAxisOptionsProperty($property)</code></li>
+<li><code>setAxisOrientation($orientation)</code></li>
+<li><code>setFillParameters($color, $alpha = 0, $AlphaType = self::EXCEL_COLOR_TYPE_ARGB)</code></li>
+<li><code>setLineParameters($color, $alpha = 0, $alphaType = self::EXCEL_COLOR_TYPE_ARGB)</code></li>
+<li><code>getFillProperty($property)</code></li>
+<li><code>getLineProperty($property)</code></li>
+<li><code>setLineStyleProperties($lineWidth = null, $compoundType = null, $dashType = null, $capType = null, $joinType = null, $headArrowType = null, $headArrowSize = null, $endArrowType = null, $endArrowSize = null)</code></li>
+<li><code>getLineStyleProperty($elements)</code></li>
+<li><code>getLineStyleArrowWidth($arrow)</code></li>
+<li><code>getLineStyleArrowLength($arrow)</code></li>
+<li><code>setShadowProperties($shadowPresets, $colorValue = null, $colorType = null, $colorAlpha = null, $blur = null, $angle = null, $distance = null)</code></li>
+<li><code>setShadowPresetsProperties($presets)</code></li>
+<li><code>setShadowPropertiesMapValues(array $propertiesMap, &$reference = null)</code></li>
+<li><code>setShadowColor($color, $alpha, $alphaType)</code></li>
+<li><code>setShadowBlur($blur)</code></li>
+<li><code>setShadowAngle($angle)</code></li>
+<li><code>setShadowDistance($distance)</code></li>
+<li><code>getShadowProperty($elements)</code></li>
+<li><code>setGlowProperties($size, $colorValue = null, $colorAlpha = null, $colorType = null)</code></li>
+<li><code>getGlowProperty($property)</code></li>
+<li><code>setGlowSize($size)</code></li>
+<li><code>setGlowColor($color, $alpha, $colorType)</code></li>
+<li><code>setSoftEdges($size)</code></li>
+<li><code>getSoftEdgesSize()</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,273 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Images\Handlers\BaseHandler.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Images\Handlers\BaseHandler.php</h1>
+
+<ul>
+<li>Path: <code>system\Images\Handlers\BaseHandler.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 20064 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Base image handling implementation</p>
+
+<p>Configuration settings.</p>
+<p>@var Images</p>
+
+<p>The image/file instance</p>
+<p>@var Image</p>
+
+<p>Whether the image file has been confirmed.</p>
+<p>@var bool</p>
+
+<p>Image width.</p>
+<p>@var int</p>
+
+<p>Image height.</p>
+<p>@var int</p>
+
+<p>File permission mask.</p>
+<p>@var int</p>
+
+<p>X-axis.</p>
+<p>@var int|null</p>
+
+<p>Y-axis.</p>
+<p>@var int|null</p>
+
+<p>Master dimensioning.</p>
+<p>@var string</p>
+
+<p>Default options for text watermarking.</p>
+<p>@var array</p>
+
+<p>Image types with support for transparency.</p>
+<p>@var array</p>
+
+<p>Temporary image used by the different engines.</p>
+<p>@var resource|null</p>
+
+<p>Constructor.</p>
+<p>@param Images|null $config</p>
+
+<p>Sets another image for this handler to work on.</p>
+<p>Keeps us from needing to continually instantiate the handler.</p>
+<p>@return $this</p>
+
+<p>Make the image resource object if needed</p>
+
+<p>Returns the image instance.</p>
+<p>@return Image</p>
+
+<p>Verifies that a file has been supplied and it is an image.</p>
+<p>@throws ImageException</p>
+<p>@return Image The image instance</p>
+
+<p>Returns the temporary image used during the image processing.</p>
+<p>Good for extending the system or doing things this library</p>
+<p>is not intended to do.</p>
+<p>@return resource</p>
+
+<p>Load the temporary image used during the image processing.</p>
+<p>Some functions e.g. save() will only copy and not compress</p>
+<p>your image otherwise.</p>
+<p>@return $this</p>
+
+<p>Resize the image</p>
+<p>@param bool $maintainRatio If true, will get the closest match possible while keeping aspect ratio true.</p>
+<p>@return BaseHandler</p>
+
+<p>Crops the image to the desired height and width. If one of the height/width values</p>
+<p>is not provided, that value will be set the appropriate value based on offsets and</p>
+<p>image dimensions.</p>
+<p>@param int|null $x X-axis coord to start cropping from the left of image</p>
+<p>@param int|null $y Y-axis coord to start cropping from the top of image</p>
+<p>@return $this</p>
+
+<p>Changes the stored image type to indicate the new file format to use when saving.</p>
+<p>Does not touch the actual resource.</p>
+<p>@param int $imageType A PHP imageType constant, e.g. https://www.php.net/manual/en/function.image-type-to-mime-type.php</p>
+<p>@return $this</p>
+
+<p>Rotates the image on the current canvas.</p>
+<p>@return $this</p>
+
+<p>Flattens transparencies, default white background</p>
+<p>@return $this</p>
+
+<p>Handler-specific method to flattening an image's transparencies.</p>
+<p>@return $this</p>
+<p>@internal</p>
+
+<p>Handler-specific method to handle rotating an image in 90 degree increments.</p>
+<p>@return mixed</p>
+
+<p>Flips an image either horizontally or vertically.</p>
+<p>@param string $dir Either 'vertical' or 'horizontal'</p>
+<p>@return $this</p>
+
+<p>Handler-specific method to handle flipping an image along its</p>
+<p>horizontal or vertical axis.</p>
+<p>@return $this</p>
+
+<p>Overlays a string of text over the image.</p>
+<p>Valid options:</p>
+<p> - color         Text Color (hex number)</p>
+<p> - shadowColor   Color of the shadow (hex number)</p>
+<p> - hAlign        Horizontal alignment: left, center, right</p>
+<p> - vAlign        Vertical alignment: top, middle, bottom</p>
+<p> - hOffset</p>
+<p> - vOffset</p>
+<p> - fontPath</p>
+<p> - fontSize</p>
+<p> - shadowOffset</p>
+<p>@return $this</p>
+
+<p>Handler-specific method for overlaying text on an image.</p>
+
+<p>Handles the actual resizing of the image.</p>
+<p>@return $this</p>
+
+<p>Crops the image.</p>
+<p>@return $this</p>
+
+<p>Return image width.</p>
+<p>@return int</p>
+
+<p>Return the height of an image.</p>
+<p>@return int</p>
+
+<p>Reads the EXIF information from the image and modifies the orientation</p>
+<p>so that displays correctly in the browser. This is especially an issue</p>
+<p>with images taken by smartphones who always store the image up-right,</p>
+<p>but set the orientation flag to display it correctly.</p>
+<p>@param bool $silent If true, will ignore exceptions when PHP doesn't support EXIF.</p>
+<p>@return $this</p>
+
+<p>Retrieve the EXIF information from the image, if possible. Returns</p>
+<p>an array of the information, or null if nothing can be found.</p>
+<p>EXIF data is only supported fr JPEG & TIFF formats.</p>
+<p>@param string|null $key    If specified, will only return this piece of EXIF data.</p>
+<p>@param bool        $silent If true, will not throw our own exceptions.</p>
+<p>@throws ImageException</p>
+<p>@return mixed</p>
+
+<p>Combine cropping and resizing into a single command.</p>
+<p>Supported positions:</p>
+<p> - top-left</p>
+<p> - top</p>
+<p> - top-right</p>
+<p> - left</p>
+<p> - center</p>
+<p> - right</p>
+<p> - bottom-left</p>
+<p> - bottom</p>
+<p> - bottom-right</p>
+<p>@param int $height</p>
+<p>@return BaseHandler</p>
+
+<p>Calculate image aspect ratio.</p>
+<p>@param float|int      $width</p>
+<p>@param float|int|null $height</p>
+<p>@param float|int      $origWidth</p>
+<p>@param float|int      $origHeight</p>
+
+<p>Based on the position, will determine the correct x/y coords to</p>
+<p>crop the desired portion from the image.</p>
+<p>@param float|int $width</p>
+<p>@param float|int $height</p>
+<p>@param float|int $origWidth</p>
+<p>@param float|int $origHeight</p>
+<p>@param string    $position</p>
+
+<p>Get the version of the image library in use.</p>
+<p>@return string</p>
+
+<p>Saves any changes that have been made to file.</p>
+<p>Example:</p>
+<p>   $image->resize(100, 200, true)</p>
+<p>         ->save($target);</p>
+<p>@return bool</p>
+
+<p>Does the driver-specific processing of the image.</p>
+<p>@return mixed</p>
+
+<p>Provide access to the Image class' methods if they don't exist</p>
+<p>on the handler itself.</p>
+<p>@return mixed</p>
+
+<p>Re-proportion Image Width/Height</p>
+<p>When creating thumbs, the desired width/height</p>
+<p>can end up warping the image due to an incorrect</p>
+<p>ratio between the full-sized image and the thumb.</p>
+<p>This function lets us re-proportion the width/height</p>
+<p>if users choose to maintain the aspect ratio when resizing.</p>
+
+<p>Return image width.</p>
+<p>accessor for testing; not part of interface</p>
+<p>@return int</p>
+
+<p>Return image height.</p>
+<p>accessor for testing; not part of interface</p>
+<p>@return int</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>needing</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Images\Handlers\BaseHandler.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Images\Handlers\BaseHandler implements ImageHandlerInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($config = null)</code></li>
+<li><code>withFile(string $path)</code></li>
+<li><code>ensureResource()</code></li>
+<li><code>getFile()</code></li>
+<li><code>image()</code></li>
+<li><code>getResource()</code></li>
+<li><code>withResource()</code></li>
+<li><code>resize(int $width, int $height, bool $maintainRatio = false, string $masterDim = 'auto')</code></li>
+<li><code>crop(?int $width = null, ?int $height = null, ?int $x = null, ?int $y = null, bool $maintainRatio = false, string $masterDim = 'auto')</code></li>
+<li><code>convert(int $imageType)</code></li>
+<li><code>rotate(float $angle)</code></li>
+<li><code>flatten(int $red = 255, int $green = 255, int $blue = 255)</code></li>
+<li><code>_flatten(int $red = 255, int $green = 255, int $blue = 255)</code></li>
+<li><code>_rotate(int $angle)</code></li>
+<li><code>flip(string $dir = 'vertical')</code></li>
+<li><code>_flip(string $direction)</code></li>
+<li><code>text(string $text, array $options = [])</code></li>
+<li><code>_text(string $text, array $options = [])</code></li>
+<li><code>_resize(bool $maintainRatio = false)</code></li>
+<li><code>_crop()</code></li>
+<li><code>_getWidth()</code></li>
+<li><code>_getHeight()</code></li>
+<li><code>reorient(bool $silent = false)</code></li>
+<li><code>getEXIF(?string $key = null, bool $silent = false)</code></li>
+<li><code>fit(int $width, ?int $height = null, string $position = 'center')</code></li>
+<li><code>calcAspectRatio($width, $height = null, $origWidth = 0, $origHeight = 0)</code></li>
+<li><code>calcCropCoords($width, $height, $origWidth, $origHeight, $position)</code></li>
+<li><code>getVersion()</code></li>
+<li><code>save(?string $target = null, int $quality = 90)</code></li>
+<li><code>process(string $action)</code></li>
+<li><code>__call(string $name, array $args = [])</code></li>
+<li><code>reproportion()</code></li>
+<li><code>getWidth()</code></li>
+<li><code>getHeight()</code></li>
+</ul>
+</body></html>

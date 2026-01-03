@@ -1,0 +1,66 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\TransferReversal.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\TransferReversal.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\TransferReversal.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3323 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p><a href="https://stripe.com/docs/connect">Stripe Connect</a> platforms can</p>
+<p>reverse transfers made to a connected account, either entirely or partially, and</p>
+<p>can also specify whether to refund any related application fees. Transfer</p>
+<p>reversals add to the platform's balance and subtract from the destination</p>
+<p>account's balance.</p>
+<p>Reversing a transfer that was made for a <a</p>
+<p>href="/docs/connect/destination-charges">destination charge</a> is allowed only</p>
+<p>up to the amount of the charge. It is possible to reverse a <a</p>
+<p>href="https://stripe.com/docs/connect/charges-transfers#transfer-options">transfer_group</a></p>
+<p>transfer only if the destination account has enough balance to cover the</p>
+<p>reversal.</p>
+<p>Related guide: <a</p>
+<p>href="https://stripe.com/docs/connect/charges-transfers#reversing-transfers">Reversing</p>
+<p>Transfers</a>.</p>
+<p>@property string $id Unique identifier for the object.</p>
+<p>@property string $object String representing the object's type. Objects of the same type share the same value.</p>
+<p>@property int $amount Amount, in %s.</p>
+<p>@property null|string|\Stripe\BalanceTransaction $balance_transaction Balance transaction that describes the impact on your account balance.</p>
+<p>@property int $created Time at which the object was created. Measured in seconds since the Unix epoch.</p>
+<p>@property string $currency Three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO currency code</a>, in lowercase. Must be a <a href="https://stripe.com/docs/currencies">supported currency</a>.</p>
+<p>@property null|string|\Stripe\Refund $destination_payment_refund Linked payment refund for the transfer reversal.</p>
+<p>@property null|\Stripe\StripeObject $metadata Set of <a href="https://stripe.com/docs/api/metadata">key-value pairs</a> that you can attach to an object. This can be useful for storing additional information about the object in a structured format.</p>
+<p>@property null|string|\Stripe\Refund $source_refund ID of the refund responsible for the transfer reversal.</p>
+<p>@property string|\Stripe\Transfer $transfer ID of the transfer that was reversed.</p>
+
+<p>@return string the API URL for this Stripe transfer reversal</p>
+
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return TransferReversal the saved reversal</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\TransferReversal.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\TransferReversal extends ApiResource</code></li>
+<li><code>Stripe\instance</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>instanceUrl()</code></li>
+<li><code>save($opts = null)</code></li>
+</ul>
+</body></html>

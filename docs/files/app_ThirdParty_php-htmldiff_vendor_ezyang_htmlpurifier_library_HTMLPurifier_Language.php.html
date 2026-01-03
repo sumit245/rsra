@@ -1,0 +1,91 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Language.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Language.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Language.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 6062 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Represents a language and defines localizable string formatting and</p>
+<p>other functions, as well as the localized messages for HTML Purifier.</p>
+
+<p>ISO 639 language code of language. Prefers shortest possible version.</p>
+<p>@type string</p>
+
+<p>Fallback language code.</p>
+<p>@type bool|string</p>
+
+<p>Array of localizable messages.</p>
+<p>@type array</p>
+
+<p>Array of localizable error codes.</p>
+<p>@type array</p>
+
+<p>True if no message file was found for this language, so English</p>
+<p>is being used instead. Check this if you'd like to notify the</p>
+<p>user that they've used a non-supported language.</p>
+<p>@type bool</p>
+
+<p>Has the language object been loaded yet?</p>
+<p>@type bool</p>
+<p>@todo Make it private, fix usage in HTMLPurifier_LanguageTest</p>
+
+<p>@type HTMLPurifier_Config</p>
+
+<p>@type HTMLPurifier_Context</p>
+
+<p>@param HTMLPurifier_Config $config</p>
+<p>@param HTMLPurifier_Context $context</p>
+
+<p>Loads language object with necessary info from factory cache</p>
+<p>@note This is a lazy loader</p>
+
+<p>Retrieves a localised message.</p>
+<p>@param string $key string identifier of message</p>
+<p>@return string localised message</p>
+
+<p>Retrieves a localised error name.</p>
+<p>@param int $int error number, corresponding to PHP's error reporting</p>
+<p>@return string localised message</p>
+
+<p>Converts an array list into a string readable representation</p>
+<p>@param array $array</p>
+<p>@return string</p>
+
+<p>Formats a localised message with passed parameters</p>
+<p>@param string $key string identifier of message</p>
+<p>@param array $args Parameters to substitute in</p>
+<p>@return string localised message</p>
+<p>@todo Implement conditionals? Right now, some messages make</p>
+<p>    reference to line numbers, but those aren't always available</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>factory</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Language.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>HTMLPurifier_Language</code></li>
+<li><code>if</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($config, $context)</code></li>
+<li><code>load()</code></li>
+<li><code>getMessage($key)</code></li>
+<li><code>getErrorName($int)</code></li>
+<li><code>listify($array)</code></li>
+<li><code>formatMessage($key, $args = array()</code></li>
+</ul>
+</body></html>

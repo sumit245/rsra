@@ -1,0 +1,63 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\WebhookSignature.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\WebhookSignature.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\WebhookSignature.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4377 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Verifies the signature header sent by Stripe. Throws an</p>
+<p>Exception\SignatureVerificationException exception if the verification fails for</p>
+<p>any reason.</p>
+<p>@param string $payload the payload sent by Stripe</p>
+<p>@param string $header the contents of the signature header sent by</p>
+<p> Stripe</p>
+<p>@param string $secret secret used to generate the signature</p>
+<p>@param int $tolerance maximum difference allowed between the header's</p>
+<p> timestamp and the current time</p>
+<p>@throws Exception\SignatureVerificationException if the verification fails</p>
+<p>@return bool</p>
+
+<p>Extracts the timestamp in a signature header.</p>
+<p>@param string $header the signature header</p>
+<p>@return int the timestamp contained in the header, or -1 if no valid</p>
+<p> timestamp is found</p>
+
+<p>Extracts the signatures matching a given scheme in a signature header.</p>
+<p>@param string $header the signature header</p>
+<p>@param string $scheme the signature scheme to look for</p>
+<p>@return array the list of signatures matching the provided scheme</p>
+
+<p>Computes the signature for a given payload and secret.</p>
+<p>The current scheme used by Stripe ("v1") is HMAC/SHA-256.</p>
+<p>@param string $payload the payload to sign</p>
+<p>@param string $secret the secret used to generate the signature</p>
+<p>@return string the signature as a string</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>header</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\WebhookSignature.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\WebhookSignature</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>verifyHeader($payload, $header, $secret, $tolerance = null)</code></li>
+<li><code>getTimestamp($header)</code></li>
+<li><code>getSignatures($header, $scheme)</code></li>
+<li><code>computeSignature($payload, $secret)</code></li>
+</ul>
+</body></html>

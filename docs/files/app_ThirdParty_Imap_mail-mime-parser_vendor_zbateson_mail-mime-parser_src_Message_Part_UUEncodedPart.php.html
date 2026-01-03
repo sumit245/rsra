@@ -1,0 +1,102 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Part\UUEncodedPart.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Part\UUEncodedPart.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Part\UUEncodedPart.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3570 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>A specialized NonMimePart representing a uuencoded part.</p>
+
+<p>This represents part of a message that is not a mime message.  A multi-part</p>
+<p>mime message may have a part with a Content-Transfer-Encoding of x-uuencode</p>
+<p>but that would be represented by a normal MimePart.</p>
+
+<p>UUEncodedPart extends NonMimePart to return a Content-Transfer-Encoding of</p>
+<p>x-uuencode, a Content-Type of application-octet-stream, and a</p>
+<p>Content-Disposition of 'attachment'.  It also expects a mode and filename to</p>
+<p>initialize it, and adds 'filename' parts to the Content-Disposition and</p>
+<p>'name' to Content-Type.</p>
+
+<p>@author Zaahid Bateson</p>
+
+<p>@var int the unix file permission</p>
+
+<p>@var string the name of the file in the uuencoding 'header'.</p>
+
+<p>Constructor</p>
+
+<p>@param PartStreamFilterManager $partStreamFilterManager</p>
+<p>@param StreamFactory $streamFactory</p>
+<p>@param PartBuilder $partBuilder</p>
+<p>@param StreamInterface $stream</p>
+<p>@param StreamInterface $contentStream</p>
+
+<p>Returns the file mode included in the uuencoded header for this part.</p>
+
+<p>@return int</p>
+
+<p>Returns the filename included in the uuencoded header for this part.</p>
+
+<p>@return string</p>
+
+<p>Sets the unix file mode for the uuencoded header.</p>
+<p>@param int $mode</p>
+
+<p>Sets the filename included in the uuencoded header.</p>
+<p>@param string $filename</p>
+
+<p>Returns false.</p>
+
+<p>@return bool</p>
+
+<p>Returns text/plain</p>
+
+<p>@return string</p>
+
+<p>Returns null</p>
+
+<p>@return string</p>
+
+<p>Returns 'inline'.</p>
+
+<p>@return string</p>
+
+<p>Returns 'x-uuencode'.</p>
+
+<p>@return string</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Part\UUEncodedPart.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Message\Part\UUEncodedPart extends NonMimePart</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`__construct(PartStreamFilterManager $partStreamFilterManager,</li>
+<p>        StreamFactory $streamFactory,</p>
+<p>        PartBuilder $partBuilder,</p>
+<p>        StreamInterface $stream = null,</p>
+<p>        StreamInterface $contentStream = null)`</p>
+<li><code>getUnixFileMode()</code></li>
+<li><code>getFilename()</code></li>
+<li><code>setUnixFileMode($mode)</code></li>
+<li><code>setFilename($filename)</code></li>
+<li><code>isTextPart()</code></li>
+<li><code>getContentType()</code></li>
+<li><code>getCharset()</code></li>
+<li><code>getContentDisposition()</code></li>
+<li><code>getContentTransferEncoding()</code></li>
+</ul>
+</body></html>

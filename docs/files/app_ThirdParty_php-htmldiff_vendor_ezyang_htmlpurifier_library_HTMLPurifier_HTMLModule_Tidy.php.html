@@ -1,0 +1,80 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\HTMLModule\Tidy.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\HTMLModule\Tidy.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\HTMLModule\Tidy.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7223 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Abstract class for a set of proprietary modules that clean up (tidy)</p>
+<p>poorly written HTML.</p>
+<p>@todo Figure out how to protect some of these methods/properties</p>
+
+<p>List of supported levels.</p>
+<p>Index zero is a special case "no fixes" level.</p>
+<p>@type array</p>
+
+<p>Default level to place all fixes in.</p>
+<p>Disabled by default.</p>
+<p>@type string</p>
+
+<p>Lists of fixes used by getFixesForLevel().</p>
+<p>Format is:</p>
+<p>     HTMLModule_Tidy->fixesForLevel[$level] = array('fix-1', 'fix-2');</p>
+<p>@type array</p>
+
+<p>Lazy load constructs the module by determining the necessary</p>
+<p>fixes to create and then delegating to the populate() function.</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@todo Wildcard matching and error reporting when an added or</p>
+<p>      subtracted fix has no effect.</p>
+
+<p>Retrieves all fixes per a level, returning fixes for that specific</p>
+<p>level as well as all levels below it.</p>
+<p>@param string $level level identifier, see $levels for valid values</p>
+<p>@return array Lookup up table of fixes</p>
+
+<p>Dynamically populates the $fixesForLevel member variable using</p>
+<p>the fixes array. It may be custom overloaded, used in conjunction</p>
+<p>with $defaultLevel, or not used at all.</p>
+<p>@param array $fixes</p>
+
+<p>Populates the module with transforms and other special-case code</p>
+<p>based on a list of fixes passed to it</p>
+<p>@param array $fixes Lookup table of fixes to activate</p>
+
+<p>Parses a fix name and determines what kind of fix it is, as well</p>
+<p>as other information defined by the fix</p>
+<p>@param $name String name of fix</p>
+<p>@return array(string $fix_type, array $fix_parameters)</p>
+<p>@note $fix_parameters is type dependant, see populate() for usage</p>
+<p>      of these parameters</p>
+
+<p>Defines all fixes the module will perform in a compact</p>
+<p>associative array of fix name to fix implementation.</p>
+<p>@return array</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\php-htmldiff\vendor\ezyang\htmlpurifier\library\HTMLPurifier\HTMLModule\Tidy.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>for</code></li>
+<li><code>HTMLPurifier_HTMLModule_Tidy extends HTMLPurifier_HTMLModule</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>setup($config)</code></li>
+<li><code>getFixesForLevel($level)</code></li>
+<li><code>makeFixesForLevel($fixes)</code></li>
+<li><code>populate($fixes)</code></li>
+<li><code>getFixType($name)</code></li>
+<li><code>makeFixes()</code></li>
+</ul>
+</body></html>

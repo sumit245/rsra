@@ -1,0 +1,64 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\src\Google\AccessToken\Verify.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\src\Google\AccessToken\Verify.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\src\Google\AccessToken\Verify.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 7425 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Wrapper around Google Access Tokens which provides convenience functions</p>
+
+<p>@var GuzzleHttp\ClientInterface The http client</p>
+
+<p>@var Psr\Cache\CacheItemPoolInterface cache class</p>
+
+<p>Instantiates the class, but does not initiate the login flow, leaving it</p>
+<p>to the discretion of the caller.</p>
+
+<p>Verifies an id token and returns the authenticated apiLoginTicket.</p>
+<p>Throws an exception if the id token is not valid.</p>
+<p>The audience parameter can be used to control which id tokens are</p>
+<p>accepted.  By default, the id token must have been issued to this OAuth2 client.</p>
+<p>@param $audience</p>
+<p>@return array the token payload, if successful</p>
+
+<p>Retrieve and cache a certificates file.</p>
+<p>@param $url string location</p>
+<p>@throws Google_Exception</p>
+<p>@return array certificates</p>
+
+<p>phpseclib calls "phpinfo" by default, which requires special</p>
+<p>whitelisting in the AppEngine VM environment. This function</p>
+<p>sets constants to bypass the need for phpseclib to check phpinfo</p>
+<p>@see phpseclib/Math/BigInteger</p>
+<p>@see https://github.com/GoogleCloudPlatform/getting-started-php/issues/85</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\src\Google\AccessToken\Verify.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Google_AccessToken_Verify</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`__construct(ClientInterface $http = null,</li>
+<p>      CacheItemPoolInterface $cache = null,</p>
+<p>      $jwt = null)`</p>
+<li><code>verifyIdToken($idToken, $audience = null)</code></li>
+<li><code>getCache()</code></li>
+<li><code>retrieveCertsFromLocation($url)</code></li>
+<li><code>getFederatedSignOnCerts()</code></li>
+<li><code>getJwtService()</code></li>
+<li><code>getRsaClass()</code></li>
+<li><code>getBigIntClass()</code></li>
+<li><code>getOpenSslConstant()</code></li>
+<li><code>setPhpsecConstants()</code></li>
+</ul>
+</body></html>

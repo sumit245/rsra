@@ -1,0 +1,73 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\php-htmldiff\vendor\caxy\php-htmldiff\lib\Caxy\HtmlDiff\ListDiffLines.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\php-htmldiff\vendor\caxy\php-htmldiff\lib\Caxy\HtmlDiff\ListDiffLines.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\php-htmldiff\vendor\caxy\php-htmldiff\lib\Caxy\HtmlDiff\ListDiffLines.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 14446 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>List of tags that should be included when retrieving</p>
+<p>text from a single list item that will be used in</p>
+<p>matching logic (and only in matching logic).</p>
+<p>@see getRelevantNodeText()</p>
+<p>@var array</p>
+
+<p>@var LcsService</p>
+
+<p>@var array<string, DOMElement></p>
+
+<p>@param string              $oldText</p>
+<p>@param string              $newText</p>
+<p>@param HtmlDiffConfig|null $config</p>
+<p>@return ListDiffLines</p>
+
+<p>{@inheritDoc}</p>
+
+<p>@return Operation[]</p>
+
+<p>@return string[]</p>
+
+<p>@var DOMElement $child</p>
+
+<p>@param Operation[] $operations</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\php-htmldiff\vendor\caxy\php-htmldiff\lib\Caxy\HtmlDiff\ListDiffLines.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Caxy\HtmlDiff\ListDiffLines extends AbstractDiff</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>create($oldText, $newText, HtmlDiffConfig $config = null)</code></li>
+<li><code>build()</code></li>
+<li><code>listByLines(string $old, string $new)</code></li>
+<li><code>findListNode(DOMDocument $dom)</code></li>
+<li><code>getListItemOperations(DOMElement $oldListNode, DOMElement $newListNode)</code></li>
+<li><code>getListTextArray(DOMElement $listNode)</code></li>
+<li><code>getRelevantNodeText(DOMNode $node)</code></li>
+<li><code>deleteListItem(DOMElement $li)</code></li>
+<li><code>addListItem(DOMElement $li, bool $replacement = false)</code></li>
+<li><code>processOperations(array $operations, DOMElement $oldListNode, DOMElement $newListNode)</code></li>
+<li><code>appendClassToNode(DOMElement $node, string $class)</code></li>
+<li><code>getOuterText(DOMNode $node)</code></li>
+<li><code>getInnerHtml(DOMNode $node)</code></li>
+<li><code>setInnerHtml(DOMNode $node, string $html)</code></li>
+<li><code>wrapNodeContent(DOMElement $node, string $tagName)</code></li>
+<li><code>childCountWithoutTextNode(DOMNode $node)</code></li>
+<li><code>getChildNodeByIndex(DOMNode $node, int $index)</code></li>
+</ul>
+</body></html>

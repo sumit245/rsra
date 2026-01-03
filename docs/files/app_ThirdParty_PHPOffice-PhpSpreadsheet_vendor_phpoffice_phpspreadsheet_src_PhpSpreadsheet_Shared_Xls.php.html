@@ -1,0 +1,112 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\Xls.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\Xls.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\Xls.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 11757 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Get the width of a column in pixels. We use the relationship y = ceil(7x) where</p>
+<p>x is the width in intrinsic Excel units (measuring width in number of normal characters)</p>
+<p>This holds for Arial 10.</p>
+<p>@param Worksheet $worksheet The sheet</p>
+<p>@param string $col The column</p>
+<p>@return int The width in pixels</p>
+
+<p>Convert the height of a cell from user's units to pixels. By interpolation</p>
+<p>the relationship is: y = 4/3x. If the height hasn't been set by the user we</p>
+<p>use the default value. If the row is hidden we use a value of zero.</p>
+<p>@param Worksheet $worksheet The sheet</p>
+<p>@param int $row The row index (1-based)</p>
+<p>@return int The width in pixels</p>
+
+<p>Get the horizontal distance in pixels between two anchors</p>
+<p>The distanceX is found as sum of all the spanning columns widths minus correction for the two offsets.</p>
+<p>@param string $startColumn</p>
+<p>@param int $startOffsetX Offset within start cell measured in 1/1024 of the cell width</p>
+<p>@param string $endColumn</p>
+<p>@param int $endOffsetX Offset within end cell measured in 1/1024 of the cell width</p>
+<p>@return int Horizontal measured in pixels</p>
+
+<p>Get the vertical distance in pixels between two anchors</p>
+<p>The distanceY is found as sum of all the spanning rows minus two offsets.</p>
+<p>@param int $startRow (1-based)</p>
+<p>@param int $startOffsetY Offset within start cell measured in 1/256 of the cell height</p>
+<p>@param int $endRow (1-based)</p>
+<p>@param int $endOffsetY Offset within end cell measured in 1/256 of the cell height</p>
+<p>@return int Vertical distance measured in pixels</p>
+
+<p>Convert 1-cell anchor coordinates to 2-cell anchor coordinates</p>
+<p>This function is ported from PEAR Spreadsheet_Writer_Excel with small modifications.</p>
+<p>Calculate the vertices that define the position of the image as required by</p>
+<p>the OBJ record.</p>
+<p>        +------------+------------+</p>
+<p>        |     A      |      B     |</p>
+<p>  +-----+------------+------------+</p>
+<p>  |     |(x1,y1)     |            |</p>
+<p>  |  1  |(A1)._______|______      |</p>
+<p>  |     |    |              |     |</p>
+<p>  |     |    |              |     |</p>
+<p>  +-----+----|    BITMAP    |-----+</p>
+<p>  |     |    |              |     |</p>
+<p>  |  2  |    |______________.     |</p>
+<p>  |     |            |        (B2)|</p>
+<p>  |     |            |     (x2,y2)|</p>
+<p>  +---- +------------+------------+</p>
+<p>Example of a bitmap that covers some of the area from cell A1 to cell B2.</p>
+<p>Based on the width and height of the bitmap we need to calculate 8 vars:</p>
+<p>    $col_start, $row_start, $col_end, $row_end, $x1, $y1, $x2, $y2.</p>
+<p>The width and height of the cells are also variable and have to be taken into</p>
+<p>account.</p>
+<p>The values of $col_start and $row_start are passed in from the calling</p>
+<p>function. The values of $col_end and $row_end are calculated by subtracting</p>
+<p>the width and height of the bitmap from the width and height of the</p>
+<p>underlying cells.</p>
+<p>The vertices are expressed as a percentage of the underlying cell width as</p>
+<p>follows (rhs values are in pixels):</p>
+<p>      x1 = X / W *1024</p>
+<p>      y1 = Y / H *256</p>
+<p>      x2 = (X-1) / W *1024</p>
+<p>      y2 = (Y-1) / H *256</p>
+<p>      Where:  X is distance from the left side of the underlying cell</p>
+<p>              Y is distance from the top of the underlying cell</p>
+<p>              W is the width of the cell</p>
+<p>              H is the height of the cell</p>
+<p>@param string $coordinates E.g. 'A1'</p>
+<p>@param int $offsetX Horizontal offset in pixels</p>
+<p>@param int $offsetY Vertical offset in pixels</p>
+<p>@param int $width Width in pixels</p>
+<p>@param int $height Height in pixels</p>
+<p>@return null|array</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>user</code></li>
+<li><code>PEAR</code></li>
+<li><code>cell</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\Xls.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Shared\Xls</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>sizeCol(Worksheet $worksheet, $col = 'A')</code></li>
+<li><code>sizeRow(Worksheet $worksheet, $row = 1)</code></li>
+<li><code>getDistanceX(Worksheet $worksheet, $startColumn = 'A', $startOffsetX = 0, $endColumn = 'A', $endOffsetX = 0)</code></li>
+<li><code>getDistanceY(Worksheet $worksheet, $startRow = 1, $startOffsetY = 0, $endRow = 1, $endOffsetY = 0)</code></li>
+<li><code>oneAnchor2twoAnchor(Worksheet $worksheet, $coordinates, $offsetX, $offsetY, $width, $height)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,100 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Ods.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Ods.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Ods.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 32620 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Create a new Ods Reader instance.</p>
+
+<p>Can the current IReader read the file?</p>
+
+<p>Reads names of the worksheets from a file, without parsing the whole file to a PhpSpreadsheet object.</p>
+<p>@param string $filename</p>
+<p>@return string[]</p>
+
+<p>Return worksheet info (Name, Last Column Letter, Last Column Index, Total Rows, Total Columns).</p>
+<p>@param string $filename</p>
+<p>@return array</p>
+
+<p>Counteract Phpstan caching.</p>
+<p>@phpstan-impure</p>
+
+<p>Loads PhpSpreadsheet from file.</p>
+
+<p>Loads PhpSpreadsheet from file into PhpSpreadsheet instance.</p>
+<p>@param string $filename</p>
+<p>@return Spreadsheet</p>
+
+<p>@var DOMElement $workbookData</p>
+
+<p>@var DOMElement $worksheetDataSet</p>
+
+<p>@var DOMElement $childNode</p>
+
+<p>@var DOMElement $cellData</p>
+
+<p>@var DOMElement[] $paragraphs</p>
+
+<p>@var DOMElement $item</p>
+
+<p>@var DOMElement $t</p>
+
+<p>@var DOMElement $t</p>
+
+<p>Recursively scan element.</p>
+<p>@return string</p>
+
+<p>@var DOMNode $child</p>
+
+<p>@var DOMAttr $cAttr</p>
+
+<p>@param string $is</p>
+<p>@return RichText</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+<li><code>file</code></li>
+<li><code>node</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Ods.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Reader\Ods extends BaseReader</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>canRead(string $filename)</code></li>
+<li><code>listWorksheetNames($filename)</code></li>
+<li><code>listWorksheetInfo($filename)</code></li>
+<li><code>getXmlName(XMLReader $xml)</code></li>
+<li><code>loadSpreadsheetFromFile(string $filename)</code></li>
+<li><code>loadIntoExisting($filename, Spreadsheet $spreadsheet)</code></li>
+<li><code>processSettings(ZipArchive $zip, Spreadsheet $spreadsheet)</code></li>
+<li><code>lookForActiveSheet(DOMElement $settings, Spreadsheet $spreadsheet, string $configNs)</code></li>
+<li><code>lookForSelectedCells(DOMElement $settings, Spreadsheet $spreadsheet, string $configNs)</code></li>
+<li><code>setSelected(Spreadsheet $spreadsheet, string $wsname, string $setCol, string $setRow)</code></li>
+<li><code>scanElementForText(DOMNode $element)</code></li>
+<li><code>getMultiplier(?DOMAttr $cAttr)</code></li>
+<li><code>parseRichText($is)</code></li>
+<li>`processMergedCells(DOMElement $cellData,</li>
+<p>        string $tableNs,</p>
+<p>        string $type,</p>
+<p>        string $columnID,</p>
+<p>        int $rowID,</p>
+<p>        Spreadsheet $spreadsheet)`</p>
+</ul>
+</body></html>

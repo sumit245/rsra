@@ -1,0 +1,106 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Generator.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Generator.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Generator.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 10251 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Generates HTML from tokens.</p>
+<p>@todo Refactor interface so that configuration/context is determined</p>
+<p>      upon instantiation, no need for messy generateFromTokens() calls</p>
+<p>@todo Make some of the more internal functions protected, and have</p>
+<p>      unit tests work around that</p>
+
+<p>Whether or not generator should produce XML output.</p>
+<p>@type bool</p>
+
+<p>:HACK: Whether or not generator should comment the insides of <script> tags.</p>
+<p>@type bool</p>
+
+<p>Cache of HTMLDefinition during HTML output to determine whether or</p>
+<p>not attributes should be minimized.</p>
+<p>@type HTMLPurifier_HTMLDefinition</p>
+
+<p>Cache of %Output.SortAttr.</p>
+<p>@type bool</p>
+
+<p>Cache of %Output.FlashCompat.</p>
+<p>@type bool</p>
+
+<p>Cache of %Output.FixInnerHTML.</p>
+<p>@type bool</p>
+
+<p>Stack for keeping track of object information when outputting IE</p>
+<p>compatibility code.</p>
+<p>@type array</p>
+
+<p>Configuration for the generator</p>
+<p>@type HTMLPurifier_Config</p>
+
+<p>@param HTMLPurifier_Config $config</p>
+<p>@param HTMLPurifier_Context $context</p>
+
+<p>Generates HTML from an array of tokens.</p>
+<p>@param HTMLPurifier_Token[] $tokens Array of HTMLPurifier_Token</p>
+<p>@return string Generated HTML</p>
+
+<p>Generates HTML from a single token.</p>
+<p>@param HTMLPurifier_Token $token HTMLPurifier_Token object.</p>
+<p>@return string Generated HTML</p>
+
+<p>Special case processor for the contents of script tags</p>
+<p>@param HTMLPurifier_Token $token HTMLPurifier_Token object.</p>
+<p>@return string</p>
+<p>@warning This runs into problems if there's already a literal</p>
+<p>         --> somewhere inside the script contents.</p>
+
+<p>Generates attribute declarations from attribute array.</p>
+<p>@note This does not include the leading or trailing space.</p>
+<p>@param array $assoc_array_of_attributes Attribute array</p>
+<p>@param string $element Name of element attributes are for, used to check</p>
+<p>       attribute minimization.</p>
+<p>@return string Generated HTML fragment for insertion.</p>
+
+<p>Escapes raw text data.</p>
+<p>@todo This really ought to be protected, but until we have a facility</p>
+<p>      for properly generating HTML here w/o using tokens, it stays</p>
+<p>      public.</p>
+<p>@param string $string String data to escape for HTML.</p>
+<p>@param int $quote Quoting style, like htmlspecialchars. ENT_NOQUOTES is</p>
+<p>              permissible for non-attribute output.</p>
+<p>@return string escaped data.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>tokens</code></li>
+<li><code>an</code></li>
+<li><code>a</code></li>
+<li><code>non</code></li>
+<li><code>attribute</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Generator.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>HTMLPurifier_Generator</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($config, $context)</code></li>
+<li><code>generateFromTokens($tokens)</code></li>
+<li><code>generateFromToken($token)</code></li>
+<li><code>generateScriptFromToken($token)</code></li>
+<li><code>generateAttributes($assoc_array_of_attributes, $element = '')</code></li>
+<li><code>escape($string, $quote = null)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,284 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Config.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Config.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Config.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 31701 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Configuration object that triggers customizable behavior.</p>
+<p>@warning This class is strongly defined: that means that the class</p>
+<p>         will fail if an undefined directive is retrieved or set.</p>
+<p>@note Many classes that could (although many times don't) use the</p>
+<p>      configuration object make it a mandatory parameter.  This is</p>
+<p>      because a configuration object should always be forwarded,</p>
+<p>      otherwise, you run the risk of missing a parameter and then</p>
+<p>      being stumped when a configuration directive doesn't work.</p>
+<p>@todo Reconsider some of the public member variables</p>
+
+<p>HTML Purifier's version</p>
+<p>@type string</p>
+
+<p>Whether or not to automatically finalize</p>
+<p>the object if a read operation is done.</p>
+<p>@type bool</p>
+
+<p>Namespace indexed array of serials for specific namespaces.</p>
+<p>@see getSerial() for more info.</p>
+<p>@type string[]</p>
+
+<p>Serial for entire configuration object.</p>
+<p>@type string</p>
+
+<p>Parser for variables.</p>
+<p>@type HTMLPurifier_VarParser_Flexible</p>
+
+<p>Reference HTMLPurifier_ConfigSchema for value checking.</p>
+<p>@type HTMLPurifier_ConfigSchema</p>
+<p>@note This is public for introspective purposes. Please don't</p>
+<p>      abuse!</p>
+
+<p>Indexed array of definitions.</p>
+<p>@type HTMLPurifier_Definition[]</p>
+
+<p>Whether or not config is finalized.</p>
+<p>@type bool</p>
+
+<p>Property list containing configuration directives.</p>
+<p>@type array</p>
+
+<p>Whether or not a set is taking place due to an alias lookup.</p>
+<p>@type bool</p>
+
+<p>Set to false if you do not want line and file numbers in errors.</p>
+<p>(useful when unit testing).  This will also compress some errors</p>
+<p>and exceptions.</p>
+<p>@type bool</p>
+
+<p>Current lock; only gets to this namespace are allowed.</p>
+<p>@type string</p>
+
+<p>Constructor</p>
+<p>@param HTMLPurifier_ConfigSchema $definition ConfigSchema that defines</p>
+<p>what directives are allowed.</p>
+<p>@param HTMLPurifier_PropertyList $parent</p>
+
+<p>Convenience constructor that creates a config object based on a mixed var</p>
+<p>@param mixed $config Variable that defines the state of the config</p>
+<p>                     object. Can be: a HTMLPurifier_Config() object,</p>
+<p>                     an array of directives based on loadArray(),</p>
+<p>                     or a string filename of an ini file.</p>
+<p>@param HTMLPurifier_ConfigSchema $schema Schema object</p>
+<p>@return HTMLPurifier_Config Configured object</p>
+
+<p>Creates a new config object that inherits from a previous one.</p>
+<p>@param HTMLPurifier_Config $config Configuration object to inherit from.</p>
+<p>@return HTMLPurifier_Config object with $config as its parent.</p>
+
+<p>Convenience constructor that creates a default configuration object.</p>
+<p>@return HTMLPurifier_Config default object.</p>
+
+<p>Retrieves a value from the configuration.</p>
+<p>@param string $key String key</p>
+<p>@param mixed $a</p>
+<p>@return mixed</p>
+
+<p>Retrieves an array of directives to values from a given namespace</p>
+<p>@param string $namespace String namespace</p>
+<p>@return array</p>
+
+<p>Returns a SHA-1 signature of a segment of the configuration object</p>
+<p>that uniquely identifies that particular configuration</p>
+<p>@param string $namespace Namespace to get serial for</p>
+<p>@return string</p>
+<p>@note Revision is handled specially and is removed from the batch</p>
+<p>      before processing!</p>
+
+<p>Returns a SHA-1 signature for the entire configuration object</p>
+<p>that uniquely identifies that particular configuration</p>
+<p>@return string</p>
+
+<p>Retrieves all directives, organized by namespace</p>
+<p>@warning This is a pretty inefficient function, avoid if you can</p>
+
+<p>Sets a value to configuration.</p>
+<p>@param string $key key</p>
+<p>@param mixed $value value</p>
+<p>@param mixed $a</p>
+
+<p>Convenience function for error reporting</p>
+<p>@param array $lookup</p>
+<p>@return string</p>
+
+<p>Retrieves object reference to the HTML definition.</p>
+<p>@param bool $raw Return a copy that has not been setup yet. Must be</p>
+<p>            called before it's been setup, otherwise won't work.</p>
+<p>@param bool $optimized If true, this method may return null, to</p>
+<p>            indicate that a cached version of the modified</p>
+<p>            definition object is available and no further edits</p>
+<p>            are necessary.  Consider using</p>
+<p>            maybeGetRawHTMLDefinition, which is more explicitly</p>
+<p>            named, instead.</p>
+<p>@return HTMLPurifier_HTMLDefinition|null</p>
+
+<p>Retrieves object reference to the CSS definition</p>
+<p>@param bool $raw Return a copy that has not been setup yet. Must be</p>
+<p>            called before it's been setup, otherwise won't work.</p>
+<p>@param bool $optimized If true, this method may return null, to</p>
+<p>            indicate that a cached version of the modified</p>
+<p>            definition object is available and no further edits</p>
+<p>            are necessary.  Consider using</p>
+<p>            maybeGetRawCSSDefinition, which is more explicitly</p>
+<p>            named, instead.</p>
+<p>@return HTMLPurifier_CSSDefinition|null</p>
+
+<p>Retrieves object reference to the URI definition</p>
+<p>@param bool $raw Return a copy that has not been setup yet. Must be</p>
+<p>            called before it's been setup, otherwise won't work.</p>
+<p>@param bool $optimized If true, this method may return null, to</p>
+<p>            indicate that a cached version of the modified</p>
+<p>            definition object is available and no further edits</p>
+<p>            are necessary.  Consider using</p>
+<p>            maybeGetRawURIDefinition, which is more explicitly</p>
+<p>            named, instead.</p>
+<p>@return HTMLPurifier_URIDefinition|null</p>
+
+<p>Retrieves a definition</p>
+<p>@param string $type Type of definition: HTML, CSS, etc</p>
+<p>@param bool $raw Whether or not definition should be returned raw</p>
+<p>@param bool $optimized Only has an effect when $raw is true.  Whether</p>
+<p>       or not to return null if the result is already present in</p>
+<p>       the cache.  This is off by default for backwards</p>
+<p>       compatibility reasons, but you need to do things this</p>
+<p>       way in order to ensure that caching is done properly.</p>
+<p>       Check out enduser-customize.html for more details.</p>
+<p>       We probably won't ever change this default, as much as the</p>
+<p>       maybe semantics is the "right thing to do."</p>
+<p>@throws HTMLPurifier_Exception</p>
+<p>@return HTMLPurifier_Definition|null</p>
+
+<p>Initialise definition</p>
+<p>@param string $type What type of definition to create</p>
+<p>@return HTMLPurifier_CSSDefinition|HTMLPurifier_HTMLDefinition|HTMLPurifier_URIDefinition</p>
+<p>@throws HTMLPurifier_Exception</p>
+
+<p>@return HTMLPurifier_HTMLDefinition|null</p>
+
+<p>@return HTMLPurifier_CSSDefinition|null</p>
+
+<p>@return HTMLPurifier_URIDefinition|null</p>
+
+<p>Loads configuration values from an array with the following structure:</p>
+<p>Namespace.Directive => Value</p>
+<p>@param array $config_array Configuration associative array</p>
+
+<p>Returns a list of array(namespace, directive) for all directives</p>
+<p>that are allowed in a web-form context as per an allowed</p>
+<p>namespaces/directives list.</p>
+<p>@param array $allowed List of allowed namespaces/directives</p>
+<p>@param HTMLPurifier_ConfigSchema $schema Schema to use, if not global copy</p>
+<p>@return array</p>
+
+<p>Loads configuration values from $_GET/$_POST that were posted</p>
+<p>via ConfigForm</p>
+<p>@param array $array $_GET or $_POST array to import</p>
+<p>@param string|bool $index Index/name that the config variables are in</p>
+<p>@param array|bool $allowed List of allowed namespaces/directives</p>
+<p>@param bool $mq_fix Boolean whether or not to enable magic quotes fix</p>
+<p>@param HTMLPurifier_ConfigSchema $schema Schema to use, if not global copy</p>
+<p>@return mixed</p>
+
+<p>Merges in configuration values from $_GET/$_POST to object. NOT STATIC.</p>
+<p>@param array $array $_GET or $_POST array to import</p>
+<p>@param string|bool $index Index/name that the config variables are in</p>
+<p>@param array|bool $allowed List of allowed namespaces/directives</p>
+<p>@param bool $mq_fix Boolean whether or not to enable magic quotes fix</p>
+
+<p>Prepares an array from a form into something usable for the more</p>
+<p>strict parts of HTMLPurifier_Config</p>
+<p>@param array $array $_GET or $_POST array to import</p>
+<p>@param string|bool $index Index/name that the config variables are in</p>
+<p>@param array|bool $allowed List of allowed namespaces/directives</p>
+<p>@param bool $mq_fix Boolean whether or not to enable magic quotes fix</p>
+<p>@param HTMLPurifier_ConfigSchema $schema Schema to use, if not global copy</p>
+<p>@return array</p>
+
+<p>Loads configuration values from an ini file</p>
+<p>@param string $filename Name of ini file</p>
+
+<p>Checks whether or not the configuration object is finalized.</p>
+<p>@param string|bool $error String error message, or false for no error</p>
+<p>@return bool</p>
+
+<p>Finalizes configuration only if auto finalize is on and not</p>
+<p>already finalized</p>
+
+<p>Finalizes a configuration object, prohibiting further change</p>
+
+<p>Produces a nicely formatted error message by supplying the</p>
+<p>stack frame information OUTSIDE of HTMLPurifier_Config.</p>
+<p>@param string $msg An error message</p>
+<p>@param int $no An error number</p>
+
+<p>Returns a serialized form of the configuration object that can</p>
+<p>be reconstituted.</p>
+<p>@return string</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+<li><code>the</code></li>
+<li><code>aliased</code></li>
+<li><code>an</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Config.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>is</code></li>
+<li><code>HTMLPurifier_Config</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($definition, $parent = null)</code></li>
+<li><code>create($config, $schema = null)</code></li>
+<li><code>inherit(HTMLPurifier_Config $config)</code></li>
+<li><code>createDefault()</code></li>
+<li><code>get($key, $a = null)</code></li>
+<li><code>getBatch($namespace)</code></li>
+<li><code>getBatchSerial($namespace)</code></li>
+<li><code>getSerial()</code></li>
+<li><code>getAll()</code></li>
+<li><code>set($key, $value, $a = null)</code></li>
+<li><code>_listify($lookup)</code></li>
+<li><code>getHTMLDefinition($raw = false, $optimized = false)</code></li>
+<li><code>getCSSDefinition($raw = false, $optimized = false)</code></li>
+<li><code>getURIDefinition($raw = false, $optimized = false)</code></li>
+<li><code>getDefinition($type, $raw = false, $optimized = false)</code></li>
+<li><code>initDefinition($type)</code></li>
+<li><code>maybeGetRawDefinition($name)</code></li>
+<li><code>maybeGetRawHTMLDefinition()</code></li>
+<li><code>maybeGetRawCSSDefinition()</code></li>
+<li><code>maybeGetRawURIDefinition()</code></li>
+<li><code>loadArray($config_array)</code></li>
+<li><code>getAllowedDirectivesForForm($allowed, $schema = null)</code></li>
+<li><code>loadArrayFromForm($array, $index = false, $allowed = true, $mq_fix = true, $schema = null)</code></li>
+<li><code>mergeArrayFromForm($array, $index = false, $allowed = true, $mq_fix = true)</code></li>
+<li><code>prepareArrayFromForm($array, $index = false, $allowed = true, $mq_fix = true, $schema = null)</code></li>
+<li><code>loadIni($filename)</code></li>
+<li><code>isFinalized($error = false)</code></li>
+<li><code>autoFinalize()</code></li>
+<li><code>finalize()</code></li>
+<li><code>triggerError($msg, $no)</code></li>
+<li><code>serialize()</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,58 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\Config\Format.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\Config\Format.php</h1>
+
+<ul>
+<li>Path: <code>app\Config\Format.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2592 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Available Response Formats</p>
+<p>--------------------------------------------------------------------------</p>
+<p>When you perform content negotiation with the request, these are the</p>
+<p>available formats that your application supports. This is currently</p>
+<p>only used with the API\ResponseTrait. A valid Formatter must exist</p>
+<p>for the specified format.</p>
+<p>These formats are only checked when the data passed to the respond()</p>
+<p>method is an array.</p>
+<p>@var string[]</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Formatters</p>
+<p>--------------------------------------------------------------------------</p>
+<p>Lists the class to use to format responses with of a particular type.</p>
+<p>For each mime type, list the class that should be used. Formatters</p>
+<p>can be retrieved through the getFormatter() method.</p>
+<p>@var array<string, string></p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Formatters Options</p>
+<p>--------------------------------------------------------------------------</p>
+<p>Additional Options to adjust default formatters behaviour.</p>
+<p>For each mime type, list the additional options that should be used.</p>
+<p>@var array<string, int></p>
+
+<p>A Factory method to return the appropriate formatter for the given mime type.</p>
+<p>@return FormatterInterface</p>
+<p>@deprecated This is an alias of <code>\CodeIgniter\Format\Format::getFormatter</code>. Use that instead.</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\Config\Format.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Config\Format extends BaseConfig</code></li>
+<li><code>Config\to</code></li>
+<li><code>Config\that</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getFormatter(string $mime)</code></li>
+</ul>
+</body></html>

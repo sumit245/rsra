@@ -1,0 +1,140 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\google\auth\tests\OAuth2Test.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\google\auth\tests\OAuth2Test.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\google\auth\tests\OAuth2Test.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 29165 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@expectedException InvalidArgumentException</p>
+
+<p>@expectedException InvalidArgumentException</p>
+
+<p>@expectedException InvalidArgumentException</p>
+
+<p>@expectedException InvalidArgumentException</p>
+
+<p>@expectedException InvalidArgumentException</p>
+
+<p>@expectedException InvalidArgumentException</p>
+
+<p>@expectedException InvalidArgumentException</p>
+
+<p>@expectedException InvalidArgumentException</p>
+
+<p>@expectedException DomainException</p>
+
+<p>@expectedException DomainException</p>
+
+
+
+<p>@expectedException DomainException</p>
+
+<p>@expectedException DomainException</p>
+
+<p>@expectedException DomainException</p>
+
+<p>@expectedException DomainException</p>
+
+<p>@expectedException GuzzleHttp\Exception\ClientException</p>
+
+<p>@expectedException GuzzleHttp\Exception\ServerException</p>
+
+<p>@expectedException Exception</p>
+<p>@expectedExceptionMessage Invalid JSON response</p>
+
+<p>@expectedException UnexpectedValueException</p>
+
+<p>@expectedException DomainException</p>
+
+<p>@expectedException DomainException</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\google\auth\tests\OAuth2Test.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Google\Auth\Tests\OAuth2AuthorizationUriTest extends TestCase</code></li>
+<li><code>Google\Auth\Tests\OAuth2GrantTypeTest extends TestCase</code></li>
+<li><code>Google\Auth\Tests\OAuth2GetCacheKeyTest extends TestCase</code></li>
+<li><code>Google\Auth\Tests\OAuth2TimingTest extends TestCase</code></li>
+<li><code>Google\Auth\Tests\OAuth2GeneralTest extends TestCase</code></li>
+<li><code>Google\Auth\Tests\OAuth2JwtTest extends TestCase</code></li>
+<li><code>Google\Auth\Tests\OAuth2GenerateAccessTokenRequestTest extends TestCase</code></li>
+<li><code>Google\Auth\Tests\OAuth2FetchAuthTokenTest extends TestCase</code></li>
+<li><code>Google\Auth\Tests\OAuth2VerifyIdTokenTest extends TestCase</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>testIsNullIfAuthorizationUriIsNull()</code></li>
+<li><code>testRequiresTheClientId()</code></li>
+<li><code>testRequiresTheRedirectUri()</code></li>
+<li><code>testCannotHavePromptAndApprovalPrompt()</code></li>
+<li><code>testCannotHaveInsecureAuthorizationUri()</code></li>
+<li><code>testCannotHaveRelativeRedirectUri()</code></li>
+<li><code>testHasDefaultXXXTypeParams()</code></li>
+<li><code>testCanBeUrlObject()</code></li>
+<li><code>testCanOverrideParams()</code></li>
+<li><code>testIncludesTheScope()</code></li>
+<li><code>testRedirectUriPostmessageIsAllowed()</code></li>
+<li><code>testReturnsNullIfCannotBeInferred()</code></li>
+<li><code>testInfersAuthorizationCode()</code></li>
+<li><code>testInfersRefreshToken()</code></li>
+<li><code>testInfersPassword()</code></li>
+<li><code>testInfersJwtBearer()</code></li>
+<li><code>testSetsKnownTypes()</code></li>
+<li><code>testSetsUrlAsGrantType()</code></li>
+<li><code>testIsNullWithNoScopes()</code></li>
+<li><code>testIsScopeIfSingleScope()</code></li>
+<li><code>testIsAllScopesWhenScopeIsArray()</code></li>
+<li><code>testIssuedAtDefaultsToNull()</code></li>
+<li><code>testExpiresAtDefaultsToNull()</code></li>
+<li><code>testExpiresInDefaultsToNull()</code></li>
+<li><code>testSettingExpiresInSetsIssuedAt()</code></li>
+<li><code>testSettingExpiresInSetsExpireAt()</code></li>
+<li><code>testIsNotExpiredByDefault()</code></li>
+<li><code>testIsNotExpiredIfExpiresAtIsOld()</code></li>
+<li><code>testFailsOnUnknownSigningAlgorithm()</code></li>
+<li><code>testAllowsKnownSigningAlgorithms()</code></li>
+<li><code>testFailsOnRelativeRedirectUri()</code></li>
+<li><code>testAllowsUrnRedirectUri()</code></li>
+<li><code>testFailsWithMissingAudience()</code></li>
+<li><code>testFailsWithMissingIssuer()</code></li>
+<li><code>testCanHaveNoScope()</code></li>
+<li><code>testFailsWithMissingSigningKey()</code></li>
+<li><code>testFailsWithMissingSigningAlgorithm()</code></li>
+<li><code>testCanHS256EncodeAValidPayload()</code></li>
+<li><code>testCanRS256EncodeAValidPayload()</code></li>
+<li><code>testCanHaveAdditionalClaims()</code></li>
+<li><code>jwtDecode()</code></li>
+<li><code>testFailsIfNoTokenCredentialUri()</code></li>
+<li><code>testFailsIfAuthorizationCodeIsMissing()</code></li>
+<li><code>testGeneratesAuthorizationCodeRequests()</code></li>
+<li><code>testGeneratesPasswordRequests()</code></li>
+<li><code>testGeneratesRefreshTokenRequests()</code></li>
+<li><code>testClientSecretAddedIfSetForAuthorizationCodeRequests()</code></li>
+<li><code>testClientSecretAddedIfSetForRefreshTokenRequests()</code></li>
+<li><code>testClientSecretAddedIfSetForPasswordRequests()</code></li>
+<li><code>testGeneratesAssertionRequests()</code></li>
+<li><code>testGeneratesExtendedRequests()</code></li>
+<li><code>testFailsOn400()</code></li>
+<li><code>testFailsOn500()</code></li>
+<li><code>testFailsOnNoContentTypeIfResponseIsNotJSON()</code></li>
+<li><code>testFetchesJsonResponseOnNoContentTypeOK()</code></li>
+<li><code>testFetchesFromFormEncodedResponseOK()</code></li>
+<li><code>testUpdatesTokenFieldsOnFetch()</code></li>
+<li><code>testUpdatesTokenFieldsOnFetchMissingRefreshToken()</code></li>
+<li><code>setUp()</code></li>
+<li><code>testFailsIfIdTokenIsInvalid()</code></li>
+<li><code>testFailsIfAudienceIsMissing()</code></li>
+<li><code>testFailsIfAudienceIsWrong()</code></li>
+<li><code>testShouldReturnAValidIdToken()</code></li>
+<li><code>jwtEncode()</code></li>
+</ul>
+</body></html>

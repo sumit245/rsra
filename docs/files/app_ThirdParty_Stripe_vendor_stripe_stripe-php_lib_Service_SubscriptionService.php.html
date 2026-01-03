@@ -1,0 +1,118 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\SubscriptionService.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\SubscriptionService.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\SubscriptionService.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 6151 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>By default, returns a list of subscriptions that have not been canceled. In</p>
+<p>order to list canceled subscriptions, specify <code>status=canceled</code>.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\Subscription></p>
+
+<p>Cancels a customer’s subscription immediately. The customer will not be charged</p>
+<p>again for the subscription.</p>
+<p>Note, however, that any pending invoice items that you’ve created will still be</p>
+<p>charged for at the end of the period, unless manually <a</p>
+<p>href="#delete_invoiceitem">deleted</a>. If you’ve set the subscription to cancel</p>
+<p>at the end of the period, any pending prorations will also be left in place and</p>
+<p>collected at the end of the period. But if the subscription is set to cancel</p>
+<p>immediately, pending prorations will be removed.</p>
+<p>By default, upon subscription cancellation, Stripe will stop automatic</p>
+<p>collection of all finalized invoices for the customer. This is intended to</p>
+<p>prevent unexpected payment attempts after the customer has canceled a</p>
+<p>subscription. However, you can resume automatic collection of the invoices</p>
+<p>manually after subscription cancellation to have us proceed. Or, you could check</p>
+<p>for unpaid invoices before allowing the customer to cancel the subscription at</p>
+<p>all.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Subscription</p>
+
+<p>Creates a new subscription on an existing customer. Each customer can have up to</p>
+<p>500 active or scheduled subscriptions.</p>
+<p>When you create a subscription with</p>
+<p><code>collection_method=charge_automatically</code>, the first invoice is</p>
+<p>finalized as part of the request. The <code>payment_behavior</code> parameter</p>
+<p>determines the exact behavior of the initial payment.</p>
+<p>To start subscriptions where the first invoice always begins in a</p>
+<p><code>draft</code> status, use <a</p>
+<p>href="/docs/billing/subscriptions/subscription-schedules#managing">subscription</p>
+<p>schedules</a> instead. Schedules provide the flexibility to model more complex</p>
+<p>billing configurations that change over time.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Subscription</p>
+
+<p>Removes the currently applied discount on a subscription.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Subscription</p>
+
+<p>Retrieves the subscription with the given ID.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Subscription</p>
+
+<p>Search for subscriptions you’ve previously created using Stripe’s <a</p>
+<p>href="/docs/search#search-query-language">Search Query Language</a>. Don’t use</p>
+<p>search in read-after-write flows where strict consistency is necessary. Under</p>
+<p>normal operating conditions, data is searchable in less than a minute.</p>
+<p>Occasionally, propagation of new or updated data can be up to an hour behind</p>
+<p>during outages. Search functionality is not available to merchants in India.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\SearchResult<\Stripe\Subscription></p>
+
+<p>Updates an existing subscription on a customer to match the specified</p>
+<p>parameters. When changing plans or quantities, we will optionally prorate the</p>
+<p>price we charge next month to make up for any price changes. To preview how the</p>
+<p>proration will be calculated, use the <a href="#upcoming_invoice">upcoming</p>
+<p>invoice</a> endpoint.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Subscription</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\SubscriptionService.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Service\SubscriptionService extends \Stripe\Service\AbstractService</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>all($params = null, $opts = null)</code></li>
+<li><code>cancel($id, $params = null, $opts = null)</code></li>
+<li><code>create($params = null, $opts = null)</code></li>
+<li><code>deleteDiscount($id, $params = null, $opts = null)</code></li>
+<li><code>retrieve($id, $params = null, $opts = null)</code></li>
+<li><code>search($params = null, $opts = null)</code></li>
+<li><code>update($id, $params = null, $opts = null)</code></li>
+</ul>
+</body></html>

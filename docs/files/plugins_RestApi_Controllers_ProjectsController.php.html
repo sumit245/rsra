@@ -1,0 +1,211 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\RestApi\Controllers\ProjectsController.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\RestApi\Controllers\ProjectsController.php</h1>
+
+<ul>
+<li>Path: <code>plugins\RestApi\Controllers\ProjectsController.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 14221 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@api {get} /api/projects/ List all Project Information</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName index</p>
+<p>@apiGroup Projects</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiSuccess {Object} Project information</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>{</p>
+<p>		"id": "2",</p>
+<p>		"title": "project 1",</p>
+<p>		"description": "",</p>
+<p>		"start_date": null,</p>
+<p>		"deadline": null,</p>
+<p>		"client_id": "2",</p>
+<p>		"created_date": "2021-09-12",</p>
+<p>		"created_by": "1",</p>
+<p>		"status": "open",</p>
+<p>		"labels": "",</p>
+<p>		"price": "0",</p>
+<p>		"starred_by": "",</p>
+<p>		"estimate_id": "0",</p>
+<p>		"order_id": "0",</p>
+<p>		"deleted": "0",</p>
+<p>		"company_name": "cijagani",</p>
+<p>		"currency_symbol": "INR",</p>
+<p>		"total_points": null,</p>
+<p>		"completed_points": null,</p>
+<p>		"labels_list": null</p>
+<p>}</p>
+<p>@apiError {Boolean} status Request status</p>
+<p>@apiError {String} message No data were found</p>
+
+<p>Return the properties of a resource object</p>
+<p>@return mixed</p>
+
+<p>@api {get} /api/projects/search/:keysearch Search Project information</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName search</p>
+<p>@apiGroup Projects</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiParam {String} keysearch Search Keywords</p>
+<p>@apiSuccess {Object} Project information</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>{</p>
+<p>		"id": "2",</p>
+<p>		"title": "project 1",</p>
+<p>		"description": "",</p>
+<p>		"start_date": null,</p>
+<p>		"deadline": null,</p>
+<p>		"client_id": "2",</p>
+<p>		"created_date": "2021-09-12",</p>
+<p>		"created_by": "1",</p>
+<p>		"status": "open",</p>
+<p>		"labels": "",</p>
+<p>		"price": "0",</p>
+<p>		"starred_by": "",</p>
+<p>		"estimate_id": "0",</p>
+<p>		"order_id": "0",</p>
+<p>		"deleted": "0",</p>
+<p>		"company_name": "cijagani",</p>
+<p>		"currency_symbol": "INR",</p>
+<p>		"total_points": null,</p>
+<p>		"completed_points": null,</p>
+<p>		"labels_list": null</p>
+<p>}</p>
+<p>@apiError {Boolean} status Request status</p>
+<p>@apiError {String} message No data were found</p>
+
+<p>@api {post} api/projects Add New Project</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName create</p>
+<p>@apiGroup Projects</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiParam {string} title                         		Mandatory Project Title.</p>
+<p>@apiParam {string} client_id		                        Mandatory Project client id.</p>
+<p>@apiParam {string} start_date		                    Mandatory Project Start Date.</p>
+<p>@apiParam {string} description	                        Optional Project description.</p>
+<p>@apiParam {string} deadline	                        	Optional Project deadline.</p>
+<p>@apiParam {string} price	                        		Optional Project price.</p>
+<p>@apiParam {string} labels	                        	Optional Project labels.</p>
+<p>@apiParamExample Request-Example:</p>
+<p>    array (size=6)</p>
+<p>       'title' => string 'Project title' (length=9)</p>
+<p>       'client_id' => string '1' (length=1)</p>
+<p>       'start_date' => string '2021-09-27' (length=1)</p>
+<p>       'deadline' => string '2021-11-27' (length=1)</p>
+<p>       'price' => string '600' (length=1)</p>
+<p>       'labels' => string '1,2' (length=1)  *</p>
+<p>@apiSuccess {Boolean} status Request status.</p>
+<p>@apiSuccess {String} message Project add successful.</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>    HTTP/1.1 200 OK</p>
+<p>    {</p>
+<p>      "status": true,</p>
+<p>      "message": "Project add successful."</p>
+<p>    }</p>
+<p>@apiError {Boolean} status Request status.</p>
+<p>@apiError {String} message Project add fail.</p>
+<p>@apiErrorExample Error-Response:</p>
+<p>    HTTP/1.1 404 Not Found</p>
+<p>    {</p>
+<p>      "status": false,</p>
+<p>      "message": "Project add fail."</p>
+<p>    }</p>
+
+<p>@api {put} api/projects/:id Update a Project</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName update</p>
+<p>@apiGroup Projects</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiParam {Number} id project unique ID.</p>
+<p>@apiParam {string} title                         		Mandatory Project Title.</p>
+<p>@apiParam {string} client_id		                        Mandatory Project client id.</p>
+<p>@apiParam {string} start_date		                    Mandatory Project Start Date.</p>
+<p>@apiParam {string} description	                        Optional Project description.</p>
+<p>@apiParam {string} deadline	                        	Optional Project deadline.</p>
+<p>@apiParam {string} price	                        		Optional Project price.</p>
+<p>@apiParam {string} labels	                        	Optional Project labels.</p>
+<p>@apiParamExample {json} Request-Example:</p>
+<p>{</p>
+<p>"title":"api project",</p>
+<p>"client_id":8,</p>
+<p>"description":"description",</p>
+<p>"start_date":"2021-09-27",</p>
+<p>"deadline":"2021-11-27",</p>
+<p>"price":"500",</p>
+<p>"labels":"3,4"</p>
+<p>}</p>
+<p>@apiSuccess {Boolean} status Request status.</p>
+<p>@apiSuccess {String} message Project Update Successful.</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>    HTTP/1.1 200 OK</p>
+<p>    {</p>
+<p>      "status": true,</p>
+<p>      "message": "Project Update Successful."</p>
+<p>    }</p>
+<p>@apiError {Boolean} status Request status.</p>
+<p>@apiError {String} message Project Update Fail.</p>
+<p>@apiErrorExample Error-Response:</p>
+<p>    HTTP/1.1 404 Not Found</p>
+<p>    {</p>
+<p>      "status": false,</p>
+<p>      "message": "Project Update Fail."</p>
+<p>    }</p>
+
+<p>@api {delete} api/projects/:id Delete a Project</p>
+<p>@apiVersion 1.0.0</p>
+<p>@apiName Delete</p>
+<p>@apiGroup Projects</p>
+<p>@apiHeader {String} Authorization Basic Access Authentication token.</p>
+<p>@apiParam {Number} id project unique ID.</p>
+<p>@apiSuccess {String} status Request status.</p>
+<p>@apiSuccess {String} message Project Deleted Successfully.</p>
+<p>@apiSuccessExample Success-Response:</p>
+<p>    HTTP/1.1 200 OK</p>
+<p>    {</p>
+<p>      "status": true,</p>
+<p>      "message": "Project Deleted Successfully."</p>
+<p>    }</p>
+<p>@apiError {Boolean} status Request status.</p>
+<p>@apiError {String} message Project Delete Fail.</p>
+<p>@apiErrorExample Error-Response:</p>
+<p>    HTTP/1.1 404 Not Found</p>
+<p>    {</p>
+<p>      "status": false,</p>
+<p>      "message": "Project Delete Fail."</p>
+<p>    }</p>
+
+<h2>References</h2>
+
+<p><strong>Models Used</strong></p>
+<ul>
+<li><code>projects_model</code></li>
+<li><code>restapi_projects_model</code></li>
+<li><code>restapi_clients_model</code></li>
+<li><code>restapi_labels_model</code></li>
+<li><code>clients_model</code></li>
+<li><code>labels_model</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\RestApi\Controllers\ProjectsController.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>RestApi\Controllers\ProjectsController extends Rest_api_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>index()</code></li>
+<li><code>show($id = null, $searchTerm = "")</code></li>
+<li><code>search($key = '')</code></li>
+<li><code>create()</code></li>
+<li><code>update($id = null)</code></li>
+<li><code>delete($id = null)</code></li>
+</ul>
+</body></html>

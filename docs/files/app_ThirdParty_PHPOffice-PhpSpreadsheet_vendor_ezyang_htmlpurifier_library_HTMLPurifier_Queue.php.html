@@ -1,0 +1,54 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Queue.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Queue.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Queue.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 1551 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>A simple array-backed queue, based off of the classic Okasaki</p>
+<p>persistent amortized queue.  The basic idea is to maintain two</p>
+<p>stacks: an input stack and an output stack.  When the output</p>
+<p>stack runs out, reverse the input stack and use it as the output</p>
+<p>stack.</p>
+<p>We don't use the SPL implementation because it's only supported</p>
+<p>on PHP 5.3 and later.</p>
+<p>Exercise: Prove that push/pop on this queue take amortized O(1) time.</p>
+<p>Exercise: Extend this queue to be a deque, while preserving amortized</p>
+<p>O(1) time.  Some care must be taken on rebalancing to avoid quadratic</p>
+<p>behaviour caused by repeatedly shuffling data from the input stack</p>
+<p>to the output stack and back.</p>
+
+<p>Shifts an element off the front of the queue.</p>
+
+<p>Pushes an element onto the front of the queue.</p>
+
+<p>Checks if it's empty.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Queue.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>HTMLPurifier_Queue</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($input = array()</code></li>
+<li><code>shift()</code></li>
+<li><code>push($x)</code></li>
+<li><code>isEmpty()</code></li>
+</ul>
+</body></html>

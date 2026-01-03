@@ -1,0 +1,95 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Settings.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Settings.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Settings.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5764 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Class name of the chart renderer used for rendering charts</p>
+<p>eg: PhpOffice\PhpSpreadsheet\Chart\Renderer\JpGraph.</p>
+<p>@var string</p>
+
+<p>Default options for libxml loader.</p>
+<p>@var int</p>
+
+<p>The cache implementation to be used for cell collection.</p>
+<p>@var CacheInterface</p>
+
+<p>The HTTP client implementation to be used for network request.</p>
+<p>@var null|ClientInterface</p>
+
+<p>@var null|RequestFactoryInterface</p>
+
+<p>Set the locale code to use for formula translations and any special formatting.</p>
+<p>@param string $locale The locale code to use (e.g. "fr" or "pt_br" or "en_uk")</p>
+<p>@return bool Success or failure</p>
+
+<p>Identify to PhpSpreadsheet the external library to use for rendering charts.</p>
+<p>@param string $rendererClassName Class name of the chart renderer</p>
+<p>   eg: PhpOffice\PhpSpreadsheet\Chart\Renderer\JpGraph</p>
+
+<p>Return the Chart Rendering Library that PhpSpreadsheet is currently configured to use.</p>
+<p>@return null|string Class name of the chart renderer</p>
+<p>   eg: PhpOffice\PhpSpreadsheet\Chart\Renderer\JpGraph</p>
+
+<p>Set default options for libxml loader.</p>
+<p>@param int $options Default options for libxml loader</p>
+
+<p>Get default options for libxml loader.</p>
+<p>Defaults to LIBXML_DTDLOAD | LIBXML_DTDATTR when not set explicitly.</p>
+<p>@return int Default options for libxml loader</p>
+
+<p>Deprecated, has no effect.</p>
+<p>@param bool $state</p>
+<p>@deprecated will be removed without replacement as it is no longer necessary on PHP 7.3.0+</p>
+
+<p>Deprecated, has no effect.</p>
+<p>@return bool $state</p>
+<p>@deprecated will be removed without replacement as it is no longer necessary on PHP 7.3.0+</p>
+
+<p>Sets the implementation of cache that should be used for cell collection.</p>
+
+<p>Gets the implementation of cache that is being used for cell collection.</p>
+
+<p>Set the HTTP client implementation to be used for network request.</p>
+
+<p>Unset the HTTP client configuration.</p>
+
+<p>Get the HTTP client implementation to be used for network request.</p>
+
+<p>Get the HTTP request factory.</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Settings.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Settings</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>setLocale(string $locale)</code></li>
+<li><code>getLocale()</code></li>
+<li><code>setChartRenderer(string $rendererClassName)</code></li>
+<li><code>getChartRenderer()</code></li>
+<li><code>htmlEntityFlags()</code></li>
+<li><code>setLibXmlLoaderOptions($options)</code></li>
+<li><code>getLibXmlLoaderOptions()</code></li>
+<li><code>setLibXmlDisableEntityLoader($state)</code></li>
+<li><code>getLibXmlDisableEntityLoader()</code></li>
+<li><code>setCache(CacheInterface $cache)</code></li>
+<li><code>getCache()</code></li>
+<li><code>setHttpClient(ClientInterface $httpClient, RequestFactoryInterface $requestFactory)</code></li>
+<li><code>unsetHttpClient()</code></li>
+<li><code>getHttpClient()</code></li>
+<li><code>getRequestFactory()</code></li>
+<li><code>assertHttpClient()</code></li>
+</ul>
+</body></html>

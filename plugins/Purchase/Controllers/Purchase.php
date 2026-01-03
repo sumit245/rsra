@@ -2129,7 +2129,6 @@ class Purchase extends Security_Controller
   {
 
     if ($id == '') {
-
       if ($this->request->getPost()) {
         $add_data = $this->request->getPost();
         $id = $this->Purchase_model->add_pur_request($add_data);
@@ -2186,7 +2185,17 @@ class Purchase extends Security_Controller
             $item_text = pur_get_item_variatiom($request_detail['item_code']);
           }
 
-          $purchase_request_row_template .= $this->Purchase_model->create_purchase_request_row_template('items[' . $index_request . ']', $request_detail['item_code'], $item_text, $request_detail['unit_price'], $request_detail['quantity'], $unit_name, $request_detail['into_money'], $request_detail['prd_id'], $request_detail['tax_value'], $request_detail['total'], $request_detail['tax_name'], $request_detail['tax_rate'], $request_detail['tax'], true, $currency_rate, $to_currency);
+          $purchase_request_row_template .= $this->Purchase_model->create_purchase_request_row_template(
+            'items[' . $index_request . ']',
+            $request_detail['item_code'],
+            $item_text,
+            $request_detail['sku_code'] ?? '', // Make
+            $request_detail['sku_name'] ?? '', // Model
+            $request_detail['quantity'],
+            $unit_name,
+            $request_detail['prd_id'],
+            true
+          );
         }
       }
     }
@@ -2234,6 +2243,23 @@ class Purchase extends Security_Controller
   {
 
     $item                   = $this->Purchase_model->get_item_v2($id);
+    $html = '<option value=""></option>';
+    echo json_encode([
+      'item_id' => $id,
+      'item_title' => $item->title ?? '',
+      'item_code'  => $item->commodity_code ?? '',
+      'sku_code'   => $item->sku_code ?? '',
+      'sku_name'   => $item->sku_name ?? '',
+      'unit_id'    => $item->unit_id ?? '',
+      'unit_name'  => $item->unit_name ?? '',
+      'description' => $item->description ?? ''
+    ]);
+  }
+
+  public function get_item_by_id1($id, $currency_rate = 1)
+  {
+
+    $item                   = $this->Purchase_model->get_item_v3($id);
     $item->long_description = nl2br($item->description);
 
     if ($currency_rate != 1) {
@@ -2245,27 +2271,83 @@ class Purchase extends Security_Controller
     echo json_encode($item);
   }
 
+  public function get_item_by_id_1($id, $currency_rate = 1)
+  {
+
+    $item                   = $this->Purchase_model->get_item_v2($id);
+    $html = '<option value=""></option>';
+    echo json_encode([
+      'item_id' => $id,
+      'item_title' => $item->title ?? '',
+      'item_code'  => $item->commodity_code ?? '',
+      'sku_code'   => $item->sku_code ?? '',
+      'sku_name'   => $item->sku_name ?? '',
+      'unit_id'    => $item->unit_id ?? '',
+      'unit_name'  => $item->unit_name ?? '',
+      'description' => $item->description ?? ''
+    ]);
+  }
+
+
+
   /**
    * Gets the purchase request row template.
    */
+  // public function get_purchase_request_row_template()
+  // {
+  //   $name          = $this->request->getPost('name');
+  //   $item_text     = $this->request->getPost('item_text');
+  //   $unit_price    = $this->request->getPost('unit_price');
+  //   $quantity      = $this->request->getPost('quantity');
+  //   $unit_name     = $this->request->getPost('unit_name');
+  //   $into_money    = $this->request->getPost('into_money');
+  //   $item_key      = $this->request->getPost('item_key');
+  //   $tax_value     = $this->request->getPost('tax_value');
+  //   $tax_name      = $this->request->getPost('taxname');
+  //   $total         = $this->request->getPost('total');
+  //   $item_code     = $this->request->getPost('item_code');
+  //   $currency_rate = $this->request->getPost('currency_rate');
+  //   $to_currency   = $this->request->getPost('to_currency');
+
+  //   echo html_entity_decode($this->Purchase_model->create_purchase_request_row_template($name, $item_code, $item_text, $unit_price, $quantity, $unit_name, $into_money, $item_key, $tax_value, $total, $tax_name, '', '', false, $currency_rate, $to_currency));
+  // }
   public function get_purchase_request_row_template()
   {
-    $name          = $this->request->getPost('name');
-    $item_text     = $this->request->getPost('item_text');
-    $unit_price    = $this->request->getPost('unit_price');
-    $quantity      = $this->request->getPost('quantity');
-    $unit_name     = $this->request->getPost('unit_name');
-    $into_money    = $this->request->getPost('into_money');
-    $item_key      = $this->request->getPost('item_key');
-    $tax_value     = $this->request->getPost('tax_value');
-    $tax_name      = $this->request->getPost('taxname');
-    $total         = $this->request->getPost('total');
-    $item_code     = $this->request->getPost('item_code');
-    $currency_rate = $this->request->getPost('currency_rate');
-    $to_currency   = $this->request->getPost('to_currency');
+    $name        = $this->request->getPost('name');
+    $item_text   = $this->request->getPost('item_text');
+    $item_code   = $this->request->getPost('item_code');
+    $sku_code    = $this->request->getPost('sku_code');   // ✅ new
+    $sku_name    = $this->request->getPost('sku_name');   // ✅ new
+    $quantity    = $this->request->getPost('quantity');
+    $unit_name   = $this->request->getPost('unit_name');
+    $item_key    = $this->request->getPost('item_key');
 
-    echo html_entity_decode($this->Purchase_model->create_purchase_request_row_template($name, $item_code, $item_text, $unit_price, $quantity, $unit_name, $into_money, $item_key, $tax_value, $total, $tax_name, '', '', false, $currency_rate, $to_currency));
+    log_message('critical', 'Purchase Request Row Input: ' . json_encode([
+      'name'       => $name,
+      'item_text'  => $item_text,
+      'item_code'  => $item_code,
+      'sku_code'   => $sku_code,
+      'sku_name'   => $sku_name,
+      'quantity'   => $quantity,
+      'unit_name'  => $unit_name,
+      'item_key'   => $item_key,
+    ]));
+
+
+
+    echo html_entity_decode($this->Purchase_model->create_purchase_request_row_template(
+      $name,
+      $item_code,
+      $item_text,
+      $sku_code,
+      $sku_name,
+      $quantity,
+      $unit_name,
+      $item_key,
+      false
+    ));
   }
+
 
   /**
    * Gets the currency rate.
@@ -2428,6 +2510,40 @@ class Purchase extends Security_Controller
     ]);
   }
 
+
+
+  /**
+   * Get purchase request items for auto-population in purchase order
+   */
+  public function get_pur_request_items()
+  {
+    $this->response->setContentType('application/json');
+
+    if ($this->request->getMethod() === 'post') {
+      $pur_request_id = $this->request->getPost('pur_request_id');
+
+      // Log the received request
+      log_message('debug', 'Purchase request ID received: ' . $pur_request_id);
+
+      if (empty($pur_request_id)) {
+        echo json_encode(['success' => false, 'message' => 'Purchase request ID is required']);
+        return;
+      }
+
+      $items = $this->Purchase_model->get_pur_request_items_for_order($pur_request_id);
+
+      // Log the items found
+      log_message('debug', 'Items found: ' . json_encode($items));
+
+      if ($items) {
+        echo json_encode(['success' => true, 'items' => $items]);
+      } else {
+        echo json_encode(['success' => false, 'message' => 'No items found']);
+      }
+    } else {
+      echo json_encode(['success' => false, 'message' => 'Invalid request method']);
+    }
+  }
   /**
    * { view pur request }
    *
@@ -2476,7 +2592,7 @@ class Purchase extends Security_Controller
     $data['check_approve_status'] = $this->Purchase_model->check_approval_details($id, 'pur_request');
     $data['list_approve_status']  = $this->Purchase_model->get_list_approval_details($id, 'pur_request');
     $data['taxes']                = $this->Purchase_model->get_taxes();
-
+    $data['pur_request_comments'] = $this->Purchase_model->get_comments($id);
     $data['tab'] = $this->request->getGet('tab');
     if ($data['tab'] == '') {
       $data['tab'] == 'information';
@@ -2547,9 +2663,11 @@ class Purchase extends Security_Controller
    */
   public function send_request_approve()
   {
+    log_message("critical", "Hitting the api");
     $data    = $this->request->getPost();
     $message = 'Send request approval fail';
     $success = $this->Purchase_model->send_request_approve($data);
+    log_message("critical", $success);
     if ($success === true) {
       $message                       = 'Send request approval success';
       $data_new                      = [];
@@ -2572,11 +2690,68 @@ class Purchase extends Security_Controller
     die;
   }
 
+
   /**
-   * send mail
-   * @param  integer $id
+   * Adds a comment to purchase request
+   *
    * @return json
    */
+  public function add_comment()
+  {
+    $this->response->setContentType('application/json');
+
+    if ($this->request->getMethod() === 'post') {
+      $comment = $this->request->getPost('comment');
+      $related_id = $this->request->getPost('related_id');
+      $comment_type = $this->request->getPost('comment_type'); // 'pur_request' or 'pur_order'
+
+      if (empty($comment) || empty($related_id) || empty($comment_type)) {
+        echo json_encode([
+          'success' => false,
+          'message' => 'Comment content, ID and type are required'
+        ]);
+        return;
+      }
+
+      // Validate comment_type
+      if (!in_array($comment_type, ['pur_request', 'pur_order'])) {
+        echo json_encode([
+          'success' => false,
+          'message' => 'Invalid comment type'
+        ]);
+        return;
+      }
+
+      $comment_data = [
+        'related_id' => $related_id,
+        'comment_type' => $comment_type,
+        'comment' => $comment,
+        'user_id' => get_staff_user_id(),
+        'user_name' => get_staff_full_name(get_staff_user_id()),
+        'created_at' => date('Y-m-d H:i:s')
+      ];
+
+      $comment_id = $this->Purchase_model->add_comment($comment_data);
+
+      if ($comment_id) {
+        echo json_encode([
+          'success' => true,
+          'message' => 'Comment added successfully',
+          'comment' => $comment_data
+        ]);
+      } else {
+        echo json_encode([
+          'success' => false,
+          'message' => 'Failed to add comment to database'
+        ]);
+      }
+    } else {
+      echo json_encode([
+        'success' => false,
+        'message' => 'Invalid request method'
+      ]);
+    }
+  }
   public function send_mail()
   {
     $data = $this->request->getGet();
@@ -3488,14 +3663,15 @@ class Purchase extends Security_Controller
       $pur_order_data          = $this->request->getPost();
       $pur_order_data['terms'] = nl2br($pur_order_data['terms']);
       if ($id == '') {
-
         $id = $this->Purchase_model->add_pur_order($pur_order_data);
         if ($id) {
           $this->session->setFlashdata("success_message", app_lang("added_successfully"));
           app_redirect('purchase/purchase_orders');
+        } else {
+          $this->session->setFlashdata('error_message', 'Project budget is lower than expense');
+          app_redirect('purchase/purchase_orders');
         }
       } else {
-
         $success = $this->Purchase_model->update_pur_order($pur_order_data, $id);
         if ($success) {
           $this->session->setFlashdata("success_message", app_lang("updated_successfully"));
@@ -3626,13 +3802,12 @@ class Purchase extends Security_Controller
    */
   public function view_pur_order($id)
   {
-
-    if (! $id) {
+    if (!$id) {
       die('No purchase order found');
     }
 
     $estimate = $this->Purchase_model->get_pur_order($id);
-    if (! $estimate) {
+    if (!$estimate) {
       show_404();
     }
 
@@ -3646,11 +3821,11 @@ class Purchase extends Security_Controller
     }
 
     $data['pur_order_attachments'] = $this->Purchase_model->get_purchase_order_attachments($id);
-    $data['estimate_detail']       = $this->Purchase_model->get_pur_order_detail($id);
-    $data['estimate']              = $estimate;
+    $data['estimate_detail'] = $this->Purchase_model->get_pur_order_detail($id);
+    $data['estimate'] = $estimate;
 
-    $users_model     = model("App\Models\Users_model", false);
-    $team_members    = $this->Users_model->get_all_where(["deleted" => 0, "user_type" => "staff"])->getResult();
+    $users_model = model("App\Models\Users_model", false);
+    $team_members = $this->Users_model->get_all_where(["deleted" => 0, "user_type" => "staff"])->getResult();
     $data['members'] = [];
     foreach ($team_members as $team_member) {
       $data['members'][] = ["id" => $team_member->id, "text" => $team_member->first_name . " " . $team_member->last_name];
@@ -3658,21 +3833,23 @@ class Purchase extends Security_Controller
 
     $data['vendor_contacts'] = [];
 
-    $session           = \Config\Services::session();
+    $session = \Config\Services::session();
     $send_mail_approve = $session->has("send_mail_approve");
     if (($send_mail_approve) && $session->get("send_mail_approve") != '') {
-
       $data['send_mail_approve'] = $session->get("send_mail_approve");
       $session->remove("send_mail_approve");
     }
 
     $data['title'] = $estimate->pur_order_name;
 
-    $data['check_appr']           = $this->Purchase_model->get_approve_setting('pur_order');
-    $data['get_staff_sign']       = $this->Purchase_model->get_staff_sign($id, 'pur_order');
+    $data['check_appr'] = $this->Purchase_model->get_approve_setting('pur_order');
+    $data['get_staff_sign'] = $this->Purchase_model->get_staff_sign($id, 'pur_order');
     $data['check_approve_status'] = $this->Purchase_model->check_approval_details($id, 'pur_order');
-    $data['list_approve_status']  = $this->Purchase_model->get_list_approval_details($id, 'pur_order');
-    $data['tax_data']             = $this->Purchase_model->get_html_tax_pur_order($id);
+    $data['list_approve_status'] = $this->Purchase_model->get_list_approval_details($id, 'pur_order');
+    $data['tax_data'] = $this->Purchase_model->get_html_tax_pur_order($id);
+
+    // Add comments data for purchase order
+    $data['pur_order_comments'] = $this->Purchase_model->get_comments($id, 'pur_order');
 
     $data['tab'] = $this->request->getGet('tab');
     if ($data['tab'] == '') {
@@ -3753,6 +3930,32 @@ class Purchase extends Security_Controller
       $message = _l('change_status_pur_order') . ' ' . _l('fail');
       echo json_encode([
         'result' => $message,
+      ]);
+    }
+  }
+
+  /**
+   * { change Delivery status pur order }
+   *
+   * @param      <type>  $status  The status
+   * @param      <type>  $id      The identifier
+   * @return json
+   */
+  public function change_delivery_status_pur_order($status, $id)
+  {
+    $change = $this->Purchase_model->change_delivery_status_pur_order($status, $id);
+    if ($change == true) {
+
+      $message = _l('change_status_pur_order') . ' ' . _l('successfully');
+      echo json_encode([
+        'result' => $message,
+        'success' => true
+      ]);
+    } else {
+      $message = _l('change_status_pur_order') . ' ' . _l('fail');
+      echo json_encode([
+        'result' => $message,
+        'success' => false
       ]);
     }
   }
@@ -3967,7 +4170,6 @@ class Purchase extends Security_Controller
    */
   public function coppy_pur_request_for_po($pur_request, $vendor = '')
   {
-
     $pur_request_detail = $this->Purchase_model->get_pur_request_detail_in_po($pur_request);
     $purchase_request   = $this->Purchase_model->get_purchase_request($pur_request);
 
@@ -4003,15 +4205,43 @@ class Purchase extends Security_Controller
       $index_quote = 0;
       foreach ($pur_request_detail as $key => $item) {
         $index_quote++;
-        $unit_name = pur_get_unit_name($item['unit_id']);
-        $taxname   = $item['tax_name'];
-        $item_name = $item['item_text'];
+
+        // Handle null values properly
+        $unit_name = pur_get_unit_name($item['unit_id'] ?? null) ?? '';
+        $taxname   = $item['tax_name'] ?? '';
+        $item_name = $item['item_text'] ?? '';
+        $tax_rate  = $item['tax_rate'] ?? null;
+        $tax_value = $item['tax_value'] ?? 0;
+        $tax       = $item['tax'] ?? '';
+        $unit_id   = $item['unit_id'] ?? null;
 
         if (strlen($item_name) == 0) {
-          $item_name = pur_get_item_variatiom($item['item_code']);
+          $item_name = pur_get_item_variatiom($item['item_code']) ?? '';
         }
 
-        $list_item .= $this->Purchase_model->create_purchase_order_row_template('newitems[' . $index_quote . ']', $item_name, '', $item['quantity'], $unit_name, $item['unit_price'], $taxname, $item['item_code'], $item['unit_id'], $item['tax_rate'], $item['total'], '', '', $item['total'], $item['into_money'], $item['tax'], $item['tax_value'], $index_quote, true, $currency_rate, $to_currency);
+        $list_item .= $this->Purchase_model->create_purchase_order_row_template(
+          'newitems[' . $index_quote . ']',
+          $item_name,
+          '',
+          $item['quantity'] ?? 1,
+          $unit_name,
+          $item['unit_price'] ?? 0,
+          $taxname,
+          $item['item_code'] ?? '',
+          $unit_id,
+          $tax_rate,
+          $item['total'] ?? 0,
+          '',
+          '',
+          $item['total'] ?? 0,
+          $item['into_money'] ?? 0,
+          $tax,
+          $tax_value,
+          $index_quote,
+          true,
+          $currency_rate,
+          $to_currency
+        );
       }
     }
 
@@ -4019,7 +4249,9 @@ class Purchase extends Security_Controller
     $tax_html   = $taxes_data['html'];
 
     echo json_encode([
+      'success'       => true,
       'result'        => $pur_request_detail,
+      'items'         => $pur_request_detail,
       'subtotal'      => to_currency(round($subtotal, 2), ''),
       'total'         => to_currency(round($total, 2), ''),
       'tax_html'      => $tax_html,

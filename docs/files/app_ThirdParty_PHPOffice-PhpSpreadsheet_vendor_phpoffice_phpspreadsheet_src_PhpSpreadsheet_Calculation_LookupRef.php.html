@@ -1,0 +1,282 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\LookupRef.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\LookupRef.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\LookupRef.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 16580 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@deprecated 1.18.0</p>
+
+<p>CELL_ADDRESS.</p>
+<p>Creates a cell address as text, given specified row and column numbers.</p>
+<p>Excel Function:</p>
+<p>       =ADDRESS(row, column, [relativity], [referenceStyle], [sheetText])</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see LookupRef\Address::cell()</p>
+<p>     Use the cell() method in the LookupRef\Address class instead</p>
+<p>@param mixed $row Row number to use in the cell reference</p>
+<p>@param mixed $column Column number to use in the cell reference</p>
+<p>@param int $relativity Flag indicating the type of reference to return</p>
+<p>                               1 or omitted    Absolute</p>
+<p>                               2               Absolute row; relative column</p>
+<p>                               3               Relative row; absolute column</p>
+<p>                               4               Relative</p>
+<p>@param bool $referenceStyle A logical value that specifies the A1 or R1C1 reference style.</p>
+<p>                               TRUE or omitted      CELL_ADDRESS returns an A1-style reference</p>
+<p>                               FALSE                CELL_ADDRESS returns an R1C1-style reference</p>
+<p>@param array|string $sheetText Optional Name of worksheet to use</p>
+<p>@return array|string</p>
+
+<p>COLUMN.</p>
+<p>Returns the column number of the given cell reference</p>
+<p>    If the cell reference is a range of cells, COLUMN returns the column numbers of each column</p>
+<p>       in the reference as a horizontal array.</p>
+<p>    If cell reference is omitted, and the function is being called through the calculation engine,</p>
+<p>       then it is assumed to be the reference of the cell in which the COLUMN function appears;</p>
+<p>       otherwise this function returns 1.</p>
+<p>Excel Function:</p>
+<p>       =COLUMN([cellAddress])</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see LookupRef\RowColumnInformation::COLUMN()</p>
+<p>     Use the COLUMN() method in the LookupRef\RowColumnInformation class instead</p>
+<p>@param null|array|string $cellAddress A reference to a range of cells for which you want the column numbers</p>
+<p>@return int|int[]|string</p>
+
+<p>COLUMNS.</p>
+<p>Returns the number of columns in an array or reference.</p>
+<p>Excel Function:</p>
+<p>       =COLUMNS(cellAddress)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see LookupRef\RowColumnInformation::COLUMNS()</p>
+<p>     Use the COLUMNS() method in the LookupRef\RowColumnInformation class instead</p>
+<p>@param null|array|string $cellAddress An array or array formula, or a reference to a range of cells</p>
+<p>                                         for which you want the number of columns</p>
+<p>@return int|string The number of columns in cellAddress, or a string if arguments are invalid</p>
+
+<p>ROW.</p>
+<p>Returns the row number of the given cell reference</p>
+<p>    If the cell reference is a range of cells, ROW returns the row numbers of each row in the reference</p>
+<p>       as a vertical array.</p>
+<p>    If cell reference is omitted, and the function is being called through the calculation engine,</p>
+<p>       then it is assumed to be the reference of the cell in which the ROW function appears;</p>
+<p>       otherwise this function returns 1.</p>
+<p>Excel Function:</p>
+<p>       =ROW([cellAddress])</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see LookupRef\RowColumnInformation::ROW()</p>
+<p>     Use the ROW() method in the LookupRef\RowColumnInformation class instead</p>
+<p>@param null|array|string $cellAddress A reference to a range of cells for which you want the row numbers</p>
+<p>@return int|mixed[]|string</p>
+
+<p>ROWS.</p>
+<p>Returns the number of rows in an array or reference.</p>
+<p>Excel Function:</p>
+<p>       =ROWS(cellAddress)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see LookupRef\RowColumnInformation::ROWS()</p>
+<p>     Use the ROWS() method in the LookupRef\RowColumnInformation class instead</p>
+<p>@param null|array|string $cellAddress An array or array formula, or a reference to a range of cells</p>
+<p>                                         for which you want the number of rows</p>
+<p>@return int|string The number of rows in cellAddress, or a string if arguments are invalid</p>
+
+<p>HYPERLINK.</p>
+<p>Excel Function:</p>
+<p>       =HYPERLINK(linkURL,displayName)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@param mixed $linkURL Expect string. Value to check, is also the value returned when no error</p>
+<p>@param mixed $displayName Expect string. Value to return when testValue is an error condition</p>
+<p>@param Cell $cell The cell to set the hyperlink in</p>
+<p>@return string The value of $displayName (or $linkURL if $displayName was blank)</p>
+<p>@see LookupRef\Hyperlink::set()</p>
+<p>     Use the set() method in the LookupRef\Hyperlink class instead</p>
+
+<p>INDIRECT.</p>
+<p>Returns the reference specified by a text string.</p>
+<p>References are immediately evaluated to display their contents.</p>
+<p>Excel Function:</p>
+<p>       =INDIRECT(cellAddress)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@param array|string $cellAddress $cellAddress The cell address of the current cell (containing this formula)</p>
+<p>@param Cell $cell The current cell (containing this formula)</p>
+<p>@return array|string An array containing a cell or range of cells, or a string on error</p>
+<p>@see LookupRef\Indirect::INDIRECT()</p>
+<p>     Use the INDIRECT() method in the LookupRef\Indirect class instead</p>
+<p>NOTE - INDIRECT() does not yet support the optional a1 parameter introduced in Excel 2010</p>
+
+<p>OFFSET.</p>
+<p>Returns a reference to a range that is a specified number of rows and columns from a cell or range of cells.</p>
+<p>The reference that is returned can be a single cell or a range of cells. You can specify the number of rows and</p>
+<p>the number of columns to be returned.</p>
+<p>Excel Function:</p>
+<p>       =OFFSET(cellAddress, rows, cols, [height], [width])</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see LookupRef\Offset::OFFSET()</p>
+<p>     Use the OFFSET() method in the LookupRef\Offset class instead</p>
+<p>@param null|string $cellAddress The reference from which you want to base the offset.</p>
+<p>                                    Reference must refer to a cell or range of adjacent cells;</p>
+<p>                                    otherwise, OFFSET returns the #VALUE! error value.</p>
+<p>@param mixed $rows The number of rows, up or down, that you want the upper-left cell to refer to.</p>
+<p>                       Using 5 as the rows argument specifies that the upper-left cell in the</p>
+<p>                       reference is five rows below reference. Rows can be positive (which means</p>
+<p>                       below the starting reference) or negative (which means above the starting</p>
+<p>                       reference).</p>
+<p>@param mixed $columns The number of columns, to the left or right, that you want the upper-left cell</p>
+<p>                          of the result to refer to. Using 5 as the cols argument specifies that the</p>
+<p>                          upper-left cell in the reference is five columns to the right of reference.</p>
+<p>                          Cols can be positive (which means to the right of the starting reference)</p>
+<p>                          or negative (which means to the left of the starting reference).</p>
+<p>@param mixed $height The height, in number of rows, that you want the returned reference to be.</p>
+<p>                         Height must be a positive number.</p>
+<p>@param mixed $width The width, in number of columns, that you want the returned reference to be.</p>
+<p>                        Width must be a positive number.</p>
+<p>@return array|string An array containing a cell or range of cells, or a string on error</p>
+
+<p>CHOOSE.</p>
+<p>Uses lookup_value to return a value from the list of value arguments.</p>
+<p>Use CHOOSE to select one of up to 254 values based on the lookup_value.</p>
+<p>Excel Function:</p>
+<p>       =CHOOSE(index_num, value1, [value2], ...)</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see LookupRef\Selection::choose()</p>
+<p>     Use the choose() method in the LookupRef\Selection class instead</p>
+<p>@return mixed The selected value</p>
+
+<p>MATCH.</p>
+<p>The MATCH function searches for a specified item in a range of cells</p>
+<p>Excel Function:</p>
+<p>       =MATCH(lookup_value, lookup_array, [match_type])</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see LookupRef\ExcelMatch::MATCH()</p>
+<p>     Use the MATCH() method in the LookupRef\ExcelMatch class instead</p>
+<p>@param mixed $lookupValue The value that you want to match in lookup_array</p>
+<p>@param mixed $lookupArray The range of cells being searched</p>
+<p>@param mixed $matchType The number -1, 0, or 1. -1 means above, 0 means exact match, 1 means below.</p>
+<p>                        If match_type is 1 or -1, the list has to be ordered.</p>
+<p>@return array|int|string The relative position of the found item</p>
+
+<p>INDEX.</p>
+<p>Uses an index to choose a value from a reference or array</p>
+<p>Excel Function:</p>
+<p>       =INDEX(range_array, row_num, [column_num])</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see LookupRef\Matrix::index()</p>
+<p>     Use the index() method in the LookupRef\Matrix class instead</p>
+<p>@param mixed $rowNum The row in the array or range from which to return a value.</p>
+<p>                         If row_num is omitted, column_num is required.</p>
+<p>@param mixed $columnNum The column in the array or range from which to return a value.</p>
+<p>                            If column_num is omitted, row_num is required.</p>
+<p>@param mixed $matrix</p>
+<p>@return mixed the value of a specified cell or array of cells</p>
+
+<p>TRANSPOSE.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see LookupRef\Matrix::transpose()</p>
+<p>     Use the transpose() method in the LookupRef\Matrix class instead</p>
+<p>@param array $matrixData A matrix of values</p>
+<p>@return array</p>
+<p>Unlike the Excel TRANSPOSE function, which will only work on a single row or column,</p>
+<p>    this function will transpose a full matrix</p>
+
+<p>VLOOKUP</p>
+<p>The VLOOKUP function searches for value in the left-most column of lookup_array and returns the value</p>
+<p>    in the same row based on the index_number.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see LookupRef\VLookup::lookup()</p>
+<p>     Use the lookup() method in the LookupRef\VLookup class instead</p>
+<p>@param mixed $lookup_value The value that you want to match in lookup_array</p>
+<p>@param mixed $lookup_array The range of cells being searched</p>
+<p>@param mixed $index_number The column number in table_array from which the matching value must be returned.</p>
+<p>                               The first column is 1.</p>
+<p>@param mixed $not_exact_match determines if you are looking for an exact match based on lookup_value</p>
+<p>@return mixed The value of the found cell</p>
+
+<p>HLOOKUP</p>
+<p>The HLOOKUP function searches for value in the top-most row of lookup_array and returns the value</p>
+<p>    in the same column based on the index_number.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see LookupRef\HLookup::lookup()</p>
+<p>     Use the lookup() method in the LookupRef\HLookup class instead</p>
+<p>@param mixed $lookup_value The value that you want to match in lookup_array</p>
+<p>@param mixed $lookup_array The range of cells being searched</p>
+<p>@param mixed $index_number The row number in table_array from which the matching value must be returned.</p>
+<p>                               The first row is 1.</p>
+<p>@param mixed $not_exact_match determines if you are looking for an exact match based on lookup_value</p>
+<p>@return mixed The value of the found cell</p>
+
+<p>LOOKUP</p>
+<p>The LOOKUP function searches for value either from a one-row or one-column range or from an array.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@see LookupRef\Lookup::lookup()</p>
+<p>     Use the lookup() method in the LookupRef\Lookup class instead</p>
+<p>@param mixed $lookup_value The value that you want to match in lookup_array</p>
+<p>@param mixed $lookup_vector The range of cells being searched</p>
+<p>@param null|mixed $result_vector The column from which the matching value must be returned</p>
+<p>@return mixed The value of the found cell</p>
+
+<p>FORMULATEXT.</p>
+<p>@Deprecated 1.18.0</p>
+<p>@param mixed $cellReference The cell to check</p>
+<p>@param Cell $cell The current cell (containing this formula)</p>
+<p>@return string</p>
+<p>@see LookupRef\Formula::text()</p>
+<p>     Use the text() method in the LookupRef\Formula class instead</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+<li><code>which</code></li>
+<li><code>the</code></li>
+<li><code>an</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\LookupRef.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\LookupRef</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+<li><code>PhpOffice\PhpSpreadsheet\Calculation\instead</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>cellAddress($row, $column, $relativity = 1, $referenceStyle = true, $sheetText = '')</code></li>
+<li><code>COLUMN($cellAddress = null, ?Cell $cell = null)</code></li>
+<li><code>COLUMNS($cellAddress = null)</code></li>
+<li><code>ROW($cellAddress = null, ?Cell $cell = null)</code></li>
+<li><code>ROWS($cellAddress = null)</code></li>
+<li><code>HYPERLINK($linkURL = '', $displayName = null, ?Cell $cell = null)</code></li>
+<li><code>INDIRECT($cellAddress, Cell $cell)</code></li>
+<li><code>OFFSET($cellAddress = null, $rows = 0, $columns = 0, $height = null, $width = null, ?Cell $cell = null)</code></li>
+<li><code>CHOOSE(...$chooseArgs)</code></li>
+<li><code>MATCH($lookupValue, $lookupArray, $matchType = 1)</code></li>
+<li><code>INDEX($matrix, $rowNum = 0, $columnNum = 0)</code></li>
+<li><code>TRANSPOSE($matrixData)</code></li>
+<li><code>VLOOKUP($lookup_value, $lookup_array, $index_number, $not_exact_match = true)</code></li>
+<li><code>HLOOKUP($lookup_value, $lookup_array, $index_number, $not_exact_match = true)</code></li>
+<li><code>LOOKUP($lookup_value, $lookup_vector, $result_vector = null)</code></li>
+<li><code>FORMULATEXT($cellReference = '', ?Cell $cell = null)</code></li>
+</ul>
+</body></html>

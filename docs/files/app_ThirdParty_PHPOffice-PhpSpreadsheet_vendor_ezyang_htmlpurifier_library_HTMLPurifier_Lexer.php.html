@@ -1,0 +1,138 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Lexer.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Lexer.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Lexer.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 13434 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Forgivingly lexes HTML (SGML-style) markup into tokens.</p>
+<p>A lexer parses a string of SGML-style markup and converts them into</p>
+<p>corresponding tokens.  It doesn't check for well-formedness, although its</p>
+<p>internal mechanism may make this automatic (such as the case of</p>
+<p>HTMLPurifier_Lexer_DOMLex).  There are several implementations to choose</p>
+<p>from.</p>
+<p>A lexer is HTML-oriented: it might work with XML, but it's not</p>
+<p>recommended, as we adhere to a subset of the specification for optimization</p>
+<p>reasons. This might change in the future. Also, most tokenizers are not</p>
+<p>expected to handle DTDs or PIs.</p>
+<p>This class should not be directly instantiated, but you may use create() to</p>
+<p>retrieve a default copy of the lexer.  Being a supertype, this class</p>
+<p>does not actually define any implementation, but offers commonly used</p>
+<p>convenience functions for subclasses.</p>
+<p>@note The unit tests will instantiate this class for testing purposes, as</p>
+<p>      many of the utility functions require a class to be instantiated.</p>
+<p>      This means that, even though this class is not runnable, it will</p>
+<p>      not be declared abstract.</p>
+<p>@par</p>
+<p>@note</p>
+<p>We use tokens rather than create a DOM representation because DOM would:</p>
+<p>@par</p>
+<p> -# Require more processing and memory to create,</p>
+<p> -# Is not streamable, and</p>
+<p> -# Has the entire document structure (html and body not needed).</p>
+<p>@par</p>
+<p>However, DOM is helpful in that it makes it easy to move around nodes</p>
+<p>without a lot of lookaheads to see when a tag is closed. This is a</p>
+<p>limitation of the token system and some workarounds would be nice.</p>
+
+<p>Whether or not this lexer implements line-number/column-number tracking.</p>
+<p>If it does, set to true.</p>
+
+<p>Retrieves or sets the default Lexer as a Prototype Factory.</p>
+<p>By default HTMLPurifier_Lexer_DOMLex will be returned. There are</p>
+<p>a few exceptions involving special features that only DirectLex</p>
+<p>implements.</p>
+<p>@note The behavior of this class has changed, rather than accepting</p>
+<p>      a prototype object, it now accepts a configuration object.</p>
+<p>      To specify your own prototype, set %Core.LexerImpl to it.</p>
+<p>      This change in behavior de-singletonizes the lexer object.</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@return HTMLPurifier_Lexer</p>
+<p>@throws HTMLPurifier_Exception</p>
+
+<p>Most common entity to raw value conversion table for special entities.</p>
+<p>@type array</p>
+
+<p>Parses special entities into the proper characters.</p>
+<p>This string will translate escaped versions of the special characters</p>
+<p>into the correct ones.</p>
+<p>@param string $string String character data to be parsed.</p>
+<p>@return string Parsed character data.</p>
+
+<p>Lexes an HTML string into tokens.</p>
+<p>@param $string String HTML.</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@param HTMLPurifier_Context $context</p>
+<p>@return HTMLPurifier_Token[] array representation of HTML.</p>
+
+<p>Translates CDATA sections into regular sections (through escaping).</p>
+<p>@param string $string HTML string to process.</p>
+<p>@return string HTML with CDATA sections escaped.</p>
+
+<p>Special CDATA case that is especially convoluted for <script></p>
+<p>@param string $string HTML string to process.</p>
+<p>@return string HTML with CDATA sections escaped.</p>
+
+<p>Special Internet Explorer conditional comments should be removed.</p>
+<p>@param string $string HTML string to process.</p>
+<p>@return string HTML with conditional comments removed.</p>
+
+<p>Callback function for escapeCDATA() that does the work.</p>
+<p>@warning Though this is public in order to let the callback happen,</p>
+<p>         calling it directly is not recommended.</p>
+<p>@param array $matches PCRE matches array, with index 0 the entire match</p>
+<p>                 and 1 the inside of the CDATA section.</p>
+<p>@return string Escaped internals of the CDATA section.</p>
+
+<p>Takes a piece of HTML and normalizes it by converting entities, fixing</p>
+<p>encoding, extracting bits, and other good stuff.</p>
+<p>@param string $html HTML.</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@param HTMLPurifier_Context $context</p>
+<p>@return string</p>
+<p>@todo Consider making protected</p>
+
+<p>Takes a string of HTML (fragment or document) and returns the content</p>
+<p>@todo Consider making protected</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>document</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\Lexer.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>should</code></li>
+<li><code>for</code></li>
+<li><code>to</code></li>
+<li><code>is</code></li>
+<li><code>HTMLPurifier_Lexer</code></li>
+<li><code>has</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>create($config)</code></li>
+<li><code>__construct()</code></li>
+<li><code>parseText($string, $config)</code></li>
+<li><code>parseAttr($string, $config)</code></li>
+<li><code>parseData($string, $is_attr, $config)</code></li>
+<li><code>tokenizeHTML($string, $config, $context)</code></li>
+<li><code>escapeCDATA($string)</code></li>
+<li><code>escapeCommentedCDATA($string)</code></li>
+<li><code>removeIEConditional($string)</code></li>
+<li><code>CDATACallback($matches)</code></li>
+<li><code>normalize($html, $config, $context)</code></li>
+<li><code>extractBody($html)</code></li>
+</ul>
+</body></html>

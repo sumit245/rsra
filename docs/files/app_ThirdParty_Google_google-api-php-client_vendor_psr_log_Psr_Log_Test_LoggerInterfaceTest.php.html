@@ -1,0 +1,54 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\psr\log\Psr\Log\Test\LoggerInterfaceTest.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\psr\log\Psr\Log\Test\LoggerInterfaceTest.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\psr\log\Psr\Log\Test\LoggerInterfaceTest.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4597 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Provides a base test class for ensuring compliance with the LoggerInterface.</p>
+<p>Implementors can extend the class and implement abstract methods to run this</p>
+<p>as part of their test suite.</p>
+
+<p>@return LoggerInterface</p>
+
+<p>This must return the log messages in order.</p>
+<p>The simple formatting of the messages is: "<LOG LEVEL> <MESSAGE>".</p>
+<p>Example ->error('Foo') would yield "error Foo".</p>
+<p>@return string[]</p>
+
+<p>@dataProvider provideLevelsAndMessages</p>
+
+<p>@expectedException \Psr\Log\InvalidArgumentException</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\psr\log\Psr\Log\Test\LoggerInterfaceTest.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Psr\Log\Test\for</code></li>
+<li><code>Psr\Log\Test\and</code></li>
+<li><code>Psr\Log\Test\LoggerInterfaceTest extends \PHPUnit_Framework_TestCase</code></li>
+<li><code>Psr\Log\Test\DummyTest</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getLogger()</code></li>
+<li><code>getLogs()</code></li>
+<li><code>testImplements()</code></li>
+<li><code>testLogsAtAllLevels($level, $message)</code></li>
+<li><code>provideLevelsAndMessages()</code></li>
+<li><code>testThrowsOnInvalidLevel()</code></li>
+<li><code>testContextReplacement()</code></li>
+<li><code>testObjectCastToString()</code></li>
+<li><code>testContextCanContainAnything()</code></li>
+<li><code>testContextExceptionKeyCanBeExceptionOrOtherValues()</code></li>
+<li><code>__toString()</code></li>
+</ul>
+</body></html>

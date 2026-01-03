@@ -1,0 +1,51 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\psr\http-factory\src\StreamFactoryInterface.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\psr\http-factory\src\StreamFactoryInterface.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\psr\http-factory\src\StreamFactoryInterface.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 1418 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Create a new stream from a string.</p>
+<p>The stream SHOULD be created with a temporary resource.</p>
+<p>@param string $content String content with which to populate the stream.</p>
+<p>@return StreamInterface</p>
+
+<p>Create a stream from an existing file.</p>
+<p>The file MUST be opened using the given mode, which may be any mode</p>
+<p>supported by the <code>fopen</code> function.</p>
+<p>The <code>$filename</code> MAY be any string supported by <code>fopen()</code>.</p>
+<p>@param string $filename Filename or stream URI to use as basis of stream.</p>
+<p>@param string $mode Mode with which to open the underlying filename/stream.</p>
+<p>@return StreamInterface</p>
+<p>@throws \RuntimeException If the file cannot be opened.</p>
+<p>@throws \InvalidArgumentException If the mode is invalid.</p>
+
+<p>Create a new stream from an existing resource.</p>
+<p>The stream MUST be readable and may be writable.</p>
+<p>@param resource $resource PHP resource to use as basis of stream.</p>
+<p>@return StreamInterface</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>a</code></li>
+<li><code>an</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\psr\http-factory\src\StreamFactoryInterface.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>createStream(string $content = '')</code></li>
+<li><code>createStreamFromFile(string $filename, string $mode = 'r')</code></li>
+<li><code>createStreamFromResource($resource)</code></li>
+</ul>
+</body></html>

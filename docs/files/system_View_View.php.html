@@ -1,0 +1,162 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\View\View.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\View\View.php</h1>
+
+<ul>
+<li>Path: <code>system\View\View.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 13281 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Class View</p>
+
+<p>Data that is made available to the Views.</p>
+<p>@var array</p>
+
+<p>Merge savedData and userData</p>
+
+<p>The base directory to look in for our Views.</p>
+<p>@var string</p>
+
+<p>The render variables</p>
+<p>@var array</p>
+
+<p>Instance of FileLocator for when</p>
+<p>we need to attempt to find a view</p>
+<p>that's not in standard place.</p>
+<p>@var FileLocator</p>
+
+<p>Logger instance.</p>
+<p>@var LoggerInterface</p>
+
+<p>Should we store performance info?</p>
+<p>@var bool</p>
+
+<p>Cache stats about our performance here,</p>
+<p>when CI_DEBUG = true</p>
+<p>@var array</p>
+
+<p>@var ViewConfig</p>
+
+<p>Whether data should be saved between renders.</p>
+<p>@var bool</p>
+
+<p>Number of loaded views</p>
+<p>@var int</p>
+
+<p>The name of the layout being used, if any.</p>
+<p>Set by the <code>extend</code> method used within views.</p>
+<p>@var string|null</p>
+
+<p>Holds the sections and their data.</p>
+<p>@var array</p>
+
+<p>The name of the current section being rendered,</p>
+<p>if any.</p>
+<p>@var string|null</p>
+<p>@deprecated</p>
+
+<p>The name of the current section being rendered,</p>
+<p>if any.</p>
+<p>@var array<string></p>
+
+<p>Builds the output based upon a file name and any</p>
+<p>data that has already been set.</p>
+<p>Valid $options:</p>
+<p> - cache      Number of seconds to cache for</p>
+<p> - cache_name Name to use for cache</p>
+<p>@param string     $view     File name of the view source</p>
+<p>@param array|null $options  Reserved for 3rd-party uses since</p>
+<p>                            it might be needed to pass additional info</p>
+<p>                            to other template engines.</p>
+<p>@param bool|null  $saveData If true, saves data for subsequent calls,</p>
+<p>                            if false, cleans the data after displaying,</p>
+<p>                            if null, uses the config setting.</p>
+
+<p>Builds the output based upon a string and any</p>
+<p>data that has already been set.</p>
+<p>Cache does not apply, because there is no "key".</p>
+<p>@param string     $view     The view contents</p>
+<p>@param array|null $options  Reserved for 3rd-party uses since</p>
+<p>                            it might be needed to pass additional info</p>
+<p>                            to other template engines.</p>
+<p>@param bool|null  $saveData If true, saves data for subsequent calls,</p>
+<p>                            if false, cleans the data after displaying,</p>
+<p>                            if null, uses the config setting.</p>
+
+<p>Extract first bit of a long string and add ellipsis</p>
+
+<p>Sets several pieces of view data at once.</p>
+<p>@param string $context The context to escape it for: html, css, js, url</p>
+<p>                       If null, no escaping will happen</p>
+
+<p>Sets a single piece of view data.</p>
+<p>@param mixed       $value</p>
+<p>@param string|null $context The context to escape it for: html, css, js, url</p>
+<p>                            If null, no escaping will happen</p>
+
+<p>Removes all of the view data from the system.</p>
+
+<p>Returns the current data that will be displayed in the view.</p>
+
+<p>Specifies that the current view should extend an existing layout.</p>
+
+<p>Starts holds content for a section within the layout.</p>
+<p>@param string $name Section name</p>
+
+<p>Captures the last section</p>
+<p>@throws RuntimeException</p>
+
+<p>Renders a section's contents.</p>
+
+<p>Used within layout views to include additional views.</p>
+<p>@param bool $saveData</p>
+
+<p>Returns the performance data that might have been collected</p>
+<p>during the execution. Used primarily in the Debug Toolbar.</p>
+
+<p>Logs performance data for rendering a view.</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>CI3</code></li>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\View\View.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\View\View implements RendererInterface</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(ViewConfig $config, ?string $viewPath = null, ?FileLocator $loader = null, ?bool $debug = null, ?LoggerInterface $logger = null)</code></li>
+<li><code>render(string $view, ?array $options = null, ?bool $saveData = null)</code></li>
+<li><code>renderString(string $view, ?array $options = null, ?bool $saveData = null)</code></li>
+<li><code>excerpt(string $string, int $length = 20)</code></li>
+<li><code>setData(array $data = [], ?string $context = null)</code></li>
+<li><code>setVar(string $name, $value = null, ?string $context = null)</code></li>
+<li><code>resetData()</code></li>
+<li><code>getData()</code></li>
+<li><code>extend(string $layout)</code></li>
+<li><code>section(string $name)</code></li>
+<li><code>endSection()</code></li>
+<li><code>renderSection(string $sectionName)</code></li>
+<li><code>include(string $view, ?array $options = null, $saveData = true)</code></li>
+<li><code>getPerformanceData()</code></li>
+<li><code>logPerformance(float $start, float $end, string $view)</code></li>
+<li><code>prepareTemplateData(bool $saveData)</code></li>
+</ul>
+</body></html>

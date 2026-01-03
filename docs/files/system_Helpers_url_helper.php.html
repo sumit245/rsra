@@ -1,0 +1,156 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Helpers\url_helper.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Helpers\url_helper.php</h1>
+
+<ul>
+<li>Path: <code>system\Helpers\url_helper.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 18592 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Used by the other URL functions to build a</p>
+<p>framework-specific URI based on the App config.</p>
+<p>@internal Outside of the framework this should not be used directly.</p>
+<p>@param string $relativePath May include queries or fragments</p>
+<p>@throws InvalidArgumentException For invalid paths or config</p>
+
+<p>Returns a site URL as defined by the App config.</p>
+<p>@param mixed    $relativePath URI string or array of URI segments</p>
+<p>@param App|null $config       Alternate configuration to use</p>
+
+<p>Returns the base URL as defined by the App config.</p>
+<p>Base URLs are trimmed site URLs without the index page.</p>
+<p>@param mixed  $relativePath URI string or array of URI segments</p>
+<p>@param string $scheme</p>
+
+<p>Returns the current full URL based on the Config\App settings and IncomingRequest.</p>
+<p>String returns ignore query and fragment parts.</p>
+<p>@param bool                 $returnObject True to return an object instead of a string</p>
+<p>@param IncomingRequest|null $request      A request to use when retrieving the path</p>
+<p>@return string|URI</p>
+
+<p>Returns the previous URL the current visitor was on. For security reasons</p>
+<p>we first check in a saved session variable, if it exists, and use that.</p>
+<p>If that's not available, however, we'll use a sanitized url from $_SERVER['HTTP_REFERER']</p>
+<p>which can be set by the user so is untrusted and not set by certain browsers/servers.</p>
+<p>@return mixed|string|URI</p>
+
+<p>URL String</p>
+<p>Returns the path part of the current URL</p>
+<p>@param bool $relative Whether the resulting path should be relative to baseURL</p>
+
+<p>Index page</p>
+<p>Returns the "index_page" from your config file</p>
+<p>@param App|null $altConfig Alternate configuration to use</p>
+
+<p>Anchor Link</p>
+<p>Creates an anchor based on the local URL.</p>
+<p>@param mixed    $uri        URI string or array of URI segments</p>
+<p>@param string   $title      The link title</p>
+<p>@param mixed    $attributes Any attributes</p>
+<p>@param App|null $altConfig  Alternate configuration to use</p>
+
+<p>Anchor Link - Pop-up version</p>
+<p>Creates an anchor based on the local URL. The link</p>
+<p>opens a new window based on the attributes specified.</p>
+<p>@param string   $uri        the URL</p>
+<p>@param string   $title      the link title</p>
+<p>@param mixed    $attributes any attributes</p>
+<p>@param App|null $altConfig  Alternate configuration to use</p>
+
+<p>Mailto Link</p>
+<p>@param string $email      the email address</p>
+<p>@param string $title      the link title</p>
+<p>@param mixed  $attributes any attributes</p>
+
+<p>Encoded Mailto Link</p>
+<p>Create a spam-protected mailto link written in Javascript</p>
+<p>@param string $email      the email address</p>
+<p>@param string $title      the link title</p>
+<p>@param mixed  $attributes any attributes</p>
+
+<p>Auto-linker</p>
+<p>Automatically links URL and Email addresses.</p>
+<p>Note: There's a bit of extra code here to deal with</p>
+<p>URLs or emails that end in a period. We'll strip these</p>
+<p>off and add them after the link.</p>
+<p>@param string $str   the string</p>
+<p>@param string $type  the type: email, url, or both</p>
+<p>@param bool   $popup whether to create pop-up links</p>
+
+<p>Prep URL - Simply adds the http:// or https:// part if no scheme is included.</p>
+<p>Formerly used URI, but that does not play nicely with URIs missing</p>
+<p>the scheme.</p>
+<p>@param string $str    the URL</p>
+<p>@param bool   $secure set true if you want to force https://</p>
+
+<p>Create URL Title</p>
+<p>Takes a "title" string as input and creates a</p>
+<p>human-friendly URL string with a "separator" string</p>
+<p>as the word separator.</p>
+<p>@param string $str       Input string</p>
+<p>@param string $separator Word separator (usually '-' or '_')</p>
+<p>@param bool   $lowercase Whether to transform the output string to lowercase</p>
+
+<p>Create URL Title that takes into account accented characters</p>
+<p>Takes a "title" string as input and creates a</p>
+<p>human-friendly URL string with a "separator" string</p>
+<p>as the word separator.</p>
+<p>@param string $str       Input string</p>
+<p>@param string $separator Word separator (usually '-' or '_')</p>
+<p>@param bool   $lowercase Whether to transform the output string to lowercase</p>
+
+<p>Get the full, absolute URL to a controller method</p>
+<p>(with additional arguments)</p>
+<p>NOTE: This requires the controller/method to</p>
+<p>have a route defined in the routes Config file.</p>
+<p>@param mixed ...$args</p>
+<p>@throws RouterException</p>
+
+<p>Determines if current url path contains</p>
+<p>the given path. It may contain a wildcard (*)</p>
+<p>which will allow any valid character.</p>
+<p>Example:</p>
+<p>  if (url_is('admin*)) ...</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>your</code></li>
+<li><code>preg_match_all</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Helpers\url_helper.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>_get_uri(string $relativePath = '', ?App $config = null)</code></li>
+<li><code>site_url($relativePath = '', ?string $scheme = null, ?App $config = null)</code></li>
+<li><code>base_url($relativePath = '', ?string $scheme = null)</code></li>
+<li><code>current_url(bool $returnObject = false, ?IncomingRequest $request = null)</code></li>
+<li><code>previous_url(bool $returnObject = false)</code></li>
+<li><code>uri_string(bool $relative = false)</code></li>
+<li><code>index_page(?App $altConfig = null)</code></li>
+<li><code>anchor($uri = '', string $title = '', $attributes = '', ?App $altConfig = null)</code></li>
+<li><code>anchor_popup($uri = '', string $title = '', $attributes = false, ?App $altConfig = null)</code></li>
+<li><code>mailto(string $email, string $title = '', $attributes = '')</code></li>
+<li><code>safe_mailto(string $email, string $title = '', $attributes = '')</code></li>
+<li><code>auto_link(string $str, string $type = 'both', bool $popup = false)</code></li>
+<li><code>prep_url(string $str = '', bool $secure = false)</code></li>
+<li><code>url_title(string $str, string $separator = '-', bool $lowercase = false)</code></li>
+<li><code>mb_url_title(string $str, string $separator = '-', bool $lowercase = false)</code></li>
+<li><code>url_to(string $controller, ...$args)</code></li>
+<li><code>url_is(string $path)</code></li>
+</ul>
+</body></html>

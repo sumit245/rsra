@@ -1,0 +1,970 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\Hr_profile\Controllers\Hr_profile.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\Hr_profile\Controllers\Hr_profile.php</h1>
+
+<ul>
+<li>Path: <code>plugins\Hr_profile\Controllers\Hr_profile.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 293647 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Organizational chart</p>
+<p>@return view</p>
+
+<p>email exist as staff</p>
+<p>@return integer</p>
+
+<p>get data department</p>
+<p>@return json</p>
+
+<p>Delete department from database</p>
+<p>@param  integer $id</p>
+
+<p>email exists</p>
+<p>@return [type]</p>
+
+<p>test imap connection</p>
+<p>@return [type]</p>
+
+<p>reception_staff</p>
+<p>@return view</p>
+
+<p>table reception staff</p>
+
+<p>setting</p>
+<p>@return view</p>
+
+<p>commodity types</p>
+<p>@return [type]</p>
+
+<p>list commodity type data</p>
+<p>@return [type]</p>
+
+<p>_make commodity type row</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>commodity type modal form</p>
+<p>@return [type]</p>
+
+<p>contract_type</p>
+<p>@param  integer $id</p>
+
+<p>delete contract type</p>
+<p>@param  integer $id</p>
+
+<p>salary types</p>
+<p>@return [type]</p>
+
+<p>list_allowance_type_data</p>
+<p>@return [type]</p>
+
+<p>_make salary type row</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>allowancetype</p>
+<p>@param  integer $id</p>
+
+<p>delete_allowance_type</p>
+<p>@param  integer $id</p>
+
+<p>insurance type</p>
+
+<p>delete insurance type</p>
+<p>@param  integer $id</p>
+
+<p>insurance conditions setting</p>
+
+<p>salary types</p>
+<p>@return [type]</p>
+
+<p>list_salary_type_data</p>
+<p>@return [type]</p>
+
+<p>_make salary type row</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>commodity type modal form</p>
+<p>@return [type]</p>
+
+<p>salary form</p>
+<p>@param  integer $id</p>
+
+<p>delete salary form</p>
+<p>@param  integer $id</p>
+
+<p>workplaces</p>
+<p>@return [type]</p>
+
+<p>list procedure_retire data</p>
+<p>@return [type]</p>
+
+<p>_make procedure_retire row</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>procedure_retire modal form</p>
+<p>@return [type]</p>
+
+<p>table procedure retire</p>
+
+<p>add procedure form manage</p>
+
+<p>delete procedure form manage</p>
+<p>@param  integer $id</p>
+
+<p>procedure procedure retire details</p>
+<p>@param  integer $id</p>
+<p>@return view</p>
+
+<p>procedure form</p>
+
+<p>delete procedure retire</p>
+<p>@param  integer $id</p>
+<p>@return integer</p>
+
+<p>edit procedure retire</p>
+<p>@param  integer $id</p>
+
+<p>edit procedure form</p>
+
+<p>training</p>
+<p>@return view</p>
+
+<p>training libraries</p>
+<p>@return [type]</p>
+
+<p>training_results</p>
+<p>@return [type]</p>
+
+<p>training programs</p>
+<p>@return [type]</p>
+
+<p>Add new position training or update existing</p>
+<p>@param integer id</p>
+
+<p>get training type child</p>
+<p>@param  integer $id</p>
+<p>@return json</p>
+
+<p>job position training add edit</p>
+
+<p>get jobposition fill data</p>
+<p>@return json</p>
+
+<p>job position manage</p>
+<p>@return view</p>
+
+<p>table job</p>
+
+<p>add job position</p>
+<p>@param  integer $id</p>
+
+<p>get job position edit</p>
+<p>@param  integer $id</p>
+<p>@return json</p>
+
+<p>delete job position</p>
+<p>@param  integer $id</p>
+
+<p>import job p, Import Job</p>
+<p>@return [type]</p>
+
+<p>import job p excel</p>
+<p>@return [type]</p>
+
+<p>job positions</p>
+<p>@param  integer $id</p>
+<p>@return view</p>
+
+<p>new job position modal form</p>
+<p>@return [type]</p>
+
+<p>add or update job position</p>
+<p>@param  integer $id</p>
+
+<p>table job position</p>
+<p>@return [type]</p>
+
+<p>job position delete tag item</p>
+<p>@param  String $tag_id</p>
+<p>@return json</p>
+
+<p>hrm preview jobposition file</p>
+<p>@param  [type] $id</p>
+<p>@param  [type] $rel_id</p>
+<p>@return [type]</p>
+
+<p>job position view edit</p>
+<p>@param  string $id</p>
+<p>@return view</p>
+
+<p>get list job position tags file</p>
+<p>@param  [type] $id</p>
+<p>@return [type]</p>
+
+<p>get position by department</p>
+<p>@return json</p>
+
+<p>delete job position</p>
+<p>@param  integer $id</p>
+<p>@param  integer $job_p_id</p>
+
+<p>get staff salary form</p>
+<p>@return json</p>
+
+<p>get staff allowance type</p>
+<p>@return json</p>
+
+<p>job position salary add edit</p>
+
+<p>save setting reception staff</p>
+
+<p>add new reception</p>
+
+<p>send training staff</p>
+<p>@param  [type] $email</p>
+<p>@param  [type] $position_id</p>
+<p>@param  string $training_type</p>
+<p>@return [type]</p>
+
+<p>get percent complete</p>
+<p>@param  string $id</p>
+<p>@return [type]</p>
+
+<p>get mark staff</p>
+<p>@param  integer $id_staff</p>
+<p>@return array</p>
+
+<p>delete reception</p>
+<p>@param  integer $id</p>
+
+<p>get_reception_modal</p>
+<p>@return [type]</p>
+
+<p>get reception</p>
+<p>@param  integer $id</p>
+<p>@return json</p>
+
+<p>change status checklist</p>
+<p>@return json</p>
+
+<p>add new asset</p>
+<p>@param integer $id</p>
+
+<p>change status allocation asset</p>
+<p>@return json</p>
+
+<p>delete asset</p>
+<p>@param  integer $id</p>
+<p>@param  integer $id2</p>
+<p>@return json</p>
+
+<p>staff infor</p>
+<p>@return view</p>
+
+<p>table</p>
+
+<p>importxlsx</p>
+<p>@return view</p>
+
+<p>import employees excel</p>
+<p>@return [type]</p>
+
+<p>importxlsx2</p>
+<p>@return  json</p>
+
+<p>delete staff</p>
+
+<p>member</p>
+<p>@param  integer $id</p>
+<p>@param  integer $group</p>
+<p>@return view</p>
+
+<p>table education position</p>
+
+<p>table education</p>
+
+<p>save update education</p>
+<p>@return json</p>
+
+<p>delete education</p>
+<p>@return json</p>
+
+<p>table reception</p>
+
+<p>general bonus</p>
+<p>@param  integer $id</p>
+<p>@return json</p>
+
+<p>general discipline</p>
+<p>@param  integer $id</p>
+<p>@return json</p>
+
+<p>records received</p>
+<p>@return json</p>
+
+<p>upload file</p>
+<p>@return json</p>
+
+<p>hr profile file</p>
+<p>@param  integer $id</p>
+<p>@param  string $rel_id</p>
+
+<p>delete hr profile staff attachment</p>
+<p>@param  integer $attachment_id</p>
+<p>@return json</p>
+
+<p>update staff permission</p>
+
+<p>update staff profile</p>
+
+<p>add update staff bonus discipline</p>
+
+<p>file view bonus discipline</p>
+<p>@param  integer $id</p>
+<p>@return view</p>
+
+<p>workplaces</p>
+<p>@return [type]</p>
+
+<p>list workplace data</p>
+<p>@return [type]</p>
+
+<p>_make workplace row</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>workplace modal form</p>
+<p>@return [type]</p>
+
+<p>workplace</p>
+<p>@param  string $id</p>
+<p>@return [type]</p>
+
+<p>delete workplace</p>
+<p>@param  [type] $id</p>
+<p>@return [type]</p>
+
+<p>permission modal</p>
+<p>@return [type]</p>
+
+<p>hr profile update permissions</p>
+<p>@param  string $id</p>
+<p>@return [type]</p>
+
+<p>staff id changed</p>
+<p>@param  [type] $staff_id</p>
+<p>@return [type]</p>
+
+<p>delete hr profile permission</p>
+<p>@param  [type] $id</p>
+<p>@return [type]</p>
+
+<p>zen unit chart</p>
+<p>@param  [type] $department</p>
+<p>@return [type]</p>
+
+<p>get list job position training</p>
+<p>@param  [type] $id</p>
+<p>@return [type]</p>
+
+<p>delete job position training process</p>
+<p>@param  [type] $training_id</p>
+<p>@return [type]</p>
+
+<p>delete position training</p>
+<p>@param  [type] $id</p>
+<p>@return [type]</p>
+
+<p>table contract</p>
+<p>@return [type]</p>
+
+<p>contracts</p>
+<p>@param  string $id</p>
+<p>@return [type]</p>
+
+<p>contract</p>
+<p>@param  string $id</p>
+<p>@return [type]</p>
+
+<p>delete contract</p>
+<p>@param  [type] $id</p>
+<p>@return [type]</p>
+
+<p>contract code exists</p>
+<p>@return [type]</p>
+
+<p>get hrm contract data ajax</p>
+<p>@param  [type] $id</p>
+<p>@return [type]</p>
+
+<p>get staff role</p>
+<p>@return [type]</p>
+
+<p>get contract type</p>
+<p>@param  string $id</p>
+<p>@return [type]</p>
+
+<p>prefix numbers</p>
+<p>@return [type]</p>
+
+<p>inventory setting</p>
+<p>@return [type]</p>
+
+<p>get code</p>
+<p>@param  String $rel_type</p>
+<p>@return String</p>
+
+<p>import job position</p>
+<p>@return [type]</p>
+
+<p>dependent person</p>
+<p>@param  string $id</p>
+<p>@return [type]</p>
+
+<p>delete dependent person</p>
+<p>@param  [type] $id</p>
+<p>@return [type]</p>
+
+<p>approval dependents</p>
+<p>@return [type]</p>
+
+<p>approval status</p>
+<p>@return [type]</p>
+
+<p>table dependent person</p>
+<p>@return [type]</p>
+
+<p>import xlsx dependent person</p>
+<p>@return [type]</p>
+
+<p>import file xlsx dependent person</p>
+<p>@return [type]</p>
+
+<p>admin delete dependent person</p>
+<p>@param  [type] $id</p>
+<p>@return [type]</p>
+
+<p>delete_error file day before</p>
+<p>@return [type]</p>
+
+<p>dependent person modal</p>
+<p>@return [type]</p>
+
+<p>resignation procedures</p>
+<p>@return [type]</p>
+
+<p>add staff quitting work</p>
+
+<p>delete resignation procedure</p>
+<p>@param  [type] $id</p>
+<p>@return [type]</p>
+
+<p>table resignation procedures</p>
+<p>@return [type]</p>
+
+<p>get staff info of resignation procedures</p>
+<p>@param  [type] $staff_id</p>
+<p>@return [type]</p>
+
+<p>delete procedures for quitting work</p>
+<p>@param  [type] $staffid</p>
+<p>@return [type]</p>
+
+<p>set data detail staff checklist quit work</p>
+<p>@param [type] $staffid</p>
+
+<p>update status quit work</p>
+<p>@param  [type] $staffid</p>
+<p>@return [type]</p>
+
+<p>update status option name</p>
+<p>@return [type]</p>
+
+<p>preview q a file</p>
+<p>@param  [type] $id</p>
+<p>@param  [type] $rel_id</p>
+<p>@return [type]</p>
+
+<p>delete hr profile q a attachment file</p>
+<p>@param  [type] $attachment_id</p>
+<p>@return [type]</p>
+
+<p>get salary allowance value</p>
+<p>@param  [type] $rel_type</p>
+<p>@return [type]</p>
+
+<p>hrm file contract</p>
+<p>@param  [type] $id</p>
+<p>@param  [type] $rel_id</p>
+<p>@return [type]</p>
+
+<p>delete hrm contract attachment file</p>
+<p>@param  [type] $attachment_id</p>
+<p>@return [type]</p>
+
+<p>member modal</p>
+<p>@return [type]</p>
+
+<p>new member</p>
+<p>@return [type]</p>
+
+<p>add edit member</p>
+<p>@param string $id</p>
+
+<p>change staff status: Change status to staff active or inactive</p>
+<p>@param  [type] $id</p>
+<p>@param  [type] $status</p>
+<p>@return [type]</p>
+
+<p>hr code exists</p>
+<p>@return [type]</p>
+
+<p>view contract modal</p>
+<p>@return [type]</p>
+
+<p>reports</p>
+<p>@return [type]</p>
+
+<p>report by leave statistics</p>
+<p>@return [type]</p>
+
+<p>report by working hours</p>
+<p>@return [type]</p>
+
+<p>table report the employee quitting</p>
+<p>@return [type]</p>
+
+<p>table list of employees with salary change</p>
+<p>@return [type]</p>
+
+<p>get get base currency name</p>
+<p>@return [type]</p>
+
+<p>get chart senior staff</p>
+<p>@return [type]</p>
+
+<p>HR is working</p>
+
+<p>qualification department</p>
+<p>@return [type]</p>
+
+<p>report by staffs</p>
+<p>@return [type]</p>
+
+<p>import job position excel</p>
+<p>@return [type]</p>
+
+<p>hrm delete bulk action</p>
+<p>@return [type]</p>
+
+<p>hrm delete bulk action v2</p>
+<p>@return [type]</p>
+<p>Delete data from ids array, don't use foreach</p>
+
+<p>import dependent person excel</p>
+<p>@return [type]</p>
+
+<p>reset_datas</p>
+<p>@return [type]</p>
+
+<p>reset data</p>
+<p>@return [type]</p>
+
+<p>table training program</p>
+<p>@return [type]</p>
+
+<p>table training result</p>
+<p>@return [type]</p>
+
+<p>training table</p>
+<p>@return [type]</p>
+
+<p>type of trainings</p>
+<p>@return [type]</p>
+
+<p>list type of training data</p>
+<p>@return [type]</p>
+
+<p>_make type of training row</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>type_of_training_modal_form </p>
+<p>@return [type] [</p>
+
+<p>type of training</p>
+<p>@param  string $id</p>
+<p>@return [type]</p>
+
+<p>delete type of training</p>
+<p>@param  [type] $id</p>
+<p>@return [type]</p>
+
+<p>reception staffs</p>
+<p>@return [type]</p>
+
+<p>get training program by type</p>
+<p>@return [type]</p>
+
+<p>view training program</p>
+<p>@param  string $id</p>
+<p>@return [type]</p>
+
+<p>create staff excel file</p>
+<p>@return [type]</p>
+
+<p>view pdf</p>
+<p>@return [type]</p>
+
+<p>save contract data</p>
+<p>@return [type]</p>
+
+<p>hr clear signature</p>
+<p>@param  [type] $id</p>
+<p>@return [type]</p>
+
+<p>contract pdf</p>
+<p>@param  [type] $id</p>
+<p>@return [type]</p>
+
+<p>contract sign</p>
+<p>@param  [type] $id</p>
+<p>@return [type]</p>
+
+<p>workplaces</p>
+<p>@return [type]</p>
+
+<p>list contract_template data</p>
+<p>@return [type]</p>
+
+<p>_make contract_template row</p>
+<p>@param  [type] $data </p>
+<p>@return [type]</p>
+
+<p>contract template</p>
+<p>@param  string $id</p>
+<p>@return [type]</p>
+
+<p>delete contract template</p>
+<p>@param  [type] $id</p>
+<p>@return [type]</p>
+
+<p>confirm delete modal form</p>
+<p>@return [type]</p>
+
+<p>staff email exists</p>
+<p>@return [type]</p>
+
+<p>training detail</p>
+<p>@param  [type] $id   </p>
+<p>@param  [type] $hash </p>
+<p>@return [type]</p>
+
+<p>view staff training result</p>
+<p>@param  [type] $staff_id    </p>
+<p>@param  [type] $resultsetid </p>
+<p>@param  [type] $id          </p>
+<p>@param  [type] $hash        </p>
+<p>@return [type]</p>
+
+<p>view</p>
+<p>@param  integer $id  </p>
+<p>@param  string  $tab </p>
+<p>@return [type]</p>
+
+<p>hr has job info manage permission</p>
+<p>@return [type]</p>
+
+<p>hr can view team members contact info</p>
+<p>@return [type]</p>
+
+<p>hr can view team members social links</p>
+<p>@return [type]</p>
+
+<p>staff contracts info</p>
+<p>@param  [type] $user_id </p>
+<p>@return [type]</p>
+
+<p>staff dependent info</p>
+<p>@param  [type] $user_id </p>
+<p>@return [type]</p>
+
+<p>staff training info</p>
+<p>@param  [type] $user_id </p>
+<p>@return [type]</p>
+
+<h2>References</h2>
+
+<p><strong>Models Used</strong></p>
+<ul>
+<li><code>hr_profile_model</code></li>
+<li><code>Team_model</code></li>
+<li><code>Users_model</code></li>
+<li><code>staff_model</code></li>
+<li><code>departments_model</code></li>
+<li><code>currencies_model</code></li>
+<li><code>misc_model</code></li>
+<li><code>Roles_model</code></li>
+<li><code>roles_model</code></li>
+<li><code>Social_links_model</code></li>
+<li><code>knowledge_base_q_a_model</code></li>
+</ul>
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>database</code></li>
+<li><code>line</code></li>
+<li><code>dasboard</code></li>
+<li><code>contract</code></li>
+<li><code>ids</code></li>
+<li><code>plugin</code></li>
+<li><code>Team</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\Hr_profile\Controllers\Hr_profile.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Hr_profile\Controllers\Hr_profile extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>dashboard()</code></li>
+<li><code>organizational_chart()</code></li>
+<li><code>email_exist_as_staff()</code></li>
+<li><code>get_data_department()</code></li>
+<li><code>delete()</code></li>
+<li><code>department($id = '')</code></li>
+<li><code>email_exists()</code></li>
+<li><code>test_imap_connection()</code></li>
+<li><code>reception_staff()</code></li>
+<li><code>add_reception_staff()</code></li>
+<li><code>table_reception_staff()</code></li>
+<li><code>setting()</code></li>
+<li><code>contract_types()</code></li>
+<li><code>list_contract_type_data()</code></li>
+<li><code>_make_contract_type_row($data)</code></li>
+<li><code>contract_type_modal_form()</code></li>
+<li><code>contract_type($id = '')</code></li>
+<li><code>delete_contract_type($id)</code></li>
+<li><code>allowance_types()</code></li>
+<li><code>list_allowance_type_data()</code></li>
+<li><code>_make_allowance_type_row($data)</code></li>
+<li><code>allowance_type_modal_form()</code></li>
+<li><code>allowance_type($id = '')</code></li>
+<li><code>delete_allowance_type($id)</code></li>
+<li><code>insurance_type()</code></li>
+<li><code>delete_insurance_type($id)</code></li>
+<li><code>insurance_conditions_setting()</code></li>
+<li><code>salary_types()</code></li>
+<li><code>list_salary_type_data()</code></li>
+<li><code>_make_salary_type_row($data)</code></li>
+<li><code>salary_type_modal_form()</code></li>
+<li><code>salary_form($id = '')</code></li>
+<li><code>delete_salary_form($id)</code></li>
+<li><code>procedure_retires()</code></li>
+<li><code>list_procedure_retire_data()</code></li>
+<li><code>_make_procedure_retire_row($data)</code></li>
+<li><code>procedure_retire_modal_form()</code></li>
+<li><code>table_procedure_retire()</code></li>
+<li><code>add_procedure_form_manage($id = '')</code></li>
+<li><code>delete_procedure_form_manage($id)</code></li>
+<li><code>procedure_procedure_retire_details($id = '')</code></li>
+<li><code>procedure_form()</code></li>
+<li><code>delete_procedure_retire()</code></li>
+<li><code>edit_procedure_retire($id)</code></li>
+<li><code>edit_procedure_form()</code></li>
+<li><code>training()</code></li>
+<li><code>training_libraries()</code></li>
+<li><code>training_results()</code></li>
+<li><code>training_programs()</code></li>
+<li><code>position_training($id = '')</code></li>
+<li><code>add_training_question()</code></li>
+<li><code>update_training_question()</code></li>
+<li><code>update_training_questions_orders()</code></li>
+<li><code>remove_question($questionid)</code></li>
+<li><code>remove_box_description($questionboxdescriptionid)</code></li>
+<li><code>add_box_description($questionid, $boxid)</code></li>
+<li><code>update_training_question_answer()</code></li>
+<li><code>get_training_type_child($id)</code></li>
+<li><code>job_position_training_add_edit()</code></li>
+<li><code>get_jobposition_fill_data()</code></li>
+<li><code>job_position_manage()</code></li>
+<li><code>table_job()</code></li>
+<li><code>job_p($id = '')</code></li>
+<li><code>get_job_p_edit($id)</code></li>
+<li><code>delete_job_p()</code></li>
+<li><code>import_job_p()</code></li>
+<li><code>import_job_p_excel()</code></li>
+<li><code>job_positions($id = '')</code></li>
+<li><code>new_job_position_modal_form()</code></li>
+<li><code>job_position($id = '')</code></li>
+<li><code>table_job_position()</code></li>
+<li><code>job_position_delete_tag_item($tag_id)</code></li>
+<li><code>preview_job_position_file($id, $rel_id)</code></li>
+<li><code>delete_hr_profile_job_position_attachment_file($attachment_id)</code></li>
+<li><code>job_position_view_edit($id = '', $parent_id = '')</code></li>
+<li><code>get_list_job_position_tags_file($id)</code></li>
+<li><code>get_position_by_department()</code></li>
+<li><code>delete_job_position()</code></li>
+<li><code>get_staff_salary_form()</code></li>
+<li><code>get_staff_allowance_type()</code></li>
+<li><code>job_position_salary_add_edit()</code></li>
+<li><code>save_setting_reception_staff()</code></li>
+<li><code>add_new_reception()</code></li>
+<li><code>send_training_staff($email, $position_id, $training_type = '', $position_training_id = '', $staffid = '')</code></li>
+<li><code>get_percent_complete($id = '')</code></li>
+<li><code>get_mark_staff($id_staff, $training_process_id)</code></li>
+<li><code>delete_reception()</code></li>
+<li><code>get_reception_modal()</code></li>
+<li><code>get_reception($id = '')</code></li>
+<li><code>change_status_checklist()</code></li>
+<li><code>add_new_asset($id)</code></li>
+<li><code>change_status_allocation_asset()</code></li>
+<li><code>delete_asset($id, $id2)</code></li>
+<li><code>staff_infor()</code></li>
+<li><code>table()</code></li>
+<li><code>importxlsx()</code></li>
+<li><code>import_employees_excel()</code></li>
+<li><code>importxlsx2()</code></li>
+<li><code>delete_staff()</code></li>
+<li><code>member($id = '', $group = '')</code></li>
+<li><code>table_education_position()</code></li>
+<li><code>table_education()</code></li>
+<li><code>save_update_education()</code></li>
+<li><code>delete_education()</code></li>
+<li><code>table_reception()</code></li>
+<li><code>general_bonus($id)</code></li>
+<li><code>general_discipline($id)</code></li>
+<li><code>records_received()</code></li>
+<li><code>upload_file()</code></li>
+<li><code>hr_profile_file($id, $rel_id)</code></li>
+<li><code>delete_hr_profile_staff_attachment($attachment_id)</code></li>
+<li><code>update_staff_permission()</code></li>
+<li><code>update_staff_profile()</code></li>
+<li><code>add_update_staff_bonus_discipline()</code></li>
+<li><code>file_view_bonus_discipline($id)</code></li>
+<li><code>workplaces()</code></li>
+<li><code>list_workplace_data()</code></li>
+<li><code>_make_workplace_row($data)</code></li>
+<li><code>workplace_modal_form()</code></li>
+<li><code>workplace($id = '')</code></li>
+<li><code>delete_workplace($id)</code></li>
+<li><code>hr_profile_permission_table()</code></li>
+<li><code>permission_modal()</code></li>
+<li><code>hr_profile_update_permissions($id = '')</code></li>
+<li><code>staff_id_changed($staff_id)</code></li>
+<li><code>delete_hr_profile_permission($id)</code></li>
+<li><code>zen_unit_chart($department)</code></li>
+<li><code>get_list_job_position_training($id)</code></li>
+<li><code>delete_job_position_training_process()</code></li>
+<li><code>delete_position_training()</code></li>
+<li><code>table_contract()</code></li>
+<li><code>contracts($id = '')</code></li>
+<li><code>contract($id = '')</code></li>
+<li><code>delete_contract()</code></li>
+<li><code>contract_code_exists()</code></li>
+<li><code>view_staff_contract($id)</code></li>
+<li><code>get_staff_role()</code></li>
+<li><code>get_contract_type($id = '')</code></li>
+<li><code>prefix_numbers()</code></li>
+<li><code>prefix_number()</code></li>
+<li><code>get_code($rel_type)</code></li>
+<li><code>import_job_position()</code></li>
+<li><code>dependent_person($id = '')</code></li>
+<li><code>delete_dependent_person()</code></li>
+<li><code>dependent_persons()</code></li>
+<li><code>approval_status()</code></li>
+<li><code>table_dependent_person()</code></li>
+<li><code>import_xlsx_dependent_person()</code></li>
+<li><code>import_file_xlsx_dependent_person()</code></li>
+<li><code>admin_delete_dependent_person()</code></li>
+<li><code>delete_error_file_day_before($before_day = '', $folder_name = '')</code></li>
+<li><code>dependent_person_modal()</code></li>
+<li><code>resignation_procedures()</code></li>
+<li><code>add_resignation_procedure()</code></li>
+<li><code>delete_resignation_procedure($id)</code></li>
+<li><code>table_resignation_procedures()</code></li>
+<li><code>get_staff_info_of_resignation_procedures($staff_id)</code></li>
+<li><code>delete_procedures_for_quitting_work()</code></li>
+<li><code>set_data_detail_staff_checklist_quit_work($staffid)</code></li>
+<li><code>update_status_quit_work()</code></li>
+<li><code>update_status_option_name()</code></li>
+<li><code>preview_q_a_file($id, $rel_id)</code></li>
+<li><code>delete_hr_profile_q_a_attachment_file($attachment_id)</code></li>
+<li><code>get_salary_allowance_value($rel_type)</code></li>
+<li><code>hrm_file_contract($id, $rel_id)</code></li>
+<li><code>delete_hrm_contract_attachment_file($attachment_id)</code></li>
+<li><code>member_modal()</code></li>
+<li><code>new_member($id = '')</code></li>
+<li><code>add_edit_member($id = '')</code></li>
+<li><code>change_staff_status($id, $status)</code></li>
+<li><code>hr_code_exists()</code></li>
+<li><code>view_contract_modal()</code></li>
+<li><code>reports()</code></li>
+<li><code>report_by_leave_statistics()</code></li>
+<li><code>report_by_working_hours()</code></li>
+<li><code>table_report_the_employee_quitting()</code></li>
+<li><code>table_list_of_employees_with_salary_change()</code></li>
+<li><code>get_base_currency_name()</code></li>
+<li><code>get_chart_senior_staff($sort_from, $months_report = '', $report_from = '', $report_to = '')</code></li>
+<li><code>HR_is_working()</code></li>
+<li><code>qualification_department()</code></li>
+<li><code>report_by_staffs()</code></li>
+<li><code>import_job_position_excel()</code></li>
+<li><code>hrm_delete_bulk_action()</code></li>
+<li><code>hrm_delete_bulk_action_v2()</code></li>
+<li><code>import_dependent_person_excel()</code></li>
+<li><code>reset_datas()</code></li>
+<li><code>reset_data()</code></li>
+<li><code>table_training_program()</code></li>
+<li><code>table_training_result()</code></li>
+<li><code>training_libraries_table()</code></li>
+<li><code>type_of_trainings()</code></li>
+<li><code>list_type_of_training_data()</code></li>
+<li><code>_make_type_of_training_row($data)</code></li>
+<li><code>type_of_training_modal_form()</code></li>
+<li><code>type_of_training($id = '')</code></li>
+<li><code>delete_type_of_training($id)</code></li>
+<li><code>reception_staffs()</code></li>
+<li><code>get_training_program_by_type()</code></li>
+<li><code>view_training_program($id = '')</code></li>
+<li><code>hr_role_changed($id)</code></li>
+<li><code>create_staff_sample_file()</code></li>
+<li><code>view_pdf()</code></li>
+<li><code>save_hr_contract_data()</code></li>
+<li><code>hr_clear_signature($id)</code></li>
+<li><code>contract_pdf($id)</code></li>
+<li><code>contract_sign($id)</code></li>
+<li><code>staff_contract_sign($id)</code></li>
+<li><code>contract_templates()</code></li>
+<li><code>list_contract_template_data()</code></li>
+<li><code>_make_contract_template_row($data)</code></li>
+<li><code>contract_template($id = '')</code></li>
+<li><code>delete_contract_template_($id)</code></li>
+<li><code>confirm_delete_modal_form()</code></li>
+<li><code>temp_upload_file()</code></li>
+<li><code>validate_position_file()</code></li>
+<li><code>staff_email_exists()</code></li>
+<li><code>hr_create_notification($data = array()</code></li>
+<li><code>update_staff_contract_content()</code></li>
+<li><code>training_detail($id, $hash)</code></li>
+<li><code>view_staff_training_result($staff_id, $resultsetid, $id, $hash)</code></li>
+<li><code>staff_profile($id = 0, $tab = "")</code></li>
+<li><code>hr_can_update_team_members_info($user_id)</code></li>
+<li><code>hr_has_job_info_manage_permission()</code></li>
+<li><code>hr_can_view_team_members_contact_info()</code></li>
+<li><code>hr_can_view_team_members_social_links()</code></li>
+<li><code>staff_contracts_info($user_id)</code></li>
+<li><code>staff_dependent_info($user_id)</code></li>
+<li><code>staff_training_info($id)</code></li>
+</ul>
+</body></html>

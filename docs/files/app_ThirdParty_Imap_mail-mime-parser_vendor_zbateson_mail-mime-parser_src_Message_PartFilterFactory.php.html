@@ -1,0 +1,84 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\PartFilterFactory.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\PartFilterFactory.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\PartFilterFactory.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 2284 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Injectable factory class used by MimePart to construct PartFilter instances</p>
+<p>in a testable way.</p>
+
+<p>Users are expected to use the static PartFilter methods directly -- this </p>
+<p>class simply encapsulates them in an object:</p>
+<p> o PartFilter::fromContentType</p>
+<p> o PartFilter::fromInlineContentType</p>
+<p> o PartFilter::fromDisposition</p>
+<p>@see PartFilter</p>
+<p>@author Zaahid Bateson</p>
+
+<p>Creates a filter for the passed mime content-type.</p>
+
+<p>This method just calls PartFilter::fromContentType.</p>
+
+<p>@see PartFilter::fromContentType</p>
+<p>@param string $mimeType</p>
+<p>@return PartFilter</p>
+
+<p>Creates an 'inline' filter for the passed mime content-type.</p>
+
+<p>This method just calls PartFilter::fromInlineContentType.</p>
+
+<p>@see PartFilter::fromInlineContentType</p>
+<p>@param string $mimeType</p>
+<p>@return PartFilter</p>
+
+<p>Creates a filter for the passed disposition and optional multipart</p>
+<p>filter.</p>
+
+<p>This method just calls PartFilter::newFilterFromDisposition.</p>
+
+<p>@see PartFilter::fromDisposition</p>
+<p>@param string $disposition</p>
+<p>@param int $multipart one of PartFilter::FILTER_OFF,</p>
+<p>     PartFilter::FILTER_INCLUDE or PartFilter::FILTER_EXCLUDE</p>
+<p>@return PartFilter</p>
+
+<p>Constructs a PartFilter from the passed array of options and returns it.</p>
+
+<p>@see PartFilter::__construct</p>
+<p>@param array $init</p>
+<p>@return PartFilter</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\PartFilterFactory.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Message\used</code></li>
+<li><code>ZBateson\MailMimeParser\Message\simply</code></li>
+<li><code>ZBateson\MailMimeParser\Message\PartFilterFactory</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>newFilterFromContentType($mimeType)</code></li>
+<li><code>newFilterFromInlineContentType($mimeType)</code></li>
+<li><code>newFilterFromDisposition($disposition, $multipart = PartFilter::FILTER_OFF)</code></li>
+<li><code>newFilterFromArray(array $init)</code></li>
+</ul>
+</body></html>

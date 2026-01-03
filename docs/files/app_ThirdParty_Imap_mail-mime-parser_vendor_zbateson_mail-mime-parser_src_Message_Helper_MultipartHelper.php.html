@@ -1,0 +1,189 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Helper\MultipartHelper.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Helper\MultipartHelper.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Helper\MultipartHelper.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 16819 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Provides various routines to manipulate and create multipart messages from an</p>
+<p>existing message (e.g. to make space for attachments in a message, or to</p>
+<p>change a simple message to a multipart/alternative one, etc...)</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var GenericHelper a GenericHelper instance</p>
+
+<p>Constructor</p>
+
+<p>@param MimePartFactory $mimePartFactory</p>
+<p>@param UUEncodedPartFactory $uuEncodedPartFactory</p>
+<p>@param PartBuilderFactory $partBuilderFactory</p>
+<p>@param GenericHelper $genericHelper</p>
+
+<p>Creates and returns a unique boundary.</p>
+<p>@param string $mimeType first 3 characters of a multipart type are used,</p>
+<p>     e.g. REL for relative or ALT for alternative</p>
+<p>@return string</p>
+
+<p>Creates a unique mime boundary and assigns it to the passed part's</p>
+<p>Content-Type header with the passed mime type.</p>
+<p>@param ParentHeaderPart $part</p>
+<p>@param string $mimeType</p>
+
+<p>Sets the passed message as multipart/mixed.</p>
+
+<p>If the message has content, a new part is created and added as a child of</p>
+<p>the message.  The message's content and content headers are moved to the</p>
+<p>new part.</p>
+<p>@param Message $message</p>
+
+<p>Sets the passed message as multipart/alternative.</p>
+<p>If the message has content, a new part is created and added as a child of</p>
+<p>the message.  The message's content and content headers are moved to the</p>
+<p>new part.</p>
+<p>@param Message $message</p>
+
+<p>Searches the passed $alternativePart for a part with the passed mime type</p>
+<p>and returns its parent.</p>
+<p>Used for alternative mime types that have a multipart/mixed or</p>
+<p>multipart/related child containing a content part of $mimeType, where</p>
+<p>the whole mixed/related part should be removed.</p>
+<p>@param string $mimeType the content-type to find below $alternativePart</p>
+<p>@param ParentHeaderPart $alternativePart The multipart/alternative part to look</p>
+<p>       under</p>
+<p>@return boolean|MimePart false if a part is not found</p>
+
+<p>Removes all parts of $mimeType from $alternativePart.</p>
+<p>If $alternativePart contains a multipart/mixed or multipart/relative part</p>
+<p>with other parts of different content-types, the multipart part is</p>
+<p>removed, and parts of different content-types can optionally be moved to</p>
+<p>the main message part.</p>
+<p>@param Message $message</p>
+<p>@param string $mimeType</p>
+<p>@param ParentHeaderPart $alternativePart</p>
+<p>@param bool $keepOtherContent</p>
+<p>@return bool</p>
+
+<p>Creates a new mime part as a multipart/alternative and assigns the passed</p>
+<p>$contentPart as a part below it before returning it.</p>
+<p>@param Message $message</p>
+<p>@param MessagePart $contentPart</p>
+<p>@return MimePart the alternative part</p>
+
+<p>Moves all parts under $from into this message except those with a</p>
+<p>content-type equal to $exceptMimeType.  If the message is not a</p>
+<p>multipart/mixed message, it is set to multipart/mixed first.</p>
+<p>@param Message $message</p>
+<p>@param ParentHeaderPart $from</p>
+<p>@param string $exceptMimeType</p>
+
+<p>Enforces the message to be a mime message for a non-mime (e.g. uuencoded</p>
+<p>or unspecified) message.  If the message has uuencoded attachments, sets</p>
+<p>up the message as a multipart/mixed message and creates a separate</p>
+<p>content part.</p>
+<p>@param Message $message</p>
+
+<p>Creates a multipart/related part out of 'inline' children of $parent and</p>
+<p>returns it.</p>
+<p>@param ParentHeaderPart $parent</p>
+<p>@return MimePart</p>
+
+<p>Finds an alternative inline part in the message and returns it if one</p>
+<p>exists.</p>
+<p>If the passed $mimeType is text/plain, searches for a text/html part.</p>
+<p>Otherwise searches for a text/plain part to return.</p>
+<p>@param Message $message</p>
+<p>@param string $mimeType</p>
+<p>@return \ZBateson\MailMimeParser\Message\Part\MimeType or null if not</p>
+<p>        found</p>
+
+<p>Creates a new content part for the passed mimeType and charset, making</p>
+<p>space by creating a multipart/alternative if needed</p>
+<p>@param Message $message</p>
+<p>@param string $mimeType</p>
+<p>@param string $charset</p>
+<p>@return \ZBateson\MailMimeParser\Message\Part\MimePart</p>
+
+<p>Creates and adds a MimePart for the passed content and options as an</p>
+<p>attachment.</p>
+<p>@param Message $message</p>
+<p>@param string|resource|Psr\Http\Message\StreamInterface\StreamInterface</p>
+<p>       $resource</p>
+<p>@param string $mimeType</p>
+<p>@param string $disposition</p>
+<p>@param string $filename</p>
+<p>@param string $encoding</p>
+<p>@return \ZBateson\MailMimeParser\Message\Part\MimePart</p>
+
+<p>Removes the content part of the message with the passed mime type.  If</p>
+<p>there is a remaining content part and it is an alternative part of the</p>
+<p>main message, the content part is moved to the message part.</p>
+<p>If the content part is part of an alternative part beneath the message,</p>
+<p>the alternative part is replaced by the remaining content part,</p>
+<p>optionally keeping other parts if $keepOtherContent is set to true.</p>
+<p>@param Message $message</p>
+<p>@param string $mimeType</p>
+<p>@param bool $keepOtherContent</p>
+<p>@return boolean true on success</p>
+
+<p>Removes the 'inline' part with the passed contentType, at the given index</p>
+<p>defaulting to the first</p>
+<p>@param Message $message</p>
+<p>@param string $mimeType</p>
+<p>@param int $index</p>
+<p>@return boolean true on success</p>
+
+<p>Either creates a mime part or sets the existing mime part with the passed</p>
+<p>mimeType to $strongOrHandle.</p>
+<p>@param Message $message</p>
+<p>@param string $mimeType</p>
+<p>@param string|resource $stringOrHandle</p>
+<p>@param string $charset</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>an</code></li>
+<li><code>into</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Message\Helper\MultipartHelper.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Message\Helper\MultipartHelper extends AbstractHelper</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li>`__construct(MimePartFactory $mimePartFactory,</li>
+<p>        UUEncodedPartFactory $uuEncodedPartFactory,</p>
+<p>        PartBuilderFactory $partBuilderFactory,</p>
+<p>        GenericHelper $genericHelper)`</p>
+<li><code>getUniqueBoundary($mimeType)</code></li>
+<li><code>setMimeHeaderBoundaryOnPart(ParentHeaderPart $part, $mimeType)</code></li>
+<li><code>setMessageAsMixed(Message $message)</code></li>
+<li><code>setMessageAsAlternative(Message $message)</code></li>
+<li><code>getContentPartContainerFromAlternative($mimeType, ParentHeaderPart $alternativePart)</code></li>
+<li><code>removeAllContentPartsFromAlternative(Message $message, $mimeType, ParentHeaderPart $alternativePart, $keepOtherContent)</code></li>
+<li><code>createAlternativeContentPart(Message $message, MessagePart $contentPart)</code></li>
+<li><code>moveAllPartsAsAttachmentsExcept(Message $message, ParentHeaderPart $from, $exceptMimeType)</code></li>
+<li><code>enforceMime(Message $message)</code></li>
+<li><code>createMultipartRelatedPartForInlineChildrenOf(ParentHeaderPart $parent)</code></li>
+<li><code>findOtherContentPartFor(Message $message, $mimeType)</code></li>
+<li><code>createContentPartForMimeType(Message $message, $mimeType, $charset)</code></li>
+<li><code>createAndAddPartForAttachment(Message $message, $resource, $mimeType, $disposition, $filename = null, $encoding = 'base64')</code></li>
+<li><code>removeAllContentPartsByMimeType(Message $message, $mimeType, $keepOtherContent = false)</code></li>
+<li><code>removePartByMimeType(Message $message, $mimeType, $index = 0)</code></li>
+<li><code>setContentPartForMimeType(Message $message, $mimeType, $stringOrHandle, $charset)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,127 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Part\MimeLiteralPart.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Part\MimeLiteralPart.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Part\MimeLiteralPart.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 6171 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Represents a single mime header part token, with the possibility of it being</p>
+<p>MIME-Encoded as per RFC-2047.</p>
+
+<p>MimeLiteralPart automatically decodes the value if it's encoded.</p>
+<p>@author Zaahid Bateson</p>
+
+<p>@var string regex pattern matching a mime-encoded part</p>
+
+<p>@var string regex pattern used when parsing parameterized headers</p>
+
+<p>@var bool set to true to ignore spaces before this part</p>
+
+<p>@var bool set to true to ignore spaces after this part</p>
+
+<p>@var array maintains an array mapping rfc1766 language tags to parts of</p>
+<p>text in the value.</p>
+
+<p>Each array element is an array containing two elements, one with key</p>
+<p>'lang', and another with key 'value'.</p>
+
+<p>Decoding the passed token value if it's mime-encoded and assigns the</p>
+<p>decoded value to a member variable. Sets canIgnoreSpacesBefore and</p>
+<p>canIgnoreSpacesAfter.</p>
+
+<p>@param MbWrapper $charsetConverter</p>
+<p>@param string $token</p>
+
+<p>Finds and replaces mime parts with their values.</p>
+
+<p>The method splits the token value into an array on mime-part-patterns,</p>
+<p>either replacing a mime part with its value by calling iconv_mime_decode</p>
+<p>or converts the encoding on the text part by calling convertEncoding.</p>
+
+<p>@param string $value</p>
+<p>@return string</p>
+
+<p>Decodes a matched mime entity part into a string and returns it, after</p>
+<p>adding the string into the languages array.</p>
+
+<p>@param string[] $matches</p>
+<p>@return string</p>
+
+<p>Decodes a single mime-encoded entity.</p>
+
+<p>Unfortunately, mb_decode_header fails for many charsets on PHP 5.4 and</p>
+<p>PHP 5.5 (even if they're listed as supported).  iconv_mime_decode doesn't</p>
+<p>support all charsets.</p>
+
+<p>Parsing out the charset and body of the encoded entity seems to be the</p>
+<p>way to go to support the most charsets.</p>
+
+<p>@param string $entity</p>
+<p>@return string</p>
+
+<p>Returns true if spaces before this part should be ignored.</p>
+
+<p>Overridden to return $this->canIgnoreSpacesBefore which is setup in the</p>
+<p>constructor.</p>
+
+<p>@return bool</p>
+
+<p>Returns true if spaces before this part should be ignored.</p>
+
+<p>Overridden to return $this->canIgnoreSpacesAfter which is setup in the</p>
+<p>constructor.</p>
+
+<p>@return bool</p>
+
+<p>Adds the passed part into the languages array with the given language.</p>
+
+<p>@param string $part</p>
+<p>@param string|null $language</p>
+
+<p>Returns an array of parts mapped to languages in the header value, for</p>
+<p>instance the string:</p>
+
+<p>'Hello and =?UTF-8*fr-be?Q?bonjour_?= =?UTF-8*it?Q?mi amici?=. Welcome!'</p>
+
+<p>Would be mapped in the returned array as follows:</p>
+
+<p>```php</p>
+<p>[</p>
+<p>    0 => [ 'lang' => null, 'value' => 'Hello and ' ],</p>
+<p>    1 => [ 'lang' => 'fr-be', 'value' => 'bonjour ' ],</p>
+<p>    3 => [ 'lang' => 'it', 'value' => 'mi amici' ],</p>
+<p>    4 => [ 'lang' => null, 'value' => ' Welcome!' ]</p>
+<p>]</p>
+<p>```</p>
+
+<p>@return string[][]</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Part\MimeLiteralPart.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Header\Part\MimeLiteralPart extends LiteralPart</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(MbWrapper $charsetConverter, $token)</code></li>
+<li><code>decodeMime($value)</code></li>
+<li><code>decodeMatchedEntity($matches)</code></li>
+<li><code>decodeSplitPart($entity)</code></li>
+<li><code>ignoreSpacesBefore()</code></li>
+<li><code>ignoreSpacesAfter()</code></li>
+<li><code>addToLanguage($part, $language = null)</code></li>
+<li><code>getLanguageArray()</code></li>
+</ul>
+</body></html>

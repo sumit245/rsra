@@ -1,0 +1,139 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Files\FileCollection.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Files\FileCollection.php</h1>
+
+<ul>
+<li>Path: <code>system\Files\FileCollection.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 9607 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>File Collection Class</p>
+<p>Representation for a group of files, with utilities for locating,</p>
+<p>filtering, and ordering them.</p>
+
+<p>The current list of file paths.</p>
+<p>@var string[]</p>
+
+<p>Resolves a full path and verifies it is an actual directory.</p>
+<p>@throws FileException</p>
+
+<p>Resolves a full path and verifies it is an actual file.</p>
+<p>@throws FileException</p>
+
+<p>Removes files that are not part of the given directory (recursive).</p>
+<p>@param string[] $files</p>
+<p>@return string[]</p>
+
+<p>Returns any files whose <code>basename</code> matches the given pattern.</p>
+<p>@param string[] $files</p>
+<p>@param string   $pattern Regex or pseudo-regex string</p>
+<p>@return string[]</p>
+
+<p>Loads the Filesystem helper and adds any initial files.</p>
+<p>@param string[] $files</p>
+
+<p>Applies any initial inputs after the constructor.</p>
+<p>This method is a stub to be implemented by child classes.</p>
+
+<p>Optimizes and returns the current file list.</p>
+<p>@return string[]</p>
+
+<p>Sets the file list directly, files are still subject to verification.</p>
+<p>This works as a "reset" method with [].</p>
+<p>@param string[] $files The new file list to use</p>
+<p>@return $this</p>
+
+<p>Adds an array/single file or directory to the list.</p>
+<p>@param string|string[] $paths</p>
+<p>@return $this</p>
+
+<p>Verifies and adds files to the list.</p>
+<p>@param string[] $files</p>
+<p>@return $this</p>
+
+<p>Verifies and adds a single file to the file list.</p>
+<p>@return $this</p>
+
+<p>Removes files from the list.</p>
+<p>@param string[] $files</p>
+<p>@return $this</p>
+
+<p>Removes a single file from the list.</p>
+<p>@return $this</p>
+
+<p>Verifies and adds files from each</p>
+<p>directory to the list.</p>
+<p>@param string[] $directories</p>
+<p>@return $this</p>
+
+<p>Verifies and adds all files from a directory.</p>
+<p>@return $this</p>
+
+<p>Removes any files from the list that match the supplied pattern</p>
+<p>(within the optional scope).</p>
+<p>@param string      $pattern Regex or pseudo-regex string</p>
+<p>@param string|null $scope   The directory to limit the scope</p>
+<p>@return $this</p>
+
+<p>Keeps only the files from the list that match</p>
+<p>(within the optional scope).</p>
+<p>@param string      $pattern Regex or pseudo-regex string</p>
+<p>@param string|null $scope   A directory to limit the scope</p>
+<p>@return $this</p>
+
+<p>Returns the current number of files in the collection.</p>
+<p>Fulfills Countable.</p>
+
+<p>Yields as an Iterator for the current files.</p>
+<p>Fulfills IteratorAggregate.</p>
+<p>@throws FileNotFoundException</p>
+<p>@return Generator<File></p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>each</code></li>
+<li><code>a</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Files\FileCollection.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\Files\FileCollection implements Countable, IteratorAggregate</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>resolveDirectory(string $directory)</code></li>
+<li><code>resolveFile(string $file)</code></li>
+<li><code>filterFiles(array $files, string $directory)</code></li>
+<li><code>matchFiles(array $files, string $pattern)</code></li>
+<li><code>__construct(array $files = [])</code></li>
+<li><code>define()</code></li>
+<li><code>get()</code></li>
+<li><code>set(array $files)</code></li>
+<li><code>add($paths, bool $recursive = true)</code></li>
+<li><code>addFiles(array $files)</code></li>
+<li><code>addFile(string $file)</code></li>
+<li><code>removeFiles(array $files)</code></li>
+<li><code>removeFile(string $file)</code></li>
+<li><code>addDirectories(array $directories, bool $recursive = false)</code></li>
+<li><code>addDirectory(string $directory, bool $recursive = false)</code></li>
+<li><code>removePattern(string $pattern, ?string $scope = null)</code></li>
+<li><code>retainPattern(string $pattern, ?string $scope = null)</code></li>
+<li><code>count()</code></li>
+<li><code>getIterator()</code></li>
+</ul>
+</body></html>

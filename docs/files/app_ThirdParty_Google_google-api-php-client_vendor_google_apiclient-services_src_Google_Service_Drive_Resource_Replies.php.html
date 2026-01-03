@@ -1,0 +1,85 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Drive\Resource\Replies.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Drive\Resource\Replies.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Drive\Resource\Replies.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 4460 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>The "replies" collection of methods.</p>
+<p>Typical usage is:</p>
+<p> <code></p>
+<p>  $driveService = new Google_Service_Drive(...);</p>
+<p>  $replies = $driveService->replies;</p>
+<p> </code></p>
+
+<p>Creates a new reply to a comment. (replies.create)</p>
+<p>@param string $fileId The ID of the file.</p>
+<p>@param string $commentId The ID of the comment.</p>
+<p>@param Google_Service_Drive_Reply $postBody</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@return Google_Service_Drive_Reply</p>
+
+<p>Deletes a reply. (replies.delete)</p>
+<p>@param string $fileId The ID of the file.</p>
+<p>@param string $commentId The ID of the comment.</p>
+<p>@param string $replyId The ID of the reply.</p>
+<p>@param array $optParams Optional parameters.</p>
+
+<p>Gets a reply by ID. (replies.get)</p>
+<p>@param string $fileId The ID of the file.</p>
+<p>@param string $commentId The ID of the comment.</p>
+<p>@param string $replyId The ID of the reply.</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@opt_param bool includeDeleted Whether to return deleted replies. Deleted</p>
+<p>replies will not include their original content.</p>
+<p>@return Google_Service_Drive_Reply</p>
+
+<p>Lists a comment's replies. (replies.listReplies)</p>
+<p>@param string $fileId The ID of the file.</p>
+<p>@param string $commentId The ID of the comment.</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@opt_param bool includeDeleted Whether to include deleted replies. Deleted</p>
+<p>replies will not include their original content.</p>
+<p>@opt_param int pageSize The maximum number of replies to return per page.</p>
+<p>@opt_param string pageToken The token for continuing a previous list request</p>
+<p>on the next page. This should be set to the value of 'nextPageToken' from the</p>
+<p>previous response.</p>
+<p>@return Google_Service_Drive_ReplyList</p>
+
+<p>Updates a reply with patch semantics. (replies.update)</p>
+<p>@param string $fileId The ID of the file.</p>
+<p>@param string $commentId The ID of the comment.</p>
+<p>@param string $replyId The ID of the reply.</p>
+<p>@param Google_Service_Drive_Reply $postBody</p>
+<p>@param array $optParams Optional parameters.</p>
+<p>@return Google_Service_Drive_Reply</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Google\google-api-php-client\vendor\google\apiclient-services\src\Google\Service\Drive\Resource\Replies.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Google_Service_Drive_Resource_Replies extends Google_Service_Resource</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>create($fileId, $commentId, Google_Service_Drive_Reply $postBody, $optParams = array()</code></li>
+<li><code>delete($fileId, $commentId, $replyId, $optParams = array()</code></li>
+<li><code>get($fileId, $commentId, $replyId, $optParams = array()</code></li>
+<li><code>listReplies($fileId, $commentId, $optParams = array()</code></li>
+<li><code>update($fileId, $commentId, $replyId, Google_Service_Drive_Reply $postBody, $optParams = array()</code></li>
+</ul>
+</body></html>

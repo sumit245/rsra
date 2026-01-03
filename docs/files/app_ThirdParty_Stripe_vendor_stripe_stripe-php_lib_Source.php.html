@@ -1,0 +1,96 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Source.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Source.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Source.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 8094 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p><code>Source</code> objects allow you to accept a variety of payment methods.</p>
+<p>They represent a customer's payment instrument, and can be used with the Stripe</p>
+<p>API just like a <code>Card</code> object: once chargeable, they can be charged,</p>
+<p>or can be attached to customers.</p>
+<p>Related guides: <a href="https://stripe.com/docs/sources">Sources API</a> and <a</p>
+<p>href="https://stripe.com/docs/sources/customers">Sources &amp; Customers</a>.</p>
+<p>@property string $id Unique identifier for the object.</p>
+<p>@property string $object String representing the object's type. Objects of the same type share the same value.</p>
+<p>@property \Stripe\StripeObject $ach_credit_transfer</p>
+<p>@property \Stripe\StripeObject $ach_debit</p>
+<p>@property \Stripe\StripeObject $acss_debit</p>
+<p>@property \Stripe\StripeObject $alipay</p>
+<p>@property null|int $amount A positive integer in the smallest currency unit (that is, 100 cents for $1.00, or 1 for ¥1, Japanese Yen being a zero-decimal currency) representing the total amount associated with the source. This is the amount for which the source will be chargeable once ready. Required for <code>single_use</code> sources.</p>
+<p>@property \Stripe\StripeObject $au_becs_debit</p>
+<p>@property \Stripe\StripeObject $bancontact</p>
+<p>@property \Stripe\StripeObject $card</p>
+<p>@property \Stripe\StripeObject $card_present</p>
+<p>@property string $client_secret The client secret of the source. Used for client-side retrieval using a publishable key.</p>
+<p>@property \Stripe\StripeObject $code_verification</p>
+<p>@property int $created Time at which the object was created. Measured in seconds since the Unix epoch.</p>
+<p>@property null|string $currency Three-letter <a href="https://stripe.com/docs/currencies">ISO code for the currency</a> associated with the source. This is the currency for which the source will be chargeable once ready. Required for <code>single_use</code> sources.</p>
+<p>@property string $customer The ID of the customer to which this source is attached. This will not be present when the source has not been attached to a customer.</p>
+<p>@property \Stripe\StripeObject $eps</p>
+<p>@property string $flow The authentication <code>flow</code> of the source. <code>flow</code> is one of <code>redirect</code>, <code>receiver</code>, <code>code_verification</code>, <code>none</code>.</p>
+<p>@property \Stripe\StripeObject $giropay</p>
+<p>@property \Stripe\StripeObject $ideal</p>
+<p>@property \Stripe\StripeObject $klarna</p>
+<p>@property bool $livemode Has the value <code>true</code> if the object exists in live mode or the value <code>false</code> if the object exists in test mode.</p>
+<p>@property null|\Stripe\StripeObject $metadata Set of <a href="https://stripe.com/docs/api/metadata">key-value pairs</a> that you can attach to an object. This can be useful for storing additional information about the object in a structured format.</p>
+<p>@property \Stripe\StripeObject $multibanco</p>
+<p>@property null|\Stripe\StripeObject $owner Information about the owner of the payment instrument that may be used or required by particular source types.</p>
+<p>@property \Stripe\StripeObject $p24</p>
+<p>@property \Stripe\StripeObject $receiver</p>
+<p>@property \Stripe\StripeObject $redirect</p>
+<p>@property \Stripe\StripeObject $sepa_credit_transfer</p>
+<p>@property \Stripe\StripeObject $sepa_debit</p>
+<p>@property \Stripe\StripeObject $sofort</p>
+<p>@property \Stripe\StripeObject $source_order</p>
+<p>@property null|string $statement_descriptor Extra information about a source. This will appear on your customer's statement every time you charge the source.</p>
+<p>@property string $status The status of the source, one of <code>canceled</code>, <code>chargeable</code>, <code>consumed</code>, <code>failed</code>, or <code>pending</code>. Only <code>chargeable</code> sources can be used to create a charge.</p>
+<p>@property \Stripe\StripeObject $three_d_secure</p>
+<p>@property string $type The <code>type</code> of the source. The <code>type</code> is a payment method, one of <code>ach_credit_transfer</code>, <code>ach_debit</code>, <code>alipay</code>, <code>bancontact</code>, <code>card</code>, <code>card_present</code>, <code>eps</code>, <code>giropay</code>, <code>ideal</code>, <code>multibanco</code>, <code>klarna</code>, <code>p24</code>, <code>sepa_debit</code>, <code>sofort</code>, <code>three_d_secure</code>, or <code>wechat</code>. An additional hash is included on the source with a name matching this value. It contains additional information specific to the <a href="https://stripe.com/docs/sources">payment method</a> used.</p>
+<p>@property null|string $usage Either <code>reusable</code> or <code>single_use</code>. Whether this source should be reusable or not. Some source types may or may not be reusable by construction, while others may leave the option at creation. If an incompatible value is passed, an error will be returned.</p>
+<p>@property \Stripe\StripeObject $wechat</p>
+
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\UnexpectedValueException if the source is not attached to a customer</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Source the detached source</p>
+
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\SourceTransaction> list of SourceTransactions</p>
+
+<p>@param null|array $params</p>
+<p>@param null|array|string $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Source the verified source</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Source.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Source extends ApiResource</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>detach($params = null, $opts = null)</code></li>
+<li><code>allSourceTransactions($id, $params = null, $opts = null)</code></li>
+<li><code>verify($params = null, $opts = null)</code></li>
+</ul>
+</body></html>

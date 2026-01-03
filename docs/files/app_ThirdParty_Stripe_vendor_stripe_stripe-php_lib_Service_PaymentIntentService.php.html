@@ -1,0 +1,198 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\PaymentIntentService.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\PaymentIntentService.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\PaymentIntentService.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 11826 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Returns a list of PaymentIntents.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\PaymentIntent></p>
+
+<p>Manually reconcile the remaining amount for a customer_balance PaymentIntent.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\PaymentIntent</p>
+
+<p>A PaymentIntent object can be canceled when it is in one of these statuses:</p>
+<p><code>requires_payment_method</code>, <code>requires_capture</code>,</p>
+<p><code>requires_confirmation</code>, <code>requires_action</code>, or</p>
+<p><code>processing</code>.</p>
+<p>Once canceled, no additional charges will be made by the PaymentIntent and any</p>
+<p>operations on the PaymentIntent will fail with an error. For PaymentIntents with</p>
+<p><code>status=’requires_capture’</code>, the remaining</p>
+<p><code>amount_capturable</code> will automatically be refunded.</p>
+<p>You cannot cancel the PaymentIntent for a Checkout Session. <a</p>
+<p>href="/docs/api/checkout/sessions/expire">Expire the Checkout Session</a></p>
+<p>instead</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\PaymentIntent</p>
+
+<p>Capture the funds of an existing uncaptured PaymentIntent when its status is</p>
+<p><code>requires_capture</code>.</p>
+<p>Uncaptured PaymentIntents will be canceled a set number of days after they are</p>
+<p>created (7 by default).</p>
+<p>Learn more about <a href="/docs/payments/capture-later">separate authorization</p>
+<p>and capture</a>.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\PaymentIntent</p>
+
+<p>Confirm that your customer intends to pay with current or provided payment</p>
+<p>method. Upon confirmation, the PaymentIntent will attempt to initiate a payment.</p>
+<p>If the selected payment method requires additional authentication steps, the</p>
+<p>PaymentIntent will transition to the <code>requires_action</code> status and</p>
+<p>suggest additional actions via <code>next_action</code>. If payment fails, the</p>
+<p>PaymentIntent will transition to the <code>requires_payment_method</code></p>
+<p>status. If payment succeeds, the PaymentIntent will transition to the</p>
+<p><code>succeeded</code> status (or <code>requires_capture</code>, if</p>
+<p><code>capture_method</code> is set to <code>manual</code>).</p>
+<p>If the <code>confirmation_method</code> is <code>automatic</code>, payment may</p>
+<p>be attempted using our <a</p>
+<p>href="/docs/stripe-js/reference#stripe-handle-card-payment">client SDKs</a> and</p>
+<p>the PaymentIntent’s <a</p>
+<p>href="#payment_intent_object-client_secret">client_secret</a>. After</p>
+<p><code>next_action</code>s are handled by the client, no additional confirmation</p>
+<p>is required to complete the payment.</p>
+<p>If the <code>confirmation_method</code> is <code>manual</code>, all payment</p>
+<p>attempts must be initiated using a secret key. If any actions are required for</p>
+<p>the payment, the PaymentIntent will return to the</p>
+<p><code>requires_confirmation</code> state after those actions are completed. Your</p>
+<p>server needs to then explicitly re-confirm the PaymentIntent to initiate the</p>
+<p>next payment attempt. Read the <a</p>
+<p>href="/docs/payments/payment-intents/web-manual">expanded documentation</a> to</p>
+<p>learn more about manual confirmation.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\PaymentIntent</p>
+
+<p>Creates a PaymentIntent object.</p>
+<p>After the PaymentIntent is created, attach a payment method and <a</p>
+<p>href="/docs/api/payment_intents/confirm">confirm</a> to continue the payment.</p>
+<p>You can read more about the different payment flows available via the Payment</p>
+<p>Intents API <a href="/docs/payments/payment-intents">here</a>.</p>
+<p>When <code>confirm=true</code> is used during creation, it is equivalent to</p>
+<p>creating and confirming the PaymentIntent in the same call. You may use any</p>
+<p>parameters available in the <a href="/docs/api/payment_intents/confirm">confirm</p>
+<p>API</a> when <code>confirm=true</code> is supplied.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\PaymentIntent</p>
+
+<p>Perform an incremental authorization on an eligible <a</p>
+<p>href="/docs/api/payment_intents/object">PaymentIntent</a>. To be eligible, the</p>
+<p>PaymentIntent’s status must be <code>requires_capture</code> and <a</p>
+<p>href="/docs/api/charges/object#charge_object-payment_method_details-card_present-incremental_authorization_supported">incremental_authorization_supported</a></p>
+<p>must be <code>true</code>.</p>
+<p>Incremental authorizations attempt to increase the authorized amount on your</p>
+<p>customer’s card to the new, higher <code>amount</code> provided. As with the</p>
+<p>initial authorization, incremental authorizations may be declined. A single</p>
+<p>PaymentIntent can call this endpoint multiple times to further increase the</p>
+<p>authorized amount.</p>
+<p>If the incremental authorization succeeds, the PaymentIntent object is returned</p>
+<p>with the updated <a</p>
+<p>href="/docs/api/payment_intents/object#payment_intent_object-amount">amount</a>.</p>
+<p>If the incremental authorization fails, a <a</p>
+<p>href="/docs/error-codes#card-declined">card_declined</a> error is returned, and</p>
+<p>no fields on the PaymentIntent or Charge are updated. The PaymentIntent object</p>
+<p>remains capturable for the previously authorized amount.</p>
+<p>Each PaymentIntent can have a maximum of 10 incremental authorization attempts,</p>
+<p>including declines. Once captured, a PaymentIntent can no longer be incremented.</p>
+<p>Learn more about <a</p>
+<p>href="/docs/terminal/features/incremental-authorizations">incremental</p>
+<p>authorizations</a>.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\PaymentIntent</p>
+
+<p>Retrieves the details of a PaymentIntent that has previously been created.</p>
+<p>Client-side retrieval using a publishable key is allowed when the</p>
+<p><code>client_secret</code> is provided in the query string.</p>
+<p>When retrieved with a publishable key, only a subset of properties will be</p>
+<p>returned. Please refer to the <a href="#payment_intent_object">payment</p>
+<p>intent</a> object reference for more details.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\PaymentIntent</p>
+
+<p>Search for PaymentIntents you’ve previously created using Stripe’s <a</p>
+<p>href="/docs/search#search-query-language">Search Query Language</a>. Don’t use</p>
+<p>search in read-after-write flows where strict consistency is necessary. Under</p>
+<p>normal operating conditions, data is searchable in less than a minute.</p>
+<p>Occasionally, propagation of new or updated data can be up to an hour behind</p>
+<p>during outages. Search functionality is not available to merchants in India.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\SearchResult<\Stripe\PaymentIntent></p>
+
+<p>Updates properties on a PaymentIntent object without confirming.</p>
+<p>Depending on which properties you update, you may need to confirm the</p>
+<p>PaymentIntent again. For example, updating the <code>payment_method</code> will</p>
+<p>always require you to confirm the PaymentIntent again. If you prefer to update</p>
+<p>and confirm at the same time, we recommend updating properties via the <a</p>
+<p>href="/docs/api/payment_intents/confirm">confirm API</a> instead.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\PaymentIntent</p>
+
+<p>Verifies microdeposits on a PaymentIntent object.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\PaymentIntent</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\PaymentIntentService.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Service\PaymentIntentService extends \Stripe\Service\AbstractService</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>all($params = null, $opts = null)</code></li>
+<li><code>applyCustomerBalance($id, $params = null, $opts = null)</code></li>
+<li><code>cancel($id, $params = null, $opts = null)</code></li>
+<li><code>capture($id, $params = null, $opts = null)</code></li>
+<li><code>confirm($id, $params = null, $opts = null)</code></li>
+<li><code>create($params = null, $opts = null)</code></li>
+<li><code>incrementAuthorization($id, $params = null, $opts = null)</code></li>
+<li><code>retrieve($id, $params = null, $opts = null)</code></li>
+<li><code>search($params = null, $opts = null)</code></li>
+<li><code>update($id, $params = null, $opts = null)</code></li>
+<li><code>verifyMicrodeposits($id, $params = null, $opts = null)</code></li>
+</ul>
+</body></html>

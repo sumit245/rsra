@@ -1,0 +1,12 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Execution Flow</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>Execution Flow</h1>
+
+<ul>
+<li><code>index.php</code> bootstraps CodeIgniter via <code>system/bootstrap.php</code> and <code>app/Config/Boot/*</code></li>
+<li>HTTP request is routed using <code>app/Config/Routes.php</code> to a Controller action.</li>
+<li>Controllers extend <code>App_Controller</code> or <code>Security_Controller</code> and orchestrate Models + Views.</li>
+<li>Models encapsulate database access and business logic. Many extend <code>Crud_model</code>.</li>
+<li>Views under <code>app/Views</code> render HTML via PHP templates.</li>
+<li>Plugins under <code>plugins/</code> provide modular features (e.g., HR, Warehouse, REST API).</li>
+</ul>
+<p>For detailed controller/model signatures, see the respective pages.</p>
+</body></html>

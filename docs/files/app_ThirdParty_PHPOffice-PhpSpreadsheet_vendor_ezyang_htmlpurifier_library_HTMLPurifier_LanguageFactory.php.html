@@ -1,0 +1,86 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\LanguageFactory.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\LanguageFactory.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\LanguageFactory.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 6618 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Class responsible for generating HTMLPurifier_Language objects, managing</p>
+<p>caching and fallbacks.</p>
+<p>@note Thanks to MediaWiki for the general logic, although this version</p>
+<p>      has been entirely rewritten</p>
+<p>@todo Serialized cache for languages</p>
+
+<p>Cache of language code information used to load HTMLPurifier_Language objects.</p>
+<p>Structure is: $factory->cache[$language_code][$key] = $value</p>
+<p>@type array</p>
+
+<p>Valid keys in the HTMLPurifier_Language object. Designates which</p>
+<p>variables to slurp out of a message file.</p>
+<p>@type array</p>
+
+<p>Instance to validate language codes.</p>
+<p>@type HTMLPurifier_AttrDef_Lang</p>
+
+<p>Cached copy of dirname(__FILE__), directory of current file without</p>
+<p>trailing slash.</p>
+<p>@type string</p>
+
+<p>Keys whose contents are a hash map and can be merged.</p>
+<p>@type array</p>
+
+<p>Keys whose contents are a list and can be merged.</p>
+<p>@value array lookup</p>
+
+<p>Retrieve sole instance of the factory.</p>
+<p>@param HTMLPurifier_LanguageFactory $prototype Optional prototype to overload sole instance with,</p>
+<p>                  or bool true to reset to default factory.</p>
+<p>@return HTMLPurifier_LanguageFactory</p>
+
+<p>Sets up the singleton, much like a constructor</p>
+<p>@note Prevents people from getting this outside of the singleton</p>
+
+<p>Creates a language object, handles class fallbacks</p>
+<p>@param HTMLPurifier_Config $config</p>
+<p>@param HTMLPurifier_Context $context</p>
+<p>@param bool|string $code Code to override configuration with. Private parameter.</p>
+<p>@return HTMLPurifier_Language</p>
+
+<p>Returns the fallback language for language</p>
+<p>@note Loads the original language into cache</p>
+<p>@param string $code language code</p>
+<p>@return string|bool</p>
+
+<p>Loads language into the cache, handles message file and fallbacks</p>
+<p>@param string $code language code</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>getting</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\ezyang\htmlpurifier\library\HTMLPurifier\LanguageFactory.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>HTMLPurifier_LanguageFactory</code></li>
+<li><code>fallbacks</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>instance($prototype = null)</code></li>
+<li><code>setup()</code></li>
+<li><code>create($config, $context, $code = false)</code></li>
+<li><code>getFallbackFor($code)</code></li>
+<li><code>loadLanguage($code)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,63 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\Security\SecurityInterface.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\Security\SecurityInterface.php</h1>
+
+<ul>
+<li>Path: <code>system\Security\SecurityInterface.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 1895 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Expected behavior of a Security.</p>
+
+<p>CSRF Verify</p>
+<p>@throws SecurityException</p>
+<p>@return $this|false</p>
+
+<p>Returns the CSRF Hash.</p>
+
+<p>Returns the CSRF Token Name.</p>
+
+<p>Returns the CSRF Header Name.</p>
+
+<p>Returns the CSRF Cookie Name.</p>
+
+<p>Check if CSRF cookie is expired.</p>
+<p>@deprecated</p>
+
+<p>Check if request should be redirect on failure.</p>
+
+<p>Sanitize Filename</p>
+<p>Tries to sanitize filenames in order to prevent directory traversal attempts</p>
+<p>and other security threats, which is particularly useful for files that</p>
+<p>were supplied via user input.</p>
+<p>If it is acceptable for the user input to include relative paths,</p>
+<p>e.g. file/in/some/approved/folder.txt, you can set the second optional</p>
+<p>parameter, $relative_path to TRUE.</p>
+<p>@param string $str          Input file name</p>
+<p>@param bool   $relativePath Whether to preserve paths</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\Security\SecurityInterface.php</code></h2>
+
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>verify(RequestInterface $request)</code></li>
+<li><code>getHash()</code></li>
+<li><code>getTokenName()</code></li>
+<li><code>getHeaderName()</code></li>
+<li><code>getCookieName()</code></li>
+<li><code>isExpired()</code></li>
+<li><code>shouldRedirect()</code></li>
+<li><code>sanitizeFilename(string $str, bool $relativePath = false)</code></li>
+</ul>
+</body></html>

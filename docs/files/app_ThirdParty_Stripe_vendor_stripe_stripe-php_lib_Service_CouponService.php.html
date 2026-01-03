@@ -1,0 +1,87 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\CouponService.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\CouponService.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\CouponService.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3692 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Returns a list of your coupons.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Collection<\Stripe\Coupon></p>
+
+<p>You can create coupons easily via the <a</p>
+<p>href="https://dashboard.stripe.com/coupons">coupon management</a> page of the</p>
+<p>Stripe dashboard. Coupon creation is also accessible via the API if you need to</p>
+<p>create coupons on the fly.</p>
+<p>A coupon has either a <code>percent_off</code> or an <code>amount_off</code> and</p>
+<p><code>currency</code>. If you set an <code>amount_off</code>, that amount will</p>
+<p>be subtracted from any invoice’s subtotal. For example, an invoice with a</p>
+<p>subtotal of <currency>100</currency> will have a final total of</p>
+<p><currency>0</currency> if a coupon with an <code>amount_off</code> of</p>
+<p><amount>200</amount> is applied to it and an invoice with a subtotal of</p>
+<p><currency>300</currency> will have a final total of <currency>100</currency> if</p>
+<p>a coupon with an <code>amount_off</code> of <amount>200</amount> is applied to</p>
+<p>it.</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Coupon</p>
+
+<p>You can delete coupons via the <a</p>
+<p>href="https://dashboard.stripe.com/coupons">coupon management</a> page of the</p>
+<p>Stripe dashboard. However, deleting a coupon does not affect any customers who</p>
+<p>have already applied the coupon; it means that new customers can’t redeem the</p>
+<p>coupon. You can also delete coupons via the API.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Coupon</p>
+
+<p>Retrieves the coupon with the given ID.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Coupon</p>
+
+<p>Updates the metadata of a coupon. Other coupon details (currency, duration,</p>
+<p>amount_off) are, by design, not editable.</p>
+<p>@param string $id</p>
+<p>@param null|array $params</p>
+<p>@param null|array|\Stripe\Util\RequestOptions $opts</p>
+<p>@throws \Stripe\Exception\ApiErrorException if the request fails</p>
+<p>@return \Stripe\Coupon</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>our</code></li>
+<li><code>any</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Stripe\vendor\stripe\stripe-php\lib\Service\CouponService.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Stripe\Service\CouponService extends \Stripe\Service\AbstractService</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>all($params = null, $opts = null)</code></li>
+<li><code>create($params = null, $opts = null)</code></li>
+<li><code>delete($id, $params = null, $opts = null)</code></li>
+<li><code>retrieve($id, $params = null, $opts = null)</code></li>
+<li><code>update($id, $params = null, $opts = null)</code></li>
+</ul>
+</body></html>

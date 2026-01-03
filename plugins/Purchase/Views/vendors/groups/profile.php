@@ -37,13 +37,14 @@
                   <?php if ((isset($client) && empty($client->website)) || !isset($client)) {
                      $value = (isset($client) ? $client->website : '');
                      echo render_input1('website', 'client_website', $value);
-                  } else { ?>
+                  }
+                  else { ?>
                      <div class="form-group">
                         <label for="website"><?php echo _l('client_website'); ?></label>
                         <div class="input-group">
                            <input type="text" name="website" id="website" value="<?php echo html_entity_decode($client->website); ?>" class="form-control">
                            <div class="input-group-addon">
-                              <span><a href="<?php echo maybe_add_http($client->website); ?>" target="_blank" tabindex="-1"><i class="fa fa-globe"></i></a></span>
+                              
                            </div>
                         </div>
                      </div>

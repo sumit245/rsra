@@ -1,0 +1,274 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\maennchen\zipstream-php\src\ZipStream.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\maennchen\zipstream-php\src\ZipStream.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\maennchen\zipstream-php\src\ZipStream.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 19041 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>ZipStream</p>
+<p>Streamed, dynamically generated zip archives.</p>
+<p>Usage:</p>
+<p>Streaming zip archives is a simple, three-step process:</p>
+<p>1.  Create the zip stream:</p>
+<p>    $zip = new ZipStream('example.zip');</p>
+<p>2.  Add one or more files to the archive:</p>
+<p>     * add first file</p>
+<p>    $data = file_get_contents('some_file.gif');</p>
+<p>    $zip->addFile('some_file.gif', $data);</p>
+<p>     * add second file</p>
+<p>    $data = file_get_contents('some_file.gif');</p>
+<p>    $zip->addFile('another_file.png', $data);</p>
+<p>3.  Finish the zip stream:</p>
+<p>    $zip->finish();</p>
+<p>You can also add an archive comment, add comments to individual files,</p>
+<p>and adjust the timestamp of files. See the API documentation for each</p>
+<p>method below for additional information.</p>
+<p>Example:</p>
+<p>  // create a new zip stream object</p>
+<p>  $zip = new ZipStream('some_files.zip');</p>
+<p>  // list of local files</p>
+<p>  $files = array('foo.txt', 'bar.jpg');</p>
+<p>  // read and add each file to the archive</p>
+<p>  foreach ($files as $path)</p>
+<p>    $zip->addFile($path, file_get_contents($path));</p>
+<p>  // write archive footer to stream</p>
+<p>  $zip->finish();</p>
+
+<p>This number corresponds to the ZIP version/OS used (2 bytes)</p>
+<p>From: https://www.iana.org/assignments/media-types/application/zip</p>
+<p>The upper byte (leftmost one) indicates the host system (OS) for the</p>
+<p>file.  Software can use this information to determine</p>
+<p>the line record format for text files etc.  The current</p>
+<p>mappings are:</p>
+<p>0 - MS-DOS and OS/2 (F.A.T. file systems)</p>
+<p>1 - Amiga                     2 - VAX/VMS</p>
+<p>3 - *nix                      4 - VM/CMS</p>
+<p>5 - Atari ST                  6 - OS/2 H.P.F.S.</p>
+<p>7 - Macintosh                 8 - Z-System</p>
+<p>9 - CP/M                      10 thru 255 - unused</p>
+<p>The lower byte (rightmost one) indicates the version number of the</p>
+<p>software used to encode the file.  The value/10</p>
+<p>indicates the major version number, and the value</p>
+<p>mod 10 is the minor version number.</p>
+<p>Here we are using 6 for the OS, indicating OS/2 H.P.F.S.</p>
+<p>to prevent file permissions issues upon extract (see #84)</p>
+<p>0x603 is 00000110 00000011 in binary, so 6 and 3</p>
+
+<p>The following signatures end with 0x4b50, which in ASCII is PK,</p>
+<p>the initials of the inventor Phil Katz.</p>
+<p>See https://en.wikipedia.org/wiki/Zip_(file_format)#File_headers</p>
+
+<p>Global Options</p>
+<p>@var ArchiveOptions</p>
+
+<p>@var array</p>
+
+<p>@var Bigint</p>
+
+<p>@var Bigint</p>
+
+<p>@var bool</p>
+
+<p>@var null|String</p>
+
+<p>Create a new ZipStream object.</p>
+<p>Parameters:</p>
+<p>@param String $name - Name of output file (optional).</p>
+<p>@param ArchiveOptions $opt - Archive Options</p>
+<p>Large File Support:</p>
+<p>By default, the method addFileFromPath() will send send files</p>
+<p>larger than 20 megabytes along raw rather than attempting to</p>
+<p>compress them.  You can change both the maximum size and the</p>
+<p>compression behavior using the largeFile* options above, with the</p>
+<p>following caveats:</p>
+<p>* For "small" files (e.g. files smaller than largeFileSize), the</p>
+<p>  memory use can be up to twice that of the actual file.  In other</p>
+<p>  words, adding a 10 megabyte file to the archive could potentially</p>
+<p>  occupy 20 megabytes of memory.</p>
+<p>* Enabling compression on large files (e.g. files larger than</p>
+<p>  large_file_size) is extremely slow, because ZipStream has to pass</p>
+<p>  over the large file once to calculate header information, and then</p>
+<p>  again to compress and send the actual data.</p>
+<p>Examples:</p>
+<p>  // create a new zip file named 'foo.zip'</p>
+<p>  $zip = new ZipStream('foo.zip');</p>
+<p>  // create a new zip file named 'bar.zip' with a comment</p>
+<p>  $opt->setComment = 'this is a comment for the zip file.';</p>
+<p>  $zip = new ZipStream('bar.zip', $opt);</p>
+<p>Notes:</p>
+<p>In order to let this library send HTTP headers, a filename must be given</p>
+<p>_and_ the option <code>sendHttpHeaders</code> must be <code>true</code>. This behavior is to</p>
+<p>allow software to send its own headers (including the filename), and</p>
+<p>still use this library.</p>
+
+<p>addFile</p>
+<p>Add a file to the archive.</p>
+<p>@param String $name - path of file in archive (including directory).</p>
+<p>@param String $data - contents of file</p>
+<p>@param FileOptions $options</p>
+<p>File Options:</p>
+<p> time     - Last-modified timestamp (seconds since the epoch) of</p>
+<p>            this file.  Defaults to the current time.</p>
+<p> comment  - Comment related to this file.</p>
+<p> method   - Storage method for file ("store" or "deflate")</p>
+<p>Examples:</p>
+<p>  // add a file named 'foo.txt'</p>
+<p>  $data = file_get_contents('foo.txt');</p>
+<p>  $zip->addFile('foo.txt', $data);</p>
+<p>  // add a file named 'bar.jpg' with a comment and a last-modified</p>
+<p>  // time of two hours ago</p>
+<p>  $data = file_get_contents('bar.jpg');</p>
+<p>  $opt->setTime = time() - 2 * 3600;</p>
+<p>  $opt->setComment = 'this is a comment about bar.jpg';</p>
+<p>  $zip->addFile('bar.jpg', $data, $opt);</p>
+
+<p>addFileFromPath</p>
+<p>Add a file at path to the archive.</p>
+<p>Note that large files may be compressed differently than smaller</p>
+<p>files; see the "Large File Support" section above for more</p>
+<p>information.</p>
+<p>@param String $name - name of file in archive (including directory path).</p>
+<p>@param String $path - path to file on disk (note: paths should be encoded using</p>
+<p>         UNIX-style forward slashes -- e.g '/path/to/some/file').</p>
+<p>@param FileOptions $options</p>
+<p>File Options:</p>
+<p> time     - Last-modified timestamp (seconds since the epoch) of</p>
+<p>            this file.  Defaults to the current time.</p>
+<p> comment  - Comment related to this file.</p>
+<p> method   - Storage method for file ("store" or "deflate")</p>
+<p>Examples:</p>
+<p>  // add a file named 'foo.txt' from the local file '/tmp/foo.txt'</p>
+<p>  $zip->addFileFromPath('foo.txt', '/tmp/foo.txt');</p>
+<p>  // add a file named 'bigfile.rar' from the local file</p>
+<p>  // '/usr/share/bigfile.rar' with a comment and a last-modified</p>
+<p>  // time of two hours ago</p>
+<p>  $path = '/usr/share/bigfile.rar';</p>
+<p>  $opt->setTime = time() - 2 * 3600;</p>
+<p>  $opt->setComment = 'this is a comment about bar.jpg';</p>
+<p>  $zip->addFileFromPath('bigfile.rar', $path, $opt);</p>
+<p>@return void</p>
+<p>@throws \ZipStream\Exception\FileNotFoundException</p>
+<p>@throws \ZipStream\Exception\FileNotReadableException</p>
+
+<p>addFileFromStream</p>
+<p>Add an open stream to the archive.</p>
+<p>@param String $name - path of file in archive (including directory).</p>
+<p>@param resource $stream - contents of file as a stream resource</p>
+<p>@param FileOptions $options</p>
+<p>File Options:</p>
+<p> time     - Last-modified timestamp (seconds since the epoch) of</p>
+<p>            this file.  Defaults to the current time.</p>
+<p> comment  - Comment related to this file.</p>
+<p>Examples:</p>
+<p>  // create a temporary file stream and write text to it</p>
+<p>  $fp = tmpfile();</p>
+<p>  fwrite($fp, 'The quick brown fox jumped over the lazy dog.');</p>
+<p>  // add a file named 'streamfile.txt' from the content of the stream</p>
+<p>  $x->addFileFromStream('streamfile.txt', $fp);</p>
+<p>@return void</p>
+
+<p>addFileFromPsr7Stream</p>
+<p>Add an open stream to the archive.</p>
+<p>@param String $name - path of file in archive (including directory).</p>
+<p>@param StreamInterface $stream - contents of file as a stream resource</p>
+<p>@param FileOptions $options</p>
+<p>File Options:</p>
+<p> time     - Last-modified timestamp (seconds since the epoch) of</p>
+<p>            this file.  Defaults to the current time.</p>
+<p> comment  - Comment related to this file.</p>
+<p>Examples:</p>
+<p>  // create a temporary file stream and write text to it</p>
+<p>  $fp = tmpfile();</p>
+<p>  fwrite($fp, 'The quick brown fox jumped over the lazy dog.');</p>
+<p>  // add a file named 'streamfile.txt' from the content of the stream</p>
+<p>  $x->addFileFromPsr7Stream('streamfile.txt', $fp);</p>
+<p>@return void</p>
+
+<p>finish</p>
+<p>Write zip footer to stream.</p>
+<p> Example:</p>
+<p>  // add a list of files to the archive</p>
+<p>  $files = array('foo.txt', 'bar.jpg');</p>
+<p>  foreach ($files as $path)</p>
+<p>    $zip->addFile($path, file_get_contents($path));</p>
+<p>  // write footer to stream</p>
+<p>  $zip->finish();</p>
+<p>@return void</p>
+<p>@throws OverflowException</p>
+
+<p>Send ZIP64 CDR EOF (Central Directory Record End-of-File) record.</p>
+<p>@return void</p>
+
+<p>Create a format string and argument list for pack(), then call</p>
+<p>pack() and return the result.</p>
+<p>@param array $fields</p>
+<p>@return string</p>
+
+<p>Send string, sending HTTP headers if necessary.</p>
+<p>Flush output after write if configure option is set.</p>
+<p>@param String $str</p>
+<p>@return void</p>
+
+<p>Send HTTP headers for this stream.</p>
+<p>@return void</p>
+
+<p>Send ZIP64 CDR Locator (Central Directory Record Locator) record.</p>
+<p>@return void</p>
+
+<p>Send CDR EOF (Central Directory Record End-of-File) record.</p>
+<p>@return void</p>
+
+<p>Clear all internal variables. Note that the stream object is not</p>
+<p>usable after this.</p>
+<p>@return void</p>
+
+<p>Is this file larger than large_file_size?</p>
+<p>@param string $path</p>
+<p>@return bool</p>
+
+<p>Save file attributes for trailing CDR record.</p>
+<p>@param File $file</p>
+<p>@return void</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>header</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\maennchen\zipstream-php\src\ZipStream.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZipStream\ZipStream</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(?string $name = null, ?ArchiveOptions $opt = null)</code></li>
+<li><code>addFile(string $name, string $data, ?FileOptions $options = null)</code></li>
+<li><code>addFileFromPath(string $name, string $path, ?FileOptions $options = null)</code></li>
+<li><code>addFileFromStream(string $name, $stream, ?FileOptions $options = null)</code></li>
+<li>`addFileFromPsr7Stream(string $name,</li>
+<p>        StreamInterface $stream,</p>
+<p>        ?FileOptions $options = null)`</p>
+<li><code>finish()</code></li>
+<li><code>addCdr64Eof()</code></li>
+<li><code>packFields(array $fields)</code></li>
+<li><code>send(string $str)</code></li>
+<li><code>sendHttpHeaders()</code></li>
+<li><code>addCdr64Locator()</code></li>
+<li><code>addCdrEof()</code></li>
+<li><code>clear()</code></li>
+<li><code>isLargeFile(string $path)</code></li>
+<li><code>addToCdr(File $file)</code></li>
+</ul>
+</body></html>

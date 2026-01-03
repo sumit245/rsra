@@ -1,0 +1,100 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\CommentConsumer.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\CommentConsumer.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\CommentConsumer.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3690 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of the ZBateson\MailMimeParser project.</p>
+<p>@license http://opensource.org/licenses/bsd-license.php BSD</p>
+
+<p>Consumes all tokens within parentheses as comments.</p>
+
+<p>Parenthetical comments in mime-headers can be nested within one</p>
+<p>another.  The outer-level continues after an inner-comment ends.</p>
+<p>Additionally, quoted-literals may exist with comments as well meaning</p>
+<p>a parenthesis inside a quoted string would not begin or end a comment</p>
+<p>section.</p>
+
+<p>In order to satisfy these specifications, CommentConsumer inherits</p>
+<p>from GenericConsumer which defines CommentConsumer and</p>
+<p>QuotedStringConsumer as sub-consumers.</p>
+
+<p>Examples:</p>
+<p>X-Mime-Header: Some value (comment)</p>
+<p>X-Mime-Header: Some value (comment (nested comment) still in comment)</p>
+<p>X-Mime-Header: Some value (comment "and part of original ) comment" -</p>
+<p>     still a comment)</p>
+<p>@author Zaahid Bateson</p>
+
+<p>Returns patterns matching open and close parenthesis characters</p>
+<p>as separators.</p>
+
+<p>@return string[] the patterns</p>
+
+<p>Returns true if the token is an open parenthesis character, '('.</p>
+
+<p>@param string $token</p>
+<p>@return bool</p>
+
+<p>Returns true if the token is a close parenthesis character, ')'.</p>
+
+<p>@param string $token</p>
+<p>@return bool</p>
+
+<p>Instantiates and returns Part\Token objects.  Tokens from this</p>
+<p>and sub-consumers are combined into a Part\CommentPart in</p>
+<p>combineParts.</p>
+
+<p>@param string $token</p>
+<p>@param bool $isLiteral</p>
+<p>@return \ZBateson\MailMimeParser\Header\Part\HeaderPart</p>
+
+<p>Calls $tokens->next() and returns.</p>
+
+<p>The default implementation checks if the current token is an end token,</p>
+<p>and will not advance past it.  Because a comment part of a header can be</p>
+<p>nested, its implementation must advance past its own 'end' token.</p>
+
+<p>@param Iterator $tokens</p>
+<p>@param bool $isStartToken</p>
+
+<p>Post processing involves creating a single Part\CommentPart out of</p>
+<p>generated parts from tokens.  The Part\CommentPart is returned in an</p>
+<p>array.</p>
+
+<p>@param \ZBateson\MailMimeParser\Header\Part\HeaderPart[] $parts</p>
+<p>@return \ZBateson\MailMimeParser\Header\Part\HeaderPart[]|array</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>GenericConsumer</code></li>
+<li><code>this</code></li>
+<li><code>tokens</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Imap\mail-mime-parser\vendor\zbateson\mail-mime-parser\src\Header\Consumer\CommentConsumer.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ZBateson\MailMimeParser\Header\Consumer\CommentConsumer extends GenericConsumer</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>getTokenSeparators()</code></li>
+<li><code>isStartToken($token)</code></li>
+<li><code>isEndToken($token)</code></li>
+<li><code>getPartForToken($token, $isLiteral)</code></li>
+<li><code>advanceToNextToken(Iterator $tokens, $isStartToken)</code></li>
+<li><code>processParts(array $parts)</code></li>
+</ul>
+</body></html>

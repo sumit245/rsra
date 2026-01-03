@@ -1,0 +1,693 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>plugins\Purchase\Controllers\Purchase.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>plugins\Purchase\Controllers\Purchase.php</h1>
+
+<ul>
+<li>Path: <code>plugins\Purchase\Controllers\Purchase.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 195821 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This class describes a purchase.</p>
+
+<p>Constructs a new instance.</p>
+
+<p>{ vendors }</p>
+
+<p>{ settings }</p>
+<p>@return     view</p>
+
+<p>{ list unit data }</p>
+
+<p>{ delete unit }</p>
+<p>@param        $id     The identifier</p>
+
+<p>{ modal unit form }</p>
+
+<p>{ unit save }</p>
+
+<p>{ function_description }</p>
+
+<p>{ modal unit form }</p>
+
+<p>{ commodity group save }</p>
+
+<p>{ delete sub group }</p>
+<p>@param        $id     The identifier</p>
+
+<p>{ list subgroup data }</p>
+
+<p>{ modal unit form }</p>
+
+<p>{ sub group save }</p>
+
+<p>{ delete sub group }</p>
+<p>@param        $id     The identifier</p>
+
+<p>{ pur order setting }</p>
+
+<p>{ list vendor category data }</p>
+
+<p>{ modal vendor category form }</p>
+<p>@return       ( modal vendor category form )</p>
+
+<p>{ sub group save }</p>
+
+<p>{ delete sub group }</p>
+<p>@param        $id     The identifier</p>
+
+<p>{ purchase order setting }</p>
+<p>@return  json</p>
+
+<p>{ purchase order setting }</p>
+<p>@return  json</p>
+
+<p>{ purchase order setting }</p>
+<p>@return  json</p>
+
+<p>{ purchase order setting }</p>
+<p>@return  json</p>
+
+<p>{ purchase order setting }</p>
+<p>@return  json</p>
+
+<p>{ purchase order setting }</p>
+<p>@return  json</p>
+
+<p>commodity type modal form</p>
+<p>@return [type]</p>
+
+<p>Gets the approval setting row template.</p>
+
+<p>list commodity type data</p>
+<p>@return [type]</p>
+
+<p>_make commodity type row</p>
+<p>@param  [type] $data</p>
+<p>@return [type]</p>
+
+<p>approval setting</p>
+<p>@return redirect</p>
+
+<p>table commodity list</p>
+<p>@return [type]</p>
+
+<p>Handle bulk actions for commodity list</p>
+
+<p>delete approval setting</p>
+<p>@param  integer $id</p>
+<p>@return redirect</p>
+
+<p>{ items }</p>
+
+<p>modal form</p>
+<p>@return [type]</p>
+
+<p>commodity list add edit</p>
+<p>@param  integer $id</p>
+<p>@return json</p>
+
+<p>delete modal form</p>
+<p>@return [type]</p>
+
+<p>delete modal form</p>
+<p>@return [type]</p>
+
+<p>delete modal form</p>
+<p>@return [type]</p>
+
+<p>{ delete pur order modal }</p>
+
+<p>delete modal form</p>
+<p>@return [type]</p>
+
+<p>delete modal form</p>
+<p>@return [type]</p>
+
+<p>delete commodity</p>
+<p>@param  integer $id</p>
+<p>@return redirect</p>
+
+<p>delete commodity</p>
+<p>@param  integer $id</p>
+<p>@return redirect</p>
+
+<p>delete commodity</p>
+<p>@param  integer $id</p>
+<p>@return redirect</p>
+
+<p>delete commodity</p>
+<p>@param  integer $id</p>
+<p>@return redirect</p>
+
+<p>delete commodity</p>
+<p>@param  integer $id</p>
+<p>@return redirect</p>
+
+<p>warehouse delete bulk action</p>
+<p>@return</p>
+
+<p>{ vendor }</p>
+<p>@param      string  $id     The identifier</p>
+
+<p>Determines if vendor code exists.</p>
+
+<p>{ vendor items }</p>
+
+<p>{ vendor items table }</p>
+
+<p>delete vendor items</p>
+<p>@param  integer $id</p>
+<p>@return redirect</p>
+
+<p>{ new vendor items }</p>
+
+<p>{ group item change }</p>
+
+<p>get commodity</p>
+<p>@param  boolean $id</p>
+<p>@return array or object</p>
+
+<p>caculator sale price</p>
+<p>@return float</p>
+
+<p>caculator purchase price</p>
+<p>@return json</p>
+
+<p>caculator purchase price</p>
+<p>@return [type]</p>
+
+<p>{ purchase request }</p>
+
+<p>{ table pur request }</p>
+
+<p>{Add or update purchase request from form }</p>
+
+<p>Gets the item by identifier.</p>
+<p>@param          $id             The identifier</p>
+<p>@param      bool|int  $get_warehouse  The get warehouse</p>
+<p>@param      bool      $warehouse_id   The warehouse identifier</p>
+
+<p>Gets the purchase request row template.</p>
+
+<p>Gets the currency rate.</p>
+
+<p>{ coppy sale invoice }</p>
+
+<p>{ coppy sale estimate }</p>
+
+<p>Get purchase request items for auto-population in purchase order</p>
+
+<p>{ view pur request }</p>
+<p>@param      <type>  $id     The identifier</p>
+<p>@return view</p>
+
+<p>{ purchase request pdf }</p>
+<p>@param      <type>  $id     The identifier</p>
+<p>@return pdf output</p>
+
+<p>Sends a request approve.</p>
+<p>@return  json</p>
+
+<p>Adds a comment to purchase request</p>
+<p>@return json</p>
+
+<p>wh_create_notification</p>
+<p>@param  array  $data</p>
+<p>@return [type]</p>
+
+<p>{ approve request }</p>
+<p>@return json</p>
+
+<p>{ purchase request attachment }</p>
+
+<p>{ preview purchase order file }</p>
+<p>@param      <type>  $id      The identifier</p>
+<p>@param      <type>  $rel_id  The relative identifier</p>
+<p>@return  view</p>
+
+<p>{ delete purchase order attachment }</p>
+<p>@param      <type>  $id     The identifier</p>
+
+<p>{ share_request_modal }</p>
+<p>@param        $pur_request  The pur request</p>
+
+<p>{ share request }</p>
+<p>@param        $pur_request_id  The pur request identifier</p>
+
+<p>{ quotations }</p>
+<p>@param      string  $id     The identifier</p>
+<p>@return     view</p>
+
+<p>{ table pur request }</p>
+
+<p>{ function_description }</p>
+<p>@param      string  $id     The identifier</p>
+<p>@return     redirect</p>
+
+<p>Gets the quotation row template.</p>
+
+<p>{ estimate by vendor }</p>
+<p>@param      <type>  $vendor  The vendor</p>
+<p>@return json</p>
+
+<p>{ validate estimate number }</p>
+
+<p>{ view quotation }</p>
+
+<p>Uploads a purchase estimate attachment.</p>
+<p>@param      string  $id  The purchase order</p>
+<p>@return redirect</p>
+
+<p>{ preview purchase order file }</p>
+<p>@param      <type>  $id      The identifier</p>
+<p>@param      <type>  $rel_id  The relative identifier</p>
+<p>@return  view</p>
+
+<p>{ purchase estimate pdf }</p>
+
+<p>{ change status pur estimate }</p>
+<p>@param      <type>  $status  The status</p>
+<p>@param      <type>  $id      The identifier</p>
+<p>@return json</p>
+
+<p>{ coppy pur request }</p>
+<p>@param        $pur_request  The purchase request id</p>
+<p>@return json</p>
+
+<p>{ delete purchase order attachment }</p>
+<p>@param        $id     The identifier</p>
+
+<p>{ purchase order }</p>
+<p>@param      string  $id     The identifier</p>
+<p>@return view</p>
+
+<p>view commodity detail</p>
+<p>@param  [integer] $commodity_id</p>
+<p>@return [type]</p>
+
+<p>{ table pur request }</p>
+
+<p>{ purchase order form }</p>
+<p>@param      string  $id     The identifier</p>
+<p>@return redirect, view</p>
+
+<p>Gets the purchase order row template.</p>
+
+<p>{ function_description }</p>
+<p>@param      <type>  $id     The identifier</p>
+
+<p>Uploads a purchase order attachment.</p>
+<p>@param      string  $id  The purchase order</p>
+<p>@return redirect</p>
+
+<p>{ preview purchase order file }</p>
+<p>@param      <type>  $id      The identifier</p>
+<p>@param      <type>  $rel_id  The relative identifier</p>
+<p>@return  view</p>
+
+<p>{ delete purchase order attachment }</p>
+<p>@param      <type>  $id     The identifier</p>
+
+<p>{ change status pur order }</p>
+<p>@param      <type>  $status  The status</p>
+<p>@param      <type>  $id      The identifier</p>
+<p>@return json</p>
+
+<p>{ change Delivery status pur order }</p>
+<p>@param      <type>  $status  The status</p>
+<p>@param      <type>  $id      The identifier</p>
+<p>@return json</p>
+
+<p>{ update delivery status }</p>
+<p>@param      <type>  $pur_order  The pur order</p>
+<p>@param      <type>  $status     The status</p>
+
+<p>{ purchase estimate pdf }</p>
+
+<p>{ function_description }</p>
+
+<p>Adds an expense.</p>
+
+<p>{ coppy pur request }</p>
+<p>@param      <type>  $pur_request  The purchase request id</p>
+<p>@return json</p>
+
+<p>{ coppy pur estimate }</p>
+<p>@param        $pur_estimate  The purchase estimate id</p>
+<p>@return  json</p>
+
+<p>{ coppy sale invoice }</p>
+
+<p>{ invoices }</p>
+<p>@return view</p>
+
+<p>{ table pur invoices }</p>
+
+<p>{ purchase invoice }</p>
+<p>@param      string  $id     The identifier</p>
+
+<p>{ pur invoice form }</p>
+<p>@return redirect</p>
+
+<p>Gets the purchase order row template.</p>
+
+<p>{ purchase invoice }</p>
+<p>@param       $id     The identifier</p>
+
+<p>{ purchase invoice attachment }</p>
+
+<p>{ preview purchase order file }</p>
+<p>@param      <type>  $id      The identifier</p>
+<p>@param      <type>  $rel_id  The relative identifier</p>
+<p>@return  view</p>
+
+<p>{ delete purchase order attachment }</p>
+<p>@param      <type>  $id     The identifier</p>
+
+<p>Adds a payment modal.</p>
+
+<p>{ vendors change }</p>
+
+<p>Adds a payment for invoice.</p>
+<p>@param      <type>  $pur_order  The purchase order id</p>
+<p>@return  redirect</p>
+
+<p>{ purchase order change }</p>
+<p>@param      <type>  $ct</p>
+
+<p>{ payment invoice }</p>
+<p>@param       $id     The identifier</p>
+<p>@return view</p>
+
+<p>{ delete pur invoice modal }</p>
+
+<p>{ delete pur invoice }</p>
+<p>@param        $id     The identifier</p>
+
+<p>{ delete pur invoice modal }</p>
+
+<p>{ delete payment }</p>
+<p>@param       $id         The identifier</p>
+<p>@param        $pur_order  The pur order</p>
+<p>@return  redirect</p>
+
+<p>{ table pur request }</p>
+
+<p>{ table pur request }</p>
+
+<p>{ table pur request }</p>
+
+<p>{ function_description }</p>
+
+<p>{ vendor portal items }</p>
+
+<p>{ vendor contacts }</p>
+<p>@param      <type>  $client_id  The client identifier</p>
+
+<p>{ function_description }</p>
+
+<p>{ form contact }</p>
+<p>@param      string  $customer_id  The customer identifier</p>
+<p>@param      string  $contact_id   The contact identifier</p>
+
+<p>{ delete pur invoice modal }</p>
+
+<p>{ delete payment }</p>
+<p>@param       $id         The identifier</p>
+<p>@param        $pur_order  The pur order</p>
+<p>@return  redirect</p>
+
+<p>Determines if contact email exists.</p>
+
+<p>Adds update vendor items.</p>
+<p>@param      string  $id     The identifier</p>
+<p>@return       view</p>
+
+<p>{ detail item }</p>
+
+<p>{ share_item }</p>
+
+<p>delete modal form</p>
+<p>@return [type]</p>
+
+<p>delete vendor items</p>
+<p>@param  integer $id</p>
+<p>@return redirect</p>
+
+<p>Sends an PO modal form.</p>
+<p>@param        $po_id  The PO identifier</p>
+<p>@return       view</p>
+
+<p>Gets the send po template.</p>
+<p>@param      int     $po_id         The po identifier</p>
+<p>@param      int     $contact_id    The contact identifier</p>
+<p>@param      string  $return_type   The return type</p>
+<p>@param      string  $po_info       The po information</p>
+<p>@param      string  $contact_info  The contact information</p>
+<p>@return       The send po template.</p>
+
+<p>Sends an invoice.</p>
+
+<p>Sends an PQ modal form.</p>
+<p>@param        $pq_id  The PO identifier</p>
+<p>@return       view</p>
+
+<p>Gets the send pq template.</p>
+<p>@param      int     $po_id         The po identifier</p>
+<p>@param      int     $contact_id    The contact identifier</p>
+<p>@param      string  $return_type   The return type</p>
+<p>@param      string  $po_info       The po information</p>
+<p>@param      string  $contact_info  The contact information</p>
+<p>@return       The send po template.</p>
+
+<p>Sends an invoice.</p>
+
+<p>Sends an PQ modal form.</p>
+<p>@param        $pq_id  The PO identifier</p>
+<p>@return       view</p>
+
+<p>Gets the send pr template.</p>
+<p>@param      int     $pr_id         The pr identifier</p>
+<p>@param      int     $contact_id    The contact identifier</p>
+<p>@param      string  $return_type   The return type</p>
+<p>@param      string  $pr_info       The pr information</p>
+<p>@param      string  $contact_info  The contact information</p>
+<p>@return       The send po template.</p>
+
+<p>Sends an invoice.</p>
+
+<h2>References</h2>
+
+<p><strong>Models Used</strong></p>
+<ul>
+<li><code>Purchase_model</code></li>
+<li><code>Users_model</code></li>
+<li><code>Items_model</code></li>
+<li><code>Item_categories_model</code></li>
+<li><code>Taxes_model</code></li>
+<li><code>Team_model</code></li>
+<li><code>Invoices_model</code></li>
+<li><code>Estimates_model</code></li>
+<li><code>Projects_model</code></li>
+<li><code>purchase_model</code></li>
+<li><code>Invoice_items_model</code></li>
+<li><code>Estimate_items_model</code></li>
+<li><code>Clients_model</code></li>
+<li><code>Expenses_model</code></li>
+<li><code>Expense_categories_model</code></li>
+<li><code>Custom_fields_model</code></li>
+<li><code>Payment_methods_model</code></li>
+<li><code>Social_links_model</code></li>
+<li><code>Email_templates_model</code></li>
+</ul>
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>for</code></li>
+<li><code>as</code></li>
+<li><code>form</code></li>
+<li><code>plugin</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>plugins\Purchase\Controllers\Purchase.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Purchase\Controllers\describes</code></li>
+<li><code>Purchase\Controllers\Purchase extends Security_Controller</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>vendors()</code></li>
+<li><code>list_vendor_data()</code></li>
+<li><code>_make_vendor_row($data)</code></li>
+<li><code>settings()</code></li>
+<li><code>list_unit_data()</code></li>
+<li><code>_make_unit_row($data)</code></li>
+<li><code>delete_unit()</code></li>
+<li><code>modal_unit_form($id = '')</code></li>
+<li><code>unit_save()</code></li>
+<li><code>list_item_categories_data()</code></li>
+<li><code>_make_item_category_row($data)</code></li>
+<li><code>modal_commodity_group_form($id = '')</code></li>
+<li><code>commodity_group_save()</code></li>
+<li><code>delete_commodity_group()</code></li>
+<li><code>list_subgroup_data()</code></li>
+<li><code>_make_subgroup_row($data)</code></li>
+<li><code>modal_sub_group_form($id = '')</code></li>
+<li><code>sub_group_save()</code></li>
+<li><code>delete_sub_group()</code></li>
+<li><code>pur_order_setting()</code></li>
+<li><code>list_vendor_category_data()</code></li>
+<li><code>_make_vendor_category_row($data)</code></li>
+<li><code>modal_vendor_category_form($id = '')</code></li>
+<li><code>vendor_category_save()</code></li>
+<li><code>delete_vendor_category()</code></li>
+<li><code>purchase_order_setting()</code></li>
+<li><code>item_by_vendor()</code></li>
+<li><code>send_email_welcome_for_new_contact()</code></li>
+<li><code>show_tax_column()</code></li>
+<li><code>po_only_prefix_and_number()</code></li>
+<li><code>reset_purchase_order_number_every_month()</code></li>
+<li><code>modal_approval_setting_form()</code></li>
+<li><code>get_approval_setting_row_template()</code></li>
+<li><code>list_approval_setting_data()</code></li>
+<li><code>_make_approval_setting_row($data)</code></li>
+<li><code>approval_setting($id = '')</code></li>
+<li><code>table_commodity_list()</code></li>
+<li><code>bulk_action_handler()</code></li>
+<li><code>add_filter(&$where, $field, $value, $prefix)</code></li>
+<li><code>delete_approval_setting()</code></li>
+<li><code>items()</code></li>
+<li><code>item_modal_form()</code></li>
+<li><code>commodity_list_add_edit($id = '')</code></li>
+<li><code>delete_modal_form()</code></li>
+<li><code>delete_vendor_modal_form()</code></li>
+<li><code>delete_estimate_modal()</code></li>
+<li><code>delete_pur_order_modal()</code></li>
+<li><code>delete_pur_request_modal()</code></li>
+<li><code>delete_vendor_item_modal_form()</code></li>
+<li><code>delete_vendor()</code></li>
+<li><code>delete_pur_request()</code></li>
+<li><code>delete_pur_estimate()</code></li>
+<li><code>delete_pur_order()</code></li>
+<li><code>delete_commodity()</code></li>
+<li><code>purchase_delete_bulk_action()</code></li>
+<li><code>vendor($id = '')</code></li>
+<li><code>vendor_code_exists()</code></li>
+<li><code>vendor_items()</code></li>
+<li><code>vendor_items_table()</code></li>
+<li><code>delete_vendor_items()</code></li>
+<li><code>new_vendor_items()</code></li>
+<li><code>group_it_change($group = '')</code></li>
+<li><code>get_item($id = false)</code></li>
+<li><code>caculator_sale_price()</code></li>
+<li><code>caculator_profit_rate()</code></li>
+<li><code>caculator_purchase_price()</code></li>
+<li><code>purchase_request()</code></li>
+<li><code>table_pur_request()</code></li>
+<li><code>pur_request($id = '')</code></li>
+<li><code>get_item_by_id($id, $currency_rate = 1)</code></li>
+<li><code>get_item_by_id1($id, $currency_rate = 1)</code></li>
+<li><code>get_item_by_id_1($id, $currency_rate = 1)</code></li>
+<li><code>get_purchase_request_row_template()</code></li>
+<li><code>get_purchase_request_row_template()</code></li>
+<li><code>get_currency_rate($pr_currency)</code></li>
+<li><code>coppy_sale_invoice($invoice_id)</code></li>
+<li><code>coppy_sale_estimate($estimate_id)</code></li>
+<li><code>get_pur_request_items()</code></li>
+<li><code>view_pur_request($id)</code></li>
+<li><code>pur_request_pdf($id, $send = '')</code></li>
+<li><code>send_request_approve()</code></li>
+<li><code>add_comment()</code></li>
+<li><code>send_mail()</code></li>
+<li><code>pur_create_notification($data = [])</code></li>
+<li><code>approve_request()</code></li>
+<li><code>purchase_request_attachment($id)</code></li>
+<li><code>file_purrequest($id, $rel_id)</code></li>
+<li><code>delete_purrequest_attachment($id)</code></li>
+<li><code>share_request_modal($pur_request_id)</code></li>
+<li><code>share_request($pur_request_id)</code></li>
+<li><code>quotations()</code></li>
+<li><code>table_estimates()</code></li>
+<li><code>estimate($id = '')</code></li>
+<li><code>get_quotation_row_template()</code></li>
+<li><code>estimate_by_vendor($vendor)</code></li>
+<li><code>validate_estimate_number()</code></li>
+<li><code>view_quotation($id)</code></li>
+<li><code>purchase_estimate_attachment($id)</code></li>
+<li><code>file_pur_estimate($id, $rel_id)</code></li>
+<li><code>purestimate_pdf($id, $send = '')</code></li>
+<li><code>change_status_pur_estimate($status, $id)</code></li>
+<li><code>coppy_pur_request($pur_request)</code></li>
+<li><code>delete_estimate_attachment($id)</code></li>
+<li><code>purchase_orders()</code></li>
+<li><code>view_commodity_detail($commodity_id)</code></li>
+<li><code>table_pur_order()</code></li>
+<li><code>pur_order($id = '')</code></li>
+<li><code>get_purchase_order_row_template()</code></li>
+<li><code>view_pur_order($id)</code></li>
+<li><code>purchase_order_attachment($id)</code></li>
+<li><code>file_pur_order($id, $rel_id)</code></li>
+<li><code>delete_purorder_attachment($id)</code></li>
+<li><code>change_status_pur_order($status, $id)</code></li>
+<li><code>change_delivery_status_pur_order($status, $id)</code></li>
+<li><code>mark_pur_order_as($status, $pur_order)</code></li>
+<li><code>purorder_pdf($id, $send = '')</code></li>
+<li><code>convert_expense_modal_form($pur_order_id)</code></li>
+<li><code>add_expense()</code></li>
+<li><code>coppy_pur_request_for_po($pur_request, $vendor = '')</code></li>
+<li><code>coppy_pur_estimate($pur_estimate_id)</code></li>
+<li><code>coppy_sale_invoice_po($invoice_id)</code></li>
+<li><code>invoices()</code></li>
+<li><code>table_pur_invoices()</code></li>
+<li><code>pur_invoice($id = '')</code></li>
+<li><code>pur_invoice_form()</code></li>
+<li><code>get_purchase_invoice_row_template()</code></li>
+<li><code>purchase_invoice($id)</code></li>
+<li><code>purchase_invoice_attachment($id)</code></li>
+<li><code>file_pur_invoice($id, $rel_id)</code></li>
+<li><code>delete_purinv_attachment($id)</code></li>
+<li><code>add_payment_modal($invoice_id)</code></li>
+<li><code>pur_vendors_change($vendor)</code></li>
+<li><code>add_invoice_payment($invoice)</code></li>
+<li><code>pur_order_change($ct)</code></li>
+<li><code>payment_invoice($id)</code></li>
+<li><code>delete_pur_invoice_modal()</code></li>
+<li><code>delete_pur_invoice()</code></li>
+<li><code>delete_payment_pur_invoice_modal()</code></li>
+<li><code>delete_payment_pur_invoice()</code></li>
+<li><code>table_vendor_quotations($vendor_id)</code></li>
+<li><code>table_vendor_pur_order($vendor_id)</code></li>
+<li><code>table_vendor_pur_invoices($vendor_id)</code></li>
+<li><code>vendor_contact_profile($contact_id = 0, $tab = "")</code></li>
+<li><code>vendor_portal_items()</code></li>
+<li><code>vendor_contacts($vendor_id)</code></li>
+<li><code>vendor_contact_modal_form($customer_id, $contact_id = '')</code></li>
+<li><code>form_contact($customer_id, $contact_id = '')</code></li>
+<li><code>delete_contact_modal()</code></li>
+<li><code>delete_vendor_contact()</code></li>
+<li><code>contact_email_exists()</code></li>
+<li><code>add_update_vendor_items($id = '')</code></li>
+<li><code>detail_vendor_item($item_id)</code></li>
+<li><code>share_item($item_id)</code></li>
+<li><code>delete_vendor_item_modal()</code></li>
+<li><code>delete_vendor_item()</code></li>
+<li><code>send_po_modal_form($po_id)</code></li>
+<li><code>get_send_po_template($po_id = 0, $contact_id = 0, $return_type = "", $po_info = "", $contact_info = "")</code></li>
+<li><code>send_po()</code></li>
+<li><code>upload_file()</code></li>
+<li><code>validate_invoices_file()</code></li>
+<li><code>send_pq_modal_form($pq_id)</code></li>
+<li><code>get_send_pq_template($pq_id = 0, $contact_id = 0, $return_type = "", $pq_info = "", $contact_info = "")</code></li>
+<li><code>send_pur_quotation()</code></li>
+<li><code>send_pr_modal_form($pr_id)</code></li>
+<li><code>get_send_pr_template($pr_id = 0, $contact_id = 0, $return_type = "", $pr_info = "", $contact_info = "")</code></li>
+<li><code>send_pur_request()</code></li>
+</ul>
+</body></html>

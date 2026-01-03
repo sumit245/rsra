@@ -1,0 +1,687 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\Core32\Curve25519.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\Core32\Curve25519.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\Core32\Curve25519.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 134754 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>Class ParagonIE_Sodium_Core32_Curve25519</p>
+<p>Implements Curve25519 core functions</p>
+<p>Based on the ref10 curve25519 code provided by libsodium</p>
+<p>@ref https://github.com/jedisct1/libsodium/blob/master/src/libsodium/crypto_core/curve25519/ref10/curve25519_ref10.c</p>
+
+<p>Get a field element of size 10 with a value of 0</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Fe</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>Get a field element of size 10 with a value of 1</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Fe</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>Add two field elements.</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Fe $f</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Fe $g</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Fe</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedAssignment</p>
+<p>@psalm-suppress MixedMethodCall</p>
+
+<p>@var array<int, ParagonIE_Sodium_Core32_Int32> $arr</p>
+
+<p>Constant-time conditional move.</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Fe $f</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Fe $g</p>
+<p>@param int $b</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Fe</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedAssignment</p>
+<p>@psalm-suppress MixedMethodCall</p>
+
+<p>@var array<int, ParagonIE_Sodium_Core32_Int32> $h</p>
+
+<p>@var array<int, ParagonIE_Sodium_Core32_Int32> $h</p>
+
+<p>Create a copy of a field element.</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Fe $f</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Fe</p>
+
+<p>Give: 32-byte string.</p>
+<p>Receive: A field element object to use for internal calculations.</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param string $s</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Fe</p>
+<p>@throws RangeException</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedMethodCall</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $h0</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $h1</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $h2</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $h3</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $h4</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $h5</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $h6</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $h7</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $h8</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32 $h9</p>
+
+<p>Convert a field element to a byte string.</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Fe $h</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedAssignment</p>
+<p>@psalm-suppress MixedMethodCall</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64[] $f</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $q</p>
+
+<p>@var int $h0</p>
+
+<p>@var int $h1</p>
+
+<p>@var int $h2</p>
+
+<p>@var int $h3</p>
+
+<p>@var int $h4</p>
+
+<p>@var int $h5</p>
+
+<p>@var int $h6</p>
+
+<p>@var int $h7</p>
+
+<p>@var int $h8</p>
+
+<p>@var int $h9</p>
+
+<p>@var array<int, int></p>
+
+<p>Is a field element negative? (1 = yes, 0 = no. Used in calculations.)</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Fe $f</p>
+<p>@return int</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>Returns 0 if this field element results in all NUL bytes.</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Fe $f</p>
+<p>@return bool</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var string $str</p>
+
+<p>@var string $zero</p>
+
+<p>Multiply two field elements</p>
+<p>h = f * g</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@security Is multiplication a source of timing leaks? If so, can we do</p>
+<p>          anything to prevent that from happening?</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Fe $f</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Fe $g</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Fe</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int32[] $f</p>
+<p>@var ParagonIE_Sodium_Core32_Int32[] $g</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $f0</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $f1</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $f2</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $f3</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $f4</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $f5</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $f6</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $f7</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $f8</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $f9</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $g0</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $g1</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $g2</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $g3</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $g4</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $g5</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $g6</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $g7</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $g8</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $g9</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $f1_2</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $f3_2</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $f5_2</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $f7_2</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $f9_2</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $h0</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $h1</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $h2</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $h3</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $h4</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $h5</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $h6</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $h7</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $h8</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $h9</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $carry0</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $carry1</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $carry2</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $carry3</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $carry4</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $carry5</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $carry6</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $carry7</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $carry8</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $carry9</p>
+
+<p>Get the negative values for each piece of the field element.</p>
+<p>h = -f</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Fe $f</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Fe</p>
+<p>@psalm-suppress MixedAssignment</p>
+<p>@psalm-suppress MixedMethodCall</p>
+
+<p>Square a field element</p>
+<p>h = f * f</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Fe $f</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Fe</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedMethodCall</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $f0</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $f1</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $f2</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $f3</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $f4</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $f5</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $f6</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $f7</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $f8</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $f9</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $f0_2</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $f0f0</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $h0</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $h1</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $h2</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $h3</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $h4</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $h5</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $h6</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $h7</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $h8</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $h9</p>
+
+<p>Square and double a field element</p>
+<p>h = 2 * f * f</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Fe $f</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Fe</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedMethodCall</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $f0</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $f1</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $f2</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $f3</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $f4</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $f5</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $f6</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $f7</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $f8</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $f9</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $h0</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $h1</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $h2</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $h3</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $h4</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $h5</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $h6</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $h7</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $h8</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $h9</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Fe $Z</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Fe</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@ref https://github.com/jedisct1/libsodium/blob/68564326e1e9dc57ef03746f85734232d20ca6fb/src/libsodium/crypto_core/curve25519/ref10/curve25519_ref10.c#L1054-L1106</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Fe $z</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Fe</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>Subtract two field elements.</p>
+<p>h = f - g</p>
+<p>Preconditions:</p>
+<p>|f| bounded by 1.1*2^25,1.1*2^24,1.1*2^25,1.1*2^24,etc.</p>
+<p>|g| bounded by 1.1*2^25,1.1*2^24,1.1*2^25,1.1*2^24,etc.</p>
+<p>Postconditions:</p>
+<p>|h| bounded by 1.1*2^26,1.1*2^25,1.1*2^26,1.1*2^25,etc.</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Fe $f</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Fe $g</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Fe</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedMethodCall</p>
+<p>@psalm-suppress MixedTypeCoercion</p>
+
+<p>Add two group elements.</p>
+<p>r = p + q</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Ge_P3 $p</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Ge_Cached $q</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Ge_P1p1</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@ref https://github.com/jedisct1/libsodium/blob/157c4a80c13b117608aeae12178b2d38825f9f8f/src/libsodium/crypto_core/curve25519/ref10/curve25519_ref10.c#L1185-L1215</p>
+<p>@param string $a</p>
+<p>@return array<int, mixed></p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArrayOffset</p>
+
+<p>@var array<int, int> $r</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param string $s</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Ge_P3</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var ParagonIE_Sodium_Core32_Curve25519_Fe $d</p>
+
+<p>@var ParagonIE_Sodium_Core32_Curve25519_Fe $d</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Ge_P1p1 $R</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Ge_P3 $p</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Ge_Precomp $q</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Ge_P1p1</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Ge_P1p1 $R</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Ge_P3 $p</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Ge_Precomp $q</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Ge_P1p1</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Ge_P1p1 $p</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Ge_P2</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Ge_P1p1 $p</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Ge_P3</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Ge_P2</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Ge_P2 $p</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Ge_P1p1</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Ge_P3</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Ge_P3 $p</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Ge_Cached</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var ParagonIE_Sodium_Core32_Curve25519_Fe $d2</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Ge_P3 $p</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Ge_P2</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Ge_P3 $h</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Ge_P3 $p</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Ge_P1p1</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Ge_Precomp</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param int $b</p>
+<p>@param int $c</p>
+<p>@return int</p>
+<p>@psalm-suppress MixedReturnStatement</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param string|int $char</p>
+<p>@return int (1 = yes, 0 = no)</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var string $char</p>
+
+<p>@var int $x</p>
+
+<p>Conditional move</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Ge_Precomp $t</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Ge_Precomp $u</p>
+<p>@param int $b</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Ge_Precomp</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param int $pos</p>
+<p>@param int $b</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Ge_Precomp</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArrayAccess</p>
+<p>@psalm-suppress MixedArrayOffset</p>
+<p>@psalm-suppress MixedArgument</p>
+
+<p>@var int $babs</p>
+
+<p>Subtract two group elements.</p>
+<p>r = p - q</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Ge_P3 $p</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Ge_Cached $q</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Ge_P1p1</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>Convert a group element to a byte string.</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Ge_P2 $h</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param string $a</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Ge_P3 $A</p>
+<p>@param string $b</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Ge_P2</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+<p>@psalm-suppress MixedArrayAccess</p>
+
+<p>@var array<int, ParagonIE_Sodium_Core32_Curve25519_Ge_Cached> $Ai</p>
+
+<p>@var array<int, ParagonIE_Sodium_Core32_Curve25519_Ge_Precomp> $Bi</p>
+
+<p>@var array<int, ParagonIE_Sodium_Core32_Curve25519_Ge_Cached> $Ai</p>
+
+<p>@var array<int, int> $aslide</p>
+
+<p>@var array<int, int> $bslide</p>
+
+<p>@var array<int, ParagonIE_Sodium_Core32_Curve25519_Ge_Precomp> $Bi</p>
+
+<p>@var int $index</p>
+
+<p>@var ParagonIE_Sodium_Core32_Curve25519_Ge_Precomp $thisB</p>
+
+<p>@var int $index</p>
+
+<p>@var ParagonIE_Sodium_Core32_Curve25519_Ge_Precomp $thisB</p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param string $a</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Ge_P3</p>
+<p>@psalm-suppress MixedAssignment</p>
+<p>@psalm-suppress MixedOperand</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var array<int, int> $e</p>
+
+<p>@var int $dbl</p>
+
+<p>@var int $carry</p>
+
+<p>@var int $carry</p>
+
+<p>@var int $carry</p>
+
+<p>@var array<int, int> $e</p>
+
+<p>Calculates (ab + c) mod l</p>
+<p>where l = 2^252 + 27742317777372353535851937790883648493</p>
+<p>@internal You should not use this directly from another application</p>
+<p>@param string $a</p>
+<p>@param string $b</p>
+<p>@param string $c</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $s0</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s1</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s2</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s3</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s4</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s5</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s6</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s7</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s8</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s9</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s10</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s11</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s12</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s13</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s14</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s15</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s16</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s17</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s18</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s19</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s20</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s21</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s22</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s23</p>
+
+<p>@var array<int, int></p>
+
+<p>@internal You should not use this directly from another application</p>
+<p>@param string $s</p>
+<p>@return string</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var ParagonIE_Sodium_Core32_Int64 $s0</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s1</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s2</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s3</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s4</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s5</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s6</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s7</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s8</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s9</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s10</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s11</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s12</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s13</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s14</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s15</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s16</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s17</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s18</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s19</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s20</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s21</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s22</p>
+<p>@var ParagonIE_Sodium_Core32_Int64 $s23</p>
+
+<p>@var array<int, int></p>
+
+<p>multiply by the order of the main subgroup l = 2^252+27742317777372353535851937790883648493</p>
+<p>@param ParagonIE_Sodium_Core32_Curve25519_Ge_P3 $A</p>
+<p>@return ParagonIE_Sodium_Core32_Curve25519_Ge_P3</p>
+<p>@throws SodiumException</p>
+<p>@throws TypeError</p>
+
+<p>@var array<int, int> $aslide</p>
+
+<p>@var array<int, ParagonIE_Sodium_Core32_Curve25519_Ge_Cached> $Ai size 8</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>another</code></li>
+<li><code>happening</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\Pusher\vendor\paragonie\sodium_compat\src\Core32\Curve25519.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>ParagonIE_Sodium_Core32_Curve25519 extends ParagonIE_Sodium_Core32_Curve25519_H</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>fe_0()</code></li>
+<li><code>fe_1()</code></li>
+<li>`fe_add(ParagonIE_Sodium_Core32_Curve25519_Fe $f,</li>
+<p>        ParagonIE_Sodium_Core32_Curve25519_Fe $g)`</p>
+<li>`fe_cmov(ParagonIE_Sodium_Core32_Curve25519_Fe $f,</li>
+<p>        ParagonIE_Sodium_Core32_Curve25519_Fe $g,</p>
+<p>        $b = 0)`</p>
+<li><code>fe_copy(ParagonIE_Sodium_Core32_Curve25519_Fe $f)</code></li>
+<li><code>fe_frombytes($s)</code></li>
+<li><code>fe_tobytes(ParagonIE_Sodium_Core32_Curve25519_Fe $h)</code></li>
+<li><code>fe_isnegative(ParagonIE_Sodium_Core32_Curve25519_Fe $f)</code></li>
+<li><code>fe_isnonzero(ParagonIE_Sodium_Core32_Curve25519_Fe $f)</code></li>
+<li>`fe_mul(ParagonIE_Sodium_Core32_Curve25519_Fe $f,</li>
+<p>        ParagonIE_Sodium_Core32_Curve25519_Fe $g)`</p>
+<li><code>fe_neg(ParagonIE_Sodium_Core32_Curve25519_Fe $f)</code></li>
+<li><code>fe_sq(ParagonIE_Sodium_Core32_Curve25519_Fe $f)</code></li>
+<li><code>fe_sq2(ParagonIE_Sodium_Core32_Curve25519_Fe $f)</code></li>
+<li><code>fe_invert(ParagonIE_Sodium_Core32_Curve25519_Fe $Z)</code></li>
+<li><code>fe_pow22523(ParagonIE_Sodium_Core32_Curve25519_Fe $z)</code></li>
+<li><code>fe_sub(ParagonIE_Sodium_Core32_Curve25519_Fe $f, ParagonIE_Sodium_Core32_Curve25519_Fe $g)</code></li>
+<li>`ge_add(ParagonIE_Sodium_Core32_Curve25519_Ge_P3 $p,</li>
+<p>        ParagonIE_Sodium_Core32_Curve25519_Ge_Cached $q)`</p>
+<li><code>slide($a)</code></li>
+<li><code>ge_frombytes_negate_vartime($s)</code></li>
+<li>`ge_madd(ParagonIE_Sodium_Core32_Curve25519_Ge_P1p1 $R,</li>
+<p>        ParagonIE_Sodium_Core32_Curve25519_Ge_P3 $p,</p>
+<p>        ParagonIE_Sodium_Core32_Curve25519_Ge_Precomp $q)`</p>
+<li>`ge_msub(ParagonIE_Sodium_Core32_Curve25519_Ge_P1p1 $R,</li>
+<p>        ParagonIE_Sodium_Core32_Curve25519_Ge_P3 $p,</p>
+<p>        ParagonIE_Sodium_Core32_Curve25519_Ge_Precomp $q)`</p>
+<li><code>ge_p1p1_to_p2(ParagonIE_Sodium_Core32_Curve25519_Ge_P1p1 $p)</code></li>
+<li><code>ge_p1p1_to_p3(ParagonIE_Sodium_Core32_Curve25519_Ge_P1p1 $p)</code></li>
+<li><code>ge_p2_0()</code></li>
+<li><code>ge_p2_dbl(ParagonIE_Sodium_Core32_Curve25519_Ge_P2 $p)</code></li>
+<li><code>ge_p3_0()</code></li>
+<li><code>ge_p3_to_cached(ParagonIE_Sodium_Core32_Curve25519_Ge_P3 $p)</code></li>
+<li><code>ge_p3_to_p2(ParagonIE_Sodium_Core32_Curve25519_Ge_P3 $p)</code></li>
+<li><code>ge_p3_tobytes(ParagonIE_Sodium_Core32_Curve25519_Ge_P3 $h)</code></li>
+<li><code>ge_p3_dbl(ParagonIE_Sodium_Core32_Curve25519_Ge_P3 $p)</code></li>
+<li><code>ge_precomp_0()</code></li>
+<li><code>equal($b, $c)</code></li>
+<li><code>negative($char)</code></li>
+<li>`cmov(ParagonIE_Sodium_Core32_Curve25519_Ge_Precomp $t,</li>
+<p>        ParagonIE_Sodium_Core32_Curve25519_Ge_Precomp $u,</p>
+<p>        $b)`</p>
+<li><code>ge_select($pos = 0, $b = 0)</code></li>
+<li>`ge_sub(ParagonIE_Sodium_Core32_Curve25519_Ge_P3 $p,</li>
+<p>        ParagonIE_Sodium_Core32_Curve25519_Ge_Cached $q)`</p>
+<li><code>ge_tobytes(ParagonIE_Sodium_Core32_Curve25519_Ge_P2 $h)</code></li>
+<li>`ge_double_scalarmult_vartime($a,</li>
+<p>        ParagonIE_Sodium_Core32_Curve25519_Ge_P3 $A,</p>
+<p>        $b)`</p>
+<li><code>ge_scalarmult_base($a)</code></li>
+<li><code>sc_muladd($a, $b, $c)</code></li>
+<li><code>sc_reduce($s)</code></li>
+<li><code>ge_mul_l(ParagonIE_Sodium_Core32_Curve25519_Ge_P3 $A)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,85 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\RowCellIterator.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\RowCellIterator.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\RowCellIterator.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 5561 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@extends CellIterator<string></p>
+
+<p>Current iterator position.</p>
+<p>@var int</p>
+
+<p>Row index.</p>
+<p>@var int</p>
+
+<p>Start position.</p>
+<p>@var int</p>
+
+<p>End position.</p>
+<p>@var int</p>
+
+<p>Create a new column iterator.</p>
+<p>@param Worksheet $worksheet The worksheet to iterate over</p>
+<p>@param int $rowIndex The row that we want to iterate</p>
+<p>@param string $startColumn The column address at which to start iterating</p>
+<p>@param string $endColumn Optionally, the column address at which to stop iterating</p>
+
+<p>(Re)Set the start column and the current column pointer.</p>
+<p>@param string $startColumn The column address at which to start iterating</p>
+<p>@return $this</p>
+
+<p>(Re)Set the end column.</p>
+<p>@param string $endColumn The column address at which to stop iterating</p>
+<p>@return $this</p>
+
+<p>Set the column pointer to the selected column.</p>
+<p>@param string $column The column address to set the current pointer at</p>
+<p>@return $this</p>
+
+<p>Rewind the iterator to the starting column.</p>
+
+<p>Return the current cell in this worksheet row.</p>
+
+<p>Return the current iterator key.</p>
+
+<p>Set the iterator to its next value.</p>
+
+<p>Set the iterator to its previous value.</p>
+
+<p>Indicate if more columns exist in the worksheet range of columns that we're iterating.</p>
+
+<p>Return the current iterator position.</p>
+
+<p>Validate start/end values for "IterateOnlyExistingCells" mode, and adjust if necessary.</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\PHPOffice-PhpSpreadsheet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\RowCellIterator.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>PhpOffice\PhpSpreadsheet\Worksheet\RowCellIterator extends CellIterator</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(Worksheet $worksheet, $rowIndex = 1, $startColumn = 'A', $endColumn = null)</code></li>
+<li><code>resetStart(string $startColumn = 'A')</code></li>
+<li><code>resetEnd($endColumn = null)</code></li>
+<li><code>seek(string $column = 'A')</code></li>
+<li><code>rewind()</code></li>
+<li><code>current()</code></li>
+<li><code>key()</code></li>
+<li><code>next()</code></li>
+<li><code>prev()</code></li>
+<li><code>valid()</code></li>
+<li><code>getCurrentColumnIndex()</code></li>
+<li><code>adjustForExistingOnlyRange()</code></li>
+</ul>
+</body></html>

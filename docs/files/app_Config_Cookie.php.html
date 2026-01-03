@@ -1,0 +1,89 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\Config\Cookie.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\Config\Cookie.php</h1>
+
+<ul>
+<li>Path: <code>app\Config\Cookie.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 3635 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Cookie Prefix</p>
+<p>--------------------------------------------------------------------------</p>
+<p>Set a cookie name prefix if you need to avoid collisions.</p>
+<p>@var string</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Cookie Expires Timestamp</p>
+<p>--------------------------------------------------------------------------</p>
+<p>Default expires timestamp for cookies. Setting this to <code>0</code> will mean the</p>
+<p>cookie will not have the <code>Expires</code> attribute and will behave as a session</p>
+<p>cookie.</p>
+<p>@var DateTimeInterface|int|string</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Cookie Path</p>
+<p>--------------------------------------------------------------------------</p>
+<p>Typically will be a forward slash.</p>
+<p>@var string</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Cookie Domain</p>
+<p>--------------------------------------------------------------------------</p>
+<p>Set to <code>.your-domain.com</code> for site-wide cookies.</p>
+<p>@var string</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Cookie Secure</p>
+<p>--------------------------------------------------------------------------</p>
+<p>Cookie will only be set if a secure HTTPS connection exists.</p>
+<p>@var bool</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Cookie HTTPOnly</p>
+<p>--------------------------------------------------------------------------</p>
+<p>Cookie will only be accessible via HTTP(S) (no JavaScript).</p>
+<p>@var bool</p>
+
+<p>--------------------------------------------------------------------------</p>
+<p>Cookie SameSite</p>
+<p>--------------------------------------------------------------------------</p>
+<p>Configure cookie SameSite setting. Allowed values are:</p>
+<ul>
+<li>None</li>
+<li>Lax</li>
+<li>Strict</li>
+<li>''</li>
+<p>Alternatively, you can use the constant names:</p>
+<li><code>Cookie::SAMESITE_NONE</code></li>
+<li><code>Cookie::SAMESITE_LAX</code></li>
+<li><code>Cookie::SAMESITE_STRICT</code></li>
+<p>Defaults to <code>Lax</code> for compatibility with modern browsers. Setting <code>''</code></p>
+<p>(empty string) means default SameSite attribute set by browsers (<code>Lax</code>)</p>
+<p>will be set on cookies. If set to <code>None</code>, <code>$secure</code> must also be set.</p>
+<p>@var string</p>
+</ul>
+<p>--------------------------------------------------------------------------</p>
+<p>Cookie Raw</p>
+<p>--------------------------------------------------------------------------</p>
+<p>This flag allows setting a "raw" cookie, i.e., its name and value are</p>
+<p>not URL encoded using <code>rawurlencode()</code>.</p>
+<p>If this is set to <code>true</code>, cookie names should be compliant of RFC 2616's</p>
+<p>list of allowed characters.</p>
+<p>@var bool</p>
+<p>@see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#attributes</p>
+<p>@see https://tools.ietf.org/html/rfc2616#section-2.2</p>
+
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\Config\Cookie.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>Config\Cookie extends BaseConfig</code></li>
+</ul>
+</body></html>

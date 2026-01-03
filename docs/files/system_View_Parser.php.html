@@ -1,0 +1,174 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>system\View\Parser.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>system\View\Parser.php</h1>
+
+<ul>
+<li>Path: <code>system\View\Parser.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 22476 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>This file is part of CodeIgniter 4 framework.</p>
+<p>(c) CodeIgniter Foundation <admin@codeigniter.com></p>
+<p>For the full copyright and license information, please view</p>
+<p>the LICENSE file that was distributed with this source code.</p>
+
+<p>Class for parsing pseudo-vars</p>
+
+<p>Left delimiter character for pseudo vars</p>
+<p>@var string</p>
+
+<p>Right delimiter character for pseudo vars</p>
+<p>@var string</p>
+
+<p>Left delimiter characters for conditionals</p>
+
+<p>Right delimiter characters for conditionals</p>
+
+<p>Stores extracted noparse blocks.</p>
+<p>@var array</p>
+
+<p>Stores any plugins registered at run-time.</p>
+<p>@var array</p>
+
+<p>Stores the context for each data element</p>
+<p>when set by <code>setData</code> so the context is respected.</p>
+<p>@var array</p>
+
+<p>Constructor</p>
+<p>@param string          $viewPath</p>
+<p>@param mixed           $loader</p>
+<p>@param bool            $debug</p>
+<p>@param LoggerInterface $logger</p>
+
+<p>Parse a template</p>
+<p>Parses pseudo-variables contained in the specified template view,</p>
+<p>replacing them with any data that has already been set.</p>
+<p>@param array $options</p>
+<p>@param bool  $saveData</p>
+
+<p>Parse a String</p>
+<p>Parses pseudo-variables contained in the specified string,</p>
+<p>replacing them with any data that has already been set.</p>
+<p>@param array $options</p>
+<p>@param bool  $saveData</p>
+
+<p>Sets several pieces of view data at once.</p>
+<p>In the Parser, we need to store the context here</p>
+<p>so that the variable is correctly handled within the</p>
+<p>parsing itself, and contexts (including raw) are respected.</p>
+<p>@param string $context The context to escape it for: html, css, js, url, raw</p>
+<p>                       If 'raw', no escaping will happen</p>
+
+<p>Parse a template</p>
+<p>Parses pseudo-variables contained in the specified template,</p>
+<p>replacing them with the data in the second param</p>
+<p>@param array $options Future options</p>
+
+<p>Parse a single key/value, extracting it</p>
+
+<p>Parse a tag pair</p>
+<p>Parses tag pairs: {some_tag} string... {/some_tag}</p>
+
+<p>Removes any comments from the file. Comments are wrapped in {# #} symbols:</p>
+<p>     {# This is a comment #}</p>
+
+<p>Extracts noparse blocks, inserting a hash in its place so that</p>
+<p>those blocks of the page are not touched by parsing.</p>
+
+<p>Re-inserts the noparsed contents back into the template.</p>
+
+<p>Parses any conditionals in the code, removing blocks that don't</p>
+<p>pass so we don't try to parse it later.</p>
+<p>Valid conditionals:</p>
+<p> - if</p>
+<p> - elseif</p>
+<p> - else</p>
+
+<p>Over-ride the substitution field delimiters.</p>
+<p>@param string $leftDelimiter</p>
+<p>@param string $rightDelimiter</p>
+
+<p>Over-ride the substitution conditional delimiters.</p>
+<p>@param string $leftDelimiter</p>
+<p>@param string $rightDelimiter</p>
+
+<p>Handles replacing a pseudo-variable with the actual content. Will double-check</p>
+<p>for escaping brackets.</p>
+<p>@param mixed  $pattern</p>
+<p>@param string $content</p>
+<p>@param string $template</p>
+
+<p>Callback used during parse() to apply any filters to the value.</p>
+
+<p>Checks the placeholder the view provided to see if we need to provide any autoescaping.</p>
+<p>@return false|string</p>
+
+<p>Given a set of filters, will apply each of the filters in turn</p>
+<p>to $replace, and return the modified string.</p>
+
+<p>Scans the template for any parser plugins, and attempts to execute them.</p>
+<p>Plugins are delimited by {+ ... +}</p>
+<p>@return string</p>
+
+<p>Match tag pairs</p>
+<p>Each match is an array:</p>
+<p>  $matches[0] = entire matched string</p>
+<p>  $matches[1] = all parameters string in opening tag</p>
+<p>  $matches[2] = content between the tags to send to the plugin.</p>
+
+<p>Makes a new plugin available during the parsing of the template.</p>
+<p>@return $this</p>
+
+<p>Removes a plugin from the available plugins.</p>
+<p>@return $this</p>
+
+<p>Converts an object to an array, respecting any</p>
+<p>toArray() methods on an object.</p>
+<p>@param mixed $value</p>
+<p>@return mixed</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>CI3</code></li>
+<li><code>the</code></li>
+<li><code>setData</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>system\View\Parser.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>CodeIgniter\View\Parser extends View</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct(ViewConfig $config, ?string $viewPath = null, $loader = null, ?bool $debug = null, ?LoggerInterface $logger = null)</code></li>
+<li><code>render(string $view, ?array $options = null, ?bool $saveData = null)</code></li>
+<li><code>renderString(string $template, ?array $options = null, ?bool $saveData = null)</code></li>
+<li><code>setData(array $data = [], ?string $context = null)</code></li>
+<li><code>parse(string $template, array $data = [], ?array $options = null)</code></li>
+<li><code>parseSingle(string $key, string $val)</code></li>
+<li><code>parsePair(string $variable, array $data, string $template)</code></li>
+<li><code>parseComments(string $template)</code></li>
+<li><code>extractNoparse(string $template)</code></li>
+<li><code>insertNoparse(string $template)</code></li>
+<li><code>parseConditionals(string $template)</code></li>
+<li><code>setDelimiters($leftDelimiter = '{', $rightDelimiter = '}')</code></li>
+<li><code>setConditionalDelimiters($leftDelimiter = '{', $rightDelimiter = '}')</code></li>
+<li><code>replaceSingle($pattern, $content, $template, bool $escape = false)</code></li>
+<li><code>prepareReplacement(array $matches, string $replace, bool $escape = true)</code></li>
+<li><code>shouldAddEscaping(string $key)</code></li>
+<li><code>applyFilters(string $replace, array $filters)</code></li>
+<li><code>parsePlugins(string $template)</code></li>
+<li><code>addPlugin(string $alias, callable $callback, bool $isPair = false)</code></li>
+<li><code>removePlugin(string $alias)</code></li>
+<li><code>objectToArray($value)</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,795 @@
+<!doctype html>\n<html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>app\ThirdParty\tcpdf\include\barcodes\qrcode.php</title><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px;line-height:1.6} code{background:#f3f4f6;padding:2px 4px;border-radius:4px} pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto} table{border-collapse:collapse} td,th{border:1px solid #e5e7eb;padding:6px 8px}</style></head><body><h1>app\ThirdParty\tcpdf\include\barcodes\qrcode.php</h1>
+
+<ul>
+<li>Path: <code>app\ThirdParty\tcpdf\include\barcodes\qrcode.php</code></li>
+<li>Type: PHP</li>
+<li>Size: 78690 bytes</li>
+</ul>
+<h2>Summary (from docblocks)</h2>
+
+<p>@file</p>
+<p>Class to create QR-code arrays for TCPDF class.</p>
+<p>QR Code symbol is a 2D barcode that can be scanned by handy terminals such as a mobile phone with CCD.</p>
+<p>The capacity of QR Code is up to 7000 digits or 4000 characters, and has high robustness.</p>
+<p>This class supports QR Code model 2, described in JIS (Japanese Industrial Standards) X0510:2004 or ISO/IEC 18004.</p>
+<p>Currently the following features are not supported: ECI and FNC1 mode, Micro QR Code, QR Code model 1, Structured mode.</p>
+<p>This class is derived from "PHP QR Code encoder" by Dominik Dzienia (http://phpqrcode.sourceforge.net/) based on "libqrencode C library 3.1.1." by Kentaro Fukuchi (http://megaui.net/fukuchi/works/qrencode/index.en.html), contains Reed-Solomon code written by Phil Karn, KA9Q. QR Code is registered trademark of DENSO WAVE INCORPORATED (http://www.denso-wave.com/qrcode/index-e.html).</p>
+<p>Please read comments on this class source file for full copyright and license information.</p>
+<p>@package com.tecnick.tcpdf</p>
+<p>@author Nicola Asuni</p>
+<p>@version 1.0.010</p>
+
+<p>Indicate that definitions for this class are set</p>
+
+<p>Encoding mode</p>
+
+<p>Encoding mode numeric (0-9). 3 characters are encoded to 10bit length. In theory, 7089 characters or less can be stored in a QRcode.</p>
+
+<p>Encoding mode alphanumeric (0-9A-Z $%*+-./:) 45characters. 2 characters are encoded to 11bit length. In theory, 4296 characters or less can be stored in a QRcode.</p>
+
+<p>Encoding mode 8bit byte data. In theory, 2953 characters or less can be stored in a QRcode.</p>
+
+<p>Encoding mode KANJI. A KANJI character (multibyte character) is encoded to 13bit length. In theory, 1817 characters or less can be stored in a QRcode.</p>
+
+<p>Encoding mode STRUCTURED (currently unsupported)</p>
+
+<p>Error correction level L : About 7% or less errors can be corrected.</p>
+
+<p>Error correction level M : About 15% or less errors can be corrected.</p>
+
+<p>Error correction level Q : About 25% or less errors can be corrected.</p>
+
+<p>Error correction level H : About 30% or less errors can be corrected.</p>
+
+<p>Maximum QR Code version.</p>
+
+<p>Maximum matrix size for maximum version (version 40 is 177*177 matrix).</p>
+
+<p>Matrix index to get width from $capacity array.</p>
+
+<p>Matrix index to get number of words from $capacity array.</p>
+
+<p>Matrix index to get remainder from $capacity array.</p>
+
+<p>Matrix index to get error correction level from $capacity array.</p>
+
+<p>Number of header bits for structured mode</p>
+
+<p>Max number of symbols for structured mode</p>
+
+<p>Down point base value for case 1 mask pattern (concatenation of same color in a line or a column)</p>
+
+<p>Down point base value for case 2 mask pattern (module block of same color)</p>
+
+<p>Down point base value for case 3 mask pattern (1:1:3:1:1(dark:bright:dark:bright:dark)pattern in a line or a column)</p>
+
+<p>Down point base value for case 4 mask pattern (ration of dark modules in whole)</p>
+
+<p>if true, estimates best mask (spec. default, but extremally slow; set to false to significant performance boost but (propably) worst quality code</p>
+
+<p>if false, checks all masks available, otherwise value tells count of masks need to be checked, mask id are got randomly</p>
+
+<p>when QR_FIND_BEST_MASK === false</p>
+
+<p>@class QRcode</p>
+<p>Class to create QR-code arrays for TCPDF class.</p>
+<p>QR Code symbol is a 2D barcode that can be scanned by handy terminals such as a mobile phone with CCD.</p>
+<p>The capacity of QR Code is up to 7000 digits or 4000 characters, and has high robustness.</p>
+<p>This class supports QR Code model 2, described in JIS (Japanese Industrial Standards) X0510:2004 or ISO/IEC 18004.</p>
+<p>Currently the following features are not supported: ECI and FNC1 mode, Micro QR Code, QR Code model 1, Structured mode.</p>
+<p>This class is derived from "PHP QR Code encoder" by Dominik Dzienia (http://phpqrcode.sourceforge.net/) based on "libqrencode C library 3.1.1." by Kentaro Fukuchi (http://megaui.net/fukuchi/works/qrencode/index.en.html), contains Reed-Solomon code written by Phil Karn, KA9Q. QR Code is registered trademark of DENSO WAVE INCORPORATED (http://www.denso-wave.com/qrcode/index-e.html).</p>
+<p>Please read comments on this class source file for full copyright and license information.</p>
+<p>@package com.tecnick.tcpdf</p>
+<p>@author Nicola Asuni</p>
+<p>@version 1.0.010</p>
+
+<p>Barcode array to be returned which is readable by TCPDF.</p>
+<p>@protected</p>
+
+<p>QR code version. Size of QRcode is defined as version. Version is from 1 to 40. Version 1 is 21*21 matrix. And 4 modules increases whenever 1 version increases. So version 40 is 177*177 matrix.</p>
+<p>@protected</p>
+
+<p>Levels of error correction. See definitions for possible values.</p>
+<p>@protected</p>
+
+<p>Encoding mode.</p>
+<p>@protected</p>
+
+<p>Boolean flag, if true the input string will be converted to uppercase.</p>
+<p>@protected</p>
+
+<p>Structured QR code (not supported yet).</p>
+<p>@protected</p>
+
+<p>Mask data.</p>
+<p>@protected</p>
+
+<p>Width.</p>
+<p>@protected</p>
+
+<p>Frame.</p>
+<p>@protected</p>
+
+<p>X position of bit.</p>
+<p>@protected</p>
+
+<p>Y position of bit.</p>
+<p>@protected</p>
+
+<p>Direction.</p>
+<p>@protected</p>
+
+<p>Single bit value.</p>
+<p>@protected</p>
+
+<p>Data code.</p>
+<p>@protected</p>
+
+<p>Error correction code.</p>
+<p>@protected</p>
+
+<p>Blocks.</p>
+<p>@protected</p>
+
+<p>Reed-Solomon blocks.</p>
+<p>@protected</p>
+
+<p>Counter.</p>
+<p>@protected</p>
+
+<p>Data length.</p>
+<p>@protected</p>
+
+<p>Error correction length.</p>
+<p>@protected</p>
+
+<p>Value b1.</p>
+<p>@protected</p>
+
+<p>Run length.</p>
+<p>@protected</p>
+
+<p>Input data string.</p>
+<p>@protected</p>
+
+<p>Input items.</p>
+<p>@protected</p>
+
+<p>Reed-Solomon items.</p>
+<p>@protected</p>
+
+<p>Array of frames.</p>
+<p>@protected</p>
+
+<p>Alphabet-numeric convesion table.</p>
+<p>@protected</p>
+
+<p>Array Table of the capacity of symbols.</p>
+<p>See Table 1 (pp.13) and Table 12-16 (pp.30-36), JIS X0510:2004.</p>
+<p>@protected</p>
+
+<p>Array Length indicator.</p>
+<p>@protected</p>
+
+<p>Array Table of the error correction code (Reed-Solomon block).</p>
+<p>See Table 12-16 (pp.30-36), JIS X0510:2004.</p>
+<p>@protected</p>
+
+<p>Array Positions of alignment patterns.</p>
+<p>This array includes only the second and the third position of the alignment patterns. Rest of them can be calculated from the distance between them.</p>
+<p>See Table 1 in Appendix E (pp.71) of JIS X0510:2004.</p>
+<p>@protected</p>
+
+<p>Array Version information pattern (BCH coded).</p>
+<p>See Table 1 in Appendix D (pp.68) of JIS X0510:2004.</p>
+<p>size: [QRSPEC_VERSION_MAX - 6]</p>
+<p>@protected</p>
+
+<p>Array Format information</p>
+<p>@protected</p>
+
+<p>This is the class constructor.</p>
+<p>Creates a QRcode object</p>
+<p>@param string $code code to represent using QRcode</p>
+<p>@param string $eclevel error level: <ul><li>L : About 7% or less errors can be corrected.</li><li>M : About 15% or less errors can be corrected.</li><li>Q : About 25% or less errors can be corrected.</li><li>H : About 30% or less errors can be corrected.</li></ul></p>
+<p>@public</p>
+<p>@since 1.0.000</p>
+
+<p>Returns a barcode array which is readable by TCPDF</p>
+<p>@return array barcode array readable by TCPDF;</p>
+<p>@public</p>
+
+<p>Convert the frame in binary form</p>
+<p>@param array $frame array to binarize</p>
+<p>@return array frame in binary form</p>
+
+<p>Encode the input string to QR code</p>
+<p>@param string $string input string to encode</p>
+
+<p>Encode mask</p>
+<p>@param int $mask masking mode</p>
+
+<p>Set frame value at specified position</p>
+<p>@param array $at x,y position</p>
+<p>@param int $val value of the character to set</p>
+
+<p>Get frame value at specified position</p>
+<p>@param array $at x,y position</p>
+<p>@return value at specified position</p>
+
+<p>Return the next frame position</p>
+<p>@return array of x,y coordinates</p>
+
+<p>Initialize code.</p>
+<p>@param array $spec array of ECC specification</p>
+<p>@return int 0 in case of success, -1 in case of error</p>
+
+<p>Return Reed-Solomon block code.</p>
+<p>@return array rsblocks</p>
+
+<p>Write Format Information on frame and returns the number of black bits</p>
+<p>@param int $width frame width</p>
+<p>@param array $frame frame</p>
+<p>@param array $mask masking mode</p>
+<p>@param int $level error correction level</p>
+<p>@return int blacks</p>
+
+<p>mask0</p>
+<p>@param int $x X position</p>
+<p>@param int $y Y position</p>
+<p>@return int mask</p>
+
+<p>mask1</p>
+<p>@param int $x X position</p>
+<p>@param int $y Y position</p>
+<p>@return int mask</p>
+
+<p>mask2</p>
+<p>@param int $x X position</p>
+<p>@param int $y Y position</p>
+<p>@return int mask</p>
+
+<p>mask3</p>
+<p>@param int $x X position</p>
+<p>@param int $y Y position</p>
+<p>@return int mask</p>
+
+<p>mask4</p>
+<p>@param int $x X position</p>
+<p>@param int $y Y position</p>
+<p>@return int mask</p>
+
+<p>mask5</p>
+<p>@param int $x X position</p>
+<p>@param int $y Y position</p>
+<p>@return int mask</p>
+
+<p>mask6</p>
+<p>@param int $x X position</p>
+<p>@param int $y Y position</p>
+<p>@return int mask</p>
+
+<p>mask7</p>
+<p>@param int $x X position</p>
+<p>@param int $y Y position</p>
+<p>@return int mask</p>
+
+<p>Return bitmask</p>
+<p>@param int $maskNo mask number</p>
+<p>@param int $width width</p>
+<p>@param array $frame frame</p>
+<p>@return array bitmask</p>
+
+<p>makeMaskNo</p>
+<p>@param int $maskNo</p>
+<p>@param int $width</p>
+<p>@param int $s</p>
+<p>@param int $d</p>
+<p>@param boolean $maskGenOnly</p>
+<p>@return int b</p>
+
+<p>makeMask</p>
+<p>@param int $width</p>
+<p>@param array $frame</p>
+<p>@param int $maskNo</p>
+<p>@param int $level</p>
+<p>@return array mask</p>
+
+<p>calcN1N3</p>
+<p>@param int $length</p>
+<p>@return int demerit</p>
+
+<p>evaluateSymbol</p>
+<p>@param int $width</p>
+<p>@param array $frame</p>
+<p>@return int demerit</p>
+
+<p>mask</p>
+<p>@param int $width</p>
+<p>@param array $frame</p>
+<p>@param int $level</p>
+<p>@return array best mask</p>
+
+<p>Return true if the character at specified position is a number</p>
+<p>@param string $str string</p>
+<p>@param int $pos characted position</p>
+<p>@return boolean true of false</p>
+
+<p>Return true if the character at specified position is an alphanumeric character</p>
+<p>@param string $str string</p>
+<p>@param int $pos characted position</p>
+<p>@return boolean true of false</p>
+
+<p>identifyMode</p>
+<p>@param int $pos</p>
+<p>@return int mode</p>
+
+<p>eatNum</p>
+<p>@return int run</p>
+
+<p>eatAn</p>
+<p>@return int run</p>
+
+<p>eatKanji</p>
+<p>@return int run</p>
+
+<p>eat8</p>
+<p>@return int run</p>
+
+<p>splitString</p>
+<p>@return int</p>
+
+<p>toUpper</p>
+
+<p>newInputItem</p>
+<p>@param int $mode</p>
+<p>@param int $size</p>
+<p>@param array $data</p>
+<p>@param array $bstream</p>
+<p>@return array input item</p>
+
+<p>encodeModeNum</p>
+<p>@param array $inputitem</p>
+<p>@param int $version</p>
+<p>@return array input item</p>
+
+<p>encodeModeAn</p>
+<p>@param array $inputitem</p>
+<p>@param int $version</p>
+<p>@return array input item</p>
+
+<p>encodeMode8</p>
+<p>@param array $inputitem</p>
+<p>@param int $version</p>
+<p>@return array input item</p>
+
+<p>encodeModeKanji</p>
+<p>@param array $inputitem</p>
+<p>@param int $version</p>
+<p>@return array input item</p>
+
+<p>encodeModeStructure</p>
+<p>@param array $inputitem</p>
+<p>@return array input item</p>
+
+<p>encodeBitStream</p>
+<p>@param array $inputitem</p>
+<p>@param int $version</p>
+<p>@return array input item</p>
+
+<p>Append data to an input object.</p>
+<p>The data is copied and appended to the input object.</p>
+<p>@param array $items input items</p>
+<p>@param int $mode encoding mode.</p>
+<p>@param int $size size of data (byte).</p>
+<p>@param array $data array of input data.</p>
+<p>@return array items</p>
+
+<p>insertStructuredAppendHeader</p>
+<p>@param array $items</p>
+<p>@param int $size</p>
+<p>@param int $index</p>
+<p>@param int $parity</p>
+<p>@return array items</p>
+
+<p>calcParity</p>
+<p>@param array $items</p>
+<p>@return int parity</p>
+
+<p>checkModeNum</p>
+<p>@param int $size</p>
+<p>@param array $data</p>
+<p>@return boolean true or false</p>
+
+<p>Look up the alphabet-numeric conversion table (see JIS X0510:2004, pp.19).</p>
+<p>@param int $c character value</p>
+<p>@return int value</p>
+
+<p>checkModeAn</p>
+<p>@param int $size</p>
+<p>@param array $data</p>
+<p>@return boolean true or false</p>
+
+<p>estimateBitsModeNum</p>
+<p>@param int $size</p>
+<p>@return int number of bits</p>
+
+<p>estimateBitsModeAn</p>
+<p>@param int $size</p>
+<p>@return int number of bits</p>
+
+<p>estimateBitsMode8</p>
+<p>@param int $size</p>
+<p>@return int number of bits</p>
+
+<p>estimateBitsModeKanji</p>
+<p>@param int $size</p>
+<p>@return int number of bits</p>
+
+<p>checkModeKanji</p>
+<p>@param int $size</p>
+<p>@param array $data</p>
+<p>@return boolean true or false</p>
+
+<p>Validate the input data.</p>
+<p>@param int $mode encoding mode.</p>
+<p>@param int $size size of data (byte).</p>
+<p>@param array $data data to validate</p>
+<p>@return boolean true in case of valid data, false otherwise</p>
+
+<p>estimateBitStreamSize</p>
+<p>@param array $items</p>
+<p>@param int $version</p>
+<p>@return int bits</p>
+
+<p>estimateVersion</p>
+<p>@param array $items</p>
+<p>@return int version</p>
+
+<p>lengthOfCode</p>
+<p>@param int $mode</p>
+<p>@param int $version</p>
+<p>@param int $bits</p>
+<p>@return int size</p>
+
+<p>createBitStream</p>
+<p>@param array $items</p>
+<p>@return array of items and total bits</p>
+
+<p>convertData</p>
+<p>@param array $items</p>
+<p>@return array items</p>
+
+<p>Append Padding Bit to bitstream</p>
+<p>@param array $bstream</p>
+<p>@return array bitstream</p>
+
+<p>mergeBitStream</p>
+<p>@param array $items items</p>
+<p>@return array bitstream</p>
+
+<p>Returns a stream of bits.</p>
+<p>@param int $items</p>
+<p>@return array padded merged byte stream</p>
+
+<p>Pack all bit streams padding bits into a byte array.</p>
+<p>@param int $items</p>
+<p>@return array padded merged byte stream</p>
+
+<p>Return an array with zeros</p>
+<p>@param int $setLength array size</p>
+<p>@return array</p>
+
+<p>Return new bitstream from number</p>
+<p>@param int $bits number of bits</p>
+<p>@param int $num number</p>
+<p>@return array bitstream</p>
+
+<p>Return new bitstream from bytes</p>
+<p>@param int $size size</p>
+<p>@param array $data bytes</p>
+<p>@return array bitstream</p>
+
+<p>Append one bitstream to another</p>
+<p>@param array $bitstream original bitstream</p>
+<p>@param array $append bitstream to append</p>
+<p>@return array bitstream</p>
+
+<p>Append one bitstream created from number to another</p>
+<p>@param array $bitstream original bitstream</p>
+<p>@param int $bits number of bits</p>
+<p>@param int $num number</p>
+<p>@return array bitstream</p>
+
+<p>Append one bitstream created from bytes to another</p>
+<p>@param array $bitstream original bitstream</p>
+<p>@param int $size size</p>
+<p>@param array $data bytes</p>
+<p>@return array bitstream</p>
+
+<p>Convert bitstream to bytes</p>
+<p>@param array $bstream original bitstream</p>
+<p>@return array of bytes</p>
+
+<p>Replace a value on the array at the specified position</p>
+<p>@param array $srctab</p>
+<p>@param int $x X position</p>
+<p>@param int $y Y position</p>
+<p>@param string $repl value to replace</p>
+<p>@param int $replLen length of the repl string</p>
+<p>@return array srctab</p>
+
+<p>Return maximum data code length (bytes) for the version.</p>
+<p>@param int $version version</p>
+<p>@param int $level error correction level</p>
+<p>@return int maximum size (bytes)</p>
+
+<p>Return maximum error correction code length (bytes) for the version.</p>
+<p>@param int $version version</p>
+<p>@param int $level error correction level</p>
+<p>@return int ECC size (bytes)</p>
+
+<p>Return the width of the symbol for the version.</p>
+<p>@param int $version version</p>
+<p>@return int width</p>
+
+<p>Return the numer of remainder bits.</p>
+<p>@param int $version version</p>
+<p>@return int number of remainder bits</p>
+
+<p>Return a version number that satisfies the input code length.</p>
+<p>@param int $size input code length (bytes)</p>
+<p>@param int $level error correction level</p>
+<p>@return int version number</p>
+
+<p>Return the size of length indicator for the mode and version.</p>
+<p>@param int $mode encoding mode</p>
+<p>@param int $version version</p>
+<p>@return int the size of the appropriate length indicator (bits).</p>
+
+<p>Return the maximum length for the mode and version.</p>
+<p>@param int $mode encoding mode</p>
+<p>@param int $version version</p>
+<p>@return int the maximum length (bytes)</p>
+
+<p>Return an array of ECC specification.</p>
+<p>@param int $version version</p>
+<p>@param int $level error correction level</p>
+<p>@param array $spec an array of ECC specification contains as following: {# of type1 blocks, # of data code, # of ecc code, # of type2 blocks, # of data code}</p>
+<p>@return array spec</p>
+
+<p>Put an alignment marker.</p>
+<p>@param array $frame frame</p>
+<p>@param int $ox X center coordinate of the pattern</p>
+<p>@param int $oy Y center coordinate of the pattern</p>
+<p>@return array frame</p>
+
+<p>Put an alignment pattern.</p>
+<p>@param int $version version</p>
+<p>@param array $frame frame</p>
+<p>@param int $width width</p>
+<p>@return array frame</p>
+
+<p>Return BCH encoded version information pattern that is used for the symbol of version 7 or greater. Use lower 18 bits.</p>
+<p>@param int $version version</p>
+<p>@return string BCH encoded version information pattern</p>
+
+<p>Return BCH encoded format information pattern.</p>
+<p>@param array $mask</p>
+<p>@param int $level error correction level</p>
+<p>@return string BCH encoded format information pattern</p>
+
+<p>Put a finder pattern.</p>
+<p>@param array $frame frame</p>
+<p>@param int $ox X center coordinate of the pattern</p>
+<p>@param int $oy Y center coordinate of the pattern</p>
+<p>@return array frame</p>
+
+<p>Return a copy of initialized frame.</p>
+<p>@param int $version version</p>
+<p>@return array array of unsigned char.</p>
+
+<p>Set new frame for the specified version.</p>
+<p>@param int $version version</p>
+<p>@return array array of unsigned char.</p>
+
+<p>Return block number 0</p>
+<p>@param array $spec</p>
+<p>@return int value</p>
+
+<p>Return block number 1</p>
+<p>@param array $spec</p>
+<p>@return int value</p>
+
+<p>Return data codes 1</p>
+<p>@param array $spec</p>
+<p>@return int value</p>
+
+<p>Return ecc codes 1</p>
+<p>@param array $spec</p>
+<p>@return int value</p>
+
+<p>Return block number 2</p>
+<p>@param array $spec</p>
+<p>@return int value</p>
+
+<p>Return data codes 2</p>
+<p>@param array $spec</p>
+<p>@return int value</p>
+
+<p>Return ecc codes 2</p>
+<p>@param array $spec</p>
+<p>@return int value</p>
+
+<p>Return data length</p>
+<p>@param array $spec</p>
+<p>@return int value</p>
+
+<p>Return ecc length</p>
+<p>@param array $spec</p>
+<p>@return int value</p>
+
+<p>Initialize a Reed-Solomon codec and add it to existing rsitems</p>
+<p>@param int $symsize symbol size, bits</p>
+<p>@param int $gfpoly  Field generator polynomial coefficients</p>
+<p>@param int $fcr  first root of RS code generator polynomial, index form</p>
+<p>@param int $prim  primitive element to generate polynomial roots</p>
+<p>@param int $nroots RS code generator polynomial degree (number of roots)</p>
+<p>@param int $pad  padding bytes at front of shortened block</p>
+<p>@return array Array of RS values:<ul><li>mm = Bits per symbol;</li><li>nn = Symbols per block;</li><li>alpha_to = log lookup table array;</li><li>index_of = Antilog lookup table array;</li><li>genpoly = Generator polynomial array;</li><li>nroots = Number of generator;</li><li>roots = number of parity symbols;</li><li>fcr = First consecutive root, index form;</li><li>prim = Primitive element, index form;</li><li>iprim = prim-th root of 1, index form;</li><li>pad = Padding bytes in shortened block;</li><li>gfpoly</ul>.</p>
+
+<p>modnn</p>
+<p>@param array $rs RS values</p>
+<p>@param int $x X position</p>
+<p>@return int X osition</p>
+
+<p>Initialize a Reed-Solomon codec and returns an array of values.</p>
+<p>@param int $symsize symbol size, bits</p>
+<p>@param int $gfpoly  Field generator polynomial coefficients</p>
+<p>@param int $fcr  first root of RS code generator polynomial, index form</p>
+<p>@param int $prim  primitive element to generate polynomial roots</p>
+<p>@param int $nroots RS code generator polynomial degree (number of roots)</p>
+<p>@param int $pad  padding bytes at front of shortened block</p>
+<p>@return array Array of RS values:<ul><li>mm = Bits per symbol;</li><li>nn = Symbols per block;</li><li>alpha_to = log lookup table array;</li><li>index_of = Antilog lookup table array;</li><li>genpoly = Generator polynomial array;</li><li>nroots = Number of generator;</li><li>roots = number of parity symbols;</li><li>fcr = First consecutive root, index form;</li><li>prim = Primitive element, index form;</li><li>iprim = prim-th root of 1, index form;</li><li>pad = Padding bytes in shortened block;</li><li>gfpoly</ul>.</p>
+
+<p>Encode a Reed-Solomon codec and returns the parity array</p>
+<p>@param array $rs RS values</p>
+<p>@param array $data data</p>
+<p>@param array $parity parity</p>
+<p>@return parity array</p>
+
+<h2>References</h2>
+
+<p><strong>Database Tables (inferred)</strong></p>
+<ul>
+<li><code>the</code></li>
+<li><code>1</code></li>
+<li><code>number</code></li>
+<li><code>bytes</code></li>
+<li><code>its</code></li>
+</ul>
+<h2>Symbols</h2>
+
+<h1>Symbols</h1>
+
+<p><strong>Files documented</strong>: 1</p>
+
+<h2><code>app\ThirdParty\tcpdf\include\barcodes\qrcode.php</code></h2>
+
+<p><strong>Classes</strong>:</p>
+<ul>
+<li><code>supports</code></li>
+<li><code>is</code></li>
+<li><code>supports</code></li>
+<li><code>is</code></li>
+<li><code>source</code></li>
+<li><code>are</code></li>
+<li><code>QRcode</code></li>
+<li><code>supports</code></li>
+<li><code>is</code></li>
+<li><code>source</code></li>
+<li><code>QRcode</code></li>
+<li><code>constructor</code></li>
+</ul>
+<p><strong>Functions/Methods</strong>:</p>
+<ul>
+<li><code>__construct($code, $eclevel = 'L')</code></li>
+<li><code>getBarcodeArray()</code></li>
+<li><code>binarize($frame)</code></li>
+<li><code>encodeString($string)</code></li>
+<li><code>encodeMask($mask)</code></li>
+<li><code>setFrameAt($at, $val)</code></li>
+<li><code>getFrameAt($at)</code></li>
+<li><code>getNextPosition()</code></li>
+<li><code>init($spec)</code></li>
+<li><code>getCode()</code></li>
+<li><code>writeFormatInformation($width, &$frame, $mask, $level)</code></li>
+<li><code>mask0($x, $y)</code></li>
+<li><code>mask1($x, $y)</code></li>
+<li><code>mask2($x, $y)</code></li>
+<li><code>mask3($x, $y)</code></li>
+<li><code>mask4($x, $y)</code></li>
+<li><code>mask5($x, $y)</code></li>
+<li><code>mask6($x, $y)</code></li>
+<li><code>mask7($x, $y)</code></li>
+<li><code>generateMaskNo($maskNo, $width, $frame)</code></li>
+<li><code>makeMaskNo($maskNo, $width, $s, &$d, $maskGenOnly=false)</code></li>
+<li><code>makeMask($width, $frame, $maskNo, $level)</code></li>
+<li><code>calcN1N3($length)</code></li>
+<li><code>evaluateSymbol($width, $frame)</code></li>
+<li><code>mask($width, $frame, $level)</code></li>
+<li><code>isdigitat($str, $pos)</code></li>
+<li><code>isalnumat($str, $pos)</code></li>
+<li><code>identifyMode($pos)</code></li>
+<li><code>eatNum()</code></li>
+<li><code>eatAn()</code></li>
+<li><code>eatKanji()</code></li>
+<li><code>eat8()</code></li>
+<li><code>splitString()</code></li>
+<li><code>toUpper()</code></li>
+<li><code>newInputItem($mode, $size, $data, $bstream=null)</code></li>
+<li><code>encodeModeNum($inputitem, $version)</code></li>
+<li><code>encodeModeAn($inputitem, $version)</code></li>
+<li><code>encodeMode8($inputitem, $version)</code></li>
+<li><code>encodeModeKanji($inputitem, $version)</code></li>
+<li><code>encodeModeStructure($inputitem)</code></li>
+<li><code>encodeBitStream($inputitem, $version)</code></li>
+<li><code>appendNewInputItem($items, $mode, $size, $data)</code></li>
+<li><code>insertStructuredAppendHeader($items, $size, $index, $parity)</code></li>
+<li><code>calcParity($items)</code></li>
+<li><code>checkModeNum($size, $data)</code></li>
+<li><code>lookAnTable($c)</code></li>
+<li><code>checkModeAn($size, $data)</code></li>
+<li><code>estimateBitsModeNum($size)</code></li>
+<li><code>estimateBitsModeAn($size)</code></li>
+<li><code>estimateBitsMode8($size)</code></li>
+<li><code>estimateBitsModeKanji($size)</code></li>
+<li><code>checkModeKanji($size, $data)</code></li>
+<li><code>check($mode, $size, $data)</code></li>
+<li><code>estimateBitStreamSize($items, $version)</code></li>
+<li><code>estimateVersion($items)</code></li>
+<li><code>lengthOfCode($mode, $version, $bits)</code></li>
+<li><code>createBitStream($items)</code></li>
+<li><code>convertData($items)</code></li>
+<li><code>appendPaddingBit($bstream)</code></li>
+<li><code>mergeBitStream($items)</code></li>
+<li><code>getBitStream($items)</code></li>
+<li><code>getByteStream($items)</code></li>
+<li><code>allocate($setLength)</code></li>
+<li><code>newFromNum($bits, $num)</code></li>
+<li><code>newFromBytes($size, $data)</code></li>
+<li><code>appendBitstream($bitstream, $append)</code></li>
+<li><code>appendNum($bitstream, $bits, $num)</code></li>
+<li><code>appendBytes($bitstream, $size, $data)</code></li>
+<li><code>bitstreamToByte($bstream)</code></li>
+<li><code>qrstrset($srctab, $x, $y, $repl, $replLen=false)</code></li>
+<li><code>getDataLength($version, $level)</code></li>
+<li><code>getECCLength($version, $level)</code></li>
+<li><code>getWidth($version)</code></li>
+<li><code>getRemainder($version)</code></li>
+<li><code>getMinimumVersion($size, $level)</code></li>
+<li><code>lengthIndicator($mode, $version)</code></li>
+<li><code>maximumWords($mode, $version)</code></li>
+<li><code>getEccSpec($version, $level, $spec)</code></li>
+<li><code>putAlignmentMarker($frame, $ox, $oy)</code></li>
+<li><code>putAlignmentPattern($version, $frame, $width)</code></li>
+<li><code>getVersionPattern($version)</code></li>
+<li><code>getFormatInfo($mask, $level)</code></li>
+<li><code>putFinderPattern($frame, $ox, $oy)</code></li>
+<li><code>createFrame($version)</code></li>
+<li><code>newFrame($version)</code></li>
+<li><code>rsBlockNum($spec)</code></li>
+<li><code>rsBlockNum1($spec)</code></li>
+<li><code>rsDataCodes1($spec)</code></li>
+<li><code>rsEccCodes1($spec)</code></li>
+<li><code>rsBlockNum2($spec)</code></li>
+<li><code>rsDataCodes2($spec)</code></li>
+<li><code>rsEccCodes2($spec)</code></li>
+<li><code>rsDataLength($spec)</code></li>
+<li><code>rsEccLength($spec)</code></li>
+<li><code>init_rs($symsize, $gfpoly, $fcr, $prim, $nroots, $pad)</code></li>
+<li><code>modnn($rs, $x)</code></li>
+<li><code>init_rs_char($symsize, $gfpoly, $fcr, $prim, $nroots, $pad)</code></li>
+<li><code>encode_rs_char($rs, $data, $parity)</code></li>
+</ul>
+</body></html>
