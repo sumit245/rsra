@@ -1,0 +1,62 @@
+ERROR - 2026-01-03 01:15:52 --> Error connecting to the database: Unknown database 'db_rsra_crm'
+CRITICAL - 2026-01-03 01:15:52 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'db_rsra_crm'
+in SYSTEMPATH/Database/BaseConnection.php on line 416.
+ 1 SYSTEMPATH/Database/BaseConnection.php(586): CodeIgniter\Database\BaseConnection->initialize()
+ 2 APPPATH/Models/Crud_model.php(27): CodeIgniter\Database\BaseConnection->query('SET sql_mode = \'\'')
+ 3 APPPATH/Models/Settings_model.php(11): App\Models\Crud_model->__construct('settings')
+ 4 SYSTEMPATH/Config/Factories.php(126): App\Models\Settings_model->__construct(null)
+ 5 SYSTEMPATH/Config/Factories.php(83): CodeIgniter\Config\Factories::__callStatic('models', [...])
+ 6 SYSTEMPATH/Common.php(811): CodeIgniter\Config\Factories::models('App\\Models\\Settings_model', [...], null)
+ 7 APPPATH/Controllers/App_Controller.php(33): model('App\\Models\\Settings_model')
+ 8 APPPATH/Controllers/Security_Controller.php(17): App\Controllers\App_Controller->__construct()
+ 9 APPPATH/Controllers/Dashboard.php(11): App\Controllers\Security_Controller->__construct()
+10 SYSTEMPATH/CodeIgniter.php(860): App\Controllers\Dashboard->__construct()
+11 SYSTEMPATH/CodeIgniter.php(459): CodeIgniter\CodeIgniter->createController()
+12 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2026-01-03 01:48:33 --> Creation of dynamic property App\Controllers\Dashboard::$Settings_model is deprecated
+in APPPATH/Controllers/App_Controller.php on line 33.
+ 1 APPPATH/Controllers/App_Controller.php(33): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Creation of dynamic property App\\Controllers\\Dashboard::$Settings_model is deprecated', 'APPPATH/Controllers/App_Controller.php', 33)
+ 2 APPPATH/Controllers/Security_Controller.php(17): App\Controllers\App_Controller->__construct()
+ 3 APPPATH/Controllers/Dashboard.php(11): App\Controllers\Security_Controller->__construct()
+ 4 SYSTEMPATH/CodeIgniter.php(860): App\Controllers\Dashboard->__construct()
+ 5 SYSTEMPATH/CodeIgniter.php(459): CodeIgniter\CodeIgniter->createController()
+ 6 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(84): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2026-01-03 01:48:47 --> Creation of dynamic property App\Controllers\Dashboard::$Settings_model is deprecated
+in APPPATH/Controllers/App_Controller.php on line 34.
+ 1 APPPATH/Controllers/App_Controller.php(34): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Creation of dynamic property App\\Controllers\\Dashboard::$Settings_model is deprecated', 'APPPATH/Controllers/App_Controller.php', 34)
+ 2 APPPATH/Controllers/Security_Controller.php(17): App\Controllers\App_Controller->__construct()
+ 3 APPPATH/Controllers/Dashboard.php(11): App\Controllers\Security_Controller->__construct()
+ 4 SYSTEMPATH/CodeIgniter.php(860): App\Controllers\Dashboard->__construct()
+ 5 SYSTEMPATH/CodeIgniter.php(459): CodeIgniter\CodeIgniter->createController()
+ 6 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(84): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2026-01-03 01:49:04 --> Class "Locale" not found
+in SYSTEMPATH/HTTP/IncomingRequest.php on line 450.
+ 1 APPPATH/Controllers/App_Controller.php(49): CodeIgniter\HTTP\IncomingRequest->setLocale('english')
+ 2 APPPATH/Controllers/Security_Controller.php(17): App\Controllers\App_Controller->__construct()
+ 3 APPPATH/Controllers/Dashboard.php(11): App\Controllers\Security_Controller->__construct()
+ 4 SYSTEMPATH/CodeIgniter.php(860): App\Controllers\Dashboard->__construct()
+ 5 SYSTEMPATH/CodeIgniter.php(459): CodeIgniter\CodeIgniter->createController()
+ 6 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(84): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2026-01-03 01:49:11 --> Class "Locale" not found
+in SYSTEMPATH/HTTP/IncomingRequest.php on line 450.
+ 1 APPPATH/Controllers/App_Controller.php(49): CodeIgniter\HTTP\IncomingRequest->setLocale('english')
+ 2 APPPATH/Controllers/Security_Controller.php(17): App\Controllers\App_Controller->__construct()
+ 3 APPPATH/Controllers/Dashboard.php(11): App\Controllers\Security_Controller->__construct()
+ 4 SYSTEMPATH/CodeIgniter.php(860): App\Controllers\Dashboard->__construct()
+ 5 SYSTEMPATH/CodeIgniter.php(459): CodeIgniter\CodeIgniter->createController()
+ 6 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(84): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2026-01-03 02:37:03 --> file_put_contents(/Applications/XAMPP/xamppfiles/htdocs/rsra/app/Config/activated_plugins.json): Failed to open stream: Permission denied
+in APPPATH/Helpers/plugin_helper.php on line 128.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_put_contents(/Applications/XAMPP/xamppfiles/htdocs/rsra/app/Config/activated_plugins.json): Failed to open stream: Permission denied', 'APPPATH/Helpers/plugin_helper.php', 128)
+ 2 APPPATH/Helpers/plugin_helper.php(128): file_put_contents('APPPATH/Config/activated_plugins.json', '["Purchase","Hr_payroll","Hr_profile","RestApi","Geofencing_Attendance","Warehouse"]')
+ 3 APPPATH/Controllers/Plugins.php(196): save_plugins_config([...])
+ 4 SYSTEMPATH/CodeIgniter.php(898): App\Controllers\Plugins->save_status_of_plugin('RestApi', 'activated', '1')
+ 5 SYSTEMPATH/CodeIgniter.php(468): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Plugins))
+ 6 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(84): CodeIgniter\CodeIgniter->run()

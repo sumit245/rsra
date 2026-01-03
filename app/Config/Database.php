@@ -35,7 +35,7 @@ class Database extends Config
 		'hostname' => 'localhost',
 		'username' => 'root',
 		'password' => '',
-		'database' => 'db_rsra_crm',
+		'database' => 'rsra_crm',
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => 'rise_',
 		'pConnect' => false,

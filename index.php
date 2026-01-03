@@ -1,5 +1,9 @@
 <?php
 
+// Enable error display for debugging
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 // Valid PHP Version?
 $minPHPVersion = '7.3';
 if (version_compare(PHP_VERSION, $minPHPVersion, '<')) {

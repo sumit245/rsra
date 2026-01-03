@@ -118,6 +118,11 @@ class Autoloader
          */
         $composer = include COMPOSER_PATH;
 
+        // Skip if Composer autoloader is not properly installed
+        if (! $composer instanceof ClassLoader) {
+            return;
+        }
+
         $this->loadComposerClassmap($composer);
 
         // Should we load through Composer's namespaces, also?
