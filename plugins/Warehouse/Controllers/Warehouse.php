@@ -1095,27 +1095,32 @@ class Warehouse extends Security_Controller {
 	 */
 
 	public function create_warehouse($id = '') {
-		if ($this->request->getPost()) {
-			$message = '';
-			$data = $this->request->getPost();
+		// This method only handles POST requests (form submission from modal)
+		// If accessed via GET, redirect to warehouses list
+		if (!$this->request->getPost()) {
+			app_redirect("warehouse/warehouses");
+			return;
+		}
 
-			if (!is_numeric($id)) {
+		$message = '';
+		$data = $this->request->getPost();
 
-				$mess = $this->warehouse_model->add_one_warehouse($data);
-				if ($mess) {
-					$this->session->setFlashdata("success_message", app_lang("added_successfully"));
-				} else {
-					$this->session->setflashdata("error_message", app_lang("add_failed"));
-				}
-				app_redirect("warehouse/warehouses");
-
+		if (!is_numeric($id)) {
+			$mess = $this->warehouse_model->add_one_warehouse($data);
+			
+			if ($mess) {
+				$this->session->setFlashdata("success_message", app_lang("added_successfully"));
 			} else {
-				$success = $this->warehouse_model->update_one_warehouse($data, $id);
-				if ($success) {
-					$this->session->setFlashdata("success_message", app_lang("updated_successfully"));
-				}
-				app_redirect("warehouse/warehouses");
+				$this->session->setFlashdata("error_message", app_lang("add_failed"));
 			}
+			app_redirect("warehouse/warehouses");
+
+		} else {
+			$success = $this->warehouse_model->update_one_warehouse($data, $id);
+			if ($success) {
+				$this->session->setFlashdata("success_message", app_lang("updated_successfully"));
+			}
+			app_redirect("warehouse/warehouses");
 		}
 	}
 

@@ -113,3 +113,15 @@ select.selectpicker.form-control {
     max-width: 100%;
     margin-bottom: 10px;
 }
+
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+}
+
+.table-responsive table {
+    width: 100%;
+    margin-bottom: 0;
+    table-layout: auto;
+}

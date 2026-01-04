@@ -1,4 +1,6 @@
-<?php echo form_open(get_uri("warehouse/create_warehouse/".$id), array("id" => "warehouse-form", "class" => "general-form", "role" => "form")); ?>
+<?php 
+$formActionUrl = get_uri("warehouse/create_warehouse".($id ? "/".$id : ""));
+echo form_open($formActionUrl, array("id" => "warehouse-form", "class" => "general-form", "role" => "form")); ?>
 <div id="items-dropzone" class="post-dropzone">
 	<div class="modal-body clearfix">
 		<div class="container-fluid">

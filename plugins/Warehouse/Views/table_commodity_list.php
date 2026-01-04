@@ -23,8 +23,6 @@ $aColumns = [
 	'unit_id',
 	'rate',
 	'purchase_price',
-	't1.percentage as taxrate_1',
-	't2.percentage as taxrate_2',
 	'origin',
 	'2',	//minimum stock
 	'3',	//maximum stock
@@ -67,8 +65,6 @@ if(isset($dataPost['can_be_value_filter'])){
 
 
 $join = [
-	'LEFT JOIN ' . get_db_prefix() . 'taxes t1 ON t1.id = ' . get_db_prefix() . 'items.tax',
-	'LEFT JOIN ' . get_db_prefix() . 'taxes t2 ON t2.id = ' . get_db_prefix() . 'items.tax2',
 	'LEFT JOIN ' . get_db_prefix() . 'item_categories ON ' . get_db_prefix() . 'item_categories.id = ' . get_db_prefix() . 'items.category_id',
 ];
 
@@ -382,15 +378,6 @@ $item_have_variation = $Warehouse_model->arr_item_have_variation();
 				$_data = to_decimal_format((float) $aRow['rate']);
 			} elseif ($aColumns[$i] == 'purchase_price') {
 				$_data = to_decimal_format((float) $aRow['purchase_price']);
-
-			} elseif ($aColumns[$i] == 'taxrate_1') {
-
-				$aRow['taxrate_1'] = $aRow['taxrate_1'] ?? 0;
-				$_data             = '<span data-toggle="tooltip" title="' . $aRow['taxname_1'] . '" data-taxid="' . $aRow['tax_id_1'] . '">' . to_decimal_format($aRow['taxrate_1']) . '%' . '</span>';
-
-			} elseif ($aColumns[$i] == 'taxrate_2') {
-				$aRow['taxrate_2'] = $aRow['taxrate_2'] ?? 0;
-				$_data             = '<span data-toggle="tooltip" title="' . $aRow['taxname_2'] . '" data-taxid="' . $aRow['tax_id_2'] . '">' . to_decimal_format($aRow['taxrate_2']) . '%' . '</span>';
 
 			} elseif ($aColumns[$i] == 'commodity_barcode') {
 				/*inventory number*/

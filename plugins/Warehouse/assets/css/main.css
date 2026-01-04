@@ -57,3 +57,86 @@ img.images_w_table {
   .color-7988a2{
     color:#7988a2,
   }
+
+/* Goods Receipt Table Responsive Styles */
+.table-responsive.s_table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    max-width: 100%;
+}
+
+.table-responsive.s_table table {
+    width: 100%;
+    margin-bottom: 0;
+    table-layout: auto;
+    min-width: 1000px; /* Minimum width to ensure all columns are visible */
+}
+
+.table-responsive.s_table table.invoice-items-table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.table-responsive.s_table th,
+.table-responsive.s_table td {
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.table-responsive.s_table th:first-child,
+.table-responsive.s_table td:first-child {
+    white-space: normal;
+}
+
+.table-responsive.s_table th:last-child,
+.table-responsive.s_table td:last-child {
+    white-space: normal;
+}
+
+/* Goods Receipt Page Padding Styles - Matching Purchase Order/Request Forms */
+.ml15 {
+    margin-left: 15px !important;
+}
+
+.mr15 {
+    margin-right: 15px !important;
+}
+
+.mt10 {
+    margin-top: 10px !important;
+}
+
+.mtop10 {
+    margin-top: 10px !important;
+}
+
+.mtop15 {
+    margin-top: 15px !important;
+}
+
+.mb10 {
+    margin-bottom: 10px !important;
+}
+
+.mb20 {
+    margin-bottom: 20px !important;
+}
+
+.card.clearfix {
+    margin-bottom: 0;
+}
+
+.card.clearfix .page-title {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eef6f9;
+}
+
+.card.clearfix .modal-body {
+    padding: 20px;
+}
+
+.card.clearfix.bottom-transaction .row {
+    margin-left: 0;
+    margin-right: 0;
+}

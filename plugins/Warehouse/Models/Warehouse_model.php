@@ -11378,26 +11378,29 @@ class Warehouse_model extends Crud_model {
 	 * @param [type] $data 
 	 */
 	public function add_one_warehouse($data) {
-
-		$option = 'off';
-		if (isset($data['display'])) {
-			$option = $data['display'];
-			unset($data['display']);
-		}
-
-		if ($option == 'on') {
-			$data['display'] = 1;
-		} else {
-			$data['display'] = 0;
-		}
+		// Handle display checkbox - if checkbox is checked, it sends 'on', if unchecked, it's not in POST data
+		$data['display'] = (isset($data['display']) && $data['display'] == 'on') ? 1 : 0;
 
 		if (isset($data['custom_fields'])) {
 			$custom_fields = $data['custom_fields'];
 			unset($data['custom_fields']);
 		}
 
+		// Remove empty id field if present
+		if (isset($data['id']) && empty($data['id'])) {
+			unset($data['id']);
+		}
+
 		$builder = $this->db->table(get_db_prefix().'warehouse');
-		$builder->insert($data);
+		$result = $builder->insert($data);
+		
+		// Check for errors
+		$error = $this->db->error();
+		if ($error['code'] != 0) {
+			log_message('error', 'Warehouse insert error: ' . print_r($error, true));
+			return false;
+		}
+		
 		$insert_id = $this->db->insertID();
 
 		if ($insert_id) {

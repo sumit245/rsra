@@ -306,8 +306,6 @@
 					_l('unit_name'),
 					_l('rate'),
 					_l('purchase_price'),
-					_l('tax_1'),
-					_l('tax_2'),
 					_l('status'),                         
 					_l('minimum_stock'),                         
 					_l('maximum_stock'),

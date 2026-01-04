@@ -2,12 +2,11 @@
 	<div class="row">
 		<div class="col-sm-12 col-lg-12">
 			<?php echo form_open_multipart(get_uri("warehouse/goods_delivery"), array("id" => "add_goods_delivery", "class" => "general-form", "role" => "form")); ?>
-			<div class="card">
+			<div class="card clearfix">
 				<div class="page-title clearfix">
 					<h4 class="no-margin font-bold"><i class="fa fa-clone menu-icon menu-icon" aria-hidden="true"></i> <?php echo html_entity_decode($title); ?></h4>
 				</div>
 				<div class="modal-body clearfix">
-
 					<?php 
 					$id = '';
 					$additional_discount = 0;
@@ -28,7 +27,7 @@
 					<input type="hidden" name="additional_discount" value="<?php echo html_entity_decode($additional_discount); ?>">
 
 					<!-- start-->
-					<div class="row">
+					<div class="row ml15 mr15 mt10">
 						<div class="col-md-6">
 							<?php $goods_delivery_code = isset($goods_delivery)? $goods_delivery->goods_delivery_code: (isset($goods_code) ? $goods_code : '');?>
 							<?php echo render_input1('goods_delivery_code', 'document_number',$goods_delivery_code,'',array('disabled' => 'true')) ?>
@@ -119,20 +118,19 @@
 
 			</div>
 
-			<div class="card">
-				<div class="modal-body clearfix invoice-item">
-
-					<div class="row">
-						<div class="col-md-4">
-							<?php echo  view('Warehouse\Views\item_include\main_item_select'); ?>
-						</div>
-						<div class="col-md-8 text-right">
-							<label class="bold mtop10 text-right" data-toggle="tooltip" title="" data-original-title="<?php echo _l('support_barcode_scanner_tooltip'); ?>"><?php echo _l('support_barcode_scanner'); ?>
-							<i class="fa fa-question-circle i_tooltip"></i></label>
-						</div>
+			<div class="card clearfix mtop10 invoice-item">
+				<div class="row ml15 mr15 mt10">
+					<div class="col-md-4">
+						<?php echo  view('Warehouse\Views\item_include\main_item_select'); ?>
 					</div>
-
-					<div class="table-responsive s_table ">
+					<div class="col-md-8 text-right">
+						<label class="bold mtop10 text-right" data-toggle="tooltip" title="" data-original-title="<?php echo _l('support_barcode_scanner_tooltip'); ?>"><?php echo _l('support_barcode_scanner'); ?>
+						<i class="fa fa-question-circle i_tooltip"></i></label>
+					</div>
+				</div>
+				<div class="row ml15 mr15">
+					<div class="col-md-12">
+						<div class="table-responsive s_table">
 						<table class="table invoice-items-table items table-main-invoice-edit has-calculations no-mtop">
 							<thead>
 								<tr>
@@ -157,50 +155,54 @@
 								<?php echo html_entity_decode($goods_delivery_row_template); ?>
 							</tbody>
 						</table>
+						</div>
 					</div>
-					<div class="col-md-4"></div>
-					<div class="col-md-8 title-button-group">
-						<table class="table text-right">
-							<tbody>
-								<tr id="subtotal">
-									<td><span class="bold"><?php echo _l('subtotal'); ?> :</span>
-									</td>
-									<td class="wh-subtotal">
-									</td>
-								</tr>
-								<tr id="total_discount">
-									<td><span class="bold"><?php echo _l('total_discount'); ?> :</span>
-									</td>
-									<td class="wh-total_discount">
-									</td>
-								</tr>
-								<tr id="wh_shipping_fee">
-									<td><span class="bold"><?php echo _l('wh_shipping_fee'); ?> :</span>
-									</td>
-									<td class="wh-shipping_fee" width="30%">
-										<?php echo render_input1('shipping_fee','',$shipping_fee, 'number', $shipping_fee_number_attr); ?>
-									</td>
-								</tr>
-								<tr id="totalmoney">
-									<td><span class="bold"><?php echo _l('total_money'); ?> :</span>
-									</td>
-									<td class="wh-total">
-									</td>
-								</tr>
-							</tbody>
-						</table>
+					<div class="row">
+						<div class="col-md-4"></div>
+						<div class="col-md-8">
+							<table class="table text-right">
+								<tbody>
+									<tr id="subtotal">
+										<td><span class="bold"><?php echo _l('subtotal'); ?> :</span>
+										</td>
+										<td class="wh-subtotal">
+										</td>
+									</tr>
+									<tr id="total_discount">
+										<td><span class="bold"><?php echo _l('total_discount'); ?> :</span>
+										</td>
+										<td class="wh-total_discount">
+										</td>
+									</tr>
+									<tr id="wh_shipping_fee">
+										<td><span class="bold"><?php echo _l('wh_shipping_fee'); ?> :</span>
+										</td>
+										<td class="wh-shipping_fee" width="30%">
+											<?php echo render_input1('shipping_fee','',$shipping_fee, 'number', $shipping_fee_number_attr); ?>
+										</td>
+									</tr>
+									<tr id="totalmoney">
+										<td><span class="bold"><?php echo _l('total_money'); ?> :</span>
+										</td>
+										<td class="wh-total">
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 					</div>
 					<div id="removed-items"></div>
 				</div>
 			</div>
 
-			<div class="card">
-				<div class="container-fluid">
-					<div class="">
-						<?php $description = (isset($goods_delivery) ? $goods_delivery->description : ''); ?>
-						<?php echo render_textarea1('description','note_',$description,array(),array(),'mtop15'); ?>
+			<div class="row">
+				<div class="col-md-12 mtop15">
+					<div class="card clearfix bottom-transaction">
+						<div class="row ml15 mr15 mt10">
+							<?php $description = (isset($goods_delivery) ? $goods_delivery->description : ''); ?>
+							<?php echo render_textarea1('description','note_',$description,array(),array(),'mtop15'); ?>
 
-						<div class="btn-bottom-toolbar text-right mb20">
+							<div class="col-md-12 text-right ml15 mr15 mb10">
 							<a href="<?php echo get_uri('warehouse/manage_delivery'); ?>"class="btn btn-default text-right mright5"><span data-feather="x" class="icon-16"></span> <?php echo _l('close'); ?></a>
 
 							<?php if(wh_check_approval_setting('2') != false) { ?>
@@ -221,9 +223,10 @@
 								<?php } ?>
 
 							<?php } ?>
+							</div>
 						</div>
+						<div class="btn-bottom-pusher"></div>
 					</div>
-					<div class="btn-bottom-pusher"></div>
 				</div>
 			</div>
 
