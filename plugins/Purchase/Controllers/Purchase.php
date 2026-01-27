@@ -23,6 +23,15 @@ class Purchase extends Security_Controller
   }
 
   /**
+   * Default landing for Purchase menu. Redirects to Items (first sub-menu).
+   * Prevents 404 when user clicks the main "Purchase" menu item.
+   */
+  public function index()
+  {
+    app_redirect("purchase/items");
+  }
+
+  /**
    * { vendors }
    */
   public function vendors()

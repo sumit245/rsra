@@ -169,7 +169,7 @@ app_hooks()->add_filter('app_filter_notification_config', function ($events) {
 	return $events;
 });
 
-app_hooks()->do_action('app_hook_role_permissions_extension', function ($permissions) {
+app_hooks()->add_action('app_hook_role_permissions_extension', function ($permissions) {
 	$permission_data = [];
 
 	$permission_data["hr_payroll_can_view_own_hrp_employee"]            = get_array_value($permissions, "hr_payroll_can_view_own_hrp_employee");

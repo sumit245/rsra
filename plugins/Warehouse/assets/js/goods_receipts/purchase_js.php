@@ -91,58 +91,166 @@
 		});
 
 
-		$('select[name="pr_order_id"]').on('change', function() {
+		// Use delegated event handler to ensure it works even if select2 is reinitialized
+		$(document).on('change', 'select[name="pr_order_id"]', function() {
 			"use strict";  
 
-			var pr_order_id = $('select[name="pr_order_id"]').val();
+			var pr_order_id = $(this).val();
 
-			$.get("<?php echo get_uri("warehouse/coppy_pur_request") ?>"+pr_order_id).done(function(response){
-				response = JSON.parse(response);
+			if(pr_order_id != '' && pr_order_id != null){
+				// Show loading indicator
+				$("body").append('<div class="dt-loader"></div>');
+				
+				// First, get vendor information from purchase order
+				$.post("<?php echo get_uri("warehouse/copy_pur_vender/") ?>"+pr_order_id).done(function(response){
+					try {
+						var response_vendor = typeof response === 'string' ? JSON.parse(response) : response;
 
-				if(response){
-					$('.invoice-item table.invoice-items-table.items tbody').html('');
-					$('.invoice-item table.invoice-items-table.items tbody').append(response.list_item);
+						// Auto-populate supplier from purchase order
+						if(response_vendor.userid){
+							var $supplierSelect = $('select[name="supplier_code"]');
+							$supplierSelect.val(response_vendor.userid);
+							if($supplierSelect.hasClass('select2-hidden-accessible')){
+								$supplierSelect.trigger('change.select2');
+							} else {
+								$supplierSelect.trigger('change');
+							}
+						}
+						
+						if(response_vendor.buyer){
+							var $buyerSelect = $('select[name="buyer_id"]');
+							$buyerSelect.val(response_vendor.buyer);
+							if($buyerSelect.hasClass('select2-hidden-accessible')){
+								$buyerSelect.trigger('change.select2');
+							} else {
+								$buyerSelect.trigger('change');
+							}
+						}
 
-					setTimeout(function () {
-						wh_calculate_total();
-					}, 15);
+						if(response_vendor.project && $('select[name="project"]').length){
+							$('select[name="project"]').val(response_vendor.project).trigger('change.select2');
+						}
+						if(response_vendor.type && $('select[name="type"]').length){
+							$('select[name="type"]').val(response_vendor.type).trigger('change.select2');
+						}
+						if(response_vendor.department && $('select[name="department"]').length){
+							$('select[name="department"]').val(response_vendor.department).trigger('change.select2');
+						}
+						if(response_vendor.requester && $('select[name="requester"]').length){
+							$('select[name="requester"]').val(response_vendor.requester).trigger('change.select2');
+						}
+					} catch(e) {
+						console.error('Error parsing vendor response:', e, response);
+					}
+				}).fail(function(error) {
+					console.error('Error loading vendor data:', error);
+					appAlert.error("<?php echo _l('error_loading_vendor_data') ?>");
+				});
 
-					init_selectpicker();
-					init_datepicker();
-					wh_reorder_items('.invoice-item');
-					wh_clear_item_preview_values('.invoice-item');
-					$('body').find('#items-warning').remove();
+				// Then, get purchase order items (with remaining quantities)
+				$.get("<?php echo get_uri("warehouse/coppy_pur_request/") ?>"+pr_order_id).done(function(response){
+					try {
+						var response_data = typeof response === 'string' ? JSON.parse(response) : response;
+
+						if(response_data && typeof response_data.list_item !== 'undefined'){
+							// Preserve the main row template (tr.main) if it exists for manual item entry
+							var $tbody = $('.invoice-item table.invoice-items-table.items tbody');
+							if($tbody.length === 0){
+								console.error('Table body not found');
+								$("body").find('.dt-loader').remove();
+								appAlert.error("Table structure not found. Please refresh the page.");
+								return;
+							}
+							
+							var $mainRow = $tbody.find('tr.main').first();
+							var mainRowHtml = '';
+							if($mainRow.length > 0 && $mainRow.hasClass('main')){
+								mainRowHtml = $mainRow[0].outerHTML;
+							}
+							
+							$tbody.html('');
+							
+							// Restore main row template if it existed (for manual item entry)
+							if(mainRowHtml){
+								$tbody.append(mainRowHtml);
+							}
+							
+							// Append PO items only if there are items (list_item may be empty string if no items)
+							if(response_data.list_item && response_data.list_item.trim() !== ''){
+								$tbody.append(response_data.list_item);
+							}
+
+							setTimeout(function () {
+								wh_calculate_total();
+							}, 15);
+
+							// Reinitialize select2 and date pickers for new items (excluding pr_order_id to avoid conflicts)
+							// Only reinitialize select2 on elements that exist in the current DOM
+							setTimeout(function(){
+								$tbody.find('.select2').not('select[name="pr_order_id"]').each(function(){
+									var $el = $(this);
+									// Only initialize if element exists and is not already initialized
+									if($el.length > 0 && $el.is(':visible') && !$el.hasClass('select2-hidden-accessible') && $el.attr('name') !== 'pr_order_id' && $el.attr('id') !== 'pr_order_id'){
+										try {
+											// Destroy existing select2 if it exists
+											if($el.hasClass('select2-hidden-accessible')){
+												$el.select2('destroy');
+											}
+											$el.select2();
+										} catch(e) {
+											console.error('Error initializing select2:', e);
+										}
+									}
+								});
+							}, 50);
+							setDatePicker(".datePickerInput");
+							wh_reorder_items('.invoice-item');
+							wh_clear_item_preview_values('.invoice-item');
+							$('body').find('#items-warning').remove();
+							$("body").find('.dt-loader').remove();
+							if($('#item_select').length){
+								// item_select uses select2, not selectpicker
+								var $itemSelect = $('#item_select');
+								$itemSelect.val('').trigger('change');
+							}
+							
+							// Don't show warning - items should always be available from purchase order
+						} else {
+							$("body").find('.dt-loader').remove();
+							appAlert.warning("No items found in purchase order.");
+						}
+					} catch(e) {
+						console.error('Error parsing purchase order response:', e, response);
+						$("body").find('.dt-loader').remove();
+						appAlert.error("Failed to load purchase order items. Please try again.");
+					}
+
+				}).fail(function(error) {
+					console.error('Error loading purchase order items:', error);
 					$("body").find('.dt-loader').remove();
-					$('#item_select').selectpicker('val', '');
-
-				}
-
-			}).fail(function(error) {
-
-			});
-
-			if(pr_order_id != ''){
-
-				$.post("<?php echo get_uri("warehouse/copy_pur_vender") ?>"+pr_order_id).done(function(response){
-					var response_vendor = JSON.parse(response);
-
-					$('select[name="supplier_code"]').val(response_vendor.userid).change();
-					$('select[name="buyer_id"]').val(response_vendor.buyer).change();
-
-					$('select[name="project"]').val(response_vendor.project).change();
-					$('select[name="type"]').val(response_vendor.type).change();
-					$('select[name="department"]').val(response_vendor.department).change();
-					$('select[name="requester"]').val(response_vendor.requester).change();
-
+					appAlert.error("Failed to load purchase order items. Please try again.");
 				});
 			}else{
-				$('select[name="supplier_code"]').val('').change();
-				$('select[name="buyer_id"]').val('').change();
+				// Clear supplier and other fields when no PO is selected
+				$('select[name="supplier_code"]').val('').trigger('change.select2');
+				$('select[name="buyer_id"]').val('').trigger('change.select2');
 
-				$('select[name="project"]').val('').change();
-				$('select[name="type"]').val('').change();
-				$('select[name="department"]').val('').change();
-				$('select[name="requester"]').val('').change();
+				if($('select[name="project"]').length){
+					$('select[name="project"]').val('').trigger('change.select2');
+				}
+				if($('select[name="type"]').length){
+					$('select[name="type"]').val('').trigger('change.select2');
+				}
+				if($('select[name="department"]').length){
+					$('select[name="department"]').val('').trigger('change.select2');
+				}
+				if($('select[name="requester"]').length){
+					$('select[name="requester"]').val('').trigger('change.select2');
+				}
+				
+				// Clear items table
+				$('.invoice-item table.invoice-items-table.items tbody').html('');
+				wh_calculate_total();
 			}
 
 		});
@@ -452,7 +560,7 @@
 }
 
 
-function submit_form(save_and_send_request) {
+	function submit_form(save_and_send_request) {
 	"use strict";
 
 	wh_calculate_total();
@@ -466,20 +574,52 @@ function submit_form(save_and_send_request) {
 		return false;
 	}
 
+	// Get main warehouse from the form (for PO items that don't have individual warehouse selection)
+	var main_warehouse_id = $('select[name="warehouse_id_m"]').val();
+
+	// Check if main warehouse is selected (required for PO items)
+	if(!main_warehouse_id || main_warehouse_id == ''){
+		appAlert.warning("<?php echo _l('please_select_a_warehouse') ?>");
+		return false;
+	}
+
 	$('input[name="save_and_send_request"]').val(save_and_send_request);
 
 	var rows = $('.table.has-calculations tbody tr.item');
 	var check_warehouse_status = true;
 	$.each(rows, function () {
-		var warehouse_id = $(this).find('td.warehouse_select select').val();
+		var $row = $(this);
+		// Check if this row has a warehouse_select column (manual items)
+		var $warehouseSelect = $row.find('td.warehouse_select select');
+		var warehouse_id = '';
+		
+		if($warehouseSelect.length > 0){
+			// Manual item - use its own warehouse selection
+			warehouse_id = $warehouseSelect.val();
+		} else {
+			// PO item - use main warehouse and populate hidden field
+			warehouse_id = main_warehouse_id;
+			// Ensure hidden warehouse_id field exists and is set
+			var $hiddenWarehouse = $row.find('input[name*="[warehouse_id]"]');
+			if($hiddenWarehouse.length === 0){
+				// Add hidden field if it doesn't exist
+				var rowName = $row.find('input[name*="[commodity_code]"]').attr('name').replace('[commodity_code]', '');
+				$row.find('td.dragger').append('<input type="hidden" name="' + rowName + '[warehouse_id]" value="' + main_warehouse_id + '">');
+			} else {
+				// Update existing hidden field
+				$hiddenWarehouse.val(main_warehouse_id);
+			}
+		}
+		
 		if(warehouse_id == '' || warehouse_id == undefined){
 			check_warehouse_status = false;
 		}
 	})
+	
 	if(check_warehouse_status == true){
 		// Add disabled to submit buttons
-		$(this).find('.add_goods_receipt_send').prop('disabled', true);
-		$(this).find('.add_goods_receipt').prop('disabled', true);
+		$('.add_goods_receipt_send').prop('disabled', true);
+		$('.add_goods_receipt').prop('disabled', true);
 		$('#add_goods_receipt').submit();
 	}else{
 		appAlert.warning("<?php echo _l('please_select_a_warehouse') ?>");

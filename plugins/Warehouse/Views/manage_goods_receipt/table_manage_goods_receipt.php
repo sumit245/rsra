@@ -8,8 +8,6 @@ $aColumns = [
 	'pr_order_id',
 	'date_add',
 	'total_tax_money', 
-	'total_goods_money',
-	'value_of_inventory',
 	'total_money',
 	'approval',
 	'5',
@@ -27,7 +25,7 @@ if (isset($day_vouchers)) {
 	$where[] = 'AND '.get_db_prefix().'goods_receipt.date_add <= "' . $day_vouchers . '"';
 }
 
-$result = data_tables_init1($aColumns, $sIndexColumn, $sTable, $join, $where, ['id','date_add','date_c','goods_receipt_code', 'supplier_code'], '', [], $dataPost);
+$result = data_tables_init1($aColumns, $sIndexColumn, $sTable, $join, $where, ['id','date_add','date_c','goods_receipt_code', 'supplier_code', 'supplier_name', 'pr_order_id'], '', [], $dataPost);
 
 $output  = $result['output'];
 $rResult = $result['rResult'];
@@ -39,13 +37,48 @@ foreach ($rResult as $aRow) {
 
 		$_data = $aRow[$aColumns[$i]];
 		if($aColumns[$i] == 'supplier_name'){
-
-			if (get_status_modules_wh('purchase') && ($aRow['supplier_code'] != '') && ($aRow['supplier_code'] != 0) ){
-				$_data = wh_get_vendor_company_name($aRow['supplier_code']);
-			}else{
+			$_data = '';
+			// Try to get supplier name from purchase module vendor first
+			if (get_status_modules_wh('purchase') && isset($aRow['supplier_code']) && ($aRow['supplier_code'] != '') && ($aRow['supplier_code'] != 0) ){
+				// Query vendor table directly - supplier_code might be vendor ID or userid
+				$builder = db_connect('default');
+				$builder = $builder->table(get_db_prefix() . 'pur_vendor');
+				$builder->where('id', (int)$aRow['supplier_code']);
+				$vendor = $builder->get()->getRow();
+				if($vendor && isset($vendor->company)){
+					$_data = $vendor->company;
+				} else {
+					// Try with userid field
+					$builder2 = db_connect('default');
+					$builder2 = $builder2->table(get_db_prefix() . 'pur_vendor');
+					$builder2->where('userid', $aRow['supplier_code']);
+					$vendor2 = $builder2->get()->getRow();
+					if($vendor2 && isset($vendor2->company)){
+						$_data = $vendor2->company;
+					}
+				}
+			}
+			// Fallback to supplier_name field if vendor lookup failed or not available
+			if(empty($_data) && isset($aRow['supplier_name']) && $aRow['supplier_name'] != ''){
 				$_data = $aRow['supplier_name'];
 			}
-
+			// If still empty and there's a purchase order, get supplier from PO
+			if(empty($_data) && get_status_modules_wh('purchase') && isset($aRow['pr_order_id']) && ($aRow['pr_order_id'] != '') && ($aRow['pr_order_id'] != 0)){
+				$builder = db_connect('default');
+				$builder = $builder->table(get_db_prefix() . 'pur_orders');
+				$builder->where('id', (int)$aRow['pr_order_id']);
+				$po = $builder->get()->getRow();
+				if($po && isset($po->vendor) && $po->vendor != '' && $po->vendor != 0){
+					// Query vendor by ID
+					$builder2 = db_connect('default');
+					$builder2 = $builder2->table(get_db_prefix() . 'pur_vendor');
+					$builder2->where('id', (int)$po->vendor);
+					$vendor = $builder2->get()->getRow();
+					if($vendor && isset($vendor->company)){
+						$_data = $vendor->company;
+					}
+				}
+			}
 		}elseif($aColumns[$i] == 'buyer_id'){
 			$_data = get_staff_full_name1($aRow['buyer_id']);
 		}elseif($aColumns[$i] == 'date_add'){
@@ -56,12 +89,8 @@ foreach ($rResult as $aRow) {
 			$name = '<a href="' . site_url('warehouse/goods_receipt_detail/' . $aRow['id'] ).'" onclick="init_goods_receipt('.$aRow['id'].'); return false;">' . $aRow['goods_receipt_code'] . '</a>';
 
 			$_data = $name;
-		}elseif ($aColumns[$i] == 'total_goods_money') {
-			$_data = to_decimal_format((float)$aRow['total_goods_money']);
 		}elseif ($aColumns[$i] == 'total_money') {
 			$_data = to_decimal_format((float)$aRow['total_money']);
-		}elseif($aColumns[$i] == 'value_of_inventory') {
-			$_data = to_decimal_format((float)$aRow['value_of_inventory']);
 		}elseif($aColumns[$i] == 'approval') {
 
 			if($aRow['approval'] == 1){
@@ -75,7 +104,20 @@ foreach ($rResult as $aRow) {
 			$get_pur_order_name ='';
 			if (get_status_modules_wh('purchase')) {
 				if( ($aRow['pr_order_id'] != '') && ($aRow['pr_order_id'] != 0) ){
-					$get_pur_order_name .='<a href="'. site_url('purchase/purchase_order/'.$aRow['pr_order_id']) .'" >'. get_pur_order_name($aRow['pr_order_id']) .'</a>';
+					// Try to get pur_order_name directly if function doesn't exist
+					if(function_exists('get_pur_order_name')){
+						$po_name = get_pur_order_name($aRow['pr_order_id']);
+					} else {
+						// Fallback: Query pur_orders table directly for pur_order_name
+						$builder = db_connect('default');
+						$builder = $builder->table(get_db_prefix() . 'pur_orders');
+						$builder->where('id', (int)$aRow['pr_order_id']);
+						$po = $builder->get()->getRow();
+						$po_name = $po ? $po->pur_order_name : '';
+					}
+					if(!empty($po_name)){
+						$get_pur_order_name .='<a href="'. site_url('purchase/view_pur_order/'.$aRow['pr_order_id']) .'" >'. htmlspecialchars($po_name) .'</a>';
+					}
 				}
 			}
 
@@ -107,12 +149,12 @@ foreach ($rResult as $aRow) {
 
 
 			$_data = '
-			<span class="dropdown inline-block">
-			<button class="btn btn-default dropdown-toggle caret mt0 mb0" type="button" data-bs-toggle="dropdown" aria-expanded="true" data-bs-display="static">
+			<div class="dropdown" style="position: relative;">
+			<button class="btn btn-default dropdown-toggle caret mt0 mb0" type="button" data-bs-toggle="dropdown" aria-expanded="true">
 			<i data-feather="tool" class="icon-16"></i>
 			</button>
-			<ul class="dropdown-menu dropdown-menu-end" role="menu">'.$view . $edit . $delete. $delete_approval. '</ul>
-			</span>';
+			<ul class="dropdown-menu dropdown-menu-end" role="menu" style="position: absolute; z-index: 1000;">'.$view . $edit . $delete. $delete_approval. '</ul>
+			</div>';
 		}
 
 		$row[] = $_data;

@@ -905,7 +905,10 @@
                     </div>
                 </li>
 
-                <?php app_hooks()->do_action('app_hook_role_permissions_extension'); ?>
+                <?php 
+                $hook_permissions = isset($permissions) && is_array($permissions) ? $permissions : [];
+                app_hooks()->do_action('app_hook_role_permissions_extension', $hook_permissions); 
+                ?>
 
             </ul>
 

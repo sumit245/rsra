@@ -254,7 +254,7 @@ app_hooks()->add_action('app_hook_head_extension', function () {
 	}
 });
 
-app_hooks()->do_action('app_hook_role_permissions_extension', function ($permissions) {
+app_hooks()->add_action('app_hook_role_permissions_extension', function ($permissions) {
 	$permission_data = [];
 	/*dashboard*/
 	$permission_data['hr_profile_can_view_global_hr_dashboard'] = get_array_value($permissions, "hr_profile_can_view_global_hr_dashboard");

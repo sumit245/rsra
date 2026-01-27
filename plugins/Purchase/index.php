@@ -49,7 +49,7 @@ app_hooks()->add_action('app_hook_head_extension', function () {
     }
 });
 
-app_hooks()->do_action('app_hook_role_permissions_extension', function () {
+app_hooks()->add_action('app_hook_role_permissions_extension', function ($permissions) {
     $ci              = new Security_Controller(false);
     $access_purchase = get_array_value($permissions, "purchase");
     if (is_null($access_purchase)) {
@@ -81,7 +81,7 @@ app_hooks()->do_action('app_hook_role_permissions_extension', function () {
 });
 
 app_hooks()->add_filter('app_filter_role_permissions_save_data', function ($permissions, $data) {
-    $purchase = [];
+    $purchase = isset($data['purchase_permission']) ? $data['purchase_permission'] : "";
     $permissions = array_merge($permissions, ['purchase' => $purchase]);
     return $permissions;
 });
@@ -264,7 +264,7 @@ app_hooks()->add_filter('app_filter_staff_left_menu', function ($sidebar_menu) {
 
     $ci          = new Security_Controller(false);
     $permissions = $ci->login_user->permissions;
-    if ($ci->login_user->is_admin || get_array_value($permissions, "inventory")) {
+    if ($ci->login_user->is_admin || get_array_value($permissions, "purchase")) {
 
         $purchase_submenu["purchase_items"] = [
             "name"  => "items",

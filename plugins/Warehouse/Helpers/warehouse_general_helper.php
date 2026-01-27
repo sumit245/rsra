@@ -542,21 +542,46 @@ function get_internal_delivery_code($id = false)
  */
 function wh_get_item_variatiom($id)
 {
+	try {
+		if(!is_numeric($id) || $id <= 0){
+			return '';
+		}
+		
+		$builder = db_connect('default');
+		$builder = $builder->table(get_db_prefix().'items');
+		$builder->where('id', $id);
+		$item_value = $builder->get()->getRow();
 
-	$builder = db_connect('default');
-	$builder = $builder->table(get_db_prefix().'items');
-	$builder->where('id', $id);
-	$item_value = $builder->get()->getRow();
+		$name = '';
+		if($item_value){
+			try {
+				$Warehouse_model = model("Warehouse\Models\Warehouse_model");
+				if($Warehouse_model && method_exists($Warehouse_model, 'row_item_to_variation')){
+					$new_item_value = $Warehouse_model->row_item_to_variation($item_value);
+					if($new_item_value && isset($new_item_value->new_description)){
+						$name .= $item_value->commodity_code.'_'.$new_item_value->new_description;
+					} elseif(isset($item_value->description)) {
+						$name = $item_value->description;
+					}
+				} elseif(isset($item_value->description)) {
+					$name = $item_value->description;
+				}
+			} catch(\Exception $e) {
+				log_message('error', 'Error in wh_get_item_variatiom row_item_to_variation: ' . $e->getMessage());
+				if(isset($item_value->description)) {
+					$name = $item_value->description;
+				}
+			}
+		}
 
-	$name = '';
-	if($item_value){
-		$Warehouse_model = model("Warehouse\Models\Warehouse_model");
-		$new_item_value = $Warehouse_model->row_item_to_variation($item_value);
-
-		$name .= $item_value->commodity_code.'_'.$new_item_value->new_description;
+		return $name;
+	} catch(\Exception $e) {
+		log_message('error', 'Error in wh_get_item_variatiom: ' . $e->getMessage());
+		return '';
+	} catch(\Error $e) {
+		log_message('error', 'Fatal error in wh_get_item_variatiom: ' . $e->getMessage());
+		return '';
 	}
-
-	return $name;
 }
 
 if (!function_exists('prepare_internal_delivery_pdf')) {

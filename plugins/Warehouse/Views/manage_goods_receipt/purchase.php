@@ -33,39 +33,32 @@
 							<?php echo render_date_input1('date_add','day_vouchers', format_to_date($date_add, false)) ?>
 						</div>
 
-						<div class="col-md-6 <?php if($pr_orders_status == false){ echo 'hide';} ;?>" >
+						<div class="col-md-6">
 							<div class="form-group">
 								<label for="pr_order_id"><?php echo _l('reference_purchase_order'); ?></label>
 								<select name="pr_order_id" id="pr_order_id" class="select2 validate-hidden" data-live-search="true" data-width="100%" placeholder="<?php echo _l('ticket_settings_none_assigned'); ?>">
 									<option value=""></option>
-									<?php foreach($pr_orders as $pr_order) { ?>
-										<option value="<?php echo html_entity_decode($pr_order['id']); ?>" <?php if(isset($goods_receipt) && ($goods_receipt->pr_order_id == $pr_order['id'])){ echo 'selected' ;} ?>><?php echo html_entity_decode($pr_order['pur_order_number'].' - '.$pr_order['pur_order_name']); ?></option>
+									<?php if(isset($pr_orders) && is_array($pr_orders)){ ?>
+										<?php foreach($pr_orders as $pr_order) { ?>
+											<option value="<?php echo html_entity_decode($pr_order['id']); ?>" <?php if(isset($goods_receipt) && ($goods_receipt->pr_order_id == $pr_order['id'])){ echo 'selected' ;} ?>><?php echo html_entity_decode($pr_order['pur_order_number'].' - '.$pr_order['pur_order_name']); ?></option>
+										<?php } ?>
 									<?php } ?>
 								</select>
 							</div>
 						</div>
 
-						<div class="col-md-6 <?php if($pr_orders_status == false){ echo 'hide';} ;?>" >
+						<div class="col-md-6">
 							<div class="form-group">
 								<label for="supplier_code"><?php echo _l('supplier_name'); ?></label>
-								<select  name="supplier_code" id="supplier_code" class="select2 validate-hidden" data-live-search="true" data-width="100%" placeholder="<?php echo _l('ticket_settings_none_assigned'); ?>">
+								<select name="supplier_code" id="supplier_code" class="select2 validate-hidden" data-live-search="true" data-width="100%" placeholder="<?php echo _l('ticket_settings_none_assigned'); ?>" <?php if(isset($goods_receipt) && $goods_receipt->pr_order_id){ echo 'readonly'; } ?>>
 									<option value=""></option>
-
-									<?php if(isset($vendors)){ ?>
+									<?php if(isset($vendors) && is_array($vendors)){ ?>
 										<?php foreach($vendors as $s) { ?>
 											<option value="<?php echo html_entity_decode($s['userid']); ?>" <?php if(isset($goods_receipt) && $goods_receipt->supplier_code == $s['userid']){ echo 'selected'; } ?>><?php echo html_entity_decode($s['company']); ?></option>
 										<?php } ?>
 									<?php } ?>
-
 								</select>
 							</div>
-						</div>
-
-						<div class="col-md-6 <?php if($pr_orders_status == true){ echo 'hide';} ;?>" >
-
-							<?php $supplier_name =  isset($goods_receipt) ? $goods_receipt->supplier_name : ''?>
-							<?php 
-							echo render_input1('supplier_name','supplier_name', $supplier_name) ?>
 						</div>
 
 						<div class=" col-md-3">
@@ -118,7 +111,6 @@
 								<tr>
 									<th style="width: 30px;"></th>
 									<th style="min-width: 150px;" align="left"><i class="fa fa-exclamation-circle" aria-hidden="true" data-toggle="tooltip" data-title="<?php echo _l('item'); ?>"></i> <?php echo _l('invoice_table_item_heading'); ?></th>
-									<th style="min-width: 120px;" align="left"><?php echo _l('warehouse_name'); ?></th>
 									<th style="min-width: 80px;" align="right" class="qty"><?php echo _l('quantity'); ?></th>
 									<th style="min-width: 90px;" align="right"><?php echo _l('unit_price'); ?></th>
 									<th style="min-width: 100px;" align="right"><?php echo _l('invoice_table_tax_heading'); ?></th>

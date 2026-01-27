@@ -1391,13 +1391,24 @@ class Warehouse_model extends Crud_model {
 		
 		/*get suppier name from supplier code*/
 		if (get_status_modules_wh('purchase')) {
-			if($data['supplier_code'] != ''){
+			if(isset($data['supplier_code']) && $data['supplier_code'] != ''){
 				$this->load->model('purchase/purchase_model');
-				$client                = $this->purchase_model->get_vendor($id);
-				if(count($client) > 0 ){
+				$client = $this->purchase_model->get_vendor($data['supplier_code']); // Fixed: use $data['supplier_code'] instead of undefined $id
+				if($client && is_array($client) && count($client) > 0 && isset($client[0]['company'])){
 					$data['supplier_name'] = $client[0]['company'];
 				}
-
+			}
+			// Also get supplier from purchase order if pr_order_id is set but supplier_code is not
+			if((!isset($data['supplier_code']) || $data['supplier_code'] == '') && isset($data['pr_order_id']) && $data['pr_order_id'] != '' && $data['pr_order_id'] != 0){
+				$this->load->model('purchase/purchase_model');
+				$po = $this->purchase_model->get_pur_order($data['pr_order_id']);
+				if($po && isset($po->vendor) && $po->vendor != '' && $po->vendor != 0){
+					$data['supplier_code'] = $po->vendor;
+					$client = $this->purchase_model->get_vendor($po->vendor);
+					if($client && is_array($client) && count($client) > 0 && isset($client[0]['company'])){
+						$data['supplier_name'] = $client[0]['company'];
+					}
+				}
 			}
 		}
 
@@ -1464,6 +1475,14 @@ class Warehouse_model extends Crud_model {
 				unset($inventory_receipt['order']);
 				unset($inventory_receipt['id']);
 				unset($inventory_receipt['tax_select']);
+				
+				// Check if pur_order_detail_id column exists before including it in insert
+				// If column doesn't exist, unset it to avoid database error
+				if(isset($inventory_receipt['pur_order_detail_id'])) {
+					if(!$this->db->fieldExists('pur_order_detail_id', get_db_prefix() . 'goods_receipt_detail')) {
+						unset($inventory_receipt['pur_order_detail_id']);
+					}
+				}
 
 				$builder = $this->db->table(get_db_prefix().'goods_receipt_detail');
 				$builder->insert($inventory_receipt);
@@ -1560,81 +1579,278 @@ class Warehouse_model extends Crud_model {
 	 * @return array
 	 */
 	public function get_pur_request($pur_order) {
+		try {
+			$arr_pur_resquest = [];
+			$total_goods_money = 0;
+			$total_money = 0;
+			$total_tax_money = 0;
+			$value_of_inventory = 0;
+			$list_item = ''; // Start empty - only add item rows from PO, not main template row
 
-		$arr_pur_resquest = [];
-		$total_goods_money = 0;
-		$total_money = 0;
-		$total_tax_money = 0;
-		$value_of_inventory = 0;
-		$list_item = '';
-		$list_item = $this->create_goods_receipt_row_template();
+			// Sanitize input and add error handling for SQL
+			if(!is_numeric($pur_order) || $pur_order <= 0){
+				throw new \Exception('Invalid purchase order ID');
+			}
 
-		$sql = 'select item_code as commodity_code, ' .get_db_prefix(). 'items.description, ' .get_db_prefix(). 'items.unit_id, unit_price, quantity as quantities, ' .get_db_prefix(). 'pur_order_detail.tax as tax, into_money, (' .get_db_prefix(). 'pur_order_detail.total-' .get_db_prefix(). 'pur_order_detail.into_money) as tax_money, total as goods_money, wh_quantity_received, tax_rate, tax_value, '.get_db_prefix().'pur_order_detail.id as id from ' .get_db_prefix(). 'pur_order_detail
-		left join ' .get_db_prefix(). 'items on ' .get_db_prefix(). 'pur_order_detail.item_code =  ' .get_db_prefix(). 'items.id
-		left join ' .get_db_prefix(). 'taxes on ' .get_db_prefix(). 'taxes.id = ' .get_db_prefix(). 'pur_order_detail.tax where ' .get_db_prefix(). 'pur_order_detail.pur_order = ' . $pur_order;
-		$results = $this->db->query($sql)->get()->getResultArray();
+			$prefix = function_exists('db_prefix') ? db_prefix() : get_db_prefix();
+			
+			// Use raw SQL with LEFT JOIN exactly like the working pattern in the codebase (line 8667)
+			try {
+				// Use exact same pattern as line 8667-8669 which is working
+				// Include pur_order_detail.id as pur_order_detail_id for Phase 3 tracking
+				$sql = 'select item_code as commodity_code, ' . $prefix . 'items.description, ' . $prefix . 'items.unit_id, unit_price, quantity as quantities, ' . $prefix . 'pur_order_detail.tax as tax, into_money, (' . $prefix . 'pur_order_detail.total-' . $prefix . 'pur_order_detail.into_money) as tax_money, total as goods_money, ' . $prefix . 'pur_order_detail.tax_rate, ' . $prefix . 'pur_order_detail.tax_value, ' . $prefix . 'pur_order_detail.id as pur_order_detail_id from ' . $prefix . 'pur_order_detail
+				left join ' . $prefix . 'items on ' . $prefix . 'pur_order_detail.item_code = ' . $prefix . 'items.id
+				where ' . $prefix . 'pur_order_detail.pur_order = ' . (int)$pur_order;
+				
+				// query() already returns a Result object, call getResultArray() directly
+				$results = $this->db->query($sql)->getResultArray();
+				
+				log_message('debug', 'get_pur_request: Query returned ' . count($results) . ' rows for PO: ' . $pur_order);
+				
+				if(empty($results)) {
+					log_message('error', 'get_pur_request: No rows found in pur_order_detail for PO: ' . $pur_order);
+					log_message('error', 'get_pur_request: SQL was: ' . $sql);
+				} else {
+					log_message('debug', 'get_pur_request: First result keys: ' . implode(', ', array_keys($results[0])));
+				}
+			} catch(\Exception $e) {
+				log_message('error', 'get_pur_request: Error querying pur_order_detail: ' . $e->getMessage());
+				log_message('error', 'get_pur_request: SQL was: ' . (isset($sql) ? $sql : 'N/A'));
+				$results = [];
+			} catch(\Error $e) {
+				log_message('critical', 'get_pur_request: Fatal error querying pur_order_detail: ' . $e->getMessage());
+				$results = [];
+			}
+			
+			// Normalize results array - ensure all fields have defaults
+			foreach($results as $key => $value) {
+				$results[$key]['commodity_code'] = isset($value['commodity_code']) ? $value['commodity_code'] : '';
+				$results[$key]['description'] = isset($value['description']) ? $value['description'] : '';
+				$results[$key]['unit_id'] = isset($value['unit_id']) ? $value['unit_id'] : null;
+				$results[$key]['unit_price'] = isset($value['unit_price']) ? (float)$value['unit_price'] : 0;
+				$results[$key]['quantities'] = isset($value['quantities']) ? (float)$value['quantities'] : 0;
+				$results[$key]['tax'] = isset($value['tax']) ? $value['tax'] : '';
+				$results[$key]['into_money'] = isset($value['into_money']) ? (float)$value['into_money'] : 0;
+				$results[$key]['tax_money'] = isset($value['tax_money']) ? (float)$value['tax_money'] : 0;
+				$results[$key]['goods_money'] = isset($value['goods_money']) ? (float)$value['goods_money'] : 0;
+				$results[$key]['wh_quantity_received'] = isset($value['wh_quantity_received']) ? (float)$value['wh_quantity_received'] : 0;
+				$results[$key]['tax_rate'] = isset($value['tax_rate']) ? $value['tax_rate'] : null;
+				$results[$key]['tax_value'] = isset($value['tax_value']) ? (float)$value['tax_value'] : 0;
+				$results[$key]['id'] = isset($value['id']) ? (int)$value['id'] : 0;
+				// Phase 3: Add pur_order_detail_id for tracking PO line items
+				$results[$key]['pur_order_detail_id'] = isset($value['pur_order_detail_id']) ? (int)$value['pur_order_detail_id'] : (isset($value['id']) ? (int)$value['id'] : 0);
+			}
+			
+			// Log query results for debugging
+			if(empty($results)){
+				log_message('error', 'get_pur_request: No results returned from query for PO: ' . $pur_order);
+				log_message('error', 'get_pur_request: Query returned ' . count($results) . ' rows for PO: ' . $pur_order);
+			} else {
+				log_message('info', 'get_pur_request: Found ' . count($results) . ' items for PO: ' . $pur_order);
+				// Log first result structure for debugging
+				if(isset($results[0])){
+					log_message('info', 'get_pur_request first result keys: ' . implode(', ', array_keys($results[0])));
+				}
+			}
 
-		$arr_results=[];
-		$index=0;
-        $warehouse_data = $this->get_warehouse();
-		foreach ($results as $key => $value) {
-
-			if((float)$value['quantities'] - (float)$value['wh_quantity_received'] > 0){
-
+			$arr_results=[];
+			$index=0;
+			try {
+				$warehouse_data = $this->get_warehouse();
+				if(!is_array($warehouse_data)){
+					$warehouse_data = [];
+				}
+			} catch(\Exception $e) {
+				log_message('error', 'Error getting warehouse data: ' . $e->getMessage());
+				$warehouse_data = [];
+			}
+			
+			// Process ALL items from purchase order - no filtering by delivery status
+			foreach ($results as $key => $value) {
+				// Show ALL items regardless of delivery status - allow receiving items even if fully delivered
 				$index++;
-				$unit_name = wh_get_unit_name($value['unit_id']);
+				
+				// Safely get unit name
+				$unit_id = isset($value['unit_id']) ? $value['unit_id'] : null;
+				$unit_name = $unit_id ? (wh_get_unit_name($unit_id) ?? '') : '';
+				
 				$taxname = '';
 				$date_manufacture = null;
 				$expiry_date = null;
 				$lot_number = null;
 				$note = null;
-				$commodity_name = wh_get_item_variatiom($value['commodity_code']);
-				$quantities = (float)$value['quantities'] - (float)$value['wh_quantity_received'];
-				$sub_total = 0;
-
-				$list_item .= $this->create_goods_receipt_row_template($warehouse_data, 'newitems[' . $index . ']', $commodity_name, '', $quantities, $unit_name, $value['unit_price'], $taxname, $lot_number, $date_manufacture, $expiry_date, $value['commodity_code'], $value['unit_id'] , $value['tax_rate'], $value['tax_value'], $value['goods_money'], $note, $value['id'], $sub_total, '', $value['tax'], true);
-
-				$total_goods_money_temp = ((float)$value['quantities'] - (float)$value['wh_quantity_received'])*(float)$value['unit_price'];
-				$total_goods_money += $total_goods_money_temp;
-				$arr_results[$index]['quantities'] = (float)$value['quantities'] - (float)$value['wh_quantity_received'];
-				$arr_results[$index]['goods_money'] = ((float)$value['quantities'] - (float)$value['wh_quantity_received'])*(float)$value['unit_price'];
-
-
-				//get tax value
-				$tax_rate = 0 ;
-				if($value['tax'] != null && $value['tax'] != '') {
-					$arr_tax = explode('|', $value['tax']);
-					foreach ($arr_tax as $tax_id) {
-
-						$tax = $this->get_taxe_value($tax_id);
-						if($tax){
-							$tax_rate += (float)$tax->taxrate;		    	
+				
+				// Safely get commodity name
+				$commodity_code = isset($value['commodity_code']) ? $value['commodity_code'] : '';
+				$commodity_name = '';
+				if($commodity_code) {
+					try {
+						if(function_exists('wh_get_item_variatiom')){
+							$temp_name = wh_get_item_variatiom($commodity_code);
+							$commodity_name = ($temp_name !== false && $temp_name !== null) ? $temp_name : '';
+							if(empty($commodity_name) && isset($value['description']) && $value['description']) {
+								$commodity_name = $value['description'];
+							}
+						} elseif(isset($value['description']) && $value['description']) {
+							$commodity_name = $value['description'];
+						} else {
+							$commodity_name = 'Item #' . $commodity_code; // Fallback
 						}
-
+					} catch(\Exception $e) {
+						log_message('error', 'Error getting commodity name for code ' . $commodity_code . ': ' . $e->getMessage());
+						if(isset($value['description']) && $value['description']) {
+							$commodity_name = $value['description'];
+						} else {
+							$commodity_name = 'Item #' . $commodity_code; // Fallback
+						}
+					} catch(\Error $e) {
+						log_message('error', 'Fatal error getting commodity name for code ' . $commodity_code . ': ' . $e->getMessage());
+						if(isset($value['description']) && $value['description']) {
+							$commodity_name = $value['description'];
+						} else {
+							$commodity_name = 'Item #' . $commodity_code; // Fallback
+						}
 					}
 				}
+				
+				// Use original quantities from purchase order (not remaining quantity)
+				// Allow all items even if quantity is 0 (for fully delivered items, but allow 0)
+				$quantities = isset($value['quantities']) ? (float)$value['quantities'] : 0;
+				if($quantities < 0) {
+					$quantities = 0; // Don't allow negative quantities
+				}
+				$sub_total = 0;
 
-				$arr_results[$index]['tax_money'] = $total_goods_money_temp*(float)$tax_rate/100;
-				$total_tax_money += (float)$total_goods_money_temp*(float)$tax_rate/100;
+				// Safely get all required values with defaults - handle NULL values
+				$unit_price = isset($value['unit_price']) && $value['unit_price'] !== null ? (float)$value['unit_price'] : 0;
+				$tax_rate = isset($value['tax_rate']) ? $value['tax_rate'] : null;
+				$tax_money = isset($value['tax_money']) && $value['tax_money'] !== null ? (float)$value['tax_money'] : 0;
+				$goods_money = isset($value['goods_money']) && $value['goods_money'] !== null ? (float)$value['goods_money'] : 0;
+				$tax = isset($value['tax']) ? $value['tax'] : '';
+				$id = isset($value['id']) && $value['id'] !== null ? $value['id'] : 0;
+				// Phase 3: Get pur_order_detail_id for tracking PO line items
+				$pur_order_detail_id = isset($value['pur_order_detail_id']) && $value['pur_order_detail_id'] !== null ? (int)$value['pur_order_detail_id'] : 0;
 
+				try {
+					if(!method_exists($this, 'create_goods_receipt_row_template')){
+						throw new \Exception('create_goods_receipt_row_template method not found');
+					}
+					// Create row with from_po=true so it doesn't show warehouse column and shows tax as money
+					$row_html = $this->create_goods_receipt_row_template(
+						$warehouse_data, 
+						'newitems[' . $index . ']', 
+						$commodity_name, 
+						'', // warehouse_id - not needed for PO items
+						$quantities, 
+						$unit_name, 
+						$unit_price, 
+						$taxname, 
+						$lot_number, 
+						$date_manufacture, 
+						$expiry_date, 
+						$commodity_code, 
+						$unit_id, 
+						$tax_rate, 
+						$tax_money, 
+						$goods_money, 
+						$note, 
+						$id, 
+						$sub_total, 
+						'', // tax_name
+						$tax, // tax_id
+						true, // is_edit
+						'', // serial_number
+						true,  // from_po - IMPORTANT: this makes it show tax as money and removes warehouse column
+						$pur_order_detail_id  // Phase 3: pur_order_detail_id for tracking PO line items
+					);
+					if($row_html && strlen($row_html) > 0) {
+						$list_item .= $row_html;
+					} else {
+						log_message('error', 'create_goods_receipt_row_template returned empty HTML for item: ' . $commodity_code);
+					}
+				} catch(\Exception $e) {
+					log_message('error', 'Error creating row template in get_pur_request for item ' . $commodity_code . ': ' . $e->getMessage() . ' | Trace: ' . $e->getTraceAsString());
+					continue; // Skip this item and continue with next
+				} catch(\Error $e) {
+					log_message('error', 'Fatal error creating row template in get_pur_request for item ' . $commodity_code . ': ' . $e->getMessage());
+					continue; // Skip this item and continue with next
+				}
+
+				$total_goods_money_temp = $quantities * $unit_price;
+				$total_goods_money += $total_goods_money_temp;
+				$arr_results[$index]['quantities'] = $quantities;
+				$arr_results[$index]['goods_money'] = $total_goods_money_temp;
+
+				//get tax value
+				$tax_rate_calc = 0;
+				if($tax != null && $tax != '' && $tax != '0') {
+					$arr_tax = explode('|', $tax);
+					foreach ($arr_tax as $tax_id) {
+						if(!empty($tax_id) && $tax_id != '0'){
+							try {
+								if(method_exists($this, 'get_taxe_value')){
+									$tax_obj = $this->get_taxe_value($tax_id);
+									if($tax_obj && isset($tax_obj->taxrate)){
+										$tax_rate_calc += (float)$tax_obj->taxrate;
+									}
+								} else {
+									// Fallback: use tax_rate from the value if available
+									if(isset($value['tax_rate']) && $value['tax_rate'] != null && $value['tax_rate'] != ''){
+										$tax_rate_calc += (float)$value['tax_rate'];
+									}
+								}
+							} catch(\Exception $e) {
+								log_message('error', 'Error getting tax value: ' . $e->getMessage());
+								// Fallback: use tax_rate from the value if available
+								if(isset($value['tax_rate']) && $value['tax_rate'] != null && $value['tax_rate'] != ''){
+									$tax_rate_calc += (float)$value['tax_rate'];
+								}
+							}
+						}
+					}
+				}
+				
+				// If no tax_rate_calc was determined, try to use tax_rate from the value directly
+				if($tax_rate_calc == 0 && isset($value['tax_rate']) && $value['tax_rate'] != null && $value['tax_rate'] != ''){
+					$tax_rate_calc = (float)$value['tax_rate'];
+				}
+
+				$arr_results[$index]['tax_money'] = $total_goods_money_temp * (float)$tax_rate_calc / 100;
+				$total_tax_money += $arr_results[$index]['tax_money'];
 			}
-			
+
+			$total_money = $total_goods_money + $total_tax_money;
+			$value_of_inventory = $total_goods_money;
+
+			$arr_pur_resquest[] = $arr_results;
+			$arr_pur_resquest[] = $total_tax_money;
+			$arr_pur_resquest[] = $total_goods_money;
+			$arr_pur_resquest[] = $value_of_inventory;
+			$arr_pur_resquest[] = $total_money;
+			$arr_pur_resquest[] = count($arr_results);
+			$arr_pur_resquest[] = $list_item;
+
+			return $arr_pur_resquest;
+		} catch(\Exception $e) {
+			log_message('error', 'Error in get_pur_request: ' . $e->getMessage() . ' | Trace: ' . $e->getTraceAsString());
+			// Return empty structure with main template row to prevent 500 error
+			try {
+				$main_template = $this->create_goods_receipt_row_template();
+			} catch(\Exception $e2) {
+				log_message('error', 'Error creating main template in exception handler: ' . $e2->getMessage());
+				$main_template = '';
+			}
+			return [[], 0, 0, 0, 0, 0, $main_template];
+		} catch(\Error $e) {
+			log_message('error', 'Fatal error in get_pur_request: ' . $e->getMessage() . ' | Trace: ' . $e->getTraceAsString());
+			// Return empty structure with main template row
+			try {
+				$main_template = $this->create_goods_receipt_row_template();
+			} catch(\Exception $e2) {
+				$main_template = '';
+			}
+			return [[], 0, 0, 0, 0, 0, $main_template];
 		}
-
-
-		$total_money = $total_goods_money + $total_tax_money;
-		$value_of_inventory = $total_goods_money;
-
-		$arr_pur_resquest[] = $arr_results;
-		$arr_pur_resquest[] = $total_tax_money;
-		$arr_pur_resquest[] = $total_goods_money;
-		$arr_pur_resquest[] = $value_of_inventory;
-		$arr_pur_resquest[] = $total_money;
-		$arr_pur_resquest[] = count($arr_results);
-		$arr_pur_resquest[] = $list_item;
-
-
-		return $arr_pur_resquest;
 	}
 
 	/**
@@ -2680,35 +2896,33 @@ class Warehouse_model extends Crud_model {
 						$this->add_inventory_manage($goods_receipt_detail_value, 1);
 
 					//update po detail
-						if($from_po){
-							$update_status = $this->update_po_detail_quantity($goods_receipt->pr_order_id, $goods_receipt_detail_value);
-						//check total item from purchase order with receipt note
+					if($from_po){
+						// Phase 4: Update PO detail quantity using pur_order_detail_id if available
+						$update_status = $this->update_po_detail_quantity($goods_receipt->pr_order_id, $goods_receipt_detail_value);
 
-							$this->db->where('pur_order', $goods_receipt->pr_order_id);
-							$pur_order_detail = $this->db->get(get_db_prefix() .'pur_order_detail')->get()->getResultArray();
-							foreach ($pur_order_detail as $p_key => $value) {
-								if((float)$value['quantity'] != (float)$value['wh_quantity_received']){
-									$flag_update_status_po = false;
-								}
-							}
-
-							if($update_status['flag_update_status'] == false){
-								$flag_update_status_po = false;
-							}
-
+						if($update_status['flag_update_status'] == false){
+							$flag_update_status_po = false;
 						}
+
+					}
 
 					}
 
 				}
 
-				/*update status po*/
-				if($from_po == true && $flag_update_status_po == true){
+				/*update status po - Phase 4: Use calculate_po_delivery_status for accurate delivery status*/
+				if($from_po == true){
 					if (get_status_modules_wh('purchase')) {
 						if ($this->db->fieldExists('delivery_status' ,db_prefix() . 'pur_orders')) { 
+							// Phase 4: Calculate delivery status based on all line items (0=undelivered, 1=completely, 3=partially)
+							$delivery_status = $this->calculate_po_delivery_status($goods_receipt->pr_order_id);
+							
 							$builder = $this->db->table(get_db_prefix().'pur_orders');
 							$builder->where('id', $goods_receipt->pr_order_id);
-							$builder->update(['status_goods' => 1, 'delivery_status' => 1]);
+							$builder->update([
+								'status_goods' => ($delivery_status == 1 ? 1 : 0), // Only set status_goods=1 if completely delivered
+								'delivery_status' => $delivery_status
+							]);
 						}
 					}
 
@@ -3911,42 +4125,52 @@ class Warehouse_model extends Crud_model {
 	 * @return object
 	 */
 	public function get_vendor_ajax($pur_orders_id) {
-		$data = [];
-		$sql = 'SELECT *, ' .get_db_prefix(). 'pur_orders.project, ' .get_db_prefix(). 'pur_orders.type, ' .get_db_prefix(). 'pur_orders.department, ' .get_db_prefix(). 'pur_request.requester FROM ' .get_db_prefix(). 'pur_vendor
-		left join ' .get_db_prefix(). 'pur_orders on ' .get_db_prefix(). 'pur_vendor.userid = ' .get_db_prefix(). 'pur_orders.vendor
-		left join ' .get_db_prefix(). 'pur_request on ' .get_db_prefix(). 'pur_orders.pur_request = ' .get_db_prefix(). 'pur_request.id
-		where ' .get_db_prefix(). 'pur_orders.id = ' . $pur_orders_id;
-		$result_array = $this->db->query($sql)->get()->getRow();
+		$data = [
+			'id' => '',
+			'buyer' => '',
+			'project' => '',
+			'type' => '',
+			'department' => '',
+			'requester' => '',
+		];
 
+		if(!is_numeric($pur_orders_id) || $pur_orders_id == ''){
+			return $data;
+		}
 
+		try {
+			$sql = 'SELECT *, ' .get_db_prefix(). 'pur_orders.project, ' .get_db_prefix(). 'pur_orders.type, ' .get_db_prefix(). 'pur_orders.department, ' .get_db_prefix(). 'pur_request.requester FROM ' .get_db_prefix(). 'pur_vendor
+			left join ' .get_db_prefix(). 'pur_orders on ' .get_db_prefix(). 'pur_vendor.userid = ' .get_db_prefix(). 'pur_orders.vendor
+			left join ' .get_db_prefix(). 'pur_request on ' .get_db_prefix(). 'pur_orders.pur_request = ' .get_db_prefix(). 'pur_request.id
+			where ' .get_db_prefix(). 'pur_orders.id = ' . $pur_orders_id;
+			$result_array = $this->db->query($sql)->getRow();
 
-		$data['id'] 		= $result_array->userid;
-		$data['buyer'] 		= $result_array->buyer;
-		$data['project'] 	= '';
-		$data['type']      	= '';
-		$data['department'] = '';
-		$data['requester'] 	= '';
+			if($result_array){
+				$data['id'] = isset($result_array->userid) ? $result_array->userid : '';
+				$data['buyer'] = isset($result_array->buyer) ? $result_array->buyer : '';
 
-		if (get_status_modules_wh('purchase')) {
-			if(isset($result_array->project)){
-				$data['project'] 	.= $result_array->project;
+				if (get_status_modules_wh('purchase')) {
+					if(isset($result_array->project)){
+						$data['project'] = $result_array->project;
+					}
+					if(isset($result_array->type)){
+						$data['type'] = $result_array->type;
+					}
+					
+					if(isset($result_array->department)){
+						$data['department'] = $result_array->department;
+					}
+					
+					if(isset($result_array->requester)){
+						$data['requester'] = $result_array->requester;
+					}
+				}
 			}
-			if(isset($result_array->type)){
-				$data['type']      	.= $result_array->type;
-			}
-			
-			if(isset($result_array->department)){
-				$data['department'] .= $result_array->department;
-			}
-			
-			if(isset($result_array->requester)){
-				$data['requester'] 	.= $result_array->requester;
-			}
-			
+		} catch(\Exception $e) {
+			log_message('error', 'Error in get_vendor_ajax: ' . $e->getMessage());
 		}
 
 		return $data;
-
 	}
 
 	/**
@@ -7526,7 +7750,16 @@ class Warehouse_model extends Crud_model {
      */
    	public function get_taxe_value($id)
    	{
-   		return $this->db->query('select id, name as label, taxrate from '.get_db_prefix().'taxes where id = '.$id)->get()->getRow();
+   		try {
+   			if(!is_numeric($id) || $id <= 0){
+   				return null;
+   			}
+   			$result = $this->db->query('select id, name as label, taxrate from '.get_db_prefix().'taxes where id = '.((int)$id))->get()->getRow();
+   			return $result ? $result : null;
+   		} catch(\Exception $e) {
+   			log_message('error', 'Error in get_taxe_value: ' . $e->getMessage());
+   			return null;
+   		}
    	}
 
     /**
@@ -7939,6 +8172,14 @@ class Warehouse_model extends Crud_model {
 			$inventory_receipt['tax_name'] = $tax_name;
 			unset($inventory_receipt['order']);
 			unset($inventory_receipt['tax_select']);
+			
+			// Check if pur_order_detail_id column exists before including it in update
+			// If column doesn't exist, unset it to avoid database error
+			if(isset($inventory_receipt['pur_order_detail_id'])) {
+				if(!$this->db->fieldExists('pur_order_detail_id', get_db_prefix() . 'goods_receipt_detail')) {
+					unset($inventory_receipt['pur_order_detail_id']);
+				}
+			}
 
 			$builder = $this->db->table(get_db_prefix().'goods_receipt_detail');
 			$builder->where('id', $inventory_receipt['id']);
@@ -8004,6 +8245,14 @@ class Warehouse_model extends Crud_model {
 			unset($inventory_receipt['order']);
 			unset($inventory_receipt['id']);
 			unset($inventory_receipt['tax_select']);
+			
+			// Check if pur_order_detail_id column exists before including it in insert
+			// If column doesn't exist, unset it to avoid database error
+			if(isset($inventory_receipt['pur_order_detail_id'])) {
+				if(!$this->db->fieldExists('pur_order_detail_id', get_db_prefix() . 'goods_receipt_detail')) {
+					unset($inventory_receipt['pur_order_detail_id']);
+				}
+			}
 
 			$builder = $this->db->table(get_db_prefix().'goods_receipt_detail');
 			$builder->insert($inventory_receipt);
@@ -10540,10 +10789,18 @@ class Warehouse_model extends Crud_model {
     {
     	$flag_update_status = true;
 
-    	$this->db->where('pur_order', $po_id);
-    	$this->db->where('item_code', $goods_receipt_detail['commodity_code']);
+    	// Phase 4: Use pur_order_detail_id for matching if available, otherwise fallback to commodity_code matching
+    	$builder = $this->db->table(get_db_prefix() . 'pur_order_detail');
+    	if(isset($goods_receipt_detail['pur_order_detail_id']) && !empty($goods_receipt_detail['pur_order_detail_id']) && $goods_receipt_detail['pur_order_detail_id'] > 0) {
+    		// Match by pur_order_detail_id (Phase 4: Direct link to PO line item)
+    		$builder->where('id', (int)$goods_receipt_detail['pur_order_detail_id']);
+    	} else {
+    		// Fallback: Match by pur_order + item_code (old method for backward compatibility)
+    		$builder->where('pur_order', $po_id);
+    		$builder->where('item_code', $goods_receipt_detail['commodity_code']);
+    	}
 
-    	$pur_order_detail = $this->db->get(get_db_prefix() .'pur_order_detail')->get()->getRow();
+    	$pur_order_detail = $builder->get()->getRow();
 
     	if($pur_order_detail){
     		//check quantity in purchase order detail = wh_quantity_received
@@ -10554,12 +10811,17 @@ class Warehouse_model extends Crud_model {
     		}
 
     		//wh_quantity_received in purchase order detail 
+    		// Phase 4: Use same matching logic for update
+    		$update_builder = $this->db->table(get_db_prefix() . 'pur_order_detail');
+    		if(isset($goods_receipt_detail['pur_order_detail_id']) && !empty($goods_receipt_detail['pur_order_detail_id']) && $goods_receipt_detail['pur_order_detail_id'] > 0) {
+    			$update_builder->where('id', (int)$goods_receipt_detail['pur_order_detail_id']);
+    		} else {
+    			$update_builder->where('pur_order', $po_id);
+    			$update_builder->where('item_code', $goods_receipt_detail['commodity_code']);
+    		}
+    		$affected_rows = $update_builder->update(['wh_quantity_received' => $wh_quantity_received]);
 
-    		$this->db->where('pur_order', $po_id);
-    		$this->db->where('item_code', $goods_receipt_detail['commodity_code']);
-    		$this->db->update(get_db_prefix() . 'pur_order_detail', ['wh_quantity_received' => $wh_quantity_received]);
-
-    		if ($this->db->affected_rows() > 0) {
+    		if ($affected_rows > 0) {
     			$results_update = true;
     		} else {
     			$results_update = false;
@@ -10573,6 +10835,69 @@ class Warehouse_model extends Crud_model {
     	$results['flag_update_status']=$flag_update_status;
     	return $results;
 
+    }
+
+    /**
+     * Phase 4: Calculate PO delivery status based on all line items
+     * @param  integer $po_id Purchase order ID
+     * @return integer Delivery status: 0 (undelivered), 1 (completely delivered), or 3 (partially delivered)
+     */
+    public function calculate_po_delivery_status($po_id)
+    {
+    	if(!is_numeric($po_id) || $po_id <= 0) {
+    		return 0; // Invalid PO ID, return undelivered
+    	}
+
+    	try {
+    		$prefix = function_exists('db_prefix') ? db_prefix() : get_db_prefix();
+    		
+    		// Get all line items for this PO
+    		$builder = $this->db->table($prefix . 'pur_order_detail');
+    		$builder->where('pur_order', (int)$po_id);
+    		$pur_order_details = $builder->get()->getResultArray();
+
+    		if(empty($pur_order_details)) {
+    			return 0; // No items found, return undelivered
+    		}
+
+    		$total_items = count($pur_order_details);
+    		$undelivered_count = 0;
+    		$completely_delivered_count = 0;
+    		$partially_delivered_count = 0;
+
+    		foreach($pur_order_details as $detail) {
+    			$quantity = isset($detail['quantity']) ? (float)$detail['quantity'] : 0;
+    			$wh_quantity_received = isset($detail['wh_quantity_received']) ? (float)$detail['wh_quantity_received'] : 0;
+
+    			if($wh_quantity_received == 0 || $wh_quantity_received === null) {
+    				$undelivered_count++;
+    			} elseif($quantity == $wh_quantity_received) {
+    				$completely_delivered_count++;
+    			} else {
+    				$partially_delivered_count++;
+    			}
+    		}
+
+    		// Completely Delivered (1): All line items have quantity == wh_quantity_received
+    		if($completely_delivered_count == $total_items) {
+    			return 1;
+    		}
+
+    		// Undelivered (0): All line items have wh_quantity_received == 0 or NULL
+    		if($undelivered_count == $total_items) {
+    			return 0;
+    		}
+
+    		// Partially Delivered (3): Some items have wh_quantity_received > 0 but not all are complete
+    		return 3;
+
+    	} catch(\Exception $e) {
+    		log_message('error', 'Error calculating PO delivery status for PO ' . $po_id . ': ' . $e->getMessage());
+    		return 0; // On error, return undelivered
+    	} catch(\Error $e) {
+    		log_message('critical', 'Fatal error calculating PO delivery status for PO ' . $po_id . ': ' . $e->getMessage());
+    		return 0; // On fatal error, return undelivered
+    	}
     }
 
     /**
@@ -14387,7 +14712,7 @@ class Warehouse_model extends Crud_model {
      * @param  boolean $is_edit          
      * @return [type]                    
      */
-    public function create_goods_receipt_row_template($warehouse_data = [], $name = '', $commodity_name = '', $warehouse_id = '', $quantities = '', $unit_name = '', $unit_price = '', $taxname = '', $lot_number = '', $date_manufacture = '', $expiry_date = '', $commodity_code = '', $unit_id = '', $tax_rate = '', $tax_money = '', $goods_money = '', $note = '', $item_key = '', $sub_total = '', $tax_name = '', $tax_id = '', $is_edit = false, $serial_number = '') {
+    public function create_goods_receipt_row_template($warehouse_data = [], $name = '', $commodity_name = '', $warehouse_id = '', $quantities = '', $unit_name = '', $unit_price = '', $taxname = '', $lot_number = '', $date_manufacture = '', $expiry_date = '', $commodity_code = '', $unit_id = '', $tax_rate = '', $tax_money = '', $goods_money = '', $note = '', $item_key = '', $sub_total = '', $tax_name = '', $tax_id = '', $is_edit = false, $serial_number = '', $from_po = false, $pur_order_detail_id = '') {
 		
 		$row = '';
 
@@ -14434,13 +14759,30 @@ class Warehouse_model extends Crud_model {
 			$invoice_item_taxes = '';
 			$amount = '';
 			$sub_total = 0;
+			
+			// For main row, always show warehouse column (not from PO)
+			$from_po = false;
+			$tax_money = 0;
 
 		} else {
 			$tax_rate_class = ' refresh_tax2';
 			$warehouse_class = ' refresh_warehouse2';
 
+			// Phase 3: Add pur_order_detail_id hidden field when from PO
+			$pur_order_detail_id_field = '';
+			if($pur_order_detail_id !== '' && $pur_order_detail_id !== null && $pur_order_detail_id != 0) {
+				$pur_order_detail_id_field = '<input type="hidden" name="' . $name . '[pur_order_detail_id]" value="' . (int)$pur_order_detail_id . '">';
+			}
+			
+			// Add hidden warehouse_id field for PO items (will be populated from main warehouse on submit)
+			$hidden_warehouse_field = '';
+			if($from_po && $name != '') {
+				// For PO items, add hidden warehouse_id field that will be populated from main warehouse
+				$hidden_warehouse_field = '<input type="hidden" name="' . $name . '[warehouse_id]" value="">';
+			}
+
 			$row .= '<tr class="sortable item">
-					<td class="dragger"><input type="hidden" class="order" name="' . $name . '[order]"><input type="hidden" class="ids" name="' . $name . '[id]" value="' . $item_key . '"></td>';
+					<td class="dragger"><input type="hidden" class="order" name="' . $name . '[order]"><input type="hidden" class="ids" name="' . $name . '[id]" value="' . $item_key . '">' . $pur_order_detail_id_field . $hidden_warehouse_field . '</td>';
 			$name_commodity_code = $name . '[commodity_code]';
 			$name_commodity_name = $name . '[commodity_name]';
 			$name_warehouse_id = $name . '[warehouse_id]';
@@ -14461,55 +14803,99 @@ class Warehouse_model extends Crud_model {
 			$name_sub_total = $name .'[sub_total]';
 			$name_serial_number = $name .'[serial_number]';
 
-			$array_rate_attr = ['onblur' => 'wh_calculate_total();', 'onchange' => 'wh_calculate_total();', 'min' => '0.0' , 'step' => 'any', 'data-amount' => 'invoice', 'placeholder' => _l('unit_price')];
-
-			$array_qty_attr = ['onblur' => 'wh_calculate_total();', 'onchange' => 'wh_calculate_total();', 'min' => '0.0' , 'step' => 'any',  'data-quantity' => (float)$quantities];
+			// Phase 5: Make quantities editable when from PO, keep unit price readonly
+			if($from_po){
+				// Unit price is readonly from PO
+				$array_rate_attr = ['min' => '0.0' , 'step' => 'any', 'data-amount' => 'invoice', 'placeholder' => _l('unit_price'), 'readonly' => true];
+				// Phase 5: Make quantities editable - allow user to enter received quantity (may be less than PO quantity)
+				// Store original PO quantity in data attribute for reference, add placeholder showing PO quantity
+				$po_quantity_placeholder = function_exists('_l') ? _l('po_quantity') . ': ' . (float)$quantities : 'PO Qty: ' . (float)$quantities;
+				$array_qty_attr = [
+					'onblur' => 'wh_calculate_total();', 
+					'onchange' => 'wh_calculate_total();', 
+					'min' => '0.0' , 
+					'max' => (float)$quantities, // Optional: prevent exceeding PO quantity
+					'step' => 'any',  
+					'data-quantity' => (float)$quantities,
+					'data-po-quantity' => (float)$quantities, // Phase 5: Store original PO quantity for reference
+					'placeholder' => $po_quantity_placeholder,
+					'title' => $po_quantity_placeholder // Tooltip showing original PO quantity
+				];
+			} else {
+				$array_rate_attr = ['onblur' => 'wh_calculate_total();', 'onchange' => 'wh_calculate_total();', 'min' => '0.0' , 'step' => 'any', 'data-amount' => 'invoice', 'placeholder' => _l('unit_price')];
+				$array_qty_attr = ['onblur' => 'wh_calculate_total();', 'onchange' => 'wh_calculate_total();', 'min' => '0.0' , 'step' => 'any',  'data-quantity' => (float)$quantities];
+			}
 
 			$manual             = false;
 
-			$tax_money = 0;
+			$tax_money_calculated = 0;
 			$tax_rate_value = 0;
 
-			if($is_edit){
-				$invoice_item_taxes = wh_convert_item_taxes($tax_id, $tax_rate, $tax_name);
-				$arr_tax_rate = explode('|', $tax_rate);
-				foreach ($arr_tax_rate as $key => $value) {
-					$tax_rate_value += (float)$value;
-				}
-			}else{
-				$invoice_item_taxes = $taxname;
-				$tax_rate_data = $this->wh_get_tax_rate($taxname);
-				$tax_rate_value = $tax_rate_data['tax_rate'];
-			}
-
-			if((float)$tax_rate_value != 0){
-				$tax_money = (float)$unit_price * (float)$quantities * (float)$tax_rate_value / 100;
-				$goods_money = (float)$unit_price * (float)$quantities + (float)$tax_money;
-				$amount = (float)$unit_price * (float)$quantities + (float)$tax_money;
-			}else{
-				$goods_money = (float)$unit_price * (float)$quantities;
+			// If from PO, use the tax_money passed in, otherwise calculate it
+			if($from_po){
+				// Use tax_money from PO directly (even if 0)
+				$tax_money_calculated = ($tax_money !== '' && $tax_money !== null) ? (float)$tax_money : 0;
+				// Use goods_money from PO if provided, otherwise calculate
+				$goods_money = ($goods_money > 0) ? (float)$goods_money : ((float)$unit_price * (float)$quantities);
 				$amount = (float)$unit_price * (float)$quantities;
+			} else {
+				if($is_edit){
+					$invoice_item_taxes = wh_convert_item_taxes($tax_id, $tax_rate, $tax_name);
+					$arr_tax_rate = explode('|', $tax_rate);
+					foreach ($arr_tax_rate as $key => $value) {
+						$tax_rate_value += (float)$value;
+					}
+				}else{
+					$invoice_item_taxes = $taxname;
+					$tax_rate_data = $this->wh_get_tax_rate($taxname);
+					$tax_rate_value = $tax_rate_data['tax_rate'];
+				}
+
+				if((float)$tax_rate_value != 0){
+					$tax_money_calculated = (float)$unit_price * (float)$quantities * (float)$tax_rate_value / 100;
+					$goods_money = (float)$unit_price * (float)$quantities + (float)$tax_money_calculated;
+					$amount = (float)$unit_price * (float)$quantities + (float)$tax_money_calculated;
+				}else{
+					$goods_money = (float)$unit_price * (float)$quantities;
+					$amount = (float)$unit_price * (float)$quantities;
+				}
 			}
 
 			$sub_total = (float)$unit_price * (float)$quantities;
 			$amount = to_decimal_format($amount);
+			$tax_money = $tax_money_calculated; // Use calculated tax_money for display
 
 		}
 		$clients_attr = ["onchange" => "get_vehicle('" . $name_commodity_code . "','" . $name_unit_id . "','" . $name_warehouse_id . "');", "placeholder" => _l('customer_name'), 'data-customer_id' => 'invoice'];
 
 		$row .= '<td class="">' . render_textarea1($name_commodity_name, '', $commodity_name, ['rows' => 2, 'placeholder' => _l('item'), 'readonly' => true] ) . '</td>';
-		$row .= '<td class="warehouse_select'.$warehouse_class.'">' .
-
-		render_select1($name_warehouse_id, $warehouse_data,array('warehouse_id','warehouse_name'),'',$warehouse_id,[], ["placeholder" => _l('warehouse_name')], 'no-margin').
-		render_input1($name_note, '', $note, 'text', ['placeholder' => _l('commodity_notes')], [], 'mb0', 'input-transparent text-left').
-		'</td>';
+		
+		// Only show warehouse column if not from PO and not the main template row
+		if(!$from_po && $name != ''){
+			$row .= '<td class="warehouse_select'.$warehouse_class.'">' .
+			render_select1($name_warehouse_id, $warehouse_data,array('warehouse_id','warehouse_name'),'',$warehouse_id,[], ["placeholder" => _l('warehouse_name')], 'no-margin').
+			render_input1($name_note, '', $note, 'text', ['placeholder' => _l('commodity_notes')], [], 'mb0', 'input-transparent text-left').
+			'</td>';
+		}
+		
+		// Quantity and unit price are already set with readonly in array_qty_attr/array_rate_attr if from_po
 		$row .= '<td class="quantities">' . 
 		render_input1($name_quantities, '', $quantities, 'number', $array_qty_attr, [], 'no-margin') . 
 		render_input1($name_unit_name, '', $unit_name, 'text', ['placeholder' => _l('unit'), 'readonly' => true], [], 'mb0', 'input-transparent text-right wh_input_none').
 		'</td>';
 
 		$row .= '<td class="rate">' . render_input1($name_unit_price, '', $unit_price, 'number', $array_rate_attr) . '</td>';
-		$row .= '<td class="taxrate'.$tax_rate_class.'">' . $this->get_taxes_dropdown_template($name_tax_id_select, $invoice_item_taxes, 'invoice', $item_key, true, $manual) . '</td>';
+		
+		// Show tax amount instead of dropdown if from PO
+		if($from_po){
+			// Always show the tax_money value from PO (even if 0)
+			$tax_display = ($tax_money !== '' && $tax_money !== null) ? (float)$tax_money : 0;
+			// Format tax money for display - use to_decimal_format if app_format_money not available
+			$tax_formatted = function_exists('app_format_money') ? app_format_money($tax_display, '') : (function_exists('to_decimal_format') ? to_decimal_format($tax_display) : number_format($tax_display, 2));
+			$row .= '<td class="taxrate'.$tax_rate_class.'" align="right">' . $tax_formatted . '</td>';
+		} else {
+			$row .= '<td class="taxrate'.$tax_rate_class.'">' . $this->get_taxes_dropdown_template($name_tax_id_select, $invoice_item_taxes, 'invoice', $item_key, true, $manual) . '</td>';
+		}
 		$row .= '<td>' . render_input1($name_lot_number, '', $lot_number, 'text', ['placeholder' => _l('lot_number')]) . '</td>';
 		$row .= '<td>' . render_date_input1($name_date_manufacture, '', $date_manufacture, ['placeholder' => _l('date_manufacture')]) . '</td>';
 		$row .= '<td>' . render_date_input1($name_expiry_date, '', $expiry_date, ['placeholder' => _l('expiry_date')]) . '</td>';
@@ -19547,3 +19933,4 @@ class Warehouse_model extends Crud_model {
 
 
 }
+

@@ -1294,25 +1294,51 @@ class Warehouse extends Security_Controller {
 		$data['title'] = _l('goods_receipt');
 
 		$data['warehouses'] = $this->warehouse_model->get_warehouse();
+		
+		// Always try to load purchase module data for goods receipt
+		$data['pr_orders'] = [];
+		$data['vendors'] = [];
+		$data['pr_orders_status'] = false;
+		
 		if (get_status_modules_wh('purchase')) {
 			$this->load->model('purchase/purchase_model');
 			$this->load->model('departments_model');
 			$this->load->model('staff_model');
 			$this->load->model('projects_model');
 
-			$data['pr_orders'] = get_pr_order();
+			// Get ALL approved purchase orders regardless of delivery status (Undelivered, Partially delivered, Completely Delivered)
+			// Use Purchase model's get_pur_order_approved() which only filters by approve_status, not delivery_status
+			$data['pr_orders'] = $this->purchase_model->get_pur_order_approved();
 			$data['pr_orders_status'] = true;
 
+			// Get vendors (registered suppliers only)
 			$data['vendors'] = $this->purchase_model->get_vendor();
 
 			$data['projects'] = $this->projects_model->get();
 			$data['staffs'] = $this->staff_model->get();
 			$data['departments'] = $this->departments_model->get();
-
-
 		} else {
-			$data['pr_orders'] = [];
-			$data['pr_orders_status'] = false;
+			// Even if purchase module is not active, try to get vendors and purchase orders if tables exist
+			$db = db_connect('default');
+			if ($db->tableExists(get_db_prefix() . 'pur_vendor')) {
+				$builder = $db->table(get_db_prefix() . 'pur_vendor');
+				$builder->where('active', 1);
+				$vendors_data = $builder->get()->getResultArray();
+				$data['vendors'] = [];
+				foreach ($vendors_data as $vendor) {
+					$data['vendors'][] = [
+						'userid' => $vendor['userid'],
+						'company' => $vendor['company']
+					];
+				}
+			}
+			
+			if ($db->tableExists(get_db_prefix() . 'pur_orders')) {
+				$builder = $db->table(get_db_prefix() . 'pur_orders');
+				$builder->where('approve_status', 2);
+				// Remove any delivery status filtering - show all orders
+				$data['pr_orders'] = $builder->get()->getResultArray();
+			}
 		}
 
 
@@ -1395,22 +1421,95 @@ class Warehouse extends Security_Controller {
 	 * @return json encode
 	 */
 	public function coppy_pur_request($pur_request = '') {
-		if(is_numeric($pur_request)){
-			$pur_request_detail = $this->warehouse_model->get_pur_request($pur_request);
+		// Start output buffering to catch any PHP errors
+		ob_start();
+		try {
+			if(is_numeric($pur_request) && $pur_request != '' && $pur_request > 0){
+				try {
+					$pur_request_detail = $this->warehouse_model->get_pur_request($pur_request);
+				} catch(\Exception $model_ex) {
+					log_message('error', 'Model error in coppy_pur_request: ' . $model_ex->getMessage() . ' | Trace: ' . $model_ex->getTraceAsString());
+					throw $model_ex;
+				}
 
+				if($pur_request_detail && is_array($pur_request_detail) && count($pur_request_detail) >= 7){
+					// Return only PO items - JavaScript will preserve the main row template
+					if(ob_get_level() > 0) {
+						ob_end_clean();
+					}
+					echo json_encode([
+						'result' => isset($pur_request_detail[0]) && is_array($pur_request_detail[0]) ? $pur_request_detail[0] : [],
+						'total_tax_money' => isset($pur_request_detail[1]) ? (float)$pur_request_detail[1] : 0,
+						'total_goods_money' => isset($pur_request_detail[2]) ? (float)$pur_request_detail[2] : 0,
+						'value_of_inventory' => isset($pur_request_detail[3]) ? (float)$pur_request_detail[3] : 0,
+						'total_money' => isset($pur_request_detail[4]) ? (float)$pur_request_detail[4] : 0,
+						'total_row' => isset($pur_request_detail[5]) ? (int)$pur_request_detail[5] : 0,
+						'list_item' => isset($pur_request_detail[6]) ? $pur_request_detail[6] : '',
+					]);
+					return;
+				} else {
+					// Invalid response structure - return empty template
+					log_message('debug', 'Invalid pur_request_detail structure for PO: ' . $pur_request);
+				}
+			}
+			
+			// Fallback: return empty template
+			try {
+				$list_item = $this->warehouse_model->create_goods_receipt_row_template();
+			} catch(\Exception $e) {
+				log_message('error', 'Error creating fallback row template: ' . $e->getMessage());
+				$list_item = '';
+			}
+			
+			if(ob_get_level() > 0) {
+				ob_end_clean();
+			}
 			echo json_encode([
-
-				'result' => $pur_request_detail[0] ? $pur_request_detail[0] : '',
-				'total_tax_money' => $pur_request_detail[1] ? $pur_request_detail[1] : '',
-				'total_goods_money' => $pur_request_detail[2] ? $pur_request_detail[2] : '',
-				'value_of_inventory' => $pur_request_detail[3] ? $pur_request_detail[3] : '',
-				'total_money' => $pur_request_detail[4] ? $pur_request_detail[4] : '',
-				'total_row' => $pur_request_detail[5] ? $pur_request_detail[5] : '',
-				'list_item' => $pur_request_detail[6] ? $pur_request_detail[6] : '',
+				'result' => [],
+				'total_tax_money' => 0,
+				'total_goods_money' => 0,
+				'value_of_inventory' => 0,
+				'total_money' => 0,
+				'total_row' => 0,
+				'list_item' => $list_item,
 			]);
-		}else{
-			$list_item = $this->warehouse_model->create_goods_receipt_row_template();
+		} catch(\Exception $e) {
+			// Clear any output that might have been generated
+			ob_end_clean();
+			log_message('error', 'Error in coppy_pur_request: ' . $e->getMessage() . ' | Trace: ' . $e->getTraceAsString());
+			try {
+				$list_item = $this->warehouse_model->create_goods_receipt_row_template();
+			} catch(\Exception $e2) {
+				log_message('error', 'Error creating error fallback template: ' . $e2->getMessage());
+				$list_item = '';
+			}
 			echo json_encode([
+				'result' => [],
+				'total_tax_money' => 0,
+				'total_goods_money' => 0,
+				'value_of_inventory' => 0,
+				'total_money' => 0,
+				'total_row' => 0,
+				'list_item' => $list_item,
+			]);
+		} catch(\Error $e) {
+			// Catch PHP 7+ fatal errors
+			if(ob_get_level() > 0) {
+				ob_end_clean();
+			}
+			log_message('error', 'Fatal error in coppy_pur_request: ' . $e->getMessage() . ' | Trace: ' . $e->getTraceAsString());
+			try {
+				$list_item = $this->warehouse_model->create_goods_receipt_row_template();
+			} catch(\Exception $e2) {
+				$list_item = '';
+			}
+			echo json_encode([
+				'result' => [],
+				'total_tax_money' => 0,
+				'total_goods_money' => 0,
+				'value_of_inventory' => 0,
+				'total_money' => 0,
+				'total_row' => 0,
 				'list_item' => $list_item,
 			]);
 		}
@@ -1422,19 +1521,51 @@ class Warehouse extends Security_Controller {
 	 * @return json encode
 	 */
 	public function copy_pur_vender($pur_request) {
+		if(!is_numeric($pur_request) || $pur_request == ''){
+			echo json_encode([
+				'userid' => '',
+				'buyer' => '',
+				'project' => '',
+				'type' => '',
+				'department' => '',
+				'requester' => '',
+			]);
+			return;
+		}
 
-		$pur_vendor = $this->warehouse_model->get_vendor_ajax($pur_request);
+		try {
+			$pur_vendor = $this->warehouse_model->get_vendor_ajax($pur_request);
 
-		echo json_encode([
-
-			'userid' => $pur_vendor['id'] ? $pur_vendor['id'] : '',
-			'buyer' => $pur_vendor['buyer'] ? $pur_vendor['buyer'] : '',
-			'project' => $pur_vendor['project'] ? $pur_vendor['project'] : '',
-			'type' => $pur_vendor['type'] ? $pur_vendor['type'] : '',
-			'department' => $pur_vendor['department'] ? $pur_vendor['department'] : '',
-			'requester' => $pur_vendor['requester'] ? $pur_vendor['requester'] : '',
-
-		]);
+			if($pur_vendor && is_array($pur_vendor)){
+				echo json_encode([
+					'userid' => isset($pur_vendor['id']) ? $pur_vendor['id'] : '',
+					'buyer' => isset($pur_vendor['buyer']) ? $pur_vendor['buyer'] : '',
+					'project' => isset($pur_vendor['project']) ? $pur_vendor['project'] : '',
+					'type' => isset($pur_vendor['type']) ? $pur_vendor['type'] : '',
+					'department' => isset($pur_vendor['department']) ? $pur_vendor['department'] : '',
+					'requester' => isset($pur_vendor['requester']) ? $pur_vendor['requester'] : '',
+				]);
+			} else {
+				echo json_encode([
+					'userid' => '',
+					'buyer' => '',
+					'project' => '',
+					'type' => '',
+					'department' => '',
+					'requester' => '',
+				]);
+			}
+		} catch(\Exception $e) {
+			log_message('error', 'Error in copy_pur_vender: ' . $e->getMessage());
+			echo json_encode([
+				'userid' => '',
+				'buyer' => '',
+				'project' => '',
+				'type' => '',
+				'department' => '',
+				'requester' => '',
+			]);
+		}
 	}
 
 	/**
@@ -2110,7 +2241,9 @@ class Warehouse extends Security_Controller {
 				$this->load->model('staff_model');
 				$this->load->model('projects_model');
 
-				$data['pr_orders'] = $this->warehouse_model->get_pr_order_delivered();
+				// Get ALL approved purchase orders regardless of delivery status (Undelivered, Partially delivered, Completely Delivered)
+				$this->load->model('purchase/purchase_model');
+				$data['pr_orders'] = $this->purchase_model->get_pur_order_approved();
 				$data['pr_orders_status'] = true;
 
 				$data['vendors'] = $this->purchase_model->get_vendor();
@@ -2662,7 +2795,9 @@ class Warehouse extends Security_Controller {
 
 		$data['warehouses'] = $this->warehouse_model->get_warehouse();
 		if (get_status_modules_wh('purchase')) {
-			$data['pr_orders'] = get_pr_order();
+			// Get ALL approved purchase orders regardless of delivery status (Undelivered, Partially delivered, Completely Delivered)
+			$this->load->model('purchase/purchase_model');
+			$data['pr_orders'] = $this->purchase_model->get_pur_order_approved();
 		} else {
 			$data['pr_orders'] = [];
 		}
