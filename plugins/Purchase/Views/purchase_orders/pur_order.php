@@ -460,9 +460,13 @@
             console.log('Using existing list_item HTML');
             $('.invoice-items-table tbody').html(response.list_item);
 
-            // Update currency display
+            // Update currency display, select and rate
             if (response.currency) {
+              $('select[name="currency"]').val(response.currency).change();
               $('.th_currency').text('(' + response.currency + ')');
+            }
+            if (response.currency_rate !== undefined) {
+              $('input[name="currency_rate"]').val(response.currency_rate).change();
             }
 
             // Update totals

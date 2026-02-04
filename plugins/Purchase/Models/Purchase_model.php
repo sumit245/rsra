@@ -5500,6 +5500,9 @@ class Purchase_model extends Crud_model
       $data['approve_status'] = 2;
     }
 
+    if (!isset($data['currency']) || $data['currency'] === '') {
+      $data['currency'] = get_base_currency();
+    }
     $data['to_currency'] = $data['currency'];
 
     $order_detail = [];
@@ -5704,6 +5707,9 @@ class Purchase_model extends Crud_model
       unset($data['removed_items']);
     }
 
+    if (!isset($data['currency']) || $data['currency'] === '') {
+      $data['currency'] = get_base_currency();
+    }
     $data['to_currency'] = $data['currency'];
 
     $prefix                   = get_setting('pur_order_prefix');
