@@ -220,38 +220,44 @@ class Plugins extends Security_Controller {
     //delete/undo a plugin
     function delete($plugin_name = "") {
         if (!$plugin_name) {
-            show_404();
+            echo json_encode(array("success" => false, 'message' => app_lang('error_occurred')));
+            return;
+        }
+
+        //sanitize: prevent path traversal
+        if (strpos($plugin_name, '/') !== false || strpos($plugin_name, '..') !== false) {
+            echo json_encode(array("success" => false, 'message' => app_lang('error_occurred')));
+            return;
         }
 
         $plugins = $this->get_plugins_array();
         $plugin_folder = PLUGINPATH . $plugin_name;
         if (!is_dir($plugin_folder)) {
-            //no accurate directory found
-            show_404();
+            echo json_encode(array("success" => false, 'message' => app_lang('error_occurred') . ': directory not found'));
+            return;
         }
 
         if (array_key_exists($plugin_name, $plugins)) {
             //this is not on indexed state, means installed before
             $plugin_index_file = PLUGINPATH . $plugin_name . '/index.php';
-            if (!file_exists($plugin_index_file)) {
-                show_404();
+            if (file_exists($plugin_index_file)) {
+                //call uninstallation hook
+                include ($plugin_index_file);
+
+                //call plugin uninstallation hook
+                app_hooks()->do_action("app_hook_uninstall_plugin_$plugin_name");
             }
-
-            //call uninstallation hook
-            include ($plugin_index_file);
-
-            //call plugin uninstallation hook
-            app_hooks()->do_action("app_hook_uninstall_plugin_$plugin_name");
         }
 
         //delete files
         helper("filesystem");
         if (!delete_files($plugin_folder, true, false, true)) {
-            show_404();
+            echo json_encode(array("success" => false, 'message' => 'Failed to delete plugin files. Check file permissions on ' . $plugin_folder));
+            return;
         }
 
         //delete empty folder
-        rmdir($plugin_folder);
+        @rmdir($plugin_folder);
 
         //save plugins
         if (array_key_exists($plugin_name, $plugins)) {
